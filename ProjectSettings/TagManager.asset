@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Battle Text
+  - game manager
+  - money
   layers:
   - Default
   - TransparentFX

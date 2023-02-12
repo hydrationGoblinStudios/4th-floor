@@ -19,6 +19,7 @@ public class BattleManager : MonoBehaviour
     public float Espeed;
     public int Esoul;
     [Header("Game objects")]
+    public GameManager gameManager;
     public GameObject playerUnit;
     public GameObject enemyUnit;
     public Transform playerBattleStation;
@@ -46,6 +47,11 @@ public class BattleManager : MonoBehaviour
     public BattleState state;
     void Start()
     {
+
+        GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
+        gameManager = GMobject.GetComponent<GameManager>();
+        playerUnit = gameManager.playerUnitInstance;
+        enemyUnit = gameManager.enemyUnitInstance;
         state = BattleState.BattleStart;
         StartCoroutine(SetupBattle());
     }
@@ -68,15 +74,15 @@ public class BattleManager : MonoBehaviour
        yield return new WaitForSeconds(0.5f);
        Pdamage = playerBehavior.atk - enemyBehavior.def;
        if (Pdamage < 1) { Pdamage = 1; }
-       Phit = 70 + (playerBehavior.dex * 3) - enemyBehavior.dex + enemyBehavior.luck;
+       Phit = playerBehavior.hit + (playerBehavior.dex * 3) - enemyBehavior.dex + enemyBehavior.luck;
         if(Phit >100) { Phit = 100; }
-       Pcrit = playerBehavior.dex - enemyBehavior.luck;
+       Pcrit = playerBehavior.crit + playerBehavior.dex - enemyBehavior.luck;
         if (Pcrit < 0) { Pcrit = 0; }
         Edamage = enemyBehavior.atk - playerBehavior.def;
         if (Edamage < 1) { Edamage = 1; }
-        Ehit = 70 + (enemyBehavior.dex * 3) - playerBehavior.dex + playerBehavior.luck;
+        Ehit = enemyBehavior.hit + (enemyBehavior.dex * 3) - playerBehavior.dex + playerBehavior.luck;
         if(Ehit > 100) { Ehit = 100; }
-        Ecrit = enemyBehavior.dex - playerBehavior.luck;
+        Ecrit = enemyBehavior.crit + enemyBehavior.dex - playerBehavior.luck;
         if(Ecrit < 0) { Ecrit = 0; }
         if (playerBehavior.speed >= enemyBehavior.speed)
         {
@@ -140,8 +146,7 @@ public class BattleManager : MonoBehaviour
     {
         Pskill = playerBehavior.Proc(Pdamage);
         state = BattleState.PlayerTurn;
-        int hit  = 70 + (playerBehavior.dex*3) - enemyBehavior.dex + enemyBehavior.luck;
-        if (Random.Range(0, 101) <= hit)
+        if (Random.Range(0, 101) <= Phit)
         {
             Psoul += 1;
             if (Psoul >= 5)
@@ -176,7 +181,12 @@ public class BattleManager : MonoBehaviour
         if (enemyBehavior.hp <= 0)
         {
             battleText.text = (playerBehavior.UnitName + " won");
-            state = BattleState.EnemyWon;
+            state = BattleState.PlayerWon;
+            yield return new WaitForSeconds(1);
+            gameManager.money += 50;
+            battleText.text = ("you win 50 gold");
+            yield return new WaitForSeconds(1);
+            gameManager.PrepScreen();
         }
         else
         {
@@ -186,8 +196,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyAttack()
     {
         state = BattleState.PlayerTurn;
-        int hit = 70 + (enemyBehavior.dex * 3) - playerBehavior.dex + playerBehavior.luck;
-        if (Random.Range(0, 101) <= hit)
+        if (Random.Range(0, 101) <= Ehit)
         {
             if (Random.Range(0, 101) <= Ecrit)
             {
