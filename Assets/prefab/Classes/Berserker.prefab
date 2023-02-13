@@ -49,7 +49,7 @@ MonoBehaviour:
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
   enemy: 0
-  UnitName: Bors
+  UnitName: Inimigo
   hit: 0
   crit: 0
   maxhp: 40

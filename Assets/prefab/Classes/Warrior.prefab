@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1214384a1164a240ad3a7593228e20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 11400000, guid: 2f04af8f6cf029243af0f1e41d97575d, type: 2}
+  Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
   enemy: 0
-  UnitName: Dieck
+  UnitName: Heroi
   hit: 0
   crit: 0
   maxhp: 32

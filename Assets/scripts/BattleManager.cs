@@ -104,7 +104,7 @@ public class BattleManager : MonoBehaviour
     {
         playerName.text = playerBehavior.UnitName;
         enemyName.text = enemyBehavior.UnitName;
-        battleText.text = "its bors time (he bors all over the place)";
+        battleText.text = "Its Bors time";
         playerHpSlider.maxValue = playerBehavior.maxhp;
         enemyHpSlider.maxValue = enemyBehavior.maxhp;
         playerstats.text = $"dmg:{Pdamage} \nhit: {Phit} \ncrit:{Pcrit}";
