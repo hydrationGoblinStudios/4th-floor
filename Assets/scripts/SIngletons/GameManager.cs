@@ -7,8 +7,8 @@ using TMPro;
 public class GameManager : Singleton
 {
     public int money;
-    public GameObject playerUnit;
-    public GameObject enemyUnit;
+    public List<GameObject> playerUnit = new();
+    public List<GameObject> enemyUnit = new();
     public GameObject playerUnitInstance;
     public GameObject enemyUnitInstance;
     public UnitBehavior playerBehavior;
@@ -16,8 +16,8 @@ public class GameManager : Singleton
     public TextMeshPro moneyText;
     public void Start()
     {
-        playerUnitInstance = Instantiate(playerUnit);
-        enemyUnitInstance = Instantiate(enemyUnit);
+        playerUnitInstance = Instantiate(playerUnit[0]);
+        enemyUnitInstance = Instantiate(enemyUnit[0]);
         playerBehavior = playerUnitInstance.GetComponent<UnitBehavior>();
         enemyBehavior = enemyUnitInstance.GetComponent<UnitBehavior>();
         DontDestroyOnLoad(playerUnitInstance);
@@ -38,7 +38,8 @@ public class GameManager : Singleton
     }
     public void Equip(Item equipItem)
     {
-        playerBehavior.Weapon = equipItem;
+
+            playerBehavior.Weapon = equipItem;
     }
     public void OnLevelWasLoaded()
     {

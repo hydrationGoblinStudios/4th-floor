@@ -9,7 +9,9 @@ public class UnitBehavior : MonoBehaviour
     public Item Accesory;
     public UnitBehavior playerBehavior;
     public UnitBehavior enemyBehavior;
+    public BattleManager battleManager;
     public bool enemy;
+    public GameObject battleManagerOBJ;
     [Header("parameters")]
     public string UnitName;
     public int hit;
@@ -29,30 +31,14 @@ public class UnitBehavior : MonoBehaviour
          enemyBehavior = GetComponent<UnitBehavior>();
         battleTextObj = GameObject.FindGameObjectWithTag("Battle Text");
         battleText = battleTextObj.GetComponent<TextMeshPro>();
+        battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");
+        if (battleManagerOBJ != null)
+        {
+            battleManager = battleManagerOBJ.GetComponent<BattleManager>();
+        }
         if (enemy)
         {
             gameObject.transform.localScale = new Vector3(-1,1,1);
-        }
-        if(Weapon != null)
-        {
-            hit += Weapon.hit;
-            crit += Weapon.crit;
-            hp += Weapon.hp;
-            atk += Weapon.atk;
-            dex += Weapon.dex;
-            def += Weapon.def;
-            luck += Weapon.luck;
-            speed += Weapon.speed;
-        }
-        if (Accesory != null)
-        {
-            hit += Weapon.hit;
-            hp += Weapon.hp;
-            atk += Weapon.atk;
-            dex += Weapon.dex;
-            def += Weapon.def;
-            luck += Weapon.luck;
-            speed += Weapon.speed;
         }
     }
     public virtual int Soul(int damage)

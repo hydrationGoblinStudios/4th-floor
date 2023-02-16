@@ -1584,8 +1584,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
-  playerUnit: {fileID: 4445489306633608637, guid: 15729a9486c4c034897af544cf71330c, type: 3}
-  enemyUnit: {fileID: 4445489306633608637, guid: 88aede8056132f242aefbf12f1c0b411, type: 3}
+  playerUnit:
+  - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
+  enemyUnit:
+  - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
   playerUnitInstance: {fileID: 0}
   enemyUnitInstance: {fileID: 0}
   playerBehavior: {fileID: 0}

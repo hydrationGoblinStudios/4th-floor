@@ -17,11 +17,15 @@ public class Berserker : UnitBehavior
     }
     public override int Proc(int damage)
     {
-        if (luck>= Random.Range(0, 101))
+        if(damage != 0)
         {
-            battleText.text = "lucky hit";
-            return 5;
+            return 0;
         }
-        return 0;
+        else
+        {
+            speed += 1;
+            battleManager.StatChange();
+            return 0;
+        }
     }
 }

@@ -39,15 +39,14 @@ public class BattleManager : MonoBehaviour
     public TextMeshPro playerstats;
     public TextMeshPro enemystats;
     [Header("UI")]
-    float PlayerBar;
-    float EnemyBar;
+    public float PlayerBar;
+    public float EnemyBar;
 
 
     public enum BattleState {BattleStart,Wait,PlayerTurn,EnemyTurn,PlayerWon,EnemyWon}
     public BattleState state;
     void Start()
     {
-
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
         playerUnit = gameManager.playerUnitInstance;
@@ -72,29 +71,7 @@ public class BattleManager : MonoBehaviour
        enemyBehavior = enemyGo.GetComponent<UnitBehavior>();
        enemyBehavior.enemy = true;
        yield return new WaitForSeconds(0.5f);
-       Pdamage = playerBehavior.atk - enemyBehavior.def;
-       if (Pdamage < 1) { Pdamage = 1; }
-       Phit = playerBehavior.hit + (playerBehavior.dex * 3) - enemyBehavior.dex + enemyBehavior.luck;
-        if(Phit >100) { Phit = 100; }
-       Pcrit = playerBehavior.crit + playerBehavior.dex - enemyBehavior.luck;
-        if (Pcrit < 0) { Pcrit = 0; }
-        Edamage = enemyBehavior.atk - playerBehavior.def;
-        if (Edamage < 1) { Edamage = 1; }
-        Ehit = enemyBehavior.hit + (enemyBehavior.dex * 3) - playerBehavior.dex + playerBehavior.luck;
-        if(Ehit > 100) { Ehit = 100; }
-        Ecrit = enemyBehavior.crit + enemyBehavior.dex - playerBehavior.luck;
-        if(Ecrit < 0) { Ecrit = 0; }
-        if (playerBehavior.speed >= enemyBehavior.speed)
-        {
-            Pspeed = playerBehavior.speed / enemyBehavior.speed;
-            Espeed = 1;
-        }
-       else
-        {
-
-            Espeed = enemyBehavior.speed / playerBehavior.speed;
-            Pspeed = 1;
-        }
+        StatChange();
         SetHud();
         SetHp();
 
@@ -144,12 +121,12 @@ public class BattleManager : MonoBehaviour
     }
     public virtual IEnumerator PlayerAttack()
     {
-        Pskill = playerBehavior.Proc(Pdamage);
         state = BattleState.PlayerTurn;
         if (Random.Range(0, 101) <= Phit)
         {
+            Pskill = playerBehavior.Proc(Pdamage);
             Psoul += 1;
-            if (Psoul >= 5)
+            if (Psoul >= 3)
             {
                 Psoul = 0;
                 Pskill += playerBehavior.Soul(Pdamage);
@@ -175,6 +152,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            Pskill = playerBehavior.Proc(0);
             battleText.text = (playerBehavior.UnitName + " missed");
         }
         yield return new WaitForSeconds(1f);
@@ -232,6 +210,44 @@ public class BattleManager : MonoBehaviour
         else
         {
             state = BattleState.Wait;
+        }
+    }
+    public void StatChange()
+    {
+        Pdamage = playerBehavior.atk - enemyBehavior.def;
+        if (Pdamage < 1) { Pdamage = 1; }
+        Phit = playerBehavior.hit + (playerBehavior.dex * 3) - enemyBehavior.dex + enemyBehavior.luck;
+        if (Phit > 100) { Phit = 100; }
+        Pcrit = playerBehavior.crit + playerBehavior.dex - enemyBehavior.luck;
+        if (Pcrit < 0) { Pcrit = 0; }
+        if(playerBehavior.Weapon != null)
+        {
+            Pdamage += playerBehavior.Weapon.atk;
+            Phit+=  playerBehavior.Weapon.hit;
+            Pcrit += playerBehavior.Weapon.crit;
+        }
+        Edamage = enemyBehavior.atk - playerBehavior.def;
+        if (Edamage < 1) { Edamage = 1; }
+        Ehit = enemyBehavior.hit + (enemyBehavior.dex * 3) - playerBehavior.dex + playerBehavior.luck;
+        if (Ehit > 100) { Ehit = 100; }
+        Ecrit = enemyBehavior.crit + enemyBehavior.dex - playerBehavior.luck;
+        if (Ecrit < 0) { Ecrit = 0; }
+        if (playerBehavior.Weapon != null)
+        {
+            Edamage += enemyBehavior.Weapon.atk;
+            Ehit += enemyBehavior.Weapon.hit;
+            Ecrit += enemyBehavior.Weapon.crit;
+        }
+        if (playerBehavior.speed >= enemyBehavior.speed)
+        {
+            Pspeed = playerBehavior.speed / enemyBehavior.speed;
+            Espeed = 1;
+        }
+        else
+        {
+
+            Espeed = enemyBehavior.speed / playerBehavior.speed;
+            Pspeed = 1;
         }
     }
 }

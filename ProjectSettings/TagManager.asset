@@ -6,6 +6,8 @@ TagManager:
   tags:
   - game manager
   - money
+  - Battle Text
+  - Battle Manager
   layers:
   - Default
   - TransparentFX

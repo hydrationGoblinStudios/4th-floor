@@ -18,7 +18,6 @@ public class Item : ScriptableObject
     public string description;
     public int hit;
     public int crit;
-    public int hp;
     public int atk;
     public int dex;
     public int def;
