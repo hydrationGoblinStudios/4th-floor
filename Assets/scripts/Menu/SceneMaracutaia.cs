@@ -13,4 +13,12 @@ public class SceneMaracutaia : MonoBehaviour
     {
         Application.Quit();
     }
+    public void PrepScreen()
+    {
+        SceneManager.LoadScene("Preparation");
+    }
+    public void Battle()
+    {
+        SceneManager.LoadScene("Battle");
+    }
 }
