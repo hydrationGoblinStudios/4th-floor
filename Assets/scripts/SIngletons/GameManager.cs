@@ -32,15 +32,6 @@ public class GameManager : Singleton
     {
         SceneManager.LoadScene("Battle");
     }
-    public void Raise()
-    {
-        playerBehavior.atk += 1;
-    }
-    public void Equip(Item equipItem)
-    {
-
-            playerBehavior.Weapon = equipItem;
-    }
     public void OnLevelWasLoaded()
     {
         GameObject tempGameObject = GameObject.FindGameObjectWithTag("Battle Text");
