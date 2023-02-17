@@ -18,6 +18,7 @@ public class BattleManager : MonoBehaviour
     public int Ecrit;
     public float Espeed;
     public int Esoul;
+    public int Eskill;
     [Header("Game objects")]
     public GameManager gameManager;
     public GameObject playerUnit;
@@ -171,9 +172,45 @@ public class BattleManager : MonoBehaviour
             state = BattleState.Wait;
         }
     }
-    IEnumerator EnemyAttack()
+    public virtual IEnumerator PlayerExtraAttack(string texto)
     {
         state = BattleState.PlayerTurn;
+        battleText.text = texto;
+        yield return new WaitForSeconds(1);
+        if (Random.Range(0, 101) <= Pcrit)
+        {
+            enemyBehavior.hp -= (Pdamage + Pskill) * 2;
+            battleText.text = $"{playerBehavior.UnitName} crits!!!";
+            yield return new WaitForSeconds(1);
+            battleText.text = $"{enemyBehavior.UnitName} lost {(Pskill + Pdamage) * 2} hp";
+            enemyHpSlider.value = enemyBehavior.hp;
+        }
+        else
+        {
+            enemyBehavior.hp -= Pskill + Pdamage;
+            battleText.text = $"{enemyBehavior.UnitName} lost {Pdamage + Pskill} hp";
+            enemyHpSlider.value = enemyBehavior.hp;
+        }
+        HudUpdate();
+        yield return new WaitForSeconds(1f);
+        if (enemyBehavior.hp <= 0)
+        {
+            battleText.text = (playerBehavior.UnitName + " won");
+            state = BattleState.PlayerWon;
+            yield return new WaitForSeconds(1);
+            gameManager.money += 50;
+            battleText.text = ("you win 50 gold");
+            yield return new WaitForSeconds(1);
+            gameManager.PrepScreen();
+        }
+        else
+        {
+            state = BattleState.Wait;
+        }
+    }
+    IEnumerator EnemyAttack()
+    {
+        state = BattleState.EnemyTurn;
         if (Random.Range(0, 101) <= Ehit)
         {
             if (Random.Range(0, 101) <= Ecrit)
