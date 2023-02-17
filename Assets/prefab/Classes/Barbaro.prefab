@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4445489306633608639}
-  - component: {fileID: 829653391102231949}
+  - component: {fileID: 1017138718739841294}
   m_Layer: 0
-  m_Name: Soldier
+  m_Name: Barbaro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &829653391102231949
+--- !u!114 &1017138718739841294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6de528c2771f64591434fba436f0ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b77d87b6d9cf14d857600ed02a479a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
@@ -51,15 +51,16 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  UnitName: nephenee
+  UnitName: Mario
   hit: 0
   crit: 0
-  maxhp: 78
-  hp: 78
-  atk: 8
-  dex: 6
-  def: 9
-  luck: 8
-  speed: 4
+  maxhp: 5
+  hp: 5
+  atk: 5
+  dex: 5
+  def: 5
+  luck: 5
+  speed: 5
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
+  EndureBool: 0
