@@ -36,7 +36,7 @@ public class Assasino : UnitBehavior
     {
         if (Random.Range(0, 101) < dex/4)
         {
-            return damage + 9999;
+            return 99999;
 
         }
         return 0;

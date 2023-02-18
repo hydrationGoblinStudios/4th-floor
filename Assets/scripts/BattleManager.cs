@@ -254,7 +254,6 @@ public class BattleManager : MonoBehaviour
         Pdamage = playerBehavior.atk - enemyBehavior.def;
         if (Pdamage < 1) { Pdamage = 1; }
         Phit = playerBehavior.hit + (playerBehavior.dex * 3) - enemyBehavior.dex + enemyBehavior.luck;
-        if (Phit > 100) { Phit = 100; }
         Pcrit = playerBehavior.crit + playerBehavior.dex - enemyBehavior.luck;
         if (Pcrit < 0) { Pcrit = 0; }
         if(playerBehavior.Weapon != null)
@@ -266,7 +265,6 @@ public class BattleManager : MonoBehaviour
         Edamage = enemyBehavior.atk - playerBehavior.def;
         if (Edamage < 1) { Edamage = 1; }
         Ehit = enemyBehavior.hit + (enemyBehavior.dex * 3) - playerBehavior.dex + playerBehavior.luck;
-        if (Ehit > 100) { Ehit = 100; }
         Ecrit = enemyBehavior.crit + enemyBehavior.dex - playerBehavior.luck;
         if (Ecrit < 0) { Ecrit = 0; }
         if (playerBehavior.Weapon != null)

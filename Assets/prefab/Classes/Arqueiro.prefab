@@ -56,8 +56,8 @@ MonoBehaviour:
   crit: 0
   maxhp: 35
   hp: 35
-  atk: 10
-  dex: 10
+  atk: 15
+  dex: 13212
   def: 3
   luck: 10
   speed: 5
