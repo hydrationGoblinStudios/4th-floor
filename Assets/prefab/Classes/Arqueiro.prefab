@@ -52,12 +52,14 @@ MonoBehaviour:
   enemy: 0
   battleManagerOBJ: {fileID: 0}
   UnitName: Gordin
+  level: 0
   hit: 0
+  avoid: 80
   crit: 0
   maxhp: 35
   hp: 35
   atk: 15
-  dex: 13212
+  dex: 8
   def: 3
   luck: 10
   speed: 5

@@ -165,6 +165,11 @@ public class BattleManager : MonoBehaviour
             gameManager.money += 50;
             battleText.text = ("you win 50 gold");
             yield return new WaitForSeconds(1);
+            int exp = 30 - 5 * (playerBehavior.level - enemyBehavior.level);
+            if (exp <= 0) { exp = 1; }
+            playerBehavior.level += exp;
+            battleText.text = ("vo?e recebe " + exp + " de experiencia");
+            yield return new WaitForSeconds(1);
             gameManager.PrepScreen();
         }
         else
@@ -200,6 +205,11 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             gameManager.money += 50;
             battleText.text = ("you win 50 gold");
+            int exp = 30 - 5*(playerBehavior.level - enemyBehavior.level);
+            if (exp <= 0) { exp = 1; }
+            playerBehavior.level += exp;
+            yield return new WaitForSeconds(1);
+            battleText.text = ("vo?e recebe " + exp + " de experiencia");
             yield return new WaitForSeconds(1);
             gameManager.PrepScreen();
         }
@@ -253,7 +263,8 @@ public class BattleManager : MonoBehaviour
     {
         Pdamage = playerBehavior.atk - enemyBehavior.def;
         if (Pdamage < 1) { Pdamage = 1; }
-        Phit = playerBehavior.hit + (playerBehavior.dex * 3) - enemyBehavior.dex + enemyBehavior.luck;
+        Phit = (playerBehavior.hit - enemyBehavior.avoid) + (playerBehavior.dex * 3) - (enemyBehavior.dex *2) + enemyBehavior.luck;
+
         Pcrit = playerBehavior.crit + playerBehavior.dex - enemyBehavior.luck;
         if (Pcrit < 0) { Pcrit = 0; }
         if(playerBehavior.Weapon != null)
@@ -262,9 +273,15 @@ public class BattleManager : MonoBehaviour
             Phit+=  playerBehavior.Weapon.hit;
             Pcrit += playerBehavior.Weapon.crit;
         }
+        if (Phit < 30)
+        {
+            Debug.Log("pera que");
+            Phit = 30;
+        }
         Edamage = enemyBehavior.atk - playerBehavior.def;
         if (Edamage < 1) { Edamage = 1; }
-        Ehit = enemyBehavior.hit + (enemyBehavior.dex * 3) - playerBehavior.dex + playerBehavior.luck;
+        Ehit = (enemyBehavior.hit -playerBehavior.avoid) + (enemyBehavior.dex * 3) - (playerBehavior.dex *2) + playerBehavior.luck;
+
         Ecrit = enemyBehavior.crit + enemyBehavior.dex - playerBehavior.luck;
         if (Ecrit < 0) { Ecrit = 0; }
         if (playerBehavior.Weapon != null)
@@ -272,6 +289,10 @@ public class BattleManager : MonoBehaviour
             Edamage += enemyBehavior.Weapon.atk;
             Ehit += enemyBehavior.Weapon.hit;
             Ecrit += enemyBehavior.Weapon.crit;
+        }
+        if (Ehit < 30)
+        {
+            Ehit = 30;
         }
         if (playerBehavior.speed >= enemyBehavior.speed)
         {

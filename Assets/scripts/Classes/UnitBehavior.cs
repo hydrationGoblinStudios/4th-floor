@@ -14,7 +14,10 @@ public class UnitBehavior : MonoBehaviour
     public GameObject battleManagerOBJ;
     [Header("parameters")]
     public string UnitName;
+    public int level;
+    public int exp;
     public int hit;
+    public int avoid;
     public int crit;
     public int maxhp;
     public int hp;
