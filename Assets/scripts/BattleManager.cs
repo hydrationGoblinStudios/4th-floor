@@ -138,15 +138,15 @@ public class BattleManager : MonoBehaviour
             if (Random.Range(0, 101) <= Pcrit)
             {
                 enemyBehavior.hp -= (Pdamage +Pskill) *2;
-                battleText.text = $"{playerBehavior.UnitName} crits!!!";
+                battleText.text = $"{playerBehavior.UnitName} causa um acerto critico!!!";
                 yield return new WaitForSeconds(1);
-                battleText.text = $"{enemyBehavior.UnitName} lost {(Pskill + Pdamage)*2} hp";
+                battleText.text = $"{enemyBehavior.UnitName} perdeu {(Pskill + Pdamage)*2} hp";
                 enemyHpSlider.value = enemyBehavior.hp;
             }
             else
             {
                 enemyBehavior.hp -= Pskill + Pdamage;
-                battleText.text = $"{enemyBehavior.UnitName} lost {Pdamage + Pskill} hp";
+                battleText.text = $"{enemyBehavior.UnitName} perdeu {Pdamage + Pskill} hp";
                 enemyHpSlider.value = enemyBehavior.hp;
             }
             
@@ -154,12 +154,12 @@ public class BattleManager : MonoBehaviour
         else
         {
             Pskill = playerBehavior.Proc(0);
-            battleText.text = (playerBehavior.UnitName + " missed");
+            battleText.text = (playerBehavior.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
         if (enemyBehavior.hp <= 0)
         {
-            battleText.text = (playerBehavior.UnitName + " won");
+            battleText.text = (playerBehavior.UnitName + " ganhou");
             state = BattleState.PlayerWon;
             yield return new WaitForSeconds(1);
             gameManager.money += 50;
@@ -185,26 +185,26 @@ public class BattleManager : MonoBehaviour
         if (Random.Range(0, 101) <= Pcrit)
         {
             enemyBehavior.hp -= (Pdamage + Pskill) * 2;
-            battleText.text = $"{playerBehavior.UnitName} crits!!!";
+            battleText.text = $"{playerBehavior.UnitName} causa um acerto critico!!!";
             yield return new WaitForSeconds(1);
-            battleText.text = $"{enemyBehavior.UnitName} lost {(Pskill + Pdamage) * 2} hp";
+            battleText.text = $"{enemyBehavior.UnitName} perdeu {(Pskill + Pdamage) * 2} hp";
             enemyHpSlider.value = enemyBehavior.hp;
         }
         else
         {
             enemyBehavior.hp -= Pskill + Pdamage;
-            battleText.text = $"{enemyBehavior.UnitName} lost {Pdamage + Pskill} hp";
+            battleText.text = $"{enemyBehavior.UnitName} perdeu {Pdamage + Pskill} hp";
             enemyHpSlider.value = enemyBehavior.hp;
         }
         HudUpdate();
         yield return new WaitForSeconds(1f);
         if (enemyBehavior.hp <= 0)
         {
-            battleText.text = (playerBehavior.UnitName + " won");
+            battleText.text = (playerBehavior.UnitName + " ganhou");
             state = BattleState.PlayerWon;
             yield return new WaitForSeconds(1);
             gameManager.money += 50;
-            battleText.text = ("you win 50 gold");
+            battleText.text = ("voce ganhou 50 de ouro");
             int exp = 30 - 5*(playerBehavior.level - enemyBehavior.level);
             if (exp <= 0) { exp = 1; }
             playerBehavior.level += exp;
@@ -226,15 +226,15 @@ public class BattleManager : MonoBehaviour
             if (Random.Range(0, 101) <= Ecrit)
             {
                 playerBehavior.hp -= Edamage * 2;
-                battleText.text = $"{enemyBehavior.UnitName} crits!!!";
+                battleText.text = $"{enemyBehavior.UnitName} causa um acerto critico!!!";
                 yield return new WaitForSeconds(1);
-                battleText.text = $"{playerBehavior.UnitName} lost {Edamage * 2} hp";
+                battleText.text = $"{playerBehavior.UnitName} perdeu {Edamage * 2} hp";
                 playerHpSlider.value = playerBehavior.hp;
             }
             else
             {
                 playerBehavior.hp -= Edamage;
-                battleText.text = $"{playerBehavior.UnitName} lost {Edamage} hp";
+                battleText.text = $"{playerBehavior.UnitName} perdeu {Edamage} hp";
                 playerHpSlider.value = playerBehavior.hp;
             }
             Esoul += 1;
@@ -246,12 +246,12 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            battleText.text = (enemyBehavior.UnitName + " missed");
+            battleText.text = (enemyBehavior.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
         if (playerBehavior.hp <= 0)
         {
-            battleText.text = (enemyBehavior.UnitName + " won");
+            battleText.text = (enemyBehavior.UnitName + " ganhou");
             state = BattleState.EnemyWon;
         }
         else
@@ -275,8 +275,11 @@ public class BattleManager : MonoBehaviour
         }
         if (Phit < 30)
         {
-            Debug.Log("pera que");
             Phit = 30;
+        }
+        if (Phit > 100)
+        {
+            Phit = 100;
         }
         Edamage = enemyBehavior.atk - playerBehavior.def;
         if (Edamage < 1) { Edamage = 1; }
@@ -284,7 +287,7 @@ public class BattleManager : MonoBehaviour
 
         Ecrit = enemyBehavior.crit + enemyBehavior.dex - playerBehavior.luck;
         if (Ecrit < 0) { Ecrit = 0; }
-        if (playerBehavior.Weapon != null)
+        if (enemyBehavior.Weapon != null)
         {
             Edamage += enemyBehavior.Weapon.atk;
             Ehit += enemyBehavior.Weapon.hit;
@@ -293,6 +296,10 @@ public class BattleManager : MonoBehaviour
         if (Ehit < 30)
         {
             Ehit = 30;
+        }
+        if (Ehit > 100)
+        {
+            Ehit = 100;
         }
         if (playerBehavior.speed >= enemyBehavior.speed)
         {

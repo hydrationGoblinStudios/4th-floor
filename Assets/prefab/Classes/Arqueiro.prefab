@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4445489306633608639}
-  - component: {fileID: 4445489306633608638}
+  - component: {fileID: 2719814813836160413}
   m_Layer: 0
-  m_Name: unit
+  m_Name: Arqueiro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4445489306633608638
+--- !u!114 &2719814813836160413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,23 +41,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a723571189421418ed8236054e40d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 25d0bc60155d4b147a1e2bf10b0cc021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Weapon: {fileID: 0}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
+  battleManager: {fileID: 0}
   enemy: 0
-  UnitName: Bors
-  hit: 0
+  battleManagerOBJ: {fileID: 0}
+  UnitName: Gordin Reborn
+  level: 0
+  exp: 0
+  hit: 200
+  avoid: 0
   crit: 0
-  maxhp: 10
-  hp: 10
-  atk: 7
-  dex: 5
+  maxhp: 45
+  hp: 45
+  atk: 5
+  dex: 11
   def: 5
-  luck: 0
-  speed: 5
+  luck: 11
+  speed: 11
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
