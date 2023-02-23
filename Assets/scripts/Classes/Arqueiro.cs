@@ -23,17 +23,7 @@ public class Arqueiro : UnitBehavior
 
     public override int Proc(int damage)
     {
-        //prescisa ser consertado
-        if (hit > 100 & enemy)
-        {
-
-            return battleManager.Edamage * (battleManager.Ehit - 100) / 100;
-        }
-        else if (hit > 100 & !enemy)
-        {
-            return battleManager.Pdamage * (battleManager.Phit - 100)/100;
-        }
-        return 0;
+        return battleManager.Phit / 10;
     }
 
 }
