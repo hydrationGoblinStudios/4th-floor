@@ -14,6 +14,7 @@ public class GameManager : Singleton
     public UnitBehavior playerBehavior;
     public UnitBehavior enemyBehavior;
     public TextMeshPro moneyText;
+    public List<Item> Inventory;
     public void Start()
     {
         playerUnitInstance = Instantiate(playerUnit[0]);
