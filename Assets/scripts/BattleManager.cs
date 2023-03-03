@@ -6,6 +6,7 @@ using TMPro;
 
 public class BattleManager : MonoBehaviour
 {
+    public Animator animator;
     public int Pdamage;
     public int Phit;
     public int Pcrit;
@@ -113,7 +114,7 @@ public class BattleManager : MonoBehaviour
             PlayerBar = 0;
             StartCoroutine(PlayerAttack());
         }
-        if(EnemyBar >= 100 & state == BattleState.Wait)
+        if (EnemyBar >= 100 & state == BattleState.Wait)
             {
                 EnemyBar = 0;
                 StartCoroutine(EnemyAttack());
@@ -137,7 +138,7 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (Random.Range(0, 101) <= Pcrit)
             {
-                enemyBehavior.hp -= (Pdamage +Pskill) *2;
+                enemyBehavior.hp -= (Pdamage + Pskill) * 2;
                 battleText.text = $"{playerBehavior.UnitName} causa um acerto critico!!!";
                 yield return new WaitForSeconds(1);
                 battleText.text = $"{enemyBehavior.UnitName} perdeu {(Pskill + Pdamage)*2} hp";

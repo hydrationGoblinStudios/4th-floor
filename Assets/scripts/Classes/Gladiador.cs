@@ -26,9 +26,8 @@ public class Gladiador : UnitBehavior
     public override int Proc(int damage)
     {
 
-        if ((battleManager.enemyBehavior.maxhp - battleManager.enemyBehavior.hp)/100 > 50)
+        if (battleManager.enemyBehavior.hp < (battleManager.enemyBehavior.maxhp / 2))
         {
-            //critico n ta aparecendo
             crit += 15;
             battleManager.StatChange();
             return 0;
