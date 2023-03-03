@@ -43,8 +43,7 @@ public class BattleManager : MonoBehaviour
     [Header("UI")]
     public float PlayerBar;
     public float EnemyBar;
-
-
+    
     public enum BattleState {BattleStart,Wait,PlayerTurn,EnemyTurn,PlayerWon,EnemyWon}
     public BattleState state;
     void Start()
@@ -264,14 +263,14 @@ public class BattleManager : MonoBehaviour
     {
         Pdamage = playerBehavior.atk - enemyBehavior.def;
         if (Pdamage < 1) { Pdamage = 1; }
-        Phit = (playerBehavior.hit - enemyBehavior.avoid) + (playerBehavior.dex * 3) - (enemyBehavior.dex *2) + enemyBehavior.luck;
+        Phit = (playerBehavior.hit - enemyBehavior.avoid) + (playerBehavior.dex * 3) - (enemyBehavior.dex * 2) + enemyBehavior.luck;
 
         Pcrit = playerBehavior.crit + playerBehavior.dex - enemyBehavior.luck;
         if (Pcrit < 0) { Pcrit = 0; }
-        if(playerBehavior.Weapon != null)
+        if (playerBehavior.Weapon != null)
         {
             Pdamage += playerBehavior.Weapon.atk;
-            Phit+=  playerBehavior.Weapon.hit;
+            Phit += playerBehavior.Weapon.hit;
             Pcrit += playerBehavior.Weapon.crit;
         }
         if (Phit < 30)
@@ -284,7 +283,7 @@ public class BattleManager : MonoBehaviour
         }
         Edamage = enemyBehavior.atk - playerBehavior.def;
         if (Edamage < 1) { Edamage = 1; }
-        Ehit = (enemyBehavior.hit -playerBehavior.avoid) + (enemyBehavior.dex * 3) - (playerBehavior.dex *2) + playerBehavior.luck;
+        Ehit = (enemyBehavior.hit - playerBehavior.avoid) + (enemyBehavior.dex * 3) - (playerBehavior.dex * 2) + playerBehavior.luck;
 
         Ecrit = enemyBehavior.crit + enemyBehavior.dex - playerBehavior.luck;
         if (Ecrit < 0) { Ecrit = 0; }
