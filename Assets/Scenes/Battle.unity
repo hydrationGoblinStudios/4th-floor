@@ -3104,7 +3104,7 @@ MonoBehaviour:
   Esoul: 0
   Eskill: 0
   gameManager: {fileID: 0}
-  playerUnit: {fileID: 4445489306633608637, guid: 15729a9486c4c034897af544cf71330c, type: 3}
+  playerUnit: {fileID: 4445489306633608637, guid: 9cea52d8fd238d541bc5ac853c9b90e1, type: 3}
   enemyUnit: {fileID: 4445489306633608637, guid: 88aede8056132f242aefbf12f1c0b411, type: 3}
   playerBattleStation: {fileID: 680576058}
   enemyBattleStation: {fileID: 520865109}
@@ -4272,6 +4272,7 @@ MonoBehaviour:
   PanimatorOBJ: {fileID: 0}
   EanimatorOBJ: {fileID: 0}
   battleManager: {fileID: 1704483420}
+  wait: 1
 --- !u!4 &2089997289
 Transform:
   m_ObjectHideFlags: 0
