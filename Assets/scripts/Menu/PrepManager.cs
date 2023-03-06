@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PrepManager : MonoBehaviour
 {
@@ -22,5 +23,9 @@ public class PrepManager : MonoBehaviour
     {
         UnitBehavior = Manager.playerUnitInstance.GetComponent<UnitBehavior>();
         UnitBehavior.Weapon = equipItem;
+    }
+    public void Scene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
