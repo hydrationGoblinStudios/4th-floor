@@ -267,6 +267,7 @@ public class BattleManager : MonoBehaviour
 
         Pcrit = playerBehavior.crit + playerBehavior.dex - enemyBehavior.luck;
         if (Pcrit < 0) { Pcrit = 0; }
+        if (Pcrit > 100) { Pcrit = 100; }
         if (playerBehavior.Weapon != null)
         {
             Pdamage += playerBehavior.Weapon.atk;
@@ -287,6 +288,7 @@ public class BattleManager : MonoBehaviour
 
         Ecrit = enemyBehavior.crit + enemyBehavior.dex - playerBehavior.luck;
         if (Ecrit < 0) { Ecrit = 0; }
+        if (Ecrit > 100) { Ecrit = 100; }
         if (enemyBehavior.Weapon != null)
         {
             Edamage += enemyBehavior.Weapon.atk;
