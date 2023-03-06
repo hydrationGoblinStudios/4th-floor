@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
-    public Animator animator;
-    public Animation playerAnimation;
-    public Animation enemyAnimation;
-    
+    public Animator Panimator;
+    public Animator Eanimator;
+    public GameObject PanimatorOBJ;
+    public GameObject EanimatorOBJ;
+    public BattleManager battleManager;
+
+    public bool wait = true;
     void Start()
     {
-        animator  = GetComponent<Animator>();
+        PanimatorOBJ = GameObject.FindGameObjectWithTag("Psprite");
+        EanimatorOBJ = GameObject.FindGameObjectWithTag("Esprite");
+        Panimator = PanimatorOBJ.GetComponent<Animator>();
+        Eanimator = EanimatorOBJ.GetComponent<Animator>();
     }
-
     void Update()
     {
-        
+       if(battleManager.state == BattleManager.BattleState.PlayerTurn & wait)
+        {
+            Panimator.SetTrigger("Pattack");
+            wait = false; 
+        }
+        if (battleManager.state == BattleManager.BattleState.Wait)
+        {
+            wait = true;
+        }
     }
 }

@@ -8,6 +8,8 @@ TagManager:
   - money
   - Battle Text
   - Battle Manager
+  - Psprite
+  - Esprite
   layers:
   - Default
   - TransparentFX

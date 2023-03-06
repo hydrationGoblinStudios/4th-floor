@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 304585668}
   m_Layer: 0
   m_Name: Enemy Sprite
-  m_TagString: Untagged
+  m_TagString: Esprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2028,7 +2028,7 @@ GameObject:
   - component: {fileID: 1107532817}
   m_Layer: 0
   m_Name: Player Sprite
-  m_TagString: Untagged
+  m_TagString: Psprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3090,6 +3090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058adf2939f054b45a2340df658ee7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   Pdamage: 0
   Phit: 0
   Pcrit: 0
@@ -4266,9 +4267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da75083c998e2d34b82992c175ccbcc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  playerAnimation: {fileID: 0}
-  enemyAnimation: {fileID: 0}
+  Panimator: {fileID: 0}
+  Eanimator: {fileID: 0}
+  PanimatorOBJ: {fileID: 0}
+  EanimatorOBJ: {fileID: 0}
+  battleManager: {fileID: 1704483420}
 --- !u!4 &2089997289
 Transform:
   m_ObjectHideFlags: 0
