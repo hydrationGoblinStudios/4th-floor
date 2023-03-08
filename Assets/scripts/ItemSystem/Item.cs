@@ -11,9 +11,23 @@ public class Item : ScriptableObject
         accesory,
         key
     }
+    public enum Weapontype
+    {
+        Sword,
+        Axe,
+        Lance,
+        Bow,
+        Firetome,
+        Icetome,
+        Thundertome,
+        Plaguetome,
+        Eviltome
+
+    }
     public int id;
     public Sprite sprite;
     public Type type;
+    public Weapontype weapontype;
     public string ItemName;
     public string description;
     public int hit;
