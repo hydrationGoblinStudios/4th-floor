@@ -314,22 +314,26 @@ public class BattleManager : MonoBehaviour
             Espeed = enemyBehavior.speed / playerBehavior.speed;
             Pspeed = 1;
         }
-        if (playerBehavior.Weapon.weight == Item.WeaponWeight.Medium)
+        if (playerBehavior.Weapon != null)
         {
-            Pspeed = (float)(Pspeed * 0.85);
-        }
-        else if (playerBehavior.Weapon.weight == Item.WeaponWeight.Heavy)
-        {
-            Pspeed = (float)(Pspeed * 0.70);
-        }
-        if (enemyBehavior.Weapon.weight == Item.WeaponWeight.Medium)
-        {
-            Espeed = (float)(Pspeed * 0.85);
-        }
-        else if (enemyBehavior.Weapon.weight == Item.WeaponWeight.Heavy)
-        {
-            Espeed = (float)(Pspeed * 0.70);
-        }
 
+        if (playerBehavior.Weapon.weight == Item.WeaponWeight.Medium)
+            {
+                Pspeed = (float)(Pspeed * 0.85);
+            }
+            else if (playerBehavior.Weapon.weight == Item.WeaponWeight.Heavy)
+            {
+                Pspeed = (float)(Pspeed * 0.70);
+            }
+            if (enemyBehavior.Weapon.weight == Item.WeaponWeight.Medium)
+            {
+                Espeed = (float)(Pspeed * 0.85);
+            }
+            else if (enemyBehavior.Weapon.weight == Item.WeaponWeight.Heavy)
+            {
+                Espeed = (float)(Pspeed * 0.70);
+            }
+
+        }
     }
 }

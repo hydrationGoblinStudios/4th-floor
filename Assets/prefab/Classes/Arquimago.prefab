@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4445489306633608639}
-  - component: {fileID: 1017138718739841294}
+  - component: {fileID: 4879243377701510021}
   m_Layer: 0
-  m_Name: Barbaro
+  m_Name: Arquimago
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1017138718739841294
+--- !u!114 &4879243377701510021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b77d87b6d9cf14d857600ed02a479a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d2fa4b85cb76e443a54170f363675b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
@@ -51,19 +51,18 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  UnitName: Mario
+  UnitName: Athos
   level: 0
   exp: 0
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 12
-  hp: 12
-  atk: 5
-  dex: 5
-  def: 5
-  luck: 5
-  speed: 5
+  maxhp: 85
+  hp: 85
+  atk: 15
+  dex: 11
+  def: 9
+  luck: 19
+  speed: 13
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  Endure: 0

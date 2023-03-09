@@ -6,18 +6,12 @@ public class Feitiçeiro : UnitBehavior
 {
     public override int Soul(int damage)
     {
-        return damage / 3 + 1 + enemyBehavior.def / 4;
+        return (int)((damage / 3 + 1) + (enemyBehavior.def*0.35));
     }
     public override int Proc(int damage)
     {
-        if (enemy)
-        {
-            battleManager.Esoul += 1;
-        }
-        else
-        {
-            battleManager.Psoul += 1;
-        }
-        return 0;
+        //placeholder exp *1.4
+        //homer simpson
+        return 1;
     }
 }

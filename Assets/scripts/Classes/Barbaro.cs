@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Barbaro : UnitBehavior
 {
-    public bool EndureBool;
+    public bool Endure;
     public override int Soul(int damage)
     {
         if (enemy)
@@ -20,14 +20,14 @@ public class Barbaro : UnitBehavior
 
     }
     //não finalizado
-    public void Endure()
+    public override int Proc(int damage)
     {
-        if (EndureBool)
+        Endure = true;
+        if (battleManager.Pdamage >= hp && Endure == true)
         {
             hp = 1;
-            EndureBool = false;
+            Endure = false;
         }
-   
+        return 0;
     }
-
-}
+    }
