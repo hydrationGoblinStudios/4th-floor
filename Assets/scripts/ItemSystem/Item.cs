@@ -24,10 +24,19 @@ public class Item : ScriptableObject
         Eviltome
 
     }
+    public enum WeaponWeight
+    {
+        Light,
+        Medium,
+        Heavy
+
+    }
+
     public int id;
     public Sprite sprite;
     public Type type;
     public Weapontype weapontype;
+    public WeaponWeight weight;
     public string ItemName;
     public string description;
     public int hit;
