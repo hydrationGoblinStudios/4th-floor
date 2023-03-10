@@ -32,13 +32,9 @@ public class Ladino : UnitBehavior
     {
         if (damage != 0)
         {
-            avoid += 2;
+            avoid += 1;
             battleManager.StatChange();
-            return 0;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
 }

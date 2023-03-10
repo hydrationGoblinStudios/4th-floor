@@ -25,7 +25,7 @@ public class Espadachim : UnitBehavior
     }
     public override int Proc(int damage)
     {
-        if (Random.Range(0, 101) > dex)
+        if (Random.Range(0, 101) < dex)
         {
             if (enemy)
             {

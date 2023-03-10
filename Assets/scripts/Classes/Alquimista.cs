@@ -32,7 +32,7 @@ public class Alquimista : UnitBehavior
                 enemyBehavior.luck += 5;
                 enemyBehavior.dex += 5;
                 battleManager.StatChange();
-                battleText.text = "Hora Da bazinga";
+                battleText.text = "Hora Da bazinga(eviL)";
                 return 0;
             }
             else
