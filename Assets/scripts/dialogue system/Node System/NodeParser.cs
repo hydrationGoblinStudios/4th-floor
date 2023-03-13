@@ -13,6 +13,7 @@ public class NodeParser : MonoBehaviour
     public TextMeshProUGUI speaker;
     public TextMeshProUGUI dialogue;
     public Image speakerImage;
+    public Button action;
     private void Start()
     {
         foreach(BaseNode b in graph.nodes)
@@ -34,6 +35,14 @@ public class NodeParser : MonoBehaviour
         if(dataParts[0] == "Start")
         {
             NextNode("exit");
+        }
+        if (dataParts[0] == "Stop")
+        {
+            if(action.onClick != null)
+            {
+                action.onClick.Invoke();
+            }
+            yield return null;
         }
         if(dataParts[0] == "DialogueNode")
         {

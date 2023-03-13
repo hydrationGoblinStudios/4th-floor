@@ -7,7 +7,7 @@ public class DialogueNode : BaseNode {
 
 	[Input] public int entry;
 	[Output] public int exit;
-	public string speaker;
+    public string speaker;
 	public string dialogue;
 	public Sprite sprite;
 

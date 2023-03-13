@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 392, y: 72}
+  position: {x: 456, y: 88}
   ports:
     keys:
     - entry
@@ -35,16 +35,50 @@ MonoBehaviour:
       _node: {fileID: -4230901553219406262}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -4186269645412643343}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: gh
-  dialogue: nbk
+  speaker: amogus
+  dialogue: megaballs
   sprite: {fileID: 21300000, guid: 63e2f33b8b3fb704bb2d913fe550bd47, type: 3}
+--- !u!114 &-4186269645412643343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f247d9b14698438e2d74800ab78da, type: 3}
+  m_Name: Stop
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 760, y: 104}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4186269645412643343}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -4230901553219406262}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +95,8 @@ MonoBehaviour:
   - {fileID: 4563569719044335264}
   - {fileID: 9031430762261543304}
   - {fileID: -4230901553219406262}
-  current: {fileID: 9031430762261543304}
+  - {fileID: -4186269645412643343}
+  current: {fileID: -4186269645412643343}
 --- !u!114 &4563569719044335264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +141,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 168, y: 72}
+  position: {x: 168, y: 120}
   ports:
     keys:
     - entry
