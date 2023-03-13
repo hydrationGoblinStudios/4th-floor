@@ -7,13 +7,15 @@ using TMPro;
 
 public class NodeParser : MonoBehaviour
 {
-    public bool buttonPress;
+    public int buttonPress = -1;
     public DialogueGraph graph;
     Coroutine _parser;
     public TextMeshProUGUI speaker;
     public TextMeshProUGUI dialogue;
     public Image speakerImage;
     public Button action;
+    public GameObject options;
+
     private void Start()
     {
         foreach(BaseNode b in graph.nodes)
@@ -46,11 +48,37 @@ public class NodeParser : MonoBehaviour
         }
         if(dataParts[0] == "DialogueNode")
         {
+            options.SetActive(false);
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
             speakerImage.sprite = b.GetSprite();
-            yield return new WaitUntil(() => buttonPress);
-            buttonPress = false;
+            yield return new WaitUntil(() => buttonPress != -1);
+            buttonPress = -1;
+            NextNode("exit");
+        }
+        if (dataParts[0] == "QuestionNode")
+        {
+            options.SetActive(true);
+            speaker.text = dataParts[1];
+            dialogue.text = dataParts[2];
+            speakerImage.sprite = b.GetSprite();
+            yield return new WaitUntil(() => buttonPress != -1);
+            switch (buttonPress)
+            {
+                case 2:
+                    NextNode("exit2");
+                    break;
+                case 3:
+                    NextNode("exit3");
+                    break;
+                case 4:
+                    NextNode("exit4");
+                    break;
+                default:
+                    NextNode("exit");
+                    break;
+            }
+            buttonPress = -1;
             NextNode("exit");
         }
     }
@@ -71,8 +99,8 @@ public class NodeParser : MonoBehaviour
         }
         _parser = StartCoroutine(ParseNode());
     }
-    public void ButtonPress()
+    public void ButtonPress(int option)
     {
-        buttonPress = true;
+        buttonPress = option;
     }
 }
