@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gladiador : UnitBehavior
+public class Humano : UnitBehavior
 {
     public override int Soul(int damage)
     {
@@ -12,6 +12,10 @@ public class Gladiador : UnitBehavior
             StartCoroutine(battleManager.PlayerExtraAttack("Super golpe"));
             battleManager.PlayerBar -= 50;
             battleManager.StatChange();
+            crit += 100;
+            StartCoroutine(battleManager.PlayerExtraAttack("Super golpe"));
+            crit -= 100;
+
             return enemyBehavior.def / 2;
         }
         else
@@ -20,6 +24,9 @@ public class Gladiador : UnitBehavior
             StartCoroutine(battleManager.PlayerExtraAttack("Super golpe"));
             battleManager.EnemyBar -= 50;
             battleManager.StatChange();
+            crit += 100;
+            StartCoroutine(battleManager.PlayerExtraAttack("Super golpe"));
+            crit -= 100;
             return playerBehavior.def / 2;
         }
     }
@@ -35,3 +42,4 @@ public class Gladiador : UnitBehavior
         return 0;
     }
 }
+

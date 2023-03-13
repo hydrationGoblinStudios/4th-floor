@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4445489306633608639}
-  - component: {fileID: 829653391102231949}
+  - component: {fileID: 701200908850433369}
   m_Layer: 0
-  m_Name: Soldado
+  m_Name: "Guardi\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &829653391102231949
+--- !u!114 &701200908850433369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6de528c2771f64591434fba436f0ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ee30cc28c1ff1a4d99831b475d53be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
@@ -51,18 +51,18 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  UnitName: Nephenee
+  UnitName: Seth
   level: 0
   exp: 0
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 46
-  hp: 46
-  atk: 8
-  dex: 6
-  def: 9
-  luck: 8
-  speed: 4
+  maxhp: 100
+  hp: 100
+  atk: 10
+  dex: 10
+  def: 20
+  luck: 6
+  speed: 6
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
