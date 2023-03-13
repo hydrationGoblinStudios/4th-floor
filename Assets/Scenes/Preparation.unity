@@ -1470,7 +1470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 0
   playerUnit:
-  - {fileID: 4445489306633608637, guid: 7b327656da922064d850e35cf3713bc4, type: 3}
+  - {fileID: 4445489306633608637, guid: a04d1808e90f9794b8248e945b5e69f9, type: 3}
   enemyUnit:
   - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
   playerUnitInstance: {fileID: 0}
