@@ -30,14 +30,17 @@ public class Humano : UnitBehavior
             return playerBehavior.def / 2;
         }
     }
+
     public override int Proc(int damage)
     {
 
-        if (battleManager.enemyBehavior.hp < (battleManager.enemyBehavior.maxhp / 2))
+
+        if (battleManager.playerBehavior.Pendure == true && hp <= 0)
         {
-            crit += 15;
+            hp = 1;
+            battleManager.Psoul += 3;
             battleManager.StatChange();
-            return 0;
+            Pendure = false;
         }
         return 0;
     }
