@@ -26,6 +26,8 @@ public class UnitBehavior : MonoBehaviour
     public int def;
     public int luck;
     public float speed;
+    public bool Pendure;
+    public bool Eendure;
     public TextMeshPro battleText;
     public GameObject battleTextObj;
     void Start()
@@ -35,6 +37,8 @@ public class UnitBehavior : MonoBehaviour
         battleTextObj = GameObject.FindGameObjectWithTag("Battle Text");
         battleText = battleTextObj.GetComponent<TextMeshPro>();
         battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");
+        Pendure = false;
+        Eendure = false;
         if (battleManagerOBJ != null)
         {
             battleManager = battleManagerOBJ.GetComponent<BattleManager>();

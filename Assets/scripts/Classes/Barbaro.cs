@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Barbaro : UnitBehavior
 {
-    public bool Endure;
     public override int Soul(int damage)
     {
         if (enemy)
@@ -22,12 +21,16 @@ public class Barbaro : UnitBehavior
     //não finalizado
     public override int Proc(int damage)
     {
-        Endure = true;
-        if (battleManager.Pdamage >= hp && Endure == true)
+        if (enemy && enemyBehavior.atk > playerBehavior.atk)
         {
-            hp = 1;
-            Endure = false;
+            hp += damage / 10;
+
+        }
+        if (!enemy && playerBehavior.atk > enemyBehavior.atk)
+        {
+            hp += damage / 10;
         }
         return 0;
+
     }
-    }
+}
