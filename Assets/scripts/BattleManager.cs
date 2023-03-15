@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class BattleManager : MonoBehaviour
 {
     public Animator animator;
+    public UnitBehavior endure;
     public int Pdamage;
     public int Phit;
     public int Pcrit;
@@ -43,7 +45,7 @@ public class BattleManager : MonoBehaviour
     [Header("UI")]
     public float PlayerBar;
     public float EnemyBar;
-    
+
     public enum BattleState {BattleStart,Wait,PlayerTurn,EnemyTurn,PlayerWon,EnemyWon}
     public BattleState state;
     void Start()
@@ -157,13 +159,13 @@ public class BattleManager : MonoBehaviour
             battleText.text = (playerBehavior.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
-        if (enemyBehavior.hp <= 0)
+        if (enemyBehavior.hp <= 0 && enemyBehavior.Eendure == false)
         {
             battleText.text = (playerBehavior.UnitName + " ganhou");
             state = BattleState.PlayerWon;
             yield return new WaitForSeconds(1);
             gameManager.money += 50;
-            battleText.text = ("you win 50 gold");
+            battleText.text = ("voce recebe 50 de ouro");
             yield return new WaitForSeconds(1);
             int exp = 30 - 5 * (playerBehavior.level - enemyBehavior.level);
             if (exp <= 0) { exp = 1; }
@@ -198,7 +200,7 @@ public class BattleManager : MonoBehaviour
         }
         HudUpdate();
         yield return new WaitForSeconds(1f);
-        if (enemyBehavior.hp <= 0)
+        if (enemyBehavior.hp <= 0 && enemyBehavior.Eendure == false)
         {
             battleText.text = (playerBehavior.UnitName + " ganhou");
             state = BattleState.PlayerWon;
@@ -249,7 +251,7 @@ public class BattleManager : MonoBehaviour
             battleText.text = (enemyBehavior.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
-        if (playerBehavior.hp <= 0)
+        if (playerBehavior.hp <= 0 && playerBehavior.Pendure == false)
         {
             battleText.text = (enemyBehavior.UnitName + " ganhou");
             state = BattleState.EnemyWon;

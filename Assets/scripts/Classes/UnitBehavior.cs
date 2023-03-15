@@ -39,6 +39,7 @@ public class UnitBehavior : MonoBehaviour
         battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");
         Pendure = false;
         Eendure = false;
+        Debug.Log(Pendure);
         if (battleManagerOBJ != null)
         {
             battleManager = battleManagerOBJ.GetComponent<BattleManager>();

@@ -6,6 +6,7 @@ public class Gladiador : UnitBehavior
 {
     public override int Soul(int damage)
     {
+        // os Extra attacks n estão procando
         if (enemy)
         {
             hp += damage / 2;
