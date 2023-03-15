@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   sprite: {fileID: 0}
-  type: 1
+  type: 0
   weapontype: 0
   weight: 0
   ItemName: Amogus

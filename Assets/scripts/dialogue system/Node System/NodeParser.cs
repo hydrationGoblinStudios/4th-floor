@@ -15,19 +15,15 @@ public class NodeParser : MonoBehaviour
     public Image speakerImage;
     public Button action;
     public GameObject options;
+    public GameObject UserInterface;
+    public bool welcometext;
 
     private void Start()
     {
-        foreach(BaseNode b in graph.nodes)
+        if (welcometext)
         {
-            if(b.GetString() == "Start")
-            {
-                graph.current = b;
-                break;
-            }
+            StartDialogue();
         }
-        _parser = StartCoroutine(ParseNode());
-
     }
     IEnumerator ParseNode()
     {
@@ -36,6 +32,7 @@ public class NodeParser : MonoBehaviour
         string[] dataParts = data.Split('/');
         if(dataParts[0] == "Start")
         {
+            UserInterface.SetActive(true);
             NextNode("exit");
         }
         if (dataParts[0] == "Stop")
@@ -44,6 +41,7 @@ public class NodeParser : MonoBehaviour
             {
                 action.onClick.Invoke();
             }
+            UserInterface.SetActive(false);
             yield return null;
         }
         if(dataParts[0] == "DialogueNode")
@@ -63,6 +61,7 @@ public class NodeParser : MonoBehaviour
             dialogue.text = dataParts[2];
             speakerImage.sprite = b.GetSprite();
             yield return new WaitUntil(() => buttonPress != -1);
+            buttonPress = -1;
             switch (buttonPress)
             {
                 case 2:
@@ -78,8 +77,6 @@ public class NodeParser : MonoBehaviour
                     NextNode("exit");
                     break;
             }
-            buttonPress = -1;
-            NextNode("exit");
         }
     }
     public void NextNode(string fieldName)
@@ -103,4 +100,17 @@ public class NodeParser : MonoBehaviour
     {
         buttonPress = option;
     }
+    public void StartDialogue()
+    {
+        foreach (BaseNode b in graph.nodes)
+        {
+            if (b.GetString() == "Start")
+            {
+                graph.current = b;
+                break;
+            }
+        }
+        _parser = StartCoroutine(ParseNode());
+    }
+
 }
