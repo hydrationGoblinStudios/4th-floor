@@ -33,11 +33,13 @@ public class Humano : UnitBehavior
 
     public override int Proc(int damage)
     {
+        Pendure = true;
 
 
         if (battleManager.playerBehavior.Pendure == true && hp <= 0)
         {
             hp = 1;
+            battleManager.PlayerBar += 100;
             battleManager.Psoul += 3;
             battleManager.StatChange();
             Pendure = false;
