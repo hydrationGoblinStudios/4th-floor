@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Espada de aco
+  m_Name: Machado de aco
   m_EditorClassIdentifier: 
-  id: 2
+  id: 1
   sprite: {fileID: 0}
   type: 0
-  ItemName: Amogus
-  description: ASDADASDAS
-  hit: 75
+  weapontype: 1
+  weight: 2
+  ItemName: Machado de aco
+  description: Machado Moderado.
+  hit: 70
   crit: 0
-  hp: 0
-  atk: 9
+  atk: 19
   dex: 0
   def: 0
   luck: 0

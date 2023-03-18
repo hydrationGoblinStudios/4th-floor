@@ -46,4 +46,5 @@ public class Item : ScriptableObject
     public int def;
     public int luck;
     public int speed;
+    public int price;
 }

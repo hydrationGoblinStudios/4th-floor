@@ -10,17 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Espada de ferro
+  m_Name: Matador
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   sprite: {fileID: 0}
   type: 0
-  ItemName: Amogus
-  description: ASDADASDAS
-  hit: 70
-  crit: 0
-  atk: 5
+  weapontype: 1
+  weight: 2
+  ItemName: Matador
+  description: Machado com muito critico.
+  hit: 65
+  crit: 30
+  atk: 18
   dex: 0
   def: 0
   luck: 0
   speed: 0
+  price: 0
