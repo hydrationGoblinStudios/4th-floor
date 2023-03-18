@@ -61,19 +61,22 @@ public class NodeParser : MonoBehaviour
             dialogue.text = dataParts[2];
             speakerImage.sprite = b.GetSprite();
             yield return new WaitUntil(() => buttonPress != -1);
-            buttonPress = -1;
             switch (buttonPress)
             {
                 case 2:
+                    buttonPress = -1;
                     NextNode("exit2");
                     break;
                 case 3:
+                    buttonPress = -1;
                     NextNode("exit3");
                     break;
                 case 4:
+                    buttonPress = -1;
                     NextNode("exit4");
                     break;
                 default:
+                    buttonPress = -1;
                     NextNode("exit");
                     break;
             }

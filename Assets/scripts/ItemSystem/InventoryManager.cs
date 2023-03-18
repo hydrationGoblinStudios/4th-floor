@@ -8,7 +8,9 @@ public class InventoryManager : MonoBehaviour
     private GameObject GameManagerOBJ;
     private GameManager Manager;
     public GameObject panel;
+    public GameObject charSelectPanel;
     public GameObject buttonPrefab;
+    public UnitBehavior selectedUnit;
   
     private void Start()
     {
@@ -19,6 +21,11 @@ public class InventoryManager : MonoBehaviour
             GameObject button = Instantiate(buttonPrefab, panel.transform);
             button.GetComponent<Button>().onClick.AddListener(() => Equip(item));
         }
+        foreach (GameObject obj in Manager.teamInstances)
+        {
+            GameObject button = Instantiate(buttonPrefab, charSelectPanel.transform);
+            button.GetComponent<Button>().onClick.AddListener(() => Select(obj.GetComponent<UnitBehavior>()));
+        }
     }
     public void Toggle()
     {
@@ -26,7 +33,10 @@ public class InventoryManager : MonoBehaviour
     }
     public void Equip(Item item)
     {
-        UnitBehavior selectedUnit = Manager.playerUnit[0].GetComponent<UnitBehavior>();
         selectedUnit.Weapon = item;
+    }
+    public void Select(UnitBehavior unitBehavior)
+    {
+        selectedUnit = unitBehavior;
     }
 }
