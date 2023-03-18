@@ -28,4 +28,13 @@ public class PrepManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+    public void MapToggle(GameObject mapObject)
+    {
+        mapObject.SetActive(!mapObject.activeInHierarchy);
+    }
+    public void ButtonToggle(Button button)
+    {
+        button.enabled = !button.enabled;
+
+    }
 }

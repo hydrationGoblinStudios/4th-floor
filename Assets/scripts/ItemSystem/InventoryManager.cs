@@ -11,6 +11,12 @@ public class InventoryManager : MonoBehaviour
     public GameObject charSelectPanel;
     public GameObject buttonPrefab;
     public UnitBehavior selectedUnit;
+    public GameObject sword;
+    public GameObject axe;
+    public GameObject lance;
+    public GameObject bow;
+    public GameObject tome;
+    public GameObject receptacle;
   
     private void Start()
     {
