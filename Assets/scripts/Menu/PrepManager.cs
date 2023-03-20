@@ -14,16 +14,6 @@ public class PrepManager : MonoBehaviour
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
     }
-    public void Raise()
-    {
-        UnitBehavior = Manager.playerUnitInstance.GetComponent<UnitBehavior>();
-        UnitBehavior.atk += 1;
-    }
-    public void Equip(Item equipItem)
-    {
-        UnitBehavior = Manager.playerUnitInstance.GetComponent<UnitBehavior>();
-        UnitBehavior.Weapon = equipItem;
-    }
     public void Scene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

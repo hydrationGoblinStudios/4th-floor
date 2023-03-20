@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2344013935009292677}
   m_Layer: 0
   m_Name: Humano
-  m_TagString: Untagged
+  m_TagString: team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,8 +57,8 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 100
-  hp: 2
+  maxhp: 60
+  hp: 60
   atk: 13
   dex: 13
   def: 13

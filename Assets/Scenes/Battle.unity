@@ -3091,6 +3091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  endure: {fileID: 0}
   Pdamage: 0
   Phit: 0
   Pcrit: 0
@@ -3104,8 +3105,8 @@ MonoBehaviour:
   Esoul: 0
   Eskill: 0
   gameManager: {fileID: 0}
-  playerUnit: {fileID: 4445489306633608637, guid: 9cea52d8fd238d541bc5ac853c9b90e1, type: 3}
-  enemyUnit: {fileID: 4445489306633608637, guid: 88aede8056132f242aefbf12f1c0b411, type: 3}
+  playerUnit: {fileID: 0}
+  enemyUnit: {fileID: 4445489306633608637, guid: f7d3d3e9a423c654e9f25750b0c68d2b, type: 3}
   playerBattleStation: {fileID: 680576058}
   enemyBattleStation: {fileID: 520865109}
   playerBehavior: {fileID: 0}

@@ -52,8 +52,7 @@ public class BattleManager : MonoBehaviour
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
-        playerUnit = gameManager.playerUnitInstance;
-        enemyUnit = gameManager.enemyUnitInstance;
+        playerUnit = gameManager.team[0];
         state = BattleState.BattleStart;
         StartCoroutine(SetupBattle());
     }

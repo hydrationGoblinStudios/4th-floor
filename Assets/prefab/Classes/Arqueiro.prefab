@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2719814813836160413}
   m_Layer: 0
   m_Name: Arqueiro
-  m_TagString: Untagged
+  m_TagString: team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,5 +64,7 @@ MonoBehaviour:
   def: 5
   luck: 11
   speed: 11
+  Pendure: 0
+  Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}

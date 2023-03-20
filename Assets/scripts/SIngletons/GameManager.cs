@@ -9,9 +9,7 @@ public class GameManager : Singleton
     public int money;
     public List<GameObject> playerUnit = new();
     public List<GameObject> enemyUnit = new();
-    public List<GameObject> teamInstances;
-    public GameObject playerUnitInstance;
-    public GameObject enemyUnitInstance;
+    public List<GameObject> team;
     public UnitBehavior selectedPlayerBehavior;
     public UnitBehavior selectedEnemyBehavior;
     public TextMeshPro moneyText;
@@ -19,12 +17,6 @@ public class GameManager : Singleton
     public void Start()
     {
         LoadTeam();
-        playerUnitInstance = Instantiate(teamInstances[0]);
-        enemyUnitInstance = Instantiate(enemyUnit[0]);
-        selectedPlayerBehavior = playerUnitInstance.GetComponent<UnitBehavior>();
-        selectedEnemyBehavior = enemyUnitInstance.GetComponent<UnitBehavior>();
-        DontDestroyOnLoad(playerUnitInstance);
-        DontDestroyOnLoad(enemyUnitInstance);
         moneyText.text = ""+money;
     }
     public void PrepScreen()
@@ -49,7 +41,8 @@ public class GameManager : Singleton
     {
         foreach(GameObject obj in playerUnit)
         {
-            teamInstances.Add(Instantiate(obj));
+            GameObject newobj = Instantiate(obj, this.transform);
+            team.Add(newobj);
         }
     }
 }
