@@ -9,15 +9,15 @@ public class Espadachim : UnitBehavior
         if (enemy)
         {
             battleManager.Eskill = -(battleManager.Edamage / 2);
-            StartCoroutine(battleManager.PlayerExtraAttack("rutger do mal moment"));
-            StartCoroutine(battleManager.PlayerExtraAttack("rutger do mal moment"));
+            StartCoroutine(battleManager.PlayerExtraAttack("Ataques Rapidos!"));
+            StartCoroutine(battleManager.PlayerExtraAttack("Ataques Rapidos!"));
             battleManager.StatChange();
         }
         else
         {
             battleManager.Pskill = -(battleManager.Pdamage/2);
-            StartCoroutine(battleManager.PlayerExtraAttack("rutger moment"));
-            StartCoroutine(battleManager.PlayerExtraAttack("rutger moment"));
+            StartCoroutine(battleManager.PlayerExtraAttack("Ataques Rapidos!"));
+            StartCoroutine(battleManager.PlayerExtraAttack("Ataques Rapidos!"));
             battleManager.StatChange();
         }
 
@@ -29,11 +29,11 @@ public class Espadachim : UnitBehavior
         {
             if (enemy)
             {
-                StartCoroutine(battleManager.PlayerExtraAttack("astra moment"));
+                StartCoroutine(battleManager.PlayerExtraAttack("Ataque Duplo ativou!"));
             }
             else
             {
-                StartCoroutine(battleManager.PlayerExtraAttack("astra moment"));
+                StartCoroutine(battleManager.PlayerExtraAttack("Ataque Duplo ativou!"));
             }
         }
         return 0;

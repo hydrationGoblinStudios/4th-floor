@@ -8,10 +8,12 @@ public class Soldado : UnitBehavior
     {
         if(enemy)
         {
+            battleManager.battleText.text = "Golpe Atordoante!";
             battleManager.PlayerBar -= 50;
         }
         else
         {
+            battleManager.battleText.text = "Golpe Atordoante!";
             battleManager.EnemyBar -= 50;
         }
         return damage/4 +1;
@@ -20,7 +22,7 @@ public class Soldado : UnitBehavior
     {
         if(Random.Range(0,101) < dex)
         {
-            battleManager.battleText.text = "Pancada Gamer";
+            battleManager.battleText.text = "Perfurar ativou!";
             return hp / 4 + 1;
         }
         return 0;
