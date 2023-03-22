@@ -169,7 +169,7 @@ public class BattleManager : MonoBehaviour
             int exp = 30 - 5 * (playerBehavior.level - enemyBehavior.level);
             if (exp <= 0) { exp = 1; }
             playerBehavior.level += exp;
-            battleText.text = ("vo?e recebe " + exp + " de experiencia");
+            battleText.text = ("voce recebe " + exp + " de experiencia");
             yield return new WaitForSeconds(1);
             gameManager.PrepScreen();
         }

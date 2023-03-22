@@ -17,6 +17,7 @@ public class AnimationManager : MonoBehaviour
         EanimatorOBJ = GameObject.FindGameObjectWithTag("Esprite");
         Panimator = PanimatorOBJ.GetComponent<Animator>();
         Eanimator = EanimatorOBJ.GetComponent<Animator>();
+
     }
     void Update()
     {

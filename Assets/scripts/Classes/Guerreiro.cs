@@ -6,13 +6,14 @@ public class Guerreiro : UnitBehavior
 {
    public override int Soul(int damage)
     {
+        battleManager.battleText.text = "Golpe devastador!";
         return damage * 2;
     }
     public override int Proc(int damage)
     {
         if (hp <= (maxhp / 4))
         {
-            battleText.text = "rage proc";
+            battleText.text = "Furia ativou!";
             return damage/3;
         }
         return 0;
