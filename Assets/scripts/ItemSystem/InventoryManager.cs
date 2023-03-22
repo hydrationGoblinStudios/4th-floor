@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     public GameManager Manager;
     public GameObject panel;
     public GameObject charSelectPanel;
+    public GameObject unitSelectPanel;
     public GameObject buttonPrefab;
     public UnitBehavior selectedUnit;
     public GameObject sword;
@@ -49,14 +50,24 @@ public class InventoryManager : MonoBehaviour
             GameObject button = Instantiate(buttonPrefab, panel.transform);
             button.GetComponent<Button>().onClick.AddListener(() => Equip(item));
             button.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
-
         }
         foreach (GameObject unit in Manager.team)
         {
             GameObject button = Instantiate(buttonPrefab, charSelectPanel.transform);
             button.GetComponent<Button>().onClick.AddListener(() => Select(unit.GetComponent<UnitBehavior>()));
             button.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName ;
-
+        }
+    }
+    public void UpdateSelectionList()
+    {
+        GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
+        Manager = GameManagerOBJ.GetComponent<GameManager>();
+        foreach (GameObject unit in Manager.team)
+        {
+            GameObject button = Instantiate(buttonPrefab, unitSelectPanel.transform);
+            button.GetComponent<Button>().onClick.AddListener(() => Manager.selectUnit(unit));
+            button.GetComponent<Button>().onClick.AddListener(() => Manager.Battle());
+            button.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
         }
     }
 }

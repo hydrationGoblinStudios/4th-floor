@@ -11,13 +11,15 @@ public class QuestionNode : BaseNode
     [Output] public int exit4;
     public string speaker;
     public string dialogue;
+    public string option2;
+    public string option3;
+    public string option4;
     public Sprite sprite;
 
     public override string GetString()
     {
         return "QuestionNode/" + speaker + "/" + dialogue;
     }
-
     public override Sprite GetSprite()
     {
         return sprite;

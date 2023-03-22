@@ -25,6 +25,5 @@ public class PrepManager : MonoBehaviour
     public void ButtonToggle(Button button)
     {
         button.enabled = !button.enabled;
-
     }
 }

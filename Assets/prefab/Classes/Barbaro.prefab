@@ -51,7 +51,7 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  UnitName: Mario
+  UnitName: barbaro
   level: 0
   exp: 0
   hit: 0
@@ -64,6 +64,7 @@ MonoBehaviour:
   def: 5
   luck: 5
   speed: 5
+  Pendure: 0
+  Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  Endure: 0

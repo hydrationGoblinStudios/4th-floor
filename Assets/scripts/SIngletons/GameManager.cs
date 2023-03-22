@@ -14,10 +14,11 @@ public class GameManager : Singleton
     public UnitBehavior selectedEnemyBehavior;
     public TextMeshPro moneyText;
     public List<Item> Inventory;
+    public List<Item> KeyItems;
     public void Start()
     {
         LoadTeam();
-        moneyText.text = ""+money;
+        moneyText.text = "Dinheiro:"+money;
     }
     public void PrepScreen()
     {
@@ -34,7 +35,7 @@ public class GameManager : Singleton
         moneyText = tempGameObject.GetComponent<TextMeshPro>();
         if (moneyText != null)
         {
-            moneyText.text = ""+money;
+            moneyText.text = "Dinheiro:"+money;
         }
     }
     public void LoadTeam()
@@ -44,5 +45,16 @@ public class GameManager : Singleton
             GameObject newobj = Instantiate(obj, this.transform);
             team.Add(newobj);
         }
+    }
+    public void AddtoTeam(GameObject recruit)
+    {
+        GameObject newobj = Instantiate(recruit, this.transform);
+        team.Add(newobj);
+    }
+    public void selectUnit(GameObject unit)
+    {
+        GameObject newunit = unit;
+        team.Remove(unit);
+        team.Insert(0, newunit);
     }
 }

@@ -16,13 +16,16 @@ public class NodeParser : MonoBehaviour
     public Button action;
     public GameObject options;
     public GameObject UserInterface;
+    public GameObject interactables;
+    public GameObject extraTextObj;
+    public TextMeshProUGUI[] extraTexts;
     public bool welcometext;
 
     private void Start()
     {
         if (welcometext)
         {
-            StartDialogue();
+            StartDialogue(graph);
         }
     }
     IEnumerator ParseNode()
@@ -32,11 +35,13 @@ public class NodeParser : MonoBehaviour
         string[] dataParts = data.Split('/');
         if(dataParts[0] == "Start")
         {
+            interactables.SetActive(false);
             UserInterface.SetActive(true);
             NextNode("exit");
         }
         if (dataParts[0] == "Stop")
         {
+            interactables.SetActive(true);
             if(action.onClick != null)
             {
                 action.onClick.Invoke();
@@ -46,6 +51,7 @@ public class NodeParser : MonoBehaviour
         }
         if(dataParts[0] == "DialogueNode")
         {
+            extraTextObj.SetActive(false);
             options.SetActive(false);
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
@@ -56,9 +62,14 @@ public class NodeParser : MonoBehaviour
         }
         if (dataParts[0] == "QuestionNode")
         {
+            extraTextObj.SetActive(true);
             options.SetActive(true);
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
+            QuestionNode questionNode = (QuestionNode)b;
+            extraTexts[0].text = questionNode.option2;
+            extraTexts[1].text = questionNode.option3;
+            extraTexts[1].text = questionNode.option3;
             speakerImage.sprite = b.GetSprite();
             yield return new WaitUntil(() => buttonPress != -1);
             switch (buttonPress)
@@ -81,6 +92,19 @@ public class NodeParser : MonoBehaviour
                     break;
             }
         }
+        if (dataParts[0] == "ItemCheck")
+        {
+            Debug.Log(dataParts[0]);
+            if(dataParts[1] == "1")
+            {
+                NextNode("exit");
+            }
+            else
+            {
+                NextNode("exit2");
+            }
+        }
+
     }
     public void NextNode(string fieldName)
     {
@@ -103,8 +127,9 @@ public class NodeParser : MonoBehaviour
     {
         buttonPress = option;
     }
-    public void StartDialogue()
+    public void StartDialogue(DialogueGraph NewGraph)
     {
+        graph = NewGraph;
         foreach (BaseNode b in graph.nodes)
         {
             if (b.GetString() == "Start")

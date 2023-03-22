@@ -51,7 +51,7 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  UnitName: Nephenee
+  UnitName: Soldado
   level: 0
   exp: 0
   hit: 0
@@ -64,5 +64,7 @@ MonoBehaviour:
   def: 9
   luck: 8
   speed: 4
+  Pendure: 0
+  Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}

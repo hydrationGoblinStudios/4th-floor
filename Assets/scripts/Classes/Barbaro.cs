@@ -16,7 +16,6 @@ public class Barbaro : UnitBehavior
             playerBehavior.speed += 1;
         }
         return 0;
-
     }
     //não finalizado
     public override int Proc(int damage)

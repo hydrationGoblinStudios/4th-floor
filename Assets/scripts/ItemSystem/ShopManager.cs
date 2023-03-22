@@ -10,7 +10,9 @@ public class ShopManager : MonoBehaviour
     private GameManager Manager;
     public GameObject panel;
     public GameObject buttonPrefab;
+    public NodeParser nodeParser;
     public Item[] stock;
+    public DialogueGraph graph;
 
     void Start()
     {
@@ -25,7 +27,18 @@ public class ShopManager : MonoBehaviour
     }
     public void Buy(Item item)
     {
-        Manager.Inventory.Add(item);
+        Debug.Log(Manager.money);
+        if(Manager.money >= item.price)
+        {
+            Manager.money = item.price;
+            Manager.moneyText.text = ""+Manager.money;
+            Manager.Inventory.Add(item);
+        }
+        else
+        {
+            Toggle();
+            nodeParser.StartDialogue(graph);
+        }
     }
     public void Toggle()
     {

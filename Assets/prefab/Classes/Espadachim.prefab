@@ -51,7 +51,7 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  UnitName: Rutger
+  UnitName: Espadachim
   level: 0
   exp: 0
   hit: 0

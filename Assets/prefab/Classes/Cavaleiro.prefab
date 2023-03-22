@@ -64,5 +64,7 @@ MonoBehaviour:
   def: 9
   luck: 6
   speed: 6
+  Pendure: 0
+  Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}

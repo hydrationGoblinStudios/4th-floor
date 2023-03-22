@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4445489306633608637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4445489306633608639}
+  - component: {fileID: 4623683373984701499}
+  m_Layer: 0
+  m_Name: guerreiro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4445489306633608639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445489306633608637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4623683373984701499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445489306633608637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1214384a1164a240ad3a7593228e20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 11400000, guid: 4859b3cd6f48cc64f8c498ae349056b8, type: 2}
+  Accesory: {fileID: 0}
+  playerBehavior: {fileID: 0}
+  enemyBehavior: {fileID: 0}
+  battleManager: {fileID: 0}
+  enemy: 0
+  battleManagerOBJ: {fileID: 0}
+  UnitName: guerreiro
+  level: 0
+  exp: 0
+  hit: 0
+  avoid: 0
+  crit: 0
+  maxhp: 30
+  hp: 30
+  atk: 5
+  dex: 7
+  def: 4
+  luck: 8
+  speed: 8
+  Pendure: 0
+  Eendure: 0
+  battleText: {fileID: 0}
+  battleTextObj: {fileID: 0}
