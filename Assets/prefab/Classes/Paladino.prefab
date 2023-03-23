@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec767a1d7847794fa70f02e595e0eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 304
   Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
@@ -52,7 +53,10 @@ MonoBehaviour:
   enemy: 0
   battleManagerOBJ: {fileID: 0}
   UnitName: Super Homem
+  level: 0
+  exp: 0
   hit: 0
+  avoid: 0
   crit: 0
   maxhp: 55
   hp: 55
@@ -61,5 +65,7 @@ MonoBehaviour:
   def: 5
   luck: 10
   speed: 7
+  Pendure: 0
+  Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}

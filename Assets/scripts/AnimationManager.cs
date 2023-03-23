@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
+    public AnimatorController[] Animations;
     public Animator Panimator;
     public Animator Eanimator;
     public GameObject PanimatorOBJ;
@@ -17,7 +19,7 @@ public class AnimationManager : MonoBehaviour
         EanimatorOBJ = GameObject.FindGameObjectWithTag("Esprite");
         Panimator = PanimatorOBJ.GetComponent<Animator>();
         Eanimator = EanimatorOBJ.GetComponent<Animator>();
-
+        Panimator.runtimeAnimatorController = Animations[0];
     }
     void Update()
     {

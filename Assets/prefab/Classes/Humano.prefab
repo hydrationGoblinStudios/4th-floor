@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7dab3ef9de18147b72c2d52ef01c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 401
   Weapon: {fileID: 11400000, guid: 046a82c701327134682831272ae61cda, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}

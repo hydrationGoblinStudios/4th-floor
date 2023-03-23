@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306331dd9e14ba349b49ec1153f9d588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 206
   Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
@@ -64,5 +65,7 @@ MonoBehaviour:
   def: 6
   luck: 6
   speed: 6
+  Pendure: 0
+  Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}

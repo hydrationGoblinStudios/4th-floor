@@ -5,6 +5,7 @@ using TMPro;
 
 public class UnitBehavior : MonoBehaviour
 {
+    public int id;
     public Item Weapon;
     public Item Accesory;
     public UnitBehavior playerBehavior;

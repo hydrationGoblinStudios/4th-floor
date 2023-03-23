@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00844d8debe26284d990892b37fa7422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 204
   Weapon: {fileID: 0}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
@@ -52,7 +53,10 @@ MonoBehaviour:
   enemy: 0
   battleManagerOBJ: {fileID: 0}
   UnitName: Luigi
+  level: 0
+  exp: 0
   hit: 0
+  avoid: 0
   crit: 0
   maxhp: 100
   hp: 50
@@ -61,5 +65,7 @@ MonoBehaviour:
   def: 8
   luck: 10
   speed: 8
+  Pendure: 0
+  Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}

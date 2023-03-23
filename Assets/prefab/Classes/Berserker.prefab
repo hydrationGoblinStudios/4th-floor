@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341bf057ab9ba884f8ac41e4defc2a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 303
   Weapon: {fileID: 0}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
@@ -52,7 +53,10 @@ MonoBehaviour:
   enemy: 0
   battleManagerOBJ: {fileID: 0}
   UnitName: Inimigo
+  level: 0
+  exp: 0
   hit: 0
+  avoid: 0
   crit: 15
   maxhp: 40
   hp: 40
@@ -61,5 +65,7 @@ MonoBehaviour:
   def: 5
   luck: 5
   speed: 5
+  Pendure: 0
+  Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
