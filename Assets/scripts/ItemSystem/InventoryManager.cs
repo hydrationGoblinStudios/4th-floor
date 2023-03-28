@@ -6,22 +6,23 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-    public GameObject GameManagerOBJ;
-    public GameManager Manager;
+    [HideInInspector] public GameObject GameManagerOBJ;
+    [HideInInspector] public GameManager Manager;
     public GameObject panel;
     public GameObject charSelectPanel;
     public GameObject unitSelectPanel;
     public GameObject firstButtonPrefab;
     public GameObject buttonPrefab;
     public UnitBehavior selectedUnit;
-    public GameObject sword;
-    public GameObject axe;
-    public GameObject lance;
-    public GameObject bow;
-    public GameObject tome;
-    public GameObject receptacle;
+    private GameObject sword;
+    private GameObject axe;
+    private GameObject lance;
+    private GameObject bow;
+    private GameObject tome;
+    private GameObject receptacle;
     public Sprite[] sprites;
     public TextMeshProUGUI statText;
+    public TextMeshProUGUI equipText;
     public void Toggle()
     {
         gameObject.SetActive(!gameObject.activeInHierarchy);
@@ -33,9 +34,8 @@ public class InventoryManager : MonoBehaviour
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;
-        Debug.Log(unitBehavior.UnitName);
-        statText.text = "hp:" +unitBehavior.maxhp + "\n" + "atk:" + unitBehavior.atk + "\n" + "def:" + unitBehavior.def + "\n" + "des:" + unitBehavior.dex + "\n" + "sorte:" + unitBehavior.luck ;
-
+        statText.text = "Hp:" +unitBehavior.maxhp + "\n" + "Atk:" + unitBehavior.atk + "\n" + "Def:" + unitBehavior.def + "\n" + "des:" + unitBehavior.dex + "\n" + "sorte:" + unitBehavior.luck ;
+        equipText.text = "Arma" + "\n"+ unitBehavior.Weapon.ItemName;
     }
     public void UpdateInventory()
     {

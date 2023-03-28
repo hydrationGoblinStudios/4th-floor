@@ -31,6 +31,7 @@ public class UnitBehavior : MonoBehaviour
     public bool Eendure;
     public TextMeshPro battleText;
     public GameObject battleTextObj;
+    public string description = "classe não valida";
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
          playerBehavior = GetComponent<UnitBehavior>();

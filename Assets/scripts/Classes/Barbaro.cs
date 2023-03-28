@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Barbaro : UnitBehavior
 {
+    public string descriptionA = "O Barbaro ataca cada vez mais rapido";
+    public string descriptionP = "Se o barbaro for mais forte que o oponente ele roubara sua vida";
+
     public override int Soul(int damage)
     {
         if (enemy)
@@ -17,7 +20,6 @@ public class Barbaro : UnitBehavior
         }
         return 0;
     }
-    //não finalizado
     public override int Proc(int damage)
     {
         if (enemy && enemyBehavior.atk > playerBehavior.atk)
