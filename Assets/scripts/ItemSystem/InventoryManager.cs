@@ -21,6 +21,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject tome;
     public GameObject receptacle;
     public Sprite[] sprites;
+    public TextMeshProUGUI statText;
     public void Toggle()
     {
         gameObject.SetActive(!gameObject.activeInHierarchy);
@@ -33,13 +34,15 @@ public class InventoryManager : MonoBehaviour
     {
         selectedUnit = unitBehavior;
         Debug.Log(unitBehavior.UnitName);
+        statText.text = "hp:" +unitBehavior.maxhp + "\n" + "atk:" + unitBehavior.atk + "\n" + "def:" + unitBehavior.def + "\n" + "des:" + unitBehavior.dex + "\n" + "sorte:" + unitBehavior.luck ;
+
     }
     public void UpdateInventory()
     {
         bool first = true;
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
-        selectedUnit = Manager.team[0].GetComponent<UnitBehavior>();
+        Select(Manager.team[0].GetComponent<UnitBehavior>());
         while (panel.transform.childCount > 0)
         {
             DestroyImmediate(panel.transform.GetChild(0).gameObject);
