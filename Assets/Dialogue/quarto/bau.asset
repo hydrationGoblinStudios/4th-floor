@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: Item Check
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 296, y: -104}
+  position: {x: 296, y: 8}
   ports:
     keys:
     - entry
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 888, y: 56}
+  position: {x: 888, y: -40}
   ports:
     keys:
     - entry

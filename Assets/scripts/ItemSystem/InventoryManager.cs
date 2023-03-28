@@ -11,6 +11,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject panel;
     public GameObject charSelectPanel;
     public GameObject unitSelectPanel;
+    public GameObject firstButtonPrefab;
     public GameObject buttonPrefab;
     public UnitBehavior selectedUnit;
     public GameObject sword;
@@ -19,7 +20,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject bow;
     public GameObject tome;
     public GameObject receptacle;
-
+    public Sprite[] sprites;
     public void Toggle()
     {
         gameObject.SetActive(!gameObject.activeInHierarchy);
@@ -31,9 +32,11 @@ public class InventoryManager : MonoBehaviour
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;
+        Debug.Log(unitBehavior.UnitName);
     }
     public void UpdateInventory()
     {
+        bool first = true;
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
         selectedUnit = Manager.team[0].GetComponent<UnitBehavior>();
@@ -47,15 +50,23 @@ public class InventoryManager : MonoBehaviour
         }
         foreach (Item item in Manager.Inventory)
         {
-            GameObject button = Instantiate(buttonPrefab, panel.transform);
-            button.GetComponent<Button>().onClick.AddListener(() => Equip(item));
-            button.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
+
         }
         foreach (GameObject unit in Manager.team)
         {
-            GameObject button = Instantiate(buttonPrefab, charSelectPanel.transform);
-            button.GetComponent<Button>().onClick.AddListener(() => Select(unit.GetComponent<UnitBehavior>()));
-            button.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName ;
+            if (first) 
+            {
+                GameObject charButton = Instantiate(firstButtonPrefab, charSelectPanel.transform);
+                charButton.GetComponent<Button>().onClick.AddListener(() => Select(unit.GetComponent<UnitBehavior>()));
+                charButton.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
+                first = false;
+            }
+            else 
+            {
+                GameObject charButton  = Instantiate(buttonPrefab, charSelectPanel.transform);
+                charButton.GetComponent<Button>().onClick.AddListener(() => Select(unit.GetComponent<UnitBehavior>()));
+                charButton.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
+            }
         }
     }
     public void UpdateSelectionList()
