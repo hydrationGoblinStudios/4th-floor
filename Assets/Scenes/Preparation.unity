@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 420204868}
   - component: {fileID: 420204867}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: porta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3019,7 +3019,7 @@ GameObject:
   - component: {fileID: 1002940620}
   - component: {fileID: 1002940619}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: cama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

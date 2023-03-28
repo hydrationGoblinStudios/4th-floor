@@ -1,6 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7787400696042811749
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
+  m_Name: Sample
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2657727638644285937}
+  - {fileID: 2385962404784704852}
+  - {fileID: 4568979083238420942}
+  current: {fileID: 0}
+--- !u!114 &2385962404784704852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,25 +30,25 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 424, y: -56}
+  position: {x: 328, y: -72}
   ports:
     keys:
     - entry
     values:
     - _fieldName: entry
-      _node: {fileID: -7787400696042811749}
+      _node: {fileID: 2385962404784704852}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -2560209615417789324}
+        node: {fileID: 4568979083238420942}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
---- !u!114 &-4588188563268291748
+--- !u!114 &2657727638644285937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,25 +61,25 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -221.29999, y: -36.699997}
+  position: {x: -253.80493, y: -81.57959}
   ports:
     keys:
     - exit
     values:
     - _fieldName: exit
-      _node: {fileID: -4588188563268291748}
+      _node: {fileID: 2657727638644285937}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -2560209615417789324}
+        node: {fileID: 4568979083238420942}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
---- !u!114 &-2560209615417789324
+--- !u!114 &4568979083238420942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,31 +92,31 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 104, y: -40}
+  position: {x: 40, y: -88}
   ports:
     keys:
     - entry
     - exit
     values:
     - _fieldName: entry
-      _node: {fileID: -2560209615417789324}
+      _node: {fileID: 4568979083238420942}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -4588188563268291748}
+        node: {fileID: 2657727638644285937}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
-      _node: {fileID: -2560209615417789324}
+      _node: {fileID: 4568979083238420942}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -7787400696042811749}
+        node: {fileID: 2385962404784704852}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -107,24 +124,6 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: borx
-  dialogue: "Espadas, lan\xE7as voc\xEA quer? S\xE3o suas meu amigo contanto que
-    tenha dinheiro suficiente."
-  sprite: {fileID: 21300000, guid: 63e2f33b8b3fb704bb2d913fe550bd47, type: 3}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
-  m_Name: Shop teste
-  m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: -4588188563268291748}
-  - {fileID: -2560209615417789324}
-  - {fileID: -7787400696042811749}
-  current: {fileID: -7787400696042811749}
+  speaker: 
+  dialogue: 
+  sprite: {fileID: 0}
