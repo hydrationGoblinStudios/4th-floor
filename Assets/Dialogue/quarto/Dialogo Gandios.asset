@@ -133,7 +133,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 1403712970940035504}
+        node: {fileID: -1918790261577884785}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -142,11 +142,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: ???
-  dialogue: "Ao se aproximar consigo ter uma vis\xE3o melhor da figura: uma pele
-    cinza cobre seu corpo. olhos s\xE9rios com pupilas negras em formato de cruz
-    n\xE3o revelam qualquer emo\xE7\xE3o. Um capacete de metal guarda um semblante
-    impass\xEDvel, e uma armadura de placas completa seu uniforme. Um molho de chaves
-    se pendura em sua cintura."
+  dialogue: "Um capacete de metal guarda um semblante impass\xEDvel, e uma armadura
+    de placas completa seu uniforme. Um molho de chaves se pendura em sua cintura."
   sprite: {fileID: 0}
 --- !u!114 &-5429638200948200623
 MonoBehaviour:
@@ -343,6 +340,56 @@ MonoBehaviour:
   dialogue: "''Sora'', o reino dos c\xE9us. \xC9 aqui onde voc\xEA est\xE1. Pessoas
     v\xEAm de muito longe para visitar nossas ilhas, voc\xEA t\xEAm sorte de estar
     aqui."
+  sprite: {fileID: 0}
+--- !u!114 &-1918790261577884785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 872, y: 120}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1918790261577884785}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -6380176572063173488}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1918790261577884785}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 1403712970940035504}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: ???
+  dialogue: "Ao se aproximar consigo ter uma vis\xE3o melhor da figura: uma pele
+    cinza cobre seu corpo. olhos s\xE9rios com pupilas negras em formato de cruz
+    n\xE3o revelam qualquer emo\xE7\xE3o. "
   sprite: {fileID: 0}
 --- !u!114 &-1424707386555536369
 MonoBehaviour:
@@ -590,7 +637,8 @@ MonoBehaviour:
   - {fileID: -8875572695599767343}
   - {fileID: 5383288198977044552}
   - {fileID: 6991064009933755752}
-  current: {fileID: 0}
+  - {fileID: -1918790261577884785}
+  current: {fileID: -1060028500495185623}
 --- !u!114 &1403712970940035504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +664,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -6380176572063173488}
+        node: {fileID: -1918790261577884785}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

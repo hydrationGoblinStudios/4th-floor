@@ -69,7 +69,7 @@ public class NodeParser : MonoBehaviour
             QuestionNode questionNode = (QuestionNode)b;
             extraTexts[0].text = questionNode.option2;
             extraTexts[1].text = questionNode.option3;
-            extraTexts[1].text = questionNode.option3;
+            extraTexts[2].text = questionNode.option4;
             speakerImage.sprite = b.GetSprite();
             yield return new WaitUntil(() => buttonPress != -1);
             switch (buttonPress)
