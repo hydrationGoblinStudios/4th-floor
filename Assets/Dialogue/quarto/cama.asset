@@ -126,4 +126,4 @@ MonoBehaviour:
   exit: 0
   speaker: 
   dialogue: "-Um monte de farrapos, isso \xE9 para ser minha cama?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}

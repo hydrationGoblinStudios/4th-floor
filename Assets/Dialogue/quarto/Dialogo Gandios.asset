@@ -49,7 +49,7 @@ MonoBehaviour:
   dialogue: "Sim, sim, o Coliseu \xE9 dividido em 4 andares. O primeiro andar, aqui,
     \xE9 onde os presos ficam, conforme voc\xEA ganhar lutas voc\xEA pode subir de
     andar, quanto mais alto, maiores s\xE3o as recompensas pelas vit\xF3rias."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &-8434312168728465894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   speaker: Gandios
   dialogue: "Eu n\xE3o sei, mas te garanto que n\xE3o prendemos ningu\xE9m sem motivo.
     Se voc\xEA est\xE1 aqui, \xE9 porque coisa boa n\xE3o fez. "
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &-6380176572063173488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   speaker: ???
   dialogue: "Um capacete de metal guarda um semblante impass\xEDvel, e uma armadura
     de placas completa seu uniforme. Um molho de chaves se pendura em sua cintura."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &-5429638200948200623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   exit: 0
   speaker: ???
   dialogue: "Ei, Algu\xE9m a\xED?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &-5299644082334286066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   exit: 0
   speaker: ???
   dialogue: "N\xE3o nem mesmo meu nome."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &-3417105386017368590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   dialogue: "''Sora'', o reino dos c\xE9us. \xC9 aqui onde voc\xEA est\xE1. Pessoas
     v\xEAm de muito longe para visitar nossas ilhas, voc\xEA t\xEAm sorte de estar
     aqui."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &-2574127771559887756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   dialogue: "''Sora'', o reino dos c\xE9us. \xC9 aqui onde voc\xEA est\xE1. Pessoas
     v\xEAm de muito longe para visitar nossas ilhas, voc\xEA t\xEAm sorte de estar
     aqui."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &-1918790261577884785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   dialogue: "Ao se aproximar consigo ter uma vis\xE3o melhor da figura: uma pele
     cinza cobre seu corpo. olhos s\xE9rios com pupilas negras em formato de cruz
     n\xE3o revelam qualquer emo\xE7\xE3o. "
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &-1424707386555536369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
     e se algu\xE9m comete algum crime ainda vem parar aqui, como voc\xEA, por exemplo.
     A diferen\xE7a \xE9 que agora os presos s\xE3o for\xE7ados a lutar entre si para
     entreter o povo. Melhor que pena de morte."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &-1286445039621177593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
   exit: 0
   speaker: ???
   dialogue: "Um homem parece ouvir, e v\xEAm andando em minha dire\xE7\xE3o."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &-1060028500495185623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   option2: "Quem \xE9 voc\xEA?"
   option3: Por que estou preso?
   option4: Onde estou?
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,7 +686,7 @@ MonoBehaviour:
   exit: 0
   speaker: Gandios
   dialogue: "\xC9 voc\xEA novato? O que quer?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &2014615992897312749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -739,7 +739,7 @@ MonoBehaviour:
     e se algu\xE9m comete algum crime ainda vem parar aqui, como voc\xEA, por exemplo.
     A diferen\xE7a \xE9 que agora os presos s\xE3o for\xE7ados a lutar entre si para
     entreter o povo. Melhor que pena de morte."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &2295324117722702788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,7 +789,7 @@ MonoBehaviour:
   dialogue: "Sobre sua outra pergunta, eu sou um Ascendido, se voc\xEA n\xE3o quer
     problemas por aqui, o primeiro passo \xE9 n\xE3o arrumar problema com nenhum
     ascendido."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &2385962404784704852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +947,7 @@ MonoBehaviour:
   option2: "Quem \xE9 voc\xEA?"
   option3: Por que estou preso?
   option4: Onde estou?
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &3593349056046126100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,7 +997,7 @@ MonoBehaviour:
   dialogue: "Bem, n\xE3o sei de onde voc\xEA veio tamb\xE9m, mas em quest\xE3o ao
     seu nome acho que posso ajudar. Eu lembro de ver voc\xEA sendo carregado para
     c\xE1, havia um nome nas suas algemas."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &4106091105586144807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   speaker: Gandios
   dialogue: "Meu nome \xE9 ''Gandios''. Sou o chefe da guarda daqui, melhor se comportar
     se n\xE3o quiser problemas."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &4244279041584077480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   speaker: Gandios
   dialogue: "Eu que deveria ter perguntar isso, n\xE3o? nunca vi nada parecido com
     voc\xEA. Voc\xEA realmente n\xE3o sabe de nada, n\xE3o \xE9 mesmo?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &4517262497326092368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   option2: Sora?
   option3: Primeiro andar?
   option4: Outra pergunta.
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &4568979083238420942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,7 +1246,7 @@ MonoBehaviour:
   speaker: ???
   dialogue: "Me agarro as barras da cela e tenta olhar ao redor. Ao longe do corredor
     \xE9 poss\xEDvel notar uma movimenta\xE7\xE3o."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &5383288198977044552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,7 +1296,7 @@ MonoBehaviour:
   dialogue: "Continuo bastante confuso, e minhas mem\xF3rias ainda est\xE3o turvas
     como um oceano profundo. Por hora devo entender porque eu vim parar aqui e como
     sair."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &5715000452931350376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   speaker: Gandios
   dialogue: "Meu nome \xE9 ''Gandios''. Sou o chefe da guarda daqui, melhor se comportar
     se n\xE3o quiser problemas."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &5850124413700067110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1390,7 +1390,7 @@ MonoBehaviour:
   exit: 0
   speaker: Gandios
   dialogue: '"Ramion" se bem lembro.'
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &5966578461018843861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,7 +1492,7 @@ MonoBehaviour:
   option2: Sora?
   option3: Primeiro andar?
   option4: Outra pergunta.
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &5985017593582799832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,7 +1541,7 @@ MonoBehaviour:
   speaker: Gandios
   dialogue: "Eu n\xE3o sei, mas te garanto que n\xE3o prendemos ningu\xE9m sem motivo.
     Se voc\xEA est\xE1 aqui, \xE9 porque coisa boa n\xE3o fez. "
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &6568500564426822100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1590,7 +1590,7 @@ MonoBehaviour:
   speaker: Gandios
   dialogue: "Este \xE9 o Coliseu de Sora, voc\xEA est\xE1 no primeiro andar, o que
     significa que voc\xEA t\xE1 bem ferrado."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &6991064009933755752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,7 +1639,7 @@ MonoBehaviour:
   speaker: Ramion
   dialogue: "Hoje, por\xE9m, acho que s\xF3 me resta dormir, amanh\xE3 o dia provavelmente
     vai ser cheio."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &7257748059860034182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   speaker: Gandios
   dialogue: "Este \xE9 o Coliseu de Sora, voc\xEA est\xE1 no primeiro andar, o que
     significa que voc\xEA t\xE1 bem ferrado."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &7992744937603436600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,4 +1738,4 @@ MonoBehaviour:
   dialogue: "Sim, sim, o Coliseu \xE9 dividido em 4 andares. O primeiro andar, aqui,
     \xE9 onde os presos ficam, conforme voc\xEA ganhar lutas voc\xEA pode subir de
     andar, quanto mais alto, maiores s\xE3o as recompensas pelas vit\xF3rias."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}

@@ -35,7 +35,10 @@ MonoBehaviour:
       _node: {fileID: -8976970400774382323}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -1594753055941867011}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -43,7 +46,7 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Ramion
-  dialogue: "Suas pupilas t\xEAm um brilho prata que reluz na noite."
+  dialogue: "suas pupilas t\xEAm um brilho prata que reluz na noite"
   sprite: {fileID: 0}
 --- !u!114 &-7658912378823964251
 MonoBehaviour:
@@ -70,7 +73,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 6245110955960601422}
+        node: {fileID: -4538226570790890010}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -95,6 +98,151 @@ MonoBehaviour:
     corpo aos poucos relaxando, sinto finalmente o doce abra\xE7o sono chegando.Com
     o peso de minhas p\xE1lpebras aumentando, e os m\xFAsculos do meu corpo aos poucos
     relaxando, sinto finalmente o doce abra\xE7o sono chegando."
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &-7211446149272673427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 3064, y: -136}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7211446149272673427}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -4456911385922635680}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7211446149272673427}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 7595945951439070294}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Ramion
+  dialogue: Mais e mais
+  sprite: {fileID: 0}
+--- !u!114 &-4538226570790890010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 520, y: 136}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4538226570790890010}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 6245110955960601422}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4538226570790890010}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7658912378823964251}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Ramion
+  dialogue: "Por mais que eu me esforce, n\xE3o consigo discernir nada que fa\xE7a
+    um m\xEDnimo de sentido."
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &-4456911385922635680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2808, y: -136}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4456911385922635680}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -3728912527706601343}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4456911385922635680}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7211446149272673427}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Ramion
+  dialogue: Chego mais perto
   sprite: {fileID: 0}
 --- !u!114 &-4336221015348129475
 MonoBehaviour:
@@ -183,11 +331,143 @@ MonoBehaviour:
   exit2: 0
   exit3: 0
   exit4: 0
-  speaker: Ramion
+  speaker: 
   dialogue: Sonhar.
   option2: 
   option3: 
   option4: 
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &-3728912527706601343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475ecc11ae4f609438615f9a8b52efa1, type: 3}
+  m_Name: Question
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2488, y: -136}
+  ports:
+    keys:
+    - entry
+    - exit
+    - exit2
+    - exit3
+    - exit4
+    values:
+    - _fieldName: entry
+      _node: {fileID: -3728912527706601343}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -1594753055941867011}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -3728912527706601343}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -4456911385922635680}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: -3728912527706601343}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit3
+      _node: {fileID: -3728912527706601343}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit4
+      _node: {fileID: -3728912527706601343}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  exit2: 0
+  exit3: 0
+  exit4: 0
+  speaker: 
+  dialogue: Se aproximar.
+  option2: 
+  option3: 
+  option4: 
+  sprite: {fileID: 0}
+--- !u!114 &-1594753055941867011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2216, y: -104}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1594753055941867011}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -8976970400774382323}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1594753055941867011}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -3728912527706601343}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: 
+  dialogue: "seus cabelos longos n\xE3o possuem cor, apesar da apar\xEAncia jovem."
   sprite: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -199,7 +479,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
-  m_Name: Sample
+  m_Name: Dialogo Desconhecido
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 2657727638644285937}
@@ -212,7 +492,13 @@ MonoBehaviour:
   - {fileID: 2514701713339036687}
   - {fileID: 7337249760079673026}
   - {fileID: -8976970400774382323}
-  current: {fileID: 0}
+  - {fileID: -1594753055941867011}
+  - {fileID: -3728912527706601343}
+  - {fileID: -4456911385922635680}
+  - {fileID: -7211446149272673427}
+  - {fileID: 7595945951439070294}
+  - {fileID: -4538226570790890010}
+  current: {fileID: 7337249760079673026}
 --- !u!114 &2385962404784704852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +512,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 552, y: -296}
+  position: {x: 2952, y: -296}
   ports:
     keys:
     - entry
@@ -286,8 +572,8 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: Ramion
-  dialogue: Sem roupa e sozinha.
+  speaker: 
+  dialogue: Sem roupa e sozinha
   sprite: {fileID: 0}
 --- !u!114 &2657727638644285937
 MonoBehaviour:
@@ -368,7 +654,7 @@ MonoBehaviour:
   speaker: Ramion
   dialogue: "Deito-me em minha cama. Os trapos n\xE3o me protegem do frio do ch\xE3o.
     Meu corpo inteiro d\xF3i."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &4961551103895599984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,8 +709,8 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: Ramion
-  dialogue: Uma pessoa.
+  speaker: 
+  dialogue: Uma pessoa
   sprite: {fileID: 0}
 --- !u!114 &6245110955960601422
 MonoBehaviour:
@@ -463,7 +749,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -7658912378823964251}
+        node: {fileID: -4538226570790890010}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -473,9 +759,8 @@ MonoBehaviour:
   exit: 0
   speaker: Ramion
   dialogue: "Fecho meus olhos, minha mente se enche em um pandem\xF4nio de cores
-    e sons, fragmentos de mem\xF3rias incompletas. Por mais que eu me esforce, n\xE3o
-    consigo discernir nada que fa\xE7a um m\xEDnimo de sentido."
-  sprite: {fileID: 0}
+    e sons, fragmentos de mem\xF3rias incompletas."
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &7337249760079673026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +806,51 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
+  speaker: 
+  dialogue: "seu corpo \xE9 p\xE1lido como a lua"
+  sprite: {fileID: 0}
+--- !u!114 &7595945951439070294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 3320, y: -136}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 7595945951439070294}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -7211446149272673427}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 7595945951439070294}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
   speaker: Ramion
-  dialogue: "Seu corpo \xE9 p\xE1lido como a lua."
+  dialogue: "T\xE3o perto"
   sprite: {fileID: 0}
