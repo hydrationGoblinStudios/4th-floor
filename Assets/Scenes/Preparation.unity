@@ -1711,7 +1711,7 @@ MonoBehaviour:
   dialogue: {fileID: 1749209968}
   speakerImage: {fileID: 460162264}
   action: {fileID: 1090234603}
-  options: {fileID: 723009941}
+  fakeptions: {fileID: 0}
   UserInterface: {fileID: 528687389}
   interactables: {fileID: 2059046813}
   extraTextObj: {fileID: 1354966817}
@@ -1719,6 +1719,16 @@ MonoBehaviour:
   - {fileID: 1983070807}
   - {fileID: 1042671143}
   - {fileID: 1971495627}
+  options:
+  - {fileID: 222334216}
+  - {fileID: 2087335477}
+  - {fileID: 1782517444}
+  - {fileID: 1296763536}
+  fakeOptions:
+  - {fileID: 744004375}
+  - {fileID: 349058108}
+  - {fileID: 2011698888}
+  - {fileID: 994545681}
   welcometext: 0
 --- !u!224 &549974025
 RectTransform:

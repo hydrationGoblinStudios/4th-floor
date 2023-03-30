@@ -14,11 +14,14 @@ public class NodeParser : MonoBehaviour
     public TextMeshProUGUI dialogue;
     public Image speakerImage;
     public Button action;
-    public GameObject options;
+    public GameObject fakeptions;
     public GameObject UserInterface;
     public GameObject interactables;
     public GameObject extraTextObj;
     public TextMeshProUGUI[] extraTexts;
+    public GameObject[] options;
+    public GameObject[] fakeOptions;
+
     public bool welcometext;
 
     private void Start()
@@ -52,7 +55,14 @@ public class NodeParser : MonoBehaviour
         if(dataParts[0] == "DialogueNode")
         {
             extraTextObj.SetActive(false);
-            options.SetActive(false);
+            foreach (GameObject gameOBJ in options)
+            {
+                gameOBJ.SetActive(true);
+            }
+            foreach(GameObject gameOBJ in fakeOptions)
+            {
+                gameOBJ.SetActive(false);
+            }
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
             speakerImage.sprite = b.GetSprite();
@@ -62,14 +72,37 @@ public class NodeParser : MonoBehaviour
         }
         if (dataParts[0] == "QuestionNode")
         {
+            Debug.Log("question node");
+            int counter = 0;
             extraTextObj.SetActive(true);
-            options.SetActive(true);
+            
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
             QuestionNode questionNode = (QuestionNode)b;
             extraTexts[0].text = questionNode.option2;
             extraTexts[1].text = questionNode.option3;
             extraTexts[2].text = questionNode.option4;
+            foreach (GameObject gameOBJ in options)
+            {
+                if (counter >= 1)
+                {
+                    if (extraTexts[counter - 1].text != "")
+                    {
+                        Debug.Log(extraTexts[counter - 1].text);
+                        Debug.Log("true");
+                        options[counter].SetActive(true);
+                        fakeOptions[counter].SetActive(true);
+                    }
+                    else
+                    {
+                        Debug.Log("false");
+                        options[counter - 1].SetActive(false);
+                        fakeOptions[counter].SetActive(false);
+                    }
+                }
+                counter++;
+                gameOBJ.SetActive(true);
+            }
             speakerImage.sprite = b.GetSprite();
             yield return new WaitUntil(() => buttonPress != -1);
             switch (buttonPress)
