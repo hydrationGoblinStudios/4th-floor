@@ -84,8 +84,14 @@ public class NodeParser : MonoBehaviour
             extraTexts[2].text = questionNode.option4;
             foreach (GameObject gameOBJ in options)
             {
+                if(counter == 0)
+                {
+                    gameOBJ.SetActive(true);
+                    fakeOptions[0].SetActive(true);
+                }
                 if (counter >= 1)
                 {
+                    Debug.Log(extraTexts[counter - 1].text);
                     if (extraTexts[counter - 1].text != "")
                     {
                         Debug.Log(extraTexts[counter - 1].text);
@@ -96,12 +102,11 @@ public class NodeParser : MonoBehaviour
                     else
                     {
                         Debug.Log("false");
-                        options[counter - 1].SetActive(false);
+                        options[counter].SetActive(false);
                         fakeOptions[counter].SetActive(false);
                     }
                 }
                 counter++;
-                gameOBJ.SetActive(true);
             }
             speakerImage.sprite = b.GetSprite();
             yield return new WaitUntil(() => buttonPress != -1);

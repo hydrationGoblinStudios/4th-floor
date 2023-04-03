@@ -498,7 +498,7 @@ MonoBehaviour:
   - {fileID: -7211446149272673427}
   - {fileID: 7595945951439070294}
   - {fileID: -4538226570790890010}
-  current: {fileID: 7595945951439070294}
+  current: {fileID: -8976970400774382323}
 --- !u!114 &2385962404784704852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2952, y: -296}
+  position: {x: 3624, y: -104}
   ports:
     keys:
     - entry
@@ -521,7 +521,10 @@ MonoBehaviour:
       _node: {fileID: 2385962404784704852}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: exit
+        node: {fileID: 7595945951439070294}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -844,7 +847,10 @@ MonoBehaviour:
       _node: {fileID: 7595945951439070294}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 2385962404784704852}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0

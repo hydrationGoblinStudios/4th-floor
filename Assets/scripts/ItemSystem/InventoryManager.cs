@@ -10,9 +10,10 @@ public class InventoryManager : MonoBehaviour
     [HideInInspector] public GameManager Manager;
     public GameObject panel;
     public GameObject charSelectPanel;
+    public GameObject ItemSelectPanel;
     public GameObject unitSelectPanel;
-    public GameObject firstButtonPrefab;
     public GameObject buttonPrefab;
+    public GameObject ItemButtonPrefab;
     public UnitBehavior selectedUnit;
     private GameObject sword;
     private GameObject axe;
@@ -30,12 +31,13 @@ public class InventoryManager : MonoBehaviour
     public void Equip(Item item)
     {
         selectedUnit.Weapon = item;
+        UpdateEquips(item.ItemName);
     }
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;
-        statText.text = "Hp:" +unitBehavior.maxhp + "\n" + "Atk:" + unitBehavior.atk + "\n" + "Def:" + unitBehavior.def + "\n" + "des:" + unitBehavior.dex + "\n" + "sorte:" + unitBehavior.luck ;
-        equipText.text = "Arma" + "\n"+ unitBehavior.Weapon.ItemName;
+        statText.text = "Hp:" +unitBehavior.maxhp + "\nAtk:" + unitBehavior.atk + "\nDef:" + unitBehavior.def + "\nDes:" + unitBehavior.dex + "\nSorte:" + unitBehavior.luck + "\nVel:" +unitBehavior.speed;
+        equipText.text = "Arma" + "\n"+ unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.atk;
     }
     public void UpdateInventory()
     {
@@ -53,13 +55,16 @@ public class InventoryManager : MonoBehaviour
         }
         foreach (Item item in Manager.Inventory)
         {
+            GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
+            itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
+            itemButton.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
 
         }
         foreach (GameObject unit in Manager.team)
         {
             if (first) 
             {
-                GameObject charButton = Instantiate(firstButtonPrefab, charSelectPanel.transform);
+                GameObject charButton = Instantiate(buttonPrefab, charSelectPanel.transform);
                 charButton.GetComponent<Button>().onClick.AddListener(() => Select(unit.GetComponent<UnitBehavior>()));
                 charButton.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
                 first = false;
@@ -83,5 +88,9 @@ public class InventoryManager : MonoBehaviour
             button.GetComponent<Button>().onClick.AddListener(() => Manager.Battle());
             button.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
         }
+    }
+    public void UpdateEquips(string str)
+    {
+        equipText.text = str;
     }
 }
