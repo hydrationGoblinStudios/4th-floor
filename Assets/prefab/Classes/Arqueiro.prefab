@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 106
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 11400000, guid: 4c8315433aa433c4c8bb98f5dd036b10, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
@@ -69,3 +69,4 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
+  description: "classe n\u7E0A valida"
