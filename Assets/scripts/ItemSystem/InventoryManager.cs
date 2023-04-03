@@ -31,13 +31,13 @@ public class InventoryManager : MonoBehaviour
     public void Equip(Item item)
     {
         selectedUnit.Weapon = item;
-        UpdateEquips(item.ItemName);
+        UpdateEquips(item);
     }
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;
-        statText.text = "Hp:" +unitBehavior.maxhp + "\nAtk:" + unitBehavior.atk + "\nDef:" + unitBehavior.def + "\nDes:" + unitBehavior.dex + "\nSorte:" + unitBehavior.luck + "\nVel:" +unitBehavior.speed;
-        equipText.text = "Arma" + "\n"+ unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.atk;
+        statText.text = "Classe:\n"+ unitBehavior.GetType().Name +"\nHp:" +unitBehavior.maxhp + "\nAtk:" + unitBehavior.atk + "\nDef:" + unitBehavior.def + "\nDes:" + unitBehavior.dex + "\nSorte:" + unitBehavior.luck + "\nVel:" +unitBehavior.speed;
+        equipText.text = "Arma:\n" + unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.atk + "\nAcerto:" + unitBehavior.Weapon.hit + "\nCrit:" + unitBehavior.Weapon.crit;
     }
     public void UpdateInventory()
     {
@@ -89,8 +89,8 @@ public class InventoryManager : MonoBehaviour
             button.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
         }
     }
-    public void UpdateEquips(string str)
+    public void UpdateEquips(Item item)
     {
-        equipText.text = str;
+        equipText.text = "Arma:\n"+ item.ItemName + "\nAtk:" + item.atk + "\nAcerto:" + item.hit + "\nCrit:" +item.crit;
     }
 }
