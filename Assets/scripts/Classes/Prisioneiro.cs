@@ -11,13 +11,13 @@ public class Prisioneiro : UnitBehavior
         if (enemy)
         {
             hp += damage / 2;
-            StartCoroutine(battleManager.PlayerExtraAttack("Super golpe"));
+            StartCoroutine(battleManager.PlayerExtraAttack("Super Golpes Múltiplos!"));
             battleManager.PlayerBar -= 50;
         }
         else
         {
             hp += damage / 2;
-            StartCoroutine(battleManager.PlayerExtraAttack("Super Golpe"));
+            StartCoroutine(battleManager.PlayerExtraAttack("Super Golpes Múltiplos"));
             battleManager.EnemyBar -= 50;
 
         }

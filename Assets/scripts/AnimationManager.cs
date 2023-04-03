@@ -19,28 +19,23 @@ public class AnimationManager : MonoBehaviour
         EanimatorOBJ = GameObject.FindGameObjectWithTag("Esprite");
         Panimator = PanimatorOBJ.GetComponent<Animator>();
         Eanimator = EanimatorOBJ.GetComponent<Animator>();
-        switch (battleManager.playerBehavior.GetType().Name)
+        Panimator.runtimeAnimatorController = battleManager.playerBehavior.GetType().Name switch
         {
-            case "Prisioneiro":
-                Panimator.runtimeAnimatorController = Animations[4];
-                break;
-
-            case "Espadachim":
-                Panimator.runtimeAnimatorController = Animations[0];
-                break;
-
-            case "Guerreiro":
-                Panimator.runtimeAnimatorController = Animations[1];
-                break;
-
-            case "Soldado":
-                Panimator.runtimeAnimatorController = Animations[2];
-                break;
-
-            case "Arqueiro":
-                Panimator.runtimeAnimatorController = Animations[3];
-                break;
-        }
+            "Prisioneiro" => Animations[4],
+            "Espadachim" => Animations[0],
+            "Guerreiro" => Animations[1],
+            "Soldado" => Animations[2],
+            "Arqueiro" => Animations[3],
+            _ => Animations[0],
+        };
+        Eanimator.runtimeAnimatorController = battleManager.enemyBehavior.GetType().Name switch
+        {
+            "Espadachim" => Animations[5],
+            "Guerreiro" => Animations[5],
+            "Soldado" => Animations[7],
+            "Arqueiro" => Animations[8],
+            _ => Animations[5],
+        };
     }
     void Update()
     {
