@@ -19,7 +19,7 @@ MonoBehaviour:
   weight: 0
   ItemName: Parfrit
   description: Arco Lendario que aumenta Vel em 20.
-  hit: 10
+  hit: 100
   crit: 10
   atk: 14
   dex: 0
