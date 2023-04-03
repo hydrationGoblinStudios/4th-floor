@@ -3800,6 +3800,10 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 6aa104f5c5fdb62419ed5af03a5b110a, type: 2}
   - {fileID: 9100000, guid: ad0167d1c4a6d7b498d207ceb43f75ef, type: 2}
   - {fileID: 9100000, guid: 348d989af4e2ad042b486ddfeda74cae, type: 2}
+  - {fileID: 9100000, guid: 560a6bfc29ee0b8469978e5ee16f3df9, type: 2}
+  - {fileID: 9100000, guid: 98bee15ac98fab9499b7d3963121042b, type: 2}
+  - {fileID: 9100000, guid: 558b9b703c32bfb428d401d672cf1114, type: 2}
+  - {fileID: 9100000, guid: 3231c27ff2ccc1e4884f338f896ef971, type: 2}
   Panimator: {fileID: 0}
   Eanimator: {fileID: 0}
   PanimatorOBJ: {fileID: 0}
