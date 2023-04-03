@@ -3035,7 +3035,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 046a82c701327134682831272ae61cda, type: 2}
   - {fileID: 11400000, guid: c353e0ac377a3194faa60235799710cf, type: 2}
   - {fileID: 11400000, guid: 383f8de714634634a9a30b8b0fe277c7, type: 2}
-  - {fileID: 11400000, guid: b8c26b078cc5c934d93f8637bf4ac229, type: 2}
   KeyItems: []
 --- !u!1 &994545681
 GameObject:

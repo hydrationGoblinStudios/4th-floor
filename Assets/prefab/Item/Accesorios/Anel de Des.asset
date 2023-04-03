@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Anel de Doran
+  m_Name: Anel de Des
   m_EditorClassIdentifier: 
   id: 1
   sprite: {fileID: 0}
   type: 1
   weapontype: 0
   weight: 0
-  ItemName: Anel de Doran
+  ItemName: Anel de destresa
   description: Machado Simples.
   hit: 0
   crit: 0
-  atk: 2
-  dex: 2
-  def: 2
-  luck: 2
-  speed: 2
+  atk: 0
+  dex: 5
+  def: 0
+  luck: 0
+  speed: 0
   price: 0
