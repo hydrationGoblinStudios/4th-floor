@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Prisioneiro : UnitBehavior
 {
+    public string descriptionA = "O prisioneiro golpeia 2 vezes, um recupera parte da vida, e o outro reduz a barra de ação";
+    public string descriptionP = "Quanto menos vida mais rapido o Prisioneiro vai atacar.";
     public override int Soul(int damage)
     {
         if (enemy)

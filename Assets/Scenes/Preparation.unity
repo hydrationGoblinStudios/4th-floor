@@ -3013,9 +3013,9 @@ MonoBehaviour:
   money: 50
   playerUnit:
   - {fileID: 4445489306633608637, guid: 5541914f4194fb14fbad1dc299a5ef26, type: 3}
-  - {fileID: 4445489306633608637, guid: 669fd15992f6a9d4ea3f1829a5599585, type: 3}
-  - {fileID: 4445489306633608637, guid: c3d564d3def40c04f99a0fed9fee5e82, type: 3}
-  - {fileID: 4445489306633608637, guid: 7b327656da922064d850e35cf3713bc4, type: 3}
+  - {fileID: 4445489306633608637, guid: efaa79524367fcf46bdf5cec92c88e49, type: 3}
+  - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
+  - {fileID: 4445489306633608637, guid: 04377b80085b791499ee4a5d0212e45b, type: 3}
   enemyUnit:
   - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
   team: []

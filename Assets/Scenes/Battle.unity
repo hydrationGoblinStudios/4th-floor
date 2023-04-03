@@ -3798,6 +3798,8 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 81127988e8bfa4c4aab5045dd82709d4, type: 2}
   - {fileID: 9100000, guid: a05e966f4c6697e4bb842d0fb3b4095d, type: 2}
   - {fileID: 9100000, guid: 6aa104f5c5fdb62419ed5af03a5b110a, type: 2}
+  - {fileID: 9100000, guid: ad0167d1c4a6d7b498d207ceb43f75ef, type: 2}
+  - {fileID: 9100000, guid: 348d989af4e2ad042b486ddfeda74cae, type: 2}
   Panimator: {fileID: 0}
   Eanimator: {fileID: 0}
   PanimatorOBJ: {fileID: 0}

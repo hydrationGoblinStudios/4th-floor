@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Guerreiro : UnitBehavior
 {
-   public override int Soul(int damage)
+    public string descriptionA = "O Gurreiro golpeia com um golpe que da o dobro de dano";
+    public string descriptionP = "Com 1/4 do hp, o Guerreiro vai causar mais dano";
+    public override int Soul(int damage)
     {
         battleManager.battleText.text = "Golpe devastador!";
         return damage * 2;

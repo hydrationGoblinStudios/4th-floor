@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Barbaro : UnitBehavior
 {
-    public string descriptionA = "O Barbaro ataca cada vez mais rapido";
-    public string descriptionP = "Se o barbaro for mais forte que o oponente ele roubara sua vida";
+    public string descriptionA = "O Barbaro ataca mais rapido pelo resto da batalha";
+    public string descriptionP = "Se o barbaro for mais forte que o oponente ele ira se curar em parte do dano";
 
     public override int Soul(int damage)
     {
