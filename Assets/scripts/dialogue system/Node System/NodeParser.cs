@@ -36,13 +36,14 @@ public class NodeParser : MonoBehaviour
         BaseNode b = graph.current;
         string data  = b.GetString();
         string[] dataParts = data.Split('/');
+       
         if(dataParts[0] == "Start")
         {
             interactables.SetActive(false);
             UserInterface.SetActive(true);
             NextNode("exit");
         }
-        if (dataParts[0] == "Stop")
+        else if (dataParts[0] == "Stop")
         {
             interactables.SetActive(true);
             if(action.onClick != null)
@@ -52,7 +53,7 @@ public class NodeParser : MonoBehaviour
             UserInterface.SetActive(false);
             yield return null;
         }
-        if(dataParts[0] == "DialogueNode")
+        else if(dataParts[0] == "DialogueNode")
         {
             extraTextObj.SetActive(false);
             foreach (GameObject gameOBJ in options)
@@ -70,9 +71,8 @@ public class NodeParser : MonoBehaviour
             buttonPress = -1;
             NextNode("exit");
         }
-        if (dataParts[0] == "QuestionNode")
+        else if (dataParts[0] == "QuestionNode")
         {
-            Debug.Log("question node");
             int counter = 0;
             extraTextObj.SetActive(true);
             
@@ -130,9 +130,8 @@ public class NodeParser : MonoBehaviour
                     break;
             }
         }
-        if (dataParts[0] == "ItemCheck")
+        else if (dataParts[0] == "ItemCheck")
         {
-            Debug.Log(dataParts[0]);
             if(dataParts[1] == "1")
             {
                 NextNode("exit");
@@ -141,6 +140,10 @@ public class NodeParser : MonoBehaviour
             {
                 NextNode("exit2");
             }
+        }
+        else
+        {
+            NextNode("exit");
         }
 
     }

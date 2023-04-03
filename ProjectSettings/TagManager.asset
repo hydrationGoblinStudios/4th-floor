@@ -11,6 +11,7 @@ TagManager:
   - Psprite
   - Esprite
   - team
+  - Dialogue System Sprite
   layers:
   - Default
   - TransparentFX

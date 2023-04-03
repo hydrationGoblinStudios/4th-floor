@@ -24,20 +24,36 @@ public class InventoryManager : MonoBehaviour
     public Sprite[] sprites;
     public TextMeshProUGUI statText;
     public TextMeshProUGUI equipText;
+    public TextMeshProUGUI accesoryText;
     public void Toggle()
     {
         gameObject.SetActive(!gameObject.activeInHierarchy);
     }
     public void Equip(Item item)
-    {
-        selectedUnit.Weapon = item;
-        UpdateEquips(item);
+    {if(item.type == Item.Type.weapon)
+        {
+            selectedUnit.Weapon = item;
+            UpdateEquips(item);
+        }
+        else
+        {
+            selectedUnit.Accesory = item;
+            UpdateAccesory(item);
+        }
     }
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;
         statText.text = "Classe:\n"+ unitBehavior.GetType().Name +"\nHp:" +unitBehavior.maxhp + "\nAtk:" + unitBehavior.atk + "\nDef:" + unitBehavior.def + "\nDes:" + unitBehavior.dex + "\nSorte:" + unitBehavior.luck + "\nVel:" +unitBehavior.speed;
         equipText.text = "Arma:\n" + unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.atk + "\nAcerto:" + unitBehavior.Weapon.hit + "\nCrit:" + unitBehavior.Weapon.crit;
+        if(unitBehavior.Accesory != null)
+        {
+            accesoryText.text = "Accesorio:\n" + unitBehavior.Accesory.ItemName + "\nAtk:" + unitBehavior.Accesory.atk + "\nDef:" + unitBehavior.Weapon.def + "\nDes:" + unitBehavior.Weapon.dex + "\nSorte:" + unitBehavior.Weapon.luck + "\nvel:" + unitBehavior.Weapon.speed;
+        }
+        else
+        {
+            accesoryText.text = "";
+        }
     }
     public void UpdateInventory()
     {
@@ -92,5 +108,9 @@ public class InventoryManager : MonoBehaviour
     public void UpdateEquips(Item item)
     {
         equipText.text = "Arma:\n"+ item.ItemName + "\nAtk:" + item.atk + "\nAcerto:" + item.hit + "\nCrit:" +item.crit;
+    }
+    public void UpdateAccesory(Item item)
+    {
+        accesoryText.text = "Accesorio:\n" + item.ItemName + "\nAtk:" + item.atk + "\nDef:" + item.def + "\nDes:" + item.dex + "\nSorte:" + item.luck + "\nvel:" + item.speed;
     }
 }
