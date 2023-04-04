@@ -31,7 +31,7 @@ public class AnimationManager : MonoBehaviour
         Eanimator.runtimeAnimatorController = battleManager.enemyBehavior.GetType().Name switch
         {
             "Espadachim" => Animations[5],
-            "Guerreiro" => Animations[5],
+            "Guerreiro" => Animations[6],
             "Soldado" => Animations[7],
             "Arqueiro" => Animations[8],
             _ => Animations[5],
@@ -39,14 +39,20 @@ public class AnimationManager : MonoBehaviour
     }
     void Update()
     {
-       if(battleManager.state == BattleManager.BattleState.PlayerTurn & wait)
+        if (battleManager.state == BattleManager.BattleState.PlayerTurn & wait)
         {
             Panimator.SetTrigger("Pattack");
-            wait = false; 
+            wait = false;
         }
         if (battleManager.state == BattleManager.BattleState.Wait)
         {
             wait = true;
+        }
+
+        if (battleManager.state == BattleManager.BattleState.EnemyTurn & wait)
+        {
+            Eanimator.SetTrigger("Eattack");
+            wait = false;
         }
     }
 }
