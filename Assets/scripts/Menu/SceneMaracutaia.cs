@@ -7,7 +7,11 @@ public class SceneMaracutaia : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Preparation");
+        SceneManager.LoadScene("Abertura");
+    }
+    public void LoadScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
     public void QuitGame()
     {

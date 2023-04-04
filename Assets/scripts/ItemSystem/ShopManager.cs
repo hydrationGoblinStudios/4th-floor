@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
     public GameObject buttonPrefab;
     public NodeParser nodeParser;
     public Item[] stock;
+    public Sprite[] sprites;
     public DialogueGraph graph;
 
     void Start()
@@ -22,7 +23,25 @@ public class ShopManager : MonoBehaviour
         {
             GameObject button = Instantiate(buttonPrefab, panel.transform);
             button.GetComponent<Button>().onClick.AddListener(() => Buy(item));
-            button.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
+            button.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName +" " + item.price;
+            switch (item.weapontype)
+            {
+                case Item.Weapontype.Sword:
+                    button.GetComponentInChildren<Image>().sprite = sprites[0];
+                    break;
+                case Item.Weapontype.Lance:
+                    button.GetComponentInChildren<Image>().sprite = sprites[1];
+                    break;
+                case Item.Weapontype.Axe:
+                    button.GetComponentInChildren<Image>().sprite = sprites[2];
+                    break;
+                case Item.Weapontype.Bow:
+                    button.GetComponentInChildren<Image>().sprite = sprites[3];
+                    break;
+                case Item.Weapontype.Accesory:
+                    button.GetComponentInChildren<Image>().sprite = sprites[4];
+                    break;
+            }
         }
     }
     public void Buy(Item item)
