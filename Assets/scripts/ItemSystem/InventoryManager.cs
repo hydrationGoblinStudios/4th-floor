@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject unitSelectPanel;
     public GameObject buttonPrefab;
     public GameObject ItemButtonPrefab;
+    public GameObject UnitSelectButton;
     public UnitBehavior selectedUnit;
     public Sprite[] sprites;
     public TextMeshProUGUI statText;
@@ -110,7 +111,7 @@ public class InventoryManager : MonoBehaviour
         Manager = GameManagerOBJ.GetComponent<GameManager>();
         foreach (GameObject unit in Manager.team)
         {
-            GameObject button = Instantiate(buttonPrefab, unitSelectPanel.transform);
+            GameObject button = Instantiate(UnitSelectButton, unitSelectPanel.transform);
             button.GetComponent<Button>().onClick.AddListener(() => Manager.selectUnit(unit));
             button.GetComponent<Button>().onClick.AddListener(() => Manager.Battle());
             button.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;

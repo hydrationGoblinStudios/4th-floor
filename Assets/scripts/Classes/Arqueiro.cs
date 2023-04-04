@@ -27,7 +27,7 @@ public class Arqueiro : UnitBehavior
 
     public override int Proc(int damage)
     {
-        return battleManager.Phit / 10;
+        return battleManager.Phit / 30;
     }
 
 }
