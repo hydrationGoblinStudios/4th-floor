@@ -21,7 +21,8 @@ public class Item : ScriptableObject
         Icetome,
         Thundertome,
         Plaguetome,
-        Eviltome
+        Eviltome,
+        Accesory
 
     }
     public enum WeaponWeight

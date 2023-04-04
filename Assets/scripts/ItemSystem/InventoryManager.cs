@@ -15,12 +15,6 @@ public class InventoryManager : MonoBehaviour
     public GameObject buttonPrefab;
     public GameObject ItemButtonPrefab;
     public UnitBehavior selectedUnit;
-    private GameObject sword;
-    private GameObject axe;
-    private GameObject lance;
-    private GameObject bow;
-    private GameObject tome;
-    private GameObject receptacle;
     public Sprite[] sprites;
     public TextMeshProUGUI statText;
     public TextMeshProUGUI equipText;
@@ -74,7 +68,24 @@ public class InventoryManager : MonoBehaviour
             GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
             itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
             itemButton.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
-
+            switch (item.weapontype)
+            {
+                case Item.Weapontype.Sword:
+                     itemButton.GetComponentInChildren<Image>().sprite = sprites[0];
+                    break;
+                case Item.Weapontype.Lance:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[1];
+                    break;
+                case Item.Weapontype.Axe:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[2];
+                    break;
+                case Item.Weapontype.Bow:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[3];
+                    break;
+                case Item.Weapontype.Accesory:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[4];
+                    break;
+            }
         }
         foreach (GameObject unit in Manager.team)
         {

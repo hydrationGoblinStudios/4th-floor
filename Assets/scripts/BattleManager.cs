@@ -22,6 +22,11 @@ public class BattleManager : MonoBehaviour
     public float Espeed;
     public int Esoul;
     public int Eskill;
+
+    [HideInInspector]
+    public int pAccSpeed;
+    [HideInInspector]
+    public int eAccSpeed;
     [Header("Game objects")]
     public GameManager gameManager;
     public GameObject playerUnit;
@@ -180,9 +185,9 @@ public class BattleManager : MonoBehaviour
     }
     public virtual IEnumerator PlayerExtraAttack(string texto)
     {
-        state = BattleState.PlayerTurn;
         battleText.text = texto;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds((float)3.01);
+        state = BattleState.PlayerTurn;
         if (Random.Range(0, 101) <= Pcrit)
         {
             enemyBehavior.hp -= (Pdamage + Pskill) * 2;
@@ -210,7 +215,7 @@ public class BattleManager : MonoBehaviour
             if (exp <= 0) { exp = 1; }
             playerBehavior.level += exp;
             yield return new WaitForSeconds(1);
-            battleText.text = ("vo?e recebe " + exp + " de experiencia");
+            battleText.text = ("voce recebe " + exp + " de experiencia");
             yield return new WaitForSeconds(1);
             gameManager.PrepScreen();
         }
@@ -224,36 +229,70 @@ public class BattleManager : MonoBehaviour
         state = BattleState.EnemyTurn;
         if (Random.Range(0, 101) <= Ehit)
         {
+            Eskill = enemyBehavior.Proc(Edamage);
+            Esoul += 1;
+            if (Esoul >= 3)
+            {
+                Esoul = 0;
+                Eskill += enemyBehavior.Soul(Edamage);
+                yield return new WaitForSeconds(1);
+            }
+            HudUpdate();
+            yield return new WaitForSeconds(1);
             if (Random.Range(0, 101) <= Ecrit)
             {
-                playerBehavior.hp -= Edamage * 2;
+                playerBehavior.hp -= (Edamage + Eskill) * 2;
                 battleText.text = $"{enemyBehavior.UnitName} causa um acerto critico!!!";
                 yield return new WaitForSeconds(1);
-                battleText.text = $"{playerBehavior.UnitName} perdeu {Edamage * 2} hp";
+                battleText.text = $"{playerBehavior.UnitName} perdeu {(Eskill + Edamage) * 2} hp";
                 playerHpSlider.value = playerBehavior.hp;
             }
             else
             {
-                playerBehavior.hp -= Edamage;
-                battleText.text = $"{playerBehavior.UnitName} perdeu {Edamage} hp";
+                playerBehavior.hp -= Eskill + Edamage;
+                battleText.text = $"{playerBehavior.UnitName} perdeu {Edamage + Eskill} hp";
                 playerHpSlider.value = playerBehavior.hp;
             }
-            Esoul += 1;
-            if(Esoul >= 5){
-                Esoul = 0;
-                enemyBehavior.Soul(Edamage);
-            }
-            HudUpdate();
         }
         else
         {
-            battleText.text = (enemyBehavior.UnitName + " errou");
+            Eskill = enemyBehavior.Proc(0);
+            battleText.text = (playerBehavior.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
-        if (playerBehavior.hp <= 0 && playerBehavior.Pendure == false)
+        if (playerBehavior.hp <= 0 && playerBehavior.Eendure == false)
         {
-            battleText.text = (enemyBehavior.UnitName + " ganhou");
-            state = BattleState.EnemyWon;
+            gameManager.PrepScreen();
+        }
+        else
+        {
+            state = BattleState.Wait;
+        }
+    }
+    public virtual IEnumerator EnemyExtraAttack(string texto)
+    {
+        battleText.text = texto;
+        yield return new WaitForSeconds((float)3.01);
+        state = BattleState.EnemyTurn;
+        if (Random.Range(0, 101) <= Ecrit)
+        {
+            playerBehavior.hp -= (Edamage + Eskill) * 2;
+            battleText.text = $"{enemyBehavior.UnitName} causa um acerto critico!!!";
+            yield return new WaitForSeconds(1);
+            battleText.text = $"{playerBehavior.UnitName} perdeu {(Eskill + Edamage) * 2} hp";
+            playerHpSlider.value = playerBehavior.hp;
+        }
+        else
+        {
+            playerBehavior.hp -= Eskill + Edamage;
+            battleText.text = $"{playerBehavior.UnitName} perdeu {Edamage + Eskill} hp";
+            playerHpSlider.value = playerBehavior.hp;
+        }
+        HudUpdate();
+        yield return new WaitForSeconds(1f);
+        if (enemyBehavior.hp <= 0 && enemyBehavior.Eendure == false)
+        {
+            gameManager.PrepScreen();
         }
         else
         {
@@ -304,15 +343,22 @@ public class BattleManager : MonoBehaviour
         {
             Ehit = 100;
         }
-        if (playerBehavior.speed >= enemyBehavior.speed)
+        if (playerBehavior.Accesory != null)
         {
-            Pspeed = playerBehavior.speed / enemyBehavior.speed;
+            pAccSpeed = playerBehavior.Accesory.speed;
+        }
+        if(enemyBehavior.Accesory != null)
+        {
+            eAccSpeed = enemyBehavior.Accesory.speed;
+        }
+        if ((playerBehavior.speed + playerBehavior.Weapon.speed + pAccSpeed) >= (enemyBehavior.speed + enemyBehavior.Weapon.speed + eAccSpeed))
+        {
+            Pspeed = (playerBehavior.speed + playerBehavior.Weapon.speed + pAccSpeed) / (enemyBehavior.speed + enemyBehavior.Weapon.speed + eAccSpeed);
             Espeed = 1;
         }
         else
         {
-
-            Espeed = enemyBehavior.speed / playerBehavior.speed;
+            Espeed = (enemyBehavior.speed + enemyBehavior.Weapon.speed + eAccSpeed) / (playerBehavior.speed + playerBehavior.Weapon.speed + pAccSpeed);
             Pspeed = 1;
         }
         if (playerBehavior.Weapon != null)

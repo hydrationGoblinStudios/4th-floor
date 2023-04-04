@@ -15,9 +15,9 @@ MonoBehaviour:
   id: 1
   sprite: {fileID: 0}
   type: 1
-  weapontype: 0
+  weapontype: 9
   weight: 0
-  ItemName: Anel de destresa
+  ItemName: Anel de destreza
   description: Machado Simples.
   hit: 0
   crit: 0
@@ -26,4 +26,4 @@ MonoBehaviour:
   def: 0
   luck: 0
   speed: 0
-  price: 0
+  price: 700

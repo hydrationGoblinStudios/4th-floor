@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1
   sprite: {fileID: 0}
   type: 1
-  weapontype: 0
+  weapontype: 9
   weight: 0
   ItemName: Anel de sorte
   description: Machado Simples.
@@ -26,4 +26,4 @@ MonoBehaviour:
   def: 0
   luck: 10
   speed: 0
-  price: 0
+  price: 700

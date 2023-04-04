@@ -335,8 +335,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enemy name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
-  m_sharedMaterial: {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
+  m_sharedMaterial: {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -425,7 +425,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  - {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -510,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304585666}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -132.8, y: -65, z: 0.00013728776}
+  m_LocalPosition: {x: -112.31, y: -65, z: 0.00013728776}
   m_LocalScale: {x: -175, y: 174.10011, z: 174.10011}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -835,8 +835,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
-  m_sharedMaterial: {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
+  m_sharedMaterial: {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -925,7 +925,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  - {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1083,8 +1083,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
-  m_sharedMaterial: {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
+  m_sharedMaterial: {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1173,7 +1173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  - {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1487,8 +1487,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
-  m_sharedMaterial: {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
+  m_sharedMaterial: {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1577,7 +1577,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  - {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1927,7 +1927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107532814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.9, y: -65.5, z: 0}
+  m_LocalPosition: {x: -9.9, y: -65.5, z: 0}
   m_LocalScale: {x: 175, y: 175, z: 175}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2647,8 +2647,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Battle text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
-  m_sharedMaterial: {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
+  m_sharedMaterial: {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2737,7 +2737,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5043598580235758366, guid: 8f44bca492157af4e9e78592de9783af, type: 2}
+  - {fileID: 7117000840067383624, guid: 7c26af738a8a9a3428a19d9a18d8e7f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2822,6 +2822,8 @@ MonoBehaviour:
   Espeed: 0
   Esoul: 0
   Eskill: 0
+  pAccSpeed: 0
+  eAccSpeed: 0
   gameManager: {fileID: 0}
   playerUnit: {fileID: 0}
   enemyUnit: {fileID: 4445489306633608637, guid: 04377b80085b791499ee4a5d0212e45b, type: 3}
