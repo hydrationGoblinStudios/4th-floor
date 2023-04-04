@@ -28,7 +28,10 @@ public class GameManager : Singleton
     {
         SceneManager.LoadScene("Battle");
     }
-
+    public void SceneLoader(string str)
+    {
+        SceneManager.LoadScene(str);   
+    }
     public void OnLevelWasLoaded()
     {
         GameObject tempGameObject = GameObject.FindGameObjectWithTag("Battle Text");
