@@ -4169,8 +4169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -398.8, y: -336.92}
-  m_SizeDelta: {x: 113.57, y: 153.84}
+  m_AnchoredPosition: {x: -406.51, y: -206.39}
+  m_SizeDelta: {x: 64.78, y: 67.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1106256258
 MonoBehaviour:
@@ -4221,7 +4221,7 @@ MonoBehaviour:
         m_MethodName: StartDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 0058b55b9013b7140b82210003024fde, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 812e8f58745745d4e8a2ef4e15deaff2, type: 2}
           m_ObjectArgumentAssemblyTypeName: DialogueGraph, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
