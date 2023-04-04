@@ -1,23 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
-  m_Name: Sample 1
-  m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: 2657727638644285937}
-  - {fileID: 2385962404784704852}
-  - {fileID: 4568979083238420942}
-  current: {fileID: 0}
---- !u!114 &2385962404784704852
+--- !u!114 &-8925317636048557092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,13 +13,45 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: -72}
+  position: {x: 1144, y: -72}
   ports:
     keys:
     - entry
     values:
     - _fieldName: entry
-      _node: {fileID: 2385962404784704852}
+      _node: {fileID: -8925317636048557092}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -5511384123658045}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+--- !u!114 &-5511384123658045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 616, y: -88}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5511384123658045}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -47,7 +62,42 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -5511384123658045}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -8925317636048557092}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   entry: 0
+  exit: 0
+  speaker: Ramion
+  dialogue: "Parece que um antigo ocupante dessa cela talhou uns s\xEDmbolos estranhos.
+    Me pergunto o que isso significa."
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
+  m_Name: Simbolos
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2657727638644285937}
+  - {fileID: 4568979083238420942}
+  - {fileID: -5511384123658045}
+  - {fileID: -8925317636048557092}
+  current: {fileID: -8925317636048557092}
 --- !u!114 &2657727638644285937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +166,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 2385962404784704852}
+        node: {fileID: -5511384123658045}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -124,6 +174,6 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: 
-  dialogue: 
-  sprite: {fileID: 21300000, guid: 63e2f33b8b3fb704bb2d913fe550bd47, type: 3}
+  speaker: Ramion
+  dialogue: "O qu\xEA \xE9 isso?"
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
