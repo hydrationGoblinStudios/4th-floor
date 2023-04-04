@@ -52,21 +52,23 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  UnitName: Gordin Reborn
+  UnitName: Arqueiro
   level: 0
   exp: 0
-  hit: 200
+  hit: 0
   avoid: 0
   crit: 0
   maxhp: 45
   hp: 45
-  atk: 5
-  dex: 11
+  atk: 4
+  dex: 10
   def: 5
   luck: 11
-  speed: 11
+  speed: 9
   Pendure: 0
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
   description: "classe n\u7E0A valida"
+  descriptionA: O Arqueiro faz um golpe que aumenta a destreza em 10
+  descriptionP: Ganha mais dano baseado na chance de acerto

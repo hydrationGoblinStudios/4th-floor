@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 
 public class BattleManager : MonoBehaviour
 {
+    public AudioSource[] hitAudio;
     public Animator animator;
     public UnitBehavior endure;
     public int Pdamage;
@@ -23,6 +24,7 @@ public class BattleManager : MonoBehaviour
     public int Esoul;
     public int Eskill;
 
+    public GameObject[] enemyList;
     [HideInInspector]
     public int pAccSpeed;
     [HideInInspector]
@@ -58,6 +60,7 @@ public class BattleManager : MonoBehaviour
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
         playerUnit = gameManager.team[0];
+        enemyUnit = enemyList[Random.Range(0, 4)];
         state = BattleState.BattleStart;
         StartCoroutine(SetupBattle());
     }
@@ -143,6 +146,7 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (Random.Range(0, 101) <= Pcrit)
             {
+                hitAudio[1].Play();
                 enemyBehavior.hp -= (Pdamage + Pskill) * 2;
                 battleText.text = $"{playerBehavior.UnitName} causa um acerto critico!!!";
                 yield return new WaitForSeconds(1);
@@ -151,6 +155,7 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
+                hitAudio[0].Play();
                 enemyBehavior.hp -= Pskill + Pdamage;
                 battleText.text = $"{enemyBehavior.UnitName} perdeu {Pdamage + Pskill} hp";
                 enemyHpSlider.value = enemyBehavior.hp;
@@ -172,7 +177,7 @@ public class BattleManager : MonoBehaviour
             battleText.text = ("voce recebe 50 de ouro");
             yield return new WaitForSeconds(1);
             int exp = 30 - 5 * (playerBehavior.level - enemyBehavior.level);
-            if (exp <= 0) { exp = 1; }
+            if (exp <= 0) { exp = 1;}
             playerBehavior.level += exp;
             battleText.text = ("voce recebe " + exp + " de experiencia");
             yield return new WaitForSeconds(1);
@@ -190,6 +195,7 @@ public class BattleManager : MonoBehaviour
         state = BattleState.PlayerTurn;
         if (Random.Range(0, 101) <= Pcrit)
         {
+            hitAudio[1].Play();
             enemyBehavior.hp -= (Pdamage + Pskill) * 2;
             battleText.text = $"{playerBehavior.UnitName} causa um acerto critico!!!";
             yield return new WaitForSeconds(1);
@@ -198,6 +204,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            hitAudio[0].Play();
             enemyBehavior.hp -= Pskill + Pdamage;
             battleText.text = $"{enemyBehavior.UnitName} perdeu {Pdamage + Pskill} hp";
             enemyHpSlider.value = enemyBehavior.hp;
@@ -241,6 +248,7 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (Random.Range(0, 101) <= Ecrit)
             {
+                hitAudio[1].Play();
                 playerBehavior.hp -= (Edamage + Eskill) * 2;
                 battleText.text = $"{enemyBehavior.UnitName} causa um acerto critico!!!";
                 yield return new WaitForSeconds(1);
@@ -249,6 +257,7 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
+                hitAudio[0].Play();
                 playerBehavior.hp -= Eskill + Edamage;
                 battleText.text = $"{playerBehavior.UnitName} perdeu {Edamage + Eskill} hp";
                 playerHpSlider.value = playerBehavior.hp;
