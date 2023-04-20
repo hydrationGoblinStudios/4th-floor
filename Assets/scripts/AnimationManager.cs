@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
-    public AnimatorController[] Animations;
+    public RuntimeAnimatorController[] Animations;
     public Animator Panimator;
     public Animator Eanimator;
     public GameObject PanimatorOBJ;

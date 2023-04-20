@@ -2766,13 +2766,6 @@ MonoBehaviour:
   moneyText: {fileID: 788691422}
   Inventory:
   - {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
-  - {fileID: 11400000, guid: c9fcc6fc0521a994ca76c9d0d8a49e5b, type: 2}
-  - {fileID: 11400000, guid: c353e0ac377a3194faa60235799710cf, type: 2}
-  - {fileID: 11400000, guid: 383f8de714634634a9a30b8b0fe277c7, type: 2}
-  - {fileID: 11400000, guid: 4be57993b28c0294f8e96066665e1fe3, type: 2}
-  - {fileID: 11400000, guid: b02cc4d2f38b7524ba0732c3d264abb7, type: 2}
-  - {fileID: 11400000, guid: a9691ade132f945488fa2114bc90a99f, type: 2}
-  - {fileID: 11400000, guid: ff06557b7ce141b4489d0abd8f85a625, type: 2}
   KeyItems: []
 --- !u!1 &994545681
 GameObject:
@@ -4028,6 +4021,7 @@ MonoBehaviour:
   unitSelectPanel: {fileID: 1857660256}
   buttonPrefab: {fileID: 7561249815366343786, guid: c5367feaf0bb4534c8d5fe8eaec98ffb, type: 3}
   ItemButtonPrefab: {fileID: 8115672569003287087, guid: b96ab1c36b3a13943b140be1022448d0, type: 3}
+  UnitSelectButton: {fileID: 0}
   selectedUnit: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: 56ffc22c81a88954c98d079b3a47a513, type: 3}
