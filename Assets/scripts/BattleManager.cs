@@ -49,6 +49,7 @@ public class BattleManager : MonoBehaviour
     public TextMeshPro battleText;
     public TextMeshPro playerstats;
     public TextMeshPro enemystats;
+    public GameObject playerGo;
     [Header("UI")]
     public float PlayerBar;
     public float EnemyBar;
@@ -75,7 +76,7 @@ public class BattleManager : MonoBehaviour
     {
         Psoul = 0;
         Esoul = 0;
-       GameObject playerGo = Instantiate(playerUnit, playerBattleStation);
+       playerGo = Instantiate(playerUnit, playerBattleStation);
        GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
        playerBehavior = playerGo.GetComponent<UnitBehavior>();
        enemyBehavior = enemyGo.GetComponent<UnitBehavior>();
@@ -168,20 +169,10 @@ public class BattleManager : MonoBehaviour
             battleText.text = (playerBehavior.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
+        //inimigo morre
         if (enemyBehavior.hp <= 0 && enemyBehavior.Eendure == false)
         {
-            battleText.text = (playerBehavior.UnitName + " ganhou");
-            state = BattleState.PlayerWon;
-            yield return new WaitForSeconds(1);
-            gameManager.money += 50;
-            battleText.text = ("voce recebe 50 de ouro");
-            yield return new WaitForSeconds(1);
-            int exp = 30 - 5 * (playerBehavior.level - enemyBehavior.level);
-            if (exp <= 0) { exp = 1;}
-            playerBehavior.level += exp;
-            battleText.text = ("voce recebe " + exp + " de experiencia");
-            yield return new WaitForSeconds(1);
-            gameManager.PrepScreen();
+            StartCoroutine(PlayerWin());
         }
         else
         {
@@ -213,18 +204,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (enemyBehavior.hp <= 0 && enemyBehavior.Eendure == false)
         {
-            battleText.text = (playerBehavior.UnitName + " ganhou");
-            state = BattleState.PlayerWon;
-            yield return new WaitForSeconds(1);
-            gameManager.money += 50;
-            battleText.text = ("voce ganhou 50 de ouro");
-            int exp = 30 - 5*(playerBehavior.level - enemyBehavior.level);
-            if (exp <= 0) { exp = 1; }
-            playerBehavior.level += exp;
-            yield return new WaitForSeconds(1);
-            battleText.text = ("voce recebe " + exp + " de experiencia");
-            yield return new WaitForSeconds(1);
-            gameManager.PrepScreen();
+            StartCoroutine(PlayerWin());
         }
         else
         {
@@ -307,6 +287,37 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.Wait;
         }
+    }
+    public IEnumerator PlayerWin()
+    {
+        battleText.text = (playerBehavior.UnitName + " ganhou");
+        state = BattleState.PlayerWon;
+        yield return new WaitForSeconds(1);
+        gameManager.money += 50;
+        battleText.text = ("voce recebe 50 de ouro");
+        yield return new WaitForSeconds(1);
+        int exp = 30 - 5 * (playerBehavior.level - enemyBehavior.level);
+        if (exp <= 0) { exp = 1; }
+        UnitBehavior RealCharacter = gameManager.team[0].GetComponent<UnitBehavior>();
+        RealCharacter.exp += exp;
+        battleText.text = ("voce recebe " + exp + " de experiencia");
+        yield return new WaitForSeconds(1);
+        if (RealCharacter.exp >= 100) { RandomGrowths(RealCharacter); }
+        gameManager.PrepScreen();
+    }
+    //randomiza growths, adicionar growths por personagem
+    public void RandomGrowths(UnitBehavior character)
+    {
+        List<float> stat = new List<float> {character.hp,character.atk,character.dex,character.def,character.speed,character.luck};
+        for (int i = 0; i < 6; i++)
+        {
+            int r = Random.Range(0, 100);
+            if (r >= 50)
+            {
+                Debug.Log("amogus");
+                stat[i]++;
+            }
+            };
     }
     public void StatChange()
     {
