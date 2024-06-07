@@ -39,7 +39,7 @@ public class InventoryManager : MonoBehaviour
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;
-        statText.text = "Classe:\n"+ unitBehavior.GetType().Name +"\nHp:" +unitBehavior.maxhp + "\nAtk:" + unitBehavior.atk + "\nDef:" + unitBehavior.def + "\nDes:" + unitBehavior.dex + "\nSorte:" + unitBehavior.luck + "\nVel:" +unitBehavior.speed;
+        statText.text = "Classe:\n"+ unitBehavior.GetType().Name +"\nHp:" +unitBehavior.maxhp + "\nAtk:" + unitBehavior.str + "\nDef:" + unitBehavior.def + "\nDes:" + unitBehavior.dex + "\nSorte:" + unitBehavior.luck + "\nVel:" +unitBehavior.speed;
         equipText.text = "Arma:\n" + unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.atk + "\nAcerto:" + unitBehavior.Weapon.hit + "\nCrit:" + unitBehavior.Weapon.crit;
         if(unitBehavior.Accesory != null)
         {

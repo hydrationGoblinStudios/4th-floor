@@ -7,7 +7,7 @@ public class Arquimago : UnitBehavior
     public override int Soul(int damage)
     {
 
-        atk += damage / 10;
+        str += damage / 10;
         return (int)(damage + (enemyBehavior.def * 0.75));
     }
     public override int Proc(int damage)

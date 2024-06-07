@@ -22,12 +22,12 @@ public class Barbaro : UnitBehavior
     }
     public override int Proc(int damage)
     {
-        if (enemy && enemyBehavior.atk > playerBehavior.atk)
+        if (enemy && enemyBehavior.str > playerBehavior.str)
         {
             hp += damage / 10;
 
         }
-        if (!enemy && playerBehavior.atk > enemyBehavior.atk)
+        if (!enemy && playerBehavior.str > enemyBehavior.str)
         {
             hp += damage / 10;
         }

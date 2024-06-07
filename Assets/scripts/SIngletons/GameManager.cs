@@ -7,6 +7,7 @@ using TMPro;
 public class GameManager : Singleton
 {
     public int money;
+    public int day;
     public List<GameObject> playerUnit = new();
     public List<GameObject> enemyUnit = new();
     public List<GameObject> team;

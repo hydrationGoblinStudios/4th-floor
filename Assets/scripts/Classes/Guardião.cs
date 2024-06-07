@@ -24,7 +24,7 @@ public class Guardião : UnitBehavior
     //statchance só no ataque talvez consertar
     public override int Proc(int damage)
     {
-        atk += def / 3;
+        str += def / 3;
         battleManager.StatChange();
 
         return 0;

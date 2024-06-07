@@ -16,7 +16,6 @@ public class BattleManager : MonoBehaviour
     public float Pspeed;
     public int Psoul;
     public int Pskill;
-   
     public int Edamage;
     public int Ehit;
     public int Ecrit;
@@ -308,20 +307,29 @@ public class BattleManager : MonoBehaviour
     //randomiza growths, adicionar growths por personagem
     public void RandomGrowths(UnitBehavior character)
     {
-        List<float> stat = new List<float> {character.hp,character.atk,character.dex,character.def,character.speed,character.luck};
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 8; i++)
         {
             int r = Random.Range(0, 100);
-            if (r >= 50)
+            if(r <= character.growths[i])
             {
-                Debug.Log("amogus");
-                stat[i]++;
+                switch (i)
+                {
+                    case 0: character.maxhp++; break;
+                    case 1: character.str++; break;
+                    case 2: character.mag++; break;
+                    case 3: character.dex++; break;
+                    case 4: character.def++; break;
+                    case 5: character.mdef++; break;
+                    case 6: character.speed++; break;
+                    case 7: character.luck++; break;
+                }
             }
-            };
+            Debug.Log("roll = " + r + "\n growth = " + character.growths[i]);
+        };
     }
     public void StatChange()
     {
-        Pdamage = playerBehavior.atk - enemyBehavior.def;
+        Pdamage = playerBehavior.str - enemyBehavior.def;
         if (Pdamage < 1) { Pdamage = 1; }
         Phit = (playerBehavior.hit - enemyBehavior.avoid) + (playerBehavior.dex * 3) - (enemyBehavior.dex * 2) + enemyBehavior.luck;
 
@@ -342,7 +350,7 @@ public class BattleManager : MonoBehaviour
         {
             Phit = 100;
         }
-        Edamage = enemyBehavior.atk - playerBehavior.def;
+        Edamage = enemyBehavior.str - playerBehavior.def;
         if (Edamage < 1) { Edamage = 1; }
         Ehit = (enemyBehavior.hit - playerBehavior.avoid) + (enemyBehavior.dex * 3) - (playerBehavior.dex * 2) + playerBehavior.luck;
 

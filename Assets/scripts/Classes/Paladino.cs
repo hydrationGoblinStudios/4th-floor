@@ -9,12 +9,12 @@ public class Paladino : UnitBehavior
         if (enemy)
         {
             battleManager.PlayerBar -= 50;
-            enemyBehavior.atk += 10;
+            enemyBehavior.str += 10;
         }
         else
         {
             battleManager.EnemyBar -= 50;
-            playerBehavior.atk += 10;
+            playerBehavior.str += 10;
         }
         hp += (maxhp / 100) * luck;
         if (hp >= maxhp)

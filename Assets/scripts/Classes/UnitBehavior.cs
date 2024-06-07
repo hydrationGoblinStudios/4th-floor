@@ -13,7 +13,6 @@ public class UnitBehavior : MonoBehaviour
     public BattleManager battleManager;
     public bool enemy;
     public GameObject battleManagerOBJ;
-    [Header("parameters")]
     public string UnitName;
     public int level;
     public int exp;
@@ -22,15 +21,18 @@ public class UnitBehavior : MonoBehaviour
     public int crit;
     public int maxhp;
     public int hp;
-    public int atk;
+    public int str;
+    public int mag;
     public int dex;
     public int def;
+    public int mdef;
     public int luck;
     public float speed;
     public bool Pendure;
     public bool Eendure;
     public TextMeshPro battleText;
     public GameObject battleTextObj;
+    public List<int> growths;
     public string description = "classe não valida";
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
