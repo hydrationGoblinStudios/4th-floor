@@ -33,7 +33,7 @@ public class UnitBehavior : MonoBehaviour
     public TextMeshPro battleText;
     public GameObject battleTextObj;
     public List<int> growths;
-    public string description = "classe não valida";
+    public string description = "classe n?o valida";
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
          playerBehavior = GetComponent<UnitBehavior>();

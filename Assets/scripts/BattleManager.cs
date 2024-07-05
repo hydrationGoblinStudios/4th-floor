@@ -10,18 +10,48 @@ public class BattleManager : MonoBehaviour
     public AudioSource[] hitAudio;
     public Animator animator;
     public UnitBehavior endure;
+    //Player1
     public int Pdamage;
     public int Phit;
     public int Pcrit;
     public float Pspeed;
     public int Psoul;
     public int Pskill;
+    //Player2
+    public int P2damage;
+    public int P2hit;
+    public int P2crit;
+    public float P2speed;
+    public int P2soul;
+    public int P2skill;
+    //Player3
+    public int P3damage;
+    public int P3hit;
+    public int P3crit;
+    public float P3speed;
+    public int P3soul;
+    public int P3skill;
+    //Enemy1
     public int Edamage;
     public int Ehit;
     public int Ecrit;
     public float Espeed;
     public int Esoul;
     public int Eskill;
+    //Enemy2
+    public int E2damage;
+    public int E2hit;
+    public int E2crit;
+    public float Es2peed;
+    public int E2soul;
+    public int E2skill;
+    //Enemy3
+    public int E3damage;
+    public int E3hit;
+    public int E3crit;
+    public float E3speed;
+    public int E3soul;
+    public int E3skill;
 
     public GameObject[] enemyList;
     [HideInInspector]
@@ -31,20 +61,35 @@ public class BattleManager : MonoBehaviour
     [Header("Game objects")]
     public GameManager gameManager;
     public GameObject playerUnit;
+    public GameObject playerUnit2;
+    public GameObject playerUnit3;
     public GameObject enemyUnit;
+    public GameObject enemyUnit2;
+    public GameObject enemyUnit3;
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
     public UnitBehavior playerBehavior;
     public UnitBehavior enemyBehavior;
     [Header ("UI")]
+    //names
     public TextMeshPro playerName;
+    public TextMeshPro playerName2;
+    public TextMeshPro playerName3;
     public TextMeshPro enemyName;
+    public TextMeshPro enemyName2;
+    public TextMeshPro enemyName3;
+    //UI sliders
     public Slider playerHpSlider;
+    public Slider playerHpSlider2;
+    public Slider playerHpSlider3;
     public Slider enemyHpSlider;
+    public Slider enemyHpSlider2;
+    public Slider enemyHpSlider3;
     public Slider PlayerActionBar;
     public Slider EnemyActionBar;
     public Slider PlayerSoulBar;
     public Slider EnemySoulBar;
+    //Ui elements
     public TextMeshPro battleText;
     public TextMeshPro playerstats;
     public TextMeshPro enemystats;

@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI statText;
     public TextMeshProUGUI equipText;
     public TextMeshProUGUI accesoryText;
+    public NodeParser nodeParser;
     public void Toggle()
     {
         gameObject.SetActive(!gameObject.activeInHierarchy);

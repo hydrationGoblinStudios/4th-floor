@@ -22,6 +22,6 @@ public class ItemNode : BaseNode
         {
             Manager.Inventory.Add(item);
         }
-        return "itemNode/";
+        return "ItemNode/";
     }
 }
