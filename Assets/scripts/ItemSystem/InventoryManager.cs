@@ -40,7 +40,7 @@ public class InventoryManager : MonoBehaviour
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;
-        statText.text = "Classe:\n"+ unitBehavior.GetType().Name +"\nHp:" +unitBehavior.maxhp + "\nAtk:" + unitBehavior.str + "\nDef:" + unitBehavior.def + "\nDes:" + unitBehavior.dex + "\nSorte:" + unitBehavior.luck + "\nVel:" +unitBehavior.speed;
+        statText.text = "Classe:\n"+ unitBehavior.GetType().Name +"\nHp:" +unitBehavior.maxhp + "\nStr:" + unitBehavior.str + "\nMag:" + unitBehavior.mag + "\nDef:" + unitBehavior.def + "\nM.def:" + unitBehavior.mdef + "\nDes:" + unitBehavior.dex + "\nSorte:" + unitBehavior.luck + "\nVel:" +unitBehavior.speed;
         equipText.text = "Arma:\n" + unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.atk + "\nAcerto:" + unitBehavior.Weapon.hit + "\nCrit:" + unitBehavior.Weapon.crit;
         if(unitBehavior.Accesory != null)
         {
@@ -57,38 +57,13 @@ public class InventoryManager : MonoBehaviour
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
         Select(Manager.team[0].GetComponent<UnitBehavior>());
-        while (panel.transform.childCount > 0)
-        {
-            DestroyImmediate(panel.transform.GetChild(0).gameObject);
-        }
         while (charSelectPanel.transform.childCount > 0)
         {
             DestroyImmediate(charSelectPanel.transform.GetChild(0).gameObject);
         }
-        foreach (Item item in Manager.Inventory)
-        {
-            GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
-            itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
-            itemButton.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
-            switch (item.weapontype)
-            {
-                case Item.Weapontype.Sword:
-                     itemButton.GetComponentInChildren<Image>().sprite = sprites[0];
-                    break;
-                case Item.Weapontype.Lance:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[1];
-                    break;
-                case Item.Weapontype.Axe:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[2];
-                    break;
-                case Item.Weapontype.Bow:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[3];
-                    break;
-                case Item.Weapontype.Accesory:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[4];
-                    break;
-            }
-        }
+
+        DisplayItemList(Manager.Inventory);
+
         foreach (GameObject unit in Manager.team)
         {
             if (first) 
@@ -106,6 +81,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
     public void UpdateSelectionList()
     {
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
@@ -125,5 +101,66 @@ public class InventoryManager : MonoBehaviour
     public void UpdateAccesory(Item item)
     {
         accesoryText.text = "Accesorio:\n" + item.ItemName + "\nAtk:" + item.atk + "\nDef:" + item.def + "\nDes:" + item.dex + "\nSorte:" + item.luck + "\nvel:" + item.speed;
+    }
+    public void DisplayItemList(List<Item> ItemList)
+    {
+        Manager.ParseWeaponList();
+
+        while (panel.transform.childCount > 0)
+        {
+            DestroyImmediate(panel.transform.GetChild(0).gameObject);
+        }
+        foreach (Item item in ItemList)
+        {
+            GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
+            itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
+            itemButton.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
+            switch (item.weapontype)
+            {
+                case Item.Weapontype.Sword:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[0];
+                    break;
+                case Item.Weapontype.Lance:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[1];
+                    break;
+                case Item.Weapontype.Axe:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[2];
+                    break;
+                case Item.Weapontype.Bow:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[3];
+                    break;
+                case Item.Weapontype.Accesory:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[4];
+                    break;
+            }
+        }
+    }
+    public void DisplaySwordList()
+    {
+        DisplayItemList(Manager.SwordList);
+    }
+    public void DisplayLanceList()
+    {
+        DisplayItemList(Manager.LanceList);
+    }
+    public void DisplayAxeList()
+    {
+        DisplayItemList(Manager.AxeList);
+    }
+    public void DisplayBowList()
+    {
+        DisplayItemList(Manager.BowList);
+    }
+    public void DisplayTomeList()
+    {
+        DisplayItemList(Manager.TomeList);
+    }
+    public void DisplayReceptacleList()
+    {
+        DisplayItemList(Manager.ReceptacleList);
+    }
+    public void DisplayAccesoriesList()
+    {
+        DisplayItemList(Manager.AccesoriesList);
     }
 }

@@ -17,13 +17,9 @@ public class Item : ScriptableObject
         Axe,
         Lance,
         Bow,
-        Firetome,
-        Icetome,
-        Thundertome,
-        Plaguetome,
-        Eviltome,
+        Tome,
+        Receptacle,
         Accesory
-
     }
     public enum WeaponWeight
     {

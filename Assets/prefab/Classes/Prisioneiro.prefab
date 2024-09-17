@@ -58,15 +58,15 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 30
-  hp: 30
-  str: 0
-  mag: 0
-  dex: 8
+  maxhp: 110
+  hp: 110
+  str: 10
+  mag: 9
+  dex: 9
   def: 8
-  mdef: 0
-  luck: 8
-  speed: 8
+  mdef: 8
+  luck: 12
+  speed: 11
   Pendure: 0
   Eendure: 0
   battleText: {fileID: 0}

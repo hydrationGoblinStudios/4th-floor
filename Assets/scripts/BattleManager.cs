@@ -67,9 +67,17 @@ public class BattleManager : MonoBehaviour
     public GameObject enemyUnit2;
     public GameObject enemyUnit3;
     public Transform playerBattleStation;
+    public Transform playerBattleStation2;
+    public Transform playerBattleStation3;
     public Transform enemyBattleStation;
+    public Transform enemyBattleStation2;
+    public Transform enemyBattleStation3;
     public UnitBehavior playerBehavior;
+    public UnitBehavior player2Behavior;
+    public UnitBehavior player3Behavior;
     public UnitBehavior enemyBehavior;
+    public UnitBehavior enemy2Behavior;
+    public UnitBehavior enemy3Behavior;
     [Header ("UI")]
     //names
     public TextMeshPro playerName;
@@ -94,6 +102,8 @@ public class BattleManager : MonoBehaviour
     public TextMeshPro playerstats;
     public TextMeshPro enemystats;
     public GameObject playerGo;
+    public GameObject playerGo2;
+    public GameObject playerGo3;
     [Header("UI")]
     public float PlayerBar;
     public float EnemyBar;
@@ -105,7 +115,11 @@ public class BattleManager : MonoBehaviour
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
         playerUnit = gameManager.team[0];
-        enemyUnit = enemyList[Random.Range(0, 4)];
+        playerUnit2 = gameManager.team[1];
+        playerUnit3 = gameManager.team[2];
+        enemyUnit = enemyList[Random.Range(0, enemyList.Length)];
+        enemyUnit2 = enemyList[Random.Range(0, enemyList.Length)];
+        enemyUnit3 = enemyList[Random.Range(0, enemyList.Length)];
         state = BattleState.BattleStart;
         StartCoroutine(SetupBattle());
     }
@@ -118,12 +132,24 @@ public class BattleManager : MonoBehaviour
     }
     IEnumerator SetupBattle()
     {
-        Psoul = 0;
-        Esoul = 0;
+       Psoul = 0;
+       P2soul = 0;
+       P3soul = 0;
+       Esoul = 0;
+       E2soul = 0;
+       E3soul = 0;
        playerGo = Instantiate(playerUnit, playerBattleStation);
+       playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
+       playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
        GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
+       GameObject enemyGo2 = Instantiate(enemyUnit2, enemyBattleStation2);
+       GameObject enemyGo3 = Instantiate(enemyUnit3, enemyBattleStation3);
        playerBehavior = playerGo.GetComponent<UnitBehavior>();
+       player2Behavior = playerGo2.GetComponent<UnitBehavior>();
+       player3Behavior = playerGo3.GetComponent<UnitBehavior>();
        enemyBehavior = enemyGo.GetComponent<UnitBehavior>();
+       enemy2Behavior = enemyGo2.GetComponent<UnitBehavior>();
+       enemy3Behavior = enemyGo3.GetComponent<UnitBehavior>();
        enemyBehavior.enemy = true;
        yield return new WaitForSeconds(0.5f);
         StatChange();

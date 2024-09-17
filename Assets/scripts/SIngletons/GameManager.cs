@@ -16,6 +16,16 @@ public class GameManager : Singleton
     public TextMeshPro moneyText;
     public List<Item> Inventory;
     public List<Item> KeyItems;
+    [Header("ItemParseLists")]
+    public List<Item> SwordList;
+    public List<Item> LanceList;
+    public List<Item> AxeList;
+    public List<Item> BowList;
+    public List<Item> TomeList;
+    public List<Item> ReceptacleList;
+    public List<Item> AccesoriesList;
+    public List<Item> ExampleList;
+
     public void Start()
     {
         LoadTeam();
@@ -60,5 +70,84 @@ public class GameManager : Singleton
         GameObject newunit = unit;
         team.Remove(unit);
         team.Insert(0, newunit);
+    }
+    public void ParseWeaponList()
+    {
+        foreach(Item ExampleItem in ExampleList)
+        {
+            switch (ExampleItem.weapontype)
+            {
+                case Item.Weapontype.Sword:
+                    SwordList.Clear();
+                    foreach (Item currentItem in Inventory)
+                    {
+                        if (currentItem.weapontype == Item.Weapontype.Sword)
+                        {
+                            SwordList.Add(currentItem);
+                        }
+                    }
+                    break;
+                case Item.Weapontype.Lance:
+                    LanceList.Clear();
+                    foreach (Item currentItem in Inventory)
+                    {
+                        if (currentItem.weapontype == Item.Weapontype.Lance)
+                        {
+                            LanceList.Add(currentItem);
+                        }
+                    }
+                    break;
+                case Item.Weapontype.Axe:
+                    AxeList.Clear();
+                    foreach (Item currentItem in Inventory)
+                    {
+                        if (currentItem.weapontype == Item.Weapontype.Axe)
+                        {
+                            AxeList.Add(currentItem);
+                        }
+                    }
+                    break;
+                case Item.Weapontype.Bow:
+                    BowList.Clear();
+                    foreach (Item currentItem in Inventory)
+                    {
+                        if (currentItem.weapontype == Item.Weapontype.Bow)
+                        {
+                            BowList.Add(currentItem);
+                        }
+                    }
+                    break;
+                case Item.Weapontype.Tome:
+                    TomeList.Clear();
+                    foreach (Item currentItem in Inventory)
+                    {
+                        if (currentItem.weapontype == Item.Weapontype.Tome)
+                        {
+                            TomeList.Add(currentItem);
+                        }
+                    }
+                    break;
+                case Item.Weapontype.Receptacle:
+                    ReceptacleList.Clear();
+                    foreach (Item currentItem in Inventory)
+                    {
+                        if (currentItem.weapontype == Item.Weapontype.Receptacle)
+                        {
+                            ReceptacleList.Add(currentItem);
+                        }
+                    }
+                    break;
+                case Item.Weapontype.Accesory:
+                    AccesoriesList.Clear();
+                    foreach (Item currentItem in Inventory)
+                    {
+                        if (currentItem.weapontype == Item.Weapontype.Accesory)
+                        {
+                            AccesoriesList.Add(currentItem);
+                        }
+                    }
+                    break;
+            }
+        }
     }
 }

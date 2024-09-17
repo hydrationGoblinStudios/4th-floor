@@ -273,6 +273,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162694934}
   m_CullTransparentMesh: 1
+--- !u!1 &214276189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 214276190}
+  m_Layer: 0
+  m_Name: Enemy Battle Station 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &214276190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214276189}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1352572878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &216796677
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +781,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0.23000336, y: -0.15999985}
   m_SizeDelta: {x: -6.61, y: -2.77}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &400176694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400176695}
+  m_Layer: 0
+  m_Name: Enemy Battle Station 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400176695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400176694}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1352572878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,6 +2496,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 520865109}
+  - {fileID: 214276190}
+  - {fileID: 400176695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380133553
@@ -3059,13 +3123,29 @@ MonoBehaviour:
   enemyUnit2: {fileID: 0}
   enemyUnit3: {fileID: 0}
   playerBattleStation: {fileID: 680576058}
+  playerBattleStation2: {fileID: 1471635204}
+  playerBattleStation3: {fileID: 2025833946}
   enemyBattleStation: {fileID: 520865109}
+  enemyBattleStation2: {fileID: 214276190}
+  enemyBattleStation3: {fileID: 400176695}
   playerBehavior: {fileID: 0}
+  player2Behavior: {fileID: 0}
+  player3Behavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
+  enemy2Behavior: {fileID: 0}
+  enemy3Behavior: {fileID: 0}
   playerName: {fileID: 555647610}
+  playerName2: {fileID: 0}
+  playerName3: {fileID: 0}
   enemyName: {fileID: 216796679}
+  enemyName2: {fileID: 0}
+  enemyName3: {fileID: 0}
   playerHpSlider: {fileID: 1889353367}
+  playerHpSlider2: {fileID: 0}
+  playerHpSlider3: {fileID: 0}
   enemyHpSlider: {fileID: 2044382818}
+  enemyHpSlider2: {fileID: 0}
+  enemyHpSlider3: {fileID: 0}
   PlayerActionBar: {fileID: 1851655298}
   EnemyActionBar: {fileID: 1254392280}
   PlayerSoulBar: {fileID: 648965697}
@@ -3074,6 +3154,8 @@ MonoBehaviour:
   playerstats: {fileID: 705831346}
   enemystats: {fileID: 611163503}
   playerGo: {fileID: 0}
+  playerGo2: {fileID: 0}
+  playerGo3: {fileID: 0}
   PlayerBar: 0
   EnemyBar: 0
   state: 0
