@@ -30,7 +30,6 @@ public class UnitBehavior : MonoBehaviour
     public int mdef;
     public int luck;
     public float speed;
-    [Header("Growths")]
     public bool Pendure;
     public bool Eendure;
     public TextMeshPro battleText;

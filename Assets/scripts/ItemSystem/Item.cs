@@ -44,4 +44,10 @@ public class Item : ScriptableObject
     public int luck;
     public int speed;
     public int price;
+
+    public virtual int ItemProc(int damage)
+    {
+        Debug.Log("ItemProc");
+        return 0;
+    }
 }

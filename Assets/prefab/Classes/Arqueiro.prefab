@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4445489306633608637}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2719814813836160413
 MonoBehaviour:
@@ -60,15 +60,18 @@ MonoBehaviour:
   crit: 0
   maxhp: 45
   hp: 45
-  atk: 4
+  str: 0
+  mag: 0
   dex: 10
   def: 5
+  mdef: 0
   luck: 11
   speed: 9
   Pendure: 0
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
+  growths: 
   description: "classe n\u7E0A valida"
   descriptionA: O Arqueiro faz um golpe que aumenta a destreza em 10
   descriptionP: Ganha mais dano baseado na chance de acerto
