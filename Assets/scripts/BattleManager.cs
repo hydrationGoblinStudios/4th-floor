@@ -107,6 +107,10 @@ public class BattleManager : MonoBehaviour
     [Header("UI")]
     public float PlayerBar;
     public float EnemyBar;
+    public float PlayerBar2;
+    public float EnemyBar2;
+    public float PlayerBar3;
+    public float EnemyBar3;
 
     public enum BattleState {BattleStart,Wait,PlayerTurn,EnemyTurn,PlayerWon,EnemyWon}
     public BattleState state;
@@ -185,6 +189,8 @@ public class BattleManager : MonoBehaviour
     void Wait()
     {
         PlayerBar += Time.deltaTime * Pspeed * 20;
+        PlayerBar2 += Time.deltaTime * Pspeed * 20;
+        PlayerBar3 += Time.deltaTime * Pspeed * 20;
         EnemyBar += Time.deltaTime *Espeed * 20;
         PlayerActionBar.value = PlayerBar;
         EnemyActionBar.value = EnemyBar;
@@ -193,27 +199,40 @@ public class BattleManager : MonoBehaviour
             PlayerBar = 0;
             StartCoroutine(Attack(playerBehavior,enemyBehavior));
         }
+        if (PlayerBar2 >= 100 & state == BattleState.Wait)
+        {
+            PlayerBar2 = 0;
+            StartCoroutine(Attack(player2Behavior, enemyBehavior));
+        }
+        if (PlayerBar3 >= 100 & state == BattleState.Wait)
+        {
+            PlayerBar3 = 0;
+            StartCoroutine(Attack(player3Behavior, enemyBehavior));
+        }
         if (EnemyBar >= 100 & state == BattleState.Wait)
             {
                 EnemyBar = 0;
-                StartCoroutine(EnemyAttack());
+                StartCoroutine(Attack(enemyBehavior,playerBehavior));
             }
     }
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
         state = BattleState.PlayerTurn;
-        if (attacker == playerBehavior)
-        {
-        }
+        attacker.power = attacker.str +attacker.Weapon.power;
+        Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " +Target.defenses[attacker.Weapon.damageType]);
+
+        int attackerDamage = attacker.power - Target.defenses[attacker.Weapon.damageType];
+        Debug.Log(attackerDamage);
+        if (attackerDamage <= 0) { attackerDamage = 1; }
             
         if (Random.Range(0, 101) <= Phit)
         {
-            Pskill = attacker.Proc(Pdamage);
-            Psoul += 1;
-            if (Psoul >= 3)
+            Pskill = attacker.Proc(attackerDamage);
+            attacker.soul += 1;
+            if (attacker.soul >= 3)
             {
-                Psoul = 0;
-                Pskill += attacker.Soul(Pdamage);
+                attacker.soul = 0;
+                Pskill += attacker.Soul(attackerDamage);
                 yield return new WaitForSeconds(1);
             }
             HudUpdate();
@@ -221,34 +240,34 @@ public class BattleManager : MonoBehaviour
             if (Random.Range(0, 101) <= Pcrit)
             {
                 hitAudio[1].Play();
-                Target.hp -= (Pdamage + Pskill) * 2;
+                Target.hp -= (attackerDamage + Pskill) * 2;
                 battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
                 yield return new WaitForSeconds(1);
-                battleText.text = $"{Target.UnitName} perdeu {(Pskill + Pdamage)*2} hp";
+                battleText.text = $"{Target.UnitName} perdeu {(Pskill + attackerDamage) *2} hp";
                 enemyHpSlider.value = Target.hp;
             }
             else
             {
                 hitAudio[0].Play();
-                enemyBehavior.hp -= Pskill + Pdamage;
-                battleText.text = $"{enemyBehavior.UnitName} perdeu {Pdamage + Pskill} hp";
-                enemyHpSlider.value = enemyBehavior.hp;
-            }
-            
+                Target.hp -= Pskill + attacker.power;
+                battleText.text = $"{Target.UnitName} perdeu {attackerDamage + Pskill} hp";
+                enemyHpSlider.value = Target.hp;
+            }    
         }
         else
         {
             Pskill = attacker.Proc(0);
-            battleText.text = (playerBehavior.UnitName + " errou");
+            battleText.text = (attacker.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
         //inimigo morre
-        if (enemyBehavior.hp <= 0 && enemyBehavior.Eendure == false)
+        if (Target.hp <= 0 && Target.Eendure == false)
         {
             StartCoroutine(PlayerWin());
         }
         else
         {
+            Debug.Log("else atingido");
             state = BattleState.Wait;
         }
     }
@@ -412,7 +431,7 @@ public class BattleManager : MonoBehaviour
         if (Pcrit > 100) { Pcrit = 100; }
         if (playerBehavior.Weapon != null)
         {
-            Pdamage += playerBehavior.Weapon.atk;
+            Pdamage += playerBehavior.Weapon.str;
             Phit += playerBehavior.Weapon.hit;
             Pcrit += playerBehavior.Weapon.crit;
         }
@@ -433,7 +452,7 @@ public class BattleManager : MonoBehaviour
         if (Ecrit > 100) { Ecrit = 100; }
         if (enemyBehavior.Weapon != null)
         {
-            Edamage += enemyBehavior.Weapon.atk;
+            Edamage += enemyBehavior.Weapon.str;
             Ehit += enemyBehavior.Weapon.hit;
             Ecrit += enemyBehavior.Weapon.crit;
         }

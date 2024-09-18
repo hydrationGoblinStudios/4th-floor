@@ -23,13 +23,16 @@ public class UnitBehavior : MonoBehaviour
     [Header("Stats")]
     public int maxhp;
     public int hp;
+    public int power;
     public int str;
     public int mag;
     public int dex;
     public int def;
     public int mdef;
+    public int[] defenses;
     public int luck;
     public float speed;
+    public int soul;
     public bool Pendure;
     public bool Eendure;
     public TextMeshPro battleText;
@@ -46,6 +49,7 @@ public class UnitBehavior : MonoBehaviour
         battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");
         Pendure = false;
         Eendure = false;
+        defenses = new int[2]; defenses[0] = def;defenses[1] = mdef;
         if (battleManagerOBJ != null)
         {
             battleManager = battleManagerOBJ.GetComponent<BattleManager>();
