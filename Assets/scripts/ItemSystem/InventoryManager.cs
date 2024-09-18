@@ -17,7 +17,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject UnitSelectButton;
     public UnitBehavior selectedUnit;
     public Sprite[] sprites;
-    public TextMeshProUGUI statText;
+    public TextMeshProUGUI[] statTexts;
     public TextMeshProUGUI equipText;
     public TextMeshProUGUI accesoryText;
     public NodeParser nodeParser;
@@ -40,7 +40,8 @@ public class InventoryManager : MonoBehaviour
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;
-        statText.text = "Classe:\n"+ unitBehavior.GetType().Name +"\nHp:" +unitBehavior.maxhp + "\nStr:" + unitBehavior.str + "\nMag:" + unitBehavior.mag + "\nDef:" + unitBehavior.def + "\nM.def:" + unitBehavior.mdef + "\nDes:" + unitBehavior.dex + "\nSorte:" + unitBehavior.luck + "\nVel:" +unitBehavior.speed;
+        statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString(); statTexts[3].text = selectedUnit.dex.ToString(); statTexts[4].text = selectedUnit.speed.ToString();
+        statTexts[5].text = selectedUnit.def.ToString(); statTexts[6].text = selectedUnit.mdef.ToString(); statTexts[7].text = selectedUnit.luck.ToString();
         equipText.text = "Arma:\n" + unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.atk + "\nAcerto:" + unitBehavior.Weapon.hit + "\nCrit:" + unitBehavior.Weapon.crit;
         if(unitBehavior.Accesory != null)
         {
@@ -129,8 +130,14 @@ public class InventoryManager : MonoBehaviour
                 case Item.Weapontype.Bow:
                     itemButton.GetComponentInChildren<Image>().sprite = sprites[3];
                     break;
-                case Item.Weapontype.Accesory:
+                case Item.Weapontype.Tome:
                     itemButton.GetComponentInChildren<Image>().sprite = sprites[4];
+                    break;
+                case Item.Weapontype.Receptacle:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[5];
+                    break;
+                case Item.Weapontype.Accesory:
+                    itemButton.GetComponentInChildren<Image>().sprite = sprites[6];
                     break;
             }
         }

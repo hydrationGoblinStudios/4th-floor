@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4445489306633608637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4445489306633608639}
+  - component: {fileID: 8974044381209042840}
+  m_Layer: 0
+  m_Name: Prisioneiro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4445489306633608639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445489306633608637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8974044381209042840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445489306633608637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4363c5592e9a3ec45afb0668f6e5d098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 207
+  Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
+  Accesory: {fileID: 0}
+  playerBehavior: {fileID: 0}
+  enemyBehavior: {fileID: 0}
+  battleManager: {fileID: 0}
+  enemy: 0
+  battleManagerOBJ: {fileID: 0}
+  UnitName: Bors
+  level: 1
+  exp: 0
+  hit: 0
+  avoid: 0
+  crit: 0
+  maxhp: 110
+  hp: 110
+  str: 10
+  mag: 9
+  dex: 9
+  def: 8
+  mdef: 8
+  luck: 12
+  speed: 11
+  maxhpGrowth: 75
+  strGrowth: 50
+  magGrowth: 50
+  dexGrowth: 50
+  defGrowth: 50
+  mdefGrowth: 50
+  luckGrowth: 50
+  speedGrowth: 50
+  Pendure: 0
+  Eendure: 0
+  battleText: {fileID: 0}
+  battleTextObj: {fileID: 0}
+  growths: 5a0000001e0000001e0000001e00000028000000230000000a00000023000000
+  description: "classe n\u7E0A valida"
+  descriptionA: O prisioneiro golpeia 2 vezes, um recupera parte da vida, e o outro
+    reduz a barra de alma
+  descriptionP: Quanto menos vida mais rapido o Prisioneiro vai atacar.

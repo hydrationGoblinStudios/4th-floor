@@ -13,12 +13,14 @@ public class UnitBehavior : MonoBehaviour
     public BattleManager battleManager;
     public bool enemy;
     public GameObject battleManagerOBJ;
+    [Header("Parameters")]
     public string UnitName;
     public int level;
     public int exp;
     public int hit;
     public int avoid;
     public int crit;
+    [Header("Stats")]
     public int maxhp;
     public int hp;
     public int str;
@@ -28,6 +30,7 @@ public class UnitBehavior : MonoBehaviour
     public int mdef;
     public int luck;
     public float speed;
+    [Header("Growths")]
     public bool Pendure;
     public bool Eendure;
     public TextMeshPro battleText;
