@@ -10,20 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Machado de Mithril
+  m_Name: Machado Cortado
   m_EditorClassIdentifier: 
-  id: 1
+  holder: {fileID: 0}
+  id: 0
   sprite: {fileID: 0}
   type: 0
-  weapontype: 1
-  weight: 2
-  ItemName: Machado de MIthril
-  description: Machado Poderoso.
-  hit: 75
+  weapontype: 0
+  weight: 0
+  ItemName: 
+  description: 
+  hit: 0
   crit: 0
-  atk: 29
+  atk: 0
+  mag: 0
   dex: 0
   def: 0
+  Mdef: 0
   luck: 0
   speed: 0
-  price: 300
+  price: 0

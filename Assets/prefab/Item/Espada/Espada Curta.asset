@@ -22,7 +22,8 @@ MonoBehaviour:
   description: "Espada Pequena, que aumenta sua Evas\xE3o em 15."
   hit: 100
   crit: 5
-  atk: 4
+  power: 4
+  atk: 0
   mag: 0
   dex: 0
   def: 0
