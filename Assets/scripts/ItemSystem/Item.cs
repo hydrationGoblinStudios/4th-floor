@@ -39,7 +39,7 @@ public class Item : ScriptableObject
     public int hit;
     public int crit;
     public int power;
-    public int atk;
+    public int str;
     public int mag;
     public int dex;
     public int def;
@@ -47,6 +47,7 @@ public class Item : ScriptableObject
     public int luck;
     public int speed;
     public int price;
+    public int damageType = 0;
 
     public virtual int ItemProc(int damage)
     {
