@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
   m_Name: Machado de aco
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   id: 1
   sprite: {fileID: 0}
   type: 0
@@ -21,9 +22,12 @@ MonoBehaviour:
   description: Machado Moderado.
   hit: 70
   crit: 0
-  atk: 19
+  power: 19
+  atk: 0
+  mag: 0
   dex: 0
   def: 0
+  Mdef: 0
   luck: 0
   speed: 0
   price: 150

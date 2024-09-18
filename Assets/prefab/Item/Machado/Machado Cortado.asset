@@ -9,19 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
+  m_Script: {fileID: 11500000, guid: 61193add7af8f304b81204ee4978d301, type: 3}
   m_Name: Machado Cortado
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 0
   sprite: {fileID: 0}
   type: 0
-  weapontype: 0
-  weight: 0
-  ItemName: 
-  description: 
-  hit: 0
-  crit: 0
+  weapontype: 1
+  weight: 2
+  ItemName: Machado Cortado
+  description: "Um machado com a lamina levemente cortada, +20 de Acerto e +10 de
+    Critico se o Usu\xE1rio estiver com >80% da vida m\xE1xima."
+  hit: 70
+  crit: 5
+  power: 16
   atk: 0
   mag: 0
   dex: 0
@@ -30,3 +32,4 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 0
+  Boost: 0

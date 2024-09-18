@@ -10,20 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Lan\xE7a de Mithril"
+  m_Name: Naginata
   m_EditorClassIdentifier: 
-  id: 1
+  holder: {fileID: 0}
+  id: 0
   sprite: {fileID: 0}
   type: 0
   weapontype: 2
   weight: 1
-  ItemName: "Lan\xE7a de MIthril"
-  description: "Lan\xE7a Poderosa."
-  hit: 80
+  ItemName: Naginata
+  description: "Uma lan\xE7a defensiva, aumenta a Defesa Fisica e Magica em +3."
+  hit: 70
   crit: 0
-  atk: 20
+  power: 9
+  atk: 0
+  mag: 0
   dex: 0
-  def: 0
+  def: 3
+  Mdef: 3
   luck: 0
   speed: 0
-  price: 0
+  price: 5000

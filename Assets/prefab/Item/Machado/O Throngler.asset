@@ -22,11 +22,12 @@ MonoBehaviour:
   description: Machado?
   hit: 69
   crit: 13
-  atk: 42
+  power: 42
+  atk: 0
   mag: 0
   dex: 1
   def: 3
-  Mdef: 0
-  luck: 3
-  speed: 7
+  Mdef: 3
+  luck: 7
+  speed: 0
   price: 0
