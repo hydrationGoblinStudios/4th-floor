@@ -28,7 +28,7 @@ public class Item : ScriptableObject
         Heavy
 
     }
-
+    public UnitBehavior holder;
     public int id;
     public Sprite sprite;
     public Type type;
@@ -39,8 +39,10 @@ public class Item : ScriptableObject
     public int hit;
     public int crit;
     public int atk;
+    public int mag;
     public int dex;
     public int def;
+    public int Mdef;
     public int luck;
     public int speed;
     public int price;

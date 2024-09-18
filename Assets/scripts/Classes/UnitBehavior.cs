@@ -39,7 +39,8 @@ public class UnitBehavior : MonoBehaviour
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
          playerBehavior = GetComponent<UnitBehavior>();
-         enemyBehavior = GetComponent<UnitBehavior>();
+        enemyBehavior = GetComponent<UnitBehavior>();
+        Weapon.holder = this;
         battleTextObj = GameObject.FindGameObjectWithTag("Battle Text");
         battleText = battleTextObj.GetComponent<TextMeshPro>();
         battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");
