@@ -24,7 +24,7 @@ public class GameManager : Singleton
     public List<Item> TomeList;
     public List<Item> ReceptacleList;
     public List<Item> AccesoriesList;
-    public List<Item> ExampleList;
+    [HideInInspector]public List<Item> ExampleList;
 
     public void Start()
     {

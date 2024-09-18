@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1
   sprite: {fileID: 0}
   type: 1
-  weapontype: 9
+  weapontype: 6
   weight: 0
   ItemName: Anel de ataque
   description: Machado Simples.
