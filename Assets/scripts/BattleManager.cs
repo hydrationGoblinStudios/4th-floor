@@ -191,26 +191,29 @@ public class BattleManager : MonoBehaviour
         if (PlayerBar >= 100 & state == BattleState.Wait)
         {
             PlayerBar = 0;
-            StartCoroutine(PlayerAttack());
+            StartCoroutine(Attack(playerBehavior,enemyBehavior));
         }
         if (EnemyBar >= 100 & state == BattleState.Wait)
             {
                 EnemyBar = 0;
                 StartCoroutine(EnemyAttack());
             }
-
     }
-    public virtual IEnumerator PlayerAttack()
+    public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
         state = BattleState.PlayerTurn;
+        if (attacker == playerBehavior)
+        {
+        }
+            
         if (Random.Range(0, 101) <= Phit)
         {
-            Pskill = playerBehavior.Proc(Pdamage);
+            Pskill = attacker.Proc(Pdamage);
             Psoul += 1;
             if (Psoul >= 3)
             {
                 Psoul = 0;
-                Pskill += playerBehavior.Soul(Pdamage);
+                Pskill += attacker.Soul(Pdamage);
                 yield return new WaitForSeconds(1);
             }
             HudUpdate();
@@ -218,11 +221,11 @@ public class BattleManager : MonoBehaviour
             if (Random.Range(0, 101) <= Pcrit)
             {
                 hitAudio[1].Play();
-                enemyBehavior.hp -= (Pdamage + Pskill) * 2;
-                battleText.text = $"{playerBehavior.UnitName} causa um acerto critico!!!";
+                Target.hp -= (Pdamage + Pskill) * 2;
+                battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
                 yield return new WaitForSeconds(1);
-                battleText.text = $"{enemyBehavior.UnitName} perdeu {(Pskill + Pdamage)*2} hp";
-                enemyHpSlider.value = enemyBehavior.hp;
+                battleText.text = $"{Target.UnitName} perdeu {(Pskill + Pdamage)*2} hp";
+                enemyHpSlider.value = Target.hp;
             }
             else
             {
@@ -235,7 +238,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            Pskill = playerBehavior.Proc(0);
+            Pskill = attacker.Proc(0);
             battleText.text = (playerBehavior.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);

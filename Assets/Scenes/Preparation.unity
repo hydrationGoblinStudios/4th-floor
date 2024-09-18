@@ -5101,9 +5101,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4be57993b28c0294f8e96066665e1fe3, type: 2}
   - {fileID: 11400000, guid: b02cc4d2f38b7524ba0732c3d264abb7, type: 2}
   - {fileID: 11400000, guid: a9691ade132f945488fa2114bc90a99f, type: 2}
-  - {fileID: 11400000, guid: ff06557b7ce141b4489d0abd8f85a625, type: 2}
-  - {fileID: 11400000, guid: ff06557b7ce141b4489d0abd8f85a625, type: 2}
-  - {fileID: 11400000, guid: ff06557b7ce141b4489d0abd8f85a625, type: 2}
   KeyItems: []
   SwordList: []
   LanceList: []
