@@ -9,7 +9,7 @@ public class SkillManager : MonoBehaviour
     private bool arcodasorteboost = false;
     private bool livroarriscadoboost = false;
     private bool machadodeguerraboost = false;
-    public int SkillProc (string skillName,UnitBehavior user, UnitBehavior target)
+    public int SkillProc (string skillName,UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
     {
         switch (skillName)
         {
@@ -72,4 +72,30 @@ public class SkillManager : MonoBehaviour
         }
 
     }
+    //pos alma
+    public int PostSoulProc(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
+    {
+        switch (skillName)
+        {
+            default: return 0;
+        }
+    }
+    //inicio da batalha
+    public int MatchStartProc(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
+    {
+        switch (skillName)
+        {
+            default: return 0;
+        }
+    }
+
+    //as almas
+    public int SoulProc(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
+    {
+        switch (skillName)
+        {
+            default: return 0;
+        }
+    }
+
 }
