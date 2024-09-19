@@ -35,6 +35,7 @@ public class UnitBehavior : MonoBehaviour
     public int soul;
     public int maxsoul;
     public int soulgain;
+    public int cooking;
     public bool Pendure;
     public bool Eendure;
     public TextMeshPro battleText;

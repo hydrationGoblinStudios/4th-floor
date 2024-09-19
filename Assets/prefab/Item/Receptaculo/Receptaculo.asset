@@ -12,18 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
   m_Name: Receptaculo
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   id: 1
   sprite: {fileID: 0}
   type: 0
   weapontype: 5
-  weight: 0
-  ItemName: Receptaculo
-  description: Machado Simples.
+  weight: 1
+  ItemName: "Receptaculo B\xE1sico"
+  description: Um receptaculo com poder fraco.
   hit: 75
-  crit: 0
-  atk: 10
+  crit: 5
+  power: 7
+  str: 0
+  mag: 0
   dex: 0
   def: 0
+  Mdef: 0
   luck: 0
   speed: 0
-  price: 0
+  price: 1000
+  damageType: 1
