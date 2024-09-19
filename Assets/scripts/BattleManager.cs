@@ -228,8 +228,8 @@ public class BattleManager : MonoBehaviour
         if (Random.Range(0, 101) <= Phit)
         {
             Pskill = attacker.Proc(attackerDamage);
-            attacker.soul += 1;
-            if (attacker.soul >= 3)
+            attacker.soul += 10;
+            if (attacker.soul >= 100)
             {
                 attacker.soul = 0;
                 Pskill += attacker.Soul(attackerDamage);
@@ -487,19 +487,19 @@ public class BattleManager : MonoBehaviour
 
         if (playerBehavior.Weapon.weight == Item.WeaponWeight.Medium)
             {
-                Pspeed = (float)(Pspeed * 0.85);
+                Pspeed = (float)(Pspeed * 0.80);
             }
             else if (playerBehavior.Weapon.weight == Item.WeaponWeight.Heavy)
             {
-                Pspeed = (float)(Pspeed * 0.70);
+                Pspeed = (float)(Pspeed * 0.65);
             }
             if (enemyBehavior.Weapon.weight == Item.WeaponWeight.Medium)
             {
-                Espeed = (float)(Pspeed * 0.85);
+                Espeed = (float)(Pspeed * 0.80);
             }
             else if (enemyBehavior.Weapon.weight == Item.WeaponWeight.Heavy)
             {
-                Espeed = (float)(Pspeed * 0.70);
+                Espeed = (float)(Pspeed * 0.65);
             }
 
         }

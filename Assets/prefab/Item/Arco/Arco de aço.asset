@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
   m_Name: "Arco de a\xE7o"
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   id: 1
   sprite: {fileID: 0}
   type: 0
@@ -21,9 +22,13 @@ MonoBehaviour:
   description: Arco Moderado.
   hit: 85
   crit: 5
-  atk: 7
+  power: 8
+  str: 0
+  mag: 0
   dex: 0
   def: 0
+  Mdef: 0
   luck: 0
   speed: 0
-  price: 0
+  price: 3000
+  damageType: 0

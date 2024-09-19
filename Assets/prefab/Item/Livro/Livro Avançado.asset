@@ -10,20 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Fac\xEDnora"
+  m_Name: "Livro Avan\xE7ado"
   m_EditorClassIdentifier: 
-  id: 1
+  holder: {fileID: 0}
+  id: 0
   sprite: {fileID: 0}
   type: 0
-  weapontype: 3
+  weapontype: 0
   weight: 0
-  ItemName: "Fac\xEDnora"
-  description: Arco Lendario que aumenta Des e Vel em 5.
-  hit: 90
-  crit: 15
-  atk: 15
-  dex: 5
+  ItemName: "Livro Avan\xE7ado"
+  description: Um Livro com conceitos Complexos de magia.
+  hit: 95
+  crit: 0
+  power: 7
+  str: 0
+  mag: 0
+  dex: 0
   def: 0
+  Mdef: 0
   luck: 0
-  speed: 5
-  price: 0
+  speed: 0
+  price: 3000
+  damageType: 1

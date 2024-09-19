@@ -9,26 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Machado de aco
+  m_Script: {fileID: 11500000, guid: 7d8f876e9707d974cb04fa5aa525addc, type: 3}
+  m_Name: Arco da Sorte
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 0
   sprite: {fileID: 0}
   type: 0
-  weapontype: 1
-  weight: 2
-  ItemName: Machado de aco
-  description: Machado Moderado.
-  hit: 70
-  crit: 0
-  power: 19
+  weapontype: 0
+  weight: 0
+  ItemName: Arco da Sorte
+  description: Um arco que beneficia os sortudos, ganha mais +7 de Sorte e Sorte%
+    de chance de no inicio do combate aumentar o Dano, Acerto e o Critico em +7.
+  hit: 75
+  crit: 1
+  power: 6
   str: 0
   mag: 0
   dex: 0
   def: 0
   Mdef: 0
-  luck: 0
+  luck: 7
   speed: 0
-  price: 3000
+  price: 5000
   damageType: 0
+  Boost: 0

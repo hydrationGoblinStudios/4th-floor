@@ -23,11 +23,12 @@ MonoBehaviour:
   hit: 69
   crit: 13
   power: 42
-  atk: 0
+  str: 0
   mag: 0
   dex: 1
   def: 3
   Mdef: 3
   luck: 7
   speed: 0
-  price: 0
+  price: -2147483648
+  damageType: 0
