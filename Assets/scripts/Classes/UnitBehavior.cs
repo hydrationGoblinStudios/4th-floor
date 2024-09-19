@@ -33,6 +33,8 @@ public class UnitBehavior : MonoBehaviour
     public int luck;
     public float speed;
     public int soul;
+    public int maxsoul;
+    public int soulgain;
     public bool Pendure;
     public bool Eendure;
     public TextMeshPro battleText;

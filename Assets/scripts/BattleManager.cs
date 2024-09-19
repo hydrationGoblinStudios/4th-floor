@@ -238,8 +238,8 @@ public class BattleManager : MonoBehaviour
         if (Random.Range(0, 101) <= Phit)
         {
             Pskill = attacker.Proc(attackerDamage);
-            attacker.soul += 10;
-            if (attacker.soul >= 100)
+            attacker.soul += attacker.soulgain;
+            if (attacker.soul >= attacker.maxsoul)
             {
                 attacker.soul = 0;
                 Pskill += attacker.Soul(attackerDamage);
@@ -260,8 +260,10 @@ public class BattleManager : MonoBehaviour
             {
                 hitAudio[0].Play();
                 Target.hp -= Pskill + attacker.power;
+                Target.soul += attacker.power / 3;
                 battleText.text = $"{Target.UnitName} perdeu {attackerDamage + Pskill} hp";
                 enemyHpSlider.value = Target.hp;
+                
             }    
         }
         else
