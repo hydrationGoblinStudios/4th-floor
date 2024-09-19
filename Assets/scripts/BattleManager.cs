@@ -214,12 +214,22 @@ public class BattleManager : MonoBehaviour
                 EnemyBar = 0;
                 StartCoroutine(Attack(enemyBehavior,playerBehavior));
             }
+        if (EnemyBar2 >= 100 & state == BattleState.Wait)
+        {
+            EnemyBar2 = 0;
+            StartCoroutine(Attack(enemyBehavior, playerBehavior));
+        }
+        if (EnemyBar3 >= 100 & state == BattleState.Wait)
+        {
+            EnemyBar3 = 0;
+            StartCoroutine(Attack(enemyBehavior, playerBehavior));
+        }
     }
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
         state = BattleState.PlayerTurn;
         attacker.power = attacker.str +attacker.Weapon.power;
-        Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " +Target.defenses[attacker.Weapon.damageType]);
+        Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " +Target.defenses[attacker.Weapon.damageType]);    
 
         int attackerDamage = attacker.power - Target.defenses[attacker.Weapon.damageType];
         Debug.Log(attackerDamage);
