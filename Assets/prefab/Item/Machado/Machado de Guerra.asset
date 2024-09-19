@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c84a7c8aa8b3c46b26f2e84c90a67c, type: 3}
+  m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
   m_Name: Machado de Guerra
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
@@ -19,7 +19,7 @@ MonoBehaviour:
   weapontype: 1
   weight: 2
   ItemName: Machado de Guerra
-  description: Um machado muito pesado que diminui a velocidade do usuario em 25%.
+  description: Um machado pesado que diminui a Velocidade do Usuario em 25%.
   hit: 70
   crit: 10
   power: 25
@@ -32,4 +32,4 @@ MonoBehaviour:
   speed: 0
   price: 5500
   damageType: 0
-  Boost: 0
+  skill: Machado de Guerra

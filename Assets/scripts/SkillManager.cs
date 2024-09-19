@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class SkillManager : MonoBehaviour
 {
     private bool espadaCurtaBoost = false;
-        public int SkillProc(string skillName,UnitBehavior user, UnitBehavior target)
+    private bool arcodasorteboost = false;
+    private bool livroarriscadoboost = false;
+    private bool machadodeguerraboost = false;
+    public int SkillProc (string skillName,UnitBehavior user, UnitBehavior target)
     {
         switch (skillName)
         {
@@ -20,8 +24,49 @@ public class SkillManager : MonoBehaviour
                     espadaCurtaBoost = true;
                 }
                 return 0;
-            case "":
+            case "Arco da Sorte":
+                
+                    if (!arcodasorteboost & Random.Range(0, 101) <= user.luck)
+                    {
+                        user.power += 5;
+                        user.hit += 5;
+                        user.crit += 5;
+                        arcodasorteboost = true;
+                }
                 return 0;
+            case "Machado Cortado":
+
+                if (user.hp < user.maxhp * 0.8)
+                {
+                    user.hit += 20;
+                    user.crit += 10;
+                }
+                return 0;
+
+            case "Livro Arriscado":
+                {
+                    if (!livroarriscadoboost)
+                    {
+                        user.soulgain += 5;
+                        livroarriscadoboost = true;
+                    }
+
+
+                    return 0;
+
+                }
+            case "Machado de Guerra":
+                {
+                    if (!machadodeguerraboost)
+                    {
+
+                        user.speed -= (float)(user.speed * 0.25);
+                        machadodeguerraboost = true;
+                    }
+                }
+                return 0;
+
+
             default: return 0;
 
         }
