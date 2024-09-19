@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 2657727638644285937}
   - {fileID: 2385962404784704852}
   - {fileID: 4568979083238420942}
-  current: {fileID: 0}
+  current: {fileID: 2385962404784704852}
 --- !u!114 &2385962404784704852
 MonoBehaviour:
   m_ObjectHideFlags: 0
