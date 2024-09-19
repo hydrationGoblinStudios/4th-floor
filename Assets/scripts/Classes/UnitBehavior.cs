@@ -6,7 +6,7 @@ using UnityEditor.Experimental;
 
 public class UnitBehavior : MonoBehaviour
 {
-    public int id;
+    public int classId;
     public Item Weapon;
     public Item Accesory;
     public UnitBehavior playerBehavior;
@@ -17,6 +17,7 @@ public class UnitBehavior : MonoBehaviour
     [Header("Parameters")]
     public string UnitName;
     public int currentLevel;
+    public int currentRank;
     public int currentExp;
     public int[] ClassID;
     public int[] ClassLevel;
@@ -35,10 +36,10 @@ public class UnitBehavior : MonoBehaviour
     public int[] defenses;
     public int luck;
     public float speed;
-    public string[] skills;
-    public string[] skillInventory;
+    public List<string> skills;
+    public List<string> skillInventory;
     public string equipedSoul;
-    public string[] soulInventory;
+    public List<string> soulInventory;
     public int soul;
     public int maxsoul;
     public int soulgain;
@@ -48,6 +49,9 @@ public class UnitBehavior : MonoBehaviour
     public TextMeshPro battleText;
     public GameObject battleTextObj;
     public List<int> growths;
+    public string baseskill;
+    public string skill1;
+    public string skill2;
     public string description = "classe n?o valida";
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
