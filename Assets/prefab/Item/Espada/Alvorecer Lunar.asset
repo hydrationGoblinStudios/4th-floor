@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
+  m_Name: Alvorecer Lunar
+  m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  id: 0
+  sprite: {fileID: 0}
+  type: 0
+  weapontype: 0
+  weight: 0
+  ItemName: Espada Estrelada
+  description: "Uma espada misteriosa achada no ba\xFA do quarto do Ramion, aumenta
+    a Destreza e a Sorte em +1."
+  hit: 200
+  crit: 170
+  power: 30
+  str: 30
+  mag: 30
+  dex: 30
+  def: 30
+  Mdef: 30
+  luck: 30
+  speed: 30
+  price: 694201337
+  damageType: 0
+  skill: homer

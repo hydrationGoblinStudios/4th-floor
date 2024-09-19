@@ -339,12 +339,23 @@ public class BattleManager : MonoBehaviour
         RealCharacter.currentExp += exp;
         battleText.text = ("voce recebe " + exp + " de experiencia");
         yield return new WaitForSeconds(1);
-        if (RealCharacter.currentExp >= 100) { RandomGrowths(RealCharacter); }
+        if (RealCharacter.currentExp >= 100) { LevelUp(RealCharacter); }
         gameManager.PrepScreen();
     }
     //randomiza growths, adicionar growths por personagem
-    public void RandomGrowths(UnitBehavior character)
+    public void LevelUp(UnitBehavior character)
     {
+        character.currentLevel += 1;
+        character.currentExp -= 100;
+        switch (character.currentLevel, character.currentRank)
+        {
+            case (5, 1):
+                character.skillInventory.Add(character.skill1);
+                    break;
+            case(10,1):
+                character.skillInventory.Add(character.skill1);
+                break;
+        }
         for (int i = 0; i < 8; i++)
         {
             int r = Random.Range(0, 100);
