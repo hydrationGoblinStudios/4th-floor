@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-    public int SkillProc(int skillID)
+    private bool espadaCurtaBoost = false;
+        public int SkillProc(string skillName,UnitBehavior user, UnitBehavior target)
     {
-        switch (skillID)
+        switch (skillName)
         {
-            case 0:return 0;
-            case 1: return 10;
+            case"homer":
+                Debug.Log("simpon");
+                return 10;
+            case "Espada Curta":
+                    if (!espadaCurtaBoost)
+                {
+                    Debug.Log("boost");
+                    user.avoid += 15;
+                    espadaCurtaBoost = true;
+                }
+                return 0;
+            case "":
+                return 0;
             default: return 0;
+
         }
 
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.Experimental;
 
 public class UnitBehavior : MonoBehaviour
 {
@@ -15,8 +16,10 @@ public class UnitBehavior : MonoBehaviour
     public GameObject battleManagerOBJ;
     [Header("Parameters")]
     public string UnitName;
-    public int level;
-    public int exp;
+    public int currentLevel;
+    public int currentExp;
+    public int[] ClassID;
+    public int[] ClassLevel;
     public int hit;
     public int avoid;
     public int crit;
@@ -32,6 +35,10 @@ public class UnitBehavior : MonoBehaviour
     public int[] defenses;
     public int luck;
     public float speed;
+    public string[] skills;
+    public string[] skillInventory;
+    public string equipedSoul;
+    public string[] soulInventory;
     public int soul;
     public int maxsoul;
     public int soulgain;
