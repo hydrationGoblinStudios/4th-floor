@@ -10,6 +10,5 @@ public class Prisioneiro : UnitBehavior
         skill1 = "Homer";
         skill2 = "Tecnica Improvisada";
     }
-
 }
 

@@ -49,9 +49,12 @@ public class BattleManager : MonoBehaviour
     public UnitBehavior playerBehavior;
     public UnitBehavior player2Behavior;
     public UnitBehavior player3Behavior;
+    public UnitBehavior[] playerTeam;
     public UnitBehavior enemyBehavior;
     public UnitBehavior enemy2Behavior;
     public UnitBehavior enemy3Behavior;
+    public UnitBehavior[] enemyTeam;
+
     [Header ("UI")]
     //names
     public TextMeshPro playerName;
@@ -125,6 +128,10 @@ public class BattleManager : MonoBehaviour
        enemyBehavior.enemy = true;
        yield return new WaitForSeconds(0.5f);
         StatChange();
+        foreach (UnitBehavior UB in new List<UnitBehavior>())
+        {
+
+        }
         SetHud();
         SetHp();
 
@@ -209,7 +216,7 @@ public class BattleManager : MonoBehaviour
             Debug.Log("weapon");
             skillsInUse.Add(attacker.Weapon.skill);
         }
-        if(attacker.Accesory!= null  &&attacker.Accesory.skill != null)
+        if(attacker.Accesory!= null  && attacker.Accesory.skill != null)
         {
             Debug.Log("accesory");
             skillsInUse.Add(attacker.Accesory.skill);
@@ -218,7 +225,7 @@ public class BattleManager : MonoBehaviour
         {
             foreach(string  skill in skillsInUse)
             {
-               Pskill =+ skillManager.SkillProc(skill, attacker, Target);
+               Pskill =+ skillManager.SkillProc(skill, attacker, Target,playerTeam,enemyTeam);
             }
             attacker.soul += attacker.soulgain;
             if (attacker.soul >= attacker.maxsoul)
