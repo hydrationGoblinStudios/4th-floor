@@ -10,48 +10,22 @@ public class BattleManager : MonoBehaviour
     public AudioSource[] hitAudio;
     public Animator animator;
     public UnitBehavior endure;
+    public SkillManager skillManager;
+    public List<string> skillsInUse;
     //Player1
     public int Pdamage;
     public int Phit;
     public int Pcrit;
     public float Pspeed;
-    public int Psoul;
     public int Pskill;
     //Player2
     public int P2damage;
-    public int P2hit;
-    public int P2crit;
-    public float P2speed;
-    public int P2soul;
-    public int P2skill;
-    //Player3
-    public int P3damage;
-    public int P3hit;
-    public int P3crit;
-    public float P3speed;
-    public int P3soul;
-    public int P3skill;
     //Enemy1
     public int Edamage;
     public int Ehit;
     public int Ecrit;
     public float Espeed;
-    public int Esoul;
     public int Eskill;
-    //Enemy2
-    public int E2damage;
-    public int E2hit;
-    public int E2crit;
-    public float Es2peed;
-    public int E2soul;
-    public int E2skill;
-    //Enemy3
-    public int E3damage;
-    public int E3hit;
-    public int E3crit;
-    public float E3speed;
-    public int E3soul;
-    public int E3skill;
 
     public GameObject[] enemyList;
     [HideInInspector]
@@ -75,9 +49,12 @@ public class BattleManager : MonoBehaviour
     public UnitBehavior playerBehavior;
     public UnitBehavior player2Behavior;
     public UnitBehavior player3Behavior;
+    public UnitBehavior[] playerTeam;
     public UnitBehavior enemyBehavior;
     public UnitBehavior enemy2Behavior;
     public UnitBehavior enemy3Behavior;
+    public UnitBehavior[] enemyTeam;
+
     [Header ("UI")]
     //names
     public TextMeshPro playerName;
@@ -136,12 +113,6 @@ public class BattleManager : MonoBehaviour
     }
     IEnumerator SetupBattle()
     {
-       Psoul = 0;
-       P2soul = 0;
-       P3soul = 0;
-       Esoul = 0;
-       E2soul = 0;
-       E3soul = 0;
        playerGo = Instantiate(playerUnit, playerBattleStation);
        playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
        playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
@@ -157,6 +128,10 @@ public class BattleManager : MonoBehaviour
        enemyBehavior.enemy = true;
        yield return new WaitForSeconds(0.5f);
         StatChange();
+        foreach (UnitBehavior UB in new List<UnitBehavior>())
+        {
+
+        }
         SetHud();
         SetHp();
 
@@ -178,8 +153,8 @@ public class BattleManager : MonoBehaviour
         enemyHpSlider.maxValue = enemyBehavior.maxhp;
         playerstats.text = $"dmg:{Pdamage} \nhit: {Phit} \ncrit:{Pcrit}";
         enemystats.text = $"dmg:{Edamage} \nhit: {Ehit} \ncrit:{Ecrit}";
-        PlayerSoulBar.value = Psoul;
-        EnemySoulBar.value = Esoul;
+        PlayerSoulBar.value = playerBehavior.soul;
+        EnemySoulBar.value = enemyBehavior.soul;
     }
     void SetHp()
     {
@@ -217,27 +192,41 @@ public class BattleManager : MonoBehaviour
         if (EnemyBar2 >= 100 & state == BattleState.Wait)
         {
             EnemyBar2 = 0;
-            StartCoroutine(Attack(enemyBehavior, playerBehavior));
+            StartCoroutine(Attack(enemy2Behavior, playerBehavior));
         }
         if (EnemyBar3 >= 100 & state == BattleState.Wait)
         {
             EnemyBar3 = 0;
-            StartCoroutine(Attack(enemyBehavior, playerBehavior));
+            StartCoroutine(Attack(enemy3Behavior, playerBehavior));
         }
     }
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
         state = BattleState.PlayerTurn;
         attacker.power = attacker.str +attacker.Weapon.power;
-        Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " +Target.defenses[attacker.Weapon.damageType]);    
-
+        Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " +Target.defenses[attacker.Weapon.damageType]);
+        //Pskill = 0;
         int attackerDamage = attacker.power - Target.defenses[attacker.Weapon.damageType];
         Debug.Log(attackerDamage);
         if (attackerDamage <= 0) { attackerDamage = 1; }
-            
+        skillsInUse.Clear();
+        skillsInUse.AddRange(attacker.skills);
+        if(attacker.Weapon != null && attacker.Weapon.skill != null)
+        {
+            Debug.Log("weapon");
+            skillsInUse.Add(attacker.Weapon.skill);
+        }
+        if(attacker.Accesory!= null  && attacker.Accesory.skill != null)
+        {
+            Debug.Log("accesory");
+            skillsInUse.Add(attacker.Accesory.skill);
+        }
         if (Random.Range(0, 101) <= Phit)
         {
-            Pskill = attacker.Proc(attackerDamage);
+            foreach(string  skill in skillsInUse)
+            {
+               Pskill =+ skillManager.SkillProc(skill, attacker, Target,playerTeam,enemyTeam);
+            }
             attacker.soul += attacker.soulgain;
             if (attacker.soul >= attacker.maxsoul)
             {
@@ -263,12 +252,10 @@ public class BattleManager : MonoBehaviour
                 Target.soul += attacker.power / 3;
                 battleText.text = $"{Target.UnitName} perdeu {attackerDamage + Pskill} hp";
                 enemyHpSlider.value = Target.hp;
-                
             }    
         }
         else
         {
-            Pskill = attacker.Proc(0);
             battleText.text = (attacker.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
@@ -315,53 +302,6 @@ public class BattleManager : MonoBehaviour
             state = BattleState.Wait;
         }
     }
-    IEnumerator EnemyAttack()
-    {
-        state = BattleState.EnemyTurn;
-        if (Random.Range(0, 101) <= Ehit)
-        {
-            Eskill = enemyBehavior.Proc(Edamage);
-            Esoul += 1;
-            if (Esoul >= 3)
-            {
-                Esoul = 0;
-                Eskill += enemyBehavior.Soul(Edamage);
-                yield return new WaitForSeconds(1);
-            }
-            HudUpdate();
-            yield return new WaitForSeconds(1);
-            if (Random.Range(0, 101) <= Ecrit)
-            {
-                hitAudio[1].Play();
-                playerBehavior.hp -= (Edamage + Eskill) * 2;
-                battleText.text = $"{enemyBehavior.UnitName} causa um acerto critico!!!";
-                yield return new WaitForSeconds(1);
-                battleText.text = $"{playerBehavior.UnitName} perdeu {(Eskill + Edamage) * 2} hp";
-                playerHpSlider.value = playerBehavior.hp;
-            }
-            else
-            {
-                hitAudio[0].Play();
-                playerBehavior.hp -= Eskill + Edamage;
-                battleText.text = $"{playerBehavior.UnitName} perdeu {Edamage + Eskill} hp";
-                playerHpSlider.value = playerBehavior.hp;
-            }
-        }
-        else
-        {
-            Eskill = enemyBehavior.Proc(0);
-            battleText.text = (playerBehavior.UnitName + " errou");
-        }
-        yield return new WaitForSeconds(1f);
-        if (playerBehavior.hp <= 0 && playerBehavior.Eendure == false)
-        {
-            gameManager.PrepScreen();
-        }
-        else
-        {
-            state = BattleState.Wait;
-        }
-    }
     public virtual IEnumerator EnemyExtraAttack(string texto)
     {
         battleText.text = texto;
@@ -400,18 +340,29 @@ public class BattleManager : MonoBehaviour
         gameManager.money += 50;
         battleText.text = ("voce recebe 50 de ouro");
         yield return new WaitForSeconds(1);
-        int exp = 30 - 5 * (playerBehavior.level - enemyBehavior.level);
+        int exp = 30 - 5 * (playerBehavior.currentLevel - enemyBehavior.currentLevel);
         if (exp <= 0) { exp = 1; }
         UnitBehavior RealCharacter = gameManager.team[0].GetComponent<UnitBehavior>();
-        RealCharacter.exp += exp;
+        RealCharacter.currentExp += exp;
         battleText.text = ("voce recebe " + exp + " de experiencia");
         yield return new WaitForSeconds(1);
-        if (RealCharacter.exp >= 100) { RandomGrowths(RealCharacter); }
+        if (RealCharacter.currentExp >= 100) { LevelUp(RealCharacter); }
         gameManager.PrepScreen();
     }
     //randomiza growths, adicionar growths por personagem
-    public void RandomGrowths(UnitBehavior character)
+    public void LevelUp(UnitBehavior character)
     {
+        character.currentLevel += 1;
+        character.currentExp -= 100;
+        switch (character.currentLevel, character.currentRank)
+        {
+            case (5, 1):
+                character.skillInventory.Add(character.skill1);
+                    break;
+            case(10,1):
+                character.skillInventory.Add(character.skill1);
+                break;
+        }
         for (int i = 0; i < 8; i++)
         {
             int r = Random.Range(0, 100);

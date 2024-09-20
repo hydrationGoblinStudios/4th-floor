@@ -48,6 +48,7 @@ public class Item : ScriptableObject
     public int speed;
     public int price;
     public int damageType = 0;
+    public string skill ="";
 
     public virtual int ItemProc(int damage)
     {

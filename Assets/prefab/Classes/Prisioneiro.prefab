@@ -44,35 +44,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4363c5592e9a3ec45afb0668f6e5d098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 207
-  Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
-  Accesory: {fileID: 0}
+  classId: 0
+  Weapon: {fileID: 11400000, guid: c52ccc4a6dbb5d1428e45a668367833d, type: 2}
+  Accesory: {fileID: 11400000, guid: c52ccc4a6dbb5d1428e45a668367833d, type: 2}
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
   UnitName: Bors
-  level: 0
-  exp: 99
+  currentLevel: 0
+  currentExp: 0
+  ClassID: 
+  ClassLevel: 
   hit: 0
   avoid: 0
   crit: 0
   maxhp: 110
   hp: 110
+  power: 0
   str: 10
   mag: 9
   dex: 9
   def: 8
   mdef: 8
+  defenses: 
   luck: 12
   speed: 11
+  skills:
+  - homer
+  skillInventory: []
+  equipedSoul: 
+  soulInventory: []
+  soul: 0
+  maxsoul: 0
+  soulgain: 0
+  cooking: 0
   Pendure: 0
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
   growths: 5a0000001e0000001e0000001e00000028000000230000000a00000023000000
+  skill1: 
+  skill2: 
   description: "classe n\u7E0A valida"
-  descriptionA: O prisioneiro golpeia 2 vezes, um recupera parte da vida, e o outro
-    reduz a barra de alma
-  descriptionP: Quanto menos vida mais rapido o Prisioneiro vai atacar.

@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15d7321a75d8b934bb147f8c05e4f85d, type: 3}
+  m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
   m_Name: Livro Arriscado
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 0
   sprite: {fileID: 0}
   type: 0
-  weapontype: 4
+  weapontype: 0
   weight: 0
   ItemName: Livro Arriscado
-  description: Um Livro de taticas arriscadas, Ganha + 5 de Alma por Ataque Basico.
+  description: "Um livro que cont\xEAm tecnicas de combate muito arriscadas, Recebe
+    mais 5 de Alma por ataque b\xE1sico."
   hit: 50
   crit: 0
   power: 8
@@ -31,5 +32,5 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 3500
-  damageType: 1
-  Boost: 0
+  damageType: 0
+  skill: Livro Arriscado

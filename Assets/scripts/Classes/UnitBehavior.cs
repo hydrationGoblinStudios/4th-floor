@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.Experimental;
 
 public class UnitBehavior : MonoBehaviour
 {
-    public int id;
+    public int classId;
     public Item Weapon;
     public Item Accesory;
     public UnitBehavior playerBehavior;
@@ -15,8 +16,11 @@ public class UnitBehavior : MonoBehaviour
     public GameObject battleManagerOBJ;
     [Header("Parameters")]
     public string UnitName;
-    public int level;
-    public int exp;
+    public int currentLevel;
+    public int currentRank;
+    public int currentExp;
+    public int[] ClassID;
+    public int[] ClassLevel;
     public int hit;
     public int avoid;
     public int crit;
@@ -32,6 +36,10 @@ public class UnitBehavior : MonoBehaviour
     public int[] defenses;
     public int luck;
     public float speed;
+    public List<string> skills;
+    public List<string> skillInventory;
+    public string equipedSoul;
+    public List<string> soulInventory;
     public int soul;
     public int maxsoul;
     public int soulgain;
@@ -41,6 +49,9 @@ public class UnitBehavior : MonoBehaviour
     public TextMeshPro battleText;
     public GameObject battleTextObj;
     public List<int> growths;
+    public string baseskill;
+    public string skill1;
+    public string skill2;
     public string description = "classe n?o valida";
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
