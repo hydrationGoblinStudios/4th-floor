@@ -9,7 +9,9 @@ public class SkillManager : MonoBehaviour
     private bool arcodasorteboost = false;
     private bool livroarriscadoboost = false;
     private bool machadodeguerraboost = false;
+    private bool presençainabalavel = false;
     private int DanoAscendenteMeter = 0;
+    private int concentraçãodefeiticeiroboost = 0;
     public int SkillProc(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
     {
         switch (skillName)
@@ -34,14 +36,35 @@ public class SkillManager : MonoBehaviour
                 return 0;
             //rapha lembra de trocar isso ai valeu https://youtu.be/4TZmLE0Pqv0?si=wRvI7GzpHgW1zUhe
             case "Ataque Rapido":
-                {
+                
                     if (!arcodasorteboost & Random.Range(0, 101) <= user.dex)
                     {
                         StartCoroutine(Extraattack);
                     }
 
-                }
+                
                 return 0;
+            case "Pancada":
+
+                if (Random.Range(0, 101) <= user.dex)
+                {
+                    return (int)(user.def * 0.3);
+                }
+                else
+                {
+                    return 0;
+                }
+            case "Magia Destrutiva":
+
+                if (Random.Range(0, 101) <= user.dex)
+                {
+                    return (int)(user.mag * 0.4);
+                }
+                else
+                {
+                    return 0;
+                }
+
 
             case "Precisão Mortal":
 
@@ -96,6 +119,16 @@ public class SkillManager : MonoBehaviour
                     user.crit += 10;
                 }
                 return 0;
+
+            case "Concentração de Feiticeiro":
+
+                if (user.hp == user.maxhp)
+                {
+                    user.mag += (int)(user.mag * 0.15);
+                    concentraçãodefeiticeiroboost = (int)(user.mag * 0.15);
+                }
+                return 0;
+
             case "Livro Arriscado":
                 {
                     if (!livroarriscadoboost)
@@ -113,7 +146,6 @@ public class SkillManager : MonoBehaviour
                 {
                     if (!machadodeguerraboost)
                     {
-
                         user.speed -= (float)(user.speed * 0.25);
                         machadodeguerraboost = true;
                     }
@@ -126,6 +158,20 @@ public class SkillManager : MonoBehaviour
                 }
                 return 0;
             default: return 0;
+
+            case "Durão":
+                {
+                    user.maxhp += user.maxhp/4;
+                    user.hp += user.hp/4;
+                }
+                return 0;
+
+            case "Sabedoria Arcana":
+                {
+                    user.expmarkplier += (int) 0.25;
+                }
+                return 0;
+
         }
     }
 
@@ -150,7 +196,32 @@ public class SkillManager : MonoBehaviour
                     user.crit -= 10;
                 }
                 return 0;
+            case "Presença Inabalável":
+                
+                    if (user.hp< user.maxhp * 0.5 & !presençainabalavel)
+                {
+                    user.def += user.def / 5;
+                    user.mdef += user.mdef / 5;
+                    presençainabalavel = true;
 
+                }
+                    if (user.hp > user.maxhp * 0.5 & presençainabalavel)
+                {
+                    user.def -= user.def / 5;
+                    user.mdef -= user.mdef / 5;
+                    presençainabalavel = true;
+                }
+
+                return 0;
+
+            case "Concentração de Feiticeiro":
+
+                if (user.hp < user.maxhp)
+                {
+                    user.mag -= (concentraçãodefeiticeiroboost);
+                    
+                }
+                return 0;
             default: return 0;
         }
     }
