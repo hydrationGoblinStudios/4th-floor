@@ -39,7 +39,7 @@ public class SkillManager : MonoBehaviour
                 
                     if (!arcodasorteboost & Random.Range(0, 101) <= user.dex)
                     {
-                        StartCoroutine(Extraattack);
+                        //StartCoroutine(Extraattack);
                     }
 
                 
