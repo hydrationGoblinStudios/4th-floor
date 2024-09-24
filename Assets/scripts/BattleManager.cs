@@ -231,7 +231,7 @@ public class BattleManager : MonoBehaviour
             if (attacker.soul >= attacker.maxsoul)
             {
                 attacker.soul = 0;
-                Pskill += skillManager.SkillProc(attacker.equipedSoul, attacker, Target, playerTeam, enemyTeam);
+                Pskill += skillManager.SoulProc(attacker.equipedSoul, attacker, Target, playerTeam, enemyTeam);
                 yield return new WaitForSeconds(1);
             }
             HudUpdate();
@@ -355,13 +355,30 @@ public class BattleManager : MonoBehaviour
     {
         character.currentLevel += 1;
         character.currentExp -= 100;
+        //aprender Skills
         switch (character.currentLevel, character.currentRank)
         {
             case (5, 1):
-                character.skillInventory.Add(character.skill1);
+                if (character.skill1 != null)
+                {
+                    character.skillInventory.Add(character.skill1);
+                }
                     break;
             case(10,1):
-                character.skillInventory.Add(character.skill1);
+                if (character.skill2 != null)
+                {
+                    character.skillInventory.Add(character.skill2);
+                }
+                break;
+        }
+        //aprender alma
+        switch (character.currentLevel, character.currentRank)
+        {
+            case (10, 1):
+                if(character.soul1 != null)
+                {
+                    character.soulInventory.Add(character.soul1);
+                }
                 break;
         }
         for (int i = 0; i < 8; i++)
