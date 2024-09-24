@@ -332,6 +332,7 @@ public class BattleManager : MonoBehaviour
             state = BattleState.Wait;
         }
     }
+    //rpha por favor muda esse codigo para individualmente para os 3 personagens
     public IEnumerator PlayerWin()
     {
         battleText.text = (playerBehavior.UnitName + " ganhou");
@@ -340,7 +341,7 @@ public class BattleManager : MonoBehaviour
         gameManager.money += 50;
         battleText.text = ("voce recebe 50 de ouro");
         yield return new WaitForSeconds(1);
-        int exp = 30 - 5 * (playerBehavior.currentLevel - enemyBehavior.currentLevel);
+        int exp = (30 - 5 * (playerBehavior.currentLevel - enemyBehavior.currentLevel)* playerBehavior.expmarkplier);
         if (exp <= 0) { exp = 1; }
         UnitBehavior RealCharacter = gameManager.team[0].GetComponent<UnitBehavior>();
         RealCharacter.currentExp += exp;

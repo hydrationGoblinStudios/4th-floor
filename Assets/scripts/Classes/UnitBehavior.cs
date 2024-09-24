@@ -17,6 +17,7 @@ public class UnitBehavior : MonoBehaviour
     [Header("Parameters")]
     public string UnitName;
     public int currentLevel;
+    public int expmarkplier = 1;
     public int currentRank;
     public int currentExp;
     public int[] ClassID;
