@@ -50,6 +50,8 @@ public class UnitBehavior : MonoBehaviour
     public TextMeshPro battleText;
     public GameObject battleTextObj;
     public List<int> growths;
+    public string classSkill;
+    public string personalSkill;
     public string baseSkill;
     public string skill1;
     public string skill2;

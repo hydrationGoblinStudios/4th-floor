@@ -211,6 +211,14 @@ public class BattleManager : MonoBehaviour
         if (attackerDamage <= 0) { attackerDamage = 1; }
         skillsInUse.Clear();
         skillsInUse.AddRange(attacker.skills);
+        if (attacker.classSkill != null)
+        {
+            skillsInUse.Add(attacker.classSkill);
+        }
+        if(attacker.personalSkill != null)
+        {
+            skillsInUse.Add(attacker.personalSkill);
+        }
         if(attacker.Weapon != null && attacker.Weapon.skill != null)
         {
             Debug.Log("weapon");
@@ -227,7 +235,7 @@ public class BattleManager : MonoBehaviour
             {
                Pskill =+ skillManager.SkillProc(skill, attacker, Target,playerTeam,enemyTeam);
             }
-            attacker.soul += attacker.soulgain;
+            attacker.soul += attacker.soulgain + 10;
             if (attacker.soul >= attacker.maxsoul)
             {
                 attacker.soul = 0;
@@ -240,6 +248,7 @@ public class BattleManager : MonoBehaviour
             {
                 hitAudio[1].Play();
                 Target.hp -= (attackerDamage + Pskill) * 2;
+                Target.soul += ((attackerDamage + Pskill) * 2)/5;
                 battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
                 yield return new WaitForSeconds(1);
                 battleText.text = $"{Target.UnitName} perdeu {(Pskill + attackerDamage) *2} hp";
@@ -249,7 +258,7 @@ public class BattleManager : MonoBehaviour
             {
                 hitAudio[0].Play();
                 Target.hp -= Pskill + attacker.power;
-                Target.soul += attacker.power / 3;
+                Target.soul += (attackerDamage + Pskill) / 5;
                 battleText.text = $"{Target.UnitName} perdeu {attackerDamage + Pskill} hp";
                 enemyHpSlider.value = Target.hp;
             }    
