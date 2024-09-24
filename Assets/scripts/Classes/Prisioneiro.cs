@@ -6,7 +6,7 @@ public class Prisioneiro : UnitBehavior
 {
     public void Awake()
     {
-        baseskill = "Homer";
+        baseSkill = "Homer";
         skill1 = "Persistencia";
         skill2 = "Tecnica Improvisada";
     }
