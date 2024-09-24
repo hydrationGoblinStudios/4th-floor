@@ -130,10 +130,13 @@ public class SkillManager : MonoBehaviour
     }
 
     //as almas
-    public int SoulProc(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
+    public int SoulProc(string SoulName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
     {
-        switch (skillName)
+        switch (SoulName)
         {
+            case "Poder Oculto":
+                Debug.Log("poderOcultado");
+                return 0;
             default: return 0;
         }
     }

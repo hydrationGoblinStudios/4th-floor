@@ -231,7 +231,7 @@ public class BattleManager : MonoBehaviour
             if (attacker.soul >= attacker.maxsoul)
             {
                 attacker.soul = 0;
-                Pskill += attacker.Soul(attackerDamage);
+                Pskill += skillManager.SkillProc(attacker.equipedSoul, attacker, Target, playerTeam, enemyTeam);
                 yield return new WaitForSeconds(1);
             }
             HudUpdate();

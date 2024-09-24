@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classId: 0
-  Weapon: {fileID: 11400000, guid: c52ccc4a6dbb5d1428e45a668367833d, type: 2}
-  Accesory: {fileID: 11400000, guid: c52ccc4a6dbb5d1428e45a668367833d, type: 2}
+  Weapon: {fileID: 11400000, guid: 046a82c701327134682831272ae61cda, type: 2}
+  Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
   battleManager: {fileID: 0}
@@ -54,6 +54,7 @@ MonoBehaviour:
   battleManagerOBJ: {fileID: 0}
   UnitName: Bors
   currentLevel: 0
+  currentRank: 0
   currentExp: 0
   ClassID: 
   ClassLevel: 
@@ -85,6 +86,7 @@ MonoBehaviour:
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
   growths: 5a0000001e0000001e0000001e00000028000000230000000a00000023000000
+  baseskill: 
   skill1: 
   skill2: 
   description: "classe n\u7E0A valida"
