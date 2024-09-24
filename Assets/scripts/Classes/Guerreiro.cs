@@ -4,5 +4,12 @@ using UnityEngine;
 
 public class Guerreiro : UnitBehavior
 {
+    public void Awake()
+    {
+        baseSkill = "Lutador Versátil";
+        skill1 = "Durão";
+        baseSoul = "Golpe Poderoso";
+        soul1 = "Revigoramento";
+    }
 
 }

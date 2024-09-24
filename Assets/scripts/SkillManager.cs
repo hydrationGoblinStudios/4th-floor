@@ -12,6 +12,8 @@ public class SkillManager : MonoBehaviour
     private bool presençainabalavel = false;
     private int DanoAscendenteMeter = 0;
     private int concentraçãodefeiticeiroboost = 0;
+
+    //Skills que ativam no Dano
     public int SkillProc(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
     {
         switch (skillName)
@@ -69,9 +71,6 @@ public class SkillManager : MonoBehaviour
             case "Precisão Mortal":
 
                 return user.hit/10;
-
-
-
 
             default: return 0;
 
