@@ -50,9 +50,14 @@ public class UnitBehavior : MonoBehaviour
     public TextMeshPro battleText;
     public GameObject battleTextObj;
     public List<int> growths;
-    public string baseskill;
+    public string baseSkill;
     public string skill1;
     public string skill2;
+    public string skill3;
+    public string baseSoul;
+    public string soul1;
+    public string soul2;
+    public string soul3;
     public string description = "classe n?o valida";
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
