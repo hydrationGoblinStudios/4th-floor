@@ -49,11 +49,11 @@ public class BattleManager : MonoBehaviour
     public UnitBehavior playerBehavior;
     public UnitBehavior player2Behavior;
     public UnitBehavior player3Behavior;
-    public UnitBehavior[] playerTeam;
+    public List<UnitBehavior> playerTeam;
     public UnitBehavior enemyBehavior;
     public UnitBehavior enemy2Behavior;
     public UnitBehavior enemy3Behavior;
-    public UnitBehavior[] enemyTeam;
+    public List<UnitBehavior> enemyTeam;
 
     [Header ("UI")]
     //names
@@ -126,12 +126,16 @@ public class BattleManager : MonoBehaviour
        enemy2Behavior = enemyGo2.GetComponent<UnitBehavior>();
        enemy3Behavior = enemyGo3.GetComponent<UnitBehavior>();
        enemyBehavior.enemy = true;
+       enemy2Behavior.enemy = true;
+       enemy3Behavior.enemy = true;
+        playerBehavior.position = 1;
+        player2Behavior.position = 2;
+        player3Behavior.position = 3;
+        enemyBehavior.position = 1;
+        enemy2Behavior.position = 2;
+        enemy3Behavior.position = 3;
        yield return new WaitForSeconds(0.5f);
         StatChange();
-        foreach (UnitBehavior UB in new List<UnitBehavior>())
-        {
-
-        }
         SetHud();
         SetHp();
 

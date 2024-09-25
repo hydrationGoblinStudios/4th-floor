@@ -37,6 +37,7 @@ public class UnitBehavior : MonoBehaviour
     public int[] defenses;
     public int luck;
     public float speed;
+    [Header("Sistema de skill")]
     public List<string> skills;
     public List<string> skillInventory;
     public string equipedSoul;
@@ -44,12 +45,17 @@ public class UnitBehavior : MonoBehaviour
     public int soul;
     public int maxsoul;
     public int soulgain;
+    [Header("Cooking")]
     public int cooking;
+    public int position;
+    [HideInInspector]
     public bool Pendure;
+    [HideInInspector]
     public bool Eendure;
     public TextMeshPro battleText;
     public GameObject battleTextObj;
     public List<int> growths;
+    [Header("Learn Set")]
     public string classSkill;
     public string personalSkill;
     public string baseSkill;

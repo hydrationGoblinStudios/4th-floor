@@ -14,7 +14,7 @@ public class SkillManager : MonoBehaviour
     private int concentraçãodefeiticeiroboost = 0;
 
     //Skills que ativam no Dano
-    public int SkillProc(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
+    public int SkillProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
         switch (skillName)
         {
@@ -78,7 +78,7 @@ public class SkillManager : MonoBehaviour
 
     }
     //pos alma
-    public int PostSoulProc(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
+    public int PostSoulProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
         switch (skillName)
         {
@@ -86,7 +86,7 @@ public class SkillManager : MonoBehaviour
         }
     }
     //inicio da batalha
-    public int MatchStartProc(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
+    public int MatchStartProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
         switch (skillName)
         {
@@ -175,7 +175,7 @@ public class SkillManager : MonoBehaviour
     }
 
     //as almas
-    public int SoulProc(string SoulName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
+    public int SoulProc(string SoulName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
         switch (SoulName)
         {
@@ -186,7 +186,7 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    public int PostHealthChange(string skillName, UnitBehavior user, UnitBehavior target, UnitBehavior[] team, UnitBehavior[] enemyTeam)
+    public int PostHealthChange(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
         switch (skillName)
         {
