@@ -9,9 +9,12 @@ public class SkillManager : MonoBehaviour
     private bool arcodasorteboost = false;
     private bool livroarriscadoboost = false;
     private bool machadodeguerraboost = false;
+    private bool TecnicaImprovisadaboost = false;
     private bool presençainabalavel = false;
     private int DanoAscendenteMeter = 0;
     private int concentraçãodefeiticeiroboost = 0;
+    private int DisparodeGelohit;
+    private int DisparodeGeloavoid;
 
     //Skills que ativam no Dano
     public int SkillProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
@@ -38,13 +41,13 @@ public class SkillManager : MonoBehaviour
                 return 0;
             //rapha lembra de trocar isso ai valeu https://youtu.be/4TZmLE0Pqv0?si=wRvI7GzpHgW1zUhe
             case "Ataque Rapido":
-                
-                    if (!arcodasorteboost & Random.Range(0, 101) <= user.dex)
-                    {
-                        //StartCoroutine(Extraattack);
-                    }
 
-                
+                if (!arcodasorteboost & Random.Range(0, 101) <= user.dex)
+                {
+                    //StartCoroutine(Extraattack);
+                }
+
+
                 return 0;
             case "Pancada":
 
@@ -70,7 +73,7 @@ public class SkillManager : MonoBehaviour
 
             case "Precisão Mortal":
 
-                return user.hit/10;
+                return user.hit / 10;
 
             default: return 0;
 
@@ -90,6 +93,34 @@ public class SkillManager : MonoBehaviour
     {
         switch (skillName)
         {
+            case "Encantamento":
+
+                if (user.position == 2)
+                {
+                    team[0].speed += (int)(team[0].speed * 0.15);
+                }
+                if (user.position == 3)
+                {
+                    team[1].speed += (int)(team[1].speed * 0.15);
+                }
+                return 0;
+
+            case "Maldição":
+
+                if (user.position == 1)
+                {
+                    enemyTeam[0].speed += (int)(enemyTeam[0].speed * 0.15);
+                }
+                if (user.position == 2)
+                {
+                    enemyTeam[1].speed += (int)(enemyTeam[1].speed * 0.15);
+                }
+                if (user.position == 3)
+                {
+                    enemyTeam[3].speed += (int)(enemyTeam[3].speed * 0.15);
+                }
+                return 0;
+
             case "Espada Curta":
                 if (!espadaCurtaBoost)
                 {
@@ -160,15 +191,59 @@ public class SkillManager : MonoBehaviour
 
             case "Durão":
                 {
-                    user.maxhp += user.maxhp/4;
-                    user.hp += user.hp/4;
+                    user.maxhp += user.maxhp / 4;
+                    user.hp += user.hp / 4;
                 }
                 return 0;
 
             case "Sabedoria Arcana":
                 {
-                    user.expmarkplier += (int) 0.25;
+                    user.expmarkplier += (int)0.25;
                 }
+                return 0;
+            case "Lutador Versátil":
+
+                if (user.position == 1 || user.position == 2)
+                {
+                    user.def += 3;
+                    user.mdef += 3;
+
+                }
+                if (user.position == 3)
+                {
+                    user.power += 3;
+                }
+
+                return 0;
+
+            case "Persistencia":
+
+                user.speed += user.maxhp - user.hp / 10;
+
+                return 0;
+
+            case "Técnica Improvisada":
+
+                if (user.position == 1 & user.hp <= user.maxhp / 2)
+                {
+                    user.hit += 20;
+                    user.avoid += 20;
+
+                }
+
+                if (user.position == 2)
+                {
+                    user.power += 2;
+                    user.def += 2;
+                    user.mdef += 2;
+                }
+
+                if (user.position == 3 & user.hp >= user.maxhp * 0.9)
+                {
+                    user.power += 5;
+                    user.crit += 5;
+                }
+
                 return 0;
 
         }
@@ -179,9 +254,58 @@ public class SkillManager : MonoBehaviour
     {
         switch (SoulName)
         {
+            case "Golpe Triplo":
+                //extraattack   -user.power/2
+                //extraattack   -user.power/2
+
+                return -user.power / 2;
+
+            case "Golpe Focado":
+
+                //if attack = Crit {user.hp += user.power/5}
+
+                return user.power / 2;
+
+            case "Tiro Certeiro":
+
+                //sure shot
+
+                return user.power / 2;
+
+
+            case "Rajada de Flechas":
+
+                //sure shot
+
+                return (int)(user.power * 0.6);
+
+            case "Trovoada":
+
+                return (int)(target.maxhp * 0.3) - user.power;
+
+            case "Disparo de Gelo":
+
+                StartCoroutine(DisparodeGelo(user, target));
+
+                return 0;
+
+            case "Ataque Inspirador":
+
+                StartCoroutine(AtaqueInspirador(team));
+
+                return user.power / 4;
+
+
+
+
             case "Poder Oculto":
                 Debug.Log("poderOcultado");
                 return 0;
+
+            case "Genki Dama":
+
+                return (team[0].power + team[1].power + team[2].power) * 2;
+
             default: return 0;
         }
     }
@@ -190,6 +314,31 @@ public class SkillManager : MonoBehaviour
     {
         switch (skillName)
         {
+            case "Técnica Improvisada":
+
+                if (user.position == 1 & user.hp <= user.maxhp / 2 & !TecnicaImprovisadaboost)
+                {
+                    user.hit += 20;
+                    user.avoid += 20;
+                    TecnicaImprovisadaboost = true;
+
+                }
+
+                if (user.position == 1 & user.hp >= user.maxhp / 2 & TecnicaImprovisadaboost)
+                {
+                    user.hit -= 20;
+                    user.avoid -= 20;
+                    TecnicaImprovisadaboost = false;
+
+                }
+
+                if (user.position == 3 & user.hp <= user.maxhp * 0.9)
+                {
+                    user.power -= 5;
+                    user.crit -= 5;
+                }
+                return 0;
+
             case "Machado Cortado":
 
                 if (user.hp > user.maxhp * 0.8)
@@ -199,15 +348,15 @@ public class SkillManager : MonoBehaviour
                 }
                 return 0;
             case "Presença Inabalável":
-                
-                    if (user.hp< user.maxhp * 0.5 & !presençainabalavel)
+
+                if (user.hp < user.maxhp * 0.5 & !presençainabalavel)
                 {
                     user.def += user.def / 5;
                     user.mdef += user.mdef / 5;
                     presençainabalavel = true;
 
                 }
-                    if (user.hp > user.maxhp * 0.5 & presençainabalavel)
+                if (user.hp > user.maxhp * 0.5 & presençainabalavel)
                 {
                     user.def -= user.def / 5;
                     user.mdef -= user.mdef / 5;
@@ -221,9 +370,16 @@ public class SkillManager : MonoBehaviour
                 if (user.hp < user.maxhp)
                 {
                     user.mag -= (concentraçãodefeiticeiroboost);
-                    
+
                 }
                 return 0;
+
+            case "Persistencia":
+
+                user.speed += user.maxhp - user.hp / 10;
+
+                return 0;
+
             default: return 0;
         }
     }
@@ -235,4 +391,37 @@ public class SkillManager : MonoBehaviour
         user.hit -= 20;
         user.avoid -= 20;
     }
+    IEnumerator DisparodeGelo(UnitBehavior user, UnitBehavior target)
+    {
+        target.hit -= target.hit / 10 + user.mag / 10;
+        target.avoid -= target.avoid / 10 + user.mag / 10;
+        DisparodeGelohit = target.hit / 10 + user.mag / 10;
+        DisparodeGeloavoid = target.avoid / 10 + user.mag / 10;
+        yield return new WaitForSeconds(15);
+        target.hit += DisparodeGelohit;
+        target.avoid += DisparodeGeloavoid;
+    }
+    IEnumerator AtaqueInspirador (List <UnitBehavior> team)
+    {
+        team[0].power += team[0].power / 5;
+        team[0].speed += team[0].speed / 5;
+        team[1].power += team[1].power / 5;
+        team[1].speed += team[1].speed / 5;
+        team[2].power += team[2].power / 5;
+        team[2].speed += team[2].speed / 5;
+        yield return new WaitForSeconds(10);
+        team[0].power -= team[0].power / 5;
+        team[0].speed -= team[0].speed / 5;
+        team[1].power -= team[1].power / 5;
+        team[1].speed -= team[1].speed / 5;
+        team[2].power -= team[2].power / 5;
+        team[2].speed -= team[2].speed / 5;
+
+    }
+    IEnumerator NaSoulproc(UnitBehavior user)
+    {
+        yield return new WaitForSeconds(0);
+    }
+
+
 }
