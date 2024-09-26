@@ -240,14 +240,7 @@ public class BattleManager : MonoBehaviour
     }
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
-        List<UnitBehavior> attackerTeam;
-        List<UnitBehavior> targetTeam;
-        if (attacker.enemy)
-        {
-            state = BattleState.EnemyTurn;
-
-        }
-        else { state = BattleState.PlayerTurn; }
+        state = BattleState.PlayerTurn;
         attacker.power = attacker.str +attacker.Weapon.power;
         Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " +Target.defenses[attacker.Weapon.damageType]);
         Pskill = 0;
@@ -256,16 +249,6 @@ public class BattleManager : MonoBehaviour
         if (attackerDamage <= 0) { attackerDamage = 1; }
         skillsInUse.Clear();
         skillsInUse.AddRange(attacker.skills);
-        if (attacker.enemy)
-        {
-            attackerTeam = enemyTeam;
-            targetTeam = playerTeam;
-        }
-        else 
-        {
-            attackerTeam = playerTeam;
-            targetTeam = enemyTeam;
-        }
         if (attacker.classSkill != null)
         {
             skillsInUse.Add(attacker.classSkill);
@@ -287,87 +270,21 @@ public class BattleManager : MonoBehaviour
         attacker.soul += 10 + attacker.soulgain;
         if (attacker.soul < attacker.maxsoul && Random.Range(0, 101) <= Phit)
         {
-            StartCoroutine(AttackHit(attacker,Target,attackerDamage, attackerTeam, targetTeam));
+            StartCoroutine(AttackHit(attacker,Target,attackerDamage));
         }
         else if(attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
         {
             if (Random.Range(0, 101) <= Phit)
             { 
-            StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
+            StartCoroutine(AttackHit(attacker, Target, attackerDamage));
             }
         }
         else if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
-            StartCoroutine(skillManager.NaSoulproc(attacker.equipedSoul,attacker,Target,attackerTeam,targetTeam));
-        }
-        else       
-        {
-            battleText.text = (attacker.UnitName + " errou");
-        }
-        yield return new WaitForSeconds(1f);
-        //inimigo morre
-        if (Target.hp <= 0 && Target.Eendure == false)
-        {
-            StartCoroutine(PlayerWin());
-        }
-        else
-        {
-            Debug.Log("else atingido");
-            state = BattleState.Wait;
-        }
-    }
-    public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target)
-    {
-        List<UnitBehavior> attackerTeam;
-        List<UnitBehavior> targetTeam;
-        if (attacker.enemy)
-        {
-            state = BattleState.EnemyTurn;
 
         }
-        else { state = BattleState.PlayerTurn; }
-        attacker.power = attacker.str + attacker.Weapon.power;
-        Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " + Target.defenses[attacker.Weapon.damageType]);
-        Pskill = 0;
-        int attackerDamage = attacker.power - Target.defenses[attacker.Weapon.damageType];
-        Debug.Log(attackerDamage);
-        if (attackerDamage <= 0) { attackerDamage = 1; }
-        skillsInUse.Clear();
-        skillsInUse.AddRange(attacker.skills);
-        if (attacker.enemy)
-        {
-            attackerTeam = enemyTeam;
-            targetTeam = playerTeam;
-        }
         else
-        {
-            attackerTeam = playerTeam;
-            targetTeam = enemyTeam;
-        }
-        if (attacker.classSkill != null)
-        {
-            skillsInUse.Add(attacker.classSkill);
-        }
-        if (attacker.personalSkill != null)
-        {
-            skillsInUse.Add(attacker.personalSkill);
-        }
-        if (attacker.Weapon != null && attacker.Weapon.skill != null)
-        {
-            Debug.Log("weapon");
-            skillsInUse.Add(attacker.Weapon.skill);
-        }
-        if (attacker.Accesory != null && attacker.Accesory.skill != null)
-        {
-            Debug.Log("accesory");
-            skillsInUse.Add(attacker.Accesory.skill);
-        }
-        if (Random.Range(0, 101) <= Phit)
-        {
-            StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
-        }
-        else
-        {
+                {
             battleText.text = (attacker.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
@@ -382,7 +299,7 @@ public class BattleManager : MonoBehaviour
             state = BattleState.Wait;
         }
     }
-   /* public virtual IEnumerator PlayerExtraAttack(string texto)
+    public virtual IEnumerator PlayerExtraAttack(string texto)
     {
         battleText.text = texto;
         yield return new WaitForSeconds((float)3.01);
@@ -443,7 +360,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.Wait;
         }
-    }*/
+    }
     //rpha por favor muda esse codigo para individualmente para os 3 personagens
     public IEnumerator PlayerWin()
     {
@@ -513,20 +430,20 @@ public class BattleManager : MonoBehaviour
             Debug.Log("roll = " + r + "\n growth = " + character.growths[i]);
         };
     }
-    public void AttackSetup()
+    public IEnumerator NaSoul()
     {
-
+        yield return new WaitForSeconds(0);
     }
-    public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
+    public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage)
     {
         foreach (string skill in skillsInUse)
         {
-            Pskill = +skillManager.SkillProc(skill, attacker, Target, attackerTeam, targetTeam);
+            Pskill = +skillManager.SkillProc(skill, attacker, Target, playerTeam, enemyTeam);
         }
         if (attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
         {
             attacker.soul = 0;
-            Pskill += skillManager.SoulProc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
+            Pskill += skillManager.SoulProc(attacker.equipedSoul, attacker, Target, playerTeam, enemyTeam);
             yield return new WaitForSeconds(1);
         }
         if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
