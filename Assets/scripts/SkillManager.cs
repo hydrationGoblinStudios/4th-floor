@@ -289,6 +289,11 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Bola de Fogo":
+
+
+                return user.power/4 + target.mdef/2;
+
             case "Ataque Inspirador":
 
                 StartCoroutine(AtaqueInspirador(team));
@@ -305,6 +310,9 @@ public class SkillManager : MonoBehaviour
             case "Genki Dama":
 
                 return (team[0].power + team[1].power + team[2].power) * 2;
+
+
+
 
             default: return 0;
         }
@@ -418,10 +426,69 @@ public class SkillManager : MonoBehaviour
         team[2].speed -= team[2].speed / 5;
 
     }
-    IEnumerator NaSoulproc(UnitBehavior user)
+    IEnumerator NaSoulproc(string SoulName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
+        switch (SoulName)
+        {
+            case "Revigoramento":
+
+                if (user.hp == user.maxhp) 
+                { 
+                    //extraatack += (int) (user.maxhp * 0.15);
+
+                }
+                else
+                {
+
+                    user.hp += (int)(user.maxhp * 0.3);
+                }
+
+                break;
+
+
+            case "Golpe Poderoso":
+                //extraattack user.hit =- 20
+
+                break;
+
+            case "Fortalecimento":
+
+                user.def += (int) (user.def * 0.15);
+
+                break;
+
+            case "Restauração Espiritual":
+                if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp)
+                {
+                    team[0].hp += 10 + user.mag / 5;
+                }
+                if (team[1].hp <= team[0].hp & team[1].hp <= team[2].hp)
+                {
+                    team[1].hp += 10 + user.mag / 5;
+                }
+                if (team[2].hp <= team[1].hp & team[2].hp <= team[0].hp)
+                {
+                    team[2].hp += 10 + user.mag / 5;
+                }
+                break;
+
+            case "Benção dos Ventos":
+
+                team[0].avoid += team[0].avoid / 10 + user.mag / 5;
+                team[1].avoid += team[1].avoid / 10 + user.mag / 5;
+                team[2].avoid += team[2].avoid / 10 + user.mag / 5;
+                yield return new WaitForSeconds(20);
+                team[0].avoid -= team[0].avoid / 10 + user.mag / 5;
+                team[1].avoid -= team[1].avoid / 10 + user.mag / 5;
+                team[2].avoid -= team[2].avoid / 10 + user.mag / 5;
+
+                break;
+                
+
+
+            default: break;
+
+        }
         yield return new WaitForSeconds(0);
     }
-
-
 }
