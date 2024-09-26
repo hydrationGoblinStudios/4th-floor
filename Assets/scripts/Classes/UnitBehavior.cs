@@ -41,6 +41,7 @@ public class UnitBehavior : MonoBehaviour
     public List<string> skills;
     public List<string> skillInventory;
     public string equipedSoul;
+    public bool equippedSoulIsAttack = true;
     public List<string> soulInventory;
     public int soul;
     public int maxsoul;

@@ -65,7 +65,7 @@ public class GameManager : Singleton
         GameObject newobj = Instantiate(recruit, this.transform);
         team.Add(newobj);
     }
-    public void selectUnit(GameObject unit)
+    public void SelectUnit(GameObject unit)
     {
         GameObject newunit = unit;
         team.Remove(unit);
