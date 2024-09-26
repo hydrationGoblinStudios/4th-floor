@@ -418,10 +418,17 @@ public class SkillManager : MonoBehaviour
         team[2].speed -= team[2].speed / 5;
 
     }
-    IEnumerator NaSoulproc(UnitBehavior user)
+
+    public IEnumerator NaSoulproc(string SoulName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
+        switch (SoulName)
+        {
+            case "exemplo":
+                break;
+            default: break;
+
+        }
         yield return new WaitForSeconds(0);
     }
-
 
 }
