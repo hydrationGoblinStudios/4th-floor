@@ -68,7 +68,7 @@ public class TaskManager : MonoBehaviour
         foreach (GameObject unit in Manager.team)
         {
             GameObject button = Instantiate(UnitSelectButton, unitSelectPanel.transform);
-            button.GetComponent<Button>().onClick.AddListener(() => Manager.selectUnit(unit));
+            button.GetComponent<Button>().onClick.AddListener(() => Manager.SelectUnit(unit));
             button.GetComponent<Button>().onClick.AddListener(() => Manager.Battle());
             button.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
         }
