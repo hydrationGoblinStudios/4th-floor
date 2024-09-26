@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.WSA;
@@ -10,9 +10,9 @@ public class SkillManager : MonoBehaviour
     private bool livroarriscadoboost = false;
     private bool machadodeguerraboost = false;
     private bool TecnicaImprovisadaboost = false;
-    private bool presençainabalavel = false;
+    private bool presenÃ§ainabalavel = false;
     private int DanoAscendenteMeter = 0;
-    private int concentraçãodefeiticeiroboost = 0;
+    private int concentraÃ§Ã£odefeiticeiroboost = 0;
     private int DisparodeGelohit;
     private int DisparodeGeloavoid;
 
@@ -44,7 +44,7 @@ public class SkillManager : MonoBehaviour
 
                 if (!arcodasorteboost & Random.Range(0, 101) <= user.dex)
                 {
-                    //StartCoroutine(Extraattack);
+                    user.battleManager.ExtraAttack(user, target);
                 }
 
 
@@ -71,7 +71,7 @@ public class SkillManager : MonoBehaviour
                 }
 
 
-            case "Precisão Mortal":
+            case "PrecisÃ£o Mortal":
 
                 return user.hit / 10;
 
@@ -105,7 +105,7 @@ public class SkillManager : MonoBehaviour
                 }
                 return 0;
 
-            case "Maldição":
+            case "MaldiÃ§Ã£o":
 
                 if (user.position == 1)
                 {
@@ -150,12 +150,12 @@ public class SkillManager : MonoBehaviour
                 }
                 return 0;
 
-            case "Concentração de Feiticeiro":
+            case "ConcentraÃ§Ã£o de Feiticeiro":
 
                 if (user.hp == user.maxhp)
                 {
                     user.mag += (int)(user.mag * 0.15);
-                    concentraçãodefeiticeiroboost = (int)(user.mag * 0.15);
+                    concentraÃ§Ã£odefeiticeiroboost = (int)(user.mag * 0.15);
                 }
                 return 0;
 
@@ -189,7 +189,7 @@ public class SkillManager : MonoBehaviour
                 return 0;
             default: return 0;
 
-            case "Durão":
+            case "DurÃ£o":
                 {
                     user.maxhp += user.maxhp / 4;
                     user.hp += user.hp / 4;
@@ -201,7 +201,7 @@ public class SkillManager : MonoBehaviour
                     user.expmarkplier += (int)0.25;
                 }
                 return 0;
-            case "Lutador Versátil":
+            case "Lutador VersÃ¡til":
 
                 if (user.position == 1 || user.position == 2)
                 {
@@ -222,7 +222,7 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
-            case "Técnica Improvisada":
+            case "TÃ©cnica Improvisada":
 
                 if (user.position == 1 & user.hp <= user.maxhp / 2)
                 {
@@ -255,8 +255,10 @@ public class SkillManager : MonoBehaviour
         switch (SoulName)
         {
             case "Golpe Triplo":
-                //extraattack   -user.power/2
-                //extraattack   -user.power/2
+                user.power -= user.power / 2;
+                user.battleManager.ExtraAttack(user, target);
+                user.battleManager.ExtraAttack(user, target);
+                user.power += user.power / 2;
 
                 return -user.power / 2;
 
@@ -275,9 +277,13 @@ public class SkillManager : MonoBehaviour
 
             case "Rajada de Flechas":
 
-                //sure shot
+                user.power -= (int)(user.power * 0.4);
+                user.battleManager.ExtraAttack(user, enemyTeam[0]);
+                user.battleManager.ExtraAttack(user, enemyTeam[1]);
+                user.battleManager.ExtraAttack(user, enemyTeam[2]);
+                user.power += (int)(user.power * 0.4);
 
-                return (int)(user.power * 0.6);
+                return 0;
 
             case "Trovoada":
 
@@ -314,7 +320,7 @@ public class SkillManager : MonoBehaviour
     {
         switch (skillName)
         {
-            case "Técnica Improvisada":
+            case "TÃ©cnica Improvisada":
 
                 if (user.position == 1 & user.hp <= user.maxhp / 2 & !TecnicaImprovisadaboost)
                 {
@@ -347,29 +353,29 @@ public class SkillManager : MonoBehaviour
                     user.crit -= 10;
                 }
                 return 0;
-            case "Presença Inabalável":
+            case "PresenÃ§a InabalÃ¡vel":
 
-                if (user.hp < user.maxhp * 0.5 & !presençainabalavel)
+                if (user.hp < user.maxhp * 0.5 & !presenÃ§ainabalavel)
                 {
                     user.def += user.def / 5;
                     user.mdef += user.mdef / 5;
-                    presençainabalavel = true;
+                    presenÃ§ainabalavel = true;
 
                 }
-                if (user.hp > user.maxhp * 0.5 & presençainabalavel)
+                if (user.hp > user.maxhp * 0.5 & presenÃ§ainabalavel)
                 {
                     user.def -= user.def / 5;
                     user.mdef -= user.mdef / 5;
-                    presençainabalavel = true;
+                    presenÃ§ainabalavel = true;
                 }
 
                 return 0;
 
-            case "Concentração de Feiticeiro":
+            case "ConcentraÃ§Ã£o de Feiticeiro":
 
                 if (user.hp < user.maxhp)
                 {
-                    user.mag -= (concentraçãodefeiticeiroboost);
+                    user.mag -= (concentraÃ§Ã£odefeiticeiroboost);
 
                 }
                 return 0;
@@ -421,10 +427,68 @@ public class SkillManager : MonoBehaviour
 
     public IEnumerator NaSoulproc(string SoulName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
+
         switch (SoulName)
         {
-            case "exemplo":
+            case "Revigoramento":
+
+                if (user.hp == user.maxhp)
+                {
+                    user.power += (int)(user.maxhp * 0.15);
+                    user.battleManager.ExtraAttack(user, target);
+                    user.power -= (int)(user.maxhp * 0.15);
+
+                }
+                else
+                {
+
+                    user.hp += (int)(user.maxhp * 0.3);
+                }
+
                 break;
+
+
+            case "Golpe Poderoso":
+
+                user.hit -= 20;
+                user.battleManager.ExtraAttack(user, target);
+                user.hit += 20;
+
+                break;
+
+            case "Fortalecimento":
+
+                user.def += (int)(user.def * 0.15);
+
+                break;
+
+            case "Restauraï¿½ï¿½o Espiritual":
+                if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp)
+                {
+                    team[0].hp += 10 + user.mag / 5;
+                }
+                if (team[1].hp <= team[0].hp & team[1].hp <= team[2].hp)
+                {
+                    team[1].hp += 10 + user.mag / 5;
+                }
+                if (team[2].hp <= team[1].hp & team[2].hp <= team[0].hp)
+                {
+                    team[2].hp += 10 + user.mag / 5;
+                }
+                break;
+
+            case "Benï¿½ï¿½o dos Ventos":
+
+                team[0].avoid += team[0].avoid / 10 + user.mag / 5;
+                team[1].avoid += team[1].avoid / 10 + user.mag / 5;
+                team[2].avoid += team[2].avoid / 10 + user.mag / 5;
+                yield return new WaitForSeconds(20);
+                team[0].avoid -= team[0].avoid / 10 + user.mag / 5;
+                team[1].avoid -= team[1].avoid / 10 + user.mag / 5;
+                team[2].avoid -= team[2].avoid / 10 + user.mag / 5;
+
+                break;
+
             default: break;
 
         }
