@@ -18,8 +18,8 @@ MonoBehaviour:
   type: 0
   weapontype: 1
   weight: 2
-  ItemName: Machado de aco
-  description: Machado Moderado.
+  ItemName: "Machado de a\xE7o"
+  description: "Uma machado com uma l\xE2mina de a\xE7o."
   hit: 70
   crit: 0
   power: 19
@@ -32,3 +32,4 @@ MonoBehaviour:
   speed: 0
   price: 3000
   damageType: 0
+  skill: 

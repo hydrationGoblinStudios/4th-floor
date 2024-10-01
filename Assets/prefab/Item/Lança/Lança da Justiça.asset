@@ -10,19 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Espada de ferro
+  m_Name: "Lan\xE7a da Justi\xE7a"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 1
   sprite: {fileID: 0}
   type: 0
-  weapontype: 0
-  weight: 0
-  ItemName: Espada de ferro
-  description: Uma espada simples.
-  hit: 90
+  weapontype: 2
+  weight: 1
+  ItemName: "Lan\xE7a da Justi\xE7a"
+  description: "Uma lan\xE7a que \xE9 usada por aqueles que se acham justos o suficiente
+    para aplicar justi\xE7a. O primeiro ataque b\xE1sico contra um inimigo causa
+    25% a mais de Dano e Ignora 100% da Defesa Fisica."
+  hit: 85
   crit: 0
-  power: 5
+  power: 16
   str: 0
   mag: 0
   dex: 0
@@ -30,6 +32,6 @@ MonoBehaviour:
   Mdef: 0
   luck: 0
   speed: 0
-  price: 1000
+  price: 3
   damageType: 0
-  skill: 
+  skill: "Lan\xE7a da Justi\xE7a"
