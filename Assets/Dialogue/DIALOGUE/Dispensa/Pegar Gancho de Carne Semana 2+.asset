@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2087315414638472248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 760, y: -168}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2087315414638472248}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -966954415443320954}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -2087315414638472248}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -875470226918278688}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: 
+  dialogue: Obteve <color=green> Pernil
+  sprite: {fileID: 0}
 --- !u!114 &-1511202177378790619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +116,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -875470226918278688}
+        node: {fileID: -2087315414638472248}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -76,7 +124,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  item: {fileID: 11400000, guid: 10276d0493d256944ab01966a031c9a4, type: 2}
+  item: {fileID: 11400000, guid: 3cec575470e1377419ab214348dfd512, type: 2}
   key: 1
 --- !u!114 &-875470226918278688
 MonoBehaviour:
@@ -91,7 +139,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 760, y: -168}
+  position: {x: 984, y: -168}
   ports:
     keys:
     - entry
@@ -102,7 +150,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -966954415443320954}
+        node: {fileID: -2087315414638472248}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -126,6 +174,7 @@ MonoBehaviour:
   - {fileID: 5390368003397130833}
   - {fileID: -875470226918278688}
   - {fileID: -966954415443320954}
+  - {fileID: -2087315414638472248}
   current: {fileID: 0}
 --- !u!114 &5390368003397130833
 MonoBehaviour:

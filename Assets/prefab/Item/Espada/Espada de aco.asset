@@ -18,12 +18,12 @@ MonoBehaviour:
   type: 0
   weapontype: 0
   weight: 0
-  ItemName: Espada de aco
-  description: Espada Moderada.
+  ItemName: "Espada de a\xE7o"
+  description: "Uma espada com uma l\xE2mina de a\xE7o."
   hit: 75
   crit: 0
   power: 10
-  atk: 0
+  str: 0
   mag: 0
   dex: 0
   def: 0
@@ -31,3 +31,5 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 3000
+  damageType: 0
+  skill: 

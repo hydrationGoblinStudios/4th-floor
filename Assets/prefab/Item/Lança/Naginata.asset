@@ -22,8 +22,8 @@ MonoBehaviour:
   description: "Uma lan\xE7a defensiva, aumenta a Defesa Fisica e Magica em +3."
   hit: 70
   crit: 0
-  power: 9
-  atk: 0
+  power: 10
+  str: 0
   mag: 0
   dex: 0
   def: 3
@@ -31,3 +31,5 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 5000
+  damageType: 0
+  skill: 

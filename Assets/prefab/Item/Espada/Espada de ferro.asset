@@ -19,11 +19,11 @@ MonoBehaviour:
   weapontype: 0
   weight: 0
   ItemName: Espada de ferro
-  description: Espada Simples.
+  description: Uma espada simples.
   hit: 90
   crit: 0
   power: 5
-  atk: 0
+  str: 0
   mag: 0
   dex: 0
   def: 0
@@ -31,3 +31,5 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 1000
+  damageType: 0
+  skill: 

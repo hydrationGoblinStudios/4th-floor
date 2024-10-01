@@ -251,7 +251,7 @@ public class BattleManager : MonoBehaviour
         attacker.power = attacker.str +attacker.Weapon.power;
         Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " +Target.defenses[attacker.Weapon.damageType]);
         Pskill = 0;
-        int attackerDamage = attacker.power - Target.defenses[attacker.Weapon.damageType];
+        int attackerDamage = attacker.power - (Target.defenses[attacker.Weapon.damageType] + Target.damagereduction);
         Debug.Log(attackerDamage);
         if (attackerDamage <= 0) { attackerDamage = 1; }
         skillsInUse.Clear();
