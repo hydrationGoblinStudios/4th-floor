@@ -34,7 +34,6 @@ public class UnitBehavior : MonoBehaviour
     public int dex;
     public int def;
     public int mdef;
-    public int damagereduction;
     public int[] defenses;
     public int luck;
     public float speed;
@@ -47,6 +46,11 @@ public class UnitBehavior : MonoBehaviour
     public int soul;
     public int maxsoul;
     public int soulgain;
+    [Header("Status que não aparecem na UI")]
+    public int damagereduction;
+    public int lifesteal;
+    public int armorpen;
+    public int magicpen;
     [Header("Cooking")]
     public int cooking;
     public int position;

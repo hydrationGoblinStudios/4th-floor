@@ -533,12 +533,29 @@ public class BattleManager : MonoBehaviour
         {
 
         }
+
+        foreach (string skill in skillsInUse)
+        {
+            Pskill = +skillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
+        }
+        foreach (string skill in skillsInUse)
+        {
+            Pskill = +skillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+        }
+
+
+
         HudUpdate();
         yield return new WaitForSeconds(1);
         if (Random.Range(0, 101) <= Pcrit)
         {
             hitAudio[1].Play();
             Target.hp -= (attackerDamage + Pskill) * 2;
+            if (attacker.lifesteal >= 0.01)
+            {
+                attacker.hp += (attackerDamage + Pskill * 2) * attacker.lifesteal;
+ 
+            }
             Target.soul += ((attackerDamage + Pskill) * 2) / 5;
             battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
             yield return new WaitForSeconds(1);
@@ -549,10 +566,15 @@ public class BattleManager : MonoBehaviour
         {
             hitAudio[0].Play();
             Target.hp -= Pskill + attacker.power;
+            if (attacker.lifesteal >= 0.01)
+            {
+                attacker.hp += (Pskill + attacker.power) * attacker.lifesteal;
+            }
             Target.soul += (attackerDamage + Pskill) / 5;
             battleText.text = $"{Target.UnitName} perdeu {attackerDamage + Pskill} hp";
             enemyHpSlider.value = Target.hp;
         }
+
     }
     public void StatChange()
     {
