@@ -19,7 +19,7 @@ MonoBehaviour:
   weapontype: 4
   weight: 0
   ItemName: "Livro Avan\xE7ado"
-  description: Um Livro com conceitos Complexos de magia.
+  description: Um livro com conceitos complexos de magia.
   hit: 95
   crit: 0
   power: 7
@@ -32,3 +32,4 @@ MonoBehaviour:
   speed: 0
   price: 3000
   damageType: 1
+  skill: 

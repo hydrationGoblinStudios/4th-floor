@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Livro Basico
+  m_Name: Livro Curativo
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 0
@@ -18,11 +18,12 @@ MonoBehaviour:
   type: 0
   weapontype: 4
   weight: 0
-  ItemName: "Livro B\xE1sico"
-  description: Um livro com conceitos simples de magia.
-  hit: 90
+  ItemName: Livro Curativo
+  description: "Um livro que possui magias curativas. Cada vez que usar o ataque
+    b\xE1sico, cura o aliado com menos vida equivalente a sua Magia/2 + 2."
+  hit: 100
   crit: 0
-  power: 3
+  power: 2
   str: 0
   mag: 0
   dex: 0
@@ -30,6 +31,6 @@ MonoBehaviour:
   Mdef: 0
   luck: 0
   speed: 0
-  price: 1000
+  price: 5000
   damageType: 1
-  skill: 
+  skill: Livro Curativo

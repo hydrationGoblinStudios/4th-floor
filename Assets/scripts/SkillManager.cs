@@ -16,11 +16,24 @@ public class SkillManager : MonoBehaviour
     private bool lancadajustica1 = false;
     private bool lancadajustica2 = false;
     private bool lancadajustica3 = false;
+    private bool frigidiboost = false;
     private int DanoAscendenteMeter = 0;
     private int concentraçãodefeiticeiroboost = 0;
     private int DisparodeGelohit;
     private int DisparodeGeloavoid;
     private int arcodarapidezboost;
+    private int parfritboost;
+    private int frigidistatsdef;
+    private int frigidistatsmdef;
+    private int Receptaculoamaldiçoadospeed;
+    private int Receptaculoamaldiçoadopower;
+    private int Ataqueinspiradorpower1;
+    private int Ataqueinspiradorpower2;
+    private int Ataqueinspiradorpower3;
+    private int Ataqueinspiradorspeed1;
+    private int Ataqueinspiradorspeed2;
+    private int Ataqueinspiradorspeed3;
+
 
     //Skills que ativam no Dano
     public int SkillProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
@@ -112,6 +125,38 @@ public class SkillManager : MonoBehaviour
                     return user.power += user.power / 4 + target.def;
                 }
                 return 0;
+
+            case "Livro Curativo":
+                if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp)
+                {
+                    team[0].hp += user.mag / 2 + 2;
+                }
+                if (team[1].hp <= team[0].hp & team[1].hp <= team[2].hp)
+                {
+                    team[1].hp += user.mag / 2 + 2;
+                }
+                if (team[2].hp <= team[1].hp & team[2].hp <= team[0].hp)
+                {
+                    team[2].hp += user.mag / 2 + 2;
+                }
+                return 0;
+
+            case "Receptaculo Amaldiçoado":
+
+                StartCoroutine(ReceptaculoAmaldiçoado(target));
+                return 0;
+
+            case "Ídolo Manchado":
+
+                if (Random.Range(0, 101) <= user.luck)
+                {
+                    target.soul -= 15;
+
+                }
+
+                return 0;
+
+
             default: return 0;
 
 
@@ -299,9 +344,26 @@ public class SkillManager : MonoBehaviour
 
 
             case "Indestrutível":
+
                 user.damagereduction += 3;
                 StartCoroutine(Indestrutivel(user));
                 return 0;
+
+            case "Parfrit":
+
+                parfritboost = user.dex;
+                if (parfritboost >= 23)
+                {
+                    parfritboost = 23;
+                }
+                user.power += parfritboost;
+                return 0;
+
+            case "Arco do Gigante":
+
+                user.maxhp += user.maxhp / 2;
+                return 0;
+
 
             default: return 0;
 
@@ -460,6 +522,26 @@ public class SkillManager : MonoBehaviour
                 }
                 return 0;
 
+            case "Frigidi":
+                if (user.hp <= user.maxhp/2 && frigidiboost == false)
+                {
+                    user.def += user.def / 2;
+                    user.mdef += user.mdef / 2;
+                    frigidistatsdef = user.def += user.def / 2;
+                    frigidistatsmdef = user.mdef += user.mdef / 2;
+
+                    frigidiboost = true;
+                }
+                if (user.hp >= user.maxhp / 2 && frigidiboost == true)
+                {
+                    user.def += frigidistatsdef;
+                    user.mdef += frigidistatsmdef;
+                    frigidiboost = true;
+                }
+
+
+                return 0;
+
             default: return 0;
         }
     }
@@ -473,16 +555,23 @@ public class SkillManager : MonoBehaviour
     }
     IEnumerator DisparodeGelo(UnitBehavior user, UnitBehavior target)
     {
-        target.hit -= target.hit / 10 + user.mag / 10;
-        target.avoid -= target.avoid / 10 + user.mag / 10;
         DisparodeGelohit = target.hit / 10 + user.mag / 10;
         DisparodeGeloavoid = target.avoid / 10 + user.mag / 10;
+        target.hit -= target.hit / 10 + user.mag / 10;
+        target.avoid -= target.avoid / 10 + user.mag / 10;
+
         yield return new WaitForSeconds(15);
         target.hit += DisparodeGelohit;
         target.avoid += DisparodeGeloavoid;
     }
     IEnumerator AtaqueInspirador (List <UnitBehavior> team)
     {
+        Ataqueinspiradorpower1 = team[0].power / 5;
+        Ataqueinspiradorspeed1 = (int) team[0].speed / 5;
+        Ataqueinspiradorpower2 = team[1].power / 5;
+        Ataqueinspiradorspeed2 = (int) team[1].speed / 5;
+        Ataqueinspiradorpower3 = team[2].power / 5;
+        Ataqueinspiradorspeed3 = (int) team[2].speed / 5;
         team[0].power += team[0].power / 5;
         team[0].speed += team[0].speed / 5;
         team[1].power += team[1].power / 5;
@@ -490,12 +579,12 @@ public class SkillManager : MonoBehaviour
         team[2].power += team[2].power / 5;
         team[2].speed += team[2].speed / 5;
         yield return new WaitForSeconds(10);
-        team[0].power -= team[0].power / 5;
-        team[0].speed -= team[0].speed / 5;
-        team[1].power -= team[1].power / 5;
-        team[1].speed -= team[1].speed / 5;
-        team[2].power -= team[2].power / 5;
-        team[2].speed -= team[2].speed / 5;
+        team[0].power -= Ataqueinspiradorpower1;
+        team[0].speed -= Ataqueinspiradorspeed1;
+        team[1].power -= Ataqueinspiradorpower2;
+        team[1].speed -= Ataqueinspiradorspeed2;
+        team[2].power -= Ataqueinspiradorpower3;
+        team[2].speed -= Ataqueinspiradorspeed3;
 
     }
     IEnumerator Indestrutivel(UnitBehavior user)
@@ -513,6 +602,19 @@ public class SkillManager : MonoBehaviour
         user.speed -= arcodarapidezboost;
 
     }
+    IEnumerator ReceptaculoAmaldiçoado(UnitBehavior target)
+    {
+        Receptaculoamaldiçoadospeed = (int)target.speed / 10;
+        Receptaculoamaldiçoadopower = target.power / 10;
+        target.speed -= target.speed / 10;
+        target.power -= target.power / 10;
+        
+        
+        yield return new WaitForSeconds(15);
+        target.speed += Receptaculoamaldiçoadospeed;
+        target.power += Receptaculoamaldiçoadopower;
+    }
+
 
     public IEnumerator NaSoulproc(string SoulName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
