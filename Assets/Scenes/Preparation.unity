@@ -5095,13 +5095,15 @@ MonoBehaviour:
   moneyText: {fileID: 788691422}
   Inventory:
   - {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
-  - {fileID: 11400000, guid: c9fcc6fc0521a994ca76c9d0d8a49e5b, type: 2}
-  - {fileID: 11400000, guid: c353e0ac377a3194faa60235799710cf, type: 2}
-  - {fileID: 11400000, guid: 383f8de714634634a9a30b8b0fe277c7, type: 2}
-  - {fileID: 11400000, guid: 4be57993b28c0294f8e96066665e1fe3, type: 2}
+  - {fileID: 11400000, guid: 4859b3cd6f48cc64f8c498ae349056b8, type: 2}
+  - {fileID: 11400000, guid: 4b8bfbb8f6f8b3f4c816cfa15fed312b, type: 2}
+  - {fileID: 11400000, guid: 973c69435c4261d42903e66bef62a563, type: 2}
+  - {fileID: 11400000, guid: 4786e2f717a2087408fb237d93d698c3, type: 2}
   - {fileID: 11400000, guid: b02cc4d2f38b7524ba0732c3d264abb7, type: 2}
+  - {fileID: 11400000, guid: c5564337666a0fc4f851b21db3ba0111, type: 2}
   - {fileID: 11400000, guid: a9691ade132f945488fa2114bc90a99f, type: 2}
   KeyItems: []
+  StoryFlags: []
   SwordList: []
   LanceList: []
   AxeList: []
@@ -6842,6 +6844,51 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1102837522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1102837523}
+  - component: {fileID: 1102837524}
+  m_Layer: 0
+  m_Name: DataPersistence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1102837523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102837522}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1102837524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102837522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46670df586c86694698fcf194abf5d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: AlvorecerLunar.json
 --- !u!1 &1111338261
 GameObject:
   m_ObjectHideFlags: 0
@@ -12466,6 +12513,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 974959757}
+  - {fileID: 1102837523}
   - {fileID: 2125996980}
   - {fileID: 1015266275}
   - {fileID: 601466595}

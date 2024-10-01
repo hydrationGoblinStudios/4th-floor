@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameManager : Singleton
+public class GameManager : Singleton , IDataPersistence
 {
     public int money;
     public int day;
@@ -16,6 +16,7 @@ public class GameManager : Singleton
     public TextMeshPro moneyText;
     public List<Item> Inventory;
     public List<Item> KeyItems;
+    public List<string> StoryFlags;
     [Header("ItemParseLists")]
     public List<Item> SwordList;
     public List<Item> LanceList;
@@ -30,6 +31,22 @@ public class GameManager : Singleton
     {
         LoadTeam();
         moneyText.text = "Dinheiro:"+money;
+    }
+    public void LoadData(GameData data)
+    {
+        this.money = data.money;
+        this.day = data.day;
+        this.Inventory = data.Inventory;
+        this.KeyItems = data.KeyItems;
+        this.team = data.team;
+    }
+    public void SaveData(ref GameData data)
+    {
+        data.money = this.money;
+        data.day = this.day;
+        data.Inventory = this.Inventory;
+        data.KeyItems = this.KeyItems;
+        data.team = this.team;
     }
     public void PrepScreen()
     {
