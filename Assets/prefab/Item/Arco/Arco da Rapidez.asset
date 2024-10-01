@@ -19,7 +19,8 @@ MonoBehaviour:
   weapontype: 3
   weight: 0
   ItemName: Arco da Rapidez
-  description: Arco Rapido
+  description: Um arco que te deixa mais veloz depois de usar uma alma. Ganha mais
+    20% de Velocidade por 10 Segundos depois de usar a Alma.
   hit: 80
   crit: 5
   power: 5
@@ -32,3 +33,4 @@ MonoBehaviour:
   speed: 0
   price: 4000
   damageType: 0
+  skill: Arco da Rapidez

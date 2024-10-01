@@ -19,7 +19,7 @@ MonoBehaviour:
   weapontype: 3
   weight: 0
   ItemName: "Arco de a\xE7o"
-  description: Arco Moderado.
+  description: "Um arco com parte do revestimento feito de a\xE7o."
   hit: 85
   crit: 5
   power: 8
@@ -32,3 +32,4 @@ MonoBehaviour:
   speed: 0
   price: 3000
   damageType: 0
+  skill: 

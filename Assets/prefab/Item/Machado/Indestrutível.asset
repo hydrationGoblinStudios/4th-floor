@@ -10,19 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Espada de ferro
+  m_Name: "Indestrut\xEDvel"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 1
   sprite: {fileID: 0}
   type: 0
-  weapontype: 0
-  weight: 0
-  ItemName: Espada de ferro
-  description: Uma espada simples.
-  hit: 90
-  crit: 0
-  power: 5
+  weapontype: 1
+  weight: 2
+  ItemName: "Indestrut\xEDvel"
+  description: "Essa machado foi usado por guerreiros que se diziam Imortais. Ganha
+    +3 de Redu\xE7\xE3o de dano e Recebe +25 de Redu\xE7\xE3o de Dano pelos primeiros
+    12 Segundos do Combate."
+  hit: 65
+  crit: 5
+  power: 19
   str: 0
   mag: 0
   dex: 0
@@ -30,6 +32,6 @@ MonoBehaviour:
   Mdef: 0
   luck: 0
   speed: 0
-  price: 1000
+  price: 3
   damageType: 0
-  skill: 
+  skill: "Indestrut\xEDvel"

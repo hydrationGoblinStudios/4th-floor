@@ -18,9 +18,8 @@ MonoBehaviour:
   type: 0
   weapontype: 0
   weight: 0
-  ItemName: Espada Estrelada
-  description: "Uma espada misteriosa achada no ba\xFA do quarto do Ramion, aumenta
-    a Destreza e a Sorte em +1."
+  ItemName: Alvorecer Lunar
+  description: Da todos os Danos.
   hit: 200
   crit: 170
   power: 30

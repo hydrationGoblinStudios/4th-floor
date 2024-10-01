@@ -34,6 +34,7 @@ public class UnitBehavior : MonoBehaviour
     public int dex;
     public int def;
     public int mdef;
+    public int damagereduction;
     public int[] defenses;
     public int luck;
     public float speed;

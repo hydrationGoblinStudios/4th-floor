@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Espada de ferro
+  m_Name: "Espada Amaldi\xE7oada"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 0
@@ -18,11 +18,13 @@ MonoBehaviour:
   type: 0
   weapontype: 0
   weight: 0
-  ItemName: Espada de ferro
-  description: Uma espada simples.
-  hit: 90
-  crit: 0
-  power: 5
+  ItemName: "Espada Amaldi\xE7oada"
+  description: "Uma Espada que dizem ter sido amaldi\xE7oada por um mago maligno.Toda
+    vez que causar dano com um ataque b\xE1sico, tem 66-Sortex2% de chance de causar
+    dano em si mesmo em vez do alvo. "
+  hit: 80
+  crit: 15
+  power: 17
   str: 0
   mag: 0
   dex: 0
@@ -30,6 +32,6 @@ MonoBehaviour:
   Mdef: 0
   luck: 0
   speed: 0
-  price: 1000
+  price: 3
   damageType: 0
-  skill: 
+  skill: "Espada Amaldi\xE7oada"

@@ -11,10 +11,16 @@ public class SkillManager : MonoBehaviour
     private bool machadodeguerraboost = false;
     private bool TecnicaImprovisadaboost = false;
     private bool presençainabalavel = false;
+    private bool apostadoraboost = false;
+    private bool vendavalboost = false;
+    private bool lancadajustica1 = false;
+    private bool lancadajustica2 = false;
+    private bool lancadajustica3 = false;
     private int DanoAscendenteMeter = 0;
     private int concentraçãodefeiticeiroboost = 0;
     private int DisparodeGelohit;
     private int DisparodeGeloavoid;
+    private int arcodarapidezboost;
 
     //Skills que ativam no Dano
     public int SkillProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
@@ -34,7 +40,7 @@ public class SkillManager : MonoBehaviour
                     }
                     else
                     {
-                        DanoAscendenteMeter = +1;
+                        DanoAscendenteMeter += 1;
                     }
 
                 }
@@ -42,7 +48,7 @@ public class SkillManager : MonoBehaviour
             //rapha lembra de trocar isso ai valeu https://youtu.be/4TZmLE0Pqv0?si=wRvI7GzpHgW1zUhe
             case "Ataque Rapido":
 
-                if (!arcodasorteboost & Random.Range(0, 101) <= user.dex)
+                if (Random.Range(0, 101) <= user.dex)
                 {
                     user.battleManager.ExtraAttack(user, target);
                 }
@@ -75,7 +81,40 @@ public class SkillManager : MonoBehaviour
 
                 return user.hit / 10;
 
+
+            case "Espada Amaldiçoada":
+                if (Random.Range (0,101) >= 66 - user.luck * 2)
+                {
+                    user.hp -= user.power;
+                    PostHealthChange(skillName,user, target, team, enemyTeam);
+                }
+                return 0;
+
+            case "Espada Maldita":
+                target.maxhp -= 10;
+                return 0;
+
+                //vai dar problema se o ataque for magico
+            case "Lança da Justiça":
+                if (target.position == 1 && lancadajustica1 == false)
+                {
+                    lancadajustica1 = true;
+                    return user.power += user.power / 4 + target.def;
+                }
+                if (target.position == 2 && lancadajustica2 == false)
+                {
+                    lancadajustica2 = true;
+                    return user.power += user.power / 4 + target.def;
+                }
+                if (target.position == 3 && lancadajustica3 == false)
+                {
+                    lancadajustica3 = true;
+                    return user.power += user.power / 4 + target.def;
+                }
+                return 0;
             default: return 0;
+
+
 
         }
 
@@ -85,6 +124,20 @@ public class SkillManager : MonoBehaviour
     {
         switch (skillName)
         {
+            case "Apostadora":
+
+                if (Random.Range(0, 101) <= user.luck + 7 && apostadoraboost == false)
+                {
+                    user.hit += 77;
+                    apostadoraboost = true;
+                }
+                return 0;
+
+            case "Arco da Rapidez":
+
+                StartCoroutine(ArcodaRapidez(user));
+                return 0;
+
             default: return 0;
         }
     }
@@ -187,7 +240,6 @@ public class SkillManager : MonoBehaviour
                     StartCoroutine(Foco(user));
                 }
                 return 0;
-            default: return 0;
 
             case "Durão":
                 {
@@ -205,8 +257,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.position == 1 || user.position == 2)
                 {
-                    user.def += 3;
-                    user.mdef += 3;
+                    user.damagereduction += 3;
 
                 }
                 if (user.position == 3)
@@ -245,6 +296,14 @@ public class SkillManager : MonoBehaviour
                 }
 
                 return 0;
+
+
+            case "Indestrutível":
+                user.damagereduction += 3;
+                StartCoroutine(Indestrutivel(user));
+                return 0;
+
+            default: return 0;
 
         }
     }
@@ -386,6 +445,21 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Vendaval":
+
+                if (user.hp <=  user.maxhp * 0.4 && vendavalboost == false)
+                {
+                    user.avoid += 30;
+                    vendavalboost = true;
+                }
+
+                if (user.hp >= user.maxhp * 0.4 && vendavalboost == true)
+                {
+                    user.avoid -= 30;
+                    vendavalboost = false;
+                }
+                return 0;
+
             default: return 0;
         }
     }
@@ -422,6 +496,21 @@ public class SkillManager : MonoBehaviour
         team[1].speed -= team[1].speed / 5;
         team[2].power -= team[2].power / 5;
         team[2].speed -= team[2].speed / 5;
+
+    }
+    IEnumerator Indestrutivel(UnitBehavior user)
+    {
+        user.damagereduction += 25;
+        yield return new WaitForSeconds(12);
+        user.damagereduction += 25;
+
+    }
+    IEnumerator ArcodaRapidez(UnitBehavior user)
+    {
+        user.speed += user.speed/5;
+        arcodarapidezboost = (int) (user.speed += user.speed / 5);
+        yield return new WaitForSeconds(10);
+        user.speed -= arcodarapidezboost;
 
     }
 
