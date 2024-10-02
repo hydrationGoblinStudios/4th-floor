@@ -18,6 +18,8 @@ public class SkillManager : MonoBehaviour
     private bool lancadajustica3 = false;
     private bool frigidiboost = false;
     private bool poçãodevidause = false;
+    private bool poçãodevelocidadeuse = false;
+    private bool poçãodeforçause = false;
     private int DanoAscendenteMeter = 0;
     private int concentraçãodefeiticeiroboost = 0;
     private int DisparodeGelohit;
@@ -34,6 +36,8 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed1;
     private int Ataqueinspiradorspeed2;
     private int Ataqueinspiradorspeed3;
+    private int poçãodeforçastacks;
+
 
 
     //Skills que ativam no Dano
@@ -157,6 +161,18 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+
+            case "Poção de Foco":
+                if (poçãodeforçastacks >= 1)
+                {
+                    poçãodeforçastacks -= 1;
+                    if (poçãodeforçastacks == 0)
+                    {
+                        user.power -= 5;
+                    }
+                }
+
+                return 0;
 
             default: return 0;
 
@@ -365,17 +381,30 @@ public class SkillManager : MonoBehaviour
                 user.maxhp += user.maxhp / 2;
                 return 0;
 
-            case "Poção de Vida":
-                if (user.hp <= user.maxhp * 0.3 && poçãodevidause == false)
-                {
-                    user.hp += (int) (user.maxhp * 0.2);
-
-                    poçãodevidause = true;
-                    
-                }
+            case "Poção de Foco":
+                user.soul += (int)(user.maxsoul * 0.15);
 
                 return 0;
 
+            case "Poção de Força":
+
+                user.power += 5;
+                poçãodeforçastacks = 2;
+                poçãodeforçause = true;
+
+                return 0;
+
+            case "Poção de Velocidade":
+
+                StartCoroutine(PoçãodeVelocidade(user));
+                poçãodevelocidadeuse = true;
+
+                return 0;
+
+            case "Anel Vampírico":
+
+                user.lifesteal += (int) 0.1;
+                return 0;
 
             default: return 0;
 
@@ -554,6 +583,18 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+
+            case "Poção de Vida":
+                if (user.hp <= user.maxhp * 0.3 && poçãodevidause == false)
+                {
+                    user.hp += (int)(user.maxhp * 0.2);
+
+                    poçãodevidause = true;
+
+                }
+
+                return 0;
+
             default: return 0;
         }
     }
@@ -625,6 +666,13 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds(15);
         target.speed += Receptaculoamaldiçoadospeed;
         target.power += Receptaculoamaldiçoadopower;
+    }
+    IEnumerator PoçãodeVelocidade(UnitBehavior user)
+    {
+        user.speed += 7;
+        yield return new WaitForSeconds(10);
+        user.speed -= 7;
+
     }
 
 

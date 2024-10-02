@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Po\xE7\xE3o de Vida"
+  m_Name: Anel de Vida
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 1
@@ -18,10 +18,9 @@ MonoBehaviour:
   type: 1
   weapontype: 6
   weight: 0
-  ItemName: "Po\xE7\xE3o de Vida"
-  description: "Uma po\xE7\xE3o que restaura sua sa\xFAde (Consumivel). Quando ficar
-    com <30% de Vida Maxima, recupera 20% da vida. "
-  hit: 0
+  ItemName: Anel de Vida
+  description: Um anel que aumenta a Vida. Ganha +40 de Vida.
+  hit: 40
   crit: 0
   power: 0
   str: 0
@@ -31,6 +30,6 @@ MonoBehaviour:
   Mdef: 0
   luck: 0
   speed: 0
-  price: 500
+  price: 3000
   damageType: 0
-  skill: "Po\xE7\xE3o de Vida"
+  skill: 
