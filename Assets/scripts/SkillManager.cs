@@ -17,6 +17,7 @@ public class SkillManager : MonoBehaviour
     private bool lancadajustica2 = false;
     private bool lancadajustica3 = false;
     private bool frigidiboost = false;
+    private bool poçãodevidause = false;
     private int DanoAscendenteMeter = 0;
     private int concentraçãodefeiticeiroboost = 0;
     private int DisparodeGelohit;
@@ -362,6 +363,17 @@ public class SkillManager : MonoBehaviour
             case "Arco do Gigante":
 
                 user.maxhp += user.maxhp / 2;
+                return 0;
+
+            case "Poção de Vida":
+                if (user.hp <= user.maxhp * 0.3 && poçãodevidause == false)
+                {
+                    user.hp += (int) (user.maxhp * 0.2);
+
+                    poçãodevidause = true;
+                    
+                }
+
                 return 0;
 
 
