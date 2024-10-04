@@ -465,6 +465,77 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Maestria da Posição 1":
+
+                if (user.position == 1)
+                {
+                    user.damagereduction += 3;
+
+
+                    
+                }
+
+                return 0;
+
+            case "Maestria da Posição 2":
+
+                if (user.position == 2)
+                {
+                    user.avoid += 15;
+                    user.hit += 15;
+
+
+                }
+
+                return 0;
+
+            case "Maestria da Posição 3":
+
+                if (user.position == 3)
+                {
+                    user.power += 3;
+                 
+
+
+                }
+
+                return 0;
+
+            case "Começo Afortunado":
+
+
+                user.soul += 15;
+                StartCoroutine(ComeçoAfortunado(user));
+                
+
+                return 0;
+
+            case "Gênio":
+
+                user.expmarkplier += (int) 0.25;
+
+                user.maxhp -= user.maxhp / 5;
+                user.str -= user.str / 5;
+                user.mag -= user.mag / 5;
+                user.dex -= user.dex / 5;
+                user.speed -= user.speed / 5;
+                user.def -= user.def / 5;
+                user.mdef -= user.mdef / 5;
+                user.luck -= user.luck / 5;
+
+                return 0;
+
+            case "Azar Contagiante":
+
+                user.luck -= 20;
+
+                enemyTeam[0].luck -= 10;
+                enemyTeam[1].luck -= 10;
+                enemyTeam[2].luck -= 10;
+
+
+                return 0;
+
 
             default: return 0;
 
@@ -666,6 +737,16 @@ public class SkillManager : MonoBehaviour
         user.hit -= 20;
         user.avoid -= 20;
     }
+
+    IEnumerator ComeçoAfortunado(UnitBehavior user)
+    {
+        user.hit += 12;
+        user.avoid += 12;
+        yield return new WaitForSeconds(16);
+        user.hit -= 12;
+        user.avoid -= 12;
+    }
+
     IEnumerator DisparodeGelo(UnitBehavior user, UnitBehavior target)
     {
         DisparodeGelohit = target.hit / 10 + user.mag / 10;
