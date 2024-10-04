@@ -20,6 +20,7 @@ public class SkillManager : MonoBehaviour
     private bool poçãodevidause = false;
     private bool poçãodevelocidadeuse = false;
     private bool poçãodeforçause = false;
+    private bool moedamagicaactive = false;
     private int DanoAscendenteMeter = 0;
     private int concentraçãodefeiticeiroboost = 0;
     private int DisparodeGelohit;
@@ -63,7 +64,7 @@ public class SkillManager : MonoBehaviour
 
                 }
                 return 0;
-            //rapha lembra de trocar isso ai valeu https://youtu.be/4TZmLE0Pqv0?si=wRvI7GzpHgW1zUhe
+
             case "Ataque Rapido":
 
                 if (Random.Range(0, 101) <= user.dex)
@@ -73,6 +74,7 @@ public class SkillManager : MonoBehaviour
 
 
                 return 0;
+
             case "Pancada":
 
                 if (Random.Range(0, 101) <= user.dex)
@@ -83,6 +85,7 @@ public class SkillManager : MonoBehaviour
                 {
                     return 0;
                 }
+
             case "Magia Destrutiva":
 
                 if (Random.Range(0, 101) <= user.dex)
@@ -174,6 +177,31 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+
+            case "Moeda Magica":
+                if (moedamagicaactive == true)
+                {
+                    moedamagicaactive = false;
+                    return (int)(user.power * 0.75);
+                    
+                }
+                else
+                {
+                    return 0;
+                }
+
+            case "Prego Enferrujado":
+                target.dex -= 1;
+                target.speed -= 1;
+
+                return 0;
+
+            case "Pólen Dourado":
+                user.hp += (int) ((user.maxhp - user.hp) * 0.15);
+
+                return 0;
+
+
             default: return 0;
 
 
@@ -199,6 +227,17 @@ public class SkillManager : MonoBehaviour
 
                 StartCoroutine(ArcodaRapidez(user));
                 return 0;
+
+            case "Moeda Magica":
+                moedamagicaactive = true;
+
+                return 0;
+
+            case "Tomo Apoteótico":
+                user.power += 2;
+
+                return 0;
+
 
             default: return 0;
         }
@@ -405,6 +444,27 @@ public class SkillManager : MonoBehaviour
 
                 user.lifesteal += (int) 0.1;
                 return 0;
+
+            case "Anel do Pacto Real":
+                user.maxhp += user.maxhp / 5;
+                user.luck += user.luck / 5;
+                user.speed += user.speed / 5;
+
+                return 0;
+
+            case "Língua de Porco":
+
+                user.str += (int) (user.maxhp * 0.02);
+
+                return 0;
+
+            case "Lâmina Fulgurante":
+
+                user.def += user.str / 3;
+                user.mdef += user.mag / 3;
+
+                return 0;
+
 
             default: return 0;
 
