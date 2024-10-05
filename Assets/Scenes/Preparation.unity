@@ -3263,6 +3263,51 @@ RectTransform:
   m_AnchoredPosition: {x: -0.12, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &662974034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 662974036}
+  - component: {fileID: 662974035}
+  m_Layer: 0
+  m_Name: ScreenManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &662974035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662974034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c9b9d4fa4c64f41bc27ec2c11fb092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayInventory: 1
+--- !u!4 &662974036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662974034}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.35665488, y: 0.11810655, z: 6.6465096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &669457127
 GameObject:
   m_ObjectHideFlags: 0
@@ -5113,10 +5158,10 @@ MonoBehaviour:
   AccesoriesList: []
   ExampleList:
   - {fileID: 11400000, guid: 046a82c701327134682831272ae61cda, type: 2}
-  - {fileID: 11400000, guid: 3c34e74de6a79fe4ca8dea9368fb3a38, type: 2}
+  - {fileID: 11400000, guid: 4b8bfbb8f6f8b3f4c816cfa15fed312b, type: 2}
   - {fileID: 11400000, guid: 4859b3cd6f48cc64f8c498ae349056b8, type: 2}
   - {fileID: 11400000, guid: 4c8315433aa433c4c8bb98f5dd036b10, type: 2}
-  - {fileID: 11400000, guid: f24e954180430844a8d56624e1fba5d4, type: 2}
+  - {fileID: 11400000, guid: 4786e2f717a2087408fb237d93d698c3, type: 2}
   - {fileID: 11400000, guid: c5564337666a0fc4f851b21db3ba0111, type: 2}
   - {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
 --- !u!1 &986651385
@@ -6889,6 +6934,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: AlvorecerLunar.json
+  ClassList:
+  - {fileID: 4445489306633608637, guid: 2184a4f2c538e214a84f1f82c332c545, type: 3}
+  - {fileID: 4445489306633608637, guid: efaa79524367fcf46bdf5cec92c88e49, type: 3}
+  - {fileID: 4445489306633608637, guid: 04377b80085b791499ee4a5d0212e45b, type: 3}
+  - {fileID: 4445489306633608637, guid: 04377b80085b791499ee4a5d0212e45b, type: 3}
+  - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
+  - {fileID: 4445489306633608637, guid: 39e5636f071db2344b4af2c4d16f0818, type: 3}
+  - {fileID: 4445489306633608637, guid: 7f574a53d1e504041a5281a2b17ae557, type: 3}
+  - {fileID: 4445489306633608637, guid: 5541914f4194fb14fbad1dc299a5ef26, type: 3}
 --- !u!1 &1111338261
 GameObject:
   m_ObjectHideFlags: 0
@@ -12522,3 +12576,4 @@ SceneRoots:
   - {fileID: 788691424}
   - {fileID: 1685292186}
   - {fileID: 2129676603}
+  - {fileID: 662974036}

@@ -73,6 +73,8 @@ public class UnitBehavior : MonoBehaviour
     public string soul2;
     public string soul3;
     public string description = "classe n?o valida";
+
+    public UnitData unitData;
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
          playerBehavior = GetComponent<UnitBehavior>();

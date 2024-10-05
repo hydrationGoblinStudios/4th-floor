@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4363c5592e9a3ec45afb0668f6e5d098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classId: 0
+  classId: 107
   Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
@@ -54,6 +54,7 @@ MonoBehaviour:
   battleManagerOBJ: {fileID: 0}
   UnitName: Bors
   currentLevel: 0
+  expmarkplier: 1
   currentRank: 0
   currentExp: 0
   ClassID: 
@@ -75,17 +76,80 @@ MonoBehaviour:
   skills: []
   skillInventory: []
   equipedSoul: Poder Oculto
+  equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0
   maxsoul: 0
   soulgain: 0
+  damagereduction: 0
+  lifesteal: 0
+  armorpen: 0
+  magicpen: 0
   cooking: 0
+  position: 0
   Pendure: 0
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
   growths: 4b0000003200000032000000320000003200000032000000320000003c000000
-  baseskill: 
+  classSkill: 
+  personalSkill: 
+  baseSkill: 
   skill1: 
   skill2: 
+  skill3: 
+  baseSoul: 
+  soul1: 
+  soul2: 
+  soul3: 
   description: "classe n\u7E0A valida"
+  unitData:
+    classId: 0
+    Weapon: {fileID: 0}
+    Accesory: {fileID: 0}
+    UnitName: 
+    currentLevel: 0
+    expmarkplier: 1
+    currentRank: 0
+    currentExp: 0
+    ClassID: 
+    ClassLevel: 
+    hit: 0
+    avoid: 0
+    crit: 0
+    maxhp: 0
+    hp: 0
+    power: 0
+    str: 0
+    mag: 0
+    dex: 0
+    def: 0
+    mdef: 0
+    defenses: 
+    luck: 0
+    speed: 0
+    skills: []
+    skillInventory: []
+    equipedSoul: 
+    equippedSoulIsAttack: 0
+    soulInventory: []
+    soul: 0
+    maxsoul: 0
+    soulgain: 0
+    damagereduction: 0
+    lifesteal: 0
+    armorpen: 0
+    magicpen: 0
+    cooking: 0
+    growths: 
+    classSkill: 
+    personalSkill: 
+    baseSkill: 
+    skill1: 
+    skill2: 
+    skill3: 
+    baseSoul: 
+    soul1: 
+    soul2: 
+    soul3: 
+    description: 

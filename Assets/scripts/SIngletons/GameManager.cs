@@ -6,6 +6,9 @@ using TMPro;
 
 public class GameManager : Singleton , IDataPersistence
 {
+    UnitData CurrentUnitData;
+
+    public List<UnitData> units;
     public int money;
     public int day;
     public List<GameObject> playerUnit = new();
@@ -25,7 +28,7 @@ public class GameManager : Singleton , IDataPersistence
     public List<Item> TomeList;
     public List<Item> ReceptacleList;
     public List<Item> AccesoriesList;
-    [HideInInspector]public List<Item> ExampleList;
+    public List<Item> ExampleList;
 
     public void Start()
     {
@@ -38,15 +41,27 @@ public class GameManager : Singleton , IDataPersistence
         this.day = data.day;
         this.Inventory = data.Inventory;
         this.KeyItems = data.KeyItems;
-        this.team = data.team;
     }
     public void SaveData(ref GameData data)
     {
+        int count = 0;
+        units = new List<UnitData>();
+        foreach(GameObject unitInTeam in team)
+        {
+            CurrentUnitData = new();
+            UnitBehavior CurrentUnitBehavior  = unitInTeam.GetComponent<UnitBehavior>();
+            SaveUnitasData(CurrentUnitBehavior);
+            Debug.Log(CurrentUnitData.UnitName);
+            units.Add(CurrentUnitData);
+            count++;
+        }
         data.money = this.money;
         data.day = this.day;
         data.Inventory = this.Inventory;
         data.KeyItems = this.KeyItems;
-        data.team = this.team;
+        count = 0;
+        data.units  = units;
+        Debug.Log(data.units); 
     }
     public void PrepScreen()
     {
@@ -59,6 +74,71 @@ public class GameManager : Singleton , IDataPersistence
     public void SceneLoader(string str)
     {
         SceneManager.LoadScene(str);   
+    }
+    public void SaveUnitasData(UnitBehavior CurrentUnitBehavior)
+    {
+        CurrentUnitData.classId = CurrentUnitBehavior.classId;
+        //equip
+        if (CurrentUnitBehavior.Weapon != null)
+        {
+            CurrentUnitData.Weapon = CurrentUnitBehavior.Weapon;
+        }
+        if (CurrentUnitBehavior.Accesory != null)
+        {
+            CurrentUnitData.Accesory = CurrentUnitBehavior.Accesory;
+        }
+        //parameters
+        CurrentUnitData.UnitName = CurrentUnitBehavior.UnitName;
+        CurrentUnitData.currentLevel = CurrentUnitBehavior.currentLevel;
+        CurrentUnitData.expmarkplier = CurrentUnitBehavior.expmarkplier;
+        CurrentUnitData.currentRank = CurrentUnitBehavior.currentRank;
+        CurrentUnitData.currentExp = CurrentUnitBehavior.currentExp;
+        CurrentUnitData.ClassID = CurrentUnitBehavior.ClassID;
+        CurrentUnitData.ClassLevel = CurrentUnitBehavior.ClassLevel;
+        CurrentUnitData.hit = CurrentUnitBehavior.hit;
+        CurrentUnitData.avoid = CurrentUnitBehavior.avoid;
+        CurrentUnitData.crit = CurrentUnitBehavior.crit;
+        //stats
+        CurrentUnitData.maxhp = CurrentUnitBehavior.maxhp;
+        CurrentUnitData.hp = CurrentUnitBehavior.hp;
+        CurrentUnitData.power = CurrentUnitBehavior.power;
+        CurrentUnitData.str = CurrentUnitBehavior.str;
+        CurrentUnitData.mag = CurrentUnitBehavior.mag;
+        CurrentUnitData.dex = CurrentUnitBehavior.dex;
+        CurrentUnitData.def = CurrentUnitBehavior.def;
+        CurrentUnitData.mdef = CurrentUnitBehavior.mdef;
+        CurrentUnitData.defenses = CurrentUnitBehavior.defenses;
+        CurrentUnitData.luck = CurrentUnitBehavior.luck;
+        CurrentUnitData.speed = CurrentUnitBehavior.speed;
+        //sistema de skills
+        CurrentUnitData.skills = CurrentUnitBehavior.skills;
+        CurrentUnitData.skillInventory = CurrentUnitBehavior.skillInventory;
+        CurrentUnitData.equipedSoul = CurrentUnitBehavior.equipedSoul;
+        CurrentUnitData.equippedSoulIsAttack = CurrentUnitBehavior.equippedSoulIsAttack;
+        CurrentUnitData.soulInventory = CurrentUnitBehavior.soulInventory;
+        CurrentUnitData.soul = CurrentUnitBehavior.soul;
+        CurrentUnitData.maxsoul = CurrentUnitBehavior.maxsoul;
+        CurrentUnitData.soulgain = CurrentUnitBehavior.soulgain;
+        CurrentUnitData.damagereduction = CurrentUnitBehavior.damagereduction;
+        CurrentUnitData.lifesteal = CurrentUnitBehavior.lifesteal;
+        CurrentUnitData.armorpen = CurrentUnitBehavior.armorpen;
+        CurrentUnitData.magicpen = CurrentUnitBehavior.magicpen;
+        //cooking
+        CurrentUnitData.cooking = CurrentUnitBehavior.cooking;
+        //growths
+        CurrentUnitData.growths = CurrentUnitBehavior.growths;
+        //learnset
+        CurrentUnitData.classSkill = CurrentUnitBehavior.classSkill;
+        CurrentUnitData.personalSkill = CurrentUnitBehavior.personalSkill;
+        CurrentUnitData.baseSkill = CurrentUnitBehavior.baseSkill;
+        CurrentUnitData.skill1 = CurrentUnitBehavior.skill1;
+        CurrentUnitData.skill2 = CurrentUnitBehavior.skill2;
+        CurrentUnitData.skill3 = CurrentUnitBehavior.skill3;
+        CurrentUnitData.baseSoul = CurrentUnitBehavior.baseSoul;
+        CurrentUnitData.soul1 = CurrentUnitBehavior.soul1;
+        CurrentUnitData.soul2 = CurrentUnitBehavior.soul2;
+        CurrentUnitData.soul3 = CurrentUnitBehavior.soul3;
+        CurrentUnitData.description = CurrentUnitBehavior.description;
     }
     public void OnLevelWasLoaded()
     {
@@ -75,6 +155,7 @@ public class GameManager : Singleton , IDataPersistence
         {
             GameObject newobj = Instantiate(obj, this.transform);
             team.Add(newobj);
+            Debug.Log("unidade adicionada ao time: " + newobj.GetComponent<UnitBehavior>().UnitName);
         }
     }
     public void AddtoTeam(GameObject recruit)

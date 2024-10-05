@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d0bc60155d4b147a1e2bf10b0cc021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 106
+  classId: 106
   Weapon: {fileID: 11400000, guid: 973c69435c4261d42903e66bef62a563, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
@@ -53,25 +53,103 @@ MonoBehaviour:
   enemy: 0
   battleManagerOBJ: {fileID: 0}
   UnitName: Arqueiro
-  level: 0
-  exp: 0
+  currentLevel: 0
+  expmarkplier: 1
+  currentRank: 0
+  currentExp: 0
+  ClassID: 
+  ClassLevel: 
   hit: 0
   avoid: 0
   crit: 0
   maxhp: 45
   hp: 45
+  power: 0
   str: 0
   mag: 0
   dex: 10
   def: 5
   mdef: 0
+  defenses: 
   luck: 11
   speed: 9
+  skills: []
+  skillInventory: []
+  equipedSoul: 
+  equippedSoulIsAttack: 1
+  soulInventory: []
+  soul: 0
+  maxsoul: 0
+  soulgain: 0
+  damagereduction: 0
+  lifesteal: 0
+  armorpen: 0
+  magicpen: 0
+  cooking: 0
+  position: 0
   Pendure: 0
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
   growths: 
+  classSkill: 
+  personalSkill: 
+  baseSkill: 
+  skill1: 
+  skill2: 
+  skill3: 
+  baseSoul: 
+  soul1: 
+  soul2: 
+  soul3: 
   description: "classe n\u7E0A valida"
-  descriptionA: O Arqueiro faz um golpe que aumenta a destreza em 10
-  descriptionP: Ganha mais dano baseado na chance de acerto
+  unitData:
+    classId: 0
+    Weapon: {fileID: 0}
+    Accesory: {fileID: 0}
+    UnitName: 
+    currentLevel: 0
+    expmarkplier: 1
+    currentRank: 0
+    currentExp: 0
+    ClassID: 
+    ClassLevel: 
+    hit: 0
+    avoid: 0
+    crit: 0
+    maxhp: 0
+    hp: 0
+    power: 0
+    str: 0
+    mag: 0
+    dex: 0
+    def: 0
+    mdef: 0
+    defenses: 
+    luck: 0
+    speed: 0
+    skills: []
+    skillInventory: []
+    equipedSoul: 
+    equippedSoulIsAttack: 0
+    soulInventory: []
+    soul: 0
+    maxsoul: 0
+    soulgain: 0
+    damagereduction: 0
+    lifesteal: 0
+    armorpen: 0
+    magicpen: 0
+    cooking: 0
+    growths: 
+    classSkill: 
+    personalSkill: 
+    baseSkill: 
+    skill1: 
+    skill2: 
+    skill3: 
+    baseSoul: 
+    soul1: 
+    soul2: 
+    soul3: 
+    description: 

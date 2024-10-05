@@ -10,6 +10,8 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private string fileName;
     private GameData gameData;
 
+    public List<GameObject> ClassList;
+
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
    public static DataPersistenceManager instance { get; private set; }
@@ -59,7 +61,7 @@ public class DataPersistenceManager : MonoBehaviour
     {
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
         return new List<IDataPersistence>(dataPersistenceObjects);
-    }
+    }   
 
     public void Update()
     {

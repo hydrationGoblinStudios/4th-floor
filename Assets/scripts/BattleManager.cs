@@ -531,9 +531,8 @@ public class BattleManager : MonoBehaviour
         }
         if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
-
+            skillManager.NaSoulproc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
         }
-
         foreach (string skill in skillsInUse)
         {
             Pskill = +skillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
@@ -542,9 +541,6 @@ public class BattleManager : MonoBehaviour
         {
             Pskill = +skillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
         }
-
-
-
         HudUpdate();
         yield return new WaitForSeconds(1);
         if (Random.Range(0, 101) <= Pcrit)
