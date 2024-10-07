@@ -12,6 +12,8 @@ TagManager:
   - Esprite
   - team
   - Dialogue System Sprite
+  - DialogueManager
+  - Interactables
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,7 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
+        nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
         foreach (Item item in stock)

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Debug.unity
     guid: 506c3db76cf1a6949928ca220050e1ed
+  - enabled: 1
+    path: Assets/Scenes/UI Persistency test.unity
+    guid: b6a1c747357afb04f8e93fc2d483e317
   m_configObjects: {}
