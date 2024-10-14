@@ -15,7 +15,7 @@ MonoBehaviour:
   holder: {fileID: 0}
   id: 8007
   sprite: {fileID: 0}
-  type: 0
+  type: 2
   weapontype: 0
   weight: 0
   ItemName: 

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PapelCriminoso
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 7003
   sprite: {fileID: 0}
-  type: 0
+  type: 2
   weapontype: 0
   weight: 0
   ItemName: 
@@ -32,3 +32,4 @@ MonoBehaviour:
   speed: 0
   price: 0
   damageType: 0
+  skill: 

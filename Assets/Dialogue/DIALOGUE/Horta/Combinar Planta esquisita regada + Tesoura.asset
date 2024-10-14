@@ -192,7 +192,7 @@ MonoBehaviour:
   entry: 0
   exit: 0
   item: {fileID: 11400000, guid: 9312b15d06d404b4485171ba053c08a2, type: 2}
-  key: 0
+  key: 1
 --- !u!114 &7365593190812066850
 MonoBehaviour:
   m_ObjectHideFlags: 0
