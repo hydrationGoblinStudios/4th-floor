@@ -6,7 +6,7 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-    [HideInInspector] public GameObject GameManagerOBJ;
+    public GameObject GameManagerOBJ;
     [HideInInspector] public GameManager Manager;
     public GameObject panel;
     public GameObject charSelectPanel;

@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Preparation.unity
     guid: 69705a634c7410e479f750f9c94c68a1
   - enabled: 1
-    path: Assets/Scenes/Cantina.unity
+    path: Assets/Scenes/PrimeiroAndar/Cantina.unity
     guid: 7aba231129978c746b6b0413e4a73ff0
   - enabled: 1
     path: Assets/Scenes/Abertura.unity
@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI Persistency test.unity
     guid: b6a1c747357afb04f8e93fc2d483e317
+  - enabled: 1
+    path: Assets/Scenes/PrimeiroAndar/Preparation1A.unity
+    guid: 1ff956a98d74ae4469d9894d4838086b
+  - enabled: 1
+    path: Assets/Scenes/PrimeiroAndar/Patio.unity
+    guid: 2c94314b0a6fd72479a4cafaddddc76e
+  - enabled: 1
+    path: Assets/Scenes/PrimeiroAndar/Laboratorio.unity
+    guid: 5624ea1de817fe94eabb1a4313a47a12
   m_configObjects: {}

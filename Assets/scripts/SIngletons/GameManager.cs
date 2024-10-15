@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameManager : Singleton , IDataPersistence
+public class GameManager : Singleton<GameManager> , IDataPersistence
 {
     UnitData CurrentUnitData;
 
