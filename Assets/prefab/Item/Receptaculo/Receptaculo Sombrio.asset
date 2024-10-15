@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 5
   weight: 2
-  ItemName: Receptaculo Potente
+  ItemName: Receptaculo Sombrio
   description: Um receptaculo com poder superior.
   hit: 45
   crit: 10
@@ -32,3 +32,4 @@ MonoBehaviour:
   speed: 0
   price: 3500
   damageType: 1
+  skill: 

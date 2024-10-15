@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 3
   weight: 0
-  ItemName: Arco de ferro
+  ItemName: Parfrit
   description: "Um arco usado por um guerreiro antigo. No inicio do combate aumenta
     o Dano equivalente ao Atributo de Destreza + 1. (No M\xE1ximo 23 de Poder)."
   hit: 100

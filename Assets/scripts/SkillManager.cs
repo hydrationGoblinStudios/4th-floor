@@ -537,6 +537,13 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
 
+            case "Ídolo Quebrado":
+                user.lifesteal += (int) 0.35;
+                user.soulgain *= 0;
+
+                return 0;
+
+
             default: return 0;
 
         }
