@@ -5,34 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class SceneInteractables : MonoBehaviour
 {
-    public string OriginalSceneName;
-    public Scene m_Scene;
+    [SerializeField]
+    private string OriginalSceneName;
+    [SerializeField]
+    private Scene m_Scene;
+    public GameObject InteractablesGO;
     public void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        CheckIfSceneISOriginal();
         Debug.Log("scene name: " + m_Scene.name);
         Debug.Log("original scene name: " + OriginalSceneName);
-        CheckIfSceneISOriginal(m_Scene);
     }
-    public void CheckIfSceneISOriginal(Scene m_Scene)
+    private void CheckIfSceneISOriginal()
     {
         m_Scene = SceneManager.GetActiveScene();
         Debug.Log("CheckIFSceneISORiginal: " + m_Scene.name);
         if (m_Scene.name == OriginalSceneName)
         {
-            GameObject Go = GameObject.FindGameObjectWithTag("Interactables");
-            this.transform.parent = Go.transform;
+            InteractablesGO = GameObject.FindGameObjectWithTag("Interactables");
+            if (InteractablesGO != null && this != null && this.gameObject != null)
+            {
+                this.transform.parent = InteractablesGO.transform;
+            }
         }
         else
         {
-            Debug.Log("destroy: " + m_Scene.name);
-            Destroy(this.gameObject); 
+            Debug.Log("destroy: " + OriginalSceneName + "Scene Interactables");
+            if(this != null && this.gameObject != null)
+            {
+            Destroy(this.gameObject);
+            }
         }
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("rodou caralho");
-        CheckIfSceneISOriginal(m_Scene);
+        Debug.Log("OnSceneLoaded:" + OriginalSceneName);
+        CheckIfSceneISOriginal();
     }
 
 }
