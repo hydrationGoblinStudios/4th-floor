@@ -51,7 +51,6 @@ public class ShopManager : MonoBehaviour
         if(Manager.money >= item.price)
         {
             Manager.money = item.price;
-            Manager.moneyText.text = ""+Manager.money;
             Manager.Inventory.Add(item);
         }
         else

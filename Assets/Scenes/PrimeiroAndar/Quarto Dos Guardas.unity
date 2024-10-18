@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c960503ec74ab34c9306672de5c7144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Patio
+  OriginalSceneName: Quarto Dos Guardas
   m_Scene:
     m_Handle: 0
   InteractablesGO: {fileID: 0}

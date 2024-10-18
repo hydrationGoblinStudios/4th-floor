@@ -33,7 +33,10 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     public void Start()
     {
         LoadTeam();
+        if(moneyText != null)
+        {
         moneyText.text = "Dinheiro:"+money;
+        }
     }
     public void LoadData(GameData data)
     {

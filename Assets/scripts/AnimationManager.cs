@@ -36,22 +36,4 @@ public class AnimationManager : MonoBehaviour
             _ => Animations[5],
         };
     }
-    void Update()
-    {
-        if (battleManager.state == BattleManager.BattleState.PlayerTurn & wait)
-        {
-            Panimator.SetTrigger("Pattack");
-            wait = false;
-        }
-        if (battleManager.state == BattleManager.BattleState.Wait)
-        {
-            wait = true;
-        }
-
-        if (battleManager.state == BattleManager.BattleState.EnemyTurn & wait)
-        {
-            Eanimator.SetTrigger("Eattack");
-            wait = false;
-        }
-    }
 }
