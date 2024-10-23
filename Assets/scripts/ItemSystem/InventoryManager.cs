@@ -37,6 +37,19 @@ public class InventoryManager : MonoBehaviour
             UpdateAccesory(item);
         }
     }
+    public void EquipSkill(Item item)
+    {
+        if (item.type == Item.Type.weapon)
+        {
+            selectedUnit.Weapon = item;
+            UpdateEquips(item);
+        }
+        else
+        {
+            selectedUnit.Accesory = item;
+            UpdateAccesory(item);
+        }
+    }
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;

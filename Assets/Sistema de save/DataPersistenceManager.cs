@@ -26,6 +26,14 @@ public class DataPersistenceManager : MonoBehaviour
     }
     private void Start()
     {
+        if (Application.isEditor)
+        {
+            fileName = "AlvorecerLunarEditor.json";
+        }
+        else
+        {
+            fileName = "AlvorecerLunarEditor.json";
+        }
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistenceObjects = FindAllDataperistenceObjects();
     }
