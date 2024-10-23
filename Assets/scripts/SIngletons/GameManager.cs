@@ -14,6 +14,8 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     public List<GameObject> playerUnit = new();
     public List<GameObject> enemyUnit = new();
     public List<GameObject> team;
+    public List<GameObject> teamPostPreBattle = new();
+    public List<GameObject> enemyTeamPostPreBattle = new();
     public UnitBehavior selectedPlayerBehavior;
     public UnitBehavior selectedEnemyBehavior;
     public TextMeshPro moneyText;

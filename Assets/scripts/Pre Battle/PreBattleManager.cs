@@ -21,9 +21,11 @@ public class PreBattleManager : MonoBehaviour
     public GameObject SelectedPlayer1;
     public GameObject SelectedPlayer2;
     public GameObject SelectedPlayer3;
+    public List<GameObject> SelectedPlayerList;
     public GameObject SelectedEnemy1;
     public GameObject SelectedEnemy2;
     public GameObject SelectedEnemy3;
+    public List<GameObject> SelectedEnemyList;
     void Start()
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
@@ -35,6 +37,12 @@ public class PreBattleManager : MonoBehaviour
         SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
         SelectedEnemy2 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[4].transform);
         SelectedEnemy3 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[5].transform);
+        SelectedPlayerList.Add(SelectedPlayer1);
+        SelectedPlayerList.Add(SelectedPlayer2);
+        SelectedPlayerList.Add(SelectedPlayer3);
+        SelectedEnemyList.Add(SelectedEnemy1);
+        SelectedEnemyList.Add(SelectedEnemy2);
+        SelectedEnemyList.Add(SelectedEnemy3);
         Select1();
     }
     public void Select(UnitBehavior unitBehavior)
@@ -66,9 +74,9 @@ public class PreBattleManager : MonoBehaviour
     }
     public void AfiarArma()
     {
-        if(energy > 0)
+        if (energy > 0)
         {
-        selectedUnit.str += 4;
+            selectedUnit.str += 4;
             energy--;
             energyText.text = energy.ToString();
         }
@@ -89,6 +97,34 @@ public class PreBattleManager : MonoBehaviour
             selectedUnit.mag += 4;
             energy--;
             energyText.text = energy.ToString();
+        }
+    }
+    public void ExportTeamToBattle()
+    {
+        foreach(GameObject GO in gameManager.teamPostPreBattle)
+        {
+            Destroy(GO);
+        }
+        foreach (GameObject GO in gameManager.enemyTeamPostPreBattle)
+        {
+            Destroy(GO);
+        }
+        InstantiateToGM(SelectedPlayerList, SelectedEnemyList);
+        gameManager.SceneLoader("Battle");
+    }
+    public void InstantiateToGM(List<GameObject> List, List<GameObject> EnemyList)
+    {
+        foreach (GameObject obj in List)
+        {
+            GameObject newobj = Instantiate(obj, gameManager.transform);
+            gameManager.teamPostPreBattle.Add(newobj);
+            Debug.Log("unidade adicionada a lista: " + newobj.GetComponent<UnitBehavior>().UnitName);
+        }
+        foreach (GameObject obj in EnemyList)
+        {
+            GameObject newobj = Instantiate(obj, gameManager.transform);
+            gameManager.enemyTeamPostPreBattle.Add(newobj);
+            Debug.Log("unidade adicionada a lista malvada: " + newobj.GetComponent<UnitBehavior>().UnitName);
         }
     }
 }

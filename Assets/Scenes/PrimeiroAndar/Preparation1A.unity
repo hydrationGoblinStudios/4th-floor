@@ -2393,9 +2393,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1015266276}
-        m_TargetAssemblyTypeName: PrepManager, Assembly-CSharp
-        m_MethodName: Scene
+      - m_Target: {fileID: 996546828}
+        m_TargetAssemblyTypeName: SceneMaracutaia, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2455,6 +2455,7 @@ GameObject:
   - component: {fileID: 438079084}
   - component: {fileID: 438079083}
   - component: {fileID: 438079082}
+  - component: {fileID: 438079085}
   m_Layer: 5
   m_Name: balde
   m_TagString: Untagged
@@ -2575,6 +2576,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438079080}
   m_CullTransparentMesh: 1
+--- !u!114 &438079085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438079080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000, guid: 664e16c7a503a6c44972b4e4d261a1d4, type: 2}
+  nodeParser: {fileID: 0}
+  button: {fileID: 438079082}
 --- !u!1 &452545381
 GameObject:
   m_ObjectHideFlags: 0
@@ -5724,6 +5740,8 @@ MonoBehaviour:
   enemyUnit:
   - {fileID: 4445489306633608637, guid: efaa79524367fcf46bdf5cec92c88e49, type: 3}
   team: []
+  teamPostPreBattle: []
+  enemyTeamPostPreBattle: []
   selectedPlayerBehavior: {fileID: 0}
   selectedEnemyBehavior: {fileID: 0}
   moneyText: {fileID: 0}
@@ -6207,6 +6225,7 @@ GameObject:
   - component: {fileID: 1002940621}
   - component: {fileID: 1002940620}
   - component: {fileID: 1002940619}
+  - component: {fileID: 1002940622}
   m_Layer: 5
   m_Name: cama
   m_TagString: Untagged
@@ -6327,6 +6346,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002940617}
   m_CullTransparentMesh: 1
+--- !u!114 &1002940622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002940617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000, guid: bf0c8ef5d32dfad489bd454e957d2b8e, type: 2}
+  nodeParser: {fileID: 0}
+  button: {fileID: 1002940619}
 --- !u!1 &1005932657
 GameObject:
   m_ObjectHideFlags: 0
@@ -6574,6 +6608,7 @@ GameObject:
   - component: {fileID: 1031590062}
   - component: {fileID: 1031590061}
   - component: {fileID: 1031590060}
+  - component: {fileID: 1031590063}
   m_Layer: 5
   m_Name: bau
   m_TagString: Untagged
@@ -6694,6 +6729,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031590058}
   m_CullTransparentMesh: 1
+--- !u!114 &1031590063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031590058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000, guid: b02368fbfcc2c6b4ea4eaed3c1e85436, type: 2}
+  nodeParser: {fileID: 0}
+  button: {fileID: 1031590060}
 --- !u!1 &1042671140
 GameObject:
   m_ObjectHideFlags: 0

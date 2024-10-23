@@ -96,12 +96,18 @@ public class BattleManager : MonoBehaviour
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
-        playerUnit = gameManager.team[0];
-        playerUnit2 = gameManager.team[1];
-        playerUnit3 = gameManager.team[2];
-        enemyUnit = enemyList[Random.Range(0, enemyList.Length)];
-        enemyUnit2 = enemyList[Random.Range(0, enemyList.Length)];
-        enemyUnit3 = enemyList[Random.Range(0, enemyList.Length)];
+        playerUnit = gameManager.teamPostPreBattle[0];
+        playerUnit2 = gameManager.teamPostPreBattle[1];
+        playerUnit3 = gameManager.teamPostPreBattle[2];
+        playerTeam.Add(playerUnit.GetComponent<UnitBehavior>());
+        playerTeam.Add(playerUnit2.GetComponent<UnitBehavior>());
+        playerTeam.Add(playerUnit3.GetComponent<UnitBehavior>());
+        enemyUnit = gameManager.enemyTeamPostPreBattle[0];
+        enemyUnit2 = gameManager.enemyTeamPostPreBattle[1];
+        enemyUnit3 = gameManager.enemyTeamPostPreBattle[2];
+        enemyTeam.Add(enemyUnit.GetComponent<UnitBehavior>());
+        enemyTeam.Add(enemyUnit2.GetComponent<UnitBehavior>());
+        enemyTeam.Add(enemyUnit3.GetComponent<UnitBehavior>());
         state = BattleState.BattleStart;
         StartCoroutine(SetupBattle());
     }
