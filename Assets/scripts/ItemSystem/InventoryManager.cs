@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject UnitSelectButton;
     public UnitBehavior selectedUnit;
     public Sprite[] sprites;
+    public List<TextMeshProUGUI> skillNames;
     public TextMeshProUGUI[] statTexts;
     public TextMeshProUGUI equipText;
     public TextMeshProUGUI accesoryText;
@@ -37,18 +38,13 @@ public class InventoryManager : MonoBehaviour
             UpdateAccesory(item);
         }
     }
-    public void EquipSkill(Item item)
+    public void EquipSkill(string Skill, int SkillSlot)
     {
-        if (item.type == Item.Type.weapon)
+        while (selectedUnit.skills.Count <= SkillSlot)
         {
-            selectedUnit.Weapon = item;
-            UpdateEquips(item);
+            selectedUnit.skills.Add("");
         }
-        else
-        {
-            selectedUnit.Accesory = item;
-            UpdateAccesory(item);
-        }
+        selectedUnit.skills[SkillSlot] = Skill;
     }
     public void Select(UnitBehavior unitBehavior)
     {
@@ -75,7 +71,6 @@ public class InventoryManager : MonoBehaviour
         {
             DestroyImmediate(charSelectPanel.transform.GetChild(0).gameObject);
         }
-
         DisplayItemList(Manager.Inventory);
 
         foreach (GameObject unit in Manager.team)
@@ -94,6 +89,7 @@ public class InventoryManager : MonoBehaviour
                 charButton.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
             }
         }
+        UpdateSkillName();
     }
 
     public void UpdateSelectionList()
@@ -153,6 +149,37 @@ public class InventoryManager : MonoBehaviour
                     itemButton.GetComponentInChildren<Image>().sprite = sprites[6];
                     break;
             }
+        }
+    }
+    public void DisplaySkillList(int skillSLot)
+    {
+        selectedUnit.skillInventory.Sort();
+        while (panel.transform.childCount > 0)
+        {
+            DestroyImmediate(panel.transform.GetChild(0).gameObject);
+        }
+        foreach (string skill in selectedUnit.skillInventory)
+        {
+            GameObject SkillButton = Instantiate(ItemButtonPrefab,ItemSelectPanel.transform);
+            SkillButton.GetComponent<Button>().onClick.AddListener(() => EquipSkill(skill,skillSLot));
+            SkillButton.GetComponentInChildren<TextMeshProUGUI>().text = skill;
+        }
+    }
+    public void UpdateSkillName()
+    {
+        while (selectedUnit.skills.Count <= 4)
+        {
+            selectedUnit.skills.Add("");
+        }
+        int c = 0;
+        foreach(TextMeshProUGUI tmpugui in skillNames)
+        {
+            tmpugui.text = selectedUnit.skills[c];
+            if(selectedUnit.skills[c] == "")
+            {
+                tmpugui.text = "vazio";
+            }
+            c++;
         }
     }
     public void DisplaySwordList()

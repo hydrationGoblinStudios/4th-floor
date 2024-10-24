@@ -74,8 +74,14 @@ MonoBehaviour:
   luck: 12
   speed: 11
   skills:
-  - homer
-  skillInventory: []
+  - 
+  - 
+  - 
+  skillInventory:
+  - Persistencia
+  - Tecnica Improvisada
+  - Poder Oculto
+  - Ataque Inspirador
   equipedSoul: 
   equippedSoulIsAttack: 1
   soulInventory: []
