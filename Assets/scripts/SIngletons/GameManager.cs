@@ -160,7 +160,6 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         {
             GameObject newobj = Instantiate(obj, this.transform);
             team.Add(newobj);
-            Debug.Log("unidade adicionada ao time: " + newobj.GetComponent<UnitBehavior>().UnitName);
         }
     }
     public void AddtoTeam(GameObject recruit)

@@ -4876,7 +4876,7 @@ GameObject:
   - component: {fileID: 1502430035}
   - component: {fileID: 1502430034}
   m_Layer: 5
-  m_Name: Str (3)
+  m_Name: StartBattle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5995,6 +5995,7 @@ MonoBehaviour:
   - {fileID: 944888039}
   energyText: {fileID: 1395910985}
   energy: 4
+  evilEnergy: 4
   equipText: {fileID: 708660749}
   accesoryText: {fileID: 358671572}
   BattleStations:
@@ -6007,9 +6008,11 @@ MonoBehaviour:
   SelectedPlayer1: {fileID: 0}
   SelectedPlayer2: {fileID: 0}
   SelectedPlayer3: {fileID: 0}
+  SelectedPlayerList: []
   SelectedEnemy1: {fileID: 0}
   SelectedEnemy2: {fileID: 0}
   SelectedEnemy3: {fileID: 0}
+  SelectedEnemyList: []
 --- !u!1 &1747876900
 GameObject:
   m_ObjectHideFlags: 0

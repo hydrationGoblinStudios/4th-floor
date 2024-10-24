@@ -14,13 +14,10 @@ public class SceneInteractables : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         CheckIfSceneISOriginal();
-        Debug.Log("scene name: " + m_Scene.name);
-        Debug.Log("original scene name: " + OriginalSceneName);
     }
     private void CheckIfSceneISOriginal()
     {
         m_Scene = SceneManager.GetActiveScene();
-        Debug.Log("CheckIFSceneISORiginal: " + m_Scene.name);
         if (m_Scene.name == OriginalSceneName)
         {
             InteractablesGO = GameObject.FindGameObjectWithTag("Interactables");
@@ -31,7 +28,6 @@ public class SceneInteractables : MonoBehaviour
         }
         else
         {
-            Debug.Log("destroy: " + OriginalSceneName + "Scene Interactables");
             if(this != null && this.gameObject != null)
             {
             Destroy(this.gameObject);
@@ -40,7 +36,6 @@ public class SceneInteractables : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("OnSceneLoaded:" + OriginalSceneName);
         CheckIfSceneISOriginal();
     }
 

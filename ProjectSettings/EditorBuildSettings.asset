@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PrimeiroAndar/Preparation1A.unity
+    guid: 1ff956a98d74ae4469d9894d4838086b
+  - enabled: 1
     path: Assets/Scenes/Universal/MainMenu.unity
     guid: 5fc1349621229d84e8eaee3f896c43f8
   - enabled: 1
@@ -32,9 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI Persistency test.unity
     guid: b6a1c747357afb04f8e93fc2d483e317
-  - enabled: 1
-    path: Assets/Scenes/PrimeiroAndar/Preparation1A.unity
-    guid: 1ff956a98d74ae4469d9894d4838086b
   - enabled: 1
     path: Assets/Scenes/PrimeiroAndar/Patio.unity
     guid: 2c94314b0a6fd72479a4cafaddddc76e

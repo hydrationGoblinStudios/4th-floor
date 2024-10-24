@@ -14,6 +14,7 @@ public class PreBattleManager : MonoBehaviour
     public TextMeshProUGUI[] statTexts;
     public TextMeshProUGUI energyText;
     public int energy;
+    public int evilEnergy = 4;
     public TextMeshProUGUI equipText;
     public TextMeshProUGUI accesoryText;
     public GameObject[] BattleStations;
@@ -101,7 +102,8 @@ public class PreBattleManager : MonoBehaviour
     }
     public void ExportTeamToBattle()
     {
-        foreach(GameObject GO in gameManager.teamPostPreBattle)
+        EnemyPrepSkill();
+        foreach (GameObject GO in gameManager.teamPostPreBattle)
         {
             Destroy(GO);
         }
@@ -110,7 +112,36 @@ public class PreBattleManager : MonoBehaviour
             Destroy(GO);
         }
         InstantiateToGM(SelectedPlayerList, SelectedEnemyList);
+           
         gameManager.SceneLoader("Battle");
+    }
+    public void EnemyPrepSkill()
+    {
+        while (evilEnergy > 0)
+        {
+            Debug.Log("enemy prep");
+            int r = Random.Range(0, 3);
+            int unitR = Random.Range(0, 3);
+            selectedUnit = SelectedEnemyList[unitR].GetComponent<UnitBehavior>();
+            switch (r)
+            {
+                case 0:
+                    AfiarArma();
+                    Debug.Log("enemy prep");
+                    break;
+                case 1:
+                    AfiarEscudo();
+                    Debug.Log("enemy prep");
+                    break;
+                case 2:
+                    AfiarEsperto();
+                    Debug.Log("enemy prep");
+                    break;
+                default:
+                    break;
+            }
+            evilEnergy--;
+        }
     }
     public void InstantiateToGM(List<GameObject> List, List<GameObject> EnemyList)
     {
@@ -118,7 +149,6 @@ public class PreBattleManager : MonoBehaviour
         {
             GameObject newobj = Instantiate(obj, gameManager.transform);
             gameManager.teamPostPreBattle.Add(newobj);
-            Debug.Log("unidade adicionada a lista: " + newobj.GetComponent<UnitBehavior>().UnitName);
         }
         foreach (GameObject obj in EnemyList)
         {
