@@ -7,6 +7,7 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject GameManagerOBJ;
+    public GameObject SceneInteractable;
     [HideInInspector] public GameManager Manager;
     public GameObject panel;
     public GameObject charSelectPanel;
@@ -22,8 +23,17 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI equipText;
     public TextMeshProUGUI accesoryText;
     public NodeParser nodeParser;
+
     public void Toggle()
     {
+        if(SceneInteractable == null)
+        {
+        SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
+        }
+        if(SceneInteractable != null)
+        {
+        SceneInteractable.SetActive(!SceneInteractable.activeInHierarchy);
+        }
         gameObject.SetActive(!gameObject.activeInHierarchy);
     }
     public void Equip(Item item)

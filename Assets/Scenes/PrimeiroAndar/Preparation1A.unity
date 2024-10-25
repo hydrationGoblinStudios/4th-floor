@@ -9600,6 +9600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManagerOBJ: {fileID: 0}
+  SceneInteractable: {fileID: 0}
   Manager: {fileID: 0}
   panel: {fileID: 452545381}
   charSelectPanel: {fileID: 940760236}
@@ -10529,7 +10530,7 @@ GameObject:
   - component: {fileID: 1372198798}
   m_Layer: 0
   m_Name: SceneInteractables
-  m_TagString: Untagged
+  m_TagString: Scene Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

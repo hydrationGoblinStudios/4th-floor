@@ -65,16 +65,12 @@ public class BattleManager : MonoBehaviour
     public TextMeshPro enemyName2;
     public TextMeshPro enemyName3;
     //UI sliders
-    public Slider playerHpSlider;
-    public Slider playerHpSlider2;
-    public Slider playerHpSlider3;
-    public Slider enemyHpSlider;
-    public Slider enemyHpSlider2;
-    public Slider enemyHpSlider3;
-    public Slider PlayerActionBar;
-    public Slider EnemyActionBar;
-    public Slider PlayerSoulBar;
-    public Slider EnemySoulBar;
+    public List<Slider> playerHpSlider;
+    public List<Slider> enemyHpSlider;
+    public List<Slider> PlayerActionBar;
+    public List<Slider> EnemyActionBar;
+    public List<Slider> PlayerSoulBar;
+    public List<Slider> EnemySoulBar;
     //Ui elements
     public TextMeshPro battleText;
     public TextMeshPro playerstats;
@@ -150,27 +146,62 @@ public class BattleManager : MonoBehaviour
     }
     void SetHud()
     {
+        int c = 0;
         playerName.text = playerBehavior.UnitName;
         enemyName.text = enemyBehavior.UnitName;
         battleText.text = "Que comece a batalha";
-        playerHpSlider.maxValue = playerBehavior.maxhp;
-        enemyHpSlider.maxValue = enemyBehavior.maxhp;
+        foreach(Slider sl in playerHpSlider)
+        {
+        sl.maxValue = playerTeam[c].maxhp;
+        }
+        c = 0;
+        foreach (Slider sl in enemyHpSlider)
+        {
+            sl.maxValue = enemyTeam[c].maxhp;
+            c++;
+        }
         playerstats.text = $"dmg:{Pdamage} \nhit: {Phit} \ncrit:{Pcrit}";
         enemystats.text = $"dmg:{Edamage} \nhit: {Ehit} \ncrit:{Ecrit}";
     }
     void HudUpdate()
     {
-        playerHpSlider.maxValue = playerBehavior.maxhp;
-        enemyHpSlider.maxValue = enemyBehavior.maxhp;
+        int c = 0;
+        foreach (Slider sl in playerHpSlider)
+        {
+            sl.maxValue = playerTeam[c].maxhp;
+            c++;
+        }
+        c = 0;
+        foreach (Slider sl in enemyHpSlider)
+        {
+            sl.maxValue = enemyTeam[c].maxhp;
+            c++;
+        }
         playerstats.text = $"dmg:{Pdamage} \nhit: {Phit} \ncrit:{Pcrit}";
         enemystats.text = $"dmg:{Edamage} \nhit: {Ehit} \ncrit:{Ecrit}";
-        PlayerSoulBar.value = playerBehavior.soul;
-        EnemySoulBar.value = enemyBehavior.soul;
+        c = 0;
+        foreach (Slider sl in PlayerSoulBar)
+        {
+            sl.value = playerTeam[c].soul;
+        }
+        c = 0;
+        foreach (Slider sl in EnemySoulBar)
+        {
+            sl.value = enemyTeam[c].soul;
+        }
     }
     void SetHp()
     {
-        playerHpSlider.value = playerBehavior.hp;
-        enemyHpSlider.value = enemyBehavior.hp;
+        int c = 0;
+        foreach (Slider sl in playerHpSlider)
+        {
+            sl.value = playerTeam[c].hp;
+        }
+        c = 0;
+        foreach (Slider sl in enemyHpSlider)
+        {
+            sl.value = enemyTeam[c].hp;
+        }
     }
     void Wait()
     {
@@ -178,8 +209,14 @@ public class BattleManager : MonoBehaviour
         PlayerBar2 += Time.deltaTime * Pspeed * 20;
         PlayerBar3 += Time.deltaTime * Pspeed * 20;
         EnemyBar += Time.deltaTime *Espeed * 20;
-        PlayerActionBar.value = PlayerBar;
-        EnemyActionBar.value = EnemyBar;
+        foreach (Slider sl in PlayerActionBar)
+        {
+            sl.value = PlayerBar;
+        }
+        foreach (Slider sl in EnemyActionBar)
+        {
+            sl.value = EnemyBar;
+        }
         if (PlayerBar >= 100 & state == BattleState.Wait)
         {
             PlayerBar = 0;
@@ -255,10 +292,8 @@ public class BattleManager : MonoBehaviour
         }
         else { state = BattleState.PlayerTurn; }
         attacker.power = attacker.str +attacker.Weapon.power;
-        Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " +Target.defenses[attacker.Weapon.damageType]);
         Pskill = 0;
         int attackerDamage = attacker.power - (Target.defenses[attacker.Weapon.damageType] + Target.damagereduction);
-        Debug.Log(attackerDamage);
         if (attackerDamage <= 0) { attackerDamage = 1; }
         skillsInUse.Clear();
         skillsInUse.AddRange(attacker.skills);
@@ -282,12 +317,10 @@ public class BattleManager : MonoBehaviour
         }
         if(attacker.Weapon != null && attacker.Weapon.skill != null)
         {
-            Debug.Log("weapon");
             skillsInUse.Add(attacker.Weapon.skill);
         }
         if(attacker.Accesory!= null  && attacker.Accesory.skill != null)
         {
-            Debug.Log("accesory");
             skillsInUse.Add(attacker.Accesory.skill);
         }
         attacker.soul += 10 + attacker.soulgain;
@@ -318,7 +351,6 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("else atingido");
             state = BattleState.Wait;
         }
     }
@@ -333,10 +365,8 @@ public class BattleManager : MonoBehaviour
         }
         else { state = BattleState.PlayerTurn; }
         attacker.power = attacker.str + attacker.Weapon.power;
-        Debug.Log(attacker.power + " " + attacker.UnitName + "\n target defense " + Target.defenses[attacker.Weapon.damageType]);
         Pskill = 0;
         int attackerDamage = attacker.power - Target.defenses[attacker.Weapon.damageType];
-        Debug.Log(attackerDamage);
         if (attackerDamage <= 0) { attackerDamage = 1; }
         skillsInUse.Clear();
         skillsInUse.AddRange(attacker.skills);
@@ -360,12 +390,10 @@ public class BattleManager : MonoBehaviour
         }
         if (attacker.Weapon != null && attacker.Weapon.skill != null)
         {
-            Debug.Log("weapon");
             skillsInUse.Add(attacker.Weapon.skill);
         }
         if (attacker.Accesory != null && attacker.Accesory.skill != null)
         {
-            Debug.Log("accesory");
             skillsInUse.Add(attacker.Accesory.skill);
         }
         if (Random.Range(0, 101) <= Phit)
@@ -378,13 +406,12 @@ public class BattleManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         //inimigo morre
-        if (Target.hp <= 0 && Target.Eendure == false)
+        if (enemyTeam[0].hp <=0 && enemyTeam[1].hp <= 0 && enemyTeam[2].hp <= 0)
         {
             StartCoroutine(PlayerWin());
         }
         else
         {
-            Debug.Log("else atingido");
             state = BattleState.Wait;
         }
     }
@@ -562,7 +589,12 @@ public class BattleManager : MonoBehaviour
             battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
             yield return new WaitForSeconds(1);
             battleText.text = $"{Target.UnitName} perdeu {(Pskill + attackerDamage) * 2} hp";
-            enemyHpSlider.value = Target.hp;
+            int c = 0;
+            foreach (Slider sl in enemyHpSlider)
+            {
+                sl.value = enemyTeam[c].hp;
+                c++;
+            }
         }
         else
         {
@@ -574,7 +606,12 @@ public class BattleManager : MonoBehaviour
             }
             Target.soul += (attackerDamage + Pskill) / 5;
             battleText.text = $"{Target.UnitName} perdeu {attackerDamage + Pskill} hp";
-            enemyHpSlider.value = Target.hp;
+            int c = 0;
+            foreach (Slider sl in enemyHpSlider)
+            {
+                sl.value = enemyTeam[c].hp;
+                c++;
+            }
         }
 
     }

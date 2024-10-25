@@ -119,7 +119,6 @@ public class PreBattleManager : MonoBehaviour
     {
         while (evilEnergy > 0)
         {
-            Debug.Log("enemy prep");
             int r = Random.Range(0, 3);
             int unitR = Random.Range(0, 3);
             selectedUnit = SelectedEnemyList[unitR].GetComponent<UnitBehavior>();
@@ -127,15 +126,12 @@ public class PreBattleManager : MonoBehaviour
             {
                 case 0:
                     AfiarArma();
-                    Debug.Log("enemy prep");
                     break;
                 case 1:
                     AfiarEscudo();
-                    Debug.Log("enemy prep");
                     break;
                 case 2:
                     AfiarEsperto();
-                    Debug.Log("enemy prep");
                     break;
                 default:
                     break;
@@ -154,7 +150,6 @@ public class PreBattleManager : MonoBehaviour
         {
             GameObject newobj = Instantiate(obj, gameManager.transform);
             gameManager.enemyTeamPostPreBattle.Add(newobj);
-            Debug.Log("unidade adicionada a lista malvada: " + newobj.GetComponent<UnitBehavior>().UnitName);
         }
     }
 }

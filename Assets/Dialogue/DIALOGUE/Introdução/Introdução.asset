@@ -552,7 +552,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  scene: "COME\xC7AR JOGO"
+  scene: Abertura 2
 --- !u!114 &3436471498303665148
 MonoBehaviour:
   m_ObjectHideFlags: 0

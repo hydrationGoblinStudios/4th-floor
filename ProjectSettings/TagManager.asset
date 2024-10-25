@@ -15,6 +15,7 @@ TagManager:
   - DialogueManager
   - Interactables
   - Screen Manager
+  - Scene Interactables
   layers:
   - Default
   - TransparentFX

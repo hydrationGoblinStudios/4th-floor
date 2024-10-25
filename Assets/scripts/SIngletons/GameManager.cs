@@ -70,7 +70,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     }
     public void PrepScreen()
     {
-        SceneManager.LoadScene("Preparation");
+        SceneManager.LoadScene("Preparation1A");
     }
     public void Battle()
     {
