@@ -252,4 +252,9 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
             }
         }
     }
+
+    public void Sleep()
+    {
+        day += 1;
+    }
 }

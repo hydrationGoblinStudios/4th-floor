@@ -85,9 +85,22 @@ public class BattleManager : MonoBehaviour
     public float EnemyBar2;
     public float PlayerBar3;
     public float EnemyBar3;
+    public List<float> PlayerBars;
+    public List<float> EnemyBars;
 
     public enum BattleState {BattleStart,Wait,PlayerTurn,EnemyTurn,PlayerWon,EnemyWon}
     public BattleState state;
+    public void Awake()
+    {
+        PlayerBars.Clear();
+        PlayerBars.Add(PlayerBar);
+        PlayerBars.Add(PlayerBar2);
+        PlayerBars.Add(PlayerBar3);
+        EnemyBars.Clear();
+        EnemyBars.Add(EnemyBar);
+        EnemyBars.Add(EnemyBar2);
+        EnemyBars.Add(EnemyBar3);
+    }
     void Start()
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
@@ -189,6 +202,16 @@ public class BattleManager : MonoBehaviour
         {
             sl.value = enemyTeam[c].soul;
         }
+        c = 0;
+        foreach (Slider sl in PlayerActionBar)
+        {
+            sl.value = PlayerBars[c];
+        }
+        c = 0;
+        foreach (Slider sl in EnemyActionBar)
+        {
+            sl.value = EnemyBars[c];
+        }
     }
     void SetHp()
     {
@@ -205,17 +228,29 @@ public class BattleManager : MonoBehaviour
     }
     void Wait()
     {
-        PlayerBar += Time.deltaTime * Pspeed * 20;
-        PlayerBar2 += Time.deltaTime * Pspeed * 20;
-        PlayerBar3 += Time.deltaTime * Pspeed * 20;
-        EnemyBar += Time.deltaTime *Espeed * 20;
+        PlayerBar += Time.deltaTime * playerBehavior.speed * 20;
+        PlayerBar2 += Time.deltaTime * player2Behavior.speed * 20;
+        PlayerBar3 += Time.deltaTime * player3Behavior.speed * 20;
+        EnemyBar += Time.deltaTime *enemyBehavior.speed * 20;
+        EnemyBar2 += Time.deltaTime * enemy2Behavior.speed * 20;
+        EnemyBar3 = Time.deltaTime* enemy3Behavior.speed *20;
+        PlayerBars[0] = PlayerBar;
+        PlayerBars[1] = PlayerBar2;
+        PlayerBars[2] = PlayerBar3;
+        EnemyBars[0] = EnemyBar;
+        EnemyBars[1] = EnemyBar2;
+        EnemyBars[2] = EnemyBar3;
+        int c = 0;
         foreach (Slider sl in PlayerActionBar)
         {
-            sl.value = PlayerBar;
+            sl.value = PlayerBars[c];
+            c++;
         }
+        c = 0;
         foreach (Slider sl in EnemyActionBar)
         {
-            sl.value = EnemyBar;
+            sl.value = EnemyBars[c];
+            c++;
         }
         if (PlayerBar >= 100 & state == BattleState.Wait)
         {
@@ -294,6 +329,7 @@ public class BattleManager : MonoBehaviour
         attacker.power = attacker.str +attacker.Weapon.power;
         Pskill = 0;
         int attackerDamage = attacker.power - (Target.defenses[attacker.Weapon.damageType] + Target.damagereduction);
+        Debug.Log(Target.defenses[attacker.Weapon.damageType]);
         if (attackerDamage <= 0) { attackerDamage = 1; }
         skillsInUse.Clear();
         skillsInUse.AddRange(attacker.skills);
@@ -345,7 +381,7 @@ public class BattleManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         //inimigo morre
-        if (Target.hp <= 0 && Target.Eendure == false)
+        if (enemyTeam[0].hp <= 0 && enemyTeam[1].hp <= 0 && enemyTeam[2].hp <= 0)
         {
             StartCoroutine(PlayerWin());
         }
@@ -595,6 +631,12 @@ public class BattleManager : MonoBehaviour
                 sl.value = enemyTeam[c].hp;
                 c++;
             }
+            c = 0;
+            foreach (Slider sl in playerHpSlider)
+            {
+                sl.value = playerTeam[c].hp;
+                c++;
+            }
         }
         else
         {
@@ -610,6 +652,12 @@ public class BattleManager : MonoBehaviour
             foreach (Slider sl in enemyHpSlider)
             {
                 sl.value = enemyTeam[c].hp;
+                c++;
+            }
+            c = 0;
+            foreach (Slider sl in playerHpSlider)
+            {
+                sl.value = playerTeam[c].hp;
                 c++;
             }
         }

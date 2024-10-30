@@ -144,11 +144,13 @@ public class PreBattleManager : MonoBehaviour
         foreach (GameObject obj in List)
         {
             GameObject newobj = Instantiate(obj, gameManager.transform);
+            newobj.AddComponent<DestroyTemp>();
             gameManager.teamPostPreBattle.Add(newobj);
         }
         foreach (GameObject obj in EnemyList)
         {
             GameObject newobj = Instantiate(obj, gameManager.transform);
+            newobj.AddComponent<DestroyTemp>();
             gameManager.enemyTeamPostPreBattle.Add(newobj);
         }
     }
