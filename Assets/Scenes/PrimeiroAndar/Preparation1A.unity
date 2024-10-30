@@ -6590,13 +6590,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 549974024}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: StartDialogue
-        m_Mode: 2
+      - m_Target: {fileID: 1002940622}
+        m_TargetAssemblyTypeName: GMButtonAssigner, Assembly-CSharp
+        m_MethodName: Sleep
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: bf0c8ef5d32dfad489bd454e957d2b8e, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DialogueGraph, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6649,11 +6649,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1002940617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
+  m_Script: {fileID: 11500000, guid: f9d6535982fb6af4b9a3ea1951f4ff95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: bf0c8ef5d32dfad489bd454e957d2b8e, type: 2}
-  nodeParser: {fileID: 0}
+  gameManager: {fileID: 0}
   button: {fileID: 1002940619}
 --- !u!1 &1005932657
 GameObject:
@@ -7106,19 +7105,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1031590061}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 549974024}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: StartDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b02368fbfcc2c6b4ea4eaed3c1e85436, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DialogueGraph, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1031590061
 MonoBehaviour:
   m_ObjectHideFlags: 0

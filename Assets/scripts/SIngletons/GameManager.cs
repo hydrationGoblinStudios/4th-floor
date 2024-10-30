@@ -256,5 +256,17 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     public void Sleep()
     {
         day += 1;
+        foreach(GameObject unit in team)
+        {
+            string activity = unit.GetComponent<UnitBehavior>().activity;
+            switch (activity)
+            {
+                case "homer":
+                    Debug.Log("simpon");
+                        break;
+                default:Debug.Log(unit.GetComponent<UnitBehavior>().UnitName);
+                    break;
+            }
+        }
     }
 }

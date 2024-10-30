@@ -14,6 +14,7 @@ public class UnitBehavior : MonoBehaviour
     public BattleManager battleManager;
     public bool enemy;
     public GameObject battleManagerOBJ;
+    public string activity;
     [Header("Parameters")]
     public string UnitName;
     public int currentLevel;
