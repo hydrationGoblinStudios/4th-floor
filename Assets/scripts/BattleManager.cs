@@ -130,7 +130,8 @@ public class BattleManager : MonoBehaviour
     IEnumerator SetupBattle()
     {
        playerGo = Instantiate(playerUnit, playerBattleStation);
-       playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
+        playerGo.GetComponent<UnitBehavior>().Icon = GameObject.FindGameObjectWithTag("Player Icon 1");
+        playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
        playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
        GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
        GameObject enemyGo2 = Instantiate(enemyUnit2, enemyBattleStation2);
@@ -150,7 +151,8 @@ public class BattleManager : MonoBehaviour
         enemyBehavior.position = 1;
         enemy2Behavior.position = 2;
         enemy3Behavior.position = 3;
-       yield return new WaitForSeconds(0.5f);
+        playerTeam[0].Icon = GameObject.FindGameObjectWithTag("Player Icon 1");
+        yield return new WaitForSeconds(0.5f);
         StatChange();
         SetHud();
         SetHp();

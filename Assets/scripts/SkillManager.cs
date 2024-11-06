@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SkillManager : MonoBehaviour
 {
+    public Sprite[] Icones; 
+
     private bool espadaCurtaBoost = false;
     private bool arcodasorteboost = false;
     private bool livroarriscadoboost = false;
@@ -53,6 +56,8 @@ public class SkillManager : MonoBehaviour
                 {
                     if (DanoAscendenteMeter == 3)
                     {
+                        Debug.Log("dano ascendeu");
+                        StartCoroutine(IconPopup(user.Icon, "Dano Ascendente Icone"));
                         user.power += 1;
                         DanoAscendenteMeter = 0;
                     }
@@ -893,4 +898,14 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds(0);
     }
 
+    public IEnumerator IconPopup(GameObject IconGO, string SkillName)
+    {
+        SpriteRenderer icon = IconGO.GetComponent<SpriteRenderer>();
+        icon.sprite = Icones.Where(obj => obj.name == SkillName).SingleOrDefault();
+        icon.color = new Color(255, 255, 255, 255);
+
+        yield return new WaitForSeconds((float)1);
+        icon.color = new Color(255, 255, 255, 0);
+
+    }
 }

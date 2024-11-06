@@ -74,6 +74,7 @@ public class UnitBehavior : MonoBehaviour
     public string soul2;
     public string soul3;
     public string description = "classe n?o valida";
+    public GameObject Icon;
 
     public UnitData unitData;
     void Start()

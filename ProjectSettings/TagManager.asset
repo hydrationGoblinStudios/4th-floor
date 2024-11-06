@@ -16,6 +16,7 @@ TagManager:
   - Interactables
   - Screen Manager
   - Scene Interactables
+  - Player Icon 1
   layers:
   - Default
   - TransparentFX
