@@ -17,6 +17,8 @@ TagManager:
   - Screen Manager
   - Scene Interactables
   - Player Icon 1
+  - Hover Object
+  - Inventory Manager
   layers:
   - Default
   - TransparentFX

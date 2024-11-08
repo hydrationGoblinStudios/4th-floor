@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -18,12 +19,16 @@ public class InventoryManager : MonoBehaviour
     public GameObject UnitSelectButton;
     public UnitBehavior selectedUnit;
     public Sprite[] sprites;
+    public Sprite[] skillIcons;
+    public GameObject[] skillIconsObjects;
     public List<TextMeshProUGUI> skillNames;
     public TextMeshProUGUI[] statTexts;
     public TextMeshProUGUI equipText;
     public TextMeshProUGUI accesoryText;
     public NodeParser nodeParser;
 
+    public GameObject hoverObject;
+    public bool HoverOn;
     public void Toggle()
     {
         if(SceneInteractable == null)
@@ -55,6 +60,8 @@ public class InventoryManager : MonoBehaviour
             selectedUnit.skills.Add("");
         }
         selectedUnit.skills[SkillSlot] = Skill;
+        skillIconsObjects[SkillSlot].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == Skill).SingleOrDefault();
+        UpdateInventory();
     }
     public void Select(UnitBehavior unitBehavior)
     {
@@ -173,6 +180,7 @@ public class InventoryManager : MonoBehaviour
             GameObject SkillButton = Instantiate(ItemButtonPrefab,ItemSelectPanel.transform);
             SkillButton.GetComponent<Button>().onClick.AddListener(() => EquipSkill(skill,skillSLot));
             SkillButton.GetComponentInChildren<TextMeshProUGUI>().text = skill;
+            SkillButton.GetComponentInChildren<Image>().sprite = skillIcons.Where(obj => obj.name == skill).SingleOrDefault();
         }
     }
     public void UpdateSkillName()
@@ -185,7 +193,12 @@ public class InventoryManager : MonoBehaviour
         foreach(TextMeshProUGUI tmpugui in skillNames)
         {
             tmpugui.text = selectedUnit.skills[c];
-            if(selectedUnit.skills[c] == "")
+            if(tmpugui.GetComponentInParent<InventoryHoverable>() != null)
+            {
+            tmpugui.GetComponentInParent<InventoryHoverable>().hoverName = selectedUnit.skills[c];
+            tmpugui.GetComponentInParent<InventoryHoverable>().description = Description(selectedUnit.skills[c]);
+            }
+            if (selectedUnit.skills[c] == "")
             {
                 tmpugui.text = "vazio";
             }
@@ -219,5 +232,40 @@ public class InventoryManager : MonoBehaviour
     public void DisplayAccesoriesList()
     {
         DisplayItemList(Manager.AccesoriesList);
+    }
+
+    public string Description(string skillName)
+    {
+        return skillName switch
+        {
+            //class tier 1 skills
+            //espadachim
+            "Dano Ascendente" => "A cada 3 vezes que causar dano, Aumenta o Dano em 1 e Redu??o de dano em 1 pelo resto do combate",
+            "Ataque R?pido" => "%DES de quando fazer um ataque basico, em vez disso fazer 2 ataques basicos.",
+            //arqueiro
+            "Foco" => "Ganha +20 de Acerto e Evas?o por 15 Segundos no inicio da batalha",
+            "Precis?o mortal" => "Causa mais Dano equivalente ao Acerto/10.",
+            //guerreiro
+            "Lutador Vers?til" => "Ganha efeitos baseado na posi??o do usu?rio: 1: Ganha +3 de Defesa Fisica e Defesa Magica , 2 ou 3: Causa 3 a mais de dano.",
+            "Dur?o" => "Aumenta o HP m?ximo em 25%.",
+            //prisioneiro
+            "Persist?ncia" => "Ganha mais 1 de Velocidade para cada 10 de vida perdida.",
+            "Tecnica Improvisada" => "Ganha efeitos baseado na posi??o do usu?rio: 1: Ganha +20 de Evas?o e Acerto quando est? com <50% de Vida. 2: Ganha mais 2 de Dano e 2 Defesa Fisica e Defesa Magica. 3: Ganha 5 de Critico e Dano quando est? com >90% de Vida.",
+            _ => skillName,
+        };
+    }
+    public void Update()
+    {
+        TextMeshPro[] texts = hoverObject.GetComponentsInChildren<TextMeshPro>();
+
+        if (HoverOn && texts[1].text != "")
+        {
+        hoverObject.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        hoverObject.transform.position = new Vector3(hoverObject.transform.position.x, hoverObject.transform.position.y, 0);
+        }
+        else
+        {
+            hoverObject.transform.position = new Vector3(100, 200, 0);
+        }
     }
 }
