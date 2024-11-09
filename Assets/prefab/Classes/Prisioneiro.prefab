@@ -52,7 +52,8 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  UnitName: Bors
+  activity: 
+  UnitName: Ramion
   currentLevel: 0
   expmarkplier: 1
   currentRank: 0
@@ -110,6 +111,7 @@ MonoBehaviour:
   soul2: 
   soul3: 
   description: "classe n\u7E0A valida"
+  Icon: {fileID: 0}
   unitData:
     classId: 0
     Weapon: {fileID: 0}

@@ -27,6 +27,19 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI accesoryText;
     public NodeParser nodeParser;
 
+    [Header("Ui top")]
+    public SpriteRenderer MugShot;
+    public Sprite[] playableMugShots;
+    public TextMeshProUGUI UITopName;
+    public TextMeshProUGUI LvlText;
+    public Slider expbar;
+    public Image ClassIcon;
+    public SpriteRenderer WeaponImage;
+    public SpriteRenderer AccesoryImage;
+    public Sprite[] EquipableImages;
+
+
+    [Header("Hover Object")]
     public GameObject hoverObject;
     public bool HoverOn;
     public void Toggle()
@@ -52,6 +65,7 @@ public class InventoryManager : MonoBehaviour
             selectedUnit.Accesory = item;
             UpdateAccesory(item);
         }
+        UpdateUITop();
     }
     public void EquipSkill(string Skill, int SkillSlot)
     {
@@ -77,6 +91,7 @@ public class InventoryManager : MonoBehaviour
         {
             accesoryText.text = "";
         }
+        UpdateUITop();
     }
     public void UpdateInventory()
     {
@@ -107,6 +122,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
         UpdateSkillName();
+        UpdateUITop();
     }
 
     public void UpdateSelectionList()
@@ -128,6 +144,28 @@ public class InventoryManager : MonoBehaviour
     public void UpdateAccesory(Item item)
     {
         accesoryText.text = "Accesorio:\n" + item.ItemName + "\nAtk:" + item.str + "\nDef:" + item.def + "\nDes:" + item.dex + "\nSorte:" + item.luck + "\nvel:" + item.speed;
+    }
+    public void UpdateUITop()
+    {
+        if (playableMugShots.Where(obj => obj.name == selectedUnit.UnitName + " mugshot").SingleOrDefault() != null)
+        {
+            MugShot.sprite = playableMugShots.Where(obj => obj.name == selectedUnit.UnitName + " mugshot").SingleOrDefault();
+        }
+        else
+        {
+            MugShot.sprite = playableMugShots[0];
+        }
+        UITopName.text = selectedUnit.UnitName;
+        expbar.value = selectedUnit.currentExp;
+        LvlText.text = "Lvl:" + selectedUnit.currentLevel;
+        WeaponImage.sprite = EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.ItemName).SingleOrDefault();
+        if (selectedUnit.Accesory != null)
+        {
+            AccesoryImage.sprite = EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.ItemName).SingleOrDefault();
+        }
+        else{
+            AccesoryImage.sprite = null;
+        }
     }
     public void DisplayItemList(List<Item> ItemList)
     {

@@ -52,7 +52,8 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  UnitName: Soldado
+  activity: 
+  UnitName: Bors
   currentLevel: 0
   expmarkplier: 1
   currentRank: 0
@@ -103,6 +104,7 @@ MonoBehaviour:
   soul2: 
   soul3: 
   description: classe n?o valida
+  Icon: {fileID: 0}
   unitData:
     classId: 0
     Weapon: {fileID: 0}
