@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
 {
     public GameObject GameManagerOBJ;
     public GameObject SceneInteractable;
+    public GameObject calendario;
     [HideInInspector] public GameManager Manager;
     public GameObject panel;
     public GameObject charSelectPanel;
@@ -53,6 +54,7 @@ public class InventoryManager : MonoBehaviour
         SceneInteractable.SetActive(!SceneInteractable.activeInHierarchy);
         }
         gameObject.SetActive(!gameObject.activeInHierarchy);
+        calendario.SetActive(!calendario.activeInHierarchy);
     }
     public void Equip(Item item)
     {if(item.type == Item.Type.weapon)
@@ -278,17 +280,17 @@ public class InventoryManager : MonoBehaviour
         {
             //class tier 1 skills
             //espadachim
-            "Dano Ascendente" => "A cada 3 vezes que causar dano, Aumenta o Dano em 1 e Redu??o de dano em 1 pelo resto do combate",
-            "Ataque R?pido" => "%DES de quando fazer um ataque basico, em vez disso fazer 2 ataques basicos.",
+            "Dano Ascendente" => "A cada 3 vezes que causar dano, Aumenta o Dano em 1 e Redução de dano em 1 pelo resto do combate",
+            "Ataque Rápido" => "%DES de quando fazer um ataque basico, em vez disso fazer 2 ataques basicos.",
             //arqueiro
-            "Foco" => "Ganha +20 de Acerto e Evas?o por 15 Segundos no inicio da batalha",
-            "Precis?o mortal" => "Causa mais Dano equivalente ao Acerto/10.",
+            "Foco" => "Ganha +20 de Acerto e Evasao por 15 Segundos no inicio da batalha",
+            "Precisão mortal" => "Causa mais Dano equivalente ao Acerto/10.",
             //guerreiro
-            "Lutador Vers?til" => "Ganha efeitos baseado na posi??o do usu?rio: 1: Ganha +3 de Defesa Fisica e Defesa Magica , 2 ou 3: Causa 3 a mais de dano.",
-            "Dur?o" => "Aumenta o HP m?ximo em 25%.",
+            "Lutador Versátil" => "Ganha efeitos baseado na posicao do usuario: 1: Ganha +3 de Defesa Fisica e Defesa Magica , 2 ou 3: Causa 3 a mais de dano.",
+            "Durão" => "Aumenta o HP maximo em 25%.",
             //prisioneiro
-            "Persist?ncia" => "Ganha mais 1 de Velocidade para cada 10 de vida perdida.",
-            "Tecnica Improvisada" => "Ganha efeitos baseado na posi??o do usu?rio: 1: Ganha +20 de Evas?o e Acerto quando est? com <50% de Vida. 2: Ganha mais 2 de Dano e 2 Defesa Fisica e Defesa Magica. 3: Ganha 5 de Critico e Dano quando est? com >90% de Vida.",
+            "Persistência" => "Ganha mais 1 de Velocidade para cada 10 de vida perdida.",
+            "Tecnica Improvisada" => "Ganha efeitos baseado na posição do usuario: 1: Ganha +20 de Evasao e Acerto quando esta com <50% de Vida. 2: Ganha mais 2 de Dano e 2 Defesa Fisica e Defesa Magica. 3: Ganha 5 de Critico e Dano quando esta com >90% de Vida.",
             _ => skillName,
         };
     }

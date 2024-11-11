@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Arco de a\xE7o"
+  m_Name: "Arco de A\xE7o"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 1
@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 3
   weight: 0
-  ItemName: "Arco de a\xE7o"
+  ItemName: "Arco de A\xE7o"
   description: "Um arco com parte do revestimento feito de a\xE7o."
   hit: 85
   crit: 5

@@ -17,7 +17,7 @@ public struct UnitData
     public int expmarkplier;
     public int currentRank;
     public int currentExp;
-    public int[] ClassID;
+    public List<int> ClassID;
     public int[] ClassLevel;
     public int hit;
     public int avoid;
@@ -42,7 +42,7 @@ public struct UnitData
     public List<string> soulInventory;
     public int soul;
     public int maxsoul;
-    public int soulgain; [Header("Status que não aparecem na UI")]
+    public int soulgain; [Header("Status que nï¿½o aparecem na UI")]
     public int damagereduction;
     public int lifesteal;
     public int armorpen;

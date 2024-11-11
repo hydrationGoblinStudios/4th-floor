@@ -52,6 +52,9 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
+  activity: 
+  fortalecerStat: 0
+  currentLearnigClassID: 0
   UnitName: guerreiro
   currentLevel: 0
   expmarkplier: 1
@@ -91,7 +94,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 
+  growths: 5a0000001e0000001e0000001e00000028000000230000000a00000023000000
   classSkill: 
   personalSkill: 
   baseSkill: 
@@ -103,6 +106,7 @@ MonoBehaviour:
   soul2: 
   soul3: 
   description: classe n?o valida
+  Icon: {fileID: 0}
   unitData:
     classId: 0
     Weapon: {fileID: 0}

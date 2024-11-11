@@ -9,12 +9,14 @@ public class GMButtonAssigner : MonoBehaviour
     public GameManager gameManager;
     public Button button;
 
-    void Start()
+    public void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
+        button.onClick.AddListener(delegate { gameManager.Sleep(); });
     }
     public void Sleep()
     {
-        gameManager.Sleep();
+        //gameManager.Sleep();
     }
+
 }

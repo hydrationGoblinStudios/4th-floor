@@ -15,14 +15,17 @@ public class UnitBehavior : MonoBehaviour
     public bool enemy;
     public GameObject battleManagerOBJ;
     public string activity;
+    public int fortalecerStat = 0;
+    public int currentLearnigClassID;
     [Header("Parameters")]
     public string UnitName;
     public int currentLevel;
     public int expmarkplier = 1;
     public int currentRank;
     public int currentExp;
-    public int[] ClassID;
+    public List<int> ClassID;
     public int[] ClassLevel;
+    public Dictionary<int, int> ClassLearning = new();
     public int hit;
     public int avoid;
     public int crit;
@@ -47,7 +50,7 @@ public class UnitBehavior : MonoBehaviour
     public int soul;
     public int maxsoul;
     public int soulgain;
-    [Header("Status que n�o aparecem na UI")]
+    [Header("Status que não aparecem na UI")]
     public int damagereduction;
     public int lifesteal;
     public int armorpen;
@@ -73,7 +76,7 @@ public class UnitBehavior : MonoBehaviour
     public string soul1;
     public string soul2;
     public string soul3;
-    public string description = "classe n?o valida";
+    public string description = "classe não valida";
     public GameObject Icon;
 
     public UnitData unitData;

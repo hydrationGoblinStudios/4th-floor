@@ -52,7 +52,7 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
-  activity: 
+  activity: homer
   UnitName: Ramion
   currentLevel: 0
   expmarkplier: 1
@@ -110,7 +110,7 @@ MonoBehaviour:
   soul1: 
   soul2: 
   soul3: 
-  description: "classe n\u7E0A valida"
+  description: "classe n\xE3o valida"
   Icon: {fileID: 0}
   unitData:
     classId: 0

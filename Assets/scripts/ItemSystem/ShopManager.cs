@@ -58,6 +58,7 @@ public class ShopManager : MonoBehaviour
             Toggle();
             nodeParser.StartDialogue(graph);
         }
+        Manager.cui.UIUpdate();
     }
     public void Toggle()
     {

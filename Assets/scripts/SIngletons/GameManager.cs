@@ -11,6 +11,9 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     public List<UnitData> units;
     public int money;
     public int day;
+    public bool TimeIsDay;
+    public DayResultsManager DayResultsManager;
+    public CalendarioUI cui;
     public List<GameObject> playerUnit = new();
     public List<GameObject> enemyUnit = new();
     public List<GameObject> team;
@@ -321,22 +324,12 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         UnitBehaviorCopy.description = UnitBehaviorOriginal.description;
         UnitBehaviorCopy.Weapon = UnitBehaviorOriginal.Weapon;
         UnitBehaviorCopy.Accesory = UnitBehaviorOriginal.Accesory;
-
     }
     public void Sleep()
     {
-        day += 1;
-        foreach(GameObject unit in team)
-        {
-            string activity = unit.GetComponent<UnitBehavior>().activity;
-            switch (activity)
-            {
-                case "homer":
-                    Debug.Log("simpon");
-                        break;
-                default:Debug.Log(unit.GetComponent<UnitBehavior>().UnitName);
-                    break;
-            }
-        }
+        DayResultsManager = FindObjectOfType<DayResultsManager>(true);
+        DayResultsManager.Sleep();
+        cui = FindObjectOfType<CalendarioUI>(true);
+        cui.UIUpdate();
     }
 }
