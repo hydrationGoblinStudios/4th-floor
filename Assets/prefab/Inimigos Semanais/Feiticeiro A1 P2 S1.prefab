@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: Prisioneiro
+  m_Name: Feiticeiro A1 P2 S1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,11 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4363c5592e9a3ec45afb0668f6e5d098, type: 3}
+  m_Script: {fileID: 11500000, guid: bd777b7274bf9b842aae7763ec4c7977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   classId: 107
-  Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
+  Weapon: {fileID: 11400000, guid: 4786e2f717a2087408fb237d93d698c3, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
@@ -55,8 +55,8 @@ MonoBehaviour:
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: Bors
-  currentLevel: 0
+  UnitName: Feiticeiro
+  currentLevel: 1
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
@@ -65,20 +65,21 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 110
-  hp: 110
+  maxhp: 50
+  hp: 50
   power: 0
-  str: 10
-  mag: 9
-  dex: 9
-  def: 8
-  mdef: 8
+  str: 6
+  mag: 12
+  dex: 10
+  def: 5
+  mdef: 9
   defenses: 
-  luck: 12
-  speed: 11
-  skills: []
+  luck: 9
+  speed: 9
+  skills:
+  - Foco de Feiticeiro
   skillInventory: []
-  equipedSoul: Poder Oculto
+  equipedSoul: Bola de Fogo
   equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0
@@ -94,7 +95,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 4b0000003200000032000000320000003200000032000000320000003c000000
+  growths: 3200000032000000320000003200000032000000320000003200000032000000
   classSkill: 
   personalSkill: 
   baseSkill: 
