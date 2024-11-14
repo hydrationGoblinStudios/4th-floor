@@ -6,8 +6,8 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    private GameObject GameManagerOBJ;
-    private GameManager Manager;
+    public GameObject GameManagerOBJ;
+    public GameManager Manager;
     public GameObject panel;
     public GameObject buttonPrefab;
     public NodeParser nodeParser;
@@ -50,7 +50,7 @@ public class ShopManager : MonoBehaviour
         Debug.Log(Manager.money);
         if(Manager.money >= item.price)
         {
-            Manager.money = item.price;
+            Manager.money -= item.price;
             Manager.Inventory.Add(item);
         }
         else
@@ -58,7 +58,14 @@ public class ShopManager : MonoBehaviour
             Toggle();
             nodeParser.StartDialogue(graph);
         }
-        Manager.cui.UIUpdate();
+        GameObject[] moneys =  GameObject.FindGameObjectsWithTag("money");
+        foreach (GameObject money in moneys)
+        {
+            if(money.GetComponent<TextMeshPro>() != null)
+            {
+                money.GetComponent<TextMeshPro>().text = Manager.money.ToString();
+            }
+        }
     }
     public void Toggle()
     {

@@ -1299,6 +1299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34707d3f6e2d7348a456d89b0cdca6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameManagerOBJ: {fileID: 0}
+  Manager: {fileID: 0}
   panel: {fileID: 102270813}
   buttonPrefab: {fileID: 8115672569003287087, guid: d637765a8650b3541a6b34cd3b153499, type: 3}
   nodeParser: {fileID: 0}
@@ -1312,7 +1314,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 288c98e4a140c0a4182bacdfc3350730, type: 3}
   - {fileID: 21300000, guid: a13cb5cc82dce85468dd06f2fbd3a2cb, type: 3}
   - {fileID: 21300000, guid: d98786fa8f3fdf94cb3c2a81436911a0, type: 3}
-  graph: {fileID: 11400000, guid: 0058b55b9013b7140b82210003024fde, type: 2}
+  graph: {fileID: 11400000, guid: 4da51e4c49234c44b878011a68640849, type: 2}
 --- !u!114 &1391148272
 MonoBehaviour:
   m_ObjectHideFlags: 0
