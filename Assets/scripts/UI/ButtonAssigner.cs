@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonAssigner : MonoBehaviour
+public class ButtonAssigner : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public DialogueGraph graph;
     public NodeParser nodeParser;
@@ -12,5 +13,13 @@ public class ButtonAssigner : MonoBehaviour
     {
         nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
         button.onClick.AddListener( delegate { nodeParser.StartDialogue(graph); });
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        nodeParser.hoverGraph = graph;
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        nodeParser.hoverGraph = null;
     }
 }

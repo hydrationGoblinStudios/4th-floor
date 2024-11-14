@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     public bool TimeIsDay;
     public DayResultsManager DayResultsManager;
     public CalendarioUI cui;
+    public UnitBehavior selectedUB4Activity;
     public List<GameObject> playerUnit = new();
     public List<GameObject> enemyUnit = new();
     public List<GameObject> team;
@@ -331,5 +332,9 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         DayResultsManager.Sleep();
         cui = FindObjectOfType<CalendarioUI>(true);
         cui.UIUpdate();
+    }
+    public void ActivityBoard()
+    {
+
     }
 }

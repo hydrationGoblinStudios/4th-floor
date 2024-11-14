@@ -28,7 +28,7 @@ public class DayResultsManager : MonoBehaviour
             }
             else
             {
-                mugShots[c].sprite = null;
+                mugShots[c].sprite = inventoryManager.playableMugShots[0];
             }
             string activity = unit.GetComponent<UnitBehavior>().activity;
             switch (activity)
@@ -142,12 +142,12 @@ public class DayResultsManager : MonoBehaviour
                     {
                         currentUnit.ClassLearning.Add(currentUnit.currentLearnigClassID, 1);
                     }
-                    Texts[c].text = "comecou a aprender classe";
+                    Texts[c].text = "Comecou a aprender classe";
                     if (currentUnit.ClassLearning[currentUnit.currentLearnigClassID] >= 5)
                     {
                         currentUnit.ClassID.Append(currentUnit.currentLearnigClassID);
                         currentUnit.ClassID.Add(currentUnit.currentLearnigClassID);
-                        Texts[c].text = "aprendeu classe";
+                        Texts[c].text = "Aprendeu classe";
                         currentUnit.activity = "Treinar";
                     }
                     break;

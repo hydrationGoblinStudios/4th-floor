@@ -17,7 +17,7 @@ public class InventoryHoverable : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void Start()
     {
         HoverObject = GameObject.FindGameObjectWithTag("Hover Object");
-        inventoryManager = GameObject.FindGameObjectWithTag("Inventory Manager");
+        inventoryManager = FindObjectOfType<InventoryManager>(true).gameObject;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

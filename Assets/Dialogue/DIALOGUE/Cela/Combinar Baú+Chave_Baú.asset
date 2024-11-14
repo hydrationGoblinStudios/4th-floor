@@ -47,6 +47,37 @@ MonoBehaviour:
   exit: 0
   item: {fileID: 11400000, guid: 5f8ec179ccbbe004cab8692fdddd2720, type: 2}
   key: 0
+--- !u!114 &-5638366388448672719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f247d9b14698438e2d74800ab78da, type: 3}
+  m_Name: Stop
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1288, y: 8}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5638366388448672719}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 124664884148166505}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
 --- !u!114 &-3497245189706638582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +208,8 @@ MonoBehaviour:
   - {fileID: -3497245189706638582}
   - {fileID: 124664884148166505}
   - {fileID: -8747348160951877461}
-  current: {fileID: 0}
+  - {fileID: -5638366388448672719}
+  current: {fileID: -5638366388448672719}
 --- !u!114 &124664884148166505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +245,10 @@ MonoBehaviour:
       _node: {fileID: 124664884148166505}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -5638366388448672719}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0

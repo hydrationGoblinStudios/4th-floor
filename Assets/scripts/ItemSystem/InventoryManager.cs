@@ -39,6 +39,8 @@ public class InventoryManager : MonoBehaviour
     public SpriteRenderer AccesoryImage;
     public Sprite[] EquipableImages;
 
+    public List<GameObject> DragAndDroppables;
+
 
     [Header("Hover Object")]
     public GameObject hoverObject;
@@ -79,11 +81,28 @@ public class InventoryManager : MonoBehaviour
         skillIconsObjects[SkillSlot].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == Skill).SingleOrDefault();
         UpdateInventory();
     }
+    public void InstantiateKeyItem(GameObject button, Item item)
+    {
+        Toggle();
+        Instantiate(DragAndDroppables.Where(obj => obj.name == item.name).SingleOrDefault(), gameObject.GetComponentInParent<Canvas>().transform);
+    }
     public void Select(UnitBehavior unitBehavior)
     {
         selectedUnit = unitBehavior;
-        statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString(); statTexts[3].text = selectedUnit.dex.ToString(); statTexts[4].text = selectedUnit.speed.ToString();
+        statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString();
+        statTexts[3].text = selectedUnit.dex.ToString(); statTexts[4].text = selectedUnit.speed.ToString();
         statTexts[5].text = selectedUnit.def.ToString(); statTexts[6].text = selectedUnit.mdef.ToString(); statTexts[7].text = selectedUnit.luck.ToString();
+        if(selectedUnit.Weapon.damageType == 0)
+        {
+            statTexts[8].text = (selectedUnit.str + selectedUnit.Weapon.power).ToString();
+        }
+        else
+        {
+            statTexts[8].text = (selectedUnit.mag + selectedUnit.Weapon.power).ToString();
+        }
+        statTexts[9].text = ((selectedUnit.dex * 3) +selectedUnit.luck + selectedUnit.Weapon.hit).ToString();
+        statTexts[10].text = ((selectedUnit.speed * 2) + selectedUnit.luck).ToString();
+        statTexts[11].text = ((int)(selectedUnit.dex/2) + selectedUnit.Weapon.crit).ToString();
         equipText.text = "Arma:\n" + unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.str + "\nAcerto:" + unitBehavior.Weapon.hit + "\nCrit:" + unitBehavior.Weapon.crit;
         if(unitBehavior.Accesory != null)
         {
@@ -208,6 +227,20 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+    public void DisplayKeyItemList(List<Item> ItemList)
+    {
+        while (panel.transform.childCount > 0)
+        {
+            DestroyImmediate(panel.transform.GetChild(0).gameObject);
+        }
+        foreach (Item item in ItemList)
+        {
+            GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
+            itemButton.GetComponent<Button>().onClick.AddListener(() => InstantiateKeyItem(itemButton, item));
+            itemButton.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
+            itemButton.GetComponentInChildren<Image>().sprite = sprites[0];
+        }
+    }
     public void DisplaySkillList(int skillSLot)
     {
         selectedUnit.skillInventory.Sort();
@@ -273,6 +306,11 @@ public class InventoryManager : MonoBehaviour
     {
         DisplayItemList(Manager.AccesoriesList);
     }
+    public void DisplayKeyItems()
+    {
+        DisplayKeyItemList(Manager.KeyItems);
+    }
+
 
     public string Description(string skillName)
     {

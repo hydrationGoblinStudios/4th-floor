@@ -9,6 +9,7 @@ public class NodeParser : MonoBehaviour
 {
     public int buttonPress = -1;
     public DialogueGraph graph;
+    public DialogueGraph hoverGraph;
     Coroutine _parser;
     public TextMeshProUGUI speaker;
     public TextMeshProUGUI dialogue;
@@ -67,6 +68,14 @@ public class NodeParser : MonoBehaviour
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
             speakerImage.sprite = b.GetSprite();
+            if(speakerImage.sprite == null)
+            {
+                speakerImage.color = new Color(255, 255, 255, 0);
+            }
+            else
+            {
+                speakerImage.color = new Color(255, 255, 255, 255);
+            }
             yield return new WaitUntil(() => buttonPress != -1);
             buttonPress = -1;
             NextNode("exit");
@@ -109,6 +118,14 @@ public class NodeParser : MonoBehaviour
                 counter++;
             }
             speakerImage.sprite = b.GetSprite();
+            if (speakerImage.sprite == null)
+            {
+                speakerImage.color = new Color(255, 255, 255, 0);
+            }
+            else
+            {
+                speakerImage.color = new Color(255, 255, 255, 255);
+            }
             yield return new WaitUntil(() => buttonPress != -1);
             switch (buttonPress)
             {
@@ -170,6 +187,7 @@ public class NodeParser : MonoBehaviour
     }
     public void StartDialogue(DialogueGraph NewGraph)
     {
+        hoverGraph = null;
         graph = NewGraph;
         foreach (BaseNode b in graph.nodes)
         {

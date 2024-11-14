@@ -12,11 +12,21 @@ public class GMButtonAssigner : MonoBehaviour
     public void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
-        button.onClick.AddListener(delegate { gameManager.Sleep(); });
     }
     public void Sleep()
     {
-        //gameManager.Sleep();
+        gameManager.Sleep();
     }
-
+    public void SelectUnit(int unit)
+    {
+        gameManager.selectedUB4Activity = gameManager.team[unit].GetComponent<UnitBehavior>();
+    }
+    public void ChangeActivity(string activity)
+    {
+        gameManager.selectedUB4Activity.activity = activity;
+    }
+    public void ActivityBoard()
+    {
+        
+    }
 }
