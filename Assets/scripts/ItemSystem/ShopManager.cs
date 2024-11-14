@@ -8,6 +8,8 @@ public class ShopManager : MonoBehaviour
 {
     public GameObject GameManagerOBJ;
     public GameManager Manager;
+    public GameObject SceneInteractable;
+    public GameObject calendario;
     public GameObject panel;
     public GameObject buttonPrefab;
     public NodeParser nodeParser;
@@ -69,6 +71,28 @@ public class ShopManager : MonoBehaviour
     }
     public void Toggle()
     {
+        if (SceneInteractable == null)
+        {
+            SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
+        }
+        if (SceneInteractable != null)
+        {
+            foreach(Transform child in SceneInteractable.transform)
+            {
+                if(child.name != "shop")
+                {
+                    child.gameObject.SetActive(!child.gameObject.activeInHierarchy);
+                }
+            }
+        }
         gameObject.SetActive(!gameObject.activeInHierarchy);
+        if(calendario == null)
+        {
+            calendario = FindAnyObjectByType<CalendarioUI>().gameObject;
+        }
+        if (calendario != null)
+        {
+            calendario.SetActive(!calendario.activeInHierarchy);
+        }
     }
 }
