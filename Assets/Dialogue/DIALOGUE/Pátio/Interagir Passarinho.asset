@@ -47,7 +47,7 @@ MonoBehaviour:
   exit: 0
   speaker: Passarinho
   dialogue: Piu Piu
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 132759b1b787b6f4bb5a4900fa194989, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   - {fileID: 163858968365390516}
   - {fileID: 5175520828475312862}
   - {fileID: -1428969328377112396}
-  current: {fileID: 0}
+  current: {fileID: 163858968365390516}
 --- !u!114 &163858968365390516
 MonoBehaviour:
   m_ObjectHideFlags: 0

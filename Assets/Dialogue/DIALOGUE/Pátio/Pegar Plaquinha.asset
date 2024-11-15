@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7533102661249780823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0714c9090de2314a9d677c4d7454a16, type: 3}
+  m_Name: Graph Changer
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1352, y: -56}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7533102661249780823}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 1097232827753876723}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7533102661249780823}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 4469601395465446730}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  buttonAssigner: Placa Interactable
+  dialogueGraph: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
 --- !u!114 &-1428969328377112396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +114,9 @@ MonoBehaviour:
   - {fileID: -1428969328377112396}
   - {fileID: 6425461722715810526}
   - {fileID: 1097232827753876723}
-  current: {fileID: 0}
+  - {fileID: -7533102661249780823}
+  - {fileID: 4469601395465446730}
+  current: {fileID: 163858968365390516}
 --- !u!114 &163858968365390516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +130,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1352, y: -56}
+  position: {x: 1832, y: -40}
   ports:
     keys:
     - entry
@@ -92,7 +141,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 1097232827753876723}
+        node: {fileID: 4469601395465446730}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -136,7 +185,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 163858968365390516}
+        node: {fileID: -7533102661249780823}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -147,6 +196,53 @@ MonoBehaviour:
   speaker: Ramion
   dialogue: Eita, a placa caiu, melhor eu levar comigo
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &4469601395465446730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71014e132154d4d4aa11a60114bfefb6, type: 3}
+  m_Name: Change Sprite
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1592, y: -40}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4469601395465446730}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -7533102661249780823}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 4469601395465446730}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 163858968365390516}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  spriteObject: Placa Sprite
+  targetSprite: 1
 --- !u!114 &5175520828475312862
 MonoBehaviour:
   m_ObjectHideFlags: 0

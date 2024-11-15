@@ -51,6 +51,10 @@ public class NodeParser : MonoBehaviour
             {
                 action.onClick.Invoke();
             }
+            foreach(GameObject fakeOption in fakeOptions)
+            {
+                fakeOption.SetActive(false);
+            }
             UserInterface.SetActive(false);
             yield return null;
         }
@@ -100,17 +104,14 @@ public class NodeParser : MonoBehaviour
                 }
                 if (counter >= 1)
                 {
-                    Debug.Log(extraTexts[counter - 1].text);
                     if (extraTexts[counter - 1].text != "")
                     {
                         Debug.Log(extraTexts[counter - 1].text);
-                        Debug.Log("true");
                         options[counter].SetActive(true);
                         fakeOptions[counter].SetActive(true);
                     }
                     else
                     {
-                        Debug.Log("false");
                         options[counter].SetActive(false);
                         fakeOptions[counter].SetActive(false);
                     }

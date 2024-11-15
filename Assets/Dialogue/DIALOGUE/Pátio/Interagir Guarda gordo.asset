@@ -107,7 +107,7 @@ MonoBehaviour:
   exit: 0
   speaker: Guarda gordo
   dialogue: Sem pernil, sem passagem.
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 367a160311227dd4a94dd7e9bebdaf2e, type: 3}
 --- !u!114 &-2871663480484901228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +135,9 @@ MonoBehaviour:
       - fieldName: exit3
         node: {fileID: 4940568884120195779}
         reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 4940568884120195779}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -157,7 +160,7 @@ MonoBehaviour:
   dialogue: "Olha cara, se voc\xEA realmente quer passar, a gente pode pensar numa
     troca. Eu realmente gosto de um pernil defumado que eles costumavam a servir
     aqui no coliseu, mas agora t\xE1 em falta."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 367a160311227dd4a94dd7e9bebdaf2e, type: 3}
 --- !u!114 &-2816982722926921329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +209,7 @@ MonoBehaviour:
   speaker: Guarda gordo
   dialogue: "O neg\xF3cio \xE9 o seguinte, voc\xEA pega um peda\xE7o desse pernil
     pra mim e eu te deixo passar."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 367a160311227dd4a94dd7e9bebdaf2e, type: 3}
 --- !u!114 &-1428969328377112396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +258,7 @@ MonoBehaviour:
   speaker: Guarda gordo
   dialogue: "N\xE3o vou te deixar passar, a horta t\xE1 fechada pros competidores.
     Tinha gente roubando os legumes."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 367a160311227dd4a94dd7e9bebdaf2e, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +283,7 @@ MonoBehaviour:
   - {fileID: -2816982722926921329}
   - {fileID: 90974231468290602}
   - {fileID: 7043714205073648530}
-  current: {fileID: 0}
+  current: {fileID: 163858968365390516}
 --- !u!114 &90974231468290602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +297,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1752, y: -328}
+  position: {x: 1736, y: -328}
   ports:
     keys:
     - entry
@@ -319,7 +322,10 @@ MonoBehaviour:
       _node: {fileID: 90974231468290602}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 7043714205073648530}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -328,10 +334,7 @@ MonoBehaviour:
       _node: {fileID: 90974231468290602}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 7043714205073648530}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -360,8 +363,8 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: Ramion
-  dialogue: 
-  option2: Vou tentar.
+  dialogue: Vou tentar.
+  option2: 
   option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
@@ -415,7 +418,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 856, y: -312}
+  position: {x: 856, y: -280}
   ports:
     keys:
     - entry
@@ -440,7 +443,10 @@ MonoBehaviour:
       _node: {fileID: 4940568884120195779}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -2871663480484901228}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -544,7 +550,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: 90974231468290602}
         reroutePoints: []
       _direction: 0
@@ -616,4 +622,4 @@ MonoBehaviour:
   dialogue: "Eu fiquei sabendo que t\xE1 pra chegar um carregamento deles em poucos
     dias, mas s\xF3 v\xE3o servir pros convidados de honra. Os malditos da administra\xE7\xE3o
     sempre tratam os guardas como capacho."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 367a160311227dd4a94dd7e9bebdaf2e, type: 3}
