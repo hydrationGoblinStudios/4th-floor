@@ -14,6 +14,11 @@ public class ButtonAssigner : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
         button.onClick.AddListener( delegate { nodeParser.StartDialogue(graph); });
     }
+    public void AddListener()
+    {
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(delegate { nodeParser.StartDialogue(graph); });
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
         nodeParser.hoverGraph = graph;

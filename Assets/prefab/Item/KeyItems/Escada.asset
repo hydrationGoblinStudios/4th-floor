@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 2
   weapontype: 0
   weight: 0
-  ItemName: 
+  ItemName: Escada
   description: 
   hit: 0
   crit: 0
@@ -32,3 +32,4 @@ MonoBehaviour:
   speed: 0
   price: 0
   damageType: 0
+  skill: 

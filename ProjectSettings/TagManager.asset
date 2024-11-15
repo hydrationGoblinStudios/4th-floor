@@ -19,6 +19,7 @@ TagManager:
   - Player Icon 1
   - Hover Object
   - Inventory Manager
+  - Activity Board
   layers:
   - Default
   - TransparentFX

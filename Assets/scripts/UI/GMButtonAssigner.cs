@@ -27,6 +27,7 @@ public class GMButtonAssigner : MonoBehaviour
     }
     public void ActivityBoard()
     {
-        
+        GameObject ab = GameObject.FindGameObjectWithTag("Activity Board");
+        ab.transform.GetChild(0).gameObject.SetActive(true);
     }
 }

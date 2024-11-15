@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2072, y: -136}
+  position: {x: 2264, y: -136}
   ports:
     keys:
     - entry

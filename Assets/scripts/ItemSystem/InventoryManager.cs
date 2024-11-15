@@ -43,6 +43,7 @@ public class InventoryManager : MonoBehaviour
 
 
     [Header("Hover Object")]
+    public TextMeshPro[] texts;
     public GameObject hoverObject;
     public bool HoverOn;
     public void Toggle()
@@ -334,7 +335,11 @@ public class InventoryManager : MonoBehaviour
     }
     public void Update()
     {
-        TextMeshPro[] texts = hoverObject.GetComponentsInChildren<TextMeshPro>();
+        if(hoverObject == null)
+        {
+            hoverObject = GameObject.FindGameObjectWithTag("Hover Object");
+            texts = hoverObject.GetComponentsInChildren<TextMeshPro>();
+        }
 
         if (HoverOn && texts[1].text != "")
         {
