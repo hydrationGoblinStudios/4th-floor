@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
 
     public List<UnitData> units;
     public int money;
+    public int lumenita;
     public int day;
     public bool TimeIsDay;
     public DayResultsManager DayResultsManager;
