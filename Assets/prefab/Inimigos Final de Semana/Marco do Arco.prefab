@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: Soldado A1 P2 S1
+  m_Name: Marco do Arco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,12 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6de528c2771f64591434fba436f0ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 25d0bc60155d4b147a1e2bf10b0cc021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   classId: 107
-  Weapon: {fileID: 11400000, guid: 4b8bfbb8f6f8b3f4c816cfa15fed312b, type: 2}
-  Accesory: {fileID: 0}
+  Weapon: {fileID: 11400000, guid: 973c69435c4261d42903e66bef62a563, type: 2}
+  Accesory: {fileID: 11400000, guid: ff06557b7ce141b4489d0abd8f85a625, type: 2}
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
   battleManager: {fileID: 0}
@@ -55,8 +55,8 @@ MonoBehaviour:
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: Soldado
-  currentLevel: 1
+  UnitName: Marco do Arco
+  currentLevel: 2
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
@@ -65,21 +65,21 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 120
-  hp: 120
+  maxhp: 70
+  hp: 70
   power: 0
-  str: 10
-  mag: 6
-  dex: 9
-  def: 9
-  mdef: 5
+  str: 9
+  mag: 5
+  dex: 14
+  def: 5
+  mdef: 8
   defenses: 
-  luck: 8
-  speed: 5
+  luck: 9
+  speed: 13
   skills:
-  - "Presen\xE7a Inabal\xE1vel"
+  - Foco
   skillInventory: []
-  equipedSoul: Golpe Atordoante
+  equipedSoul: Tiro Certeiro
   equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0

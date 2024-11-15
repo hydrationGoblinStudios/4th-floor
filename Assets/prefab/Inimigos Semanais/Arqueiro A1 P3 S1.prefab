@@ -71,8 +71,8 @@ MonoBehaviour:
   str: 9
   mag: 5
   dex: 13
-  def: 5
-  mdef: 7
+  def: 4
+  mdef: 6
   defenses: 
   luck: 9
   speed: 14

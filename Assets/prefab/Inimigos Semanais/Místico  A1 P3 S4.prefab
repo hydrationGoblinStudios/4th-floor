@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: Soldado A1 P2 S1
+  m_Name: "M\xEDstico  A1 P3 S4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,12 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6de528c2771f64591434fba436f0ee, type: 3}
+  m_Script: {fileID: 11500000, guid: e32b82526c4ea994a95915701cdec464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   classId: 107
-  Weapon: {fileID: 11400000, guid: 4b8bfbb8f6f8b3f4c816cfa15fed312b, type: 2}
-  Accesory: {fileID: 0}
+  Weapon: {fileID: 11400000, guid: c5564337666a0fc4f851b21db3ba0111, type: 2}
+  Accesory: {fileID: 11400000, guid: e89f4e2eec8a7404285a9c48ffe3dd22, type: 2}
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
   battleManager: {fileID: 0}
@@ -55,8 +55,8 @@ MonoBehaviour:
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: Soldado
-  currentLevel: 1
+  UnitName: "M\xEDstico"
+  currentLevel: 6
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
@@ -65,22 +65,23 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 120
-  hp: 120
+  maxhp: 90
+  hp: 90
   power: 0
-  str: 10
-  mag: 6
-  dex: 9
-  def: 9
-  mdef: 5
+  str: 5
+  mag: 14
+  dex: 11
+  def: 5
+  mdef: 11
   defenses: 
   luck: 8
-  speed: 5
+  speed: 11
   skills:
-  - "Presen\xE7a Inabal\xE1vel"
+  - Encantamento
+  - "Maldi\xE7\xE3o"
   skillInventory: []
-  equipedSoul: Golpe Atordoante
-  equippedSoulIsAttack: 1
+  equipedSoul: "Restaura\xE7\xE3o Espiritual"
+  equippedSoulIsAttack: 0
   soulInventory: []
   soul: 0
   maxsoul: 0
