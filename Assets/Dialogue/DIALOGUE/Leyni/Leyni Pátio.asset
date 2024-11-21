@@ -47,7 +47,7 @@ MonoBehaviour:
   exit: 0
   speaker: Leyni
   dialogue: "O que voc\xEA quer?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
 --- !u!114 &-5483615880342603015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit3
+      - fieldName: exit2
         node: {fileID: 8265102892994210507}
         reroutePoints: []
       _direction: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   exit: 0
   speaker: Leyni
   dialogue: "Do que voc\xEA precisa?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
 --- !u!114 &-3618379925329401116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit3
+      - fieldName: exit2
         node: {fileID: 4145314444732501454}
         reroutePoints: []
       _direction: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: 3850814823196434302}
         reroutePoints: []
       _direction: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   exit: 0
   speaker: Leyni
   dialogue: "Eu fui presa. Roubando. Era isso ou morrer de fome, n\xE3o me arrependo."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
 --- !u!114 &-1777179994389544893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit4
+      - fieldName: exit3
         node: {fileID: 3850814823196434302}
         reroutePoints: []
       _direction: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   speaker: Leyni
   dialogue: "Bem, sim. Tem um filho da puta que eu quero ver com a cabe\xE7a longe
     do pesco\xE7o "
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
 --- !u!114 &-405026492986277714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: 7726714024729219731}
         reroutePoints: []
       _direction: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   speaker: Leyni
   dialogue: "Olha, eu realmente to precisando de um time, e S\xD3 POR ISSO eu vou
     aceitar. mas n\xE3o pense que somos amiguinhos. Meu nome \xE9 Leyni por sinal."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
   - {fileID: -2318895649360501642}
   - {fileID: 4623078204573136666}
   - {fileID: -1777179994389544893}
-  current: {fileID: 0}
+  current: {fileID: -5483615880342603015}
 --- !u!114 &827031224499378280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2120, y: -152}
+  position: {x: 2072, y: -168}
   ports:
     keys:
     - entry
@@ -469,7 +469,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: 8265102892994210507}
         reroutePoints: []
       _direction: 0
@@ -477,15 +477,6 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
-      _node: {fileID: 3850814823196434302}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit2
       _node: {fileID: 3850814823196434302}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -497,7 +488,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: exit3
+    - _fieldName: exit2
       _node: {fileID: 3850814823196434302}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -509,7 +500,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: exit4
+    - _fieldName: exit3
       _node: {fileID: 3850814823196434302}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -521,16 +512,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: exit4
+      _node: {fileID: 3850814823196434302}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   entry: 0
   exit: 0
   exit2: 0
   exit3: 0
   exit4: 0
   speaker: Ramion
-  dialogue: 
-  option2: "como voc\xEA veio parar aqui?"
-  option3: Como eu posso sair do coliseu?
-  option4: "voc\xEA busca algo aqui no coliseu?"
+  dialogue: "Como voc\xEA veio parar aqui?"
+  option2: Como eu posso sair do coliseu?
+  option3: "voc\xEA busca algo aqui no coliseu?"
+  option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &4145314444732501454
 MonoBehaviour:
@@ -570,7 +570,10 @@ MonoBehaviour:
       _node: {fileID: 4145314444732501454}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 8310495959067923777}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -581,7 +584,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 8310495959067923777}
+        node: {fileID: -3618379925329401116}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -591,10 +594,7 @@ MonoBehaviour:
       _node: {fileID: 4145314444732501454}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -3618379925329401116}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -614,9 +614,9 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: Ramion
-  dialogue: 
-  option2: "Voc\xEA parece solit\xE1ria"
-  option3: estou procurando aliados
+  dialogue: "Voc\xEA parece solit\xE1ria"
+  option2: estou procurando aliados
+  option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &4623078204573136666
@@ -643,7 +643,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit3
+      - fieldName: exit2
         node: {fileID: 3850814823196434302}
         reroutePoints: []
       _direction: 0
@@ -669,7 +669,7 @@ MonoBehaviour:
     voc\xEA precisa se tornar o cara mais forte daqui. A\xED voc\xEA pode pedir pra
     enfrentar o campe\xE3o da suserana, se voc\xEA ganhar, voc\xEA pode fazer qualquer
     pedido pra ela, inclusive a liberdade."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
 --- !u!114 &5737358319249477965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2102.2786, y: -489.64264}
+  position: {x: 2072, y: -488}
   ports:
     keys:
     - entry
@@ -742,7 +742,10 @@ MonoBehaviour:
       _node: {fileID: 7726714024729219731}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -405026492986277714}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -751,10 +754,7 @@ MonoBehaviour:
       _node: {fileID: 7726714024729219731}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -405026492986277714}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -783,8 +783,8 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: Ramion
-  dialogue: 
-  option2: Venha fazer parte do meu time
+  dialogue: Venha fazer parte do meu time
+  option2: 
   option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1544, y: -200}
+  position: {x: 1528, y: -200}
   ports:
     keys:
     - entry
@@ -835,7 +835,10 @@ MonoBehaviour:
       _node: {fileID: 8265102892994210507}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 3850814823196434302}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -846,7 +849,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 3850814823196434302}
+        node: {fileID: -5483615880342603015}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -856,10 +859,7 @@ MonoBehaviour:
       _node: {fileID: 8265102892994210507}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -5483615880342603015}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -879,9 +879,9 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: 
-  dialogue: 
-  option2: Tenho algumas perguntas
-  option3: Adeus
+  dialogue: Tenho algumas perguntas
+  option2: Adeus
+  option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &8310495959067923777
@@ -908,7 +908,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: 4145314444732501454}
         reroutePoints: []
       _direction: 0

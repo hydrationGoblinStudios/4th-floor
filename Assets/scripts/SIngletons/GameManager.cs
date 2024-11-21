@@ -343,8 +343,8 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         DayResultsManager.Sleep();
         cui = FindObjectOfType<CalendarioUI>(true);
         cui.UIUpdate();
-        GameEventHandler();
         wakeUpTalk = true;
+        GameEventHandler();
     }
     public void GameEventHandler()
     {

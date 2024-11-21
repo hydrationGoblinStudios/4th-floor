@@ -11600,7 +11600,7 @@ MonoBehaviour:
   day: 0
   storyBattle: 0
   TimeIsDay: 0
-  wakeUpTalk: 1
+  wakeUpTalk: 0
   mapButtons:
   - {fileID: 116682590}
   - {fileID: 1313359943}

@@ -157,6 +157,14 @@ public class BattleManager : MonoBehaviour
         enemyBehavior.position = 1;
         enemy2Behavior.position = 2;
         enemy3Behavior.position = 3;
+        foreach(UnitBehavior ub in playerTeam)
+        {
+            ub.battleManager = this;
+        }
+        foreach (UnitBehavior ub in enemyTeam)
+        {
+            ub.battleManager = this;
+        }
         playerTeam[0].Icon = GameObject.FindGameObjectWithTag("Player Icon 1");
         yield return new WaitForSeconds(0.5f);
         StatChange();
