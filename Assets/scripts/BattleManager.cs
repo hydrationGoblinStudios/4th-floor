@@ -12,6 +12,7 @@ public class BattleManager : MonoBehaviour
     public UnitBehavior endure;
     public SkillManager skillManager;
     public List<string> skillsInUse;
+    public List<string> EAskillsInUse;
     //Player1
     public int Pdamage;
     public int Phit;
@@ -486,18 +487,18 @@ public class BattleManager : MonoBehaviour
     {
         List<UnitBehavior> attackerTeam;
         List<UnitBehavior> targetTeam;
+        Debug.Log("extra attack");
         if (attacker.enemy)
         {
             state = BattleState.EnemyTurn;
-
         }
         else { state = BattleState.PlayerTurn; }
         attacker.power = attacker.str + attacker.Weapon.power;
         Pskill = 0;
         int attackerDamage = attacker.power - Target.defenses[attacker.Weapon.damageType];
         if (attackerDamage <= 0) { attackerDamage = 1; }
-        skillsInUse.Clear();
-        skillsInUse.AddRange(attacker.skills);
+        EAskillsInUse.Clear();
+        EAskillsInUse.AddRange(attacker.skills);
         if (attacker.enemy)
         {
             attackerTeam = enemyTeam;
@@ -510,23 +511,23 @@ public class BattleManager : MonoBehaviour
         }
         if (attacker.classSkill != null)
         {
-            skillsInUse.Add(attacker.classSkill);
+            EAskillsInUse.Add(attacker.classSkill);
         }
         if (attacker.personalSkill != null)
         {
-            skillsInUse.Add(attacker.personalSkill);
+            EAskillsInUse.Add(attacker.personalSkill);
         }
         if (attacker.Weapon != null && attacker.Weapon.skill != null)
         {
-            skillsInUse.Add(attacker.Weapon.skill);
+            EAskillsInUse.Add(attacker.Weapon.skill);
         }
         if (attacker.Accesory != null && attacker.Accesory.skill != null)
         {
-            skillsInUse.Add(attacker.Accesory.skill);
+            EAskillsInUse.Add(attacker.Accesory.skill);
         }
         if (Random.Range(0, 101) <= Phit)
         {
-            StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
+            StartCoroutine(ExtraAttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
         }
         else
         {
@@ -678,6 +679,7 @@ public class BattleManager : MonoBehaviour
     {     
         Phit = (int)(Attacker.Weapon.hit + (Attacker.dex *3) + Attacker.luck + Attacker.hit - (Target.speed * 2) - Target.luck -Target.avoid);
     }
+
     public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
     {
         foreach (string skill in skillsInUse)
@@ -755,7 +757,69 @@ public class BattleManager : MonoBehaviour
         }
 
     }
-    public void StatChange()
+    public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
+    {
+        Debug.Log("extra attack");
+        foreach (string skill in EAskillsInUse)
+        {
+            Pskill = +skillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
+        }
+        foreach (string skill in EAskillsInUse)
+        {
+            Pskill = +skillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+        }
+        HudUpdate();
+        yield return new WaitForSeconds(1);
+        if (Random.Range(0, 101) <= Pcrit)
+        {
+            hitAudio[1].Play();
+            Target.hp -= (attackerDamage + Pskill) * 2;
+            if (attacker.lifesteal >= 0.01)
+            {
+                attacker.hp += (attackerDamage + Pskill * 2) * attacker.lifesteal;
+            }
+            Target.soul += ((attackerDamage + Pskill) * 2) / 5;
+            battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
+            yield return new WaitForSeconds(1);
+            battleText.text = $"{Target.UnitName} perdeu {(Pskill + attackerDamage) * 2} hp";
+            int c = 0;
+            foreach (Slider sl in enemyHpSlider)
+            {
+                sl.value = enemyTeam[c].hp;
+                c++;
+            }
+            c = 0;
+            foreach (Slider sl in playerHpSlider)
+            {
+                sl.value = playerTeam[c].hp;
+                c++;
+            }
+        }
+        else
+        {
+            hitAudio[0].Play();
+            Target.hp -= Pskill + attacker.power;
+            if (attacker.lifesteal >= 0.01)
+            {
+                attacker.hp += (Pskill + attacker.power) * attacker.lifesteal;
+            }
+            Target.soul += (attackerDamage + Pskill) / 5;
+            battleText.text = $"{Target.UnitName} perdeu {attackerDamage + Pskill} hp";
+            int c = 0;
+            foreach (Slider sl in enemyHpSlider)
+            {
+                sl.value = enemyTeam[c].hp;
+                c++;
+            }
+            c = 0;
+            foreach (Slider sl in playerHpSlider)
+            {
+                sl.value = playerTeam[c].hp;
+                c++;
+            }
+        }
+    }
+        public void StatChange()
     {
         Pdamage = playerBehavior.str - enemyBehavior.def;
         if (Pdamage < 1) { Pdamage = 1; }
