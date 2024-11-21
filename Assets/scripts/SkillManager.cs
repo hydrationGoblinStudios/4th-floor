@@ -59,6 +59,7 @@ public class SkillManager : MonoBehaviour
                         Debug.Log("dano ascendeu");
                         StartCoroutine(IconPopup(user.Icon, "Dano Ascendente Icone"));
                         user.power += 1;
+                        user.damagereduction += 1;
                         DanoAscendenteMeter = 0;
                     }
                     else
@@ -69,11 +70,11 @@ public class SkillManager : MonoBehaviour
                 }
                 return 0;
 
-            case "Ataque Rapido":
+            case "Ataque Rápido":
 
                 if (Random.Range(0, 101) <= user.dex)
                 {
-                    user.battleManager.ExtraAttack(user, target);
+                    StartCoroutine(user.battleManager.ExtraAttack(user, target));
                 }
 
 
@@ -560,8 +561,8 @@ public class SkillManager : MonoBehaviour
         {
             case "Golpe Triplo":
                 user.power -= user.power / 2;
-                user.battleManager.ExtraAttack(user, target);
-                user.battleManager.ExtraAttack(user, target);
+                StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target));
                 user.power += user.power / 2;
 
                 return -user.power / 2;
@@ -582,9 +583,9 @@ public class SkillManager : MonoBehaviour
             case "Rajada de Flechas":
 
                 user.power -= (int)(user.power * 0.4);
-                user.battleManager.ExtraAttack(user, enemyTeam[0]);
-                user.battleManager.ExtraAttack(user, enemyTeam[1]);
-                user.battleManager.ExtraAttack(user, enemyTeam[2]);
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0]));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1]));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2]));
                 user.power += (int)(user.power * 0.4);
 
                 return 0;
@@ -836,7 +837,7 @@ public class SkillManager : MonoBehaviour
                 if (user.hp == user.maxhp)
                 {
                     user.power += (int)(user.maxhp * 0.15);
-                    user.battleManager.ExtraAttack(user, target);
+                    StartCoroutine(user.battleManager.ExtraAttack(user, target));
                     user.power -= (int)(user.maxhp * 0.15);
 
                 }
@@ -851,8 +852,8 @@ public class SkillManager : MonoBehaviour
 
             case "Golpe Poderoso":
 
-                user.hit -= 20;
-                user.battleManager.ExtraAttack(user, target);
+                user.hit -= 20; 
+                StartCoroutine(user.battleManager.ExtraAttack(user, target));
                 user.hit += 20;
 
                 break;

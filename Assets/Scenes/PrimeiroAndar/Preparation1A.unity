@@ -11614,7 +11614,7 @@ MonoBehaviour:
   cui: {fileID: 0}
   selectedUB4Activity: {fileID: 0}
   playerUnit:
-  - {fileID: 4445489306633608637, guid: 5541914f4194fb14fbad1dc299a5ef26, type: 3}
+  - {fileID: 4445489306633608637, guid: 573d5aed99181df4aa0ad7fcfc860bdd, type: 3}
   - {fileID: 4445489306633608637, guid: efaa79524367fcf46bdf5cec92c88e49, type: 3}
   - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
   - {fileID: 4445489306633608637, guid: 04377b80085b791499ee4a5d0212e45b, type: 3}
@@ -16855,7 +16855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1313359944
 RectTransform:
   m_ObjectHideFlags: 0

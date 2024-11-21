@@ -319,7 +319,7 @@ public class InventoryManager : MonoBehaviour
         {
             //class tier 1 skills
             //espadachim
-            "Dano Ascendente" => "A cada 3 vezes que causar dano, Aumenta o Dano em 1 e Redução de dano em 1 pelo resto do combate",
+            "Dano Ascendente" => "A cada 3 vezes que fazer um ataque básico, Aumenta o Dano em 1 e Redução de dano em 1 pelo resto do combate",
             "Ataque Rápido" => "%DES de quando fazer um ataque basico, em vez disso fazer 2 ataques basicos.",
             //arqueiro
             "Foco" => "Ganha +20 de Acerto e Evasao por 15 Segundos no inicio da batalha",
