@@ -105,7 +105,29 @@ public class SkillManager : MonoBehaviour
 
             case "Precisão Mortal":
 
-                return user.hit / 10;
+                int x = (int)(user.Weapon.hit + (user.dex * 3) + user.luck + user.hit - (target.speed * 2) - target.luck - target.avoid);
+                x -= 100;
+                if (x < 0)
+                {
+                    x = 0;
+                }
+                int y = 0;
+
+                if (user.Weapon.damageType == 0)
+                {
+                    y = user.Weapon.power + user.str;
+                }
+                else
+                {
+                    y = (int)(user.Weapon.power + user.mag);
+                }
+                int z = y - target.defenses[user.Weapon.damageType];
+                if (z < 1)
+                {
+                    z = 1;
+                }
+                Debug.Log("pricisão mortal: "+(int)((z / 100) * x));
+                return (int)((z / 100) * x);
 
 
             case "Espada Amaldiçoada":

@@ -323,7 +323,7 @@ public class InventoryManager : MonoBehaviour
             "Ataque Rápido" => "%DES de quando fazer um ataque basico, em vez disso fazer 2 ataques basicos.",
             //arqueiro
             "Foco" => "Ganha +20 de Acerto e Evasao por 15 Segundos no inicio da batalha",
-            "Precisão mortal" => "Causa mais Dano equivalente ao Acerto/10.",
+            "Precisão Mortal" => "Causa mais Dano equivalente ao Acerto/10.",
             //guerreiro
             "Lutador Versátil" => "Ganha efeitos baseado na posicao do usuario: 1: Ganha +3 de Defesa Fisica e Defesa Magica , 2 ou 3: Causa 3 a mais de dano.",
             "Durão" => "Aumenta o HP maximo em 25%.",
