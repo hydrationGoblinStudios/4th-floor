@@ -33,11 +33,17 @@ public class PreBattleManager : MonoBehaviour
         gameManager = GMobject.GetComponent<GameManager>();
 
         SelectedPlayer1 = Instantiate(gameManager.team[0], BattleStations[0].transform);
+        SelectedPlayer1.name = SelectedPlayer1.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedPlayer2 = Instantiate(gameManager.team[1], BattleStations[1].transform);
+        SelectedPlayer2.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedPlayer3 = Instantiate(gameManager.team[2], BattleStations[2].transform);
+        SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
+        SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedEnemy2 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[4].transform);
+        SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedEnemy3 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[5].transform);
+        SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedPlayerList.Add(SelectedPlayer1);
         SelectedPlayerList.Add(SelectedPlayer2);
         SelectedPlayerList.Add(SelectedPlayer3);

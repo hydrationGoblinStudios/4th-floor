@@ -12,7 +12,10 @@ public class ButtonAssigner : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     void Start()
     {
         nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
+        if(graph != null)
+        {
         button.onClick.AddListener( delegate { nodeParser.StartDialogue(graph); });
+        }
     }
     public void AddListener()
     {

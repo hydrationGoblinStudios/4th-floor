@@ -2085,7 +2085,7 @@ GameObject:
   - component: {fileID: 116682593}
   - component: {fileID: 116682592}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Quarto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6379,7 +6379,7 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 1
+  m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
@@ -11597,13 +11597,19 @@ MonoBehaviour:
     m_Handle: 0
   money: 50
   lumenita: 0
-  day: 1
+  day: 0
   storyBattle: 0
   TimeIsDay: 0
   wakeUpTalk: 1
+  mapButtons:
+  - {fileID: 116682590}
+  - {fileID: 1313359943}
+  - {fileID: 1498748812}
   graphs:
   - {fileID: 11400000, guid: 3dc738677bd3db647a05f4ed683b05d3, type: 2}
   - {fileID: 11400000, guid: be1fb045bf1c6d74785e2195e4f438b2, type: 2}
+  - {fileID: 11400000, guid: 0923039d60056c745b0b6053e50ce5d3, type: 2}
+  - {fileID: 11400000, guid: 9602b6aec4e1de149a73e81870adf581, type: 2}
   DayResultsManager: {fileID: 0}
   cui: {fileID: 0}
   selectedUB4Activity: {fileID: 0}
@@ -16844,12 +16850,12 @@ GameObject:
   - component: {fileID: 1313359946}
   - component: {fileID: 1313359945}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Cantina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1313359944
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17779,7 +17785,7 @@ GameObject:
   - component: {fileID: 1372198797}
   - component: {fileID: 1372198798}
   m_Layer: 0
-  m_Name: SceneInteractables
+  m_Name: SceneInteractablesPreparation1A
   m_TagString: Scene Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18751,12 +18757,12 @@ GameObject:
   - component: {fileID: 1498748815}
   - component: {fileID: 1498748814}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Patio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1498748813
 RectTransform:
   m_ObjectHideFlags: 0

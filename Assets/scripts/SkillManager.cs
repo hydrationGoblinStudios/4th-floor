@@ -275,7 +275,7 @@ public class SkillManager : MonoBehaviour
                 }
                 if (user.position == 3)
                 {
-                    enemyTeam[3].speed += (int)(enemyTeam[3].speed * 0.15);
+                    enemyTeam[2].speed += (int)(enemyTeam[2].speed * 0.15);
                 }
                 return 0;
 
@@ -721,8 +721,6 @@ public class SkillManager : MonoBehaviour
                     user.mdef += frigidistatsmdef;
                     frigidiboost = true;
                 }
-
-
                 return 0;
 
 

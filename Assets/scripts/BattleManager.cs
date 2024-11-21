@@ -130,13 +130,19 @@ public class BattleManager : MonoBehaviour
     IEnumerator SetupBattle()
     {
        playerGo = Instantiate(playerUnit, playerBattleStation);
+        playerGo.name = playerGo.GetComponent<UnitBehavior>().UnitName + "Battle";
         playerGo.GetComponent<UnitBehavior>().Icon = GameObject.FindGameObjectWithTag("Player Icon 1");
         playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
-       playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
-       GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
-       GameObject enemyGo2 = Instantiate(enemyUnit2, enemyBattleStation2);
-       GameObject enemyGo3 = Instantiate(enemyUnit3, enemyBattleStation3);
-       playerBehavior = playerGo.GetComponent<UnitBehavior>();
+        playerGo2.name = playerGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
+        playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
+        playerGo3.name = playerGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
+        GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
+        enemyGo.name = enemyGo.GetComponent<UnitBehavior>().UnitName + "Battle";
+        GameObject enemyGo2 = Instantiate(enemyUnit2, enemyBattleStation2);
+        enemyGo2.name = enemyGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
+        GameObject enemyGo3 = Instantiate(enemyUnit3, enemyBattleStation3);
+        enemyGo3.name = enemyGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
+        playerBehavior = playerGo.GetComponent<UnitBehavior>();
        player2Behavior = playerGo2.GetComponent<UnitBehavior>();
        player3Behavior = playerGo3.GetComponent<UnitBehavior>();
        enemyBehavior = enemyGo.GetComponent<UnitBehavior>();
@@ -156,8 +162,82 @@ public class BattleManager : MonoBehaviour
         StatChange();
         SetHud();
         SetHp();
+        foreach (UnitBehavior ub in playerTeam)
+        {
+            List<UnitBehavior> attackerTeam;
+            List<UnitBehavior> targetTeam;
+            skillsInUse.Clear();
+            skillsInUse.AddRange(ub.skills);
+            if (ub.enemy)
+            {
+                attackerTeam = enemyTeam;
+                targetTeam = playerTeam;
+            }
+            else
+            {
+                attackerTeam = playerTeam;
+                targetTeam = enemyTeam;
+            }
+            if (ub.classSkill != null)
+            {
+                skillsInUse.Add(ub.classSkill);
+            }
+            if (ub.personalSkill != null)
+            {
+                skillsInUse.Add(ub.personalSkill);
+            }
+            if (ub.Weapon != null && ub.Weapon.skill != null)
+            {
+                skillsInUse.Add(ub.Weapon.skill);
+            }
+            if (ub.Accesory != null && ub.Accesory.skill != null)
+            {
+                skillsInUse.Add(ub.Accesory.skill);
+            }
+            foreach (string skill in skillsInUse)
+            {
+                skillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)],attackerTeam,targetTeam);
+            }
+        }
+        foreach (UnitBehavior ub in enemyTeam)
+        {
+            List<UnitBehavior> attackerTeam;
+            List<UnitBehavior> targetTeam;
+            skillsInUse.Clear();
+            skillsInUse.AddRange(ub.skills);
+            if (ub.enemy)
+            {
+                attackerTeam = enemyTeam;
+                targetTeam = playerTeam;
+            }
+            else
+            {
+                attackerTeam = playerTeam;
+                targetTeam = enemyTeam;
+            }
+            if (ub.classSkill != null)
+            {
+                skillsInUse.Add(ub.classSkill);
+            }
+            if (ub.personalSkill != null)
+            {
+                skillsInUse.Add(ub.personalSkill);
+            }
+            if (ub.Weapon != null && ub.Weapon.skill != null)
+            {
+                skillsInUse.Add(ub.Weapon.skill);
+            }
+            if (ub.Accesory != null && ub.Accesory.skill != null)
+            {
+                skillsInUse.Add(ub.Accesory.skill);
+            }
+            foreach (string skill in skillsInUse)
+            {
+                skillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)], attackerTeam, targetTeam);
+            }
+        }
 
-      state = BattleState.Wait;
+        state = BattleState.Wait;
     }
     void SetHud()
     {
@@ -257,32 +337,32 @@ public class BattleManager : MonoBehaviour
         if (PlayerBar >= 100 & state == BattleState.Wait)
         {
             PlayerBar = 0;
-            StartCoroutine(Attack(playerBehavior,enemyTeam[StandardTargeting(enemyTeam)]));
+            StartCoroutine(Attack(playerTeam[0], enemyTeam[StandardTargeting(enemyTeam)]));
         }
         if (PlayerBar2 >= 100 & state == BattleState.Wait)
         {
             PlayerBar2 = 0;
-            StartCoroutine(Attack(player2Behavior, enemyTeam[StandardTargeting(enemyTeam)]));
+            StartCoroutine(Attack(playerTeam[1], enemyTeam[StandardTargeting(enemyTeam)]));
         }
         if (PlayerBar3 >= 100 & state == BattleState.Wait)
         {
             PlayerBar3 = 0;
-            StartCoroutine(Attack(player3Behavior, enemyTeam[StandardTargeting(enemyTeam)]));
+            StartCoroutine(Attack(playerTeam[2], enemyTeam[StandardTargeting(enemyTeam)]));
         }
         if (EnemyBar >= 100 & state == BattleState.Wait)
             {
                 EnemyBar = 0;
-                StartCoroutine(Attack(enemyBehavior, playerTeam[StandardTargeting(playerTeam)]));
+                StartCoroutine(Attack(enemyTeam[0], playerTeam[StandardTargeting(playerTeam)]));
             }
         if (EnemyBar2 >= 100 & state == BattleState.Wait)
         {
             EnemyBar2 = 0;
-            StartCoroutine(Attack(enemy2Behavior, playerTeam[StandardTargeting(playerTeam)]));
+            StartCoroutine(Attack(enemyTeam[1], playerTeam[StandardTargeting(playerTeam)]));
         }
         if (EnemyBar3 >= 100 & state == BattleState.Wait)
         {
             EnemyBar3 = 0;
-            StartCoroutine(Attack(enemy3Behavior, playerTeam[StandardTargeting(playerTeam)]));
+            StartCoroutine(Attack(enemyTeam[2], playerTeam[StandardTargeting(playerTeam)]));
         }
     }
     public int StandardTargeting(List<UnitBehavior> unitList)
@@ -320,6 +400,7 @@ public class BattleManager : MonoBehaviour
     }
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
+        AttackSetup(attacker, Target);
         List<UnitBehavior> attackerTeam;
         List<UnitBehavior> targetTeam;
         if (attacker.enemy)
@@ -362,6 +443,7 @@ public class BattleManager : MonoBehaviour
             skillsInUse.Add(attacker.Accesory.skill);
         }
         attacker.soul += 10 + attacker.soulgain;
+        Debug.Log(attacker.UnitName + " hit:" + Phit);
         if (attacker.soul < attacker.maxsoul && Random.Range(0, 101) <= Phit)
         {
             StartCoroutine(AttackHit(attacker,Target,attackerDamage, attackerTeam, targetTeam));
@@ -584,9 +666,9 @@ public class BattleManager : MonoBehaviour
             Debug.Log("roll = " + r + "\n growth = " + character.growths[i]);
         };
     }
-    public void AttackSetup()
-    {
-
+    public void AttackSetup(UnitBehavior Attacker, UnitBehavior Target)
+    {     
+        Phit = (int)(Attacker.Weapon.hit + (Attacker.dex *3) + Attacker.luck + Attacker.hit - (Target.speed * 2) - Target.luck -Target.avoid);
     }
     public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
     {

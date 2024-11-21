@@ -27,7 +27,11 @@ public class SceneInteractables : MonoBehaviour
             if (InteractablesGO != null && this != null && this.gameObject != null)
             {
                 this.transform.parent = InteractablesGO.transform;
+                m_Scene = SceneManager.GetActiveScene();
+                if (m_Scene.name == OriginalSceneName)
+                {
                 manager.GameEventHandler();
+                }
             }
         }
         else

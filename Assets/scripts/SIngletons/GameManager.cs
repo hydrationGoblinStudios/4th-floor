@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     public bool storyBattle;
     public bool TimeIsDay;
     public bool wakeUpTalk;
+    public List<GameObject> mapButtons;
     public List<DialogueGraph> graphs;
     public DayResultsManager DayResultsManager;
     public CalendarioUI cui;
@@ -172,12 +173,14 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         {
             GameObject newobj = Instantiate(obj, this.transform);
             team.Add(newobj);
+            newobj.name = newobj.GetComponent<UnitBehavior>().UnitName + "Prep";
         }
     }
     public void AddtoTeam(GameObject recruit)
     {
         GameObject newobj = Instantiate(recruit, this.transform);
         team.Add(newobj);
+        newobj.name = newobj.GetComponent<UnitBehavior>().UnitName + "Prep";
     }
     public void SelectUnit(GameObject unit)
     {
@@ -341,6 +344,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         cui = FindObjectOfType<CalendarioUI>(true);
         cui.UIUpdate();
         GameEventHandler();
+        wakeUpTalk = true;
     }
     public void GameEventHandler()
     {
@@ -359,7 +363,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
                 Debug.Log("prep1A");
                 if (storyBattle)
                 {
-                ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault(), "cama");
+                ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault(), "cama",m_scene.name);
                 }
                 else
                 {
@@ -375,23 +379,44 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
                 {
                     NodeParser dm = FindObjectOfType<NodeParser>(true);
                     dm.StartDialogue(graphs.Where(obj => obj.name == "Gandios Dia 1").SingleOrDefault());
+                    mapButtons.Where(obj => obj.name == "Cantina").SingleOrDefault().SetActive(true);
                     wakeUpTalk = false;
                 }
-                if (day == 2)
+                if (day == 2 && wakeUpTalk)
                 {
+                    Debug.Log("DIA 2");
                     NodeParser dm = FindObjectOfType<NodeParser>(true);
-                    dm.StartDialogue(graphs.Where(obj => obj.name == "Gandios Dia 1").SingleOrDefault());
+                    dm.StartDialogue(graphs.Where(obj => obj.name == "Adrian Começo Dia 2").SingleOrDefault());
+                    mapButtons.Where(obj => obj.name == "Patio").SingleOrDefault().SetActive(true);
                     wakeUpTalk = false;
                 }
                 break;
+            case "Patio":
+                if (day >= 3)   
+                {
+                    ChangeSprite("Leyni Sprite", 1);
+                    ChangeGraph(graphs[3], "Leyni Interactable",m_scene.name);
+                }
+                break;
+
         }
     }
-    public void ChangeGraph(DialogueGraph dialogueGraph, string buttonAssigner)
+    public void ChangeGraph(DialogueGraph dialogueGraph, string buttonAssigner, string sceneName)
     {
-        GameObject go = FindObjectOfType<SceneInteractables>(true).gameObject;
+        GameObject go = GameObject.Find("SceneInteractables"+sceneName);
+        Debug.Log(go.name);
+        foreach(Transform obj in go.transform)
+        {
+            Debug.Log(obj.name);
+        }
         go.transform.Find(buttonAssigner).GetComponent<ButtonAssigner>().graph = dialogueGraph;
-        Button button = go.transform.Find("cama").GetComponent<Button>();
+        Button button = go.transform.Find(buttonAssigner).GetComponent<Button>();
         button.onClick.RemoveAllListeners();
         go.transform.Find(buttonAssigner).GetComponent<ButtonAssigner>().AddListener();
+    }
+    public void ChangeSprite(string spriteObject, int targetSprite)
+    {
+        GameObject go = GameObject.Find(spriteObject);
+        go.GetComponent<SpriteChanger>().ChangeSprite(targetSprite);
     }
 }
