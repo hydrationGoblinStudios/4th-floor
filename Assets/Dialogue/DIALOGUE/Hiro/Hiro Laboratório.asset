@@ -468,7 +468,10 @@ MonoBehaviour:
       _node: {fileID: -841268567894309013}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 38105799660825098}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -477,10 +480,7 @@ MonoBehaviour:
       _node: {fileID: -841268567894309013}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 38105799660825098}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -509,8 +509,8 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: Ramion
-  dialogue: 
-  option2: "\xC9, algo assim, to precisando de ajuda pra curar minha amn\xE9sia"
+  dialogue: "\xC9, algo assim, to precisando de ajuda pra curar minha amn\xE9sia"
+  option2: 
   option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
@@ -542,7 +542,7 @@ MonoBehaviour:
   - {fileID: -3199606219381756374}
   - {fileID: 7235717203714244613}
   - {fileID: -1864521784470941497}
-  current: {fileID: 0}
+  current: {fileID: -841268567894309013}
 --- !u!114 &38105799660825098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: -841268567894309013}
         reroutePoints: []
       _direction: 0
