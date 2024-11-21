@@ -39,6 +39,7 @@ public class SceneInteractables : MonoBehaviour
             if(this != null && this.gameObject != null)
             {
             Destroy(this.gameObject);
+                Destroy(this);
             }
         }
     }

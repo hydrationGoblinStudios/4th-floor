@@ -361,19 +361,17 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         {
             case "Preparation1A":
                 Debug.Log("prep1A");
-                if (storyBattle)
+                GameObject go = GameObject.Find("SceneInteractables" + m_scene.name);
+                if (go.transform.Find("cama") != null)
                 {
-                ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault(), "cama",m_scene.name);
-                }
-                else
-                {
-                    GameObject go = FindObjectOfType<SceneInteractables>(true).gameObject;
-                    if(go.transform.Find("cama") != null)
-                    {
+                    Debug.Log("cama achada");
                     Button button = go.transform.Find("cama").GetComponent<Button>();
                     button.onClick.RemoveAllListeners();
                     button.onClick.AddListener(delegate { go.transform.Find("cama").GetComponent<GMButtonAssigner>().Sleep(); });
-                    }
+                }
+                    if (storyBattle)
+                {
+                ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault(), "cama",m_scene.name);
                 }
                 if (day == 1 && wakeUpTalk)
                 {
@@ -390,12 +388,20 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
                     mapButtons.Where(obj => obj.name == "Patio").SingleOrDefault().SetActive(true);
                     wakeUpTalk = false;
                 }
+                if (day == 6 && wakeUpTalk)
+                {
+                    Debug.Log("DIA 6");
+                    NodeParser dm = FindObjectOfType<NodeParser>(true);
+                    dm.StartDialogue(graphs.Where(obj => obj.name == "Gandios Dia 6").SingleOrDefault());
+                    mapButtons.Where(obj => obj.name == "Patio").SingleOrDefault().SetActive(true);
+                    wakeUpTalk = false;
+                }
                 break;
             case "Patio":
                 if (day >= 3)   
                 {
                     ChangeSprite("Leyni Sprite", 1);
-                    ChangeGraph(graphs[3], "Leyni Interactable",m_scene.name);
+                    //ChangeGraph(graphs[3], "Leyni Interactable",m_scene.name);
                 }
                 break;
 
@@ -406,6 +412,19 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         GameObject go = GameObject.Find("SceneInteractables"+sceneName);
         Debug.Log(go.name);
         foreach(Transform obj in go.transform)
+        {
+            Debug.Log(obj.name);
+        }
+        go.transform.Find(buttonAssigner).GetComponent<ButtonAssigner>().graph = dialogueGraph;
+        Button button = go.transform.Find(buttonAssigner).GetComponent<Button>();
+        button.onClick.RemoveAllListeners();
+        go.transform.Find(buttonAssigner).GetComponent<ButtonAssigner>().AddListener();
+    }
+    public void GmChangeGraph(DialogueGraph dialogueGraph, string buttonAssigner, string sceneName)
+    {
+        GameObject go = GameObject.Find("SceneInteractables" + sceneName);
+        Debug.Log(go.name);
+        foreach (Transform obj in go.transform)
         {
             Debug.Log(obj.name);
         }

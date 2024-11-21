@@ -1413,7 +1413,7 @@ GameObject:
   - component: {fileID: 1372198796}
   - component: {fileID: 1372198797}
   m_Layer: 0
-  m_Name: SceneInteractables
+  m_Name: SceneInteractablesLaboratorio
   m_TagString: Scene Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1457,6 +1457,7 @@ MonoBehaviour:
   m_Scene:
     m_Handle: 0
   InteractablesGO: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!1 &1420250024
 GameObject:
   m_ObjectHideFlags: 0
