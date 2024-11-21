@@ -10,13 +10,16 @@ public class SceneInteractables : MonoBehaviour
     [SerializeField]
     private Scene m_Scene;
     public GameObject InteractablesGO;
+    public GameManager manager;
     public void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
         SceneManager.sceneLoaded += OnSceneLoaded;
         CheckIfSceneISOriginal();
     }
     private void CheckIfSceneISOriginal()
     {
+        Debug.Log("check");
         m_Scene = SceneManager.GetActiveScene();
         if (m_Scene.name == OriginalSceneName)
         {
@@ -24,6 +27,7 @@ public class SceneInteractables : MonoBehaviour
             if (InteractablesGO != null && this != null && this.gameObject != null)
             {
                 this.transform.parent = InteractablesGO.transform;
+                manager.GameEventHandler();
             }
         }
         else

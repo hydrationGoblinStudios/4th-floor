@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 3061427}
   - component: {fileID: 3061431}
   - component: {fileID: 3061428}
+  - component: {fileID: 3061432}
   m_Layer: 5
   m_Name: Day Results Background
   m_TagString: Untagged
@@ -196,6 +197,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3061426}
   m_CullTransparentMesh: 1
+--- !u!210 &3061432
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061426}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 100
+  m_SortAtRoot: 0
 --- !u!1 &8116286
 GameObject:
   m_ObjectHideFlags: 0
@@ -9330,7 +9343,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Quarto Dos Guardas
+          m_StringArgument: Dispensa
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1677306761}
@@ -11580,9 +11593,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   units: []
+  m_scene:
+    m_Handle: 0
   money: 50
+  lumenita: 0
   day: 1
+  storyBattle: 0
   TimeIsDay: 0
+  wakeUpTalk: 1
+  graphs:
+  - {fileID: 11400000, guid: 3dc738677bd3db647a05f4ed683b05d3, type: 2}
+  - {fileID: 11400000, guid: be1fb045bf1c6d74785e2195e4f438b2, type: 2}
   DayResultsManager: {fileID: 0}
   cui: {fileID: 0}
   selectedUB4Activity: {fileID: 0}
@@ -12266,6 +12287,7 @@ GameObject:
   - component: {fileID: 1002940621}
   - component: {fileID: 1002940620}
   - component: {fileID: 1002940619}
+  - component: {fileID: 1002940623}
   - component: {fileID: 1002940622}
   m_Layer: 5
   m_Name: cama
@@ -12336,19 +12358,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1002940620}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1002940622}
-        m_TargetAssemblyTypeName: GMButtonAssigner, Assembly-CSharp
-        m_MethodName: Sleep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1002940620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12400,6 +12410,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  button: {fileID: 1002940619}
+--- !u!114 &1002940623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002940617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graph: {fileID: 0}
+  nodeParser: {fileID: 0}
   button: {fileID: 1002940619}
 --- !u!1 &1005932657
 GameObject:
@@ -16010,7 +16035,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quarto dos guardas
+  m_text: 'Dispensa
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16699,6 +16726,9 @@ MonoBehaviour:
   - {fileID: 7631611099256901391, guid: c3dd62bb8043d3b4db79c3b1dca5fe36, type: 3}
   - {fileID: 7631611099256901391, guid: b2e6f1be153e863499fb6e69a142bce3, type: 3}
   - {fileID: 7631611099256901391, guid: 7fdfcb36bc224f34185f38cdd85b87d4, type: 3}
+  - {fileID: 7631611099256901391, guid: 747de2c9004befc45bd844711e77f941, type: 3}
+  - {fileID: 7631611099256901391, guid: b8c2161e6162ead4ea861cb80155bcaa, type: 3}
+  - {fileID: 7631611099256901391, guid: 8b05f3aeecd8bfb4f8e3da468a84b9b0, type: 3}
   texts: []
   hoverObject: {fileID: 0}
   HoverOn: 0
@@ -17792,6 +17822,7 @@ MonoBehaviour:
   m_Scene:
     m_Handle: 0
   InteractablesGO: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!210 &1372198798
 SortingGroup:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ public class NodeParser : MonoBehaviour
             UserInterface.SetActive(true);
             NextNode("exit");
         }
-        else if (dataParts[0] == "Stop")
+        else if (dataParts[0] == "Stop" || dataParts[0] == null)
         {
             interactables.SetActive(true);
             if(action.onClick != null)
@@ -106,7 +106,6 @@ public class NodeParser : MonoBehaviour
                 {
                     if (extraTexts[counter - 1].text != "")
                     {
-                        Debug.Log(extraTexts[counter - 1].text);
                         options[counter].SetActive(true);
                         fakeOptions[counter].SetActive(true);
                     }

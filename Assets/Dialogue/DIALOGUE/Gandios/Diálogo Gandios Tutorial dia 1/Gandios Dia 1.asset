@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -104, y: -88}
+  position: {x: -152, y: -104}
   ports:
     keys:
     - exit
@@ -104,7 +104,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit4
+      - fieldName: exit3
         node: {fileID: 3946403675836193244}
         reroutePoints: []
       _direction: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: 3946403675836193244}
         reroutePoints: []
       _direction: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
-  m_Name: New Dialogue Graph
+  m_Name: Gandios Dia 1
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -6145547950645523053}
@@ -532,15 +532,6 @@ MonoBehaviour:
       _node: {fileID: 3946403675836193244}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit2
-      _node: {fileID: 3946403675836193244}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
         node: {fileID: -565373076487976538}
@@ -549,7 +540,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: exit3
+    - _fieldName: exit2
       _node: {fileID: 3946403675836193244}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -561,7 +552,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: exit4
+    - _fieldName: exit3
       _node: {fileID: 3946403675836193244}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -573,16 +564,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: exit4
+      _node: {fileID: 3946403675836193244}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   entry: 0
   exit: 0
   exit2: 0
   exit3: 0
   exit4: 0
   speaker: Ramion
-  dialogue: 
-  option2: Bom Dia
-  option3: Eu tive um sonho estranho
-  option4: uma figura obscura apareceu no meio da noite
+  dialogue: Bom Dia
+  option2: Eu tive um sonho estranho
+  option3: uma figura obscura apareceu no meio da noite
+  option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &4360077038798273482
 MonoBehaviour:
@@ -608,7 +608,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit3
+      - fieldName: exit2
         node: {fileID: 3946403675836193244}
         reroutePoints: []
       _direction: 0

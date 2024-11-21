@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Universal/Pre Battle.unity
     guid: 2465ba57ba8d7064c9a3e98e4eee2dd5
+  - enabled: 1
+    path: Assets/Scenes/PrimeiroAndar/Dispensa.unity
+    guid: 57ecfdd37042dd948a529ca4113e2441
   m_configObjects: {}

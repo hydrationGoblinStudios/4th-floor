@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -9,10 +11,15 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     UnitData CurrentUnitData;
 
     public List<UnitData> units;
+    public Dictionary<int,DialogueGraph> eventDictionary;
+    public Scene m_scene;
     public int money;
     public int lumenita;
     public int day;
+    public bool storyBattle;
     public bool TimeIsDay;
+    public bool wakeUpTalk;
+    public List<DialogueGraph> graphs;
     public DayResultsManager DayResultsManager;
     public CalendarioUI cui;
     public UnitBehavior selectedUB4Activity;
@@ -333,9 +340,58 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         DayResultsManager.Sleep();
         cui = FindObjectOfType<CalendarioUI>(true);
         cui.UIUpdate();
+        GameEventHandler();
     }
-    public void ActivityBoard()
+    public void GameEventHandler()
     {
-
+        m_scene = SceneManager.GetActiveScene();
+        if(day == 4 || day == 8 || day == 12)
+        {
+            storyBattle = true;
+        }
+        else
+        {
+            storyBattle = false;
+        }
+        switch (m_scene.name)
+        {
+            case "Preparation1A":
+                Debug.Log("prep1A");
+                if (storyBattle)
+                {
+                ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault(), "cama");
+                }
+                else
+                {
+                    GameObject go = FindObjectOfType<SceneInteractables>(true).gameObject;
+                    if(go.transform.Find("cama") != null)
+                    {
+                    Button button = go.transform.Find("cama").GetComponent<Button>();
+                    button.onClick.RemoveAllListeners();
+                    button.onClick.AddListener(delegate { go.transform.Find("cama").GetComponent<GMButtonAssigner>().Sleep(); });
+                    }
+                }
+                if (day == 1 && wakeUpTalk)
+                {
+                    NodeParser dm = FindObjectOfType<NodeParser>(true);
+                    dm.StartDialogue(graphs.Where(obj => obj.name == "Gandios Dia 1").SingleOrDefault());
+                    wakeUpTalk = false;
+                }
+                if (day == 2)
+                {
+                    NodeParser dm = FindObjectOfType<NodeParser>(true);
+                    dm.StartDialogue(graphs.Where(obj => obj.name == "Gandios Dia 1").SingleOrDefault());
+                    wakeUpTalk = false;
+                }
+                break;
+        }
+    }
+    public void ChangeGraph(DialogueGraph dialogueGraph, string buttonAssigner)
+    {
+        GameObject go = FindObjectOfType<SceneInteractables>(true).gameObject;
+        go.transform.Find(buttonAssigner).GetComponent<ButtonAssigner>().graph = dialogueGraph;
+        Button button = go.transform.Find("cama").GetComponent<Button>();
+        button.onClick.RemoveAllListeners();
+        go.transform.Find(buttonAssigner).GetComponent<ButtonAssigner>().AddListener();
     }
 }
