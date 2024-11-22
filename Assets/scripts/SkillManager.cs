@@ -111,6 +111,7 @@ public class SkillManager : MonoBehaviour
                 {
                     x = 0;
                 }
+                Debug.Log("x: " + x);
                 int y = 0;
 
                 if (user.Weapon.damageType == 0)
@@ -121,13 +122,15 @@ public class SkillManager : MonoBehaviour
                 {
                     y = (int)(user.Weapon.power + user.mag);
                 }
+                Debug.Log("y: " + y);
                 int z = y - target.defenses[user.Weapon.damageType];
                 if (z < 1)
                 {
                     z = 1;
                 }
-                Debug.Log("pricisão mortal: "+(int)((z / 100) * x));
-                return (int)((z / 100) * x);
+                Debug.Log("z: " + z);
+                Debug.Log("pricisão mortal: "+(int)((float)z / 100 * x));
+                return (int)((float)z / 100 * x);
 
 
             case "Espada Amaldiçoada":

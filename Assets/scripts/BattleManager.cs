@@ -682,9 +682,10 @@ public class BattleManager : MonoBehaviour
 
     public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
     {
+        Pskill = 0;
         foreach (string skill in skillsInUse)
         {
-            Pskill = +skillManager.SkillProc(skill, attacker, Target, attackerTeam, targetTeam);
+            Pskill += +skillManager.SkillProc(skill, attacker, Target, attackerTeam, targetTeam);
         }
         if (attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
         {
@@ -698,11 +699,11 @@ public class BattleManager : MonoBehaviour
         }
         foreach (string skill in skillsInUse)
         {
-            Pskill = +skillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
+            Pskill += +skillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
         }
         foreach (string skill in skillsInUse)
         {
-            Pskill = +skillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+            Pskill += +skillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
         }
         HudUpdate();
         yield return new WaitForSeconds(1);
@@ -759,14 +760,15 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
     {
+        Pskill = 0;
         Debug.Log("extra attack");
         foreach (string skill in EAskillsInUse)
         {
-            Pskill = +skillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
+            Pskill += +skillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
         }
         foreach (string skill in EAskillsInUse)
         {
-            Pskill = +skillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+            Pskill += +skillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
         }
         HudUpdate();
         yield return new WaitForSeconds(1);
