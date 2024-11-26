@@ -317,19 +317,26 @@ public class InventoryManager : MonoBehaviour
     {
         return skillName switch
         {
-            //class tier 1 skills
-            //espadachim
+            //Class tier 1 skills
+            //Espadachim
             "Dano Ascendente" => "A cada 3 vezes que fazer um ataque básico, Aumenta o Dano em 1 e Redução de dano em 1 pelo resto do combate",
             "Ataque Rápido" => "%DES de quando fazer um ataque basico, em vez disso fazer 2 ataques basicos.",
-            //arqueiro
+            //Arqueiro
             "Foco" => "Ganha +20 de Acerto e Evasao por 15 Segundos no inicio da batalha",
             "Precisão Mortal" => "Converte o Acerto maior que 100 quando alvejar um inimigo em % de Dano." ,
-            //guerreiro
-            "Lutador Versátil" => "Ganha efeitos baseado na posicao do usuario: 1: Ganha +3 de Defesa Fisica e Defesa Magica , 2 ou 3: Causa 3 a mais de dano.",
+            //Guerreiro
+            "Lutador Versátil" => "Ganha efeitos baseado na posicao do usuario: 1: Ganha +3 de Redução de Dano , 2 ou 3: Causa 3 a mais de dano.",
             "Durão" => "Aumenta o HP maximo em 25%.",
-            //prisioneiro
+            //Prisioneiro
             "Persistência" => "Ganha mais 1 de Velocidade para cada 10 de vida perdida.",
             "Tecnica Improvisada" => "Ganha efeitos baseado na posição do usuario: 1: Ganha +20 de Evasao e Acerto quando esta com <50% de Vida. 2: Ganha mais 2 de Dano e 2 Defesa Fisica e Defesa Magica. 3: Ganha 5 de Critico e Dano quando esta com >90% de Vida.",
+            //Soldado
+            "Presença Inabalável" => "Ganha mais 20% de Defesa Fisica e Defesa Magica quando estiver com menos de 50% de Vida.",
+            "Pancada" => "DES% de causar mais 30% da Defesa Fisica como dano adicional no ataque básico.",
+            //Feiticeiro
+            "Concentração de Feiticeiro" => "Ganha mais 15% de Magia se a Vida estiver Cheia.",
+            "Magia Destrutiva" => "DES% de chance de causar mais 40% do sua Magia quando usa um ataque básico.",
+            "Sabedoria Arcana" => "Ganha mais 25% de experiência.",
             _ => skillName,
         };
     }

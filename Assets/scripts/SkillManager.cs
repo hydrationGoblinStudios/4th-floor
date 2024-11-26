@@ -338,8 +338,9 @@ public class SkillManager : MonoBehaviour
 
                 if (user.hp == user.maxhp)
                 {
-                    user.mag += (int)(user.mag * 0.15);
                     concentraçãodefeiticeiroboost = (int)(user.mag * 0.15);
+                    user.mag += (int)(user.mag * 0.15);
+;
                 }
                 return 0;
 
