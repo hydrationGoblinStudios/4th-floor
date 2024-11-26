@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 308.81018, y: -56.251335}
+  position: {x: 264, y: -40}
   ports:
     keys:
     - entry
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8, y: -88}
+  position: {x: 8, y: -40}
   ports:
     keys:
     - entry

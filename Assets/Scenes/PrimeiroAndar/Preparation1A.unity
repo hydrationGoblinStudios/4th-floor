@@ -11598,7 +11598,7 @@ MonoBehaviour:
   money: 50
   lumenita: 0
   day: 0
-  storyBattle: 0
+  storyBattle: 1
   TimeIsDay: 0
   wakeUpTalk: 0
   mapButtons:

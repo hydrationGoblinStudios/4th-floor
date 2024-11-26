@@ -339,24 +339,33 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     }
     public void Sleep()
     {
+        if(storyBattle == true)
+        {
+            NodeParser dm = FindObjectOfType<NodeParser>(true);
+            dm.StartDialogue(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault());
+        }
+        else 
+        { 
         DayResultsManager = FindObjectOfType<DayResultsManager>(true);
         DayResultsManager.Sleep();
         cui = FindObjectOfType<CalendarioUI>(true);
         cui.UIUpdate();
         wakeUpTalk = true;
+        storyBattle = true;
         GameEventHandler();
+        }
     }
     public void GameEventHandler()
     {
         m_scene = SceneManager.GetActiveScene();
-        if(day == 4 || day == 8 || day == 12)
+        /*if(day == 4 || day == 8 || day == 12)
         {
             storyBattle = true;
         }
         else
         {
             storyBattle = false;
-        }
+        }*/
         switch (m_scene.name)
         {
             case "Preparation1A":

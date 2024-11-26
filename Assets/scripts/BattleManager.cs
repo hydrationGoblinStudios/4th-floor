@@ -152,12 +152,12 @@ public class BattleManager : MonoBehaviour
        enemyBehavior.enemy = true;
        enemy2Behavior.enemy = true;
        enemy3Behavior.enemy = true;
-        playerBehavior.position = 1;
-        player2Behavior.position = 2;
-        player3Behavior.position = 3;
-        enemyBehavior.position = 1;
-        enemy2Behavior.position = 2;
-        enemy3Behavior.position = 3;
+        playerTeam[0].position = 1;
+        playerTeam[1].position = 2;
+        playerTeam[2].position = 3;
+        enemyTeam[0].position = 1;
+        enemyTeam[1].position = 2;
+        enemyTeam[2].position = 3;
         foreach(UnitBehavior ub in playerTeam)
         {
             ub.battleManager = this;
@@ -622,6 +622,7 @@ public class BattleManager : MonoBehaviour
         battleText.text = ("voce recebe " + exp + " de experiencia");
         yield return new WaitForSeconds(1);
         if (RealCharacter.currentExp >= 100) { LevelUp(RealCharacter); }
+        gameManager.storyBattle = false;
         gameManager.PrepScreen();
     }
     //randomiza growths
