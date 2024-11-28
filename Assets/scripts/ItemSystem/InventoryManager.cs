@@ -337,6 +337,9 @@ public class InventoryManager : MonoBehaviour
             "Concentração de Feiticeiro" => "Ganha mais 15% de Magia se a Vida estiver Cheia.",
             "Magia Destrutiva" => "DES% de chance de causar mais 40% do sua Magia quando usa um ataque básico.",
             "Sabedoria Arcana" => "Ganha mais 25% de experiência.",
+            //Místico
+            "Encantamento" => "Aumenta a Velocidade do Aliado na Frente do usuário em 15%.",
+            "Maldição" => "Diminui a Velocidade do Inimigo na posição oposta do usuário em 15%.",
             _ => skillName,
         };
     }

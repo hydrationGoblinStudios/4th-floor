@@ -281,11 +281,27 @@ public class SkillManager : MonoBehaviour
 
                 if (user.position == 2)
                 {
-                    team[0].speed += (int)(team[0].speed * 0.15);
+                    if ((int)(team[0].speed * 0.15) <= 1)
+                    {
+                        team[0].speed += 1;
+                    }
+                    else
+                    {
+                        team[0].speed += (int)(team[0].speed * 0.15);
+                    }
+
+
                 }
                 if (user.position == 3)
                 {
-                    team[1].speed += (int)(team[1].speed * 0.15);
+                    if ((int)(team[1].speed * 0.15) <= 1)
+                    {
+                        team[1].speed += 1;
+                    }
+                    else
+                    {
+                        team[1].speed += (int)(team[1].speed * 0.15);
+                    }
                 }
                 return 0;
 
@@ -293,15 +309,36 @@ public class SkillManager : MonoBehaviour
 
                 if (user.position == 1)
                 {
-                    enemyTeam[0].speed += (int)(enemyTeam[0].speed * 0.15);
+                    if ((int)(enemyTeam[0].speed * 0.15) <= 1)
+                    {
+                        team[0].speed += 1;
+                    }
+                    else
+                    {
+                        enemyTeam[0].speed += (int)(enemyTeam[0].speed * 0.15);
+                    }
                 }
                 if (user.position == 2)
                 {
-                    enemyTeam[1].speed += (int)(enemyTeam[1].speed * 0.15);
+                    if ((int)(enemyTeam[0].speed * 0.15) <= 1)
+                    {
+                        team[1].speed += 1;
+                    }
+                    else
+                    {
+                        enemyTeam[1].speed += (int)(enemyTeam[1].speed * 0.15);
+                    }
                 }
                 if (user.position == 3)
                 {
-                    enemyTeam[2].speed += (int)(enemyTeam[2].speed * 0.15);
+                    if ((int)(enemyTeam[2].speed * 0.15) <= 1)
+                    {
+                        team[2].speed += 1;
+                    }
+                    else
+                    {
+                        enemyTeam[2].speed += (int)(enemyTeam[2].speed * 0.15);
+                    }
                 }
                 return 0;
 
