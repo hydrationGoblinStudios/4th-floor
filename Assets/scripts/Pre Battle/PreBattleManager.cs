@@ -9,6 +9,9 @@ public class PreBattleManager : MonoBehaviour
     public GameManager gameManager;
     public Animator animator;
     public GameObject[] enemyList;
+    public GameObject[] enemyListRandomP1;
+    public GameObject[] enemyListRandomP2;
+    public GameObject[] enemyListRandomP3;
     public GameObject PlayerStats;
     public UnitBehavior selectedUnit;
     public TextMeshProUGUI[] statTexts;
@@ -38,12 +41,85 @@ public class PreBattleManager : MonoBehaviour
         SelectedPlayer2.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedPlayer3 = Instantiate(gameManager.team[2], BattleStations[2].transform);
         SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
-        SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
-        SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
-        SelectedEnemy2 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[4].transform);
-        SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
-        SelectedEnemy3 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[5].transform);
-        SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
+        if (gameManager.testMode)
+        {
+            SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
+            SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
+            SelectedEnemy2 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[4].transform);
+            SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
+            SelectedEnemy3 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[5].transform);
+            SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
+        }
+        else
+        {
+            bool choice = true;
+            int week = (gameManager.day / 5) + 1;
+            while (choice == true)
+            {
+               GameObject slot1 = enemyListRandomP1[Random.Range(0, enemyListRandomP1.Length)];
+                Debug.Log(slot1.name);
+                if (slot1.name.Contains("A1") && choice)
+                {
+                    Debug.Log(slot1.name +"é do primeiro andar");
+                    switch (week)
+                    {
+                        case 1: if (slot1.name.Contains("S1")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
+                        case 2: if (slot1.name.Contains("S2")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
+                        case 3: if (slot1.name.Contains("S3")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
+                        case 4: if (slot1.name.Contains("S4")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
+                        case 5: if (slot1.name.Contains("S5")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
+                       default: if (slot1.name.Contains("S5")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
+                    }if(SelectedEnemy1 != null)
+                    {
+                    SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
+                    }
+                }
+            }   
+             choice = true;
+            while (choice == true)
+            {
+                GameObject slot1 = enemyListRandomP2[Random.Range(0, enemyListRandomP2.Length)];
+
+                if (slot1.name.Contains("A1") && choice)
+                {
+                    switch (week)
+                    {
+                        case 1: if (slot1.name.Contains("S1")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                        case 2: if (slot1.name.Contains("S2")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                        case 3: if (slot1.name.Contains("S3")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                        case 4: if (slot1.name.Contains("S4")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                        case 5: if (slot1.name.Contains("S5")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                       default: if (slot1.name.Contains("S5")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                    }if(SelectedEnemy2 != null)
+                    {
+                    SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
+                    }
+
+                }
+            }
+            choice = true;
+
+            while (choice == true)
+            {
+                GameObject slot1 = enemyListRandomP3[Random.Range(0, enemyListRandomP3.Length)];
+                if (slot1.name.Contains("A1") && choice)
+                {
+                    switch (week)
+                    {
+                        case 1: if (slot1.name.Contains("S1")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                        case 2: if (slot1.name.Contains("S2")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                        case 3: if (slot1.name.Contains("S3")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                        case 4: if (slot1.name.Contains("S4")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                        case 5: if (slot1.name.Contains("S5")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                       default: if (slot1.name.Contains("S5")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                    }
+                    if (SelectedEnemy3!=null)
+                    {
+                    SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
+                    }
+                }
+            }
+        }
         SelectedPlayerList.Add(SelectedPlayer1);
         SelectedPlayerList.Add(SelectedPlayer2);
         SelectedPlayerList.Add(SelectedPlayer3);

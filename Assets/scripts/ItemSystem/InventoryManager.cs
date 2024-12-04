@@ -80,7 +80,7 @@ public class InventoryManager : MonoBehaviour
         }
         selectedUnit.skills[SkillSlot] = Skill;
         skillIconsObjects[SkillSlot].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == Skill).SingleOrDefault();
-        UpdateInventory();
+        Select(selectedUnit);
     }
     public void InstantiateKeyItem(GameObject button, Item item)
     {

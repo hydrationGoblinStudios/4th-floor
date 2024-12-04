@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     public int money;
     public int lumenita;
     public int day;
+    public bool testMode;
     public bool storyBattle;
     public bool TimeIsDay;
     public bool wakeUpTalk;
