@@ -113,6 +113,14 @@ public class InventoryManager : MonoBehaviour
         {
             accesoryText.text = "";
         }
+        int c = 0;
+        UpdateSkillName();
+        foreach(GameObject go in skillIconsObjects)
+        {
+            go.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == skillNames[c].text).SingleOrDefault();
+            c++;
+        }
+        DisplayItemList(Manager.Inventory);
         UpdateUITop();
     }
     public void UpdateInventory()
