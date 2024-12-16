@@ -358,9 +358,9 @@ public class SkillManager : MonoBehaviour
 
                 if (!arcodasorteboost & Random.Range(0, 101) <= user.luck)
                 {
-                    user.power += 5;
-                    user.hit += 5;
-                    user.crit += 5;
+                    user.power += 7;
+                    user.hit += 7;
+                    user.crit += 7;
                     arcodasorteboost = true;
                 }
                 return 0;
@@ -941,7 +941,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-            case "Restaura��o Espiritual":
+            case "Restauração Espiritual":
                 if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp)
                 {
                     team[0].hp += 10 + user.mag / 5;
