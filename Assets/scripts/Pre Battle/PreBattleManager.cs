@@ -15,16 +15,24 @@ public class PreBattleManager : MonoBehaviour
     public GameObject[] enemyListRandomP2;
     public GameObject[] enemyListRandomP3;
     public GameObject PlayerStats;
+    public GameObject enemyStats;
     public UnitBehavior selectedUnit;
+    public UnitBehavior selectedEnemyUnit;
     public TextMeshProUGUI[] statTexts;
+    public TextMeshProUGUI[] enemyStatTexts;
     public SpriteRenderer playerMugshot;
+    public SpriteRenderer enemyMugshot;
     public List<TextMeshProUGUI> playerWeaponStatText;
+    public List<TextMeshProUGUI> enmeyWeaponStatText;
     public List<SpriteRenderer> equipsRenderers;
+    public List<SpriteRenderer> enemyEquipsRenderers;
     public TextMeshProUGUI energyText;
     public int energy;
     public int evilEnergy = 4;
     public TextMeshProUGUI equipText;
+    public TextMeshProUGUI enemyEquipText;
     public TextMeshProUGUI accesoryText;
+    public TextMeshProUGUI enemyAccesoryText;
     public GameObject[] BattleStations;
 
     public GameObject SelectedPlayer1;
@@ -132,6 +140,7 @@ public class PreBattleManager : MonoBehaviour
         SelectedEnemyList.Add(SelectedEnemy2);
         SelectedEnemyList.Add(SelectedEnemy3);
         Select1();
+        EnemySelect(SelectedEnemy1.GetComponent<UnitBehavior>());
     }
     public void Select(UnitBehavior unitBehavior)
     {
@@ -163,6 +172,30 @@ public class PreBattleManager : MonoBehaviour
         }
 
     }
+    public void EnemySelect(UnitBehavior unitBehavior)
+    {
+        selectedEnemyUnit = unitBehavior;
+        enemyStatTexts[0].text = selectedUnit.maxhp.ToString(); enemyStatTexts[1].text = selectedUnit.str.ToString(); 
+        enemyStatTexts[2].text = selectedUnit.mag.ToString(); enemyStatTexts[3].text = selectedUnit.dex.ToString(); 
+        enemyStatTexts[4].text = selectedUnit.speed.ToString();enemyStatTexts[5].text = selectedUnit.def.ToString(); 
+        enemyStatTexts[6].text = selectedUnit.mdef.ToString(); enemyStatTexts[7].text = selectedUnit.luck.ToString();
+        enmeyWeaponStatText[0].text = selectedUnit.Weapon.power.ToString();
+        enmeyWeaponStatText[1].text = selectedUnit.Weapon.hit.ToString();
+        enmeyWeaponStatText[2].text = selectedUnit.Weapon.crit.ToString();
+        enmeyWeaponStatText[3].text = selectedUnit.Weapon.name.ToString();
+        enemyEquipsRenderers[0].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.ItemName).SingleOrDefault();
+        if (selectedUnit.Accesory != null)
+        {
+            enmeyWeaponStatText[4].text = selectedUnit.Accesory.name.ToString();
+            enemyEquipsRenderers[1].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.ItemName).SingleOrDefault();
+        }
+        else
+        {
+            enmeyWeaponStatText[4].text = "";
+            enemyEquipsRenderers[1].sprite = null;
+        }
+    }
+
     public void Select1()
     {
         Select(SelectedPlayer1.GetComponent<UnitBehavior>());
