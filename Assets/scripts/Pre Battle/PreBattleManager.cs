@@ -175,19 +175,19 @@ public class PreBattleManager : MonoBehaviour
     public void EnemySelect(UnitBehavior unitBehavior)
     {
         selectedEnemyUnit = unitBehavior;
-        enemyStatTexts[0].text = selectedUnit.maxhp.ToString(); enemyStatTexts[1].text = selectedUnit.str.ToString(); 
-        enemyStatTexts[2].text = selectedUnit.mag.ToString(); enemyStatTexts[3].text = selectedUnit.dex.ToString(); 
-        enemyStatTexts[4].text = selectedUnit.speed.ToString();enemyStatTexts[5].text = selectedUnit.def.ToString(); 
-        enemyStatTexts[6].text = selectedUnit.mdef.ToString(); enemyStatTexts[7].text = selectedUnit.luck.ToString();
-        enmeyWeaponStatText[0].text = selectedUnit.Weapon.power.ToString();
-        enmeyWeaponStatText[1].text = selectedUnit.Weapon.hit.ToString();
-        enmeyWeaponStatText[2].text = selectedUnit.Weapon.crit.ToString();
-        enmeyWeaponStatText[3].text = selectedUnit.Weapon.name.ToString();
-        enemyEquipsRenderers[0].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.ItemName).SingleOrDefault();
-        if (selectedUnit.Accesory != null)
+        enemyStatTexts[0].text = selectedEnemyUnit.maxhp.ToString(); enemyStatTexts[1].text = selectedEnemyUnit.str.ToString(); 
+        enemyStatTexts[2].text = selectedEnemyUnit.mag.ToString(); enemyStatTexts[3].text = selectedEnemyUnit.dex.ToString(); 
+        enemyStatTexts[4].text = selectedEnemyUnit.speed.ToString();enemyStatTexts[5].text = selectedEnemyUnit.def.ToString(); 
+        enemyStatTexts[6].text = selectedEnemyUnit.mdef.ToString(); enemyStatTexts[7].text = selectedEnemyUnit.luck.ToString();
+        enmeyWeaponStatText[0].text = selectedEnemyUnit.Weapon.power.ToString();
+        enmeyWeaponStatText[1].text = selectedEnemyUnit.Weapon.hit.ToString();
+        enmeyWeaponStatText[2].text = selectedEnemyUnit.Weapon.crit.ToString();
+        enmeyWeaponStatText[3].text = selectedEnemyUnit.Weapon.name.ToString();
+        enemyEquipsRenderers[0].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedEnemyUnit.Weapon.ItemName).SingleOrDefault();
+        if (selectedEnemyUnit.Accesory != null)
         {
-            enmeyWeaponStatText[4].text = selectedUnit.Accesory.name.ToString();
-            enemyEquipsRenderers[1].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.ItemName).SingleOrDefault();
+            enmeyWeaponStatText[4].text = selectedEnemyUnit.Accesory.name.ToString();
+            enemyEquipsRenderers[1].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedEnemyUnit.Accesory.ItemName).SingleOrDefault();
         }
         else
         {
