@@ -5,13 +5,14 @@ using System.Linq;
 
 public class SkillManager : MonoBehaviour
 {
-    public Sprite[] Icones; 
-
+    public Sprite[] Icones;
+    private float  PersistenciaSpeedbase;
     private bool espadaCurtaBoost = false;
     private bool arcodasorteboost = false;
     private bool livroarriscadoboost = false;
     private bool machadodeguerraboost = false;
     private bool TecnicaImprovisadaboost = false;
+    private bool TecnicaImprovisada3 = false;
     private bool presençainabalavel = false;
     private bool apostadoraboost = false;
     private bool vendavalboost = false;
@@ -23,6 +24,7 @@ public class SkillManager : MonoBehaviour
     private bool poçãodevelocidadeuse = false;
     private bool poçãodeforçause = false;
     private bool moedamagicaactive = false;
+    private bool machadocortadoboost = false;
     private int DanoAscendenteMeter = 0;
     private int concentraçãodefeiticeiroboost = 0;
     private int DisparodeGelohit;
@@ -40,6 +42,7 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed2;
     private int Ataqueinspiradorspeed3;
     private int poçãodeforçastacks;
+
 
 
 
@@ -364,11 +367,13 @@ public class SkillManager : MonoBehaviour
 
             case "Machado Cortado":
 
-                if (user.hp < user.maxhp * 0.8)
+                if (user.hp >= user.maxhp * 0.8 & machadocortadoboost == false)
                 {
                     user.hit += 20;
                     user.crit += 10;
+                    machadocortadoboost = true;
                 }
+
                 return 0;
 
             case "Concentração de Feiticeiro":
@@ -436,9 +441,12 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
-            case "Persistencia":
+            case "Persistência":
 
-                user.speed += user.maxhp - user.hp / 10;
+                PersistenciaSpeedbase = user.speed;
+
+                user.speed = PersistenciaSpeedbase + (user.maxhp - user.hp) / 10;
+
 
                 return 0;
 
@@ -698,7 +706,7 @@ public class SkillManager : MonoBehaviour
 
                 }
 
-                if (user.position == 1 & user.hp >= user.maxhp / 2 & TecnicaImprovisadaboost)
+                if (user.position == 1 & user.hp > user.maxhp / 2 & TecnicaImprovisadaboost)
                 {
                     user.hit -= 20;
                     user.avoid -= 20;
@@ -706,21 +714,27 @@ public class SkillManager : MonoBehaviour
 
                 }
 
-                if (user.position == 3 & user.hp <= user.maxhp * 0.9)
+                if (user.position == 3 & user.hp <= user.maxhp * 0.9 & TecnicaImprovisada3)
                 {
                     user.power -= 5;
                     user.crit -= 5;
+                    TecnicaImprovisada3 = true;
                 }
                 return 0;
 
             case "Machado Cortado":
 
-                if (user.hp > user.maxhp * 0.8)
+                if (user.hp < user.maxhp * 0.8 & machadocortadoboost == true)
                 {
                     user.hit -= 20;
                     user.crit -= 10;
+                    machadocortadoboost = false;
                 }
+
                 return 0;
+
+
+
             case "Presença Inabalável":
 
                 if (user.hp < user.maxhp * 0.5 & !presençainabalavel)
@@ -748,9 +762,9 @@ public class SkillManager : MonoBehaviour
                 }
                 return 0;
 
-            case "Persistencia":
+            case "Persistência":
 
-                user.speed += user.maxhp - user.hp / 10;
+                user.speed = PersistenciaSpeedbase + (user.maxhp - user.hp) / 10;
 
                 return 0;
 

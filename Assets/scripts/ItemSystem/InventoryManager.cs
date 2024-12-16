@@ -337,7 +337,7 @@ public class InventoryManager : MonoBehaviour
             "Durão" => "Aumenta o HP maximo em 25%.",
             //Prisioneiro
             "Persistência" => "Ganha mais 1 de Velocidade para cada 10 de vida perdida.",
-            "Tecnica Improvisada" => "Ganha efeitos baseado na posição do usuario: 1: Ganha +20 de Evasao e Acerto quando esta com <50% de Vida. 2: Ganha mais 2 de Dano e 2 Defesa Fisica e Defesa Magica. 3: Ganha 5 de Critico e Dano quando esta com >90% de Vida.",
+            "Técnica Improvisada" => "Ganha efeitos baseado na posição do usuario: 1: Ganha +20 de Evasao e Acerto quando esta com <50% de Vida. 2: Ganha mais 2 de Dano e 2 Defesa Fisica e Defesa Magica. 3: Ganha 5 de Critico e Dano quando esta com >90% de Vida.",
             //Soldado
             "Presença Inabalável" => "Ganha mais 20% de Defesa Fisica e Defesa Magica quando estiver com menos de 50% de Vida.",
             "Pancada" => "DES% de causar mais 30% da Defesa Fisica como dano adicional no ataque básico.",
@@ -348,6 +348,13 @@ public class InventoryManager : MonoBehaviour
             //Místico
             "Encantamento" => "Aumenta a Velocidade do Aliado na Frente do usuário em 15%.",
             "Maldição" => "Diminui a Velocidade do Inimigo na posição oposta do usuário em 15%.",
+            //Shop Skills
+            "Maestria Posição 1" => "No inicio do combate ganha +3 de Redução de Dano quando posicionado na Posição 1." ,
+            "Maestria Posição 2" => "No inicio do combate ganha +15 de Acerto e Evasão quando posicionado na Posição 2.",
+            "Maestria Posição 3" => "No inicio do combate ganha +3 de Dano quando posicionado na Posição 3." ,
+            "Começo Afortunado" => "Ganha +12 de Evasão e Acerto pelos primeiros 16 segundos da batalha, além disso começa com +15 de Alma.",
+
+
             _ => skillName,
         };
     }
