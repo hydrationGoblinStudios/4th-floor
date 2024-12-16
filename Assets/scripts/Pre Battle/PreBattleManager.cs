@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.UI;
 using TMPro;
 
 public class PreBattleManager : MonoBehaviour
 {
     public GameManager gameManager;
+    public InventoryManager inventoryManager;
     public Animator animator;
     public GameObject[] enemyList;
     public GameObject[] enemyListRandomP1;
@@ -15,6 +17,9 @@ public class PreBattleManager : MonoBehaviour
     public GameObject PlayerStats;
     public UnitBehavior selectedUnit;
     public TextMeshProUGUI[] statTexts;
+    public SpriteRenderer playerMugshot;
+    public List<TextMeshProUGUI> playerWeaponStatText;
+    public List<SpriteRenderer> equipsRenderers;
     public TextMeshProUGUI energyText;
     public int energy;
     public int evilEnergy = 4;
@@ -34,7 +39,7 @@ public class PreBattleManager : MonoBehaviour
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
-
+        inventoryManager = GameObject.FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);
         SelectedPlayer1 = Instantiate(gameManager.team[0], BattleStations[0].transform);
         SelectedPlayer1.name = SelectedPlayer1.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedPlayer2 = Instantiate(gameManager.team[1], BattleStations[1].transform);
@@ -133,15 +138,30 @@ public class PreBattleManager : MonoBehaviour
         selectedUnit = unitBehavior;
         statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString(); statTexts[3].text = selectedUnit.dex.ToString(); statTexts[4].text = selectedUnit.speed.ToString();
         statTexts[5].text = selectedUnit.def.ToString(); statTexts[6].text = selectedUnit.mdef.ToString(); statTexts[7].text = selectedUnit.luck.ToString();
-        equipText.text = "Arma:\n" + unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.str + "\nAcerto:" + unitBehavior.Weapon.hit + "\nCrit:" + unitBehavior.Weapon.crit;
-        if (unitBehavior.Accesory != null)
+        if(inventoryManager.playableMugShots.Where(obj => obj.name == selectedUnit.name + " mugshot").SingleOrDefault() != null)
         {
-            accesoryText.text = "Accesorio:\n" + unitBehavior.Accesory.ItemName + "\nAtk:" + unitBehavior.Accesory.str + "\nDef:" + unitBehavior.Weapon.def + "\nDes:" + unitBehavior.Weapon.dex + "\nSorte:" + unitBehavior.Weapon.luck + "\nvel:" + unitBehavior.Weapon.speed;
+            playerMugshot.sprite = inventoryManager.playableMugShots.Where(obj => obj.name == selectedUnit.UnitName + " mugshot").SingleOrDefault();
         }
         else
         {
-            accesoryText.text = "";
+            playerMugshot.sprite = inventoryManager.playableMugShots[0];
         }
+        playerWeaponStatText[0].text = selectedUnit.Weapon.power.ToString();
+        playerWeaponStatText[1].text = selectedUnit.Weapon.hit.ToString();
+        playerWeaponStatText[2].text = selectedUnit.Weapon.crit.ToString();
+        playerWeaponStatText[3].text= selectedUnit.Weapon.name.ToString();
+        equipsRenderers[0].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.ItemName).SingleOrDefault();
+        if (selectedUnit.Accesory != null)
+        {
+        playerWeaponStatText[4].text = selectedUnit.Accesory.name.ToString();
+        equipsRenderers[1].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.ItemName).SingleOrDefault();
+        }
+        else
+        {
+            playerWeaponStatText[4].text = "";
+            equipsRenderers[1].sprite = null;
+        }
+
     }
     public void Select1()
     {
