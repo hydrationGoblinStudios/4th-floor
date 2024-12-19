@@ -11598,6 +11598,7 @@ MonoBehaviour:
   money: 50
   lumenita: 0
   day: 0
+  testMode: 0
   storyBattle: 1
   TimeIsDay: 0
   wakeUpTalk: 0
@@ -11640,6 +11641,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a9691ade132f945488fa2114bc90a99f, type: 2}
   - {fileID: 11400000, guid: c52ccc4a6dbb5d1428e45a668367833d, type: 2}
   - {fileID: 11400000, guid: fb352181b2399b246b72121273b37f03, type: 2}
+  - {fileID: 11400000, guid: 275569ecdfaa1a44ba53181375a2c755, type: 2}
+  - {fileID: 11400000, guid: a0d9be4d8e3c2c04092b1e5db552d2c2, type: 2}
+  - {fileID: 11400000, guid: fb352181b2399b246b72121273b37f03, type: 2}
+  - {fileID: 11400000, guid: c23df6d5af87d5e469a953589a61a1a4, type: 2}
+  - {fileID: 11400000, guid: 222a64a15fc47df4dab5b3e426212c66, type: 2}
+  - {fileID: 11400000, guid: f61d0a7e5414f194ba9b2048384a0d18, type: 2}
   KeyItems:
   - {fileID: 11400000, guid: 006d5e4ea4191ea418a2c47e278cf25c, type: 2}
   - {fileID: 11400000, guid: 39b6aeffe0c2957438535ef734080044, type: 2}

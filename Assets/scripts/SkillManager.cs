@@ -170,16 +170,26 @@ public class SkillManager : MonoBehaviour
             case "Livro Curativo":
                 if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp)
                 {
-                    team[0].hp += user.mag / 2 + 2;
+                    Debug.Log(team[0].hp + " hp slot 1");
+                    team[0].hp += user.mag / 2 + 2;                   
+                    Debug.Log(team[0].hp + " hp slot 1");
                 }
                 if (team[1].hp <= team[0].hp & team[1].hp <= team[2].hp)
                 {
+                    Debug.Log(team[1].hp + " hp slot 2");
                     team[1].hp += user.mag / 2 + 2;
+                    Debug.Log(team[1].hp + " hp slot 2");
+
                 }
                 if (team[2].hp <= team[1].hp & team[2].hp <= team[0].hp)
                 {
+                    Debug.Log(team[2].hp + " hp slot 3");
                     team[2].hp += user.mag / 2 + 2;
+                    Debug.Log(team[2].hp + " hp slot 3");
                 }
+
+                PostHealthChange(skillName, user, target, team, enemyTeam);
+
                 return 0;
 
             case "Receptaculo Amaldiçoado":
@@ -734,7 +744,6 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
 
-
             case "Presença Inabalável":
 
                 if (user.hp < user.maxhp * 0.5 & !presençainabalavel)
@@ -764,7 +773,7 @@ public class SkillManager : MonoBehaviour
 
             case "Persistência":
 
-                user.speed = PersistenciaSpeedbase + (user.maxhp - user.hp) / 10;
+                user.speed = PersistenciaSpeedbase + ((user.maxhp - user.hp) / 10);
 
                 return 0;
 
@@ -887,13 +896,20 @@ public class SkillManager : MonoBehaviour
     {
         Receptaculoamaldiçoadospeed = (int)target.speed / 10;
         Receptaculoamaldiçoadopower = target.power / 10;
+        Debug.Log(target.speed + " speed antes");
+        Debug.Log(target.power + " power antes");
         target.speed -= target.speed / 10;
         target.power -= target.power / 10;
-        
-        
+
+        Debug.Log(target.speed + " speed nerfada");
+        Debug.Log(target.power + " power nerfado");
+
+
         yield return new WaitForSeconds(15);
         target.speed += Receptaculoamaldiçoadospeed;
         target.power += Receptaculoamaldiçoadopower;
+        Debug.Log(target.speed + " speed voltando");
+        Debug.Log(target.power + " power voltando");
     }
     IEnumerator PoçãodeVelocidade(UnitBehavior user)
     {
