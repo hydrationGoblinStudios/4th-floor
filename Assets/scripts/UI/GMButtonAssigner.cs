@@ -23,7 +23,10 @@ public class GMButtonAssigner : MonoBehaviour
     }
     public void ChangeActivity(string activity)
     {
+        if(gameManager.selectedUB4Activity != null && gameManager.selectedUB4Activity.activity != null)
+        {
         gameManager.selectedUB4Activity.activity = activity;
+        }        
     }
     public void ActivityBoard()
     {

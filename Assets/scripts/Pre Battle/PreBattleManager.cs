@@ -7,6 +7,12 @@ using TMPro;
 
 public class PreBattleManager : MonoBehaviour
 {
+    //animations
+    public RuntimeAnimatorController[] Animations;
+    public Animator[] playerAnimations;
+    public Animator[] enemyAnimations;
+
+
     public GameManager gameManager;
     public InventoryManager inventoryManager;
     public Animator animator;
@@ -43,6 +49,8 @@ public class PreBattleManager : MonoBehaviour
     public GameObject SelectedEnemy2;
     public GameObject SelectedEnemy3;
     public List<GameObject> SelectedEnemyList;
+
+    public SkillManager skillManager;
     void Start()
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
@@ -67,13 +75,12 @@ public class PreBattleManager : MonoBehaviour
         {
             bool choice = true;
             int week = (gameManager.day / 5) + 1;
+            Debug.Log(week);
             while (choice == true)
             {
                GameObject slot1 = enemyListRandomP1[Random.Range(0, enemyListRandomP1.Length)];
-                Debug.Log(slot1.name);
                 if (slot1.name.Contains("A1") && choice)
                 {
-                    Debug.Log(slot1.name +"é do primeiro andar");
                     switch (week)
                     {
                         case 1: if (slot1.name.Contains("S1")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
@@ -107,9 +114,36 @@ public class PreBattleManager : MonoBehaviour
                     {
                     SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
                     }
-
                 }
+                Debug.Log(SelectedPlayer1.GetComponent<UnitBehavior>().name);
+                playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
+                {
+                     107 => Animations[4],
+                     101 => Animations[0],
+                     102=> Animations[1],
+                     103=> Animations[2],
+                     104 => Animations[3],
+                    _ => Animations[0],
+                };
+                playerAnimations[1].runtimeAnimatorController = SelectedPlayer2.GetComponent<UnitBehavior>().classId switch
+                {
+                    107 => Animations[4],
+                    101 => Animations[0],
+                    102 => Animations[1],
+                    103 => Animations[2],
+                    104 => Animations[3],
+                    _ => Animations[0],
+                }; playerAnimations[2].runtimeAnimatorController = SelectedPlayer3.GetComponent<UnitBehavior>().classId switch
+                {
+                    107 => Animations[4],
+                    101 => Animations[0],
+                    102 => Animations[1],
+                    103 => Animations[2],
+                    104 => Animations[3],
+                    _ => Animations[0],
+                };
             }
+            
             choice = true;
 
             while (choice == true)
@@ -132,6 +166,32 @@ public class PreBattleManager : MonoBehaviour
                     }
                 }
             }
+            enemyAnimations[0].runtimeAnimatorController = SelectedEnemy1.GetComponent<UnitBehavior>().classId switch
+            {
+                107 => Animations[0],
+                101 => Animations[5],
+                102 => Animations[6],
+                103 => Animations[7],
+                104 => Animations[8],
+                _ => Animations[5],
+            };
+            enemyAnimations[1].runtimeAnimatorController = SelectedEnemy2.GetComponent<UnitBehavior>().classId switch
+            {
+                107 => Animations[4],
+                101 => Animations[5],
+                102 => Animations[6],
+                103 => Animations[7],
+                104 => Animations[8],
+                _ => Animations[5],
+            }; enemyAnimations[2].runtimeAnimatorController = SelectedEnemy3.GetComponent<UnitBehavior>().classId switch
+            {
+                107 => Animations[4],
+                101 => Animations[5],
+                102 => Animations[6],
+                103 => Animations[7],
+                104 => Animations[8],
+                _ => Animations[5],
+            };
         }
         SelectedPlayerList.Add(SelectedPlayer1);
         SelectedPlayerList.Add(SelectedPlayer2);
@@ -196,6 +256,21 @@ public class PreBattleManager : MonoBehaviour
         }
     }
 
+    public void EnemySelectButton(int slot)
+    {
+        switch (slot)
+        {
+            case 1:
+                EnemySelect(SelectedEnemy1.GetComponent<UnitBehavior>());
+                break;
+            case 2:
+                EnemySelect(SelectedEnemy2.GetComponent<UnitBehavior>());
+                break;
+            default:
+                EnemySelect(SelectedEnemy3.GetComponent<UnitBehavior>());
+                break;
+        }
+    }
     public void Select1()
     {
         Select(SelectedPlayer1.GetComponent<UnitBehavior>());
@@ -280,13 +355,26 @@ public class PreBattleManager : MonoBehaviour
         {
             GameObject newobj = Instantiate(obj, gameManager.transform);
             newobj.AddComponent<DestroyTemp>();
+            CopyComponent(skillManager, newobj);
             gameManager.teamPostPreBattle.Add(newobj);
         }
         foreach (GameObject obj in EnemyList)
         {
             GameObject newobj = Instantiate(obj, gameManager.transform);
             newobj.AddComponent<DestroyTemp>();
+            CopyComponent(skillManager, newobj);
             gameManager.enemyTeamPostPreBattle.Add(newobj);
         }
+    }
+    T CopyComponent<T>(T original, GameObject destination) where T : Component
+    {
+        System.Type type = original.GetType();
+        Component copy = destination.AddComponent(type);
+        System.Reflection.FieldInfo[] fields = type.GetFields();
+        foreach (System.Reflection.FieldInfo field in fields)
+        {
+            field.SetValue(copy, field.GetValue(original));
+        }
+        return copy as T;
     }
 }

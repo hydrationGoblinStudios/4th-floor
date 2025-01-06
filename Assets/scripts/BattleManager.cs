@@ -10,7 +10,6 @@ public class BattleManager : MonoBehaviour
     public AudioSource[] hitAudio;
     public Animator animator;
     public UnitBehavior endure;
-    public SkillManager skillManager;
     public List<string> skillsInUse;
     public List<string> EAskillsInUse;
     //Player1
@@ -205,7 +204,8 @@ public class BattleManager : MonoBehaviour
             }
             foreach (string skill in skillsInUse)
             {
-                skillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)],attackerTeam,targetTeam);
+                ub.SkillManager = ub.GetComponentInParent<SkillManager>();
+                ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)],attackerTeam,targetTeam);
             }
         }
         foreach (UnitBehavior ub in enemyTeam)
@@ -242,7 +242,8 @@ public class BattleManager : MonoBehaviour
             }
             foreach (string skill in skillsInUse)
             {
-                skillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)], attackerTeam, targetTeam);
+                ub.SkillManager = ub.GetComponentInParent<SkillManager>();
+                ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)], attackerTeam, targetTeam);
             }
         }
 
@@ -466,7 +467,7 @@ public class BattleManager : MonoBehaviour
         }
         else if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
-            StartCoroutine(skillManager.NaSoulproc(attacker.equipedSoul,attacker,Target,attackerTeam,targetTeam));
+            StartCoroutine(attacker.SkillManager.NaSoulproc(attacker.equipedSoul,attacker,Target,attackerTeam,targetTeam));
         }
         else       
         {
@@ -487,7 +488,6 @@ public class BattleManager : MonoBehaviour
     {
         List<UnitBehavior> attackerTeam;
         List<UnitBehavior> targetTeam;
-        Debug.Log("extra attack");
         if (attacker.enemy)
         {
             state = BattleState.EnemyTurn;
@@ -686,25 +686,25 @@ public class BattleManager : MonoBehaviour
         Pskill = 0;
         foreach (string skill in skillsInUse)
         {
-            Pskill += +skillManager.SkillProc(skill, attacker, Target, attackerTeam, targetTeam);
+            Pskill += + attacker.SkillManager.SkillProc(skill, attacker, Target, attackerTeam, targetTeam);
         }
         if (attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
         {
             attacker.soul = 0;
-            Pskill += skillManager.SoulProc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
+            Pskill += attacker.SkillManager.SoulProc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
             yield return new WaitForSeconds(1);
         }
         if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
-            skillManager.NaSoulproc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
+            attacker.SkillManager.NaSoulproc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
         }
         foreach (string skill in skillsInUse)
         {
-            Pskill += +skillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
+            Pskill += +attacker.SkillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
         }
         foreach (string skill in skillsInUse)
         {
-            Pskill += +skillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+            Pskill += +Target.SkillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
         }
         HudUpdate();
         yield return new WaitForSeconds(1);
@@ -720,7 +720,15 @@ public class BattleManager : MonoBehaviour
             Target.soul += ((attackerDamage + Pskill) * 2) / 5;
             battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
             yield return new WaitForSeconds(1);
-            battleText.text = $"{Target.UnitName} perdeu {(Pskill + attackerDamage) * 2} hp";
+            battleText.text = $"{Target.UnitName} perdeu {(attackerDamage + Pskill) * 2} hp";
+            Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + ((attackerDamage + Pskill) * 2) + " de dano\n"
+                    + attacker.UnitName + " base power: " + attacker.power +"\n"
+                    + attacker.UnitName + " added by skills: " + Pskill + "\n"
+                    + Target.UnitName + " enemy defense: " + Target.def + "\n"
+                    + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
+                                        + "acerto critico, dano dobrado"
+
+                );
             int c = 0;
             foreach (Slider sl in enemyHpSlider)
             {
@@ -744,6 +752,12 @@ public class BattleManager : MonoBehaviour
             }
             Target.soul += (attackerDamage + Pskill) / 5;
             battleText.text = $"{Target.UnitName} perdeu {attackerDamage + Pskill} hp";
+            Debug.Log( attacker.UnitName + " atacou " + Target.UnitName + " " + (attackerDamage + Pskill) + " de dano\n"
+                    + attacker.UnitName + " base power: " + attacker.power + "\n"
+                    + attacker.UnitName + " added by skills: " + Pskill + "\n"
+                    + Target.UnitName + " enemy defense: " + Target.def + "\n"
+                    + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
+                );
             int c = 0;
             foreach (Slider sl in enemyHpSlider)
             {
@@ -765,11 +779,11 @@ public class BattleManager : MonoBehaviour
         Debug.Log("extra attack");
         foreach (string skill in EAskillsInUse)
         {
-            Pskill += +skillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
+            Pskill += +attacker.SkillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
         }
         foreach (string skill in EAskillsInUse)
         {
-            Pskill += +skillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+            Pskill += +Target.SkillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
         }
         HudUpdate();
         yield return new WaitForSeconds(1);
@@ -903,7 +917,6 @@ public class BattleManager : MonoBehaviour
             {
                 Espeed = (float)(Pspeed * 0.65);
             }
-
         }
     }
 }

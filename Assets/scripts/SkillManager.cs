@@ -60,7 +60,7 @@ public class SkillManager : MonoBehaviour
                     if (DanoAscendenteMeter == 3)
                     {
                         Debug.Log("dano ascendeu");
-                        StartCoroutine(IconPopup(user.Icon, "Dano Ascendente Icone"));
+                        //StartCoroutine(IconPopup(user.Icon, "Dano Ascendente Icone"));
                         user.power += 1;
                         user.damagereduction += 1;
                         DanoAscendenteMeter = 0;

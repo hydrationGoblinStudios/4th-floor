@@ -374,7 +374,6 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
                 GameObject go = GameObject.Find("SceneInteractables" + m_scene.name);
                 if (go.transform.Find("cama") != null)
                 {
-                    Debug.Log("cama achada");
                     Button button = go.transform.Find("cama").GetComponent<Button>();
                     button.onClick.RemoveAllListeners();
                     button.onClick.AddListener(delegate { go.transform.Find("cama").GetComponent<GMButtonAssigner>().Sleep(); });
@@ -420,11 +419,6 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     public void ChangeGraph(DialogueGraph dialogueGraph, string buttonAssigner, string sceneName)
     {
         GameObject go = GameObject.Find("SceneInteractables"+sceneName);
-        Debug.Log(go.name);
-        foreach(Transform obj in go.transform)
-        {
-            Debug.Log(obj.name);
-        }
         go.transform.Find(buttonAssigner).GetComponent<ButtonAssigner>().graph = dialogueGraph;
         Button button = go.transform.Find(buttonAssigner).GetComponent<Button>();
         button.onClick.RemoveAllListeners();

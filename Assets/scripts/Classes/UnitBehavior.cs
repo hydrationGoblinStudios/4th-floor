@@ -79,6 +79,7 @@ public class UnitBehavior : MonoBehaviour
     public string description = "classe não valida";
     public GameObject Icon;
 
+    public SkillManager SkillManager;
     public UnitData unitData;
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
