@@ -68,14 +68,14 @@ MonoBehaviour:
   maxhp: 1337
   hp: 1337
   power: 0
-  str: 0
+  str: 7
   mag: 0
-  dex: 6
-  def: 9
+  dex: 4
+  def: 11
   mdef: 0
   defenses: 
-  luck: 8
-  speed: 4
+  luck: 5
+  speed: 3
   skills: []
   skillInventory: []
   equipedSoul: 
@@ -107,6 +107,7 @@ MonoBehaviour:
   soul3: 
   description: classe n?o valida
   Icon: {fileID: 0}
+  SkillManager: {fileID: 0}
   unitData:
     classId: 0
     Weapon: {fileID: 0}

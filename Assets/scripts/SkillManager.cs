@@ -43,7 +43,7 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed3;
     private int poçãodeforçastacks;
 
-
+    public int currentDamageBonus;
 
 
     //Skills que ativam no Dano
@@ -148,22 +148,21 @@ public class SkillManager : MonoBehaviour
                 target.maxhp -= 10;
                 return 0;
 
-                //vai dar problema se o ataque for magico
             case "Lança da Justiça":
                 if (target.position == 1 && lancadajustica1 == false)
                 {
                     lancadajustica1 = true;
-                    return user.power += user.power / 4 + target.def;
+                    return user.power += user.power / 4 + target.defenses[user.Weapon.damageType];
                 }
                 if (target.position == 2 && lancadajustica2 == false)
                 {
                     lancadajustica2 = true;
-                    return user.power += user.power / 4 + target.def;
+                    return user.power += user.power / 4 + target.defenses[user.Weapon.damageType];
                 }
                 if (target.position == 3 && lancadajustica3 == false)
                 {
                     lancadajustica3 = true;
-                    return user.power += user.power / 4 + target.def;
+                    return user.power += user.power / 4 + target.defenses[user.Weapon.damageType];
                 }
                 return 0;
 
@@ -641,12 +640,17 @@ public class SkillManager : MonoBehaviour
         switch (SoulName)
         {
             case "Golpe Triplo":
-                user.power -= user.power / 2;
+                int expectedDamage = user.power - target.defenses[user.Weapon.damageType];
+                if (expectedDamage <= 0)
+                {
+                    expectedDamage = 1;
+                }
+                user.power -= expectedDamage;
                 StartCoroutine(user.battleManager.ExtraAttack(user, target));
                 StartCoroutine(user.battleManager.ExtraAttack(user, target));
-                user.power += user.power / 2;
+                user.power += expectedDamage;
 
-                return -user.power / 2;
+                return -expectedDamage;
 
             case "Golpe Focado":
 
