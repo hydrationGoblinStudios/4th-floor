@@ -722,24 +722,25 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (Random.Range(0, 101) <= Pcrit)
         {
-            hitAudio[1].Play();
+            int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
+
+               hitAudio[1].Play();
             if(attackerDamage + attacker.SkillManager.currentDamageBonus <= 0)
             {
-                Target.hp -= 2;
+                damageDone = 2;
             }
-            else
-            {
-            Target.hp -= (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
-            }
+
+            Target.hp -= damageDone;
+            
             if (attacker.lifesteal >= 0.01)
             {
-                attacker.hp += (attackerDamage + attacker.SkillManager.currentDamageBonus * 2) * attacker.lifesteal;
+                attacker.hp += damageDone * attacker.lifesteal;
  
             }
-            Target.soul += ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) / 5;
+            Target.soul += damageDone / 5;
             battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
             yield return new WaitForSeconds(1);
-            battleText.text = $"{Target.UnitName} perdeu {(attackerDamage + attacker.SkillManager.currentDamageBonus) * 2} hp";
+            battleText.text = $"{Target.UnitName} perdeu {damageDone} hp";
             Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power +"\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
@@ -764,21 +765,21 @@ public class BattleManager : MonoBehaviour
         else
         {
             hitAudio[0].Play();
-            if (attackerDamage + attacker.SkillManager.currentDamageBonus <= 0)
+            int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus);
+            if (damageDone <= 0)
             {
-                Target.hp -= 1;
+                damageDone = 1;
             }
-            else
-            {
-            Target.hp -= attacker.SkillManager.currentDamageBonus + attacker.power;
-            }
+           
+            Target.hp -= damageDone;
+            
             if (attacker.lifesteal >= 0.01)
             {
-                attacker.hp += (attacker.SkillManager.currentDamageBonus + attacker.power) * attacker.lifesteal;
+                attacker.hp += (damageDone) * attacker.lifesteal;
             }
-            Target.soul += (attackerDamage + attacker.SkillManager.currentDamageBonus) / 5;
-            battleText.text = $"{Target.UnitName} perdeu {attackerDamage + attacker.SkillManager.currentDamageBonus } hp";
-            Debug.Log( attacker.UnitName + " atacou " + Target.UnitName + " " + (attackerDamage + attacker.SkillManager.currentDamageBonus) + " de dano\n"
+            Target.soul += (damageDone) / 5;
+            battleText.text = $"{Target.UnitName} perdeu {damageDone} hp";
+            Debug.Log( attacker.UnitName + " atacou " + Target.UnitName + " " + (damageDone) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
                     + Target.UnitName + " enemy defense: " + Target.def + "\n"
