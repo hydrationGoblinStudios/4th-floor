@@ -32,5 +32,5 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 3500
-  damageType: 0
+  damageType: 1
   skill: Livro Arriscado
