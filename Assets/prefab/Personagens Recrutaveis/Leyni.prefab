@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: Ramion
+  m_Name: Leyni
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,10 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4363c5592e9a3ec45afb0668f6e5d098, type: 3}
+  m_Script: {fileID: 11500000, guid: 25d0bc60155d4b147a1e2bf10b0cc021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classId: 107
+  classId: 106
   Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
@@ -55,35 +55,37 @@ MonoBehaviour:
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: Ramion
+  UnitName: Leyni
   currentLevel: 0
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
-  ClassID: 
+  ClassID: 65000000
   ClassLevel: 
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 110
-  hp: 110
+  maxhp: 90
+  hp: 90
   power: 0
-  str: 10
-  mag: 9
-  dex: 9
-  def: 8
-  mdef: 8
+  str: 8
+  mag: 7
+  dex: 12
+  def: 7
+  mdef: 7
   defenses: 
-  luck: 12
-  speed: 11
+  luck: 10
+  speed: 14
   skills:
   - 
   skillInventory:
-  - "Persist\xEAncia"
-  equipedSoul: Poder Oculto
+  - Dano Ascendente
+  - Foco
+  equipedSoul: Tiro certeiro
   equippedSoulIsAttack: 1
   soulInventory:
-  - Poder Oculto
+  - Tiro certeiro
+  - Golpe Triplo
   soul: 0
   maxsoul: 0
   soulgain: 0
@@ -97,7 +99,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 4b0000003200000032000000320000003200000032000000320000003c000000
+  growths: 41000000280000002300000041000000500000001e0000001e00000037000000
   classSkill: 
   personalSkill: 
   baseSkill: 
