@@ -165,17 +165,17 @@ public class SkillManager : MonoBehaviour
                 if (target.position == 1 && lancadajustica1 == false)
                 {
                     lancadajustica1 = true;
-                    return user.power += user.power / 4 + target.defenses[user.Weapon.damageType];
+                    return user.power += power / 4 + target.defenses[user.Weapon.damageType];
                 }
                 if (target.position == 2 && lancadajustica2 == false)
                 {
                     lancadajustica2 = true;
-                    return user.power += user.power / 4 + target.defenses[user.Weapon.damageType];
+                    return user.power += power / 4 + target.defenses[user.Weapon.damageType];
                 }
                 if (target.position == 3 && lancadajustica3 == false)
                 {
                     lancadajustica3 = true;
-                    return user.power += user.power / 4 + target.defenses[user.Weapon.damageType];
+                    return user.power += power / 4 + target.defenses[user.Weapon.damageType];
                 }
                 return 0;
 
@@ -690,7 +690,7 @@ public class SkillManager : MonoBehaviour
 
             case "Trovoada":
 
-                return (int)(target.maxhp * 0.3) - user.power;
+                return (int)(target.maxhp * 0.3) - power;
 
             case "Disparo de Gelo":
 
@@ -790,7 +790,7 @@ public class SkillManager : MonoBehaviour
 
             case "Persistência":
 
-                user.speed = PersistenciaSpeedbase + ((user.maxhp - user.hp) / 10);
+                user.speed = speed + ((user.maxhp - user.hp) / 10);
 
                 return 0;
 
