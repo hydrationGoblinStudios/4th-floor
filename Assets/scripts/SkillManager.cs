@@ -6,7 +6,20 @@ using System.Linq;
 public class SkillManager : MonoBehaviour
 {
     public Sprite[] Icones;
+    //statos base
+    public int maxhp;
+    public int hp;
+    public int power;
+    public int str;
+    public int mag;
+    public int dex;
+    public int def;
+    public int mdef;
+    public int[] defenses;
+    public int luck;
+    public float speed;
     private float  PersistenciaSpeedbase;
+    //flag de uso
     private bool espadaCurtaBoost = false;
     private bool arcodasorteboost = false;
     private bool livroarriscadoboost = false;
@@ -1003,5 +1016,16 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds((float)1);
         icon.color = new Color(255, 255, 255, 0);
 
+    }
+    public void GetBaseStats()
+    {
+      UnitBehavior ub =   GetComponentInParent<UnitBehavior>();
+        maxhp = ub.maxhp; hp = ub.hp; str = ub.str; mag = ub.mag; dex = ub.dex;
+        def = ub.def; mdef = ub.mdef; defenses = ub.defenses; luck = ub.luck; speed = ub.speed;
+        power = ub.Weapon.power + ub.str;
+        if(ub.Weapon.damageType == 1)
+        {
+            power = ub.Weapon.power + ub.mag;
+        }
     }
 }

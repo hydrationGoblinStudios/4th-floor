@@ -356,6 +356,7 @@ public class PreBattleManager : MonoBehaviour
             GameObject newobj = Instantiate(obj, gameManager.transform);
             newobj.AddComponent<DestroyTemp>();
             CopyComponent(skillManager, newobj);
+            newobj.GetComponent<SkillManager>().GetBaseStats();
             gameManager.teamPostPreBattle.Add(newobj);
         }
         foreach (GameObject obj in EnemyList)
@@ -363,6 +364,7 @@ public class PreBattleManager : MonoBehaviour
             GameObject newobj = Instantiate(obj, gameManager.transform);
             newobj.AddComponent<DestroyTemp>();
             CopyComponent(skillManager, newobj);
+            newobj.GetComponent<SkillManager>().GetBaseStats();
             gameManager.enemyTeamPostPreBattle.Add(newobj);
         }
     }
