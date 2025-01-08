@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class GMButtonAssigner : MonoBehaviour
 {
     public GameManager gameManager;
     public Button button;
-
     public void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
@@ -19,13 +19,19 @@ public class GMButtonAssigner : MonoBehaviour
     }
     public void SelectUnit(int unit)
     {
+        if(gameManager.team[unit] != null && gameManager.team[unit].GetComponent<UnitBehavior>() != null)
+        {
         gameManager.selectedUB4Activity = gameManager.team[unit].GetComponent<UnitBehavior>();
+        }
+        Debug.Log("unitSelected");
     }
     public void ChangeActivity(string activity)
     {
-        if(gameManager.selectedUB4Activity != null && gameManager.selectedUB4Activity.activity != null)
+        Debug.Log(activity);
+        if(gameManager.selectedUB4Activity != null)
         {
-        gameManager.selectedUB4Activity.activity = activity;
+            Debug.Log("ub4A encontrado");
+            gameManager.selectedUB4Activity.activity = activity;
         }        
     }
     public void ActivityBoard()
