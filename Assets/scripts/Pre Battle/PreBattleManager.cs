@@ -199,6 +199,9 @@ public class PreBattleManager : MonoBehaviour
         SelectedEnemyList.Add(SelectedEnemy1);
         SelectedEnemyList.Add(SelectedEnemy2);
         SelectedEnemyList.Add(SelectedEnemy3);
+        gameManager.SoulPrice(SelectedEnemy1.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy1.GetComponent<UnitBehavior>());
+        gameManager.SoulPrice(SelectedEnemy2.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy2.GetComponent<UnitBehavior>());
+        gameManager.SoulPrice(SelectedEnemy3.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy3.GetComponent<UnitBehavior>());
         Select1();
         EnemySelect(SelectedEnemy1.GetComponent<UnitBehavior>());
     }

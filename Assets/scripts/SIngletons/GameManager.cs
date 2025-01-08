@@ -175,6 +175,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
             GameObject newobj = Instantiate(obj, this.transform);
             team.Add(newobj);
             newobj.name = newobj.GetComponent<UnitBehavior>().UnitName + "Prep";
+            SoulPrice(newobj.GetComponent<UnitBehavior>().equipedSoul, newobj.GetComponent<UnitBehavior>());
         }
     }
     public void AddtoTeam(GameObject recruit)
@@ -441,5 +442,61 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     {
         GameObject go = GameObject.Find(spriteObject);
         go.GetComponent<SpriteChanger>().ChangeSprite(targetSprite);
+    }
+    public void SoulPrice(string soulName,UnitBehavior unit)
+    {
+        switch (soulName)
+        {
+            //espadachin
+            case ("Golpe Triplo"):
+                unit.maxsoul = 90;
+                break;
+            case ("Golpe Focado"):
+                unit.maxsoul = 100;
+                break;
+            //arqueiro
+            case ("Tiro Certeiro"):
+                unit.maxsoul = 80;
+                break;
+            case ("Rajada de Flechas"):
+                unit.maxsoul = 110;
+                break;
+            //Guerreiro
+            case ("Golpe Poderoso"):
+                unit.maxsoul = 80;
+                break;
+            case ("Revigoramento"):
+                unit.maxsoul = 100;
+                break;
+            //soldado
+            case ("Golpe Atordoante"):
+                unit.maxsoul = 105;
+                break;
+            case ("Fortificar"):
+                unit.maxsoul = 110;
+                break;
+            //Feiticeiro
+            case ("Bola de Fogo"):
+                unit.maxsoul = 90;
+                break;
+            case ("Trovoada"):
+                unit.maxsoul = 110;
+                break;
+            //mistico
+            case ("Restauração Espiritual"):
+                unit.maxsoul = 110;
+                break;
+            case ("Benção dos ventos"):
+                unit.maxsoul = 100;
+                break;
+            //Prisioneiro
+            case ("Poder Oculto"):
+                unit.maxsoul = 100;
+                break;
+            case ("Ataque Inspirador"):
+                unit.maxsoul = 120;
+                break;
+            default: unit.maxsoul = 100; break;
+        }
     }
 }

@@ -368,59 +368,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void SoulPrice(string soulName)
     {
-        switch (soulName)
-        {
-            //espadachin
-            case ("Golpe Triplo"):
-                selectedUnit.maxsoul = 90;
-                break;
-            case ("Golpe Focado"):
-                selectedUnit.maxsoul = 100;
-                break;
-            //arqueiro
-            case ("Tiro Certeiro"):
-                selectedUnit.maxsoul = 80;
-                break;
-            case ("Rajada de Flechas"):
-                selectedUnit.maxsoul = 110;
-                break;
-            //Guerreiro
-            case ("Golpe Poderoso"):
-                selectedUnit.maxsoul = 80;
-                break;
-            case ("Revigoramento"):
-                selectedUnit.maxsoul = 100;
-                break;
-            //soldado
-            case ("Golpe Atordoante"):
-                selectedUnit.maxsoul = 105;
-                break;
-            case ("Fortificar"):
-                selectedUnit.maxsoul = 110;
-                break;
-            //Feiticeiro
-            case ("Bola de Fogo"):
-                selectedUnit.maxsoul = 90;
-                break;
-            case ("Trovoada"):
-                selectedUnit.maxsoul = 110;
-                break;
-            //mistico
-            case ("Restauração Espiritual"):
-                selectedUnit.maxsoul = 110;
-                break;
-            case ("Benção dos ventos"):
-                selectedUnit.maxsoul = 100;
-                break;
-            //Prisioneiro
-            case ("Poder Oculto"):
-                selectedUnit.maxsoul = 100;
-                break;
-            case ("Ataque Inspirador"):
-                selectedUnit.maxsoul = 120;
-                break;
-            default: selectedUnit.maxsoul = 120; break;
-        }
+        Manager.SoulPrice(soulName, selectedUnit);
     }
     public void Update()
     {
