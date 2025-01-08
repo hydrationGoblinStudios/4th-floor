@@ -77,7 +77,7 @@ MonoBehaviour:
   luck: 12
   speed: 11
   skills:
-  - 
+  - "Persist\xEAncia"
   skillInventory:
   - "Persist\xEAncia"
   equipedSoul: Poder Oculto

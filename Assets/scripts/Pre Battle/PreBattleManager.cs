@@ -290,7 +290,7 @@ public class PreBattleManager : MonoBehaviour
     {
         if (energy > 0)
         {
-            selectedUnit.str += 4;
+            selectedUnit.str += (int) (selectedUnit.str * 0.15);
             energy--;
             energyText.text = energy.ToString();
         }
@@ -299,7 +299,7 @@ public class PreBattleManager : MonoBehaviour
     {
         if (energy > 0)
         {
-            selectedUnit.def += 4;
+            selectedUnit.def += (int)(selectedUnit.def * 0.15);
             energy--;
             energyText.text = energy.ToString();
         }
@@ -308,7 +308,7 @@ public class PreBattleManager : MonoBehaviour
     {
         if (energy > 0)
         {
-            selectedUnit.mag += 4;
+            selectedUnit.mag += (int)(selectedUnit.mag * 0.15);
             energy--;
             energyText.text = energy.ToString();
         }

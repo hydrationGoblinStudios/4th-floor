@@ -21,7 +21,7 @@ public class DestroyTemp : MonoBehaviour
         }
         else
         {
-            Debug.Log("instancia de UnitBehavior destroida");
+            Debug.Log("instancia de UnitBehavior destruida");
             if(this != null && this.gameObject != null)
             {
             Destroy(this.gameObject);
