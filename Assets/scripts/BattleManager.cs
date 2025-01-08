@@ -700,6 +700,7 @@ public class BattleManager : MonoBehaviour
         }
         if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
+            attacker.soul = 0;
             attacker.SkillManager.NaSoulproc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
         }
         int PskillPostSoullProc = attacker.SkillManager.currentDamageBonus;
