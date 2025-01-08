@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classId: 106
-  Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
+  Weapon: {fileID: 11400000, guid: 973c69435c4261d42903e66bef62a563, type: 2}
   Accesory: {fileID: 0}
   playerBehavior: {fileID: 0}
   enemyBehavior: {fileID: 0}
@@ -77,7 +77,8 @@ MonoBehaviour:
   luck: 10
   speed: 14
   skills:
-  - 
+  - Dano Ascendente
+  - Foco
   skillInventory:
   - Dano Ascendente
   - Foco

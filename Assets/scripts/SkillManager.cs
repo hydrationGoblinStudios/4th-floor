@@ -936,6 +936,7 @@ public class SkillManager : MonoBehaviour
 
     }
 
+    //almas que não atacam (geralmente)
 
     public IEnumerator NaSoulproc(string SoulName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
@@ -960,11 +961,15 @@ public class SkillManager : MonoBehaviour
                 break;
 
 
+                //Golpe poderoso tem q estar que porque o hit precisa voltar para o usuario depois
             case "Golpe Poderoso":
 
-                user.hit -= 20; 
+                Debug.Log("Golpe Poderosado");
+                user.hit -= 20;
+                Debug.Log(user.hit + "hit");
                 StartCoroutine(user.battleManager.ExtraAttack(user, target));
                 user.hit += 20;
+                Debug.Log(user.hit + "hit");
 
                 break;
 
