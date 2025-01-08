@@ -82,6 +82,13 @@ public class InventoryManager : MonoBehaviour
         skillIconsObjects[SkillSlot].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == Skill).SingleOrDefault();
         Select(selectedUnit);
     }
+    public void EquipSoul(string soulName)
+    {
+        selectedUnit.equipedSoul = soulName;
+        //valor de alma maxima
+        SoulPrice(soulName);
+        Select(selectedUnit);
+    }
     public void InstantiateKeyItem(GameObject button, Item item)
     {
         Toggle();
@@ -115,6 +122,7 @@ public class InventoryManager : MonoBehaviour
         }
         int c = 0;
         UpdateSkillName();
+        SoulPrice(selectedUnit.equipedSoul);
         foreach(GameObject go in skillIconsObjects)
         {
             go.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == skillNames[c].text).SingleOrDefault();
@@ -357,6 +365,62 @@ public class InventoryManager : MonoBehaviour
 
             _ => skillName,
         };
+    }
+    public void SoulPrice(string soulName)
+    {
+        switch (soulName)
+        {
+            //espadachin
+            case ("Golpe Triplo"):
+                selectedUnit.maxsoul = 90;
+                break;
+            case ("Golpe Focado"):
+                selectedUnit.maxsoul = 100;
+                break;
+            //arqueiro
+            case ("Tiro Certeiro"):
+                selectedUnit.maxsoul = 80;
+                break;
+            case ("Rajada de Flechas"):
+                selectedUnit.maxsoul = 110;
+                break;
+            //Guerreiro
+            case ("Golpe Poderoso"):
+                selectedUnit.maxsoul = 80;
+                break;
+            case ("Revigoramento"):
+                selectedUnit.maxsoul = 100;
+                break;
+            //soldado
+            case ("Golpe Atordoante"):
+                selectedUnit.maxsoul = 105;
+                break;
+            case ("Fortificar"):
+                selectedUnit.maxsoul = 110;
+                break;
+            //Feiticeiro
+            case ("Bola de Fogo"):
+                selectedUnit.maxsoul = 90;
+                break;
+            case ("Trovoada"):
+                selectedUnit.maxsoul = 110;
+                break;
+            //mistico
+            case ("Restauração Espiritual"):
+                selectedUnit.maxsoul = 110;
+                break;
+            case ("Benção dos ventos"):
+                selectedUnit.maxsoul = 100;
+                break;
+            //Prisioneiro
+            case ("Poder Oculto"):
+                selectedUnit.maxsoul = 100;
+                break;
+            case ("Ataque Inspirador"):
+                selectedUnit.maxsoul = 120;
+                break;
+            default: selectedUnit.maxsoul = 120; break;
+        }
     }
     public void Update()
     {
