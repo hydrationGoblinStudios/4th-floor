@@ -503,6 +503,18 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             case ("Golpe Poderoso"):
                 unit.equippedSoulIsAttack = false;
                 break;
+            case ("Revigoramento"):
+                unit.equippedSoulIsAttack = false;
+                break;
+            case ("Fortalecimento"):
+                unit.equippedSoulIsAttack = false;
+                break;
+            case ("Restauração Espiritual"):
+                unit.equippedSoulIsAttack = false;
+                break;
+            case ("Benção dos Ventos"):
+                unit.equippedSoulIsAttack = false;
+                break;
             default:
                 unit.equippedSoulIsAttack = true;
                 break;

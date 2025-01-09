@@ -994,7 +994,7 @@ public class SkillManager : MonoBehaviour
                 }
                 break;
 
-            case "Ben��o dos Ventos":
+            case "Benção dos Ventos":
 
                 team[0].avoid += team[0].avoid / 10 + user.mag / 5;
                 team[1].avoid += team[1].avoid / 10 + user.mag / 5;
