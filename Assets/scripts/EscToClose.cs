@@ -8,7 +8,7 @@ public class EscToClose : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }
