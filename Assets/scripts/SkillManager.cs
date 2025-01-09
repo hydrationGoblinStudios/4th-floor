@@ -55,6 +55,7 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed2;
     private int Ataqueinspiradorspeed3;
     private int poçãodeforçastacks;
+    private int GolpePoderosoPower;
 
     public int currentDamageBonus;
 
@@ -673,6 +674,7 @@ public class SkillManager : MonoBehaviour
 
             case "Tiro Certeiro":
 
+                Debug.Log("Tiro Certeirado");
                 //sure shot
 
                 return user.power / 2;
@@ -965,10 +967,15 @@ public class SkillManager : MonoBehaviour
             case "Golpe Poderoso":
 
                 Debug.Log("Golpe Poderosado");
-                user.hit -= 20;
+                user.hit -= 25;
+                GolpePoderosoPower = user.power;
+                user.power += user.power;
+                Debug.Log(user.power + "poder");
                 Debug.Log(user.hit + "hit");
                 StartCoroutine(user.battleManager.ExtraAttack(user, target));
-                user.hit += 20;
+                user.hit += 25;
+                user.power = -GolpePoderosoPower;
+                Debug.Log(user.power + "poder");
                 Debug.Log(user.hit + "hit");
 
                 break;
