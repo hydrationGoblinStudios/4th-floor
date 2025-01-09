@@ -36,6 +36,10 @@ public class GMButtonAssigner : MonoBehaviour
     }
     public void ActivityBoard()
     {
+        InventoryManager IM = FindObjectOfType<InventoryManager>(true);
+        IM.Activatable = !IM.Activatable;
+        MapToggle MT = FindObjectOfType<MapToggle>(true);
+        MT.activatable = !MT.activatable;
         GameObject ab = GameObject.FindGameObjectWithTag("Activity Board");
         ab.transform.GetChild(0).gameObject.SetActive(true);
     }

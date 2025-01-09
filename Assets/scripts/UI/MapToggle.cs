@@ -5,8 +5,11 @@ using UnityEngine;
 public class MapToggle : MonoBehaviour
 {
     public List<GameObject> invert;
+    public bool activatable;
     public void Toggle()
     {
+        if (activatable)
+        {
             InventoryManager IM = FindObjectOfType<InventoryManager>(true); 
             IM.Activatable = !IM.Activatable;
             gameObject.SetActive(!gameObject.activeInHierarchy);
@@ -14,6 +17,7 @@ public class MapToggle : MonoBehaviour
             {
                  go.SetActive(!go.activeInHierarchy);
             }        
+        }
     }
     public void Update()
     {
