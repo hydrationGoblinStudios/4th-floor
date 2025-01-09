@@ -534,6 +534,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             battleText.text = (attacker.UnitName + " errou");
+            Debug.Log("extra attack errou :(");
         }
         yield return new WaitForSeconds(1f);
         //inimigo morre
@@ -828,7 +829,7 @@ public class BattleManager : MonoBehaviour
         + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
         + Target.UnitName + " enemy defense: " + Target.def + "\n"
         + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
-                            + "acerto critico, dano dobrado" +"\n Foi um ataque extra"
+                            + "acerto critico, dano dobrado" +" Foi um ataque extra"
     );
             if (attacker.lifesteal >= 0.01)
             {
