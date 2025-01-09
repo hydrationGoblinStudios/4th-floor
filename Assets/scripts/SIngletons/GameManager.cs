@@ -6,12 +6,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameManager : Singleton<GameManager> , IDataPersistence
+public class GameManager : Singleton<GameManager>, IDataPersistence
 {
     UnitData CurrentUnitData;
 
     public List<UnitData> units;
-    public Dictionary<int,DialogueGraph> eventDictionary;
+    public Dictionary<int, DialogueGraph> eventDictionary;
     public Scene m_scene;
     public int money;
     public int lumenita;
@@ -49,9 +49,9 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     public void Start()
     {
         LoadTeam();
-        if(moneyText != null)
+        if (moneyText != null)
         {
-        moneyText.text = "Dinheiro:"+money;
+            moneyText.text = "Dinheiro:" + money;
         }
     }
     public void LoadData(GameData data)
@@ -65,10 +65,10 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     {
         int count = 0;
         units = new List<UnitData>();
-        foreach(GameObject unitInTeam in team)
+        foreach (GameObject unitInTeam in team)
         {
             CurrentUnitData = new();
-            UnitBehavior CurrentUnitBehavior  = unitInTeam.GetComponent<UnitBehavior>();
+            UnitBehavior CurrentUnitBehavior = unitInTeam.GetComponent<UnitBehavior>();
             SaveUnitasData(CurrentUnitBehavior);
             Debug.Log(CurrentUnitData.UnitName);
             units.Add(CurrentUnitData);
@@ -79,8 +79,8 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         data.Inventory = this.Inventory;
         data.KeyItems = this.KeyItems;
         count = 0;
-        data.units  = units;
-        Debug.Log(data.units); 
+        data.units = units;
+        Debug.Log(data.units);
     }
     public void PrepScreen()
     {
@@ -92,7 +92,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     }
     public void SceneLoader(string str)
     {
-        SceneManager.LoadScene(str);   
+        SceneManager.LoadScene(str);
     }
     public void SaveUnitasData(UnitBehavior CurrentUnitBehavior)
     {
@@ -165,12 +165,12 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         moneyText = tempGameObject.GetComponent<TextMeshPro>();
         if (moneyText != null)
         {
-            moneyText.text = "Dinheiro:"+money;
+            moneyText.text = "Dinheiro:" + money;
         }
     }
     public void LoadTeam()
     {
-        foreach(GameObject obj in playerUnit)
+        foreach (GameObject obj in playerUnit)
         {
             GameObject newobj = Instantiate(obj, this.transform);
             team.Add(newobj);
@@ -192,7 +192,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     }
     public void ParseWeaponList()
     {
-        foreach(Item ExampleItem in ExampleList)
+        foreach (Item ExampleItem in ExampleList)
         {
             switch (ExampleItem.weapontype)
             {
@@ -273,14 +273,14 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-        ClassChange(team[0], 0);
+            ClassChange(team[0], 0);
         }
     }
     public void ClassChange(GameObject Unit, int ClassId)
     {
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
         UnitBehavior NewUB = Unit.AddComponent<UnitBehavior>();
-        CopyUBValues(NewUB,OriginalUB);
+        CopyUBValues(NewUB, OriginalUB);
         Destroy(OriginalUB);
     }
     public void CopyUBValues(UnitBehavior UnitBehaviorCopy, UnitBehavior UnitBehaviorOriginal)
@@ -341,20 +341,20 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     }
     public void Sleep()
     {
-        if(storyBattle == true)
+        if (storyBattle == true)
         {
             NodeParser dm = FindObjectOfType<NodeParser>(true);
             dm.StartDialogue(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault());
         }
-        else 
-        { 
-        DayResultsManager = FindObjectOfType<DayResultsManager>(true);
-        DayResultsManager.Sleep();
-        cui = FindObjectOfType<CalendarioUI>(true);
-        cui.UIUpdate();
-        wakeUpTalk = true;
-        storyBattle = true;
-        GameEventHandler();
+        else
+        {
+            DayResultsManager = FindObjectOfType<DayResultsManager>(true);
+            DayResultsManager.Sleep();
+            cui = FindObjectOfType<CalendarioUI>(true);
+            cui.UIUpdate();
+            wakeUpTalk = true;
+            storyBattle = true;
+            GameEventHandler();
         }
     }
     public void GameEventHandler()
@@ -379,9 +379,9 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
                     button.onClick.RemoveAllListeners();
                     button.onClick.AddListener(delegate { go.transform.Find("cama").GetComponent<GMButtonAssigner>().Sleep(); });
                 }
-                    if (storyBattle)
+                if (storyBattle)
                 {
-                ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault(), "cama",m_scene.name);
+                    ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault(), "cama", m_scene.name);
                 }
                 if (day == 1 && wakeUpTalk)
                 {
@@ -408,7 +408,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
                 }
                 break;
             case "Patio":
-                if (day >= 3)   
+                if (day >= 3)
                 {
                     ChangeSprite("Leyni Sprite", 1);
                     //ChangeGraph(graphs[3], "Leyni Interactable",m_scene.name);
@@ -419,7 +419,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
     }
     public void ChangeGraph(DialogueGraph dialogueGraph, string buttonAssigner, string sceneName)
     {
-        GameObject go = GameObject.Find("SceneInteractables"+sceneName);
+        GameObject go = GameObject.Find("SceneInteractables" + sceneName);
         go.transform.Find(buttonAssigner).GetComponent<ButtonAssigner>().graph = dialogueGraph;
         Button button = go.transform.Find(buttonAssigner).GetComponent<Button>();
         button.onClick.RemoveAllListeners();
@@ -443,7 +443,7 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
         GameObject go = GameObject.Find(spriteObject);
         go.GetComponent<SpriteChanger>().ChangeSprite(targetSprite);
     }
-    public void SoulPrice(string soulName,UnitBehavior unit)
+    public void SoulPrice(string soulName, UnitBehavior unit)
     {
         switch (soulName)
         {
@@ -497,6 +497,16 @@ public class GameManager : Singleton<GameManager> , IDataPersistence
                 unit.maxsoul = 120;
                 break;
             default: unit.maxsoul = 100; break;
+        }
+        switch (soulName)
+        {
+            case ("Golpe Poderoso"):
+                unit.equippedSoulIsAttack = false;
+                break;
+            default:
+                unit.equippedSoulIsAttack = true;
+                break;
+
         }
     }
 }
