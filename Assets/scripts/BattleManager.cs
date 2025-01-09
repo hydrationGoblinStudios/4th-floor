@@ -467,6 +467,7 @@ public class BattleManager : MonoBehaviour
         }
         else if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
+            attacker.soul -= attacker.maxsoul;
             StartCoroutine(attacker.SkillManager.NaSoulproc(attacker.equipedSoul,attacker,Target,attackerTeam,targetTeam));
         }
         else       

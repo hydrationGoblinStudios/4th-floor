@@ -5,4 +5,5 @@ using UnityEngine;
 public class ScreenManager : MonoBehaviour
 {
     public bool displayInventory;
+    public bool UIOccupied;
 }

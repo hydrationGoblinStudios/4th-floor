@@ -27,6 +27,7 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI equipText;
     public TextMeshProUGUI accesoryText;
     public NodeParser nodeParser;
+    public bool Activatable;
 
     [Header("Ui top")]
     public SpriteRenderer MugShot;
@@ -52,12 +53,15 @@ public class InventoryManager : MonoBehaviour
         {
         SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
         }
-        if(SceneInteractable != null)
+        if (Activatable)
         {
-        SceneInteractable.SetActive(!SceneInteractable.activeInHierarchy);
+            if(SceneInteractable != null )
+            {
+            SceneInteractable.SetActive(!SceneInteractable.activeInHierarchy);
+            }
+            gameObject.SetActive(!gameObject.activeInHierarchy);
+            calendario.SetActive(!calendario.activeInHierarchy);
         }
-        gameObject.SetActive(!gameObject.activeInHierarchy);
-        calendario.SetActive(!calendario.activeInHierarchy);
     }
     public void Equip(Item item)
     {if(item.type == Item.Type.weapon)
@@ -386,6 +390,10 @@ public class InventoryManager : MonoBehaviour
         else
         {
             hoverObject.transform.position = new Vector3(100, 200, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Toggle();
         }
     }
 }
