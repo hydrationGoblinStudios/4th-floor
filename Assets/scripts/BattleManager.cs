@@ -452,7 +452,7 @@ public class BattleManager : MonoBehaviour
         {
             skillsInUse.Add(attacker.Accesory.skill);
         }
-        attacker.soul += 10 + attacker.soulgain;
+        attacker.soul += 15 + attacker.soulgain;
         Debug.Log(attacker.UnitName + " hit:" + Phit);
         if (attacker.soul < attacker.maxsoul && Random.Range(0, 101) <= Phit)
         {
@@ -695,13 +695,15 @@ public class BattleManager : MonoBehaviour
         int PskillPostSkillProc = attacker.SkillManager.currentDamageBonus;
         if (attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
         {
-            attacker.soul = 0;
+            Debug.Log("soul esta sendo diminuida");
+            attacker.soul -= attacker.maxsoul;
             attacker.SkillManager.currentDamageBonus += attacker.SkillManager.SoulProc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
             yield return new WaitForSeconds(1);
         }
         if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
-            attacker.soul = 0;
+            Debug.Log("soul esta sendo diminuida");
+            attacker.soul -= attacker.maxsoul;
             attacker.SkillManager.NaSoulproc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
         }
         int PskillPostSoullProc = attacker.SkillManager.currentDamageBonus;
