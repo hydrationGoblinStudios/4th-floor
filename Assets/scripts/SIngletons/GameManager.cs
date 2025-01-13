@@ -45,6 +45,9 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<Item> ReceptacleList;
     public List<Item> AccesoriesList;
     public List<Item> ExampleList;
+    [Header("ClassChange")]
+    public GameObject SelectedUBClassChange;
+
 
     public void Start()
     {
@@ -53,6 +56,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         {
             moneyText.text = "Dinheiro:" + money;
         }
+        SelectedUBClassChange = team[0];
     }
     public void LoadData(GameData data)
     {
@@ -273,73 +277,44 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            ClassChange(team[0], 0);
+            ClassChange(106);
         }
     }
-    public void ClassChange(GameObject Unit, int ClassId)
+    public void ClassChange( int ClassId)
     {
+        GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
-        UnitBehavior NewUB = Unit.AddComponent<UnitBehavior>();
-        CopyUBValues(NewUB, OriginalUB);
+        CopyUnitBehavior(OriginalUB, Unit, ClassId);
         Destroy(OriginalUB);
+        Unit.GetComponent<UnitBehavior>().classId = ClassId;
     }
-    public void CopyUBValues(UnitBehavior UnitBehaviorCopy, UnitBehavior UnitBehaviorOriginal)
+    T CopyUnitBehavior<T>(T original, GameObject destination, int ClassId) where T : Component
     {
-        UnitBehaviorCopy.UnitName = UnitBehaviorOriginal.UnitName;
-        UnitBehaviorCopy.currentLevel = UnitBehaviorOriginal.currentLevel;
-        UnitBehaviorCopy.expmarkplier = UnitBehaviorOriginal.expmarkplier;
-        UnitBehaviorCopy.currentRank = UnitBehaviorOriginal.currentRank;
-        UnitBehaviorCopy.currentExp = UnitBehaviorOriginal.currentExp;
-        UnitBehaviorCopy.ClassID = UnitBehaviorOriginal.ClassID;
-        UnitBehaviorCopy.ClassLevel = UnitBehaviorOriginal.ClassLevel;
-        UnitBehaviorCopy.hit = UnitBehaviorOriginal.hit;
-        UnitBehaviorCopy.avoid = UnitBehaviorOriginal.avoid;
-        UnitBehaviorCopy.crit = UnitBehaviorOriginal.crit;
-        //stats
-        UnitBehaviorCopy.maxhp = UnitBehaviorOriginal.maxhp;
-        UnitBehaviorCopy.hp = UnitBehaviorOriginal.hp;
-        UnitBehaviorCopy.power = UnitBehaviorOriginal.power;
-        UnitBehaviorCopy.str = UnitBehaviorOriginal.str;
-        UnitBehaviorCopy.mag = UnitBehaviorOriginal.mag;
-        UnitBehaviorCopy.dex = UnitBehaviorOriginal.dex;
-        UnitBehaviorCopy.def = UnitBehaviorOriginal.def;
-        UnitBehaviorCopy.mdef = UnitBehaviorOriginal.mdef;
-        UnitBehaviorCopy.defenses = UnitBehaviorOriginal.defenses;
-        UnitBehaviorCopy.luck = UnitBehaviorOriginal.luck;
-        UnitBehaviorCopy.speed = UnitBehaviorOriginal.speed;
-        //sistema de skills
-        UnitBehaviorCopy.skills = UnitBehaviorOriginal.skills;
-        UnitBehaviorCopy.skillInventory = UnitBehaviorOriginal.skillInventory;
-        UnitBehaviorCopy.equipedSoul = UnitBehaviorOriginal.equipedSoul;
-        UnitBehaviorCopy.equippedSoulIsAttack = UnitBehaviorOriginal.equippedSoulIsAttack;
-        UnitBehaviorCopy.soulInventory = UnitBehaviorOriginal.soulInventory;
-        UnitBehaviorCopy.soul = UnitBehaviorOriginal.soul;
-        UnitBehaviorCopy.maxsoul = UnitBehaviorOriginal.maxsoul;
-        UnitBehaviorCopy.soulgain = UnitBehaviorOriginal.soulgain;
-        UnitBehaviorCopy.damagereduction = UnitBehaviorOriginal.damagereduction;
-        UnitBehaviorCopy.lifesteal = UnitBehaviorOriginal.lifesteal;
-        UnitBehaviorCopy.armorpen = UnitBehaviorOriginal.armorpen;
-        UnitBehaviorCopy.magicpen = UnitBehaviorOriginal.magicpen;
-        //cooking
-        UnitBehaviorCopy.cooking = UnitBehaviorOriginal.cooking;
-        //growths
-        UnitBehaviorCopy.growths = UnitBehaviorOriginal.growths;
-        //learnset
-        UnitBehaviorCopy.classSkill = UnitBehaviorOriginal.classSkill;
-        UnitBehaviorCopy.personalSkill = UnitBehaviorOriginal.personalSkill;
-        UnitBehaviorCopy.baseSkill = UnitBehaviorOriginal.baseSkill;
-        UnitBehaviorCopy.skill1 = UnitBehaviorOriginal.skill1;
-        UnitBehaviorCopy.skill2 = UnitBehaviorOriginal.skill2;
-        UnitBehaviorCopy.skill3 = UnitBehaviorOriginal.skill3;
-        UnitBehaviorCopy.baseSoul = UnitBehaviorOriginal.baseSoul;
-        UnitBehaviorCopy.soul1 = UnitBehaviorOriginal.soul1;
-        UnitBehaviorCopy.soul2 = UnitBehaviorOriginal.soul2;
-        UnitBehaviorCopy.soul3 = UnitBehaviorOriginal.soul3;
-        UnitBehaviorCopy.description = UnitBehaviorOriginal.description;
-        UnitBehaviorCopy.Weapon = UnitBehaviorOriginal.Weapon;
-        UnitBehaviorCopy.Accesory = UnitBehaviorOriginal.Accesory;
+        System.Type type = original.GetType();
+        Component copy;
+        switch (ClassId)
+        {
+            case (101): copy = destination.AddComponent<Espadachim>(); break;
+            case (102): copy = destination.AddComponent<Guerreiro>(); break;
+            case (103): copy = destination.AddComponent<Soldado>(); break;
+            case (104): copy = destination.AddComponent<Feitiçeiro>(); break;
+            case (105): copy = destination.AddComponent<Místico>(); break;
+            case (106): copy = destination.AddComponent<Arqueiro>(); break;
+            case (107): copy = destination.AddComponent<Prisioneiro>(); break;
+
+            default:
+                 copy = destination.AddComponent(type);
+                break;
+        }
+        System.Reflection.FieldInfo[] fields = type.GetFields();
+        foreach (System.Reflection.FieldInfo field in fields)
+        {
+            field.SetValue(copy, field.GetValue(original));
+        }
+        Destroy(original);
+        return copy as T;
     }
-    public void Sleep()
+        public void Sleep()
     {
         if (storyBattle == true)
         {

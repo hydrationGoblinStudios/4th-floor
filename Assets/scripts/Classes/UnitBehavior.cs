@@ -9,8 +9,6 @@ public class UnitBehavior : MonoBehaviour
     public int classId;
     public Item Weapon;
     public Item Accesory;
-    public UnitBehavior playerBehavior;
-    public UnitBehavior enemyBehavior;
     public BattleManager battleManager;
     public bool enemy;
     public GameObject battleManagerOBJ;
@@ -83,8 +81,6 @@ public class UnitBehavior : MonoBehaviour
     public UnitData unitData;
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
-         playerBehavior = GetComponent<UnitBehavior>();
-        enemyBehavior = GetComponent<UnitBehavior>();
         Weapon.holder = this;
         battleTextObj = GameObject.FindGameObjectWithTag("Battle Text");
         battleText = battleTextObj.GetComponent<TextMeshPro>();

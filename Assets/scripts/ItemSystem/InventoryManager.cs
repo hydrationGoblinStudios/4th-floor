@@ -42,7 +42,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<GameObject> DragAndDroppables;
 
-
+    public GameObject ClassChangeObject;
     [Header("Hover Object")]
     public TextMeshPro[] texts;
     public GameObject hoverObject;
@@ -62,6 +62,12 @@ public class InventoryManager : MonoBehaviour
             gameObject.SetActive(!gameObject.activeInHierarchy);
             calendario.SetActive(!calendario.activeInHierarchy);
         }
+    }
+    public void ToggleClassChange()
+    {
+        ClassChangeObject.SetActive(!ClassChangeObject.activeInHierarchy);
+        gameObject.SetActive(!gameObject.activeInHierarchy);
+        UpdateUITop();
     }
     public void Equip(Item item)
     {if(item.type == Item.Type.weapon)
