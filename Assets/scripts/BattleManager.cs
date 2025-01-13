@@ -265,9 +265,22 @@ public class BattleManager : MonoBehaviour
             sl.maxValue = enemyTeam[c].maxhp;
             c++;
         }
+        c=0;
+        foreach (Slider sl in PlayerSoulBar)
+        {
+            sl.maxValue = playerTeam[c].maxsoul;
+                c++;
+        }
+        c = 0;
+        foreach (Slider sl in EnemySoulBar)
+        {
+            sl.maxValue = enemyTeam[c].maxsoul;
+            c++;
+        }
         playerstats.text = $"dmg:{Pdamage} \nhit: {Phit} \ncrit:{Pcrit}";
         enemystats.text = $"dmg:{Edamage} \nhit: {Ehit} \ncrit:{Ecrit}";
     }
+    //manuzeia as barras de hp, alma e turno
     void HudUpdate()
     {
         int c = 0;
@@ -288,21 +301,26 @@ public class BattleManager : MonoBehaviour
         foreach (Slider sl in PlayerSoulBar)
         {
             sl.value = playerTeam[c].soul;
+            c++;
+
         }
         c = 0;
         foreach (Slider sl in EnemySoulBar)
         {
-            sl.value = enemyTeam[c].soul;
+            sl.value = enemyTeam[c].soul; c++;
+
         }
         c = 0;
         foreach (Slider sl in PlayerActionBar)
         {
             sl.value = PlayerBars[c];
+            c++;
+
         }
         c = 0;
         foreach (Slider sl in EnemyActionBar)
         {
-            sl.value = EnemyBars[c];
+            sl.value = EnemyBars[c]; c++;
         }
     }
     void SetHp()
