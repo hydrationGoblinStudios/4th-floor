@@ -155,6 +155,7 @@ public class SkillManager : MonoBehaviour
                 {
                     user.hp -= user.power;
                     PostHealthChange(skillName,user, target, team, enemyTeam);
+                    user.battleManager.HudUpdate();
                 }
                 return 0;
 
@@ -202,6 +203,7 @@ public class SkillManager : MonoBehaviour
                 }
 
                 PostHealthChange(skillName, user, target, team, enemyTeam);
+                user.battleManager.HudUpdate();
 
                 return 0;
 
@@ -301,6 +303,7 @@ public class SkillManager : MonoBehaviour
     //inicio da batalha
     public int MatchStartProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
+
         switch (skillName)
         {
             case "Encantamento":
@@ -653,18 +656,19 @@ public class SkillManager : MonoBehaviour
     {
         switch (SoulName)
         {
+            //mudar pro multiplicador quando implementado
             case "Golpe Triplo":
                 int expectedDamage = user.power - target.defenses[user.Weapon.damageType];
                 if (expectedDamage <= 0)
                 {
                     expectedDamage = 1;
                 }
-                user.power -= expectedDamage;
+                user.power -= expectedDamage/2;
                 StartCoroutine(user.battleManager.ExtraAttack(user, target));
                 StartCoroutine(user.battleManager.ExtraAttack(user, target));
-                user.power += expectedDamage;
+                user.power += expectedDamage/2;
 
-                return -expectedDamage;
+                return 0;
 
             case "Golpe Focado":
 
@@ -679,16 +683,6 @@ public class SkillManager : MonoBehaviour
 
                 return user.power / 2;
 
-
-            case "Rajada de Flechas":
-
-                user.power -= (int)(user.power * 0.4);
-                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0]));
-                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1]));
-                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2]));
-                user.power += (int)(user.power * 0.4);
-
-                return 0;
 
             case "Trovoada":
 
@@ -842,7 +836,7 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             default: return 0;
-        }
+        } 
     }
     IEnumerator Foco(UnitBehavior user)
     {
@@ -958,12 +952,16 @@ public class SkillManager : MonoBehaviour
                 {
 
                     user.hp += (int)(user.maxhp * 0.3);
+                    PostHealthChange(SoulName, user, target, team, enemyTeam);
+                    user.battleManager.HudUpdate();
+
                 }
 
                 break;
 
 
                 //Golpe poderoso tem q estar que porque o hit precisa voltar para o usuario depois
+
             case "Golpe Poderoso":
 
                 Debug.Log("Golpe Poderosado");
@@ -977,6 +975,18 @@ public class SkillManager : MonoBehaviour
                 user.power = -GolpePoderosoPower;
                 Debug.Log(user.power + "poder");
                 Debug.Log(user.hit + "hit");
+
+                break;
+
+                //Mesma coisa do Golpe Poderoso
+
+            case "Rajada de Flechas":
+
+                user.power -= (int)(user.power * 0.4);
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0]));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1]));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2]));
+                user.power += (int)(user.power * 0.4);
 
                 break;
 

@@ -80,7 +80,7 @@ MonoBehaviour:
   - "Persist\xEAncia"
   skillInventory:
   - "Persist\xEAncia"
-  equipedSoul: Poder Oculto
+  equipedSoul: Ataque Inspirador
   equippedSoulIsAttack: 1
   soulInventory:
   - Poder Oculto

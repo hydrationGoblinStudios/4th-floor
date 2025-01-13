@@ -82,7 +82,7 @@ MonoBehaviour:
   skillInventory:
   - Dano Ascendente
   - Foco
-  equipedSoul: Tiro certeiro
+  equipedSoul: Golpe Triplo
   equippedSoulIsAttack: 1
   soulInventory:
   - Tiro certeiro

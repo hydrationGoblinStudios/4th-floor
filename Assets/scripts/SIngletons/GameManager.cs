@@ -424,7 +424,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         {
             //espadachin
             case ("Golpe Triplo"):
-                unit.maxsoul = 90;
+                unit.maxsoul = 70;
                 break;
             case ("Golpe Focado"):
                 unit.maxsoul = 100;
@@ -438,7 +438,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 break;
             //Guerreiro
             case ("Golpe Poderoso"):
-                unit.maxsoul = 80;
+                unit.maxsoul = 100;
                 break;
             case ("Revigoramento"):
                 unit.maxsoul = 100;

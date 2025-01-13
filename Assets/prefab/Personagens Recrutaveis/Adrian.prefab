@@ -82,7 +82,7 @@ MonoBehaviour:
   skillInventory:
   - "Presen\xE7a Inabal\xE1vel"
   - "Lutador Vers\xE1til"
-  equipedSoul: Golpe Poderoso
+  equipedSoul: Revigoramento
   equippedSoulIsAttack: 0
   soulInventory:
   - Golpe Poderoso
