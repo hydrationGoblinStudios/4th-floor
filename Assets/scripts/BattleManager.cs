@@ -281,7 +281,7 @@ public class BattleManager : MonoBehaviour
         enemystats.text = $"dmg:{Edamage} \nhit: {Ehit} \ncrit:{Ecrit}";
     }
     //manuzeia as barras de hp, alma e turno
-    void HudUpdate()
+    public void HudUpdate()
     {
         int c = 0;
         foreach (Slider sl in playerHpSlider)
