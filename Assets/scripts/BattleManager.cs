@@ -702,6 +702,10 @@ public class BattleManager : MonoBehaviour
     public void AttackSetup(UnitBehavior Attacker, UnitBehavior Target)
     {     
         Phit = (int)(Attacker.Weapon.hit + (Attacker.dex *3) + Attacker.luck + Attacker.hit - (Target.speed * 2) - Target.luck -Target.avoid);
+        if (Phit < 30)
+        {
+            Phit = 30;
+        }
     }
 
     public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
@@ -826,6 +830,7 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam, float DamageMultiplier = 1)
     {
+        AttackSetup(attacker, Target);
         attacker.SkillManager.currentDamageBonus = 0;
         Debug.Log("extra attack");
         foreach (string skill in EAskillsInUse)
@@ -909,7 +914,6 @@ public class BattleManager : MonoBehaviour
     {
         Pdamage = playerBehavior.str - enemyBehavior.def;
         if (Pdamage < 1) { Pdamage = 1; }
-        Phit = (playerBehavior.hit - enemyBehavior.avoid) + (playerBehavior.dex * 3) - (enemyBehavior.dex * 2) + enemyBehavior.luck;
 
         Pcrit = playerBehavior.crit + playerBehavior.dex - enemyBehavior.luck;
         if (Pcrit < 0) { Pcrit = 0; }
@@ -917,16 +921,7 @@ public class BattleManager : MonoBehaviour
         if (playerBehavior.Weapon != null)
         {
             Pdamage += playerBehavior.Weapon.str;
-            Phit += playerBehavior.Weapon.hit;
             Pcrit += playerBehavior.Weapon.crit;
-        }
-        if (Phit < 30)
-        {
-            Phit = 30;
-        }
-        if (Phit > 100)
-        {
-            Phit = 100;
         }
         Edamage = enemyBehavior.str - playerBehavior.def;
         if (Edamage < 1) { Edamage = 1; }
