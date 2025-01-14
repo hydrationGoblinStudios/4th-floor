@@ -503,7 +503,7 @@ public class BattleManager : MonoBehaviour
             state = BattleState.Wait;
         }
     }
-    public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target)
+    public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1)
     {
         List<UnitBehavior> attackerTeam;
         List<UnitBehavior> targetTeam;
@@ -547,7 +547,7 @@ public class BattleManager : MonoBehaviour
         }
         if (Random.Range(0, 101) <= Phit)
         {
-            StartCoroutine(ExtraAttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
+            StartCoroutine(ExtraAttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam, DamageMultiplier));
         }
         else
         {
@@ -822,7 +822,7 @@ public class BattleManager : MonoBehaviour
         }
 
     }
-    public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
+    public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam, float DamageMultiplier = 1)
     {
         attacker.SkillManager.currentDamageBonus = 0;
         Debug.Log("extra attack");
@@ -839,10 +839,10 @@ public class BattleManager : MonoBehaviour
         if (Random.Range(0, 101) <= Pcrit)
         {
             hitAudio[1].Play();
-            int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
+            int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2 * DamageMultiplier);
 
             Target.hp -= damageDone;
-            Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + (attackerDamage + attacker.SkillManager.currentDamageBonus) + " de dano\n"
+            Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + damageDone + " de dano\n"
         + attacker.UnitName + " base power: " + attacker.power + "\n"
         + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
         + Target.UnitName + " enemy defense: " + Target.def + "\n"
@@ -872,7 +872,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus);
+            int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * DamageMultiplier);
             hitAudio[0].Play();
             Target.hp -= damageDone;
             if (attacker.lifesteal >= 0.01)
@@ -880,7 +880,7 @@ public class BattleManager : MonoBehaviour
                 attacker.hp += damageDone * attacker.lifesteal;
             }
             battleText.text = $"{Target.UnitName} perdeu {damageDone} hp";
-            Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + (attackerDamage + attacker.SkillManager.currentDamageBonus) + " de dano\n"
+            Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + damageDone + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
                     + Target.UnitName + " enemy defense: " + Target.def + "\n"

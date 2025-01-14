@@ -658,15 +658,8 @@ public class SkillManager : MonoBehaviour
         {
             //mudar pro multiplicador quando implementado
             case "Golpe Triplo":
-                int expectedDamage = user.power - target.defenses[user.Weapon.damageType];
-                if (expectedDamage <= 0)
-                {
-                    expectedDamage = 1;
-                }
-                user.power -= expectedDamage/2;
-                StartCoroutine(user.battleManager.ExtraAttack(user, target));
-                StartCoroutine(user.battleManager.ExtraAttack(user, target));
-                user.power += expectedDamage/2;
+                StartCoroutine(user.battleManager.ExtraAttack(user, target,(float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
 
                 return 0;
 
@@ -966,13 +959,10 @@ public class SkillManager : MonoBehaviour
 
                 Debug.Log("Golpe Poderosado");
                 user.hit -= 25;
-                GolpePoderosoPower = user.power;
-                user.power += user.power;
                 Debug.Log(user.power + "poder");
                 Debug.Log(user.hit + "hit");
-                StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target,2));
                 user.hit += 25;
-                user.power = -GolpePoderosoPower;
                 Debug.Log(user.power + "poder");
                 Debug.Log(user.hit + "hit");
 
@@ -982,12 +972,9 @@ public class SkillManager : MonoBehaviour
 
             case "Rajada de Flechas":
 
-                user.power -= (int)(user.power * 0.4);
-                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0]));
-                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1]));
-                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2]));
-                user.power += (int)(user.power * 0.4);
-
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0], (float)0.6));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1], (float)0.6));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2], (float)0.6));
                 break;
 
             case "Fortalecimento":
