@@ -67,6 +67,7 @@ public class InventoryManager : MonoBehaviour
     {
         ClassChangeObject.SetActive(!ClassChangeObject.activeInHierarchy);
         gameObject.SetActive(!gameObject.activeInHierarchy);
+        ClassChangeObject.GetComponent<ClassChangeManager>().AllowChanges();
         UpdateUITop();
     }
     public void Equip(Item item)

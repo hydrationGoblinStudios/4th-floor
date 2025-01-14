@@ -1,8 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.Experimental;
 
 public class UnitBehavior : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class UnitBehavior : MonoBehaviour
     public List<int> ClassID;
     public int[] ClassLevel;
     public Dictionary<int, int> ClassLearning = new();
+    public SeriazableDictionary ClassLearningSerializable;
     public int hit;
     public int avoid;
     public int crit;
@@ -87,15 +88,16 @@ public class UnitBehavior : MonoBehaviour
         battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");
         Pendure = false;
         Eendure = false;
-        defenses = new int[2]; defenses[0] = def;defenses[1] = mdef;
+        defenses = new int[2]; defenses[0] = def; defenses[1] = mdef;
         if (battleManagerOBJ != null)
         {
             battleManager = battleManagerOBJ.GetComponent<BattleManager>();
         }
         if (enemy)
         {
-            gameObject.transform.localScale = new Vector3(-1,1,1);
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
+        ClassLearning = ClassLearningSerializable.ToDictionary();
     }
     public virtual int Soul(int damage)
     {
@@ -107,4 +109,30 @@ public class UnitBehavior : MonoBehaviour
         Debug.Log("skill proc");
         return 0;
     }
+    [Serializable]
+    public class SeriazableDictionary
+    {
+        [SerializeField]
+        SeriazableDictionaryItem[] thisSeriazableDictionaryItem;
+        [SerializeField]
+        public Dictionary<int,int> ToDictionary()
+        {
+            Dictionary<int,int> dict = new Dictionary<int,int>();
+
+            foreach(var item in thisSeriazableDictionaryItem)
+            {
+                dict.Add(item.key, item.value);
+            }
+            return dict;
+        }
+    }
+    [Serializable]
+    public class SeriazableDictionaryItem
+    {
+        [SerializeField]
+        public int key;
+        [SerializeField]
+        public int value;
+    }
+
 }

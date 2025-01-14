@@ -4219,7 +4219,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 241464880}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -10706,6 +10706,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 1298834386}
+  ClassChangeManagerButtons:
+  - {fileID: 1961125934}
+  - {fileID: 1270340840}
+  - {fileID: 1909111521}
+  - {fileID: 720537471}
+  - {fileID: 436651460}
+  - {fileID: 1157617439}
+  - {fileID: 662668187}
+  ClassChangeManagerSprites:
+  - {fileID: 397234267}
+  - {fileID: 337784582}
+  - {fileID: 2096424883}
+  - {fileID: 1198292870}
+  - {fileID: 1162291109}
+  - {fileID: 1878063556}
+  - {fileID: 1551694845}
+  GameManagerOBJ: {fileID: 0}
+  Manager: {fileID: 0}
 --- !u!1 &779761037
 GameObject:
   m_ObjectHideFlags: 0
