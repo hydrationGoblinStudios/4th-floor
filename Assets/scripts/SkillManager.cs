@@ -55,7 +55,7 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed2;
     private int Ataqueinspiradorspeed3;
     private int poçãodeforçastacks;
-    private int GolpePoderosoPower;
+    
 
     public int currentDamageBonus;
 
@@ -656,13 +656,7 @@ public class SkillManager : MonoBehaviour
     {
         switch (SoulName)
         {
-            //mudar pro multiplicador quando implementado
-            case "Golpe Triplo":
-                StartCoroutine(user.battleManager.ExtraAttack(user, target,(float)0.5));
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
-
-                return 0;
-
+           
             case "Golpe Focado":
 
                 //if attack = Crit {user.hp += user.power/5}
@@ -679,7 +673,7 @@ public class SkillManager : MonoBehaviour
 
             case "Trovoada":
 
-                return (int)(target.maxhp * 0.3) - power;
+                return (int)(target.maxhp * 0.25) - power;
 
             case "Disparo de Gelo":
 
@@ -975,6 +969,14 @@ public class SkillManager : MonoBehaviour
                 StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0], (float)0.6));
                 StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1], (float)0.6));
                 StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2], (float)0.6));
+                break;
+
+            case "Golpe Triplo":
+
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+
                 break;
 
             case "Fortalecimento":

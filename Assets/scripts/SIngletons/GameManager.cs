@@ -445,31 +445,34 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 break;
             //soldado
             case ("Golpe Atordoante"):
-                unit.maxsoul = 105;
+                unit.maxsoul = 110;
                 break;
             case ("Fortificar"):
                 unit.maxsoul = 110;
                 break;
             //Feiticeiro
             case ("Bola de Fogo"):
-                unit.maxsoul = 90;
+                unit.maxsoul = 70;
                 break;
             case ("Trovoada"):
-                unit.maxsoul = 110;
+                unit.maxsoul = 100;
+                break;
+            case ("Disparo de Gelo"):
+                unit.maxsoul = 80;
                 break;
             //mistico
             case ("Restauração Espiritual"):
                 unit.maxsoul = 110;
                 break;
             case ("Benção dos ventos"):
-                unit.maxsoul = 100;
+                unit.maxsoul = 115;
                 break;
             //Prisioneiro
             case ("Poder Oculto"):
                 unit.maxsoul = 100;
                 break;
             case ("Ataque Inspirador"):
-                unit.maxsoul = 120;
+                unit.maxsoul = 130;
                 break;
             default: unit.maxsoul = 100; break;
         }
