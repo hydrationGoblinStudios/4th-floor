@@ -644,6 +644,8 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (RealCharacter.currentExp >= 100) { LevelUp(RealCharacter); }
         gameManager.storyBattle = false;
+        gameManager.teamPostPreBattle.Clear();
+        gameManager.enemyTeamPostPreBattle.Clear();
         gameManager.PrepScreen();
     }
     //randomiza growths
@@ -743,7 +745,7 @@ public class BattleManager : MonoBehaviour
             + "\nPskill dps de target soul proc" + PskillPostTargetPostHealthChange);
         HudUpdate();
         yield return new WaitForSeconds(1);
-        if (Random.Range(0, 101) <= Pcrit)
+        if (Random.Range(0, 101) <= (int)(attacker.dex / 2) + attacker.Weapon.crit)
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
 
@@ -764,7 +766,7 @@ public class BattleManager : MonoBehaviour
             battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
             yield return new WaitForSeconds(1);
             battleText.text = $"{Target.UnitName} perdeu {damageDone} hp";
-            Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
+            Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power +"\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
                     + Target.UnitName + " enemy defense: " + Target.def + "\n"
@@ -842,7 +844,7 @@ public class BattleManager : MonoBehaviour
             int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2 * DamageMultiplier);
 
             Target.hp -= damageDone;
-            Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + damageDone + " de dano\n"
+            Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + damageDone + " de dano\n"
         + attacker.UnitName + " base power: " + attacker.power + "\n"
         + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
         + Target.UnitName + " enemy defense: " + Target.def + "\n"
