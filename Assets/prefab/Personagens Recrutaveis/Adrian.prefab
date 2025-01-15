@@ -54,7 +54,7 @@ MonoBehaviour:
   fortalecerStat: 0
   currentLearnigClassID: 0
   UnitName: Adrian
-  currentLevel: 0
+  currentLevel: 1
   expmarkplier: 1
   currentRank: 0
   currentExp: 0

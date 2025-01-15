@@ -42,5 +42,6 @@ public class GMButtonAssigner : MonoBehaviour
         MT.activatable = !MT.activatable;
         GameObject ab = GameObject.FindGameObjectWithTag("Activity Board");
         ab.transform.GetChild(0).gameObject.SetActive(true);
+        ab.GetComponentInChildren<ActivityBoardUserInterface>().Mugshot();
     }
 }

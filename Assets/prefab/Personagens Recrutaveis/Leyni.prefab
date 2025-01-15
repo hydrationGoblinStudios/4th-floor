@@ -54,12 +54,14 @@ MonoBehaviour:
   fortalecerStat: 0
   currentLearnigClassID: 0
   UnitName: Leyni
-  currentLevel: 0
+  currentLevel: 1
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
   ClassID: 65000000
   ClassLevel: 
+  ClassLearningSerializable:
+    thisSeriazableDictionaryItem: []
   hit: 0
   avoid: 0
   crit: 0

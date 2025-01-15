@@ -18901,6 +18901,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 50927d516a3dd0140869cd161961295b, type: 3}
   - {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
   - {fileID: 21300000, guid: 1eda2b6e0145e8e4494f041916935dfb, type: 3}
+  - {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
   UITopName: {fileID: 183759800}
   LvlText: {fileID: 139232834}
   expbar: {fileID: 305537232}
@@ -21281,11 +21282,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
   activityTexts:
   - {fileID: 1355946892}
   - {fileID: 140462962}
   - {fileID: 449719667}
   - {fileID: 932634263}
+  mugshots:
+  - {fileID: 1263123644}
+  - {fileID: 291036966}
+  - {fileID: 1583605009}
+  - {fileID: 2018891765}
 --- !u!1 &1532814607
 GameObject:
   m_ObjectHideFlags: 0
