@@ -22,7 +22,9 @@ public class InventoryManager : MonoBehaviour
     public Sprite[] sprites;
     public Sprite[] skillIcons;
     public GameObject[] skillIconsObjects;
+    public GameObject soulIconObject;
     public List<TextMeshProUGUI> skillNames;
+    public TextMeshProUGUI soulName;
     public TextMeshProUGUI[] statTexts;
     public TextMeshProUGUI equipText;
     public TextMeshProUGUI accesoryText;
@@ -98,6 +100,7 @@ public class InventoryManager : MonoBehaviour
         selectedUnit.equipedSoul = soulName;
         //valor de alma maxima
         SoulPrice(soulName);
+        soulIconObject.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == soulName).SingleOrDefault();
         Select(selectedUnit);
     }
     public void InstantiateKeyItem(GameObject button, Item item)
@@ -133,6 +136,7 @@ public class InventoryManager : MonoBehaviour
         }
         int c = 0;
         UpdateSkillName();
+        UpdateSoulName();
         SoulPrice(selectedUnit.equipedSoul);
         foreach(GameObject go in skillIconsObjects)
         {
@@ -141,6 +145,18 @@ public class InventoryManager : MonoBehaviour
         }
         DisplayItemList(Manager.Inventory);
         UpdateUITop();
+        soulIconObject.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.equipedSoul).SingleOrDefault();
+        while (selectedUnit.skills.Count <= 4)
+        {
+            selectedUnit.skills.Add("");
+        }
+        skillIconsObjects[0].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[0]).SingleOrDefault();
+        skillIconsObjects[1].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[1]).SingleOrDefault();
+        skillIconsObjects[2].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[2]).SingleOrDefault();
+        skillIconsObjects[3].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[3]).SingleOrDefault();
+
+
+
     }
     public void UpdateInventory()
     {
@@ -284,6 +300,21 @@ public class InventoryManager : MonoBehaviour
             SkillButton.GetComponentInChildren<Image>().sprite = skillIcons.Where(obj => obj.name == skill).SingleOrDefault();
         }
     }
+    public void DisplaySoulList()
+    {
+        selectedUnit.soulInventory.Sort();
+        while (panel.transform.childCount > 0)
+        {
+            DestroyImmediate(panel.transform.GetChild(0).gameObject);
+        }
+        foreach (string soul in selectedUnit.soulInventory)
+        {
+            GameObject SkillButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
+            SkillButton.GetComponent<Button>().onClick.AddListener(() => EquipSoul(soul));
+            SkillButton.GetComponentInChildren<TextMeshProUGUI>().text = soul;
+            SkillButton.GetComponentInChildren<Image>().sprite = skillIcons.Where(obj => obj.name == soul).SingleOrDefault();
+        }
+    }
     public void UpdateSkillName()
     {
         while (selectedUnit.skills.Count <= 4)
@@ -304,6 +335,15 @@ public class InventoryManager : MonoBehaviour
                 tmpugui.text = "vazio";
             }
             c++;
+        }
+    }
+    public void UpdateSoulName()
+    {
+        if (soulName.GetComponentInParent<InventoryHoverable>() != null)
+        {
+            soulName.text = selectedUnit.equipedSoul;
+            soulName.GetComponentInParent<InventoryHoverable>().hoverName = selectedUnit.equipedSoul;
+            soulName.GetComponentInParent<InventoryHoverable>().description = Description(selectedUnit.equipedSoul);
         }
     }
     public void DisplaySwordList()
