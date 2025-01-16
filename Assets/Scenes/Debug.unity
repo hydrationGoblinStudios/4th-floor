@@ -2947,6 +2947,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManagerOBJ: {fileID: 0}
+  SceneInteractable: {fileID: 0}
+  calendario: {fileID: 0}
   Manager: {fileID: 0}
   panel: {fileID: 1484248603}
   charSelectPanel: {fileID: 585619771}
@@ -2962,9 +2964,30 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 288c98e4a140c0a4182bacdfc3350730, type: 3}
   - {fileID: 21300000, guid: a13cb5cc82dce85468dd06f2fbd3a2cb, type: 3}
   - {fileID: 21300000, guid: d98786fa8f3fdf94cb3c2a81436911a0, type: 3}
-  statText: {fileID: 570787878}
+  skillIcons: []
+  skillIconsObjects: []
+  soulIconObject: {fileID: 0}
+  skillNames: []
+  soulName: {fileID: 0}
+  statTexts: []
   equipText: {fileID: 1151621540}
   accesoryText: {fileID: 1745816503}
+  nodeParser: {fileID: 0}
+  Activatable: 0
+  MugShot: {fileID: 0}
+  playableMugShots: []
+  UITopName: {fileID: 0}
+  LvlText: {fileID: 0}
+  expbar: {fileID: 0}
+  ClassIcon: {fileID: 0}
+  WeaponImage: {fileID: 0}
+  AccesoryImage: {fileID: 0}
+  EquipableImages: []
+  DragAndDroppables: []
+  ClassChangeObject: {fileID: 0}
+  texts: []
+  hoverObject: {fileID: 0}
+  HoverOn: 0
 --- !u!114 &636512346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3403,6 +3426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPress: -1
   graph: {fileID: 11400000, guid: 0058b55b9013b7140b82210003024fde, type: 2}
+  hoverGraph: {fileID: 0}
   speaker: {fileID: 462716584}
   dialogue: {fileID: 1458893837}
   speakerImage: {fileID: 165249789}
@@ -6212,6 +6236,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842352582}
   m_CullTransparentMesh: 1
+--- !u!1 &1930889931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1930889933}
+  - component: {fileID: 1930889932}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1930889932
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930889931}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c65dea36672ead849a9375da048b6d21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &1930889933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930889931}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.870075, y: -1.296321, z: -0.5103787}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2061120567
 GameObject:
   m_ObjectHideFlags: 0
@@ -6768,3 +6845,4 @@ SceneRoots:
   - {fileID: 947477113}
   - {fileID: 1335591164}
   - {fileID: 88418386}
+  - {fileID: 1930889933}

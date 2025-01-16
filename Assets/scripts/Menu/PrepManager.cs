@@ -16,7 +16,12 @@ public class PrepManager : MonoBehaviour
     }
     public void Scene(string sceneName)
     {
+        if(SceneManager.GetActiveScene().name != sceneName)
+        {
         SceneManager.LoadScene(sceneName);
+        InventoryManager IM = FindObjectOfType<InventoryManager>(true);
+        IM.Activatable = !IM.Activatable;
+        }
     }
     public void MapToggle(GameObject mapObject)
     {
