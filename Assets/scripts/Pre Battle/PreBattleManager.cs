@@ -293,6 +293,7 @@ public class PreBattleManager : MonoBehaviour
             selectedUnit.str += (int) (selectedUnit.str * 0.15);
             energy--;
             energyText.text = energy.ToString();
+            Select(selectedUnit);
         }
     }
     public void AfiarEscudo()
@@ -302,6 +303,7 @@ public class PreBattleManager : MonoBehaviour
             selectedUnit.def += (int)(selectedUnit.def * 0.15);
             energy--;
             energyText.text = energy.ToString();
+            Select(selectedUnit);
         }
     }
     public void AfiarEsperto()
@@ -311,6 +313,7 @@ public class PreBattleManager : MonoBehaviour
             selectedUnit.mag += (int)(selectedUnit.mag * 0.15);
             energy--;
             energyText.text = energy.ToString();
+            Select(selectedUnit);
         }
     }
     public void ExportTeamToBattle()

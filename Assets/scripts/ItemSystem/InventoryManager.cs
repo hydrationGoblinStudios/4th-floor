@@ -84,6 +84,7 @@ public class InventoryManager : MonoBehaviour
             UpdateAccesory(item);
         }
         UpdateUITop();
+        Select(selectedUnit);
     }
     public void EquipSkill(string Skill, int SkillSlot)
     {

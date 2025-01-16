@@ -636,13 +636,25 @@ public class BattleManager : MonoBehaviour
         gameManager.money += 50;
         battleText.text = ("voce recebe 50 de ouro");
         yield return new WaitForSeconds(1);
-        int exp = (30 - 5 * (playerBehavior.currentLevel - enemyBehavior.currentLevel)* playerBehavior.expmarkplier);
-        if (exp <= 0) { exp = 1; }
-        UnitBehavior RealCharacter = gameManager.team[0].GetComponent<UnitBehavior>();
-        RealCharacter.currentExp += (exp * RealCharacter.expmarkplier) ;
-        battleText.text = ("voce recebe " + exp + " de experiencia");
+        int exp1 = (30 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))* playerBehavior.expmarkplier);
+        if (exp1 <= 0) { exp1 = 1; }
+        int exp2 = (30 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player2Behavior.expmarkplier);
+        if (exp2 <= 0) { exp2 = 1; }
+        int exp3 = (30 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player3Behavior.expmarkplier);
+        if (exp3 <= 0) { exp3 = 1; }
+        UnitBehavior RealCharacter1 = gameManager.team[0].GetComponent<UnitBehavior>();
+        UnitBehavior RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
+        UnitBehavior RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
+        RealCharacter1.currentExp += exp1;
+        RealCharacter2.currentExp += exp2;
+        RealCharacter3.currentExp += exp3;
+        battleText.text = ($"{playerBehavior.UnitName} recebe " + (exp1) + " de experiencia\n" +
+            $"{player2Behavior.UnitName} recebe " + (exp2) + " de experiencia\n" +
+            $"{player3Behavior.UnitName} recebe " + (exp3) + " de experiencia\n");
         yield return new WaitForSeconds(1);
-        if (RealCharacter.currentExp >= 100) { LevelUp(RealCharacter); }
+        if (RealCharacter1.currentExp >= 100) { LevelUp(RealCharacter1); }
+        if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); }
+        if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); }
         gameManager.storyBattle = false;
         gameManager.teamPostPreBattle.Clear();
         gameManager.enemyTeamPostPreBattle.Clear();
