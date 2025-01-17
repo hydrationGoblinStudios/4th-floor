@@ -273,13 +273,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             }
         }
     }
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            ClassChange(106);
-        }
-    }
     public void ClassChange( int ClassId)
     {
         GameObject Unit = SelectedUBClassChange;
