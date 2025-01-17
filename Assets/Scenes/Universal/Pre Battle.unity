@@ -4892,6 +4892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayInventory: 0
+  UIOccupied: 0
 --- !u!4 &802634866
 Transform:
   m_ObjectHideFlags: 0
@@ -7732,7 +7733,7 @@ Animator:
   m_GameObject: {fileID: 1107532814}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 348d989af4e2ad042b486ddfeda74cae, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2cd903378729a2d4d9e669d97ca78839, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9509,6 +9510,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icones:
   - {fileID: 21300000, guid: 1cd6cc7fdbb6573429a8ece3465a97e0, type: 3}
+  maxhp: 0
+  hp: 0
+  power: 0
+  str: 0
+  mag: 0
+  dex: 0
+  def: 0
+  mdef: 0
+  defenses: 
+  luck: 0
+  speed: 0
+  currentDamageBonus: 0
 --- !u!4 &1328268769
 Transform:
   m_ObjectHideFlags: 0
@@ -12404,7 +12417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animations:
-  - {fileID: 9100000, guid: 81127988e8bfa4c4aab5045dd82709d4, type: 2}
+  - {fileID: 9100000, guid: 2cd903378729a2d4d9e669d97ca78839, type: 2}
   - {fileID: 9100000, guid: a05e966f4c6697e4bb842d0fb3b4095d, type: 2}
   - {fileID: 9100000, guid: 6aa104f5c5fdb62419ed5af03a5b110a, type: 2}
   - {fileID: 9100000, guid: ad0167d1c4a6d7b498d207ceb43f75ef, type: 2}

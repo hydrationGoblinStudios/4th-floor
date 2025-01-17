@@ -5,35 +5,31 @@ using UnityEngine;
 public class AnimationManager : MonoBehaviour
 {
     public RuntimeAnimatorController[] Animations;
-    public Animator Panimator;
-    public Animator Eanimator;
-    public GameObject PanimatorOBJ;
-    public GameObject EanimatorOBJ;
+    public Animator[] animators;
     public BattleManager battleManager;
 
     public bool wait = true;
     void Start()
     {
-        PanimatorOBJ = GameObject.FindGameObjectWithTag("Psprite");
-        EanimatorOBJ = GameObject.FindGameObjectWithTag("Esprite");
-        Panimator = PanimatorOBJ.GetComponent<Animator>();
-        Eanimator = EanimatorOBJ.GetComponent<Animator>();
-        Panimator.runtimeAnimatorController = battleManager.playerBehavior.GetType().Name switch
+        SetClass(animators[0], battleManager.playerTeam[0]);
+        SetClass(animators[1], battleManager.playerTeam[1]);
+        SetClass(animators[2], battleManager.playerTeam[2]);
+        SetClass(animators[3], battleManager.enemyTeam[0]);
+        SetClass(animators[4], battleManager.enemyTeam[1]);
+        SetClass(animators[5], battleManager.enemyTeam[2]);
+    }
+    public void SetClass(Animator animator, UnitBehavior ub)
+    {
+        animator.runtimeAnimatorController = ub.classId switch
         {
-            "Prisioneiro" => Animations[4],
-            "Espadachim" => Animations[0],
-            "Guerreiro" => Animations[1],
-            "Soldado" => Animations[2],
-            "Arqueiro" => Animations[3],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            107 => Animations[6],
             _ => Animations[0],
-        };
-        Eanimator.runtimeAnimatorController = battleManager.enemyBehavior.GetType().Name switch
-        {
-            "Espadachim" => Animations[5],
-            "Guerreiro" => Animations[6],
-            "Soldado" => Animations[7],
-            "Arqueiro" => Animations[8],
-            _ => Animations[5],
         };
     }
 }

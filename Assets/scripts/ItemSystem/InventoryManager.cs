@@ -155,6 +155,7 @@ public class InventoryManager : MonoBehaviour
         skillIconsObjects[1].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[1]).SingleOrDefault();
         skillIconsObjects[2].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[2]).SingleOrDefault();
         skillIconsObjects[3].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[3]).SingleOrDefault();
+        Manager.SelectedUBClassChange = selectedUnit.gameObject;
     }
     public void UpdateInventory()
     {

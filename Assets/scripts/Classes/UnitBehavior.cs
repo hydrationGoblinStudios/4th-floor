@@ -59,6 +59,7 @@ public class UnitBehavior : MonoBehaviour
     public int position;
     [HideInInspector]
     public bool Pendure;
+    public Animator animator;
     [HideInInspector]
     public bool Eendure;
     public TextMeshPro battleText;

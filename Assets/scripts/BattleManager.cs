@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class BattleManager : MonoBehaviour
 {
     public AudioSource[] hitAudio;
-    public Animator animator;
+    public Animator[] animators;
     public UnitBehavior endure;
     public List<string> skillsInUse;
     public List<string> EAskillsInUse;
@@ -154,6 +154,12 @@ public class BattleManager : MonoBehaviour
         playerTeam[0].position = 1;
         playerTeam[1].position = 2;
         playerTeam[2].position = 3;
+        playerTeam[0].animator = animators[0];
+        playerTeam[1].animator = animators[1];
+        playerTeam[2].animator = animators[2];
+        enemyTeam[0].animator =animators[3];
+        enemyTeam[1].animator =animators[4];
+        enemyTeam[2].animator =animators[5];
         enemyTeam[0].position = 1;
         enemyTeam[1].position = 2;
         enemyTeam[2].position = 3;
@@ -429,6 +435,7 @@ public class BattleManager : MonoBehaviour
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
         AttackSetup(attacker, Target);
+        attacker.animator.SetTrigger("UnitAdvance");
         List<UnitBehavior> attackerTeam;
         List<UnitBehavior> targetTeam;
         if (attacker.enemy)
@@ -490,10 +497,15 @@ public class BattleManager : MonoBehaviour
         }
         else       
         {
+            Target.animator.SetTrigger("UnitDodge");
             battleText.text = (attacker.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
         //inimigo morre
+        if(Target.hp <= 0)
+        {
+            Target.animator.SetTrigger("UnitDie");
+        }
         if (enemyTeam[0].hp <= 0 && enemyTeam[1].hp <= 0 && enemyTeam[2].hp <= 0)
         {
             StartCoroutine(PlayerWin());
@@ -565,69 +577,6 @@ public class BattleManager : MonoBehaviour
             state = BattleState.Wait;
         }
     }
-   /* public virtual IEnumerator PlayerExtraAttack(string texto)
-    {
-        battleText.text = texto;
-        yield return new WaitForSeconds((float)3.01);
-        state = BattleState.PlayerTurn;
-        if (Random.Range(0, 101) <= Pcrit)
-        {
-            hitAudio[1].Play();
-            enemyBehavior.hp -= (Pdamage + Pskill) * 2;
-            battleText.text = $"{playerBehavior.UnitName} causa um acerto critico!!!";
-            yield return new WaitForSeconds(1);
-            battleText.text = $"{enemyBehavior.UnitName} perdeu {(Pskill + Pdamage) * 2} hp";
-            enemyHpSlider.value = enemyBehavior.hp;
-        }
-        else
-        {
-            hitAudio[0].Play();
-            enemyBehavior.hp -= Pskill + Pdamage;
-            battleText.text = $"{enemyBehavior.UnitName} perdeu {Pdamage + Pskill} hp";
-            enemyHpSlider.value = enemyBehavior.hp;
-        }
-        HudUpdate();
-        yield return new WaitForSeconds(1f);
-        if (enemyBehavior.hp <= 0 && enemyBehavior.Eendure == false)
-        {
-            StartCoroutine(PlayerWin());
-        }
-        else
-        {
-            state = BattleState.Wait;
-        }
-    }
-    public virtual IEnumerator EnemyExtraAttack(string texto)
-    {
-        battleText.text = texto;
-        yield return new WaitForSeconds((float)3.01);
-        state = BattleState.EnemyTurn;
-        if (Random.Range(0, 101) <= Ecrit)
-        {
-            playerBehavior.hp -= (Edamage + Eskill) * 2;
-            battleText.text = $"{enemyBehavior.UnitName} causa um acerto critico!!!";
-            yield return new WaitForSeconds(1);
-            battleText.text = $"{playerBehavior.UnitName} perdeu {(Eskill + Edamage) * 2} hp";
-            playerHpSlider.value = playerBehavior.hp;
-        }
-        else
-        {
-            playerBehavior.hp -= Eskill + Edamage;
-            battleText.text = $"{playerBehavior.UnitName} perdeu {Edamage + Eskill} hp";
-            playerHpSlider.value = playerBehavior.hp;
-        }
-        HudUpdate();
-        yield return new WaitForSeconds(1f);
-        if (enemyBehavior.hp <= 0 && enemyBehavior.Eendure == false)
-        {
-            gameManager.PrepScreen();
-        }
-        else
-        {
-            state = BattleState.Wait;
-        }
-    }*/
-    //rpha por favor muda esse codigo para individualmente para os 3 personagens
     public IEnumerator PlayerWin()
     {
         battleText.text = (playerBehavior.UnitName + " ganhou");
@@ -648,7 +597,7 @@ public class BattleManager : MonoBehaviour
         RealCharacter1.currentExp += exp1;
         RealCharacter2.currentExp += exp2;
         RealCharacter3.currentExp += exp3;
-        battleText.text = ($"{playerBehavior.UnitName} recebe " + (exp1) + " de experiencia\n" +
+        battleText.text = ($"{playerBehavior.UnitName} recebe " + (exp1) + " de experiencia " +
             $"{player2Behavior.UnitName} recebe " + (exp2) + " de experiencia\n" +
             $"{player3Behavior.UnitName} recebe " + (exp3) + " de experiencia\n");
         yield return new WaitForSeconds(1);
