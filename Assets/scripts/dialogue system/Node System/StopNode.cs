@@ -5,9 +5,16 @@ using XNode;
 
 public class StopNode : BaseNode 
 {
-	[Input] public int entry;
+    public SpriteRenderer spriteRenderer;
+    [Input] public int entry;
     public override string GetString()
     {
+        GameObject go = GameObject.Find("Dialogue Sprite");
+        if (go != null)
+        {
+        spriteRenderer = go.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = null;
+        }
         return "Stop";
     }
 }

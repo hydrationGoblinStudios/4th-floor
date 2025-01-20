@@ -118,29 +118,35 @@ public class PreBattleManager : MonoBehaviour
                 Debug.Log(SelectedPlayer1.GetComponent<UnitBehavior>().name);
                 playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
                 {
-                     107 => Animations[4],
+                     107 => Animations[6],
                      101 => Animations[0],
                      102=> Animations[1],
                      103=> Animations[2],
                      104 => Animations[3],
-                    _ => Animations[0],
+                     105 =>  Animations[4],
+                     106 => Animations[5],
+                    _ => Animations[1],
                 };
                 playerAnimations[1].runtimeAnimatorController = SelectedPlayer2.GetComponent<UnitBehavior>().classId switch
                 {
-                    107 => Animations[4],
+                    107 => Animations[6],
                     101 => Animations[0],
                     102 => Animations[1],
                     103 => Animations[2],
                     104 => Animations[3],
-                    _ => Animations[0],
+                    105 => Animations[4],
+                    106 => Animations[5],
+                    _ => Animations[1],
                 }; playerAnimations[2].runtimeAnimatorController = SelectedPlayer3.GetComponent<UnitBehavior>().classId switch
                 {
-                    107 => Animations[4],
+                    107 => Animations[6],
                     101 => Animations[0],
                     102 => Animations[1],
                     103 => Animations[2],
                     104 => Animations[3],
-                    _ => Animations[0],
+                    105 => Animations[4],
+                    106 => Animations[5],
+                    _ => Animations[1],
                 };
             }
             
@@ -168,29 +174,35 @@ public class PreBattleManager : MonoBehaviour
             }
             enemyAnimations[0].runtimeAnimatorController = SelectedEnemy1.GetComponent<UnitBehavior>().classId switch
             {
-                107 => Animations[0],
-                101 => Animations[5],
-                102 => Animations[6],
-                103 => Animations[7],
-                104 => Animations[8],
-                _ => Animations[5],
+                107 => Animations[6],
+                101 => Animations[0],
+                102 => Animations[1],
+                103 => Animations[2],
+                104 => Animations[3],
+                105 => Animations[4],
+                106 => Animations[5],
+                _ => Animations[1],
             };
             enemyAnimations[1].runtimeAnimatorController = SelectedEnemy2.GetComponent<UnitBehavior>().classId switch
             {
-                107 => Animations[4],
-                101 => Animations[5],
-                102 => Animations[6],
-                103 => Animations[7],
-                104 => Animations[8],
-                _ => Animations[5],
+                107 => Animations[6],
+                101 => Animations[0],
+                102 => Animations[1],
+                103 => Animations[2],
+                104 => Animations[3],
+                105 => Animations[4],
+                106 => Animations[5],
+                _ => Animations[1],
             }; enemyAnimations[2].runtimeAnimatorController = SelectedEnemy3.GetComponent<UnitBehavior>().classId switch
             {
-                107 => Animations[4],
-                101 => Animations[5],
-                102 => Animations[6],
-                103 => Animations[7],
-                104 => Animations[8],
-                _ => Animations[5],
+                107 => Animations[6],
+                101 => Animations[0],
+                102 => Animations[1],
+                103 => Animations[2],
+                104 => Animations[3],
+                105 => Animations[4],
+                106 => Animations[5],
+                _ => Animations[1],
             };
         }
         SelectedPlayerList.Add(SelectedPlayer1);

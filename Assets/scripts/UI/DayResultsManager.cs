@@ -15,13 +15,14 @@ public class DayResultsManager : MonoBehaviour
     public void Sleep()
     {
         Background.SetActive(true);
-        gameManager = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
+        gameManager = FindObjectOfType<GameManager>(true);
         inventoryManager = FindObjectOfType<InventoryManager>(true);
         gameManager.day += 1;
         int c = 0;
         foreach (GameObject unit in gameManager.team)
         {
             UnitBehavior currentUnit = unit.GetComponent<UnitBehavior>();
+            Debug.Log(currentUnit.UnitName);
             if (inventoryManager.playableMugShots.Where(obj => obj.name == currentUnit.UnitName + " mugshot").SingleOrDefault() != null)
             {
             mugShots[c].sprite = inventoryManager.playableMugShots.Where(obj => obj.name == currentUnit.UnitName + " mugshot").SingleOrDefault();

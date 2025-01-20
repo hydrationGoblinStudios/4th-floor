@@ -12418,12 +12418,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animations:
   - {fileID: 9100000, guid: 2cd903378729a2d4d9e669d97ca78839, type: 2}
-  - {fileID: 9100000, guid: a05e966f4c6697e4bb842d0fb3b4095d, type: 2}
-  - {fileID: 9100000, guid: 6aa104f5c5fdb62419ed5af03a5b110a, type: 2}
-  - {fileID: 9100000, guid: ad0167d1c4a6d7b498d207ceb43f75ef, type: 2}
+  - {fileID: 9100000, guid: fa9799e23c127d84e8e3a5e993307abd, type: 2}
+  - {fileID: 9100000, guid: e6471eff90fbdb84693270f2e509f03d, type: 2}
+  - {fileID: 9100000, guid: ef3960a85e3dd6b409b246ea43a11fbd, type: 2}
+  - {fileID: 9100000, guid: 8c5c4a03ffe85264d90263dbdc3753a3, type: 2}
+  - {fileID: 9100000, guid: 61bfc5ced92eb044483f01807c9e9419, type: 2}
   - {fileID: 9100000, guid: 348d989af4e2ad042b486ddfeda74cae, type: 2}
-  - {fileID: 9100000, guid: 560a6bfc29ee0b8469978e5ee16f3df9, type: 2}
-  - {fileID: 9100000, guid: 98bee15ac98fab9499b7d3963121042b, type: 2}
   - {fileID: 9100000, guid: 558b9b703c32bfb428d401d672cf1114, type: 2}
   - {fileID: 9100000, guid: 3231c27ff2ccc1e4884f338f896ef971, type: 2}
   playerAnimations:

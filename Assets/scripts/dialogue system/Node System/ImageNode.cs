@@ -10,7 +10,7 @@ public class ImageNode : BaseNode
     public Sprite image;
     public override string GetString()
     {
-        GameObject go = GameObject.FindGameObjectWithTag("Dialogue System Sprite");
+        GameObject go = GameObject.Find("Dialogue Sprite");
         spriteRenderer = go.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = image;
         spriteRenderer.color = new Color(255, 255, 255, 255);

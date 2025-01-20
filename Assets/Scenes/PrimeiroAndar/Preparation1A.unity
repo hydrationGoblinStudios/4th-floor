@@ -455,7 +455,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32691687}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -35.981373}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.032105114, y: 0.037623495, z: 0.029970651}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -919,7 +919,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 61677875}
+      - m_Target: {fileID: 50489495}
         m_TargetAssemblyTypeName: GMButtonAssigner, Assembly-CSharp
         m_MethodName: ChangeActivity
         m_Mode: 5
@@ -3428,7 +3428,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3466,7 +3466,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176119215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0000108411095}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25238317, y: 0.61997914, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6330,7 +6330,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 61677875}
+      - m_Target: {fileID: 421004053}
         m_TargetAssemblyTypeName: GMButtonAssigner, Assembly-CSharp
         m_MethodName: ChangeActivity
         m_Mode: 5
@@ -6786,7 +6786,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450512023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -35.981373}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.032105114, y: 0.037623495, z: 0.029970651}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7302,7 +7302,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467870546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.01266276}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0016, y: 0.0013654196, z: 0.0017139198}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7514,7 +7514,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490073603}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -35.981373}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.032105114, y: 0.037623495, z: 0.029970651}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9406,7 +9406,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674100281}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0000108411095}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25238317, y: 0.61997914, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13255,7 +13255,7 @@ MonoBehaviour:
   lumenita: 0
   day: 1
   testMode: 0
-  storyBattle: 1
+  storyBattle: 0
   TimeIsDay: 0
   wakeUpTalk: 0
   mapButtons:
@@ -15164,7 +15164,7 @@ GameObject:
   - component: {fileID: 1090554545}
   - component: {fileID: 1090554546}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Dialogue Sprite
   m_TagString: Dialogue System Sprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15179,7 +15179,7 @@ RectTransform:
   m_GameObject: {fileID: 1090554543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 528687390}
@@ -16369,7 +16369,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17434,7 +17434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0037841194, y: 0.0010380588}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1209576924
@@ -17805,7 +17805,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227736455}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0000108411095}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25238317, y: 0.61997914, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18958,6 +18958,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
   - {fileID: 21300000, guid: 1eda2b6e0145e8e4494f041916935dfb, type: 3}
   - {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+  - {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
+  - {fileID: 21300000, guid: 4883109024361a648aed0c072eb3e72b, type: 3}
+  - {fileID: 21300000, guid: 1516f481c115f1848b4ebc13b1ab5e2e, type: 3}
+  - {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
   UITopName: {fileID: 183759800}
   LvlText: {fileID: 139232834}
   expbar: {fileID: 305537232}
@@ -20431,7 +20435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000013882294, y: 0.000015758793}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 193.29, y: 116.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1411976168
@@ -20850,7 +20854,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21033,7 +21037,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -25684,7 +25688,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887497916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0000108411095}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25238317, y: 0.61997914, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27697,7 +27701,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 61677875}
+      - m_Target: {fileID: 2035939677}
         m_TargetAssemblyTypeName: GMButtonAssigner, Assembly-CSharp
         m_MethodName: ChangeActivity
         m_Mode: 5
@@ -28985,7 +28989,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
