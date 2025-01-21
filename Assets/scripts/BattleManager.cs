@@ -73,8 +73,6 @@ public class BattleManager : MonoBehaviour
     public List<Slider> EnemySoulBar;
     //Ui elements
     public TextMeshPro battleText;
-    public TextMeshPro playerstats;
-    public TextMeshPro enemystats;
     public GameObject playerGo;
     public GameObject playerGo2;
     public GameObject playerGo3;
@@ -85,6 +83,7 @@ public class BattleManager : MonoBehaviour
     public float EnemyBar2;
     public float PlayerBar3;
     public float EnemyBar3;
+    public List<GameObject> IconSlots;
     public List<float> PlayerBars;
     public List<float> EnemyBars;
 
@@ -131,11 +130,11 @@ public class BattleManager : MonoBehaviour
     {
        playerGo = Instantiate(playerUnit, playerBattleStation);
         playerGo.name = playerGo.GetComponent<UnitBehavior>().UnitName + "Battle";
-        playerGo.GetComponent<UnitBehavior>().Icon = GameObject.FindGameObjectWithTag("Player Icon 1");
         playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
         playerGo2.name = playerGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
         playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
         playerGo3.name = playerGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
+        
         GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
         enemyGo.name = enemyGo.GetComponent<UnitBehavior>().UnitName + "Battle";
         GameObject enemyGo2 = Instantiate(enemyUnit2, enemyBattleStation2);
@@ -163,7 +162,13 @@ public class BattleManager : MonoBehaviour
         enemyTeam[0].position = 1;
         enemyTeam[1].position = 2;
         enemyTeam[2].position = 3;
-        foreach(UnitBehavior ub in playerTeam)
+        playerTeam[0].Icon = IconSlots[0];
+        playerTeam[1].Icon = IconSlots[1];
+        playerTeam[2].Icon = IconSlots[2];
+        enemyTeam[0].Icon = IconSlots[3];
+        enemyTeam[1].Icon = IconSlots[4];
+        enemyTeam[2].Icon = IconSlots[5];
+        foreach (UnitBehavior ub in playerTeam)
         {
             ub.battleManager = this;
         }
@@ -171,7 +176,6 @@ public class BattleManager : MonoBehaviour
         {
             ub.battleManager = this;
         }
-        playerTeam[0].Icon = GameObject.FindGameObjectWithTag("Player Icon 1");
         yield return new WaitForSeconds(0.5f);
         StatChange();
         SetHud();
@@ -283,8 +287,6 @@ public class BattleManager : MonoBehaviour
             sl.maxValue = enemyTeam[c].maxsoul;
             c++;
         }
-        playerstats.text = $"dmg:{Pdamage} \nhit: {Phit} \ncrit:{Pcrit}";
-        enemystats.text = $"dmg:{Edamage} \nhit: {Ehit} \ncrit:{Ecrit}";
     }
     //manuzeia as barras de hp, alma e turno
     public void HudUpdate()
@@ -301,8 +303,6 @@ public class BattleManager : MonoBehaviour
             sl.maxValue = enemyTeam[c].maxhp;
             c++;
         }
-        playerstats.text = $"dmg:{Pdamage} \nhit: {Phit} \ncrit:{Pcrit}";
-        enemystats.text = $"dmg:{Edamage} \nhit: {Ehit} \ncrit:{Ecrit}";
         c = 0;
         foreach (Slider sl in PlayerSoulBar)
         {

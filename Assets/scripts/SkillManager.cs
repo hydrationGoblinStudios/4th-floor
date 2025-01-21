@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
 
 public class SkillManager : MonoBehaviour
 {
@@ -66,6 +67,8 @@ public class SkillManager : MonoBehaviour
         switch (skillName)
         {
             case "homer":
+                Debug.Log(user.UnitName);
+                StartCoroutine(IconPopup(user.Icon, "homer"));
                 Debug.Log("simpon");
                 return 10;
 
@@ -74,7 +77,7 @@ public class SkillManager : MonoBehaviour
                     if (DanoAscendenteMeter == 3)
                     {
                         Debug.Log("dano ascendeu");
-                        //StartCoroutine(IconPopup(user.Icon, "Dano Ascendente Icone"));
+                        StartCoroutine(IconPopup(user.Icon, "Dano Ascendente"));
                         user.power += 1;
                         user.damagereduction += 1;
                         DanoAscendenteMeter = 0;
@@ -1020,13 +1023,37 @@ public class SkillManager : MonoBehaviour
 
     public IEnumerator IconPopup(GameObject IconGO, string SkillName)
     {
+
         SpriteRenderer icon = IconGO.GetComponent<SpriteRenderer>();
+        SpriteRenderer square = IconGO.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        Vector3 originalPosition = icon.transform.position;
         icon.sprite = Icones.Where(obj => obj.name == SkillName).SingleOrDefault();
+        TextMeshProUGUI tmp = IconGO.GetComponent<TextMeshProUGUI>();
+        tmp.text = SkillName;
+        IconGO.SetActive(true);
+        StartCoroutine(FadeOut(icon, tmp, square));
+
+        yield return new WaitForSeconds((float)2);
+        IconGO.SetActive(false);
+        icon.transform.position = originalPosition;
         icon.color = new Color(255, 255, 255, 255);
+        tmp.color = new Color(255, 255, 255, 255);
+        square.color = new Color(255, 255, 255, 255);
 
-        yield return new WaitForSeconds((float)1);
-        icon.color = new Color(255, 255, 255, 0);
-
+    }
+    public IEnumerator FadeOut(SpriteRenderer sr, TextMeshProUGUI tmp, SpriteRenderer square)
+    {
+        Debug.Log(square.transform.name);
+        for (float f = 1f; f >= -0.05; f -= 0.05f)
+        {
+            sr.transform.position += new Vector3(0,0.07f,0);
+            Color c = sr.material.color;
+            c.a = f;
+            sr.material.color = c;
+            square.material.color = c;
+            tmp.color = c;
+            yield return new WaitForSeconds(0.05f);
+        }
     }
     public void GetBaseStats()
     {
