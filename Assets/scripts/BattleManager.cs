@@ -604,6 +604,7 @@ public class BattleManager : MonoBehaviour
         if (RealCharacter1.currentExp >= 100) { LevelUp(RealCharacter1); }
         if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); }
         if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); }
+        gameManager.BossBattleID = 0;
         gameManager.storyBattle = false;
         gameManager.teamPostPreBattle.Clear();
         gameManager.enemyTeamPostPreBattle.Clear();

@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public int day;
     public bool testMode;
     public bool storyBattle;
+    public int BossBattleID = 0;
     public bool TimeIsDay;
     public bool wakeUpTalk;
     public List<GameObject> mapButtons;
@@ -365,6 +366,10 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     dm.StartDialogue(graphs.Where(obj => obj.name == "Adrian Começo Dia 2").SingleOrDefault());
                     mapButtons.Where(obj => obj.name == "Patio").SingleOrDefault().SetActive(true);
                     wakeUpTalk = false;
+                }
+                if(day== 5)
+                {
+                    BossBattleID = 101;
                 }
                 if (day == 6 && wakeUpTalk)
                 {
