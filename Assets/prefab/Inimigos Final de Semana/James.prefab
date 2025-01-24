@@ -44,11 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6de528c2771f64591434fba436f0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classId: 107
+  classId: 103
   Weapon: {fileID: 11400000, guid: e61093df644d5df48bd8aeb1bca18c38, type: 2}
   Accesory: {fileID: 11400000, guid: ff06557b7ce141b4489d0abd8f85a625, type: 2}
-  playerBehavior: {fileID: 0}
-  enemyBehavior: {fileID: 0}
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
@@ -62,6 +60,8 @@ MonoBehaviour:
   currentExp: 0
   ClassID: 
   ClassLevel: 
+  ClassLearningSerializable:
+    thisSeriazableDictionaryItem: []
   hit: 0
   avoid: 0
   crit: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   cooking: 0
   position: 0
   Pendure: 0
+  animator: {fileID: 0}
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
@@ -110,6 +111,7 @@ MonoBehaviour:
   soul3: 
   description: "classe n\xE3o valida"
   Icon: {fileID: 0}
+  SkillManager: {fileID: 0}
   unitData:
     classId: 0
     Weapon: {fileID: 0}

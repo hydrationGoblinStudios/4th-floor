@@ -367,7 +367,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     mapButtons.Where(obj => obj.name == "Patio").SingleOrDefault().SetActive(true);
                     wakeUpTalk = false;
                 }
-                if(day== 5)
+                if(day== 5 && storyBattle)
                 {
                     BossBattleID = 101;
                 }
