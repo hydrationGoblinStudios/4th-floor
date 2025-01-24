@@ -12421,9 +12421,9 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 2cd903378729a2d4d9e669d97ca78839, type: 2}
   - {fileID: 9100000, guid: fa9799e23c127d84e8e3a5e993307abd, type: 2}
   - {fileID: 9100000, guid: e6471eff90fbdb84693270f2e509f03d, type: 2}
-  - {fileID: 9100000, guid: ef3960a85e3dd6b409b246ea43a11fbd, type: 2}
-  - {fileID: 9100000, guid: 8c5c4a03ffe85264d90263dbdc3753a3, type: 2}
   - {fileID: 9100000, guid: 61bfc5ced92eb044483f01807c9e9419, type: 2}
+  - {fileID: 9100000, guid: 8c5c4a03ffe85264d90263dbdc3753a3, type: 2}
+  - {fileID: 9100000, guid: ef3960a85e3dd6b409b246ea43a11fbd, type: 2}
   - {fileID: 9100000, guid: 348d989af4e2ad042b486ddfeda74cae, type: 2}
   - {fileID: 9100000, guid: 558b9b703c32bfb428d401d672cf1114, type: 2}
   - {fileID: 9100000, guid: 3231c27ff2ccc1e4884f338f896ef971, type: 2}
@@ -12438,6 +12438,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   inventoryManager: {fileID: 0}
   animator: {fileID: 0}
+  bossBattles:
+  - {fileID: 5223300842646005236, guid: e1635b06edc140441b540a718d4b1ba2, type: 3}
   enemyList:
   - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
   - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}

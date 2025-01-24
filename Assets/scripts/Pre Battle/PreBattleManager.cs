@@ -16,6 +16,7 @@ public class PreBattleManager : MonoBehaviour
     public GameManager gameManager;
     public InventoryManager inventoryManager;
     public Animator animator;
+    public GameObject[] bossBattles;
     public GameObject[] enemyList;
     public GameObject[] enemyListRandomP1;
     public GameObject[] enemyListRandomP2;
@@ -62,6 +63,39 @@ public class PreBattleManager : MonoBehaviour
         SelectedPlayer2.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedPlayer3 = Instantiate(gameManager.team[2], BattleStations[2].transform);
         SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
+        Debug.Log(SelectedPlayer1.GetComponent<UnitBehavior>().name);
+        playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
+        {
+            107 => Animations[6],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            _ => Animations[1],
+        };
+        playerAnimations[1].runtimeAnimatorController = SelectedPlayer2.GetComponent<UnitBehavior>().classId switch
+        {
+            107 => Animations[6],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            _ => Animations[1],
+        }; playerAnimations[2].runtimeAnimatorController = SelectedPlayer3.GetComponent<UnitBehavior>().classId switch
+        {
+            107 => Animations[6],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            _ => Animations[1],
+        };
         if (gameManager.testMode)
         {
             SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
@@ -70,6 +104,21 @@ public class PreBattleManager : MonoBehaviour
             SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
             SelectedEnemy3 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[5].transform);
             SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
+        }
+        else if (gameManager.BossBattleID != 0)
+        {
+           
+            switch (gameManager.BossBattleID)
+            {
+                case 101:  SpawnTeam(bossBattles.Where(obj => obj.name == "Day5").SingleOrDefault()); break;
+                default:
+                    SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
+                    SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
+                    SelectedEnemy2 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[4].transform);
+                    SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
+                    SelectedEnemy3 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[5].transform);
+                    SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";break;
+            }
         }
         else
         {
@@ -114,40 +163,7 @@ public class PreBattleManager : MonoBehaviour
                     {
                     SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
                     }
-                }
-                Debug.Log(SelectedPlayer1.GetComponent<UnitBehavior>().name);
-                playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
-                {
-                     107 => Animations[6],
-                     101 => Animations[0],
-                     102=> Animations[1],
-                     103=> Animations[2],
-                     104 => Animations[3],
-                     105 =>  Animations[4],
-                     106 => Animations[5],
-                    _ => Animations[1],
-                };
-                playerAnimations[1].runtimeAnimatorController = SelectedPlayer2.GetComponent<UnitBehavior>().classId switch
-                {
-                    107 => Animations[6],
-                    101 => Animations[0],
-                    102 => Animations[1],
-                    103 => Animations[2],
-                    104 => Animations[3],
-                    105 => Animations[4],
-                    106 => Animations[5],
-                    _ => Animations[1],
-                }; playerAnimations[2].runtimeAnimatorController = SelectedPlayer3.GetComponent<UnitBehavior>().classId switch
-                {
-                    107 => Animations[6],
-                    101 => Animations[0],
-                    102 => Animations[1],
-                    103 => Animations[2],
-                    104 => Animations[3],
-                    105 => Animations[4],
-                    106 => Animations[5],
-                    _ => Animations[1],
-                };
+                }             
             }
             
             choice = true;
@@ -172,6 +188,7 @@ public class PreBattleManager : MonoBehaviour
                     }
                 }
             }
+            
             enemyAnimations[0].runtimeAnimatorController = SelectedEnemy1.GetComponent<UnitBehavior>().classId switch
             {
                 107 => Animations[6],
@@ -396,5 +413,46 @@ public class PreBattleManager : MonoBehaviour
             field.SetValue(copy, field.GetValue(original));
         }
         return copy as T;
+    }
+    public void SpawnTeam(GameObject enemyTeam)
+    {
+        SelectedEnemy1 = enemyTeam.transform.GetChild(0).gameObject;
+        SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
+        SelectedEnemy2 = enemyTeam.transform.GetChild(1).gameObject;
+        SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
+        SelectedEnemy3 = enemyTeam.transform.GetChild(2).gameObject;
+        SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
+        enemyAnimations[0].runtimeAnimatorController = SelectedEnemy1.GetComponent<UnitBehavior>().classId switch
+        {
+            107 => Animations[6],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            _ => Animations[1],
+        };
+        enemyAnimations[1].runtimeAnimatorController = SelectedEnemy2.GetComponent<UnitBehavior>().classId switch
+        {
+            107 => Animations[6],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            _ => Animations[1],
+        }; enemyAnimations[2].runtimeAnimatorController = SelectedEnemy3.GetComponent<UnitBehavior>().classId switch
+        {
+            107 => Animations[6],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            _ => Animations[1],
+        };
     }
 }

@@ -13253,9 +13253,10 @@ MonoBehaviour:
     m_Handle: 0
   money: 50
   lumenita: 0
-  day: 1
+  day: 5
   testMode: 0
   storyBattle: 0
+  BossBattleID: 0
   TimeIsDay: 0
   wakeUpTalk: 0
   mapButtons:
