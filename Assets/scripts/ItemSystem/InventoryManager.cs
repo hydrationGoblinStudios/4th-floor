@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject GameManagerOBJ;
     public GameObject SceneInteractable;
     public GameObject calendario;
+    public Button button;
     [HideInInspector] public GameManager Manager;
     public GameObject panel;
     public List<Item> CurrentItemList;
@@ -52,6 +53,7 @@ public class InventoryManager : MonoBehaviour
     public bool HoverOn;
     public void Toggle()
     {
+        Debug.Log("toggle");
         if (SceneInteractable == null)
         {
         SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
