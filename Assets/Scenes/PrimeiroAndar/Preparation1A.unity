@@ -6147,19 +6147,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 420204868}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 549974024}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: StartDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 944a421d8d469fe47974974393fe212d, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DialogueGraph, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &420204868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6210,7 +6198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 944a421d8d469fe47974974393fe212d, type: 2}
+  graph: {fileID: 0}
   nodeParser: {fileID: 0}
   button: {fileID: 420204867}
 --- !u!1 &421004050
@@ -16227,10 +16215,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1520130642}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1520130644}
+        m_TargetAssemblyTypeName: EscToClose, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

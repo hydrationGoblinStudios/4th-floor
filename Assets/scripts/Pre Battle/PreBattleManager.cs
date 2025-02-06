@@ -34,6 +34,7 @@ public class PreBattleManager : MonoBehaviour
     public List<SpriteRenderer> equipsRenderers;
     public List<SpriteRenderer> enemyEquipsRenderers;
     public TextMeshProUGUI energyText;
+    public List<Button> PrepSkills;
     public int energy;
     public int evilEnergy = 4;
     public TextMeshProUGUI equipText;
@@ -262,7 +263,12 @@ public class PreBattleManager : MonoBehaviour
             playerWeaponStatText[4].text = "";
             equipsRenderers[1].sprite = null;
         }
-
+        PrepSkills[0].onClick.RemoveAllListeners();
+        PrepSkills[0].onClick.AddListener(delegate { AfiarArma(selectedUnit); });
+        PrepSkills[1].onClick.RemoveAllListeners();
+        PrepSkills[1].onClick.AddListener(delegate { AfiarEscudo(selectedUnit); });
+        PrepSkills[2].onClick.RemoveAllListeners();
+        PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
     }
     public void EnemySelect(UnitBehavior unitBehavior)
     {
@@ -315,7 +321,7 @@ public class PreBattleManager : MonoBehaviour
     {
         Select(SelectedPlayer3.GetComponent<UnitBehavior>());
     }
-    public void AfiarArma()
+    public void AfiarArma(UnitBehavior selectedUnit)
     {
         if (energy > 0)
         {
@@ -325,7 +331,7 @@ public class PreBattleManager : MonoBehaviour
             Select(selectedUnit);
         }
     }
-    public void AfiarEscudo()
+    public void AfiarEscudo(UnitBehavior selectedUnit)
     {
         if (energy > 0)
         {
@@ -335,7 +341,7 @@ public class PreBattleManager : MonoBehaviour
             Select(selectedUnit);
         }
     }
-    public void AfiarEsperto()
+    public void AfiarEsperto(UnitBehavior selectedUnit)
     {
         if (energy > 0)
         {
@@ -370,13 +376,13 @@ public class PreBattleManager : MonoBehaviour
             switch (r)
             {
                 case 0:
-                    AfiarArma();
+                    AfiarArma(selectedUnit);
                     break;
                 case 1:
-                    AfiarEscudo();
+                    AfiarEscudo(selectedUnit);
                     break;
                 case 2:
-                    AfiarEsperto();
+                    AfiarEsperto(selectedUnit);
                     break;
                 default:
                     break;

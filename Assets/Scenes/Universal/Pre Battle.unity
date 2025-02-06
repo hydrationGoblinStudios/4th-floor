@@ -3835,19 +3835,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 720646469}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1745089044}
-        m_TargetAssemblyTypeName: PreBattleManager, Assembly-CSharp
-        m_MethodName: AfiarArma
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &720646469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8025,19 +8013,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1118714231}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1745089044}
-        m_TargetAssemblyTypeName: PreBattleManager, Assembly-CSharp
-        m_MethodName: AfiarEsperto
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1118714231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10969,19 +10945,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1507351620}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1745089044}
-        m_TargetAssemblyTypeName: PreBattleManager, Assembly-CSharp
-        m_MethodName: AfiarEscudo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1507351620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12550,6 +12514,10 @@ MonoBehaviour:
   - {fileID: 590451653}
   - {fileID: 261706312}
   energyText: {fileID: 1395910985}
+  PrepSkills:
+  - {fileID: 720646468}
+  - {fileID: 1507351619}
+  - {fileID: 1118714230}
   energy: 4
   evilEnergy: 4
   equipText: {fileID: 0}
