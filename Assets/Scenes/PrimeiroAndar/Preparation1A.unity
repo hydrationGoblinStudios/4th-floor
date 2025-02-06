@@ -18716,6 +18716,7 @@ MonoBehaviour:
   calendario: {fileID: 1220170276}
   Manager: {fileID: 0}
   panel: {fileID: 452545381}
+  CurrentItemList: []
   charSelectPanel: {fileID: 940760236}
   ItemSelectPanel: {fileID: 452545381}
   unitSelectPanel: {fileID: 1857660256}
@@ -21170,7 +21171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520130643
 RectTransform:
   m_ObjectHideFlags: 0

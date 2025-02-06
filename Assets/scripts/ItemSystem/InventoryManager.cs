@@ -12,6 +12,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject calendario;
     [HideInInspector] public GameManager Manager;
     public GameObject panel;
+    public List<Item> CurrentItemList;
     public GameObject charSelectPanel;
     public GameObject ItemSelectPanel;
     public GameObject unitSelectPanel;
@@ -51,7 +52,7 @@ public class InventoryManager : MonoBehaviour
     public bool HoverOn;
     public void Toggle()
     {
-        if(SceneInteractable == null)
+        if (SceneInteractable == null)
         {
         SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
         }
@@ -144,7 +145,7 @@ public class InventoryManager : MonoBehaviour
             go.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == skillNames[c].text).SingleOrDefault();
             c++;
         }
-        DisplayItemList(Manager.Inventory);
+        DisplayItemList(CurrentItemList);
         UpdateUITop();
         soulIconObject.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.equipedSoul).SingleOrDefault();
         while (selectedUnit.skills.Count <= 4)
@@ -167,6 +168,7 @@ public class InventoryManager : MonoBehaviour
         {
             DestroyImmediate(charSelectPanel.transform.GetChild(0).gameObject);
         }
+        CurrentItemList = Manager.Inventory;
         DisplayItemList(Manager.Inventory);
 
         foreach (GameObject unit in Manager.team)
@@ -241,32 +243,35 @@ public class InventoryManager : MonoBehaviour
         }
         foreach (Item item in ItemList)
         {
+            if(item != selectedUnit.Weapon && item != selectedUnit.Accesory)
+            {   
             GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
             itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
             itemButton.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
-            switch (item.weapontype)
-            {
-                case Item.Weapontype.Sword:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[0];
-                    break;
-                case Item.Weapontype.Lance:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[1];
-                    break;
-                case Item.Weapontype.Axe:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[2];
-                    break;
-                case Item.Weapontype.Bow:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[3];
-                    break;
-                case Item.Weapontype.Tome:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[4];
-                    break;
-                case Item.Weapontype.Receptacle:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[5];
-                    break;
-                case Item.Weapontype.Accesory:
-                    itemButton.GetComponentInChildren<Image>().sprite = sprites[6];
-                    break;
+                switch (item.weapontype)
+                {
+                    case Item.Weapontype.Sword:
+                        itemButton.GetComponentInChildren<Image>().sprite = sprites[0];
+                        break;
+                    case Item.Weapontype.Lance:
+                        itemButton.GetComponentInChildren<Image>().sprite = sprites[1];
+                        break;
+                    case Item.Weapontype.Axe:
+                        itemButton.GetComponentInChildren<Image>().sprite = sprites[2];
+                        break;
+                    case Item.Weapontype.Bow:
+                        itemButton.GetComponentInChildren<Image>().sprite = sprites[3];
+                        break;
+                    case Item.Weapontype.Tome:
+                        itemButton.GetComponentInChildren<Image>().sprite = sprites[4];
+                        break;
+                    case Item.Weapontype.Receptacle:
+                        itemButton.GetComponentInChildren<Image>().sprite = sprites[5];
+                        break;
+                    case Item.Weapontype.Accesory:
+                        itemButton.GetComponentInChildren<Image>().sprite = sprites[6];
+                        break;
+                }
             }
         }
     }
@@ -293,10 +298,13 @@ public class InventoryManager : MonoBehaviour
         }
         foreach (string skill in selectedUnit.skillInventory)
         {
-            GameObject SkillButton = Instantiate(ItemButtonPrefab,ItemSelectPanel.transform);
-            SkillButton.GetComponent<Button>().onClick.AddListener(() => EquipSkill(skill,skillSLot));
-            SkillButton.GetComponentInChildren<TextMeshProUGUI>().text = skill;
-            SkillButton.GetComponentInChildren<Image>().sprite = skillIcons.Where(obj => obj.name == skill).SingleOrDefault();
+            if (!selectedUnit.skills.Contains(skill))
+            {
+                GameObject SkillButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
+                SkillButton.GetComponent<Button>().onClick.AddListener(() => EquipSkill(skill, skillSLot));
+                SkillButton.GetComponentInChildren<TextMeshProUGUI>().text = skill;
+                SkillButton.GetComponentInChildren<Image>().sprite = skillIcons.Where(obj => obj.name == skill).SingleOrDefault();
+            }
         }
     }
     public void DisplaySoulList()
@@ -347,34 +355,49 @@ public class InventoryManager : MonoBehaviour
     }
     public void DisplaySwordList()
     {
+        CurrentItemList = Manager.SwordList;
         DisplayItemList(Manager.SwordList);
     }
     public void DisplayLanceList()
     {
+        CurrentItemList = Manager.LanceList;
+
         DisplayItemList(Manager.LanceList);
     }
     public void DisplayAxeList()
     {
+        CurrentItemList = Manager.AxeList;
+
         DisplayItemList(Manager.AxeList);
     }
     public void DisplayBowList()
     {
+        CurrentItemList = Manager.BowList;
+
         DisplayItemList(Manager.BowList);
     }
     public void DisplayTomeList()
     {
+        CurrentItemList = Manager.TomeList;
+
         DisplayItemList(Manager.TomeList);
     }
     public void DisplayReceptacleList()
     {
+        CurrentItemList = Manager.ReceptacleList;
+
         DisplayItemList(Manager.ReceptacleList);
     }
     public void DisplayAccesoriesList()
     {
+        CurrentItemList = Manager.AccesoriesList;
+
         DisplayItemList(Manager.AccesoriesList);
     }
     public void DisplayKeyItems()
     {
+        CurrentItemList = Manager.KeyItems;
+
         DisplayKeyItemList(Manager.KeyItems);
     }
 
