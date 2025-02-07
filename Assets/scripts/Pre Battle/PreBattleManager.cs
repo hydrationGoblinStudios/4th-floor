@@ -390,6 +390,10 @@ public class PreBattleManager : MonoBehaviour
             evilEnergy--;
         }
     }
+    public void UnitSelect()
+    {
+        Debug.Log("UnitSelect");
+    }
     public void InstantiateToGM(List<GameObject> List, List<GameObject> EnemyList)
     {
         foreach (GameObject obj in List)
