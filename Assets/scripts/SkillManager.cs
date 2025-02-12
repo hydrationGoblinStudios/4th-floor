@@ -94,6 +94,7 @@ public class SkillManager : MonoBehaviour
 
                 if (Random.Range(0, 101) <= user.dex)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Ataque Rápido"));
                     StartCoroutine(user.battleManager.ExtraAttack(user, target));
                 }
 
@@ -104,6 +105,7 @@ public class SkillManager : MonoBehaviour
 
                 if (Random.Range(0, 101) <= user.dex)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Pancada"));
                     return (int)(user.def * 0.3);
                 }
                 else
@@ -115,6 +117,7 @@ public class SkillManager : MonoBehaviour
 
                 if (Random.Range(0, 101) <= user.dex)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Magia Destrutiva"));
                     return (int)(user.mag * 0.4);
                 }
                 else
@@ -156,6 +159,7 @@ public class SkillManager : MonoBehaviour
             case "Espada Amaldiçoada":
                 if (Random.Range (0,101) >= 66 - user.luck * 2)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Espadachim"));
                     user.hp -= user.power;
                     PostHealthChange(skillName,user, target, team, enemyTeam);
                     user.battleManager.HudUpdate();
@@ -169,16 +173,19 @@ public class SkillManager : MonoBehaviour
             case "Lança da Justiça":
                 if (target.position == 1 && lancadajustica1 == false)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Soldado"));
                     lancadajustica1 = true;
                     return user.power += power / 4 + target.defenses[user.Weapon.damageType];
                 }
                 if (target.position == 2 && lancadajustica2 == false)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Soldado"));
                     lancadajustica2 = true;
                     return user.power += power / 4 + target.defenses[user.Weapon.damageType];
                 }
                 if (target.position == 3 && lancadajustica3 == false)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Soldado"));
                     lancadajustica3 = true;
                     return user.power += power / 4 + target.defenses[user.Weapon.damageType];
                 }
@@ -187,12 +194,14 @@ public class SkillManager : MonoBehaviour
             case "Livro Curativo":
                 if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                     Debug.Log(team[0].hp + " hp slot 1");
                     team[0].hp += user.mag / 2 + 2;                   
                     Debug.Log(team[0].hp + " hp slot 1");
                 }
                 if (team[1].hp <= team[0].hp & team[1].hp <= team[2].hp)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                     Debug.Log(team[1].hp + " hp slot 2");
                     team[1].hp += user.mag / 2 + 2;
                     Debug.Log(team[1].hp + " hp slot 2");
@@ -200,6 +209,7 @@ public class SkillManager : MonoBehaviour
                 }
                 if (team[2].hp <= team[1].hp & team[2].hp <= team[0].hp)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                     Debug.Log(team[2].hp + " hp slot 3");
                     team[2].hp += user.mag / 2 + 2;
                     Debug.Log(team[2].hp + " hp slot 3");
@@ -219,6 +229,7 @@ public class SkillManager : MonoBehaviour
 
                 if (Random.Range(0, 101) <= user.luck)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                     target.soul -= 15;
 
                 }
@@ -232,6 +243,7 @@ public class SkillManager : MonoBehaviour
                     poçãodeforçastacks -= 1;
                     if (poçãodeforçastacks == 0)
                     {
+                        StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                         user.power -= 5;
                     }
                 }
@@ -242,6 +254,7 @@ public class SkillManager : MonoBehaviour
             case "Moeda Magica":
                 if (moedamagicaactive == true)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                     moedamagicaactive = false;
                     return (int)(user.power * 0.75);
                     
@@ -279,6 +292,7 @@ public class SkillManager : MonoBehaviour
 
                 if (Random.Range(0, 101) <= user.luck + 7 && apostadoraboost == false)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Guerreiro"));
                     user.hit += 77;
                     apostadoraboost = true;
                 }
@@ -286,6 +300,7 @@ public class SkillManager : MonoBehaviour
 
             case "Arco da Rapidez":
 
+                StartCoroutine(IconPopup(user.Icon, "Icone_Arqueiro"));
                 StartCoroutine(ArcodaRapidez(user));
                 return 0;
 
@@ -295,6 +310,7 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Tomo Apoteótico":
+                StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                 user.power += 2;
 
                 return 0;
@@ -311,8 +327,11 @@ public class SkillManager : MonoBehaviour
         {
             case "Encantamento":
 
+                StartCoroutine(IconPopup(user.Icon, "Encantamento"));
+
                 if (user.position == 2)
                 {
+
                     if ((int)(team[0].speed * 0.15) <= 1)
                     {
                         team[0].speed += 1;
@@ -339,6 +358,7 @@ public class SkillManager : MonoBehaviour
 
             case "Maldição":
 
+                StartCoroutine(IconPopup(user.Icon, "Maldição"));
                 if (user.position == 1)
                 {
                     if ((int)(enemyTeam[0].speed * 0.15) <= 1)
@@ -377,6 +397,7 @@ public class SkillManager : MonoBehaviour
             case "Espada Curta":
                 if (!espadaCurtaBoost)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Espadachim"));
                     Debug.Log("boost");
                     user.avoid += 15;
                     espadaCurtaBoost = true;
@@ -387,6 +408,7 @@ public class SkillManager : MonoBehaviour
 
                 if (!arcodasorteboost & Random.Range(0, 101) <= user.luck)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Arqueiro"));
                     user.power += 7;
                     user.hit += 7;
                     user.crit += 7;
@@ -398,6 +420,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.hp >= user.maxhp * 0.8 & machadocortadoboost == false)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Guerreiro"));
                     user.hit += 20;
                     user.crit += 10;
                     machadocortadoboost = true;
@@ -409,6 +432,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.hp == user.maxhp)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Concentração de Feiticeiro"));
                     concentraçãodefeiticeiroboost = (int)(user.mag * 0.15);
                     user.mag += (int)(user.mag * 0.15);
 ;
@@ -419,6 +443,7 @@ public class SkillManager : MonoBehaviour
                 {
                     if (!livroarriscadoboost)
                     {
+                        StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                         user.soulgain += 5;
                         livroarriscadoboost = true;
                     }
@@ -432,6 +457,7 @@ public class SkillManager : MonoBehaviour
                 {
                     if (!machadodeguerraboost)
                     {
+                        StartCoroutine(IconPopup(user.Icon, "Icone_Guerreiro"));
                         user.speed -= (float)(user.speed * 0.25);
                         machadodeguerraboost = true;
                     }
@@ -440,12 +466,14 @@ public class SkillManager : MonoBehaviour
 
             case "Foco":
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Foco"));
                     StartCoroutine(Foco(user));
                 }
                 return 0;
 
             case "Durão":
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Durão"));
                     user.maxhp += user.maxhp / 4;
                     user.hp += user.hp / 4;
                 }
@@ -453,10 +481,13 @@ public class SkillManager : MonoBehaviour
 
             case "Sabedoria Arcana":
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Sabedoria Arcana"));
                     user.expmarkplier += (int)0.25;
                 }
                 return 0;
             case "Lutador Versátil":
+
+                StartCoroutine(IconPopup(user.Icon, "Lutador Versátil"));
 
                 if (user.position == 1 || user.position == 2)
                 {
@@ -472,6 +503,8 @@ public class SkillManager : MonoBehaviour
 
             case "Persistência":
 
+                StartCoroutine(IconPopup(user.Icon, "Persistência"));
+
                 PersistenciaSpeedbase = user.speed;
 
                 user.speed = PersistenciaSpeedbase + (user.maxhp - user.hp) / 10;
@@ -480,6 +513,9 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Técnica Improvisada":
+
+
+                StartCoroutine(IconPopup(user.Icon, "Técnica Improvisada"));
 
                 if (user.position == 1 & user.hp <= user.maxhp / 2)
                 {
@@ -506,11 +542,14 @@ public class SkillManager : MonoBehaviour
 
             case "Indestrutível":
 
+                StartCoroutine(IconPopup(user.Icon, "Icone_Guerreiro"));
                 user.damagereduction += 3;
                 StartCoroutine(Indestrutivel(user));
                 return 0;
 
             case "Parfrit":
+
+                StartCoroutine(IconPopup(user.Icon, "Icone_Arqueiro"));
 
                 parfritboost = user.dex;
                 if (parfritboost >= 23)
@@ -522,16 +561,20 @@ public class SkillManager : MonoBehaviour
 
             case "Arco do Gigante":
 
+                StartCoroutine(IconPopup(user.Icon, "Icone_Arqueiro"));
                 user.maxhp += user.maxhp / 2;
                 return 0;
 
             case "Poção de Foco":
+
+                StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                 user.soul += (int)(user.maxsoul * 0.15);
 
                 return 0;
 
             case "Poção de Força":
 
+                StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                 user.power += 5;
                 poçãodeforçastacks = 2;
                 poçãodeforçause = true;
@@ -540,6 +583,7 @@ public class SkillManager : MonoBehaviour
 
             case "Poção de Velocidade":
 
+                StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                 StartCoroutine(PoçãodeVelocidade(user));
                 poçãodevelocidadeuse = true;
 
@@ -547,10 +591,13 @@ public class SkillManager : MonoBehaviour
 
             case "Anel Vampírico":
 
+                StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                 user.lifesteal += (int) 0.1;
                 return 0;
 
             case "Anel do Pacto Real":
+
+                StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                 user.maxhp += user.maxhp / 5;
                 user.luck += user.luck / 5;
                 user.speed += user.speed / 5;
@@ -559,12 +606,15 @@ public class SkillManager : MonoBehaviour
 
             case "Língua de Porco":
 
+                StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
+
                 user.str += (int) (user.maxhp * 0.02);
 
                 return 0;
 
             case "Lâmina Fulgurante":
 
+                StartCoroutine(IconPopup(user.Icon, "Icone_Espadachim"));
                 user.def += user.str / 3;
                 user.mdef += user.mag / 3;
 
@@ -574,6 +624,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.position == 1)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Maestria da Posição 1"));
                     user.damagereduction += 3;
 
 
@@ -586,6 +637,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.position == 2)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Maestria da Posição 2"));
                     user.avoid += 15;
                     user.hit += 15;
 
@@ -598,6 +650,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.position == 3)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Maestria da Posição 3"));
                     user.power += 3;
                  
 
@@ -608,7 +661,7 @@ public class SkillManager : MonoBehaviour
 
             case "Começo Afortunado":
 
-
+                StartCoroutine(IconPopup(user.Icon, "Começo Afortunado"));
                 user.soul += 15;
                 StartCoroutine(ComeçoAfortunado(user));
                 
@@ -617,6 +670,7 @@ public class SkillManager : MonoBehaviour
 
             case "Gênio":
 
+                StartCoroutine(IconPopup(user.Icon, "Gênio"));
                 user.expmarkplier += (int) 0.25;
 
                 user.maxhp -= user.maxhp / 5;
@@ -632,7 +686,8 @@ public class SkillManager : MonoBehaviour
 
             case "Azar Contagiante":
 
-                user.luck -= 20;
+                StartCoroutine(IconPopup(user.Icon, "Azar Contagiante"));
+                user.luck -= 15;
 
                 enemyTeam[0].luck -= 10;
                 enemyTeam[1].luck -= 10;
@@ -643,6 +698,7 @@ public class SkillManager : MonoBehaviour
 
 
             case "Ídolo Quebrado":
+                StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                 user.lifesteal += (int) 0.35;
                 user.soulgain *= 0;
 
@@ -662,12 +718,15 @@ public class SkillManager : MonoBehaviour
            
             case "Golpe Focado":
 
+                StartCoroutine(IconPopup(user.Icon, "Golpe Focado"));
+
                 //if attack = Crit {user.hp += user.power/5}
 
                 return user.power / 2;
 
             case "Tiro Certeiro":
 
+                StartCoroutine(IconPopup(user.Icon, "Tiro Certeiro"));
                 Debug.Log("Tiro Certeirado");
                 //sure shot
 
@@ -676,16 +735,19 @@ public class SkillManager : MonoBehaviour
 
             case "Trovoada":
 
+                StartCoroutine(IconPopup(user.Icon, "Trovoada"));
                 return (int)(target.maxhp * 0.25) - power;
 
             case "Disparo de Gelo":
 
+                StartCoroutine(IconPopup(user.Icon, "Disparo de Gelo"));
                 StartCoroutine(DisparodeGelo(user, target));
 
                 return 0;
 
             case "Ataque Inspirador":
 
+                StartCoroutine(IconPopup(user.Icon, "Disparo de Gelo"));
                 StartCoroutine(AtaqueInspirador(team));
 
                 return user.power / 4;
@@ -694,11 +756,14 @@ public class SkillManager : MonoBehaviour
 
 
             case "Poder Oculto":
+
+                StartCoroutine(IconPopup(user.Icon, "Poder Oculto"));
                 Debug.Log("poderOcultado");
                 return 0;
 
             case "Genki Dama":
 
+                StartCoroutine(IconPopup(user.Icon, "Goku"));
                 return (team[0].power + team[1].power + team[2].power) * 2;
 
             default: return 0;
@@ -713,6 +778,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.position == 1 & user.hp <= user.maxhp / 2 & !TecnicaImprovisadaboost)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Tecnica Improvisada"));
                     user.hit += 20;
                     user.avoid += 20;
                     TecnicaImprovisadaboost = true;
@@ -721,6 +787,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.position == 1 & user.hp > user.maxhp / 2 & TecnicaImprovisadaboost)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Tecnica Improvisada"));
                     user.hit -= 20;
                     user.avoid -= 20;
                     TecnicaImprovisadaboost = false;
@@ -729,6 +796,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.position == 3 & user.hp <= user.maxhp * 0.9 & TecnicaImprovisada3)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Tecnica Improvisada"));
                     user.power -= 5;
                     user.crit -= 5;
                     TecnicaImprovisada3 = true;
@@ -739,6 +807,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.hp < user.maxhp * 0.8 & machadocortadoboost == true)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Guerreiro"));
                     user.hit -= 20;
                     user.crit -= 10;
                     machadocortadoboost = false;
@@ -751,6 +820,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.hp < user.maxhp * 0.5 & !presençainabalavel)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Presença Inabalável"));
                     user.def += user.def / 5;
                     user.mdef += user.mdef / 5;
                     presençainabalavel = true;
@@ -758,6 +828,7 @@ public class SkillManager : MonoBehaviour
                 }
                 if (user.hp > user.maxhp * 0.5 & presençainabalavel)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Presença Inabalável"));
                     user.def -= user.def / 5;
                     user.mdef -= user.mdef / 5;
                     presençainabalavel = true;
@@ -769,6 +840,7 @@ public class SkillManager : MonoBehaviour
 
                 if (user.hp < user.maxhp)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Concentração de Feiticeiro"));
                     user.mag -= (concentraçãodefeiticeiroboost);
 
                 }
@@ -776,20 +848,24 @@ public class SkillManager : MonoBehaviour
 
             case "Persistência":
 
+                StartCoroutine(IconPopup(user.Icon, "Persistência"));
                 user.speed = speed + ((user.maxhp - user.hp) / 10);
 
                 return 0;
 
             case "Vendaval":
 
+
                 if (user.hp <=  user.maxhp * 0.4 && vendavalboost == false)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Espadachim"));
                     user.avoid += 30;
                     vendavalboost = true;
                 }
 
                 if (user.hp >= user.maxhp * 0.4 && vendavalboost == true)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Espadachim"));
                     user.avoid -= 30;
                     vendavalboost = false;
                 }
@@ -798,6 +874,7 @@ public class SkillManager : MonoBehaviour
             case "Frigidi":
                 if (user.hp <= user.maxhp/2 && frigidiboost == false)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                     user.def += user.def / 2;
                     user.mdef += user.mdef / 2;
                     frigidistatsdef = user.def += user.def / 2;
@@ -807,6 +884,7 @@ public class SkillManager : MonoBehaviour
                 }
                 if (user.hp >= user.maxhp / 2 && frigidiboost == true)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                     user.def += frigidistatsdef;
                     user.mdef += frigidistatsmdef;
                     frigidiboost = true;
@@ -817,6 +895,7 @@ public class SkillManager : MonoBehaviour
             case "Poção de Vida":
                 if (user.hp <= user.maxhp * 0.3 && poçãodevidause == false)
                 {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                     user.hp += (int)(user.maxhp * 0.2);
 
                     poçãodevidause = true;
