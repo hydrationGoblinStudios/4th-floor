@@ -58,12 +58,6 @@ public class BattleManager : MonoBehaviour
 
     [Header ("UI")]
     //names
-    public TextMeshPro playerName;
-    public TextMeshPro playerName2;
-    public TextMeshPro playerName3;
-    public TextMeshPro enemyName;
-    public TextMeshPro enemyName2;
-    public TextMeshPro enemyName3;
     //UI sliders
     public List<Slider> playerHpSlider;
     public List<Slider> enemyHpSlider;
@@ -72,7 +66,6 @@ public class BattleManager : MonoBehaviour
     public List<Slider> PlayerSoulBar;
     public List<Slider> EnemySoulBar;
     //Ui elements
-    public TextMeshPro battleText;
     public GameObject playerGo;
     public GameObject playerGo2;
     public GameObject playerGo3;
@@ -84,6 +77,7 @@ public class BattleManager : MonoBehaviour
     public float PlayerBar3;
     public float EnemyBar3;
     public List<GameObject> IconSlots;
+    public List<TextMeshProUGUI> DamagePopups;
     public List<float> PlayerBars;
     public List<float> EnemyBars;
 
@@ -168,6 +162,12 @@ public class BattleManager : MonoBehaviour
         enemyTeam[0].Icon = IconSlots[3];
         enemyTeam[1].Icon = IconSlots[4];
         enemyTeam[2].Icon = IconSlots[5];
+        playerTeam[0].damageTMP = DamagePopups[0];
+        playerTeam[1].damageTMP = DamagePopups[1];
+        playerTeam[2].damageTMP = DamagePopups[2];
+        enemyTeam[0].damageTMP = DamagePopups[3];
+        enemyTeam[1].damageTMP = DamagePopups[4];
+        enemyTeam[2].damageTMP = DamagePopups[5];
         foreach (UnitBehavior ub in playerTeam)
         {
             ub.battleManager = this;
@@ -262,9 +262,6 @@ public class BattleManager : MonoBehaviour
     void SetHud()
     {
         int c = 0;
-        playerName.text = playerBehavior.UnitName;
-        enemyName.text = enemyBehavior.UnitName;
-        battleText.text = "Que comece a batalha";
         foreach(Slider sl in playerHpSlider)
         {
         sl.maxValue = playerTeam[c].maxhp;
@@ -498,7 +495,6 @@ public class BattleManager : MonoBehaviour
         else       
         {
             Target.animator.SetTrigger("UnitDodge");
-            battleText.text = (attacker.UnitName + " errou");
         }
         yield return new WaitForSeconds(1f);
         //inimigo morre
@@ -563,7 +559,6 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            battleText.text = (attacker.UnitName + " errou");
             Debug.Log("extra attack errou :(");
         }
         yield return new WaitForSeconds(1f);
@@ -579,11 +574,9 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator PlayerWin()
     {
-        battleText.text = (playerBehavior.UnitName + " ganhou");
         state = BattleState.PlayerWon;
         yield return new WaitForSeconds(1);
         gameManager.money += 50;
-        battleText.text = ("voce recebe 50 de ouro");
         yield return new WaitForSeconds(1);
         int exp1 = (30 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))* playerBehavior.expmarkplier);
         if (exp1 <= 0) { exp1 = 1; }
@@ -597,9 +590,6 @@ public class BattleManager : MonoBehaviour
         RealCharacter1.currentExp += exp1;
         RealCharacter2.currentExp += exp2;
         RealCharacter3.currentExp += exp3;
-        battleText.text = ($"{playerBehavior.UnitName} recebe " + (exp1) + " de experiencia " +
-            $"{player2Behavior.UnitName} recebe " + (exp2) + " de experiencia\n" +
-            $"{player3Behavior.UnitName} recebe " + (exp3) + " de experiencia\n");
         yield return new WaitForSeconds(1);
         if (RealCharacter1.currentExp >= 100) { LevelUp(RealCharacter1); }
         if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); }
@@ -722,6 +712,7 @@ public class BattleManager : MonoBehaviour
             }
 
             Target.hp -= damageDone;
+            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
             
             if (attacker.lifesteal >= 0.01)
             {
@@ -729,9 +720,7 @@ public class BattleManager : MonoBehaviour
  
             }
             Target.soul += damageDone / 5;
-            battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
             yield return new WaitForSeconds(1);
-            battleText.text = $"{Target.UnitName} perdeu {damageDone} hp";
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power +"\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
@@ -762,13 +751,14 @@ public class BattleManager : MonoBehaviour
             }
            
             Target.hp -= damageDone;
-            
+            StartCoroutine(FadeOutText(Target.damageTMP,damageDone));
+
+
             if (attacker.lifesteal >= 0.01)
             {
                 attacker.hp += (damageDone) * attacker.lifesteal;
             }
             Target.soul += (damageDone) / 5;
-            battleText.text = $"{Target.UnitName} perdeu {damageDone} hp";
             Debug.Log( attacker.UnitName + " atacou " + Target.UnitName + " " + (damageDone) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
@@ -811,6 +801,8 @@ public class BattleManager : MonoBehaviour
             int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2 * DamageMultiplier);
 
             Target.hp -= damageDone;
+            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
+
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + damageDone + " de dano\n"
         + attacker.UnitName + " base power: " + attacker.power + "\n"
         + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
@@ -823,9 +815,7 @@ public class BattleManager : MonoBehaviour
                 attacker.hp += (damageDone) * attacker.lifesteal;
             }
             Target.soul += (damageDone * 2) / 5;
-            battleText.text = $"{attacker.UnitName} causa um acerto critico!!!";
             yield return new WaitForSeconds(1);
-            battleText.text = $"{Target.UnitName} perdeu {damageDone * 2} hp";
             int c = 0;
             foreach (Slider sl in enemyHpSlider)
             {
@@ -844,11 +834,12 @@ public class BattleManager : MonoBehaviour
             int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * DamageMultiplier);
             hitAudio[0].Play();
             Target.hp -= damageDone;
+            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
+
             if (attacker.lifesteal >= 0.01)
             {
                 attacker.hp += damageDone * attacker.lifesteal;
             }
-            battleText.text = $"{Target.UnitName} perdeu {damageDone} hp";
             Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + damageDone + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
@@ -857,7 +848,6 @@ public class BattleManager : MonoBehaviour
                     + "\n Foi um ataque extra"
                 );
             Target.soul += damageDone / 5;
-            battleText.text = $"{Target.UnitName} perdeu {attackerDamage + attacker.SkillManager.currentDamageBonus } hp";
             int c = 0;
             foreach (Slider sl in enemyHpSlider)
             {
@@ -872,7 +862,20 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-        public void StatChange()
+    public IEnumerator FadeOutText(TextMeshProUGUI tmp, int damageDone = 0)
+    {
+        tmp.transform.position = new Vector3(tmp.transform.position.x, 0, tmp.transform.position.z);
+        tmp.text = damageDone.ToString();
+        tmp.transform.gameObject.SetActive(true);
+        for (float f = 1f; f >= -0.05; f -= 0.05f)
+        {
+            tmp.transform.position += new Vector3(0, 0.07f, 0);
+            yield return new WaitForSeconds(0.05f);
+        }
+        tmp.transform.gameObject.SetActive(false);
+        tmp.transform.position = new Vector3(tmp.transform.position.x, 0, tmp.transform.position.z);
+    }
+    public void StatChange()
     {
         Pdamage = playerBehavior.str - enemyBehavior.def;
         if (Pdamage < 1) { Pdamage = 1; }

@@ -78,6 +78,7 @@ public class UnitBehavior : MonoBehaviour
     public string soul3;
     public string description = "classe não valida";
     public GameObject Icon;
+    public TextMeshProUGUI damageTMP;
 
     public SkillManager SkillManager;
     public UnitData unitData;

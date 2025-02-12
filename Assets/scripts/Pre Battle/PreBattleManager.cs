@@ -12,7 +12,6 @@ public class PreBattleManager : MonoBehaviour
     public Animator[] playerAnimations;
     public Animator[] enemyAnimations;
 
-
     public GameManager gameManager;
     public InventoryManager inventoryManager;
     public Animator animator;
@@ -51,6 +50,8 @@ public class PreBattleManager : MonoBehaviour
     public GameObject SelectedEnemy2;
     public GameObject SelectedEnemy3;
     public List<GameObject> SelectedEnemyList;
+    public List<Button> UnitSelectButton;
+    public int selectedUnitSlot;
 
     public SkillManager skillManager;
     void Start()
@@ -64,7 +65,6 @@ public class PreBattleManager : MonoBehaviour
         SelectedPlayer2.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedPlayer3 = Instantiate(gameManager.team[2], BattleStations[2].transform);
         SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
-        Debug.Log(SelectedPlayer1.GetComponent<UnitBehavior>().name);
         playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
         {
             107 => Animations[6],
@@ -233,6 +233,29 @@ public class PreBattleManager : MonoBehaviour
         gameManager.SoulPrice(SelectedEnemy2.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy2.GetComponent<UnitBehavior>());
         gameManager.SoulPrice(SelectedEnemy3.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy3.GetComponent<UnitBehavior>());
         Select1();
+        int c = 0;
+        foreach (Button b in UnitSelectButton)
+        {
+            b.onClick.RemoveAllListeners();
+            Debug.Log(gameManager.team[c].name);
+            switch (c)
+            {
+                case 0:b.onClick.AddListener(delegate {UnitSelect(selectedUnitSlot, gameManager.team[0]);});break;
+                case 1: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[1]); }); break;
+                case 2: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[2]); }); break;
+                default: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[3]); }); break;
+            }
+            if(inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault() != null)
+            {
+            b.transform.GetComponent<Image>().sprite = inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault();
+            }
+            else
+            {
+                b.transform.GetComponent<Image>().sprite = inventoryManager.playableMugShots[0];
+            }
+            Debug.Log("c = " + c);
+            c++;
+        }
         EnemySelect(SelectedEnemy1.GetComponent<UnitBehavior>());
     }
     public void Select(UnitBehavior unitBehavior)
@@ -312,14 +335,17 @@ public class PreBattleManager : MonoBehaviour
     public void Select1()
     {
         Select(SelectedPlayer1.GetComponent<UnitBehavior>());
+        selectedUnitSlot = 1;
     }
     public void Select2()
     {
         Select(SelectedPlayer2.GetComponent<UnitBehavior>());
+        selectedUnitSlot = 2;
     }
     public void Select3()
     {
         Select(SelectedPlayer3.GetComponent<UnitBehavior>());
+        selectedUnitSlot = 3;
     }
     public void AfiarArma(UnitBehavior selectedUnit)
     {
@@ -390,9 +416,20 @@ public class PreBattleManager : MonoBehaviour
             evilEnergy--;
         }
     }
-    public void UnitSelect()
+    public void UnitSelect(int i,GameObject SelectedPlayer = null)
     {
-        Debug.Log("UnitSelect");
+        if(SelectedPlayer != null)
+        {
+            Debug.Log(SelectedPlayer.name);
+            selectedUnit = SelectedPlayer.GetComponent<UnitBehavior>();
+            switch (i)
+            {
+                case 1: SelectedPlayer1 = SelectedPlayer; SelectedPlayerList[0] = SelectedPlayer; break;
+                case 2: SelectedPlayer2 = SelectedPlayer; SelectedPlayerList[1] = SelectedPlayer; break;
+                default: SelectedPlayer3 = SelectedPlayer; SelectedPlayerList[2] = SelectedPlayer; break;
+            }
+        }
+        else { Debug.Log("null SP"); }
     }
     public void InstantiateToGM(List<GameObject> List, List<GameObject> EnemyList)
     {
