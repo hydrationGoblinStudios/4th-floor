@@ -862,18 +862,22 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public IEnumerator FadeOutText(TextMeshProUGUI tmp, int damageDone = 0)
+    public IEnumerator FadeOutText(TextMeshProUGUI tmpOG, int damageDone = 0)
     {
-        tmp.transform.position = new Vector3(tmp.transform.position.x, 0, tmp.transform.position.z);
+        TextMeshProUGUI tmp = Instantiate(tmpOG, tmpOG.gameObject.transform);
+        tmp.rectTransform.localPosition = new Vector3(0, 0, 0);
         tmp.text = damageDone.ToString();
-        tmp.transform.gameObject.SetActive(true);
+        tmp.gameObject.SetActive(true);
         for (float f = 1f; f >= -0.05; f -= 0.05f)
         {
-            tmp.transform.position += new Vector3(0, 0.07f, 0);
+            tmp.rectTransform.position += new Vector3(0, 0.07f, 0);
+            Color c = tmp.color;
+            c.a = f;
+            tmp.color = c;
             yield return new WaitForSeconds(0.05f);
         }
-        tmp.transform.gameObject.SetActive(false);
-        tmp.transform.position = new Vector3(tmp.transform.position.x, 0, tmp.transform.position.z);
+        tmp.gameObject.SetActive(false);
+        Destroy(tmp.gameObject);
     }
     public void StatChange()
     {
