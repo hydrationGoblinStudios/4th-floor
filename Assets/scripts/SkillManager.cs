@@ -1100,9 +1100,12 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds(0);
     }
 
-    public IEnumerator IconPopup(GameObject IconGO, string SkillName)
+    public IEnumerator IconPopup(GameObject IconGOOG, string SkillName)
     {
 
+       GameObject IconGO = Instantiate(IconGOOG, IconGOOG.transform);
+        IconGO.transform.localPosition = Vector3.zero;
+        IconGO.transform.localScale = Vector3.one;
         SpriteRenderer icon = IconGO.GetComponent<SpriteRenderer>();
         SpriteRenderer square = IconGO.transform.GetChild(0).GetComponent<SpriteRenderer>();
         Vector3 originalPosition = icon.transform.position;
@@ -1110,14 +1113,15 @@ public class SkillManager : MonoBehaviour
         TextMeshProUGUI tmp = IconGO.GetComponent<TextMeshProUGUI>();
         tmp.text = SkillName;
         IconGO.SetActive(true);
+        icon.color = new Color(255, 255, 255, 255);
+        square.color = new Color(255, 255, 255, 255);
+        tmp.color = new Color(255, 255, 255, 255);
         StartCoroutine(FadeOut(icon, tmp, square));
 
         yield return new WaitForSeconds((float)2);
         IconGO.SetActive(false);
+        Destroy(IconGO);
         icon.transform.position = originalPosition;
-        icon.color = new Color(255, 255, 255, 255);
-        tmp.color = new Color(255, 255, 255, 255);
-        square.color = new Color(255, 255, 255, 255);
 
     }
     public IEnumerator FadeOut(SpriteRenderer sr, TextMeshProUGUI tmp, SpriteRenderer square)
