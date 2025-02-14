@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1624, y: 280}
+  position: {x: 1656, y: 280}
   ports:
     keys:
     - entry
@@ -30,6 +30,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &-8498469730742738954
 MonoBehaviour:
@@ -44,7 +45,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1000, y: 280}
+  position: {x: 1032, y: 280}
   ports:
     keys:
     - entry
@@ -353,7 +354,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1208, y: 280}
+  position: {x: 1240, y: 280}
   ports:
     keys:
     - entry
@@ -532,7 +533,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 584, y: 280}
+  position: {x: 616, y: 280}
   ports:
     keys:
     - entry
@@ -761,7 +762,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1416, y: 280}
+  position: {x: 1448, y: 280}
   ports:
     keys:
     - entry
@@ -1040,7 +1041,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 792, y: 280}
+  position: {x: 824, y: 280}
   ports:
     keys:
     - entry
