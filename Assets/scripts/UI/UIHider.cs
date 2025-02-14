@@ -11,19 +11,24 @@ public class UIHIder : MonoBehaviour
     public void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        CheckScene();
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        CheckScene();
+    }
+    public void CheckScene()
+    {
         ScreenManagerOBJ = GameObject.FindGameObjectWithTag("Screen Manager");
-        if(ScreenManagerOBJ != null)
+        if (ScreenManagerOBJ != null)
         {
-        screenManager  = ScreenManagerOBJ.GetComponent<ScreenManager>();
+            screenManager = ScreenManagerOBJ.GetComponent<ScreenManager>();
         }
         if (screenManager != null && !screenManager.displayInventory)
         {
             transform.position = new Vector3(1000, transform.position.y, transform.position.z);
         }
-        else if(screenManager != null && screenManager.displayInventory)
+        else if (screenManager != null && screenManager.displayInventory)
         {
             transform.position = new Vector3(0, transform.position.y, transform.position.z);
         }

@@ -53,7 +53,6 @@ public class InventoryManager : MonoBehaviour
     public bool HoverOn;
     public void Toggle()
     {
-        Debug.Log("toggle");
         if (SceneInteractable == null)
         {
         SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
@@ -149,7 +148,14 @@ public class InventoryManager : MonoBehaviour
         }
         DisplayItemList(CurrentItemList);
         UpdateUITop();
+        if (soulIconObject.GetComponent<SpriteRenderer>().sprite != null && skillIcons.Where(obj => obj.name == selectedUnit.equipedSoul).SingleOrDefault() != null)
+        {
         soulIconObject.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.equipedSoul).SingleOrDefault();
+        }
+        else
+        {
+            soulIconObject.GetComponent<SpriteRenderer>().sprite = null;
+        }
         while (selectedUnit.skills.Count <= 4)
         {
             selectedUnit.skills.Add("");

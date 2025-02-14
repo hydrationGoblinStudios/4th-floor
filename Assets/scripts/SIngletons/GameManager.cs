@@ -388,6 +388,15 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 }
                 break;
 
+            case "Cutscene":
+                if (true)
+                {
+                    Debug.Log("Cutscene");
+                    NodeParser dm = FindObjectOfType<NodeParser>(true);
+                    dm.StartDialogue(graphs.Where(obj => obj.name == "Noite 0 Figura Misteriosa").SingleOrDefault());
+                }
+                break;
+
         }
     }
     public void ChangeGraph(DialogueGraph dialogueGraph, string buttonAssigner, string sceneName)
