@@ -120,7 +120,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 6646049346154714011}
+        node: {fileID: 3618108549251797487}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Name: Scene
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1624, y: 120}
+  position: {x: 1624, y: 280}
   ports:
     keys:
     - entry
@@ -566,7 +566,9 @@ MonoBehaviour:
   - {fileID: 8533579438914223378}
   - {fileID: 1845240078749126538}
   - {fileID: -712792067753987010}
-  current: {fileID: -8340390938441898449}
+  - {fileID: 3618108549251797487}
+  - {fileID: 615942310211375085}
+  current: {fileID: 29615787851689586}
 --- !u!114 &29615787851689586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,7 +594,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 1845240078749126538}
+        node: {fileID: 615942310211375085}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -615,6 +617,53 @@ MonoBehaviour:
   speaker: ???
   dialogue: "Voc\xEA se destaca do resto."
   sprite: {fileID: 21300000, guid: 8cce2a53b09c8354db50730b6d5faa8d, type: 3}
+--- !u!114 &615942310211375085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a783969f20ff504598d3dc0588b7fec, type: 3}
+  m_Name: Image
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 584, y: 424}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 615942310211375085}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 1845240078749126538}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 615942310211375085}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 29615787851689586}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  spriteRenderer: {fileID: 0}
+  image: {fileID: 21300000, guid: 8be8c7d975d6a35479f04c0dda614bd7, type: 3}
 --- !u!114 &1845240078749126538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,7 +704,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 29615787851689586}
+        node: {fileID: 615942310211375085}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -796,6 +845,53 @@ MonoBehaviour:
   dialogue: "Por\xE9m, uma for\xE7a maior, algo que reina este lugar, anseia que
     ele seja povoado, e assim \xE9 feito."
   sprite: {fileID: 0}
+--- !u!114 &3618108549251797487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a783969f20ff504598d3dc0588b7fec, type: 3}
+  m_Name: Image
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 824, y: -216}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 3618108549251797487}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -8340390938441898449}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 3618108549251797487}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 6646049346154714011}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  spriteRenderer: {fileID: 0}
+  image: {fileID: 21300000, guid: 4d9401c6593cdc14daff75bd4812ee28, type: 3}
 --- !u!114 &4715906624240318172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,7 +939,7 @@ MonoBehaviour:
   exit: 0
   speaker: Ramion
   dialogue: Isso foi estranho. Quem era aquele cara?
-  sprite: {fileID: 21300000, guid: 8cce2a53b09c8354db50730b6d5faa8d, type: 3}
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &6002541179202719167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,7 +1001,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 856, y: -216}
+  position: {x: 1048, y: -216}
   ports:
     keys:
     - entry
@@ -917,7 +1013,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -8340390938441898449}
+        node: {fileID: 3618108549251797487}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1004,7 +1100,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 360, y: -24}
+  position: {x: 392, y: -24}
   ports:
     keys:
     - entry
