@@ -7,8 +7,9 @@ public class Espadachim : UnitBehavior
     public void Awake()
     {
         baseSkill = "Dano Ascendente";
-        skill1 = "Ataque Rápido";
+        skill1 = "Ataque RÃ¡pido";
         baseSoul = "Golpe Triplo";
-        soul1 = "Golpe Focado";
+         soul1 = "Golpe Focado";
+       UsableWeaponTypes = new() { Item.Weapontype.Sword }; 
     }
 }

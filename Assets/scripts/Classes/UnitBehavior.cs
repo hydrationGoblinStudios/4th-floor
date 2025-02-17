@@ -8,6 +8,7 @@ public class UnitBehavior : MonoBehaviour
 {
     public int classId;
     public Item Weapon;
+    public List<Item.Weapontype> UsableWeaponTypes;
     public Item Accesory;
     public BattleManager battleManager;
     public bool enemy;

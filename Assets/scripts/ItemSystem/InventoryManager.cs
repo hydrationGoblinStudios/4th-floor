@@ -77,6 +77,13 @@ public class InventoryManager : MonoBehaviour
     public void Equip(Item item)
     {if(item.type == Item.Type.weapon)
         {
+            if (selectedUnit.UsableWeaponTypes.Contains(item.weapontype)){
+                Debug.Log("poggers");
+            }
+            else
+            {
+                Debug.Log("cringe");
+            }
             selectedUnit.Weapon = item;
             UpdateEquips(item);
         }

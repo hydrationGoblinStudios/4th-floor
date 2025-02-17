@@ -10,6 +10,8 @@ public class  Místico : UnitBehavior
         skill1 = "Maldição";
         baseSoul = "Restauração Espiritual";
         soul1 = "Benção dos Ventos";
+        UsableWeaponTypes = new() { Item.Weapontype.Receptacle };
+
     }
 }
 

@@ -6,10 +6,12 @@ public class Guerreiro : UnitBehavior
 {
     public void Awake()
     {
-        baseSkill = "Lutador Versátil";
-        skill1 = "Durão";
+        baseSkill = "Lutador Versï¿½til";
+        skill1 = "Durï¿½o";
         baseSoul = "Golpe Poderoso";
         soul1 = "Revigoramento";
+        UsableWeaponTypes = new() { Item.Weapontype.Lance };
+
     }
 
 }

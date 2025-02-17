@@ -6,11 +6,13 @@ public class Arqueiro : UnitBehavior
 {
     public void Awake()
     {
-        baseSkill = "Foco";
-        skill1 = "Precis„o Mortal";
-        baseSoul = "Tiro Certeiro";
-        soul1 = "Rajada de Flechas";
+     baseSkill = "Foco";
+     skill1 = "Precis√£o Mortal";
+     baseSoul = "Tiro Certeiro";
+     soul1 = "Rajada de Flechas";   
+     UsableWeaponTypes = new() { Item.Weapontype.Bow };
     }
+    
 
 }
 

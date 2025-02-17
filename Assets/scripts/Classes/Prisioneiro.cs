@@ -10,7 +10,5 @@ public class Prisioneiro : UnitBehavior
         skill1 = "Tecnica Improvisada";
         baseSoul = "Poder Oculto";
         soul1 = "Ataque Inspirador";
-
-    }
+       UsableWeaponTypes = new() { Item.Weapontype.Sword }; }
 }
-

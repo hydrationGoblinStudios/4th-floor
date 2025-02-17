@@ -6,10 +6,10 @@ public class Soldado : UnitBehavior
 {
     public void Awake()
     {
-        baseSkill = "PresenÁa Inabal·vel";
-        skill1 = "Pancada";
-        baseSoul = "Golpe Atordoante";
-        soul1 = "Fortificar";
+    baseSkill = "Presen√ßa Inabal√°vel";
+    skill1 = "Pancada";
+    baseSoul = "Golpe Atordoante";
+    soul1 = "Fortificar";
+    UsableWeaponTypes = new() { Item.Weapontype.Lance }; 
     }
-
-    }
+}
