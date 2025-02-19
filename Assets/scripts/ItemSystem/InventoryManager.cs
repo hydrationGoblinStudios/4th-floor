@@ -263,6 +263,10 @@ public class InventoryManager : MonoBehaviour
             {   
             GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
             itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
+                if (!selectedUnit.UsableWeaponTypes.Contains(item.weapontype) && item.type != Item.Type.accesory)
+                {
+                    itemButton.GetComponentInChildren<TextMeshProUGUI>().color = new((float)0.6, (float)0.6, (float)0.6, 1);
+                }
             itemButton.GetComponentInChildren<TextMeshProUGUI>().text = $"{item.ItemName} {item.power} {item.hit} {item.crit}";
                 switch (item.weapontype)
                 {
