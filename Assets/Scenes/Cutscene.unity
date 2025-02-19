@@ -14244,7 +14244,7 @@ MonoBehaviour:
   selectedEnemyBehavior: {fileID: 0}
   moneyText: {fileID: 0}
   Inventory:
-  - {fileID: 11400000, guid: c52ccc4a6dbb5d1428e45a668367833d, type: 2}
+  - {fileID: 11400000, guid: 578088ddc30d8244cb4ed90f39a54a8f, type: 2}
   - {fileID: 11400000, guid: 63b9a1c0a0cdc164287adb18bffdc235, type: 2}
   - {fileID: 11400000, guid: 4b8bfbb8f6f8b3f4c816cfa15fed312b, type: 2}
   - {fileID: 11400000, guid: 4859b3cd6f48cc64f8c498ae349056b8, type: 2}
@@ -14253,7 +14253,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9de3f058e5845ed43bb6f96ef2c26556, type: 2}
   - {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
   - {fileID: 11400000, guid: a9691ade132f945488fa2114bc90a99f, type: 2}
-  - {fileID: 11400000, guid: c52ccc4a6dbb5d1428e45a668367833d, type: 2}
+  - {fileID: 11400000, guid: 5d6fb926fb9766345a59d5f1b28eb227, type: 2}
   - {fileID: 11400000, guid: fb352181b2399b246b72121273b37f03, type: 2}
   - {fileID: 11400000, guid: 275569ecdfaa1a44ba53181375a2c755, type: 2}
   - {fileID: 11400000, guid: a0d9be4d8e3c2c04092b1e5db552d2c2, type: 2}

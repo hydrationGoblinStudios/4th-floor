@@ -15350,6 +15350,7 @@ GameObject:
   - component: {fileID: 1100505115}
   - component: {fileID: 1100505114}
   - component: {fileID: 1100505113}
+  - component: {fileID: 1100505117}
   m_Layer: 5
   m_Name: scroll
   m_TagString: Untagged
@@ -15459,6 +15460,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1100505117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100505111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &1102770330
 GameObject:
   m_ObjectHideFlags: 0
@@ -20301,8 +20316,8 @@ RectTransform:
   m_GameObject: {fileID: 1414806449}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 110, y: 139, z: 110}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1100505112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20331,7 +20346,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414806449}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -28018,8 +28033,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 401678830}
-  - {fileID: 811762595}
   - {fileID: 330648204}
+  - {fileID: 811762595}
   - {fileID: 776420269}
   - {fileID: 1220170277}
   m_Father: {fileID: 601466595}

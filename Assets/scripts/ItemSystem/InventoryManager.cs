@@ -79,13 +79,14 @@ public class InventoryManager : MonoBehaviour
         {
             if (selectedUnit.UsableWeaponTypes.Contains(item.weapontype)){
                 Debug.Log("poggers");
+                selectedUnit.Weapon = item;
+                UpdateEquips(item);
             }
             else
             {
                 Debug.Log("cringe");
             }
-            selectedUnit.Weapon = item;
-            UpdateEquips(item);
+
         }
         else
         {
@@ -262,7 +263,7 @@ public class InventoryManager : MonoBehaviour
             {   
             GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
             itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
-            itemButton.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
+            itemButton.GetComponentInChildren<TextMeshProUGUI>().text = $"{item.ItemName} {item.power} {item.hit} {item.crit}";
                 switch (item.weapontype)
                 {
                     case Item.Weapontype.Sword:

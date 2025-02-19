@@ -7,7 +7,7 @@ public class SceneMaracutaia : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Abertura");
+        SceneManager.LoadScene("Cutscene");
     }
     public void LoadScene(string scene)
     {
