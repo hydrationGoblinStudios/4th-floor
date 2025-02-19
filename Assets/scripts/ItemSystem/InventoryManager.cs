@@ -267,7 +267,11 @@ public class InventoryManager : MonoBehaviour
                 {
                     itemButton.GetComponentInChildren<TextMeshProUGUI>().color = new((float)0.6, (float)0.6, (float)0.6, 1);
                 }
-            itemButton.GetComponentInChildren<TextMeshProUGUI>().text = $"{item.ItemName} {item.power} {item.hit} {item.crit}";
+            itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = $"{item.ItemName}";
+                itemButton.transform.Find("Power").GetComponent<TextMeshProUGUI>().text = $"{item.power}";
+                itemButton.transform.Find("Hit").GetComponent<TextMeshProUGUI>().text = $"{item.hit}";
+                itemButton.transform.Find("Crit").GetComponent<TextMeshProUGUI>().text = $"{item.crit}";
+
                 switch (item.weapontype)
                 {
                     case Item.Weapontype.Sword:
