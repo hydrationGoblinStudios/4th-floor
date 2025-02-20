@@ -39,7 +39,8 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI UITopName;
     public TextMeshProUGUI LvlText;
     public Slider expbar;
-    public Image ClassIcon;
+    public Image ClassIconObj;
+    public List<Sprite> ClassIcons;
     public SpriteRenderer WeaponImage;
     public SpriteRenderer AccesoryImage;
     public Sprite[] EquipableImages;
@@ -125,6 +126,17 @@ public class InventoryManager : MonoBehaviour
         statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString();
         statTexts[3].text = selectedUnit.dex.ToString(); statTexts[4].text = selectedUnit.speed.ToString();
         statTexts[5].text = selectedUnit.def.ToString(); statTexts[6].text = selectedUnit.mdef.ToString(); statTexts[7].text = selectedUnit.luck.ToString();
+        switch (selectedUnit.classId)
+        {
+            case 101: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault(); break;
+            case 102: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Guerreiro").SingleOrDefault(); break;
+            case 103: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Soldado").SingleOrDefault(); break;
+            case 104: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Feiticeiro").SingleOrDefault(); break;
+            case 105: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Mistico").SingleOrDefault(); break;
+            case 106: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Arqueiro").SingleOrDefault(); break;
+            case 107: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Prisioneiro").SingleOrDefault(); break;
+            default: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault(); break;
+        }
         if(selectedUnit.Weapon.damageType == 0)
         {
             statTexts[8].text = (selectedUnit.str + selectedUnit.Weapon.power).ToString();
