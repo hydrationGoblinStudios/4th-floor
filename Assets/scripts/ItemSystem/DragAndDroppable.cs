@@ -13,7 +13,6 @@ public class DragAndDroppable : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public NodeParser nodeParser;
 
 
-    private bool mouseOver;
     private bool isDragging;
 
     public void Start()
@@ -33,7 +32,7 @@ public class DragAndDroppable : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         if (isDragging)
         {
-            transform.position = MainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x + 10, Input.mousePosition.y + 10, canvas.planeDistance));
+            transform.position = MainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x + 60, Input.mousePosition.y + 60, canvas.planeDistance));
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && isDragging == true && nodeParser.hoverGraph != null)
@@ -42,18 +41,20 @@ public class DragAndDroppable : MonoBehaviour, IPointerEnterHandler, IPointerExi
             {
             nodeParser.StartDialogue(interactions[nodeParser.hoverGraph]);
             }
+            isDragging = false;
             Destroy(gameObject);
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             isDragging = false;
             Destroy(gameObject);
+            Debug.Log(nodeParser.hoverGraph);
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        mouseOver = true;
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)

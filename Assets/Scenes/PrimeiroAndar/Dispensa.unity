@@ -390,6 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayInventory: 1
+  UIOccupied: 0
 --- !u!4 &662974036
 Transform:
   m_ObjectHideFlags: 0
@@ -1314,7 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c960503ec74ab34c9306672de5c7144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Laboratorio
+  OriginalSceneName: Dispensa
   m_Scene:
     m_Handle: 0
   InteractablesGO: {fileID: 0}

@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 100, y: 100}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6378122792513323595
@@ -54,8 +54,8 @@ MonoBehaviour:
   MainCamera: {fileID: 0}
   canvas: {fileID: 0}
   dialogueGraphTarget:
-  - {fileID: 11400000, guid: b02368fbfcc2c6b4ea4eaed3c1e85436, type: 2}
-  - {fileID: 11400000, guid: 664e16c7a503a6c44972b4e4d261a1d4, type: 2}
+  - {fileID: 11400000, guid: b521aa23cfbb21a46a008c09a2b26bf9, type: 2}
+  - {fileID: 11400000, guid: 658b088654180dd478642960737fc15e, type: 2}
   dialogueGraphs:
   - {fileID: 11400000, guid: 5c9faab7042ec0a4fac0b1f357de0b74, type: 2}
   - {fileID: 11400000, guid: 2a343ae4e7dd98248a470350cede9d82, type: 2}
