@@ -48,7 +48,6 @@ public class DragAndDroppable : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             isDragging = false;
             Destroy(gameObject);
-            Debug.Log(nodeParser.hoverGraph);
         }
     }
 

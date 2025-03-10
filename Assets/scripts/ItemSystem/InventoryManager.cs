@@ -60,12 +60,13 @@ public class InventoryManager : MonoBehaviour
         }
         if (Activatable)
         {
-            if(SceneInteractable != null )
+            foreach (GameObject go in new List<GameObject>{ SceneInteractable,gameObject,calendario})
             {
-            SceneInteractable.SetActive(!SceneInteractable.activeInHierarchy);
+                if(go != null)
+                {
+                 go.SetActive(!go.activeInHierarchy);
+                }
             }
-            gameObject.SetActive(!gameObject.activeInHierarchy);
-            calendario.SetActive(!calendario.activeInHierarchy);
         }
     }
     public void ToggleClassChange()

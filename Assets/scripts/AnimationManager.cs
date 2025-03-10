@@ -29,7 +29,7 @@ public class AnimationManager : MonoBehaviour
             105 => Animations[4],
             106 => Animations[5],
             107 => Animations[6],
-            _ => Animations[0],
+            _ => null,
         };
     }
 }

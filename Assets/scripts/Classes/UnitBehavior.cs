@@ -85,7 +85,10 @@ public class UnitBehavior : MonoBehaviour
     public UnitData unitData;
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
+        if(Weapon != null)
+        {
         Weapon.holder = this;
+        }
         battleTextObj = GameObject.FindGameObjectWithTag("Battle Text");
         battleText = battleTextObj.GetComponent<TextMeshPro>();
         battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");

@@ -1085,6 +1085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9c15f5ed25db946ab024c9c3c3458d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0
@@ -2018,7 +2019,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 996546828}
         m_TargetAssemblyTypeName: SceneMaracutaia, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadCombat
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -579,22 +579,33 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         gameManager.money += 50;
         yield return new WaitForSeconds(1);
-        int exp1 = (30 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))* playerBehavior.expmarkplier);
+        int exp1 = (30 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
         if (exp1 <= 0) { exp1 = 1; }
         int exp2 = (30 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player2Behavior.expmarkplier);
         if (exp2 <= 0) { exp2 = 1; }
         int exp3 = (30 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player3Behavior.expmarkplier);
         if (exp3 <= 0) { exp3 = 1; }
+        UnitBehavior RealCharacter2 = null;
+        UnitBehavior RealCharacter3 = null;
         UnitBehavior RealCharacter1 = gameManager.team[0].GetComponent<UnitBehavior>();
-        UnitBehavior RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
-        UnitBehavior RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
+        if (gameManager.team.Count > 1)
+        {
+            RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
+        }
+        if (gameManager.team.Count > 2) { 
+         RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>(); }
         RealCharacter1.currentExp += exp1;
-        RealCharacter2.currentExp += exp2;
-        RealCharacter3.currentExp += exp3;
+        if(RealCharacter2 != null) {
+            if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); }
+            RealCharacter2.currentExp += exp2;
+        }
+        if (RealCharacter3 != null)
+        {
+            RealCharacter3.currentExp += exp3;
+            if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); }
+        }
         yield return new WaitForSeconds(1);
         if (RealCharacter1.currentExp >= 100) { LevelUp(RealCharacter1); }
-        if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); }
-        if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); }
         gameManager.BossBattleID = 0;
         gameManager.storyBattle = false;
         gameManager.teamPostPreBattle.Clear();

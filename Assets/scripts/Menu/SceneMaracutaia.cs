@@ -5,13 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class SceneMaracutaia : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public void PlayGame()
     {
-        SceneManager.LoadScene("Cutscene");
+        SceneManager.LoadScene("Abertura");
     }
     public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
+    }
+    public void LoadCombat(string scene)
+    {
+        GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
+        gameManager = GMobject.GetComponent<GameManager>();
+        if (gameManager != null && gameManager.team[0].GetComponent<UnitBehavior>().Weapon.ItemName != "")
+        {
+            SceneManager.LoadScene(scene);
+        }
     }
     public void QuitGame()
     {

@@ -51,9 +51,13 @@ public class PreBattleManager : MonoBehaviour
     public GameObject SelectedEnemy3;
     public List<GameObject> SelectedEnemyList;
     public List<Button> UnitSelectButton;
+    public GameObject StatIcons;
     public int selectedUnitSlot;
 
     public SkillManager skillManager;
+    public GameObject ActivityPanel;
+    public GameObject ItemSelectPanel;
+    public GameObject EmptyUnitPrefab;
     void Start()
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
@@ -61,10 +65,27 @@ public class PreBattleManager : MonoBehaviour
         inventoryManager = GameObject.FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);
         SelectedPlayer1 = Instantiate(gameManager.team[0], BattleStations[0].transform);
         SelectedPlayer1.name = SelectedPlayer1.GetComponent<UnitBehavior>().UnitName + "Temp";
+        Debug.Log(gameManager.team.Count);
+        if(gameManager.team.Count >= 2)
+        {
         SelectedPlayer2 = Instantiate(gameManager.team[1], BattleStations[1].transform);
         SelectedPlayer2.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
-        SelectedPlayer3 = Instantiate(gameManager.team[2], BattleStations[2].transform);
-        SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
+        }
+        else
+        {
+            SelectedPlayer2 = Instantiate(EmptyUnitPrefab, BattleStations[1].transform);
+            SelectedPlayer2.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
+        }
+        if (gameManager.team.Count >= 3)
+        {
+            SelectedPlayer3 = Instantiate(gameManager.team[2], BattleStations[2].transform);
+            SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
+        }
+        else
+        {
+            SelectedPlayer3 = Instantiate(EmptyUnitPrefab, BattleStations[2].transform);
+            SelectedPlayer3.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
+        }
         playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
         {
             107 => Animations[6],
@@ -74,7 +95,7 @@ public class PreBattleManager : MonoBehaviour
             104 => Animations[3],
             105 => Animations[4],
             106 => Animations[5],
-            _ => Animations[1],
+            _ => null,
         };
         playerAnimations[1].runtimeAnimatorController = SelectedPlayer2.GetComponent<UnitBehavior>().classId switch
         {
@@ -85,7 +106,7 @@ public class PreBattleManager : MonoBehaviour
             104 => Animations[3],
             105 => Animations[4],
             106 => Animations[5],
-            _ => Animations[1],
+            _ => null,
         }; playerAnimations[2].runtimeAnimatorController = SelectedPlayer3.GetComponent<UnitBehavior>().classId switch
         {
             107 => Animations[6],
@@ -95,7 +116,7 @@ public class PreBattleManager : MonoBehaviour
             104 => Animations[3],
             105 => Animations[4],
             106 => Animations[5],
-            _ => Animations[1],
+            _ => null,
         };
         if (gameManager.testMode)
         {
@@ -115,10 +136,14 @@ public class PreBattleManager : MonoBehaviour
                 default:
                     SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
                     SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
+
                     SelectedEnemy2 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[4].transform);
                     SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
+
                     SelectedEnemy3 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[5].transform);
-                    SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";break;
+                    SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp"; 
+
+                    break;
             }
         }
         else
@@ -144,12 +169,14 @@ public class PreBattleManager : MonoBehaviour
                     SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
                     }
                 }
-            }   
+                }   
              choice = true;
             while (choice == true)
             {
                 GameObject slot1 = enemyListRandomP2[Random.Range(0, enemyListRandomP2.Length)];
-
+                if (gameManager.team.Count < 2)
+                { SelectedEnemy2 = Instantiate(EmptyUnitPrefab, BattleStations[4].transform); choice = false; }
+                else { 
                 if (slot1.name.Contains("A1") && choice)
                 {
                     switch (week)
@@ -164,6 +191,7 @@ public class PreBattleManager : MonoBehaviour
                     {
                     SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
                     }
+                }
                 }             
             }
             
@@ -172,20 +200,25 @@ public class PreBattleManager : MonoBehaviour
             while (choice == true)
             {
                 GameObject slot1 = enemyListRandomP3[Random.Range(0, enemyListRandomP3.Length)];
-                if (slot1.name.Contains("A1") && choice)
+                if (gameManager.team.Count < 3)
+                { SelectedEnemy3 = Instantiate(EmptyUnitPrefab, BattleStations[5].transform); choice = false; }
+                else
                 {
-                    switch (week)
+                    if (slot1.name.Contains("A1") && choice)
                     {
-                        case 1: if (slot1.name.Contains("S1")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                        case 2: if (slot1.name.Contains("S2")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                        case 3: if (slot1.name.Contains("S3")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                        case 4: if (slot1.name.Contains("S4")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                        case 5: if (slot1.name.Contains("S5")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                       default: if (slot1.name.Contains("S5")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                    }
-                    if (SelectedEnemy3!=null)
-                    {
-                    SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
+                        switch (week)
+                        {
+                            case 1: if (slot1.name.Contains("S1")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                            case 2: if (slot1.name.Contains("S2")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                            case 3: if (slot1.name.Contains("S3")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                            case 4: if (slot1.name.Contains("S4")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                            case 5: if (slot1.name.Contains("S5")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                            default: if (slot1.name.Contains("S5")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
+                        }
+                        if (SelectedEnemy3 != null)
+                        {
+                            SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
+                        }
                     }
                 }
             }
@@ -199,7 +232,7 @@ public class PreBattleManager : MonoBehaviour
                 104 => Animations[3],
                 105 => Animations[4],
                 106 => Animations[5],
-                _ => Animations[1],
+                _ => null,
             };
             enemyAnimations[1].runtimeAnimatorController = SelectedEnemy2.GetComponent<UnitBehavior>().classId switch
             {
@@ -210,7 +243,7 @@ public class PreBattleManager : MonoBehaviour
                 104 => Animations[3],
                 105 => Animations[4],
                 106 => Animations[5],
-                _ => Animations[1],
+                _ => null,
             }; enemyAnimations[2].runtimeAnimatorController = SelectedEnemy3.GetComponent<UnitBehavior>().classId switch
             {
                 107 => Animations[6],
@@ -220,7 +253,7 @@ public class PreBattleManager : MonoBehaviour
                 104 => Animations[3],
                 105 => Animations[4],
                 106 => Animations[5],
-                _ => Animations[1],
+                _ => null,
             };
         }
         SelectedPlayerList.Add(SelectedPlayer1);
@@ -236,25 +269,29 @@ public class PreBattleManager : MonoBehaviour
         int c = 0;
         foreach (Button b in UnitSelectButton)
         {
-            b.onClick.RemoveAllListeners();
-            Debug.Log(gameManager.team[c].name);
-            switch (c)
+            if (c < gameManager.team.Count)
             {
-                case 0:b.onClick.AddListener(delegate {UnitSelect(selectedUnitSlot, gameManager.team[0]);});break;
-                case 1: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[1]); }); break;
-                case 2: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[2]); }); break;
-                default: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[3]); }); break;
+
+
+                b.onClick.RemoveAllListeners();
+                switch (c)
+                {
+                    case 0: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[0]); }); break;
+                    case 1: if (gameManager.team.Count >= 2) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[1]); }); } break;
+                    case 2: if (gameManager.team.Count >= 3) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[2]); }); } break;
+                    default: if (gameManager.team.Count >= 4) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[3]); }); } break;
+                }
+                if (inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault() != null)
+                {
+                    b.transform.GetComponent<Image>().sprite = inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault();
+                }
+                else
+                {
+                    b.transform.GetComponent<Image>().sprite = inventoryManager.playableMugShots[0];
+                }
+                Debug.Log("c = " + c);
+                c++;
             }
-            if(inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault() != null)
-            {
-            b.transform.GetComponent<Image>().sprite = inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault();
-            }
-            else
-            {
-                b.transform.GetComponent<Image>().sprite = inventoryManager.playableMugShots[0];
-            }
-            Debug.Log("c = " + c);
-            c++;
         }
         EnemySelect(SelectedEnemy1.GetComponent<UnitBehavior>());
     }
@@ -377,6 +414,58 @@ public class PreBattleManager : MonoBehaviour
             Select(selectedUnit);
         }
     }
+    public void InventoryToggle(List<Item> ItemList)
+    {
+        Debug.Log("amogus");
+        StatIcons.SetActive(!StatIcons.activeInHierarchy);
+        gameManager.ParseWeaponList();
+
+        while (ActivityPanel.transform.childCount > 0)
+        {
+            DestroyImmediate(ActivityPanel.transform.GetChild(0).gameObject);
+        }
+        foreach (Item item in ItemList)
+        {
+            if (item != selectedUnit.Weapon && item != selectedUnit.Accesory)
+            {
+                GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, ItemSelectPanel.transform);
+                itemButton.GetComponent<Button>().onClick.AddListener(() => inventoryManager.Equip(item));
+                if (!selectedUnit.UsableWeaponTypes.Contains(item.weapontype) && item.type != Item.Type.accesory && item.type != Item.Type.key)
+                {
+                    itemButton.GetComponentInChildren<TextMeshProUGUI>().color = new((float)0.6, (float)0.6, (float)0.6, 1);
+                }
+                itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = $"{item.ItemName}";
+                itemButton.transform.Find("Power").GetComponent<TextMeshProUGUI>().text = $"{item.power}";
+                itemButton.transform.Find("Hit").GetComponent<TextMeshProUGUI>().text = $"{item.hit}";
+                itemButton.transform.Find("Crit").GetComponent<TextMeshProUGUI>().text = $"{item.crit}";
+
+                switch (item.weapontype)
+                {
+                    case Item.Weapontype.Sword:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[0];
+                        break;
+                    case Item.Weapontype.Lance:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[1];
+                        break;
+                    case Item.Weapontype.Axe:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[2];
+                        break;
+                    case Item.Weapontype.Bow:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[3];
+                        break;
+                    case Item.Weapontype.Tome:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[4];
+                        break;
+                    case Item.Weapontype.Receptacle:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[5];
+                        break;
+                    case Item.Weapontype.Accesory:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[6];
+                        break;
+                }
+            }
+        }
+    }
     public void ExportTeamToBattle()
     {
         EnemyPrepSkill();
@@ -478,7 +567,7 @@ public class PreBattleManager : MonoBehaviour
             104 => Animations[3],
             105 => Animations[4],
             106 => Animations[5],
-            _ => Animations[1],
+            _ => null,
         };
         enemyAnimations[1].runtimeAnimatorController = SelectedEnemy2.GetComponent<UnitBehavior>().classId switch
         {
@@ -489,7 +578,7 @@ public class PreBattleManager : MonoBehaviour
             104 => Animations[3],
             105 => Animations[4],
             106 => Animations[5],
-            _ => Animations[1],
+            _ => null,
         }; enemyAnimations[2].runtimeAnimatorController = SelectedEnemy3.GetComponent<UnitBehavior>().classId switch
         {
             107 => Animations[6],
@@ -499,7 +588,57 @@ public class PreBattleManager : MonoBehaviour
             104 => Animations[3],
             105 => Animations[4],
             106 => Animations[5],
-            _ => Animations[1],
+            _ => null,
         };
+    }
+    public void DisplayItemList(List<Item> ItemList)
+    {
+        gameManager.ParseWeaponList();
+
+        while (inventoryManager.panel.transform.childCount > 0)
+        {
+            DestroyImmediate(inventoryManager.panel.transform.GetChild(0).gameObject);
+        }
+        foreach (Item item in ItemList)
+        {
+            if (item != selectedUnit.Weapon && item != selectedUnit.Accesory)
+            {
+                GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, inventoryManager.ItemSelectPanel.transform);
+                itemButton.GetComponent<Button>().onClick.AddListener(() => inventoryManager.Equip(item));
+                if (!selectedUnit.UsableWeaponTypes.Contains(item.weapontype) && item.type != Item.Type.accesory && item.type != Item.Type.key)
+                {
+                    itemButton.GetComponentInChildren<TextMeshProUGUI>().color = new((float)0.6, (float)0.6, (float)0.6, 1);
+                }
+                itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = $"{item.ItemName}";
+                itemButton.transform.Find("Power").GetComponent<TextMeshProUGUI>().text = $"{item.power}";
+                itemButton.transform.Find("Hit").GetComponent<TextMeshProUGUI>().text = $"{item.hit}";
+                itemButton.transform.Find("Crit").GetComponent<TextMeshProUGUI>().text = $"{item.crit}";
+
+                switch (item.weapontype)
+                {
+                    case Item.Weapontype.Sword:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[0];
+                        break;
+                    case Item.Weapontype.Lance:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[1];
+                        break;
+                    case Item.Weapontype.Axe:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[2];
+                        break;
+                    case Item.Weapontype.Bow:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[3];
+                        break;
+                    case Item.Weapontype.Tome:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[4];
+                        break;
+                    case Item.Weapontype.Receptacle:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[5];
+                        break;
+                    case Item.Weapontype.Accesory:
+                        itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[6];
+                        break;
+                }
+            }
+        }
     }
 }

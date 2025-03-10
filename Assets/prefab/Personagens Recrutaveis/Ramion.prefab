@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classId: 107
-  Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
+  Weapon: {fileID: 11400000, guid: 95f9feaf5187203488bb7e3ebdb892b9, type: 2}
+  UsableWeaponTypes: 
   Accesory: {fileID: 0}
   battleManager: {fileID: 0}
   enemy: 0
@@ -94,6 +95,7 @@ MonoBehaviour:
   cooking: 0
   position: 0
   Pendure: 0
+  animator: {fileID: 0}
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
@@ -110,6 +112,7 @@ MonoBehaviour:
   soul3: 
   description: "classe n\xE3o valida"
   Icon: {fileID: 0}
+  damageTMP: {fileID: 0}
   SkillManager: {fileID: 0}
   unitData:
     classId: 0

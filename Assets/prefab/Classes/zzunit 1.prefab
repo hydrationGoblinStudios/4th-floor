@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4445489306633608637}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4445489306633608638
 MonoBehaviour:
@@ -44,20 +44,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a723571189421418ed8236054e40d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 0}
+  classId: 0
+  Weapon: {fileID: 11400000, guid: 95f9feaf5187203488bb7e3ebdb892b9, type: 2}
+  UsableWeaponTypes: 
   Accesory: {fileID: 0}
-  playerBehavior: {fileID: 0}
-  enemyBehavior: {fileID: 0}
+  battleManager: {fileID: 0}
   enemy: 0
-  UnitName: Bors
+  battleManagerOBJ: {fileID: 0}
+  activity: 
+  fortalecerStat: 0
+  currentLearnigClassID: 0
+  UnitName: 
+  currentLevel: 0
+  expmarkplier: 0
+  currentRank: 0
+  currentExp: 0
+  ClassID: 
+  ClassLevel: 
+  ClassLearningSerializable:
+    thisSeriazableDictionaryItem: []
   hit: 0
+  avoid: 0
   crit: 0
-  maxhp: 10
-  hp: 10
-  atk: 7
-  dex: 5
-  def: 5
+  maxhp: 0
+  hp: 0
+  power: 0
+  str: 0
+  mag: 0
+  dex: 0
+  def: 0
+  mdef: 0
+  defenses: 
   luck: 0
-  speed: 5
+  speed: -1000
+  skills: []
+  skillInventory: []
+  equipedSoul: 
+  equippedSoulIsAttack: 1
+  soulInventory: []
+  soul: 0
+  maxsoul: 0
+  soulgain: 0
+  damagereduction: 0
+  lifesteal: 0
+  armorpen: 0
+  magicpen: 0
+  cooking: 0
+  position: 0
+  Pendure: 0
+  animator: {fileID: 0}
+  Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
+  growths: 
+  classSkill: 
+  personalSkill: 
+  baseSkill: 
+  skill1: 
+  skill2: 
+  skill3: 
+  baseSoul: 
+  soul1: 
+  soul2: 
+  soul3: 
+  description: "classe n\xE3o valida"
+  Icon: {fileID: 0}
+  damageTMP: {fileID: 0}
+  SkillManager: {fileID: 0}
+  unitData:
+    classId: 0
+    Weapon: {fileID: 0}
+    Accesory: {fileID: 0}
+    UnitName: 
+    currentLevel: 0
+    expmarkplier: 0
+    currentRank: 0
+    currentExp: 0
+    ClassID: 
+    ClassLevel: 
+    hit: 0
+    avoid: 0
+    crit: 0
+    maxhp: 0
+    hp: 0
+    power: 0
+    str: 0
+    mag: 0
+    dex: 0
+    def: 0
+    mdef: 0
+    defenses: 
+    luck: 0
+    speed: 0
+    skills: []
+    skillInventory: []
+    equipedSoul: 
+    equippedSoulIsAttack: 0
+    soulInventory: []
+    soul: 0
+    maxsoul: 0
+    soulgain: 0
+    damagereduction: 0
+    lifesteal: 0
+    armorpen: 0
+    magicpen: 0
+    cooking: 0
+    growths: 
+    classSkill: 
+    personalSkill: 
+    baseSkill: 
+    skill1: 
+    skill2: 
+    skill3: 
+    baseSoul: 
+    soul1: 
+    soul2: 
+    soul3: 
+    description: 

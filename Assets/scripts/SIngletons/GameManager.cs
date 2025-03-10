@@ -396,6 +396,14 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     dm.StartDialogue(graphs.Where(obj => obj.name == "Noite 0 Figura Misteriosa").SingleOrDefault());
                 }
                 break;
+            case "Abertura":
+                if (true)
+                {
+                    Debug.Log("Abertura");
+                    NodeParser dm = FindObjectOfType<NodeParser>(true);
+                    dm.StartDialogue(graphs.Where(obj => obj.name == "abertura").SingleOrDefault());
+                }
+                break;
 
         }
     }

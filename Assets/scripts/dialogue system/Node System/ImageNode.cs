@@ -13,6 +13,8 @@ public class ImageNode : BaseNode
         GameObject go = GameObject.Find("Dialogue Sprite");
         spriteRenderer = go.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = image;
+        spriteRenderer.transform.localPosition = Vector3.zero;
+        spriteRenderer.transform.position = Vector3.zero;
         spriteRenderer.color = new Color(255, 255, 255, 255);
         return "ImageNode/";
     }

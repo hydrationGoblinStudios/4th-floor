@@ -187,7 +187,6 @@ public class NodeParser : MonoBehaviour
     }
     public void StartDialogue(DialogueGraph NewGraph)
     {
-        Debug.Log("activatables");
        /* InventoryManager IM = FindObjectOfType<InventoryManager>(true);
         IM.Activatable = !IM.Activatable;
         MapToggle MT = FindObjectOfType<MapToggle>(true);
