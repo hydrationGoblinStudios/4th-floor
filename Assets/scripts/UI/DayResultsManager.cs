@@ -152,6 +152,9 @@ public class DayResultsManager : MonoBehaviour
                         currentUnit.activity = "Treinar";
                     }
                     break;
+                case "":
+                    Texts[c].text = "sem atividade";
+                    break;
                 default:
                     Texts[c].text = activity;
                     break;
