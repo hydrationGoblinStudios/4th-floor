@@ -347,7 +347,7 @@ public class BattleManager : MonoBehaviour
         if (playerTeam[2].hp > 0) { PlayerBar3 += Time.deltaTime * player3Behavior.speed * 20; }
         if (enemyTeam[0].hp > 0){EnemyBar += Time.deltaTime * enemyBehavior.speed * 20;}
         if (enemyTeam[1].hp > 0){EnemyBar2 += Time.deltaTime * enemy2Behavior.speed * 20;}
-        if (enemyTeam[2].hp > 0){EnemyBar3 = Time.deltaTime * enemy3Behavior.speed * 20;}
+        if (enemyTeam[2].hp > 0){EnemyBar3 += Time.deltaTime * enemy3Behavior.speed * 20;}
         PlayerBars[0] = PlayerBar;
         PlayerBars[1] = PlayerBar2;
         PlayerBars[2] = PlayerBar3;
