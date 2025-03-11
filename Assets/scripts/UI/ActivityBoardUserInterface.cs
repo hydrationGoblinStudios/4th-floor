@@ -10,6 +10,7 @@ public class ActivityBoardUserInterface : MonoBehaviour
     public InventoryManager inventoryManager;
     public List<TextMeshProUGUI> activityTexts;
     public List<SpriteRenderer> mugshots;
+    public GameObject highlight;
     public void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
@@ -19,6 +20,7 @@ public class ActivityBoardUserInterface : MonoBehaviour
     {
         int c = 0;
         Debug.Log("mugshot");
+        highlight.SetActive(false);
         foreach (SpriteRenderer sr in mugshots)
         {
             if (gameManager.team[c] != null &&inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault() != null && gameManager.team[c] != null)

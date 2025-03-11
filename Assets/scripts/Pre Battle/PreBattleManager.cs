@@ -25,7 +25,9 @@ public class PreBattleManager : MonoBehaviour
     public UnitBehavior selectedUnit;
     public UnitBehavior selectedEnemyUnit;
     public TextMeshProUGUI[] statTexts;
+    public TextMeshProUGUI unitName;
     public TextMeshProUGUI[] enemyStatTexts;
+    public TextMeshProUGUI enemyUnitName;
     public SpriteRenderer playerMugshot;
     public SpriteRenderer enemyMugshot;
     public List<TextMeshProUGUI> playerWeaponStatText;
@@ -300,7 +302,8 @@ public class PreBattleManager : MonoBehaviour
         selectedUnit = unitBehavior;
         statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString(); statTexts[3].text = selectedUnit.dex.ToString(); statTexts[4].text = selectedUnit.speed.ToString();
         statTexts[5].text = selectedUnit.def.ToString(); statTexts[6].text = selectedUnit.mdef.ToString(); statTexts[7].text = selectedUnit.luck.ToString();
-        if(inventoryManager.playableMugShots.Where(obj => obj.name == selectedUnit.name + " mugshot").SingleOrDefault() != null)
+        unitName.text = selectedUnit.UnitName;
+        if (inventoryManager.playableMugShots.Where(obj => obj.name == selectedUnit.UnitName + " mugshot").SingleOrDefault() != null)
         {
             playerMugshot.sprite = inventoryManager.playableMugShots.Where(obj => obj.name == selectedUnit.UnitName + " mugshot").SingleOrDefault();
         }
@@ -337,6 +340,7 @@ public class PreBattleManager : MonoBehaviour
         enemyStatTexts[2].text = selectedEnemyUnit.mag.ToString(); enemyStatTexts[3].text = selectedEnemyUnit.dex.ToString(); 
         enemyStatTexts[4].text = selectedEnemyUnit.speed.ToString();enemyStatTexts[5].text = selectedEnemyUnit.def.ToString(); 
         enemyStatTexts[6].text = selectedEnemyUnit.mdef.ToString(); enemyStatTexts[7].text = selectedEnemyUnit.luck.ToString();
+        enemyUnitName.text = selectedEnemyUnit.UnitName;
         enmeyWeaponStatText[0].text = selectedEnemyUnit.Weapon.power.ToString();
         enmeyWeaponStatText[1].text = selectedEnemyUnit.Weapon.hit.ToString();
         enmeyWeaponStatText[2].text = selectedEnemyUnit.Weapon.crit.ToString();
@@ -351,6 +355,14 @@ public class PreBattleManager : MonoBehaviour
         {
             enmeyWeaponStatText[4].text = "";
             enemyEquipsRenderers[1].sprite = null;
+        }
+        if (inventoryManager.playableMugShots.Where(obj => obj.name == selectedEnemyUnit.UnitName + " mugshot").SingleOrDefault() != null)
+        {
+            enemyMugshot.sprite = inventoryManager.playableMugShots.Where(obj => obj.name == selectedEnemyUnit.UnitName + " mugshot").SingleOrDefault();
+        }
+        else
+        {
+            enemyMugshot.sprite =  null;
         }
     }
 

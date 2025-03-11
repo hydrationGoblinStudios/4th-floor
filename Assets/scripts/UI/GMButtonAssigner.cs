@@ -22,6 +22,10 @@ public class GMButtonAssigner : MonoBehaviour
         if(gameManager.team[unit] != null && gameManager.team[unit].GetComponent<UnitBehavior>() != null)
         {
         gameManager.selectedUB4Activity = gameManager.team[unit].GetComponent<UnitBehavior>();
+            GameObject ab = GameObject.FindGameObjectWithTag("Activity Board");
+            ab.GetComponentInChildren<ActivityBoardUserInterface>().highlight.transform.parent = transform;
+            ab.GetComponentInChildren<ActivityBoardUserInterface>().highlight.transform.localPosition = Vector3.zero;
+            ab.GetComponentInChildren<ActivityBoardUserInterface>().highlight.SetActive(true);
         }
         Debug.Log("unitSelected");
     }

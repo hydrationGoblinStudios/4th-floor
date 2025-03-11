@@ -13216,6 +13216,7 @@ MonoBehaviour:
   - {fileID: 432837935}
   - {fileID: 240896424}
   - {fileID: 944888039}
+  unitName: {fileID: 1536082898}
   enemyStatTexts:
   - {fileID: 20377202}
   - {fileID: 1622775096}
@@ -13225,6 +13226,7 @@ MonoBehaviour:
   - {fileID: 1108164103}
   - {fileID: 1204741628}
   - {fileID: 1067179758}
+  enemyUnitName: {fileID: 1758548700}
   playerMugshot: {fileID: 1350871942}
   enemyMugshot: {fileID: 1981635632}
   playerWeaponStatText:
