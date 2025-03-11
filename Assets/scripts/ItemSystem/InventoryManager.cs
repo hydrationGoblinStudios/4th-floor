@@ -17,6 +17,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject charSelectPanel;
     public GameObject ItemSelectPanel;
     public GameObject unitSelectPanel;
+    public List<GameObject> panelList;
+    public List<Sprite> panelSprites;
     public GameObject buttonPrefab;
     public GameObject ItemButtonPrefab;
     public GameObject UnitSelectButton;
@@ -31,6 +33,8 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI equipText;
     public TextMeshProUGUI accesoryText;
     public NodeParser nodeParser;
+    public GameObject[] ItemSelectorList;
+    public Sprite[] ItemSelectorListSprites;
     public bool Activatable;
 
     [Header("Ui top")]
@@ -80,15 +84,9 @@ public class InventoryManager : MonoBehaviour
     {if(item.type == Item.Type.weapon)
         {
             if (selectedUnit.UsableWeaponTypes.Contains(item.weapontype)){
-                Debug.Log("poggers");
                 selectedUnit.Weapon = item;
                 UpdateEquips(item);
             }
-            else
-            {
-                Debug.Log("cringe");
-            }
-
         }
         else
         {
@@ -186,6 +184,26 @@ public class InventoryManager : MonoBehaviour
         skillIconsObjects[2].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[2]).SingleOrDefault();
         skillIconsObjects[3].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[3]).SingleOrDefault();
         Manager.SelectedUBClassChange = selectedUnit.gameObject;
+        if(panelList.Count > 0)
+        {
+            int counter = 0;
+            GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
+            Manager = GameManagerOBJ.GetComponent<GameManager>();
+            foreach (GameObject obj in panelList)
+            {
+                obj.GetComponent<Image>().sprite = panelSprites[0];
+            }
+            foreach (GameObject obj in Manager.team)
+            {
+                if(obj.name == selectedUnit.name)
+                {
+                    panelList[counter].GetComponent<Image>().sprite = panelSprites[1];
+                }
+                counter++; 
+            }
+        }
+
+
     }
     public void UpdateInventory()
     {
@@ -199,7 +217,7 @@ public class InventoryManager : MonoBehaviour
         }
         CurrentItemList = Manager.Inventory;
         DisplayItemList(Manager.Inventory);
-
+        panelList.Clear();
         foreach (GameObject unit in Manager.team)
         {
             if (first) 
@@ -207,6 +225,7 @@ public class InventoryManager : MonoBehaviour
                 GameObject charButton = Instantiate(buttonPrefab, charSelectPanel.transform);
                 charButton.GetComponent<Button>().onClick.AddListener(() => Select(unit.GetComponent<UnitBehavior>()));
                 charButton.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
+                panelList.Add(charButton);
                 first = false;
             }
             else 
@@ -214,6 +233,7 @@ public class InventoryManager : MonoBehaviour
                 GameObject charButton  = Instantiate(buttonPrefab, charSelectPanel.transform);
                 charButton.GetComponent<Button>().onClick.AddListener(() => Select(unit.GetComponent<UnitBehavior>()));
                 charButton.GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<UnitBehavior>().UnitName;
+                panelList.Add(charButton);
             }
         }
         UpdateSkillName();
@@ -262,10 +282,13 @@ public class InventoryManager : MonoBehaviour
             AccesoryImage.sprite = null;
         }
     }
-    public void DisplayItemList(List<Item> ItemList)
+    public void DisplayItemList(List<Item> ItemList, int button = 0)
     {
         Manager.ParseWeaponList();
-
+        foreach(GameObject itemselector in ItemSelectorList)
+        {
+            itemselector.GetComponent<Image>().sprite = ItemSelectorListSprites[2];
+        }
         while (panel.transform.childCount > 0)
         {
             DestroyImmediate(panel.transform.GetChild(0).gameObject);
@@ -314,6 +337,10 @@ public class InventoryManager : MonoBehaviour
     }
     public void DisplayKeyItemList(List<Item> ItemList)
     {
+        foreach (GameObject itemselector in ItemSelectorList)
+        {
+            itemselector.GetComponent<Image>().sprite = ItemSelectorListSprites[2];
+        }
         while (panel.transform.childCount > 0)
         {
             DestroyImmediate(panel.transform.GetChild(0).gameObject);
@@ -394,48 +421,69 @@ public class InventoryManager : MonoBehaviour
     {
         CurrentItemList = Manager.SwordList;
         DisplayItemList(Manager.SwordList);
+        ItemSelectorList[0].GetComponent<Image>().sprite = ItemSelectorListSprites[0];
     }
     public void DisplayLanceList()
     {
         CurrentItemList = Manager.LanceList;
 
         DisplayItemList(Manager.LanceList);
+        ItemSelectorList[1].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
+
     }
     public void DisplayAxeList()
     {
         CurrentItemList = Manager.AxeList;
 
         DisplayItemList(Manager.AxeList);
+        ItemSelectorList[2].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
+
     }
     public void DisplayBowList()
     {
         CurrentItemList = Manager.BowList;
 
         DisplayItemList(Manager.BowList);
+        ItemSelectorList[3].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
+
     }
     public void DisplayTomeList()
     {
         CurrentItemList = Manager.TomeList;
 
         DisplayItemList(Manager.TomeList);
+        ItemSelectorList[4].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
+
     }
     public void DisplayReceptacleList()
     {
         CurrentItemList = Manager.ReceptacleList;
 
         DisplayItemList(Manager.ReceptacleList);
+        ItemSelectorList[5].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
+
     }
     public void DisplayAccesoriesList()
     {
         CurrentItemList = Manager.AccesoriesList;
 
         DisplayItemList(Manager.AccesoriesList);
+        ItemSelectorList[6].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
+
+    }
+    public void DisplayAllList()
+    {
+        CurrentItemList = Manager.Inventory;
+        DisplayItemList(Manager.Inventory);
+        ItemSelectorList[8].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
     }
     public void DisplayKeyItems()
     {
         CurrentItemList = Manager.KeyItems;
 
         DisplayKeyItemList(Manager.KeyItems);
+        ItemSelectorList[7].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
+
     }
 
 
