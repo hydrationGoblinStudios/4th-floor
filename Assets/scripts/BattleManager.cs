@@ -442,7 +442,14 @@ public class BattleManager : MonoBehaviour
 
         }
         else { state = BattleState.PlayerTurn; }
+        if(attacker.Weapon.damageType == 0)
+        {
         attacker.power = attacker.str +attacker.Weapon.power;
+        }
+        else
+        {
+            attacker.power = attacker.mag + attacker.Weapon.power;
+        }
         //Pskill = 0;
         attacker.SkillManager.currentDamageBonus = 0;
         int attackerDamage = attacker.power - (Target.defenses[attacker.Weapon.damageType] + Target.damagereduction);

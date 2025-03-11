@@ -519,7 +519,9 @@ public class PreBattleManager : MonoBehaviour
     }
     public void UnitSelect(int i,GameObject SelectedPlayer = null)
     {
-        if(SelectedPlayer != null)
+        if(SelectedPlayer != null && SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer1.GetComponent<UnitBehavior>().UnitName 
+            && SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer2.GetComponent<UnitBehavior>().UnitName
+            && SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer3.GetComponent<UnitBehavior>().UnitName)
         {
             Debug.Log(SelectedPlayer.name);
             selectedUnit = SelectedPlayer.GetComponent<UnitBehavior>();
