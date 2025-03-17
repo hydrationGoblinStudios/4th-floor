@@ -426,22 +426,27 @@ public class PreBattleManager : MonoBehaviour
             Select(selectedUnit);
         }
     }
+
+    public void InventoryToggleButton()
+    {
+        InventoryToggle(gameManager.Inventory);
+    }
     public void InventoryToggle(List<Item> ItemList)
     {
         Debug.Log("amogus");
         StatIcons.SetActive(!StatIcons.activeInHierarchy);
         gameManager.ParseWeaponList();
 
-        while (ActivityPanel.transform.childCount > 0)
+        /*while (ActivityPanel.transform.childCount > 0)
         {
             DestroyImmediate(ActivityPanel.transform.GetChild(0).gameObject);
-        }
+        }*/
         foreach (Item item in ItemList)
         {
             if (item != selectedUnit.Weapon && item != selectedUnit.Accesory)
             {
                 GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, ItemSelectPanel.transform);
-                itemButton.GetComponent<Button>().onClick.AddListener(() => inventoryManager.Equip(item));
+                itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
                 if (!selectedUnit.UsableWeaponTypes.Contains(item.weapontype) && item.type != Item.Type.accesory && item.type != Item.Type.key)
                 {
                     itemButton.GetComponentInChildren<TextMeshProUGUI>().color = new((float)0.6, (float)0.6, (float)0.6, 1);
@@ -477,6 +482,21 @@ public class PreBattleManager : MonoBehaviour
                 }
             }
         }
+    }
+    public void Equip(Item item)
+    {
+        if (item.type == Item.Type.weapon)
+        {
+            if (selectedUnit.UsableWeaponTypes.Contains(item.weapontype))
+            {
+                selectedUnit.Weapon = item;
+            }
+        }
+        else
+        {
+            selectedUnit.Accesory = item;
+        }
+        Select(selectedUnit);
     }
     public void ExportTeamToBattle()
     {
