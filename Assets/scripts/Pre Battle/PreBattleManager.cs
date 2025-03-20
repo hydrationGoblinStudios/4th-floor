@@ -437,10 +437,10 @@ public class PreBattleManager : MonoBehaviour
         StatIcons.SetActive(!StatIcons.activeInHierarchy);
         gameManager.ParseWeaponList();
 
-        /*while (ActivityPanel.transform.childCount > 0)
+        while (ItemSelectPanel.transform.childCount > 0)
         {
-            DestroyImmediate(ActivityPanel.transform.GetChild(0).gameObject);
-        }*/
+            DestroyImmediate(ItemSelectPanel.transform.GetChild(0).gameObject);
+        }
         foreach (Item item in ItemList)
         {
             if (item != selectedUnit.Weapon && item != selectedUnit.Accesory)
@@ -480,6 +480,13 @@ public class PreBattleManager : MonoBehaviour
                         itemButton.GetComponentInChildren<Image>().sprite = inventoryManager.sprites[6];
                         break;
                 }
+            }
+        }
+        if(StatIcons.activeInHierarchy == true)
+        {
+            while (ItemSelectPanel.transform.childCount > 0)
+            {
+                DestroyImmediate(ItemSelectPanel.transform.GetChild(0).gameObject);
             }
         }
     }
