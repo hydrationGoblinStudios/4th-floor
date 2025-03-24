@@ -8,6 +8,7 @@ public class ItemNode : BaseNode
     [Output] public int exit;
     public Item item;
     public bool key;
+    public bool flag;
     private GameManager Manager;
     private GameObject GameManagerOBJ;
     public override string GetString()
@@ -17,6 +18,10 @@ public class ItemNode : BaseNode
         if (key)
         {
             Manager.KeyItems.Add(item);
+        }
+        else if (flag)
+        {
+            Manager.StoryFlags.Add(item);
         }
         else
         {

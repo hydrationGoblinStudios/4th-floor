@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public TextMeshPro moneyText;
     public List<Item> Inventory;
     public List<Item> KeyItems;
-    public List<string> StoryFlags;
+    public List<Item> StoryFlags;
     [Header("ItemParseLists")]
     public List<Item> SwordList;
     public List<Item> LanceList;

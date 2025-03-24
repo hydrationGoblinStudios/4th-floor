@@ -23,6 +23,13 @@ public class ItemCheck : BaseNode
                 hasItem = 1;
             }
         }
-        return "ItemCheck/"+hasItem;
+        foreach (Item item in Manager.StoryFlags)
+        {
+            if (item.id == id)
+            {
+                hasItem = 1;
+            }
+        }
+        return "ItemCheck/" +hasItem;
     }
 }
