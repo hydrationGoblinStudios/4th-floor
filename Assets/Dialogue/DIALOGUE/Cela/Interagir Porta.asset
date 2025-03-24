@@ -430,7 +430,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   item: {fileID: 11400000, guid: 13e8e48965324a242b06984ebab4ecb0, type: 2}
-  key: 1
+  key: 0
+  flag: 1
 --- !u!114 &-3573900316988011000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,6 +559,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &-568304578126812958
 MonoBehaviour:
@@ -750,7 +752,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   item: {fileID: 11400000, guid: 34b7cd21155f6014e9feb93261a6efae, type: 2}
-  key: 1
+  key: 0
+  flag: 1
 --- !u!114 &1603336506014674691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1594,6 +1597,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &7611025202185407899
 MonoBehaviour:

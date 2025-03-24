@@ -915,7 +915,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: -552}
+  position: {x: 1448, y: -568}
   ports:
     keys:
     - entry
@@ -985,7 +985,10 @@ MonoBehaviour:
       _node: {fileID: 2032893128295903187}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 2650930084645459495}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -1112,7 +1115,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1720, y: -584}
+  position: {x: 1736, y: -648}
   ports:
     keys:
     - entry
@@ -1121,11 +1124,15 @@ MonoBehaviour:
       _node: {fileID: 2650930084645459495}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: exit4
+        node: {fileID: 2032893128295903187}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &3344451182134146453
 MonoBehaviour:
@@ -1343,7 +1350,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1736, y: -328}
+  position: {x: 1736, y: -344}
   ports:
     keys:
     - entry
@@ -1363,6 +1370,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &4532186604005315837
 MonoBehaviour:
@@ -1552,6 +1560,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &6732562169901074491
 MonoBehaviour:

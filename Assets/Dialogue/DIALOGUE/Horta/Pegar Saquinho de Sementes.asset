@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Graph Changer
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2600, y: -88}
+  position: {x: 2744, y: -136}
   ports:
     keys:
     - entry
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: Change Sprite
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2504, y: 56}
+  position: {x: 2520, y: -136}
   ports:
     keys:
     - entry
@@ -289,6 +289,7 @@ MonoBehaviour:
   exit: 0
   item: {fileID: 11400000, guid: 262a94c568a296245a32a3108d825ae6, type: 2}
   key: 1
+  flag: 0
 --- !u!114 &7365593190812066850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +303,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2776, y: -136}
+  position: {x: 2952, y: -136}
   ports:
     keys:
     - entry
@@ -319,4 +320,5 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0

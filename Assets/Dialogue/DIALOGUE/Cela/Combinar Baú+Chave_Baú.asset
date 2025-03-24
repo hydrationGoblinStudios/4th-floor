@@ -46,8 +46,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   item: {fileID: 11400000, guid: 5f8ec179ccbbe004cab8692fdddd2720, type: 2}
-  key: 1
-  flag: 0
+  key: 0
+  flag: 1
 --- !u!114 &-5638366388448672719
 MonoBehaviour:
   m_ObjectHideFlags: 0
