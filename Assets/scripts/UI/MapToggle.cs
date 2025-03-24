@@ -6,6 +6,7 @@ public class MapToggle : MonoBehaviour
 {
     public List<GameObject> invert;
     public bool activatable;
+    public GameObject panel;
     public void Toggle()
     {
         if (activatable)
@@ -22,7 +23,12 @@ public class MapToggle : MonoBehaviour
                 {
                  go.SetActive(!go.activeInHierarchy);
                 }
-            }        
+            }
+            foreach(Transform child in panel.transform)
+            {
+                Debug.Log(child.name);
+                child.gameObject.GetComponent<SceneNameBasedHider>().Toggled();
+            }
         }
     }
     public void Update()

@@ -61,6 +61,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &-4798773825283243542
 MonoBehaviour:
@@ -176,6 +177,7 @@ MonoBehaviour:
   exit: 0
   item: {fileID: 11400000, guid: 8f6396528030aa04f8722a9b2effa446, type: 2}
   key: 1
+  flag: 0
 --- !u!114 &2795539345097012042
 MonoBehaviour:
   m_ObjectHideFlags: 0
