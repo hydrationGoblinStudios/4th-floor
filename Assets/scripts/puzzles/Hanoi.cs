@@ -24,8 +24,14 @@ public class Hanoi : MonoBehaviour
         {
            pillars[i].Insert(0, held);
            holding = false;
+
+            Debug.Log(pillar3.Count);
+            if (pillar3.Count == 5)
+            {
+                Debug.Log("vitoria Gamer");
+            }
         }
-        else if(!holding)
+        else if(!holding && pillars[i][0] != 5)
         {
             if(pillars[i].Count >= 1)
             {
