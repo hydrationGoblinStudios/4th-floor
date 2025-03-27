@@ -1179,7 +1179,7 @@ GameObject:
   - component: {fileID: 79065886}
   - component: {fileID: 79065889}
   m_Layer: 5
-  m_Name: Button (6)
+  m_Name: Horta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: 
+  OriginalSceneName: Horta
 --- !u!1 &106023515
 GameObject:
   m_ObjectHideFlags: 0
@@ -10402,7 +10402,7 @@ GameObject:
   - component: {fileID: 760858123}
   - component: {fileID: 760858126}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Dispensa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10546,7 +10546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: 
+  OriginalSceneName: Dispensa
 --- !u!1 &764661449
 GameObject:
   m_ObjectHideFlags: 0
@@ -10786,7 +10786,7 @@ GameObject:
   - component: {fileID: 779761039}
   - component: {fileID: 779761042}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: Laboratorio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10930,7 +10930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: 
+  OriginalSceneName: Laboratio
 --- !u!1 &788691421
 GameObject:
   m_ObjectHideFlags: 0
@@ -18909,7 +18909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: 
+  OriginalSceneName: Cantina
 --- !u!1 &1315109926
 GameObject:
   m_ObjectHideFlags: 0
@@ -21088,7 +21088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: 
+  OriginalSceneName: Patio
 --- !u!1 &1506175713
 GameObject:
   m_ObjectHideFlags: 0

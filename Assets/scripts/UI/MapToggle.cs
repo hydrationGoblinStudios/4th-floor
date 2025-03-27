@@ -26,7 +26,6 @@ public class MapToggle : MonoBehaviour
             }
             foreach(Transform child in panel.transform)
             {
-                Debug.Log(child.name);
                 child.gameObject.GetComponent<SceneNameBasedHider>().Toggled();
             }
         }

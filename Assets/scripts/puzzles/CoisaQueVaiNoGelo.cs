@@ -10,6 +10,7 @@ public class CoisaQueVaiNoGelo : MonoBehaviour
     public float timer;
     public GameObject canvas;
     public List<GameObject> grid;
+    public List<int> blocks;
     public int position;
 
     private void Start()
@@ -22,48 +23,59 @@ public class CoisaQueVaiNoGelo : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        List<int> list = new List<int>(){0,3,6,9,12};
+        List<int> list = new List<int>() { 0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168 , 180 };
         if (Input.GetKeyDown(KeyCode.UpArrow) && actionable == true && !list.Contains(position))
         {
             actionable = false;
             direction = 1;
         }
-        list = new List<int>() {12,13,14};
+        list = new List<int>() { 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179 };
         if (Input.GetKeyDown(KeyCode.RightArrow) && actionable == true && !list.Contains(position))
         {
             actionable = false;
             direction = 2;
         }
-        list = new List<int>() { 2, 5, 8, 11, 14 };
+        list = new List<int>() { 11, 23, 35, 47, 59, 71, 83, 95, 107, 119, 131, 143, 155, 167, 179 };
         if (Input.GetKeyDown(KeyCode.DownArrow) && actionable == true && !list.Contains(position))
         {
             actionable = false;
             direction = 3;
         }
-        list = new List<int>() { 0,1,2 };
+        list = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
         if (Input.GetKeyDown(KeyCode.LeftArrow) && actionable == true && !list.Contains(position))
         {
             actionable = false;
             direction = 4;
         }
+        List<int> blocksTemp = new List<int>();
         switch (direction)
         {
             case 1:
-                list = new List<int>() { 0, 3, 6, 9, 12 }; position -= 1; gameObject.transform.position = grid[position].transform.position; 
-                while (!list.Contains(position)) { position -= 1; gameObject.transform.position = grid[position].transform.position; } 
+                list = new List<int>() { 0, 12, 24, 36, 48, 60 , 72 , 84 , 96, 108, 120, 132, 144, 156 , 168,180}; position -= 1;
+                blocksTemp = new List<int>();
+                foreach (int n in blocks) { blocksTemp.Add(n + 1); }
+                gameObject.transform.position = grid[position].transform.position; 
+                while (!list.Contains(position) && !blocksTemp.Contains(position)) { position -= 1; gameObject.transform.position = grid[position].transform.position;} 
                 direction = 0; actionable = true; break;
             case 2:
-                list = new List<int>() { 12, 13, 14 }; position += 3; gameObject.transform.position = grid[position].transform.position;
-                while (!list.Contains(position)) { position += 3; gameObject.transform.position = grid[position].transform.position; }
+                list = new List<int>() { 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179 }; position += 12;
+                blocksTemp = new List<int>();
+                foreach (int n in blocks) { blocksTemp.Add(n - 12); }
+                gameObject.transform.position = grid[position].transform.position;
+                while (!list.Contains(position) && !blocksTemp.Contains(position)) { position += 12; gameObject.transform.position = grid[position].transform.position;Debug.Log(position); }
                 direction = 0; actionable = true;  break;
             case 3:
-                list = new List<int>() { 2, 5, 8, 11, 14 }; position += 1; gameObject.transform.position = grid[position].transform.position; 
-                while (!list.Contains(position)) { position += 1; gameObject.transform.position = grid[position].transform.position; }
+                list = new List<int>() { 11, 23, 35, 47, 59, 71, 83, 95, 107, 119, 131, 143, 155, 167, 179 }; position += 1; gameObject.transform.position = grid[position].transform.position;
+                blocksTemp = new List<int>();
+                foreach (int n in blocks) { blocksTemp.Add(n - 1); }
+                while (!list.Contains(position) && !blocksTemp.Contains(position)) { position += 1; gameObject.transform.position = grid[position].transform.position; }
                 direction = 0; actionable = true; break;
             case 4:
-                list = new List<int>() { 0, 1, 2 };
-                position -= 3; gameObject.transform.position = grid[position].transform.position; 
-                while (!list.Contains(position)) { position -= 3; gameObject.transform.position = grid[position].transform.position; }
+                list = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+                blocksTemp = new List<int>();
+                foreach (int n in blocks) { blocksTemp.Add(n + 12); }
+                position -= 12; gameObject.transform.position = grid[position].transform.position; 
+                while (!list.Contains(position) && !blocksTemp.Contains(position)) { position -= 12; gameObject.transform.position = grid[position].transform.position; }
                 direction = 0; actionable = true; break;
             default: break;
         }
