@@ -12,10 +12,11 @@ public class ShopManager : MonoBehaviour
     public GameObject calendario;
     public GameObject panel;
     public GameObject buttonPrefab;
-    public NodeParser nodeParser;
+    public NodeParser nodeParser; 
     public Item[] stock;
     public Sprite[] sprites;
     public DialogueGraph graph;
+    public bool blackMarketOpen = false;
 
     void Start()
     {
@@ -71,28 +72,34 @@ public class ShopManager : MonoBehaviour
     }
     public void Toggle()
     {
-        if (SceneInteractable == null)
+        GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
+        Manager = GameManagerOBJ.GetComponent<GameManager>();
+        if (Manager.TimeIsDay || blackMarketOpen)
         {
-            SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
-        }
-        if (SceneInteractable != null)
-        {
-            foreach(Transform child in SceneInteractable.transform)
+            if (SceneInteractable == null)
             {
-                if(child.name != "shop")
+                SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
+            }
+            if (SceneInteractable != null)
+            {
+                foreach (Transform child in SceneInteractable.transform)
                 {
-                    child.gameObject.SetActive(!child.gameObject.activeInHierarchy);
+                    if (child.name != "shop")
+                    {
+                        child.gameObject.SetActive(!child.gameObject.activeInHierarchy);
+                    }
                 }
             }
-        }
-        gameObject.SetActive(!gameObject.activeInHierarchy);
-        if(calendario == null)
-        {
-            calendario = FindAnyObjectByType<CalendarioUI>().gameObject;
-        }
-        if (calendario != null)
-        {
-            calendario.SetActive(!calendario.activeInHierarchy);
+            gameObject.SetActive(!gameObject.activeInHierarchy);
+            if (calendario == null)
+            {
+                calendario = FindObjectOfType<CalendarioUI>(true).gameObject;
+            }
+            if (calendario != null)
+            {
+                calendario.SetActive(!calendario.activeInHierarchy);
+            }
+            blackMarketOpen = false;
         }
     }
 }

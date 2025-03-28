@@ -323,6 +323,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             cui.UIUpdate();
             wakeUpTalk = true;
             storyBattle = true;
+            TimeIsDay = true;
             GameEventHandler();
         }
     }

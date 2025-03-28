@@ -12887,7 +12887,7 @@ MonoBehaviour:
   testMode: 0
   storyBattle: 0
   BossBattleID: 0
-  TimeIsDay: 0
+  TimeIsDay: 1
   wakeUpTalk: 0
   mapButtons:
   - {fileID: 116682590}
