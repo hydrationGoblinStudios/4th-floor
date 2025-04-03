@@ -114,9 +114,9 @@ public class InventoryManager : MonoBehaviour
         soulIconObject.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == soulName).SingleOrDefault();
         Select(selectedUnit);
     }
-    public void InstantiateKeyItem(GameObject button, Item item)
+    public void InstantiateKeyItem(Item item, bool toggle = true)
     {
-        Toggle();
+        if (toggle) { Toggle(); }
         Instantiate(DragAndDroppables.Where(obj => obj.name == item.name).SingleOrDefault(), gameObject.GetComponentInParent<Canvas>().transform);
     }
     public void Select(UnitBehavior unitBehavior)
@@ -348,7 +348,7 @@ public class InventoryManager : MonoBehaviour
         foreach (Item item in ItemList)
         {
             GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
-            itemButton.GetComponent<Button>().onClick.AddListener(() => InstantiateKeyItem(itemButton, item));
+            itemButton.GetComponent<Button>().onClick.AddListener(() => InstantiateKeyItem(item));
             itemButton.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName;
             itemButton.GetComponentInChildren<Image>().sprite = sprites[0];
         }
