@@ -177,6 +177,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &-1637657828647752581
 MonoBehaviour:
@@ -639,7 +640,7 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Hiro
-  dialogue: "At\xE9 agora, o evento mais antigo eu descobri foi a c\xF3lera divina,
+  dialogue: "At\xE9 agora, o evento mais antigo que eu descobri foi a c\xF3lera divina,
     o evento onde as boas pessoas foram aben\xE7oadas e viraram os ascendidos, e
     os caras maus foram punidos virando os valentes. Mas n\xE3o se sabe nada sobre
     como era o pa\xEDs antes disso"
