@@ -19,17 +19,22 @@ public class KeyItemDrawer : MonoBehaviour
     {
         if (activated)
         {
+          Drawer.transform.localPosition = new() {x= Drawer.transform.localPosition.x -200,y= Drawer.transform.localPosition.y};
             foreach(Transform tr in Panel.transform)
             {
-          tr.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
-          //GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, inventoryManager.ItemSelectPanel.transform);
-          tr.gameObject.GetComponent<Button>().onClick.AddListener(() => inventoryManager.InstantiateKeyItem(gameManager.KeyItems[0], false));
+                tr.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
             }
-          Drawer.transform.localPosition = new() {x= Drawer.transform.localPosition.x -200,y= Drawer.transform.localPosition.y};
         }
         else
         {
         Drawer.transform.localPosition = new() { x = Drawer.transform.localPosition.x + 200, y = Drawer.transform.localPosition.y };
+            foreach (Transform tr in Panel.transform)
+            {
+                Debug.Log(tr.name);
+                tr.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
+                //GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, inventoryManager.ItemSelectPanel.transform);
+                tr.gameObject.GetComponent<Button>().onClick.AddListener(() => inventoryManager.InstantiateKeyItem(gameManager.KeyItems[0], false));
+            }
         }
         activated = !activated;
     }

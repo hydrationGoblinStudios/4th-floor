@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,13 @@ public class SceneMaracutaia : MonoBehaviour
     public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
+    }
+    public void LoadSceneNDialogue(string scene, DialogueGraph graph)
+    {
+        SceneManager.LoadScene(scene);
+        NodeParser nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
+        nodeParser.StartDialogue(graph);
+
     }
     public void LoadCombat(string scene)
     {

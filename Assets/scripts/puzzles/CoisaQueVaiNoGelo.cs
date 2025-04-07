@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoisaQueVaiNoGelo : MonoBehaviour
@@ -12,6 +13,7 @@ public class CoisaQueVaiNoGelo : MonoBehaviour
     public List<GameObject> grid;
     public List<int> blocks;
     public int position;
+    public DialogueGraph graph;
 
     private void Start()
     {
@@ -78,6 +80,11 @@ public class CoisaQueVaiNoGelo : MonoBehaviour
                 while (!list.Contains(position) && !blocksTemp.Contains(position)) { position -= 12; gameObject.transform.position = grid[position].transform.position; }
                 direction = 0; actionable = true; break;
             default: break;
+        }
+        if(position == 95)
+        {
+            SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
+            sm.LoadSceneNDialogue("Dispensa", graph);
         }
     }
 }

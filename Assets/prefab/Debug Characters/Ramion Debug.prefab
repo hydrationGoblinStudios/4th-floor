@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classId: 107
   Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
+  UsableWeaponTypes: 
   Accesory: {fileID: 0}
   battleManager: {fileID: 0}
   enemy: 0
@@ -53,7 +54,7 @@ MonoBehaviour:
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: Ramion Debug
+  UnitName: Ramion
   currentLevel: 1
   expmarkplier: 1
   currentRank: 0
@@ -141,6 +142,7 @@ MonoBehaviour:
   soul3: 
   description: "classe n\xE3o valida"
   Icon: {fileID: 0}
+  damageTMP: {fileID: 0}
   SkillManager: {fileID: 0}
   unitData:
     classId: 0

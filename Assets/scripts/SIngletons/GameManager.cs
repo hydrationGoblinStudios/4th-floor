@@ -33,7 +33,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<GameObject> enemyTeamPostPreBattle = new();
     public UnitBehavior selectedPlayerBehavior;
     public UnitBehavior selectedEnemyBehavior;
-    public TextMeshPro moneyText;
     public List<Item> Inventory;
     public List<Item> KeyItems;
     public List<Item> StoryFlags;
@@ -48,15 +47,13 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<Item> ExampleList;
     [Header("ClassChange")]
     public GameObject SelectedUBClassChange;
+    [Header("Song manager")]
+    public SongManager songManager;
 
 
     public void Start()
     {
         LoadTeam();
-        if (moneyText != null)
-        {
-            moneyText.text = "Dinheiro:" + money;
-        }
         SelectedUBClassChange = team[0];
     }
     public void LoadData(GameData data)
@@ -163,15 +160,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CurrentUnitData.soul2 = CurrentUnitBehavior.soul2;
         CurrentUnitData.soul3 = CurrentUnitBehavior.soul3;
         CurrentUnitData.description = CurrentUnitBehavior.description;
-    }
-    public void OnLevelWasLoaded()
-    {
-        GameObject tempGameObject = GameObject.FindGameObjectWithTag("Battle Text");
-        moneyText = tempGameObject.GetComponent<TextMeshPro>();
-        if (moneyText != null)
-        {
-            moneyText.text = "Dinheiro:" + money;
-        }
     }
     public void LoadTeam()
     {
@@ -338,6 +326,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         {
             storyBattle = false;
         }*/
+        songManager.ChecksScene();
         switch (m_scene.name)
         {
             case "Preparation1A":

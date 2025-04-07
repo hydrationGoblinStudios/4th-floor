@@ -11,6 +11,7 @@ public class Hanoi : MonoBehaviour
     public List<List<int>> pillars = new();
     public bool holding;
     public int held;
+    public DialogueGraph graph;
 
     public void Start()
     {
@@ -28,7 +29,8 @@ public class Hanoi : MonoBehaviour
             Debug.Log(pillar3.Count);
             if (pillar3.Count == 5)
             {
-                Debug.Log("vitoria Gamer");
+                SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
+                sm.LoadSceneNDialogue("Dispensa", graph);
             }
         }
         else if(!holding && pillars[i][0] != 5)

@@ -19,7 +19,6 @@ public class SceneInteractables : MonoBehaviour
     }
     private void CheckIfSceneISOriginal()
     {
-        Debug.Log("check");
         m_Scene = SceneManager.GetActiveScene();
         if (m_Scene.name == OriginalSceneName)
         {

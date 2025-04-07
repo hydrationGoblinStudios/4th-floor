@@ -9595,6 +9595,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scene:
     m_Handle: 0
+  m_audioSource: {fileID: 0}
+  m_clip:
+  - {fileID: 8300000, guid: bcfc37d25483f0d48bc18d2259fe1ef4, type: 3}
+  - {fileID: 8300000, guid: ca12ba74635788148bf45094f2dd1c62, type: 3}
+  - {fileID: 8300000, guid: 3a4293d092ad4fc4a8ca3b254d3a4729, type: 3}
+  - {fileID: 8300000, guid: af244ad05e68b3b44acc2d9f073126ff, type: 3}
+  - {fileID: 8300000, guid: 60ba40e0d74826740a1154f6d7cd6865, type: 3}
+  - {fileID: 8300000, guid: 22b7915ee35a3304b8f56ca6cac05524, type: 3}
+  - {fileID: 8300000, guid: 5c7588fb002a87e4b96a3c9482d828dd, type: 3}
+  - {fileID: 8300000, guid: d37d485d8de508241b66bee126b17020, type: 3}
 --- !u!1 &737166405
 GameObject:
   m_ObjectHideFlags: 0
@@ -21916,7 +21926,6 @@ MonoBehaviour:
   enemyTeamPostPreBattle: []
   selectedPlayerBehavior: {fileID: 0}
   selectedEnemyBehavior: {fileID: 0}
-  moneyText: {fileID: 0}
   Inventory: []
   KeyItems: []
   StoryFlags: []
