@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Hanoi : MonoBehaviour
@@ -12,6 +13,9 @@ public class Hanoi : MonoBehaviour
     public bool holding;
     public int held;
     public DialogueGraph graph;
+    public List<SpriteRenderer> sacks1;
+    public List<SpriteRenderer> sacks2;
+    public List<SpriteRenderer> sacks3;
 
     public void Start()
     {
@@ -27,11 +31,35 @@ public class Hanoi : MonoBehaviour
            holding = false;
 
             Debug.Log(pillar3.Count);
+            /*foreach(SpriteRenderer sr in sacks1)
+            {
+                sr.enabled = false;
+            }
+            foreach(int n in pillar1)
+            {
+                sacks1.Where(obj => obj.gameObject.name == n.ToString()).SingleOrDefault().enabled = true;
+            }
+            foreach (SpriteRenderer sr in sacks2)
+            {
+                sr.enabled = false;
+            }
+            foreach (int n in pillar2)
+            {
+                sacks2.Where(obj => obj.gameObject.name == n.ToString()).SingleOrDefault().enabled = true;
+            }
+            foreach (SpriteRenderer sr in sacks3)
+            {
+                sr.enabled = false;
+            }
+            foreach (int n in pillar3)
+            {
+                sacks3.Where(obj => obj.gameObject.name == n.ToString()).SingleOrDefault().enabled = true;
+            }
             if (pillar3.Count == 5)
             {
                 SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
                 sm.LoadSceneNDialogue("Dispensa", graph);
-            }
+            }*/
         }
         else if(!holding && pillars[i][0] != 5)
         {

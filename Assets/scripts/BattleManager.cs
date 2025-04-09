@@ -112,6 +112,7 @@ public class BattleManager : MonoBehaviour
         enemyTeam.Add(enemyUnit2.GetComponent<UnitBehavior>());
         enemyTeam.Add(enemyUnit3.GetComponent<UnitBehavior>());
         state = BattleState.BattleStart;
+        gameManager.songManager.ChecksScene();
         StartCoroutine(SetupBattle());
     }
     private void Update()
@@ -917,7 +918,7 @@ public class BattleManager : MonoBehaviour
             c++;
         }
         attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
-        Debug.Log("dash end");
+       
     }
     public void StatChange()
     {
