@@ -170,6 +170,12 @@ public class BattleManager : MonoBehaviour
         enemyTeam[0].damageTMP = DamagePopups[3];
         enemyTeam[1].damageTMP = DamagePopups[4];
         enemyTeam[2].damageTMP = DamagePopups[5];
+        playerTeam[0].startingPosition = playerTeam[0].animator.transform.position ;
+        playerTeam[1].startingPosition = playerTeam[1].animator.transform.position;
+        playerTeam[2].startingPosition = playerTeam[2].animator.transform.position;
+        enemyTeam[0].startingPosition = enemyTeam[0].animator.transform.position;
+        enemyTeam[1].startingPosition = enemyTeam[1].animator.transform.position;
+        enemyTeam[2].startingPosition = enemyTeam[2].animator.transform.position;
         foreach (UnitBehavior ub in playerTeam)
         {
             ub.battleManager = this;
@@ -435,7 +441,6 @@ public class BattleManager : MonoBehaviour
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
         AttackSetup(attacker, Target);
-        Vector3 localPosition = attacker.animator.transform.position;
         attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
         if(attacker.Weapon.weapontype != Item.Weapontype.Bow&& attacker.Weapon.weapontype != Item.Weapontype.Receptacle&& attacker.Weapon.weapontype != Item.Weapontype.Tome)
         {
@@ -512,8 +517,8 @@ public class BattleManager : MonoBehaviour
         {
             Target.animator.SetTrigger("UnitDodge");
         }
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(DashToTarget(attacker, localPosition,0.01f));
+        yield return new WaitForSeconds(1.2f);
+        StartCoroutine(DashToTarget(attacker, attacker.startingPosition,0.01f));
         //inimigo morre
         if (Target.hp <= 0)
         {
@@ -577,6 +582,10 @@ public class BattleManager : MonoBehaviour
         else
         {
             Debug.Log("extra attack errou :(");
+        }
+        if (Target.hp <= 0)
+        {
+            Target.animator.SetTrigger("UnitDie");
         }
         yield return new WaitForSeconds(1f);
         //inimigo morre
@@ -918,6 +927,10 @@ public class BattleManager : MonoBehaviour
             c++;
         }
         attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        if(tickRate == 0.01f)
+        {
+            attacker.animator.transform.position = target;
+        }
        
     }
     public void StatChange()

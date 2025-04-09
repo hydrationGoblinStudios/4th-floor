@@ -81,6 +81,8 @@ public class UnitBehavior : MonoBehaviour
     public GameObject Icon;
     public TextMeshProUGUI damageTMP;
 
+    public Vector3 startingPosition;
+
     public SkillManager SkillManager;
     public UnitData unitData;
     void Start()
