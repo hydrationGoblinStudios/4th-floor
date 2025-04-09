@@ -6075,6 +6075,8 @@ GameObject:
   - component: {fileID: 428888610}
   - component: {fileID: 428888609}
   - component: {fileID: 428888608}
+  - component: {fileID: 428888611}
+  - component: {fileID: 428888612}
   m_Layer: 5
   m_Name: map
   m_TagString: Untagged
@@ -6198,6 +6200,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428888606}
   m_CullTransparentMesh: 1
+--- !u!223 &428888611
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428888606}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: -1
+  m_TargetDisplay: 0
+--- !u!114 &428888612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428888606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &438407338
 GameObject:
   m_ObjectHideFlags: 0
@@ -9495,7 +9537,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d0b645ce2c6b906419e1ac8efc1752a7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5c7588fb002a87e4b96a3c9482d828dd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -9595,7 +9637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scene:
     m_Handle: 0
-  m_audioSource: {fileID: 0}
+  m_audioSource: {fileID: 721299396}
   m_clip:
   - {fileID: 8300000, guid: bcfc37d25483f0d48bc18d2259fe1ef4, type: 3}
   - {fileID: 8300000, guid: ca12ba74635788148bf45094f2dd1c62, type: 3}
@@ -9605,6 +9647,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 22b7915ee35a3304b8f56ca6cac05524, type: 3}
   - {fileID: 8300000, guid: 5c7588fb002a87e4b96a3c9482d828dd, type: 3}
   - {fileID: 8300000, guid: d37d485d8de508241b66bee126b17020, type: 3}
+  - {fileID: 8300000, guid: 90c430f737d2d014da905f64222790c7, type: 3}
 --- !u!1 &737166405
 GameObject:
   m_ObjectHideFlags: 0
@@ -21945,7 +21988,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5564337666a0fc4f851b21db3ba0111, type: 2}
   - {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
   SelectedUBClassChange: {fileID: 0}
-  songManager: {fileID: 0}
+  songManager: {fileID: 721299397}
 --- !u!4 &1559794292
 Transform:
   m_ObjectHideFlags: 0
@@ -25331,7 +25374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameManagerOBJ: {fileID: 0}
   SceneInteractable: {fileID: 0}
-  calendario: {fileID: 0}
+  calendario: {fileID: 1920816698}
   button: {fileID: 0}
   Manager: {fileID: 0}
   panel: {fileID: 1648907213}

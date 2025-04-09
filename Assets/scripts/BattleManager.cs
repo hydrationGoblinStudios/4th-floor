@@ -114,6 +114,25 @@ public class BattleManager : MonoBehaviour
         state = BattleState.BattleStart;
         gameManager.songManager.ChecksScene();
         StartCoroutine(SetupBattle());
+        ////PLACEHOLDER TODO
+        if (playerTeam[1].UnitName == "")
+        {
+            playerHpSlider[1].enabled = false;
+            PlayerActionBar[1].enabled = false;
+            PlayerSoulBar[1].enabled = false;
+            enemyHpSlider[1].enabled = false;
+            EnemyActionBar[1].enabled = false;
+            EnemySoulBar[1].enabled = false;
+        }
+        if (playerTeam[2].UnitName == "")
+        {
+            playerHpSlider[2].enabled = false;
+            PlayerActionBar[2].enabled = false;
+            PlayerSoulBar[2].enabled = false;
+            enemyHpSlider[2].enabled = false;
+            EnemyActionBar[2].enabled = false;
+            EnemySoulBar[2].enabled = false;
+        }
     }
     private void Update()
     {
