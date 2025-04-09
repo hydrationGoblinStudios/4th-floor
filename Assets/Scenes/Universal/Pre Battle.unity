@@ -13511,6 +13511,7 @@ MonoBehaviour:
   - {fileID: 288597413}
   StatIcons: {fileID: 1864933765}
   selectedUnitSlot: 0
+  ButtonPrefab: {fileID: 8115672569003287087, guid: 5184169b5466b05418fe2c046c51bc5b, type: 3}
   skillManager: {fileID: 1328268768}
   ActivityPanel: {fileID: 1501346693}
   ItemSelectPanel: {fileID: 604020270}

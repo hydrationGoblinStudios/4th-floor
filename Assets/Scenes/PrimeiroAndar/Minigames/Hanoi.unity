@@ -436,7 +436,7 @@ MonoBehaviour:
   pillar3: 05000000
   holding: 0
   held: 0
-  graph: {fileID: 11400000, guid: 664e16c7a503a6c44972b4e4d261a1d4, type: 2}
+  graph: {fileID: 11400000, guid: 77e68974da3efab4e97dffaf55dc5443, type: 2}
 --- !u!1 &1084008347
 GameObject:
   m_ObjectHideFlags: 0

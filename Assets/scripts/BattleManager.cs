@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using static UnityEngine.GraphicsBuffer;
 
 public class BattleManager : MonoBehaviour
 {
@@ -433,6 +434,12 @@ public class BattleManager : MonoBehaviour
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
         AttackSetup(attacker, Target);
+        Vector3 localPosition = attacker.animator.transform.position;
+        attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
+        if(attacker.Weapon.weapontype != Item.Weapontype.Bow&& attacker.Weapon.weapontype != Item.Weapontype.Receptacle&& attacker.Weapon.weapontype != Item.Weapontype.Tome)
+        {
+          StartCoroutine(DashToTarget(attacker, Target.animator.transform.position));
+        }
         attacker.animator.SetTrigger("UnitAdvance");
         List<UnitBehavior> attackerTeam;
         List<UnitBehavior> targetTeam;
@@ -505,8 +512,9 @@ public class BattleManager : MonoBehaviour
             Target.animator.SetTrigger("UnitDodge");
         }
         yield return new WaitForSeconds(1f);
+        StartCoroutine(DashToTarget(attacker, localPosition,0.01f));
         //inimigo morre
-        if(Target.hp <= 0)
+        if (Target.hp <= 0)
         {
             Target.animator.SetTrigger("UnitDie");
         }
@@ -897,6 +905,19 @@ public class BattleManager : MonoBehaviour
         }
         tmp.gameObject.SetActive(false);
         Destroy(tmp.gameObject);
+    }
+    IEnumerator DashToTarget(UnitBehavior attacker, Vector3 target, float tickRate = 0.04f)
+    {
+        int c = 0;
+        float dashSpeed = 30 + (2 * attacker.speed);
+        while (c <= 13)
+        {
+            attacker.animator.transform.position = Vector3.Lerp(attacker.animator.transform.position, target, dashSpeed * Time.deltaTime);
+            yield return new WaitForSeconds(tickRate);
+            c++;
+        }
+        attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        Debug.Log("dash end");
     }
     public void StatChange()
     {

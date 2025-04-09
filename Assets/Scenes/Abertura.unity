@@ -21896,7 +21896,7 @@ MonoBehaviour:
   testMode: 0
   storyBattle: 0
   BossBattleID: 0
-  TimeIsDay: 0
+  TimeIsDay: 1
   wakeUpTalk: 0
   mapButtons:
   - {fileID: 2124798616}
@@ -21945,6 +21945,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5564337666a0fc4f851b21db3ba0111, type: 2}
   - {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
   SelectedUBClassChange: {fileID: 0}
+  songManager: {fileID: 0}
 --- !u!4 &1559794292
 Transform:
   m_ObjectHideFlags: 0

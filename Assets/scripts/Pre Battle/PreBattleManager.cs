@@ -55,6 +55,7 @@ public class PreBattleManager : MonoBehaviour
     public List<Button> UnitSelectButton;
     public GameObject StatIcons;
     public int selectedUnitSlot;
+    public GameObject ButtonPrefab;
 
     public SkillManager skillManager;
     public GameObject ActivityPanel;
@@ -445,7 +446,7 @@ public class PreBattleManager : MonoBehaviour
         {
             if (item != selectedUnit.Weapon && item != selectedUnit.Accesory)
             {
-                GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, ItemSelectPanel.transform);
+                GameObject itemButton = Instantiate(ButtonPrefab, ItemSelectPanel.transform);
                 itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
                 if (!selectedUnit.UsableWeaponTypes.Contains(item.weapontype) && item.type != Item.Type.accesory && item.type != Item.Type.key)
                 {
