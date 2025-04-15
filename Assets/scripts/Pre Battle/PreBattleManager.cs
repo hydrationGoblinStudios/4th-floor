@@ -68,7 +68,6 @@ public class PreBattleManager : MonoBehaviour
         inventoryManager = GameObject.FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);
         SelectedPlayer1 = Instantiate(gameManager.team[0], BattleStations[0].transform);
         SelectedPlayer1.name = SelectedPlayer1.GetComponent<UnitBehavior>().UnitName + "Temp";
-        Debug.Log(gameManager.team.Count);
         if(gameManager.team.Count >= 2)
         {
         SelectedPlayer2 = Instantiate(gameManager.team[1], BattleStations[1].transform);
@@ -153,7 +152,6 @@ public class PreBattleManager : MonoBehaviour
         {
             bool choice = true;
             int week = (gameManager.day / 5) + 1;
-            Debug.Log(week);
             while (choice == true)
             {
                GameObject slot1 = enemyListRandomP1[Random.Range(0, enemyListRandomP1.Length)];
@@ -292,7 +290,6 @@ public class PreBattleManager : MonoBehaviour
                 {
                     b.transform.GetComponent<Image>().sprite = inventoryManager.playableMugShots[0];
                 }
-                Debug.Log("c = " + c);
                 c++;
             }
         }

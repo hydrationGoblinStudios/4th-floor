@@ -330,7 +330,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         switch (m_scene.name)
         {
             case "Preparation1A":
-                Debug.Log("prep1A");
                 GameObject go = GameObject.Find("SceneInteractables" + m_scene.name);
                 if (go.transform.Find("cama") != null)
                 {

@@ -847,9 +847,9 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Persistência":
-
+                Debug.Log("persistencia");
                 StartCoroutine(IconPopup(user.Icon, "Persistência"));
-                user.speed = speed + ((user.maxhp - user.hp) / 10);
+                user.speed = PersistenciaSpeedbase + ((user.maxhp - user.hp) / 10);
 
                 return 0;
 
@@ -903,7 +903,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 return 0;
-
             default: return 0;
         } 
     }
@@ -977,11 +976,18 @@ public class SkillManager : MonoBehaviour
     IEnumerator ReceptaculoAmaldiçoado(UnitBehavior target)
     {
         Receptaculoamaldiçoadospeed = (int)target.speed / 10;
-        Receptaculoamaldiçoadopower = target.power / 10;
+        if (target.Weapon.damageType == 0)
+        {
+            Receptaculoamaldiçoadopower = (target.Weapon.power + target.str) / 10;
+        }
+        else
+        {
+            Receptaculoamaldiçoadopower = (target.Weapon.power + target.mag) / 10;
+        }
         Debug.Log(target.speed + " speed antes");
         Debug.Log(target.power + " power antes");
         target.speed -= target.speed / 10;
-        target.power -= target.power / 10;
+        target.Weapon.power -= Receptaculoamaldiçoadopower;
 
         Debug.Log(target.speed + " speed nerfada");
         Debug.Log(target.power + " power nerfado");
@@ -989,7 +995,7 @@ public class SkillManager : MonoBehaviour
 
         yield return new WaitForSeconds(15);
         target.speed += Receptaculoamaldiçoadospeed;
-        target.power += Receptaculoamaldiçoadopower;
+        target.Weapon.power += Receptaculoamaldiçoadopower;
         Debug.Log(target.speed + " speed voltando");
         Debug.Log(target.power + " power voltando");
     }
@@ -1126,7 +1132,6 @@ public class SkillManager : MonoBehaviour
     }
     public IEnumerator FadeOut(SpriteRenderer sr, TextMeshProUGUI tmp, SpriteRenderer square)
     {
-        Debug.Log(square.transform.name);
         for (float f = 1f; f >= -0.05; f -= 0.05f)
         {
             sr.transform.position += new Vector3(0,0.07f,0);

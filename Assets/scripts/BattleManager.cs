@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using static UnityEngine.GraphicsBuffer;
+using UnityEditor.Experimental.GraphView;
 
 public class BattleManager : MonoBehaviour
 {
@@ -81,6 +82,15 @@ public class BattleManager : MonoBehaviour
     public List<TextMeshProUGUI> DamagePopups;
     public List<float> PlayerBars;
     public List<float> EnemyBars;
+    [Header("HoverStats")]
+    public GameObject hoverObject;
+    public TextMeshProUGUI hoverName;
+    public List<TextMeshProUGUI> weaponStats;
+    public List<TextMeshProUGUI> unitStats;
+    public List<TextMeshProUGUI> hoverSkillnames;
+    public bool hovering;
+    public Vector3 startingPosition;
+
 
     public enum BattleState {BattleStart,Wait,PlayerTurn,EnemyTurn,PlayerWon,EnemyWon}
     public BattleState state;
@@ -133,6 +143,8 @@ public class BattleManager : MonoBehaviour
             EnemyActionBar[2].enabled = false;
             EnemySoulBar[2].enabled = false;
         }
+        startingPosition = hoverObject.transform.localPosition;
+        hoverObject.transform.localPosition = new Vector3(400, 0, 0);
     }
     private void Update()
     {
@@ -140,7 +152,17 @@ public class BattleManager : MonoBehaviour
         {
             Wait();
         }
-    }
+    
+        if (hovering)
+        {
+            hoverObject.transform.localPosition = startingPosition;
+        }
+        else
+        {
+           hoverObject.transform.localPosition = new Vector3(400, 0, 0);
+        
+        }
+}
     IEnumerator SetupBattle()
     {
        playerGo = Instantiate(playerUnit, playerBattleStation);
@@ -283,7 +305,19 @@ public class BattleManager : MonoBehaviour
                 ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)], attackerTeam, targetTeam);
             }
         }
+       
+        if (playerTeam[0].Weapon.damageType == 0)
+        {
 
+            unitStats[8].text = (playerTeam[0].str + playerTeam[0].Weapon.power).ToString();
+        }
+        else
+        {
+            unitStats[8].text = (playerTeam[0].mag + playerTeam[0].Weapon.power).ToString();
+        }
+        unitStats[9].text = (playerTeam[0].Weapon.hit + (playerTeam[0].dex * 3) + playerTeam[0].luck + playerTeam[0].hit).ToString();
+        unitStats[10].text = ((playerTeam[0].speed * 2) - playerTeam[0].luck - playerTeam[0].avoid).ToString();
+        unitStats[11].text = (playerTeam[0].Weapon.crit + playerTeam[0].dex).ToString();
         state = BattleState.Wait;
     }
     void SetHud()
@@ -1023,6 +1057,39 @@ public class BattleManager : MonoBehaviour
             {
                 Espeed = (float)(Pspeed * 0.65);
             }
+        }
+    }
+    public void hoverStatUpdate(int character)
+    {
+        if(character < 3)
+        {
+        hoverName.text = playerTeam[character].UnitName;
+        weaponStats[0].text = playerTeam[character].Weapon.power.ToString();
+        weaponStats[1].text = playerTeam[character].Weapon.hit.ToString();
+        weaponStats[2].text = playerTeam[character].Weapon.crit.ToString();
+        unitStats[0].text = playerTeam[character].hp.ToString();
+        unitStats[1].text = playerTeam[character].str.ToString();
+        unitStats[2].text = playerTeam[character].mag.ToString();
+        unitStats[3].text = playerTeam[character].dex.ToString();
+        unitStats[4].text = playerTeam[character].speed.ToString();
+        unitStats[5].text = playerTeam[character].def.ToString();
+        unitStats[6].text = playerTeam[character].mdef.ToString();
+        unitStats[7].text = playerTeam[character].luck.ToString();
+        }
+        else
+        {
+            hoverName.text = enemyTeam[character - 3].UnitName;
+            weaponStats[0].text = enemyTeam[character -3].Weapon.power.ToString();
+            weaponStats[1].text = enemyTeam[character - 3].Weapon.hit.ToString();
+            weaponStats[2].text = enemyTeam[character - 3].Weapon.crit.ToString();
+            unitStats[0].text = enemyTeam[character - 3].hp.ToString();
+            unitStats[1].text = enemyTeam[character - 3].str.ToString();
+            unitStats[2].text = enemyTeam[character - 3].mag.ToString();
+            unitStats[3].text = enemyTeam[character - 3].dex.ToString();
+            unitStats[4].text = enemyTeam[character - 3].speed.ToString();
+            unitStats[5].text = enemyTeam[character - 3].def.ToString();
+            unitStats[6].text = enemyTeam[character - 3].mdef.ToString();
+            unitStats[7].text = enemyTeam[character - 3].luck.ToString();
         }
     }
 }
