@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using static UnityEngine.GraphicsBuffer;
 using UnityEditor.Experimental.GraphView;
+using System.Linq;
 
 public class BattleManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BattleManager : MonoBehaviour
     public UnitBehavior endure;
     public List<string> skillsInUse;
     public List<string> EAskillsInUse;
+    public int battleSpeed = 20;
     //Player1
     public int Pdamage;
     public int Phit;
@@ -82,6 +84,7 @@ public class BattleManager : MonoBehaviour
     public List<TextMeshProUGUI> DamagePopups;
     public List<float> PlayerBars;
     public List<float> EnemyBars;
+    public GameObject speedList;
     [Header("HoverStats")]
     public GameObject hoverObject;
     public TextMeshProUGUI hoverName;
@@ -90,8 +93,6 @@ public class BattleManager : MonoBehaviour
     public List<TextMeshProUGUI> hoverSkillnames;
     public bool hovering;
     public Vector3 startingPosition;
-
-
     public enum BattleState {BattleStart,Wait,PlayerTurn,EnemyTurn,PlayerWon,EnemyWon}
     public BattleState state;
     public void Awake()
@@ -104,6 +105,7 @@ public class BattleManager : MonoBehaviour
         EnemyBars.Add(EnemyBar);
         EnemyBars.Add(EnemyBar2);
         EnemyBars.Add(EnemyBar3);
+
     }
     void Start()
     {
@@ -145,6 +147,51 @@ public class BattleManager : MonoBehaviour
         }
         startingPosition = hoverObject.transform.localPosition;
         hoverObject.transform.localPosition = new Vector3(400, 0, 0);
+        InventoryManager inventoryManager = FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);
+
+        speedList.transform.Find("player1ToTurn1").GetComponent<Image>().sprite = inventoryManager.playableMugShots.Where(obj => obj.name == playerTeam[0].UnitName + " mugshot").SingleOrDefault();
+        speedList.transform.Find("player2ToTurn1").GetComponent<Image>().sprite = inventoryManager.playableMugShots.Where(obj => obj.name == playerTeam[1].UnitName + " mugshot").SingleOrDefault();
+        speedList.transform.Find("player3ToTurn1").GetComponent<Image>().sprite = inventoryManager.playableMugShots.Where(obj => obj.name == playerTeam[2].UnitName + " mugshot").SingleOrDefault();
+        speedList.transform.Find("enemy1ToTurn1").GetComponent<Image>().sprite = ClassIconPicker(enemyTeam[0].classId);
+        speedList.transform.Find("enemy2ToTurn1").GetComponent<Image>().sprite = ClassIconPicker(enemyTeam[1].classId);
+        speedList.transform.Find("enemy3ToTurn1").GetComponent<Image>().sprite = ClassIconPicker(enemyTeam[2].classId);
+        for (int i = 2; i < 26; i++)
+        {
+            GameObject newPlayer1 = Instantiate(speedList.transform.Find("player1ToTurn1").gameObject,speedList.transform);
+            newPlayer1.name = $"player1ToTurn{i}";
+            GameObject newPlayer2 = Instantiate(speedList.transform.Find("player2ToTurn1").gameObject, speedList.transform);
+            newPlayer2.name = $"player2ToTurn{i}";
+            GameObject newPlayer3 = Instantiate(speedList.transform.Find("player3ToTurn1").gameObject, speedList.transform);
+            newPlayer3.name = $"player3ToTurn{i}";
+            GameObject newEnemy1 = Instantiate(speedList.transform.Find("enemy1ToTurn1").gameObject, speedList.transform);
+            newEnemy1.name = $"enemy1ToTurn{i}";
+            GameObject newEnemy2 = Instantiate(speedList.transform.Find("enemy2ToTurn1").gameObject, speedList.transform);
+            newEnemy2.name = $"enemy2ToTurn{i}";
+            GameObject newEnemy3 = Instantiate(speedList.transform.Find("enemy3ToTurn1").gameObject, speedList.transform);
+            newEnemy3.name = $"enemy3ToTurn{i}";
+        }
+        //tempo em frames para o proximo turno ate 25 turnos
+        Dictionary<string, float> repeatTurns = new();
+        for (int i = 1; i < 26; i++)
+        {
+            repeatTurns.Add($"player1ToTurn{i}", ((100 * i) - PlayerBar) / playerTeam[0].speed);
+            repeatTurns.Add($"player2ToTurn{i}", ((100 * i) - PlayerBar2) / playerTeam[1].speed);
+            repeatTurns.Add($"player3ToTurn{i}", ((100 * i) - PlayerBar3) / playerTeam[2].speed);
+            repeatTurns.Add($"enemy1ToTurn{i}", ((100 * i) - EnemyBar) / enemyTeam[0].speed);
+            repeatTurns.Add($"enemy2ToTurn{i}", ((100 * i) - EnemyBar2) / enemyTeam[1].speed);
+            repeatTurns.Add($"enemy3ToTurn{i}", ((100 * i) - EnemyBar3) / enemyTeam[2].speed);
+        }
+        //organiza os turnos em mais proximo a acontecer
+        var sortedTurnsrepeatTurns = from entry in repeatTurns orderby entry.Value ascending select entry;
+        int loop = 0;
+        foreach (KeyValuePair<string, float> i in sortedTurnsrepeatTurns)
+        {
+            foreach (KeyValuePair<string, float> i2 in repeatTurns)
+            {
+                if (speedList.transform.Find(i.Key) != null && i.Key == i2.Key) { speedList.transform.Find(i.Key).SetSiblingIndex(loop); }
+            }
+            loop++;
+        }
     }
     private void Update()
     {
@@ -166,19 +213,19 @@ public class BattleManager : MonoBehaviour
     IEnumerator SetupBattle()
     {
        playerGo = Instantiate(playerUnit, playerBattleStation);
-        playerGo.name = playerGo.GetComponent<UnitBehavior>().UnitName + "Battle";
-        playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
-        playerGo2.name = playerGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
-        playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
-        playerGo3.name = playerGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
+       playerGo.name = playerGo.GetComponent<UnitBehavior>().UnitName + "Battle";
+       playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
+       playerGo2.name = playerGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
+       playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
+       playerGo3.name = playerGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
         
-        GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
-        enemyGo.name = enemyGo.GetComponent<UnitBehavior>().UnitName + "Battle";
-        GameObject enemyGo2 = Instantiate(enemyUnit2, enemyBattleStation2);
-        enemyGo2.name = enemyGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
-        GameObject enemyGo3 = Instantiate(enemyUnit3, enemyBattleStation3);
-        enemyGo3.name = enemyGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
-        playerBehavior = playerGo.GetComponent<UnitBehavior>();
+       GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
+       enemyGo.name = enemyGo.GetComponent<UnitBehavior>().UnitName + "Battle";
+       GameObject enemyGo2 = Instantiate(enemyUnit2, enemyBattleStation2);
+       enemyGo2.name = enemyGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
+       GameObject enemyGo3 = Instantiate(enemyUnit3, enemyBattleStation3);
+       enemyGo3.name = enemyGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
+       playerBehavior = playerGo.GetComponent<UnitBehavior>();
        player2Behavior = playerGo2.GetComponent<UnitBehavior>();
        player3Behavior = playerGo3.GetComponent<UnitBehavior>();
        enemyBehavior = enemyGo.GetComponent<UnitBehavior>();
@@ -187,22 +234,22 @@ public class BattleManager : MonoBehaviour
        enemyBehavior.enemy = true;
        enemy2Behavior.enemy = true;
        enemy3Behavior.enemy = true;
-        playerTeam[0].position = 1;
-        playerTeam[1].position = 2;
-        playerTeam[2].position = 3;
-        playerTeam[0].animator = animators[0];
-        playerTeam[1].animator = animators[1];
-        playerTeam[2].animator = animators[2];
-        enemyTeam[0].animator =animators[3];
-        enemyTeam[1].animator =animators[4];
-        enemyTeam[2].animator =animators[5];
-        enemyTeam[0].position = 1;
-        enemyTeam[1].position = 2;
-        enemyTeam[2].position = 3;
-        playerTeam[0].Icon = IconSlots[0];
-        playerTeam[1].Icon = IconSlots[1];
-        playerTeam[2].Icon = IconSlots[2];
-        enemyTeam[0].Icon = IconSlots[3];
+       playerTeam[0].position = 1;
+       playerTeam[1].position = 2;
+       playerTeam[2].position = 3;
+       playerTeam[0].animator = animators[0];
+       playerTeam[1].animator = animators[1];
+       playerTeam[2].animator = animators[2];
+       enemyTeam[0].animator =animators[3];
+       enemyTeam[1].animator =animators[4];
+       enemyTeam[2].animator =animators[5];
+       enemyTeam[0].position = 1;
+       enemyTeam[1].position = 2;
+       enemyTeam[2].position = 3;
+       playerTeam[0].Icon = IconSlots[0];
+       playerTeam[1].Icon = IconSlots[1];
+       playerTeam[2].Icon = IconSlots[2];
+        enemyTeam[0].Icon = IconSlots[3];        
         enemyTeam[1].Icon = IconSlots[4];
         enemyTeam[2].Icon = IconSlots[5];
         playerTeam[0].damageTMP = DamagePopups[0];
@@ -345,6 +392,7 @@ public class BattleManager : MonoBehaviour
             sl.maxValue = enemyTeam[c].maxsoul;
             c++;
         }
+        
     }
     //manuzeia as barras de hp, alma e turno
     public void HudUpdate()
@@ -402,13 +450,12 @@ public class BattleManager : MonoBehaviour
     }
     void Wait()
     {
-        if (playerTeam[0].hp > 0) { PlayerBar += Time.deltaTime * playerBehavior.speed * 20; }
-
-        if (playerTeam[1].hp > 0) {PlayerBar2 += Time.deltaTime * player2Behavior.speed * 20; }
-        if (playerTeam[2].hp > 0) { PlayerBar3 += Time.deltaTime * player3Behavior.speed * 20; }
-        if (enemyTeam[0].hp > 0){EnemyBar += Time.deltaTime * enemyBehavior.speed * 20;}
-        if (enemyTeam[1].hp > 0){EnemyBar2 += Time.deltaTime * enemy2Behavior.speed * 20;}
-        if (enemyTeam[2].hp > 0){EnemyBar3 += Time.deltaTime * enemy3Behavior.speed * 20;}
+        if (playerTeam[0].hp > 0) { PlayerBar += Time.deltaTime * playerTeam[0].speed * battleSpeed; }
+        if (playerTeam[1].hp > 0) {PlayerBar2 += Time.deltaTime * playerTeam[1].speed * battleSpeed; }
+        if (playerTeam[2].hp > 0) { PlayerBar3 += Time.deltaTime * playerTeam[2].speed * battleSpeed; }
+        if (enemyTeam[0].hp > 0){EnemyBar += Time.deltaTime * enemyTeam[0].speed * battleSpeed; }
+        if (enemyTeam[1].hp > 0){EnemyBar2 += Time.deltaTime * enemyTeam[1].speed * battleSpeed; }
+        if (enemyTeam[2].hp > 0){EnemyBar3 += Time.deltaTime * enemyTeam[2].speed * battleSpeed; }
         PlayerBars[0] = PlayerBar;
         PlayerBars[1] = PlayerBar2;
         PlayerBars[2] = PlayerBar3;
@@ -457,6 +504,7 @@ public class BattleManager : MonoBehaviour
             EnemyBar3 = 0;
             StartCoroutine(Attack(enemyTeam[2], playerTeam[StandardTargeting(playerTeam)]));
         }
+       
     }
     public int StandardTargeting(List<UnitBehavior> unitList)
     {
@@ -572,6 +620,28 @@ public class BattleManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1.2f);
         StartCoroutine(DashToTarget(attacker, attacker.startingPosition,0.01f));
+        //tempo em frames para o proximo turno ate 25 turnos
+        Dictionary<string, float> repeatTurns = new();
+        for (int i = 1; i < 26; i++)
+        {
+            repeatTurns.Add($"player1ToTurn{i}", ((100 * i) - PlayerBar) / playerTeam[0].speed);
+            repeatTurns.Add($"player2ToTurn{i}", ((100 * i) - PlayerBar2) / playerTeam[1].speed);
+            repeatTurns.Add($"player3ToTurn{i}", ((100 * i) - PlayerBar3) / playerTeam[2].speed);
+            repeatTurns.Add($"enemy1ToTurn{i}", ((100 * i) - EnemyBar) / enemyTeam[0].speed);
+            repeatTurns.Add($"enemy2ToTurn{i}", ((100 * i) - EnemyBar2) / enemyTeam[1].speed);
+            repeatTurns.Add($"enemy3ToTurn{i}", ((100 * i) - EnemyBar3) / enemyTeam[2].speed);
+        }
+        //organiza os turnos em mais proximo a acontecer
+        var sortedTurnsrepeatTurns = from entry in repeatTurns orderby entry.Value ascending select entry;
+        int loop = 0;
+        foreach (KeyValuePair<string, float> i in sortedTurnsrepeatTurns)
+        {
+            foreach (KeyValuePair<string, float> i2 in repeatTurns)
+            {
+                if (speedList.transform.Find(i.Key) != null && i.Key == i2.Key) { speedList.transform.Find(i.Key).SetSiblingIndex(loop); }
+            }
+            loop++;
+        }
         //inimigo morre
         if (Target.hp <= 0)
         {
@@ -657,11 +727,11 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         gameManager.money += 50;
         yield return new WaitForSeconds(1);
-        int exp1 = (30 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
+        int exp1 = (int)(30 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
         if (exp1 <= 0) { exp1 = 1; }
-        int exp2 = (30 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player2Behavior.expmarkplier);
+        int exp2 = (int)(30 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player2Behavior.expmarkplier);
         if (exp2 <= 0) { exp2 = 1; }
-        int exp3 = (30 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player3Behavior.expmarkplier);
+        int exp3 = (int)(30 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player3Behavior.expmarkplier);
         if (exp3 <= 0) { exp3 = 1; }
         UnitBehavior RealCharacter2 = null;
         UnitBehavior RealCharacter3 = null;
@@ -762,14 +832,12 @@ public class BattleManager : MonoBehaviour
         int PskillPostSkillProc = attacker.SkillManager.currentDamageBonus;
         if (attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
         {
-            Debug.Log("soul esta sendo diminuida");
             attacker.soul -= attacker.maxsoul;
             attacker.SkillManager.currentDamageBonus += attacker.SkillManager.SoulProc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
             yield return new WaitForSeconds(1);
         }
         if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
-            Debug.Log("soul esta sendo diminuida");
             attacker.soul -= attacker.maxsoul;
             attacker.SkillManager.NaSoulproc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
         }
@@ -848,7 +916,7 @@ public class BattleManager : MonoBehaviour
             {
                 attacker.hp += (damageDone) * attacker.lifesteal;
             }
-            Target.soul += (damageDone) / 5;
+            Target.soul += ((damageDone) / 5) * Target.damageSoulGain;
             Debug.Log( attacker.UnitName + " atacou " + Target.UnitName + " " + (damageDone) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
@@ -1090,6 +1158,24 @@ public class BattleManager : MonoBehaviour
             unitStats[5].text = enemyTeam[character - 3].def.ToString();
             unitStats[6].text = enemyTeam[character - 3].mdef.ToString();
             unitStats[7].text = enemyTeam[character - 3].luck.ToString();
+        }
+    }
+
+    public Sprite ClassIconPicker(int classID)
+    {
+        InventoryManager inventoryManager = FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);
+
+        switch (classID)
+        {
+            case 101: return  inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault();
+            case 102: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Guerreiro").SingleOrDefault();
+            case 103: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Soldado").SingleOrDefault();
+            case 104: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Feiticeiro").SingleOrDefault();
+            case 105: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Mistico").SingleOrDefault();
+            case 106: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Arqueiro").SingleOrDefault();
+            case 107: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Prisioneiro").SingleOrDefault();
+            default:
+                return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault();
         }
     }
 }

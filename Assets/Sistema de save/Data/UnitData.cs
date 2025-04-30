@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using static UnitBehavior;
 
 [Serializable]
 public struct UnitData
@@ -11,14 +12,17 @@ public struct UnitData
     [Header("Equips")]
     public Item Weapon;
     public Item Accesory;
+    public List<Item.Weapontype> UsableWeaponTypes;
     [Header("Parameters")]
     public string UnitName;
     public int currentLevel;
-    public int expmarkplier;
+    public float expmarkplier;
     public int currentRank;
     public int currentExp;
     public List<int> ClassID;
     public int[] ClassLevel;
+    public Dictionary<int, int> ClassLearning;
+    public SeriazableDictionary ClassLearningSerializable;
     public int hit;
     public int avoid;
     public int crit;
@@ -40,9 +44,10 @@ public struct UnitData
     public string equipedSoul;
     public bool equippedSoulIsAttack;
     public List<string> soulInventory;
-    public int soul;
+    public float soul;
     public int maxsoul;
-    public int soulgain; [Header("Status que n�o aparecem na UI")]
+    public float soulgain;
+    [Header("Status que não aparecem na UI")]
     public int damagereduction;
     public int lifesteal;
     public int armorpen;

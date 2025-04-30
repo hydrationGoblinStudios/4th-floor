@@ -8,7 +8,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
-    private GameData gameData;
+    public GameData gameData;
 
     public List<GameObject> ClassList;
 
@@ -43,6 +43,7 @@ public class DataPersistenceManager : MonoBehaviour
     }
     public void LoadGame()
     {
+        this.gameData = new GameData();
         this.gameData = dataHandler.Load();
         // loadar save
         if (this.gameData == null)
@@ -58,6 +59,7 @@ public class DataPersistenceManager : MonoBehaviour
     }
     public void SaveGame()
     {
+        this.gameData = new GameData();
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.SaveData(ref gameData);
@@ -72,6 +74,11 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            NewGame();
+            Debug.Log("newGame");
+        }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             SaveGame();

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameManager : Singleton<GameManager>, IDataPersistence
 {
@@ -62,9 +63,11 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         this.day = data.day;
         this.Inventory = data.Inventory;
         this.KeyItems = data.KeyItems;
+        this.StoryFlags = data.StoryFlags;
     }
     public void SaveData(ref GameData data)
     {
+        Debug.Log("gamemanager data save");
         int count = 0;
         units = new List<UnitData>();
         foreach (GameObject unitInTeam in team)
@@ -79,10 +82,10 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         data.money = this.money;
         data.day = this.day;
         data.Inventory = this.Inventory;
+        data.StoryFlags = this.StoryFlags;
         data.KeyItems = this.KeyItems;
         count = 0;
         data.units = units;
-        Debug.Log(data.units);
     }
     public void PrepScreen()
     {
@@ -108,6 +111,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         {
             CurrentUnitData.Accesory = CurrentUnitBehavior.Accesory;
         }
+        CurrentUnitData.UsableWeaponTypes = CurrentUnitBehavior.UsableWeaponTypes;
         //parameters
         CurrentUnitData.UnitName = CurrentUnitBehavior.UnitName;
         CurrentUnitData.currentLevel = CurrentUnitBehavior.currentLevel;
@@ -116,6 +120,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CurrentUnitData.currentExp = CurrentUnitBehavior.currentExp;
         CurrentUnitData.ClassID = CurrentUnitBehavior.ClassID;
         CurrentUnitData.ClassLevel = CurrentUnitBehavior.ClassLevel;
+        CurrentUnitData.ClassLearning = CurrentUnitBehavior.ClassLearning;
+        CurrentUnitData.ClassLearningSerializable = CurrentUnitBehavior.ClassLearningSerializable;
         CurrentUnitData.hit = CurrentUnitBehavior.hit;
         CurrentUnitData.avoid = CurrentUnitBehavior.avoid;
         CurrentUnitData.crit = CurrentUnitBehavior.crit;
@@ -161,6 +167,82 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CurrentUnitData.soul3 = CurrentUnitBehavior.soul3;
         CurrentUnitData.description = CurrentUnitBehavior.description;
     }
+    public void LoadDataAsUnit(UnitData CurrentUnitData)
+    {
+        GameObject newUnit = Instantiate(new GameObject(), transform);
+        UnitBehavior CurrentUnitBehavior = newUnit.AddComponent<UnitBehavior>();
+        CurrentUnitBehavior.classId = CurrentUnitData.classId;
+        //equip
+        if (CurrentUnitData.Weapon != null)
+        {
+            CurrentUnitBehavior.Weapon = CurrentUnitData.Weapon;
+        }
+        if (CurrentUnitData.Accesory != null)
+        {
+            CurrentUnitBehavior.Accesory = CurrentUnitData.Accesory;
+        }
+        CurrentUnitBehavior.UsableWeaponTypes = CurrentUnitData.UsableWeaponTypes;
+        //parameters
+        CurrentUnitBehavior.UnitName = CurrentUnitData.UnitName;
+        CurrentUnitBehavior.currentLevel = CurrentUnitData.currentLevel;
+        CurrentUnitBehavior.expmarkplier = CurrentUnitData.expmarkplier;
+        CurrentUnitBehavior.currentRank = CurrentUnitData.currentRank;
+        CurrentUnitBehavior.currentExp = CurrentUnitData.currentExp;
+        CurrentUnitBehavior.ClassID = CurrentUnitData.ClassID;
+        CurrentUnitBehavior.ClassLevel = CurrentUnitData.ClassLevel;
+        CurrentUnitBehavior.ClassLearning = CurrentUnitData.ClassLearning;
+        CurrentUnitBehavior.ClassLearningSerializable = CurrentUnitData.ClassLearningSerializable;
+        CurrentUnitBehavior.hit = CurrentUnitData.hit;
+        CurrentUnitBehavior.avoid = CurrentUnitData.avoid;
+        CurrentUnitBehavior.crit = CurrentUnitData.crit;
+        //stats
+        CurrentUnitBehavior.maxhp = CurrentUnitData.maxhp;
+        CurrentUnitBehavior.hp = CurrentUnitData.hp;
+        CurrentUnitBehavior.power = CurrentUnitData.power;
+        CurrentUnitBehavior.str = CurrentUnitData.str;
+        CurrentUnitBehavior.mag = CurrentUnitData.mag;
+        CurrentUnitBehavior.dex = CurrentUnitData.dex;
+        CurrentUnitBehavior.def = CurrentUnitData.def;
+        CurrentUnitBehavior.mdef = CurrentUnitData.mdef;
+        CurrentUnitBehavior.defenses = CurrentUnitData.defenses;
+        CurrentUnitBehavior.luck = CurrentUnitData.luck;
+        CurrentUnitBehavior.speed = CurrentUnitData.speed;
+        //sistema de skills
+        CurrentUnitBehavior.skills = CurrentUnitData.skills;
+        CurrentUnitBehavior.skillInventory = CurrentUnitData.skillInventory;
+        CurrentUnitBehavior.equipedSoul = CurrentUnitData.equipedSoul;
+        CurrentUnitBehavior.equippedSoulIsAttack = CurrentUnitData.equippedSoulIsAttack;
+        CurrentUnitBehavior.soulInventory = CurrentUnitData.soulInventory;
+        CurrentUnitBehavior.soul = CurrentUnitData.soul;
+        CurrentUnitBehavior.maxsoul = CurrentUnitData.maxsoul;
+        CurrentUnitBehavior.soulgain = CurrentUnitData.soulgain;
+        CurrentUnitBehavior.damagereduction = CurrentUnitData.damagereduction;
+        CurrentUnitBehavior.lifesteal = CurrentUnitData.lifesteal;
+        CurrentUnitBehavior.armorpen = CurrentUnitData.armorpen;
+        CurrentUnitBehavior.magicpen = CurrentUnitData.magicpen;
+        //cooking
+        CurrentUnitBehavior.cooking = CurrentUnitData.cooking;
+        //growths
+        CurrentUnitBehavior.growths = CurrentUnitData.growths;
+        //learnset
+        CurrentUnitBehavior.classSkill = CurrentUnitData.classSkill;
+        CurrentUnitBehavior.personalSkill = CurrentUnitData.personalSkill;
+        CurrentUnitBehavior.baseSkill = CurrentUnitData.baseSkill;
+        CurrentUnitBehavior.skill1 = CurrentUnitData.skill1;
+        CurrentUnitBehavior.skill2 = CurrentUnitData.skill2;
+        CurrentUnitBehavior.skill3 = CurrentUnitData.skill3;
+        CurrentUnitBehavior.baseSoul = CurrentUnitData.baseSoul;
+        CurrentUnitBehavior.soul1 = CurrentUnitData.soul1;
+        CurrentUnitBehavior.soul2 = CurrentUnitData.soul2;
+        CurrentUnitBehavior.soul3 = CurrentUnitData.soul3;
+        CurrentUnitBehavior.description = CurrentUnitData.description;
+        Debug.Log($"loaded:{CurrentUnitBehavior.UnitName}");
+        newUnit.name = CurrentUnitBehavior.UnitName;
+        SelectedUBClassChange = newUnit;
+        ClassChange(newUnit.GetComponent<UnitBehavior>().classId);
+        team.Add(newUnit);
+    }
+
     public void LoadTeam()
     {
         foreach (GameObject obj in playerUnit)
@@ -262,7 +344,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             }
         }
     }
-    public void ClassChange( int ClassId)
+    public void ClassChange(int ClassId)
     {
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
@@ -296,7 +378,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         Destroy(original);
         return copy as T;
     }
-        public void Sleep()
+    public void Sleep()
     {
         if (storyBattle == true)
         {

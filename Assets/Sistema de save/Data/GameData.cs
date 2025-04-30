@@ -9,6 +9,7 @@ public class GameData
     public int day;
     public List<Item> Inventory;
     public List<Item> KeyItems;
+    public List<Item> StoryFlags;
     public List<UnitData> units;
     public UnitData unitData;
     public GameData()

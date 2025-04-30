@@ -19,7 +19,7 @@ public class UnitBehavior : MonoBehaviour
     [Header("Parameters")]
     public string UnitName;
     public int currentLevel;
-    public int expmarkplier = 1;
+    public float expmarkplier = 1;
     public int currentRank;
     public int currentExp;
     public List<int> ClassID;
@@ -47,9 +47,10 @@ public class UnitBehavior : MonoBehaviour
     public string equipedSoul;
     public bool equippedSoulIsAttack = true;
     public List<string> soulInventory;
-    public int soul;
+    public float soul;
     public int maxsoul;
-    public int soulgain;
+    public float soulgain;
+    public float damageSoulGain =1;
     [Header("Status que não aparecem na UI")]
     public int damagereduction;
     public int lifesteal;

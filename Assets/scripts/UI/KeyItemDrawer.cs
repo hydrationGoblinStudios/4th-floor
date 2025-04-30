@@ -33,7 +33,13 @@ public class KeyItemDrawer : MonoBehaviour
                 Debug.Log(tr.name);
                 tr.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
                 //GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, inventoryManager.ItemSelectPanel.transform);
+                int keyCounts = gameManager.KeyItems.Count;
+                int c = 0;
+                if (c < keyCounts)
+                {
                 tr.gameObject.GetComponent<Button>().onClick.AddListener(() => inventoryManager.InstantiateKeyItem(gameManager.KeyItems[0], false));
+                }
+                c++;
             }
         }
         activated = !activated;

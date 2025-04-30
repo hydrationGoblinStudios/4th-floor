@@ -68,10 +68,10 @@ public class PreBattleManager : MonoBehaviour
         inventoryManager = GameObject.FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);
         SelectedPlayer1 = Instantiate(gameManager.team[0], BattleStations[0].transform);
         SelectedPlayer1.name = SelectedPlayer1.GetComponent<UnitBehavior>().UnitName + "Temp";
-        if(gameManager.team.Count >= 2)
+        if (gameManager.team.Count >= 2)
         {
-        SelectedPlayer2 = Instantiate(gameManager.team[1], BattleStations[1].transform);
-        SelectedPlayer2.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
+            SelectedPlayer2 = Instantiate(gameManager.team[1], BattleStations[1].transform);
+            SelectedPlayer2.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
         }
         else
         {
@@ -131,10 +131,10 @@ public class PreBattleManager : MonoBehaviour
         }
         else if (gameManager.BossBattleID != 0)
         {
-           
+
             switch (gameManager.BossBattleID)
             {
-                case 101:  SpawnTeam(bossBattles.Where(obj => obj.name == "Day5").SingleOrDefault()); break;
+                case 101: SpawnTeam(bossBattles.Where(obj => obj.name == "Day5").SingleOrDefault()); break;
                 default:
                     SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
                     SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
@@ -143,7 +143,7 @@ public class PreBattleManager : MonoBehaviour
                     SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
 
                     SelectedEnemy3 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[5].transform);
-                    SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp"; 
+                    SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
 
                     break;
             }
@@ -154,48 +154,48 @@ public class PreBattleManager : MonoBehaviour
             int week = (gameManager.day / 5) + 1;
             while (choice == true)
             {
-               GameObject slot1 = enemyListRandomP1[Random.Range(0, enemyListRandomP1.Length)];
+                GameObject slot1 = enemyListRandomP1[Random.Range(0, enemyListRandomP1.Length)];
                 if (slot1.name.Contains("A1") && choice)
                 {
                     switch (week)
                     {
-                        case 1: if (slot1.name.Contains("S1")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
-                        case 2: if (slot1.name.Contains("S2")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
-                        case 3: if (slot1.name.Contains("S3")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
-                        case 4: if (slot1.name.Contains("S4")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
-                        case 5: if (slot1.name.Contains("S5")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
-                       default: if (slot1.name.Contains("S5")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; }  break;
-                    }if(SelectedEnemy1 != null)
+                        case 1: if (slot1.name.Contains("S1")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
+                        case 2: if (slot1.name.Contains("S2")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
+                        case 3: if (slot1.name.Contains("S3")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
+                        case 4: if (slot1.name.Contains("S4")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
+                        case 5: if (slot1.name.Contains("S5")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
+                        default: if (slot1.name.Contains("S5")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
+                    } if (SelectedEnemy1 != null)
                     {
-                    SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
+                        SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
                     }
                 }
-                }   
-             choice = true;
+            }
+            choice = true;
             while (choice == true)
             {
                 GameObject slot1 = enemyListRandomP2[Random.Range(0, enemyListRandomP2.Length)];
                 if (gameManager.team.Count < 2)
                 { SelectedEnemy2 = Instantiate(EmptyUnitPrefab, BattleStations[4].transform); choice = false; }
-                else { 
-                if (slot1.name.Contains("A1") && choice)
-                {
-                    switch (week)
+                else {
+                    if (slot1.name.Contains("A1") && choice)
                     {
-                        case 1: if (slot1.name.Contains("S1")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                        case 2: if (slot1.name.Contains("S2")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                        case 3: if (slot1.name.Contains("S3")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                        case 4: if (slot1.name.Contains("S4")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                        case 5: if (slot1.name.Contains("S5")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                       default: if (slot1.name.Contains("S5")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                    }if(SelectedEnemy2 != null)
-                    {
-                    SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
+                        switch (week)
+                        {
+                            case 1: if (slot1.name.Contains("S1")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                            case 2: if (slot1.name.Contains("S2")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                            case 3: if (slot1.name.Contains("S3")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                            case 4: if (slot1.name.Contains("S4")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                            case 5: if (slot1.name.Contains("S5")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                            default: if (slot1.name.Contains("S5")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
+                        } if (SelectedEnemy2 != null)
+                        {
+                            SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
+                        }
                     }
                 }
-                }             
             }
-            
+
             choice = true;
 
             while (choice == true)
@@ -223,7 +223,7 @@ public class PreBattleManager : MonoBehaviour
                     }
                 }
             }
-            
+
             enemyAnimations[0].runtimeAnimatorController = SelectedEnemy1.GetComponent<UnitBehavior>().classId switch
             {
                 107 => Animations[6],
@@ -312,31 +312,93 @@ public class PreBattleManager : MonoBehaviour
         playerWeaponStatText[0].text = selectedUnit.Weapon.power.ToString();
         playerWeaponStatText[1].text = selectedUnit.Weapon.hit.ToString();
         playerWeaponStatText[2].text = selectedUnit.Weapon.crit.ToString();
-        playerWeaponStatText[3].text= selectedUnit.Weapon.name.ToString();
+        playerWeaponStatText[3].text = selectedUnit.Weapon.name.ToString();
         equipsRenderers[0].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.ItemName).SingleOrDefault();
         if (selectedUnit.Accesory != null)
         {
-        playerWeaponStatText[4].text = selectedUnit.Accesory.name.ToString();
-        equipsRenderers[1].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.ItemName).SingleOrDefault();
+            playerWeaponStatText[4].text = selectedUnit.Accesory.name.ToString();
+            equipsRenderers[1].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.ItemName).SingleOrDefault();
         }
         else
         {
             playerWeaponStatText[4].text = "";
             equipsRenderers[1].sprite = null;
         }
-        PrepSkills[0].onClick.RemoveAllListeners();
-        PrepSkills[0].onClick.AddListener(delegate { AfiarArma(selectedUnit); });
-        PrepSkills[1].onClick.RemoveAllListeners();
-        PrepSkills[1].onClick.AddListener(delegate { AfiarEscudo(selectedUnit); });
-        PrepSkills[2].onClick.RemoveAllListeners();
-        PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
+        switch (selectedUnit.classId)
+        {
+            case 101:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { AfiarArma(selectedUnit); });
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { AfiarMente(selectedUnit); });
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
+                return;
+            case 102:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { ForcaDeVontadeAumentada(selectedUnit); });
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { GolpeSujo(selectedUnit); });
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
+                return;
+            case 103:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { ReforçarArmadura(selectedUnit); });
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { ReforcarCritico(selectedUnit); });
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
+                return;
+            case 104:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { ReforcarMagia(selectedUnit); });
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { CarregarAlma(selectedUnit); });
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
+                return;
+            case 105:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { ReforcarMagia(selectedUnit); });
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { CarregarAlma(selectedUnit); });
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
+                return;
+            case 106:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { MirarNaCabeça(selectedUnit); });
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { ApontarAberturas(selectedUnit); });
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
+                return;
+            case 107:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { Camaradagem(selectedUnit); });
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { AprenderComOInimigo(selectedUnit); });
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
+                return;
+            default:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { AfiarArma(selectedUnit); });
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { AfiarEscudo(selectedUnit); });
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
+                return;
+        }
+        
     }
     public void EnemySelect(UnitBehavior unitBehavior)
     {
         selectedEnemyUnit = unitBehavior;
-        enemyStatTexts[0].text = selectedEnemyUnit.maxhp.ToString(); enemyStatTexts[1].text = selectedEnemyUnit.str.ToString(); 
-        enemyStatTexts[2].text = selectedEnemyUnit.mag.ToString(); enemyStatTexts[3].text = selectedEnemyUnit.dex.ToString(); 
-        enemyStatTexts[4].text = selectedEnemyUnit.speed.ToString();enemyStatTexts[5].text = selectedEnemyUnit.def.ToString(); 
+        enemyStatTexts[0].text = selectedEnemyUnit.maxhp.ToString(); enemyStatTexts[1].text = selectedEnemyUnit.str.ToString();
+        enemyStatTexts[2].text = selectedEnemyUnit.mag.ToString(); enemyStatTexts[3].text = selectedEnemyUnit.dex.ToString();
+        enemyStatTexts[4].text = selectedEnemyUnit.speed.ToString(); enemyStatTexts[5].text = selectedEnemyUnit.def.ToString();
         enemyStatTexts[6].text = selectedEnemyUnit.mdef.ToString(); enemyStatTexts[7].text = selectedEnemyUnit.luck.ToString();
         enemyUnitName.text = selectedEnemyUnit.UnitName;
         enmeyWeaponStatText[0].text = selectedEnemyUnit.Weapon.power.ToString();
@@ -360,7 +422,7 @@ public class PreBattleManager : MonoBehaviour
         }
         else
         {
-            enemyMugshot.sprite =  null;
+            enemyMugshot.sprite = null;
         }
     }
 
@@ -394,36 +456,7 @@ public class PreBattleManager : MonoBehaviour
         Select(SelectedPlayer3.GetComponent<UnitBehavior>());
         selectedUnitSlot = 3;
     }
-    public void AfiarArma(UnitBehavior selectedUnit)
-    {
-        if (energy > 0)
-        {
-            selectedUnit.str += (int) (selectedUnit.str * 0.15);
-            energy--;
-            energyText.text = energy.ToString();
-            Select(selectedUnit);
-        }
-    }
-    public void AfiarEscudo(UnitBehavior selectedUnit)
-    {
-        if (energy > 0)
-        {
-            selectedUnit.def += (int)(selectedUnit.def * 0.15);
-            energy--;
-            energyText.text = energy.ToString();
-            Select(selectedUnit);
-        }
-    }
-    public void AfiarEsperto(UnitBehavior selectedUnit)
-    {
-        if (energy > 0)
-        {
-            selectedUnit.mag += (int)(selectedUnit.mag * 0.15);
-            energy--;
-            energyText.text = energy.ToString();
-            Select(selectedUnit);
-        }
-    }
+
 
     public void InventoryToggleButton()
     {
@@ -431,7 +464,6 @@ public class PreBattleManager : MonoBehaviour
     }
     public void InventoryToggle(List<Item> ItemList)
     {
-        Debug.Log("amogus");
         StatIcons.SetActive(!StatIcons.activeInHierarchy);
         gameManager.ParseWeaponList();
 
@@ -480,7 +512,7 @@ public class PreBattleManager : MonoBehaviour
                 }
             }
         }
-        if(StatIcons.activeInHierarchy == true)
+        if (StatIcons.activeInHierarchy == true)
         {
             while (ItemSelectPanel.transform.childCount > 0)
             {
@@ -515,9 +547,211 @@ public class PreBattleManager : MonoBehaviour
             Destroy(GO);
         }
         InstantiateToGM(SelectedPlayerList, SelectedEnemyList);
-           
+
         gameManager.SceneLoader("Battle");
     }
+    //Habilidades de preparo
+    //Espadachim
+        public void AfiarArma(UnitBehavior selectedUnit)
+    {
+        if (energy > 0)
+        {
+            selectedUnit.str += (int)(selectedUnit.str * 0.15);
+            energy--;
+            energyText.text = energy.ToString();
+            Select(selectedUnit);
+        }
+    }
+        public void AfiarMente(UnitBehavior selectedUnit)
+    {
+        if (energy > 0)
+        {
+            selectedUnit.hit += 15;
+            energy--;
+            energyText.text = energy.ToString();
+            Select(selectedUnit);
+        }
+    }
+    //Arqueiro
+    public void MirarNaCabeça(UnitBehavior selectedUnit)
+    {
+        if (energy > 0)
+        {
+            selectedUnit.hit -= 20;
+            selectedUnit.crit += 15;
+            energy--;
+            energyText.text = energy.ToString();
+            Select(selectedUnit);
+        }
+    }
+    public void ApontarAberturas(UnitBehavior selectedUnit)
+    {
+        if (energy > 0)
+        {
+            SelectedPlayer1.GetComponent<UnitBehavior>().hit += 10;
+            SelectedPlayer2.GetComponent<UnitBehavior>().hit += 10;
+            SelectedPlayer3.GetComponent<UnitBehavior>().hit += 10;
+            energy--;
+            energyText.text = energy.ToString();
+            Select(selectedUnit);
+        }
+    }
+    //Guerreiro
+    public void ForcaDeVontadeAumentada(UnitBehavior selectedUnit)
+    {
+        if (energy > 0)
+        {
+            selectedUnit.skills.Add("Força de Vontade Aumentada");
+            energy--;
+            energyText.text = energy.ToString();
+            Select(selectedUnit);
+        }
+    }
+    public void GolpeSujo(UnitBehavior selectedUnit)
+    {
+        if (energy > 0)
+        {
+            selectedUnit.skills.Add("Golpe sujo");
+            energy--;
+            energyText.text = energy.ToString();
+            Select(selectedUnit);
+        }
+    }
+    //Soldado
+    public void ReforçarArmadura(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0)
+            {
+                selectedUnit.skills.Add("Reforçar Armadura");
+                energy--;
+                energyText.text = energy.ToString();
+                Select(selectedUnit);
+            }
+        }
+    }
+    public void ReforcarCritico(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0)
+            {
+                selectedUnit.crit += 10;
+                energy--;
+                energyText.text = energy.ToString();
+                Select(selectedUnit);
+            }
+        }
+    }
+    //Feiticeiro
+    public void ReforcarMagia(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0)
+            {
+                selectedUnit.mag += (int)(selectedUnit.mag / 6.66);
+                energy--;
+                energyText.text = energy.ToString();
+                Select(selectedUnit);
+            }
+        }
+    }
+    public void CarregarAlma(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0)
+            {
+                selectedUnit.skills.Add("Carregar Alma");
+                energy--;
+                energyText.text = energy.ToString();
+                Select(selectedUnit);
+            }
+        }
+    }
+    //mistico 
+    public void EncantamentoBenevolente(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0)
+            {
+                SelectedPlayer1.GetComponent<UnitBehavior>().skills.Add("Encantamento Benevolente");
+                SelectedPlayer2.GetComponent<UnitBehavior>().skills.Add("Encantamento Benevolente");
+                SelectedPlayer3.GetComponent<UnitBehavior>().skills.Add("Encantamento Benevolente");
+                energy--;
+                energyText.text = energy.ToString();
+                Select(selectedUnit);
+            }
+        }
+    }
+    public void EncantamentoMalevolente(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0)
+            {
+                SelectedEnemy1.GetComponent<UnitBehavior>().skills.Add("Encantamento Malevolente");
+                SelectedEnemy2.GetComponent<UnitBehavior>().skills.Add("Encantamento Malevolente");
+                SelectedEnemy3.GetComponent<UnitBehavior>().skills.Add("Encantamento Malevolente");
+                energy--;
+                energyText.text = energy.ToString();
+                Select(selectedUnit);
+            }
+        }
+    }
+    //prisioneiro
+    public void Camaradagem(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0)
+            {
+                SelectedPlayer1.GetComponent<UnitBehavior>().dex += 2;
+                SelectedPlayer1.GetComponent<UnitBehavior>().luck += 2;
+                SelectedPlayer1.GetComponent<UnitBehavior>().speed += 2;
+
+                SelectedPlayer2.GetComponent<UnitBehavior>().dex += 2;
+                SelectedPlayer2.GetComponent<UnitBehavior>().luck += 2;
+                SelectedPlayer2.GetComponent<UnitBehavior>().speed += 2;
+
+                SelectedPlayer3.GetComponent<UnitBehavior>().dex += 2;
+                SelectedPlayer3.GetComponent<UnitBehavior>().luck += 2;
+                SelectedPlayer3.GetComponent<UnitBehavior>().speed += 2;
+                energy--;
+                energyText.text = energy.ToString();
+                Select(selectedUnit);
+            }
+        }
+    }
+    public void AprenderComOInimigo(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0)
+            {
+                selectedUnit.speed -= selectedUnit.speed / 2;
+                selectedUnit.expmarkplier += (float)0.25;
+                energy--;
+                energyText.text = energy.ToString();
+                Select(selectedUnit);
+            }
+        }
+    }
+    public void AfiarEscudo(UnitBehavior selectedUnit)
+    {
+        if (energy > 0)
+        {
+            selectedUnit.def += (int)(selectedUnit.def * 0.15);
+            energy--;
+            energyText.text = energy.ToString();
+            Select(selectedUnit);
+        }
+    }
+    public void AfiarEsperto(UnitBehavior selectedUnit)
+    {
+        if (energy > 0)
+        {
+            selectedUnit.mag += (int)(selectedUnit.mag * 0.15);
+            energy--;
+            energyText.text = energy.ToString();
+            Select(selectedUnit);
+        }
+    } 
     public void EnemyPrepSkill()
     {
         while (evilEnergy > 0)

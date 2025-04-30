@@ -482,7 +482,7 @@ public class SkillManager : MonoBehaviour
             case "Sabedoria Arcana":
                 {
                     StartCoroutine(IconPopup(user.Icon, "Sabedoria Arcana"));
-                    user.expmarkplier += (int)0.25;
+                    user.expmarkplier += (float)0.25;
                 }
                 return 0;
             case "Lutador Versátil":
@@ -671,7 +671,7 @@ public class SkillManager : MonoBehaviour
             case "Gênio":
 
                 StartCoroutine(IconPopup(user.Icon, "Gênio"));
-                user.expmarkplier += (int) 0.25;
+                user.expmarkplier += (float) 0.25;
 
                 user.maxhp -= user.maxhp / 5;
                 user.str -= user.str / 5;
@@ -704,7 +704,39 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            //Skills de preparo
+            case "Golpe sujo":
+                if (user.position == 1)
+                {
+                    user.battleManager.PlayerBar += 100;
+                }
+                else if(user.position == 2)
+                {
+                    user.battleManager.PlayerBar2 += 100;
+                }
+                else
+                {
+                    user.battleManager.PlayerBar3 += 100;
+                }
 
+                return 0;
+
+            case "Força de Vontade Aumentada":
+                user.damageSoulGain += (float)0.2;
+                return 0;
+
+            case "Reforçar Armadura":
+                StartCoroutine(ReforçarArmadura(user));
+                return 0;
+            case "Carregar Alma":
+                user.soul += user.maxsoul / 2;
+                return 0;
+            case "Encantamento Benevolente":
+                StartCoroutine(EncantamentoBenevolente(user));
+                return 0;
+            case "Encantamento Malevolente":
+                StartCoroutine(EncantamentoMalevolente(user));
+                return 0;
             default: return 0;
 
         }
@@ -905,6 +937,33 @@ public class SkillManager : MonoBehaviour
                 return 0;
             default: return 0;
         } 
+    }
+
+    IEnumerator ReforçarArmadura(UnitBehavior user)
+    {
+        user.def += (int)(def / 5);
+        yield return new WaitForSeconds(20);
+        user.def -= (int)(def / 5);
+    }
+    IEnumerator EncantamentoBenevolente(UnitBehavior user)
+    {
+        user.speed += (int)(speed / 6.66);
+        user.hit += 10;
+        user.avoid += 10;
+        yield return new WaitForSeconds(10);
+        user.hit -= 10;
+        user.avoid -= 10;
+        user.speed -= (int)(speed / 6.66);
+    }
+    IEnumerator EncantamentoMalevolente(UnitBehavior user)
+    {
+        user.speed -= (int)(speed / 10);
+        user.hit -= 10;
+        user.avoid -= 10;
+        yield return new WaitForSeconds(20);
+        user.hit += 10;
+        user.avoid += 10;
+        user.speed -= (int)(speed / 10);
     }
     IEnumerator Foco(UnitBehavior user)
     {
