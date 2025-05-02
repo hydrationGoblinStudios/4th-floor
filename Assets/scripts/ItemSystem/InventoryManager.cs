@@ -51,11 +51,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<GameObject> DragAndDroppables;
 
-    public GameObject ClassChangeObject;
-    [Header("Hover Object")]
-    public TextMeshPro[] texts;
-    public GameObject hoverObject;
-    public bool HoverOn;
+    public GameObject ClassChangeObject;  
     public void Toggle()
     {
         if (SceneInteractable == null)
@@ -530,21 +526,6 @@ public class InventoryManager : MonoBehaviour
     }
     public void Update()
     {
-        if(hoverObject == null)
-        {
-            hoverObject = GameObject.FindGameObjectWithTag("Hover Object");
-            texts = hoverObject.GetComponentsInChildren<TextMeshPro>();
-        }
-
-        if (HoverOn && texts[1].text != "")
-        {
-        hoverObject.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        hoverObject.transform.position = new Vector3(hoverObject.transform.position.x, hoverObject.transform.position.y, 0);
-        }
-        else
-        {
-            hoverObject.transform.position = new Vector3(100, 200, 0);
-        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Toggle();

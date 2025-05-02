@@ -30,7 +30,6 @@ public class KeyItemDrawer : MonoBehaviour
         Drawer.transform.localPosition = new() { x = Drawer.transform.localPosition.x + 200, y = Drawer.transform.localPosition.y };
             foreach (Transform tr in Panel.transform)
             {
-                Debug.Log(tr.name);
                 tr.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
                 //GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, inventoryManager.ItemSelectPanel.transform);
                 int keyCounts = gameManager.KeyItems.Count;

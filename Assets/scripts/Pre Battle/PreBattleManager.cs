@@ -329,66 +329,102 @@ public class PreBattleManager : MonoBehaviour
             case 101:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { AfiarArma(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Afiar arma";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Afiar arma";
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta o Próprio Dano em 15% pelo resto do Combate.";
                 PrepSkills[1].onClick.RemoveAllListeners();
                 PrepSkills[1].onClick.AddListener(delegate { AfiarMente(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Afiar mente";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Afiar mente";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Aumenta o Próprio Acerto em 15 pelo resto do Combate.";
                 PrepSkills[2].onClick.RemoveAllListeners();
-                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
                 return;
             case 102:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { ForcaDeVontadeAumentada(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Força de vontade Aumentada";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Força de vontade Aumentada";
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta o Próprio Ganho de alma por receber dano em 20% pelo resto do combate.";
                 PrepSkills[1].onClick.RemoveAllListeners();
                 PrepSkills[1].onClick.AddListener(delegate { GolpeSujo(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Golpe sujo";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Golpe sujo";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Golpeia o inimigo na posição da Frente no inicio da batalha.";
                 PrepSkills[2].onClick.RemoveAllListeners();
-                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
                 return;
             case 103:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { ReforçarArmadura(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar armadura";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Reforçar armadura";
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta Defesa Física de um aliado em 20% pelos primeiros 20 segundos da batalha.";
                 PrepSkills[1].onClick.RemoveAllListeners();
                 PrepSkills[1].onClick.AddListener(delegate { ReforcarCritico(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar critico";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Reforçar critico";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Aumenta o Critico de um aliado em 10.";
                 PrepSkills[2].onClick.RemoveAllListeners();
-                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
                 return;
             case 104:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { ReforcarMagia(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar magia";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Reforçar magia";
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta a Magia de um Aliado em 15%.";
                 PrepSkills[1].onClick.RemoveAllListeners();
                 PrepSkills[1].onClick.AddListener(delegate { CarregarAlma(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Carregar alma";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Carregar alma";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Começa a Batalha com 50 de Alma Extra.";
                 PrepSkills[2].onClick.RemoveAllListeners();
-                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
                 return;
             case 105:
                 PrepSkills[0].onClick.RemoveAllListeners();
-                PrepSkills[0].onClick.AddListener(delegate { ReforcarMagia(selectedUnit); });
+                PrepSkills[0].onClick.AddListener(delegate { EncantamentoBenevolente(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Encantamento benevolente";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Encantamento benevolente";
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta a Velocidade, Acerto e Evasão da equipe inteira em 15% pelos primeiros 10 Segundos do Combate.";
                 PrepSkills[1].onClick.RemoveAllListeners();
-                PrepSkills[1].onClick.AddListener(delegate { CarregarAlma(selectedUnit); });
+                PrepSkills[1].onClick.AddListener(delegate { EncantamentoMalevolente(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Encantamento malevolente";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Encantamento malevolente";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Diminui a Velocidade, Acerto e Evasão da equipe inimiga inteira em 10% pelos primeiros 20 Segundos do Combate.";
                 PrepSkills[2].onClick.RemoveAllListeners();
-                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
                 return;
             case 106:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { MirarNaCabeça(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Mirar na cabeça";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Mirar na cabeça";
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Diminui o Próprio Acerto em 20 para Aumentar o Critico em 15.";
                 PrepSkills[1].onClick.RemoveAllListeners();
                 PrepSkills[1].onClick.AddListener(delegate { ApontarAberturas(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Apontar abertura";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Apontar abertura";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Aumenta o Acerto da Equipe inteira em 10.";
                 PrepSkills[2].onClick.RemoveAllListeners();
-                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
                 return;
             case 107:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { Camaradagem(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Camaradagem";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Camaradagem";
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta a Sorte, Destreza e Velocidade de todos os Aliados em 3";
                 PrepSkills[1].onClick.RemoveAllListeners();
                 PrepSkills[1].onClick.AddListener(delegate { AprenderComOInimigo(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Aprender com o inimigo";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Aprender com o inimigo";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Diminui a própria Velocidade e Dano em 50%, mas Recebe mais 30% de experiência a mais nessa luta.";
                 PrepSkills[2].onClick.RemoveAllListeners();
-                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
                 return;
             default:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { AfiarArma(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Afiar arma";
                 PrepSkills[1].onClick.RemoveAllListeners();
                 PrepSkills[1].onClick.AddListener(delegate { AfiarEscudo(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Afiar mente";
                 PrepSkills[2].onClick.RemoveAllListeners();
-                PrepSkills[2].onClick.AddListener(delegate { AfiarEsperto(selectedUnit); });
                 return;
         }
         
@@ -702,17 +738,17 @@ public class PreBattleManager : MonoBehaviour
         {
             if (energy > 0)
             {
-                SelectedPlayer1.GetComponent<UnitBehavior>().dex += 2;
-                SelectedPlayer1.GetComponent<UnitBehavior>().luck += 2;
-                SelectedPlayer1.GetComponent<UnitBehavior>().speed += 2;
+                SelectedPlayer1.GetComponent<UnitBehavior>().dex += 3;
+                SelectedPlayer1.GetComponent<UnitBehavior>().luck += 3;
+                SelectedPlayer1.GetComponent<UnitBehavior>().speed += 3;
 
-                SelectedPlayer2.GetComponent<UnitBehavior>().dex += 2;
-                SelectedPlayer2.GetComponent<UnitBehavior>().luck += 2;
-                SelectedPlayer2.GetComponent<UnitBehavior>().speed += 2;
+                SelectedPlayer2.GetComponent<UnitBehavior>().dex += 3;
+                SelectedPlayer2.GetComponent<UnitBehavior>().luck += 3;
+                SelectedPlayer2.GetComponent<UnitBehavior>().speed +=3;
 
-                SelectedPlayer3.GetComponent<UnitBehavior>().dex += 2;
-                SelectedPlayer3.GetComponent<UnitBehavior>().luck += 2;
-                SelectedPlayer3.GetComponent<UnitBehavior>().speed += 2;
+                SelectedPlayer3.GetComponent<UnitBehavior>().dex += 3;
+                SelectedPlayer3.GetComponent<UnitBehavior>().luck += 3;
+                SelectedPlayer3.GetComponent<UnitBehavior>().speed += 3;
                 energy--;
                 energyText.text = energy.ToString();
                 Select(selectedUnit);

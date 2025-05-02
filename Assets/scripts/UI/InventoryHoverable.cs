@@ -24,10 +24,10 @@ public class InventoryHoverable : MonoBehaviour, IPointerEnterHandler, IPointerE
         texts = HoverObject.GetComponentsInChildren<TextMeshPro>();
         texts[0].text = description;
         texts[1].text = hoverName;
-        inventoryManager.GetComponent<InventoryManager>().HoverOn = true;
+        HoverObject.GetComponent<DontDestroyHoverObject>().HoverOn = true;
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        inventoryManager.GetComponent<InventoryManager>().HoverOn = false;
+        HoverObject.GetComponent<DontDestroyHoverObject>().HoverOn = false;
     }
 }

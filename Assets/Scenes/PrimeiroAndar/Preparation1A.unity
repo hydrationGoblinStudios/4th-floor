@@ -9095,7 +9095,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 969779261}
   - {fileID: 1015266275}
   - {fileID: 1467087017}
   - {fileID: 2059046814}
@@ -12537,7 +12536,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_SortAtRoot: 0
 --- !u!114 &832372541
 MonoBehaviour:
@@ -13814,7 +13813,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 601466595}
+    m_TransformParent: {fileID: 2059046814}
     m_Modifications:
     - target: {fileID: 1151401358098842825, guid: d87020263b78000439b600645790db5b, type: 3}
       propertyPath: m_Size.y
@@ -14658,27 +14657,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4442947116194808119, guid: d87020263b78000439b600645790db5b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 108
+      value: 107.94917
       objectReference: {fileID: 0}
     - target: {fileID: 4442947116194808119, guid: d87020263b78000439b600645790db5b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 108
+      value: 107.94917
       objectReference: {fileID: 0}
     - target: {fileID: 4442947116194808119, guid: d87020263b78000439b600645790db5b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 108
+      value: 107.94917
       objectReference: {fileID: 0}
     - target: {fileID: 4442947116194808119, guid: d87020263b78000439b600645790db5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1037.01
+      value: -967.1147
       objectReference: {fileID: 0}
     - target: {fileID: 4442947116194808119, guid: d87020263b78000439b600645790db5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 431.99997
+      value: 431.79666
       objectReference: {fileID: 0}
     - target: {fileID: 4442947116194808119, guid: d87020263b78000439b600645790db5b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9719.999
+      value: -9715.427
       objectReference: {fileID: 0}
     - target: {fileID: 4442947116194808119, guid: d87020263b78000439b600645790db5b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20873,9 +20872,6 @@ MonoBehaviour:
   - {fileID: 7631611099256901391, guid: b8c2161e6162ead4ea861cb80155bcaa, type: 3}
   - {fileID: 7631611099256901391, guid: 8b05f3aeecd8bfb4f8e3da468a84b9b0, type: 3}
   ClassChangeObject: {fileID: 776420268}
-  texts: []
-  hoverObject: {fileID: 0}
-  HoverOn: 0
 --- !u!1 &1301217289
 GameObject:
   m_ObjectHideFlags: 0
@@ -27498,7 +27494,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_SortAtRoot: 0
 --- !u!114 &1675118361
 MonoBehaviour:
@@ -28023,6 +28019,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f67393960b8b9b4aaae4c781a996d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts: []
+  hoverObject: {fileID: 0}
+  HoverOn: 0
 --- !u!1 &1713933298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4487683608695940496, guid: d87020263b78000439b600645790db5b, type: 3}
@@ -29994,7 +29993,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
   m_FlipX: 0
@@ -32582,6 +32581,7 @@ RectTransform:
   m_LocalScale: {x: 1.0004708, y: 1.0004708, z: 1.0004708}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 969779261}
   - {fileID: 401678830}
   - {fileID: 330648204}
   - {fileID: 811762595}
