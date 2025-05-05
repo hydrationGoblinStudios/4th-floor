@@ -1741,6 +1741,8 @@ GameObject:
   - component: {fileID: 110824493}
   - component: {fileID: 110824495}
   - component: {fileID: 110824494}
+  - component: {fileID: 110824497}
+  - component: {fileID: 110824496}
   m_Layer: 0
   m_Name: evasion icone
   m_TagString: Untagged
@@ -1828,6 +1830,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &110824496
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110824492}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.24}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.29, y: 0.24}
+  m_EdgeRadius: 0
+--- !u!114 &110824497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110824492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: placveholder
+  description: da silva
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &115893940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,6 +1905,8 @@ GameObject:
   - component: {fileID: 115893944}
   - component: {fileID: 115893943}
   - component: {fileID: 115893942}
+  - component: {fileID: 115893946}
+  - component: {fileID: 115893945}
   m_Layer: 0
   m_Name: vida icone
   m_TagString: Untagged
@@ -2016,6 +2083,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &115893945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115893940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Vida
+  description: "Quantidade de dano que voc\xEA pode receber."
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
+--- !u!61 &115893946
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115893940}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00041741878, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.24}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18229578, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &116682590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,6 +2977,8 @@ GameObject:
   - component: {fileID: 144754993}
   - component: {fileID: 144754992}
   - component: {fileID: 144754991}
+  - component: {fileID: 144754995}
+  - component: {fileID: 144754994}
   m_Layer: 0
   m_Name: "For\xE7a icone "
   m_TagString: Untagged
@@ -3023,6 +3155,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &144754994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144754989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: "For\xE7a"
+  description: "Aumenta o dano dos ataques f\xEDsicos."
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
+--- !u!61 &144754995
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144754989}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0045921206, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.24}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.21736228, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &148835559
 GameObject:
   m_ObjectHideFlags: 0
@@ -8250,6 +8445,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &538729529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9153,7 +9349,7 @@ RectTransform:
   m_Father: {fileID: 510888411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 5.2399826, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11130,6 +11326,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &760858121
 GameObject:
   m_ObjectHideFlags: 0
@@ -11858,6 +12055,8 @@ GameObject:
   - component: {fileID: 795610695}
   - component: {fileID: 795610694}
   - component: {fileID: 795610693}
+  - component: {fileID: 795610697}
+  - component: {fileID: 795610696}
   m_Layer: 0
   m_Name: Dex icone
   m_TagString: Untagged
@@ -12034,6 +12233,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &795610696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795610691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Destreza
+  description: "Chance de acertar e causar acertos cr\xEDticos."
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
+--- !u!61 &795610697
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795610691}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.014193483, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.24}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2549337, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &802796551
 GameObject:
   m_ObjectHideFlags: 0
@@ -13531,7 +13793,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -52.27}
-  m_SizeDelta: {x: 123, y: 118}
+  m_SizeDelta: {x: 123, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &940760238
 MonoBehaviour:
@@ -15075,6 +15337,8 @@ GameObject:
   - component: {fileID: 986651389}
   - component: {fileID: 986651388}
   - component: {fileID: 986651387}
+  - component: {fileID: 986651391}
+  - component: {fileID: 986651390}
   m_Layer: 0
   m_Name: mdef icone
   m_TagString: Untagged
@@ -15251,6 +15515,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &986651390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986651385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Defesa Magica
+  description: Diminui o dano magico sofrido.
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
+--- !u!61 &986651391
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986651385}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0041745827, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.24}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14472435, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &988566888
 GameObject:
   m_ObjectHideFlags: 0
@@ -15666,6 +15993,8 @@ GameObject:
   - component: {fileID: 1005932661}
   - component: {fileID: 1005932660}
   - component: {fileID: 1005932659}
+  - component: {fileID: 1005932663}
+  - component: {fileID: 1005932662}
   m_Layer: 0
   m_Name: Magia icone
   m_TagString: Untagged
@@ -15842,6 +16171,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1005932662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005932657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Magia
+  description: "Aumenta o dano dos ataques m\xE1gicos."
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
+--- !u!61 &1005932663
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005932657}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0016696937, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.24}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.20650831, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &1010153568
 GameObject:
   m_ObjectHideFlags: 0
@@ -16221,6 +16613,8 @@ GameObject:
   - component: {fileID: 1033110026}
   - component: {fileID: 1033110028}
   - component: {fileID: 1033110027}
+  - component: {fileID: 1033110030}
+  - component: {fileID: 1033110029}
   m_Layer: 0
   m_Name: Hit icone
   m_TagString: Untagged
@@ -16308,6 +16702,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1033110029
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033110025}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 0.5}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &1033110030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033110025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: placveholder
+  description: da silva
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &1040218128
 GameObject:
   m_ObjectHideFlags: 0
@@ -17003,6 +17460,8 @@ GameObject:
   - component: {fileID: 1098609517}
   - component: {fileID: 1098609516}
   - component: {fileID: 1098609515}
+  - component: {fileID: 1098609519}
+  - component: {fileID: 1098609518}
   m_Layer: 0
   m_Name: sorte icone
   m_TagString: Untagged
@@ -17179,6 +17638,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1098609518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098609513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Sorte
+  description: "Aumenta um pouco evas\xE3o e acertar e diminui a chance de receber
+    cr\xEDticos."
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
+--- !u!61 &1098609519
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098609513}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00041758642, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.24}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.15724814, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &1100505111
 GameObject:
   m_ObjectHideFlags: 0
@@ -17741,6 +18264,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &1111338261
 GameObject:
   m_ObjectHideFlags: 0
@@ -18346,6 +18870,8 @@ GameObject:
   - component: {fileID: 1149960382}
   - component: {fileID: 1149960381}
   - component: {fileID: 1149960380}
+  - component: {fileID: 1149960384}
+  - component: {fileID: 1149960383}
   m_Layer: 0
   m_Name: spd icone
   m_TagString: Untagged
@@ -18522,6 +19048,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1149960383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149960378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Velocidade
+  description: Aumenta a velocidade da Barra de Ataque e a chance de desviar.
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
+--- !u!61 &1149960384
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149960378}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.015863381, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.24}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25827324, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &1157617439
 GameObject:
   m_ObjectHideFlags: 0
@@ -20581,7 +21170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1298834383
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22798,6 +23387,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &1443422893
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23352,6 +23942,8 @@ GameObject:
   - component: {fileID: 1511283663}
   - component: {fileID: 1511283665}
   - component: {fileID: 1511283664}
+  - component: {fileID: 1511283667}
+  - component: {fileID: 1511283666}
   m_Layer: 0
   m_Name: Pow icone
   m_TagString: Untagged
@@ -23439,6 +24031,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1511283666
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511283662}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 0.5}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &1511283667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511283662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Dano
+  description: "For\xE7a/Magia do usu\xE1rio + Poder da arma(Depende da arma)"
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &1520130642
 GameObject:
   m_ObjectHideFlags: 0
@@ -25526,6 +26181,8 @@ GameObject:
   - component: {fileID: 1548383301}
   - component: {fileID: 1548383300}
   - component: {fileID: 1548383299}
+  - component: {fileID: 1548383303}
+  - component: {fileID: 1548383302}
   m_Layer: 0
   m_Name: def icone
   m_TagString: Untagged
@@ -25702,6 +26359,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1548383302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548383297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Defesa Fisica
+  description: "Diminui o dano f\xEDsico sofrido."
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
+--- !u!61 &1548383303
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548383297}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0016698875, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.24}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1814608, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &1551694843
 GameObject:
   m_ObjectHideFlags: 0
@@ -26271,9 +26991,9 @@ RectTransform:
   - {fileID: 8116287}
   m_Father: {fileID: 940760237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 61.5, y: -91}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 123, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!210 &1597495863
@@ -26949,6 +27669,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &1645631751
 GameObject:
   m_ObjectHideFlags: 0
@@ -29834,6 +30555,8 @@ GameObject:
   - component: {fileID: 1877647795}
   - component: {fileID: 1877647794}
   - component: {fileID: 1877647793}
+  - component: {fileID: 1877647797}
+  - component: {fileID: 1877647796}
   m_Layer: 0
   m_Name: Crit icone
   m_TagString: Untagged
@@ -29921,6 +30644,69 @@ RectTransform:
   m_AnchoredPosition: {x: 0.4, y: 0.16}
   m_SizeDelta: {x: 0.29, y: 0.24}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &1877647796
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877647791}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 0.5}
+    newSize: {x: 0.29, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &1877647797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877647791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: placveholder
+  description: da silva
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &1877847433
 GameObject:
   m_ObjectHideFlags: 0
