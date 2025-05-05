@@ -28,17 +28,25 @@ public class KeyItemDrawer : MonoBehaviour
         else
         {
         Drawer.transform.localPosition = new() { x = Drawer.transform.localPosition.x + 200, y = Drawer.transform.localPosition.y };
+            int c = 0;
             foreach (Transform tr in Panel.transform)
             {
                 tr.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
                 //GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, inventoryManager.ItemSelectPanel.transform);
                 int keyCounts = gameManager.KeyItems.Count;
-                int c = 0;
+                Debug.Log(c +"  " + keyCounts);
                 if (c < keyCounts)
                 {
-                tr.gameObject.GetComponent<Button>().onClick.AddListener(() => inventoryManager.InstantiateKeyItem(gameManager.KeyItems[0], false));
-                }
+                tr.gameObject.name = gameManager.KeyItems[c].ItemName;
+                int a = c;
+                tr.gameObject.GetComponent<Button>().onClick.AddListener(() => inventoryManager.InstantiateKeyItem(gameManager.KeyItems[a], false));
+                tr.gameObject.GetComponent<Image>().sprite = inventoryManager.sprites[0];
                 c++;
+                }
+                else
+                {
+                    tr.gameObject.GetComponent<Image>().sprite = null;
+                }
             }
         }
         activated = !activated;

@@ -326,6 +326,7 @@ public class PreBattleManager : MonoBehaviour
         }
         switch (selectedUnit.classId)
         {
+            //
             case 101:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { AfiarArma(selectedUnit); });
