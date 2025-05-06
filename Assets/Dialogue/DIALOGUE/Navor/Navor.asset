@@ -231,7 +231,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 6251200480659709764}
+        node: {fileID: 6592875811233119639}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -803,6 +803,7 @@ MonoBehaviour:
   - {fileID: 3715736242840182365}
   - {fileID: -2708376811445401858}
   - {fileID: 2650930084645459495}
+  - {fileID: 6592875811233119639}
   current: {fileID: 6251200480659709764}
 --- !u!114 &1827378163121239651
 MonoBehaviour:
@@ -1543,13 +1544,46 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3512, y: 392}
+  position: {x: 3848, y: 456}
   ports:
     keys:
     - entry
     values:
     - _fieldName: entry
       _node: {fileID: 6251200480659709764}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 6592875811233119639}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  spriteRenderer: {fileID: 0}
+  entry: 0
+--- !u!114 &6592875811233119639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d326aaea4db3f184b83ff587b7767339, type: 3}
+  m_Name: Item
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 3512, y: 408}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 6592875811233119639}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -1560,8 +1594,23 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  spriteRenderer: {fileID: 0}
+    - _fieldName: exit
+      _node: {fileID: 6592875811233119639}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 6251200480659709764}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   entry: 0
+  exit: 0
+  item: {fileID: 11400000, guid: 72f51b0666aaad941b32b3e584308a0b, type: 2}
+  key: 0
+  flag: 1
 --- !u!114 &6732562169901074491
 MonoBehaviour:
   m_ObjectHideFlags: 0

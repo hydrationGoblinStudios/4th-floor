@@ -48,6 +48,54 @@ MonoBehaviour:
   speaker: Leyni
   dialogue: "O que voc\xEA quer?"
   sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+--- !u!114 &-6658975079818602009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d326aaea4db3f184b83ff587b7767339, type: 3}
+  m_Name: Item
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2648, y: -504}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6658975079818602009}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -405026492986277714}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -6658975079818602009}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 827031224499378280}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  item: {fileID: 11400000, guid: be46ef8f4cf322a44985b62de635a6a6, type: 2}
+  key: 0
+  flag: 1
 --- !u!114 &-5483615880342603015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +126,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &-4224819087413385939
 MonoBehaviour:
@@ -309,7 +358,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 827031224499378280}
+        node: {fileID: -6658975079818602009}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -350,6 +399,7 @@ MonoBehaviour:
   - {fileID: -2318895649360501642}
   - {fileID: 4623078204573136666}
   - {fileID: -1777179994389544893}
+  - {fileID: -6658975079818602009}
   current: {fileID: -5483615880342603015}
 --- !u!114 &827031224499378280
 MonoBehaviour:
@@ -364,7 +414,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2589.023, y: -447.18192}
+  position: {x: 2936, y: -472}
   ports:
     keys:
     - entry
@@ -375,12 +425,13 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -405026492986277714}
+        node: {fileID: -6658975079818602009}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &2599666685808606469
 MonoBehaviour:
