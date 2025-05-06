@@ -16,7 +16,10 @@ public class LoadSave : MonoBehaviour
         dpm.LoadGame();
         gm.LoadData(dpm.gameData);
         gm.team.Clear();
-        gm.LoadDataAsUnit(dpm.gameData.units[0]);       
+        foreach(UnitData unit in dpm.gameData.units)
+        {
+        gm.LoadDataAsUnit(unit);
+        }
         gm.PrepScreen();
         
     }
