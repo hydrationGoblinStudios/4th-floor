@@ -97,7 +97,7 @@ MonoBehaviour:
   dialogue: "Sim, sim, o Coliseu \xE9 dividido em 4 andares. O primeiro andar, aqui,
     \xE9 onde os presos ficam ao chegar, conforme voc\xEA ganhar lutas voc\xEA pode
     subir de andar, quanto mais alto, maiores s\xE3o as recompensas pelas vit\xF3rias. "
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &-7169351549947394600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   dialogue: "Sim, Sora \xE9 o reino dos c\xE9us. \xC9 aqui onde voc\xEA est\xE1.
     Pessoas v\xEAm de muito longe para visitar nossas ilhas, voc\xEA t\xEAm sorte
     de estar aqui."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &-4038376415810258009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
     que os prisioneiros n\xE3o virassem um peso para o estado. Eles s\xE3o for\xE7ados
     a lutar por suas vidas para o divertimento da popula\xE7\xE3o. Embora algumas
     pessoas se voluntariam a lutar s\xF3 pelas recompensas."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
   - {fileID: -568304578126812958}
   - {fileID: 9197539942600424235}
   - {fileID: -7300761037055352723}
-  current: {fileID: -1113513010912996869}
+  current: {fileID: 3516829767805911135}
 --- !u!114 &1145665356397894668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,9 +1208,9 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: '?'
-  dialogue: 
-  option2: "Chamar por algu\xE9m"
-  option3: Sair
+  dialogue: "Chamar por algu\xE9m"
+  option2: Sair
+  option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &3886044469029038869
@@ -1365,7 +1365,7 @@ MonoBehaviour:
     que os prisioneiros n\xE3o virassem um peso para o estado. Eles s\xE3o for\xE7ados
     a lutar por suas vidas para o divertimento da popula\xE7\xE3o. Embora algumas
     pessoas se voluntariam a lutar s\xF3 pelas recompensas."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &5435250552195660224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,7 +1415,7 @@ MonoBehaviour:
   dialogue: "Sim, sim, o Coliseu \xE9 dividido em 4 andares. O primeiro andar, aqui,
     \xE9 onde os presos ficam ao chegar, conforme voc\xEA ganhar lutas voc\xEA pode
     subir de andar, quanto mais alto, maiores s\xE3o as recompensas pelas vit\xF3rias. "
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &5577978347463542236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,8 +1726,8 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: '?'
-  dialogue: 
-  option2: "Quem \xE9 voc\xEA?"
+  dialogue: "Quem \xE9 voc\xEA?"
+  option2: 
   option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
@@ -1811,4 +1811,4 @@ MonoBehaviour:
   dialogue: "Sim, Sora \xE9 o reino dos c\xE9us. \xC9 aqui onde voc\xEA est\xE1.
     Pessoas v\xEAm de muito longe para visitar nossas ilhas, voc\xEA t\xEAm sorte
     de estar aqui."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
