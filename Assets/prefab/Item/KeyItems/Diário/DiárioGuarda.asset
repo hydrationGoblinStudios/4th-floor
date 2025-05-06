@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Di\xE1rioGuarda"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 7002
+  id: 6002
   sprite: {fileID: 0}
   type: 2
   weapontype: 0

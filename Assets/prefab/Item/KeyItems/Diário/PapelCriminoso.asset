@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PapelCriminoso
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 7003
+  id: 6003
   sprite: {fileID: 0}
   type: 2
   weapontype: 0

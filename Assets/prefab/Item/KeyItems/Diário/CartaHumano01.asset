@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CartaHumano01
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 7000
+  id: 6000
   sprite: {fileID: 0}
   type: 2
   weapontype: 0

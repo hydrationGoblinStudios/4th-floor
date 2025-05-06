@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PapelHorta
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 7004
+  id: 6004
   sprite: {fileID: 0}
   type: 2
   weapontype: 0
