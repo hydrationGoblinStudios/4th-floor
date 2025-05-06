@@ -147,6 +147,114 @@ MonoBehaviour:
   dialogue: "Eu ia te perguntar a mesma coisa. Pessoas de todos os cantos do mundo
     vem para c\xE1, mas nunca vi ningu\xE9m como voc\xEA."
   sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
+--- !u!114 &-6274200841528484281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -264, y: 136}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6274200841528484281}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit2
+        node: {fileID: -6006318965876329594}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -6274200841528484281}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 6479440310947059776}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Ramion
+  dialogue: "N\xE3o tem mais ningu\xE9m no corredor"
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &-6006318965876329594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be90d0b390d57cb43878c358fe4c8159, type: 3}
+  m_Name: Item Check
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -536, y: -8}
+  ports:
+    keys:
+    - entry
+    - exit
+    - exit2
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6006318965876329594}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 8462896105215606615}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -6006318965876329594}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -3764899115102955562}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: -6006318965876329594}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -6274200841528484281}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  exit2: 0
+  id: 9000
 --- !u!114 &-5980817397139497365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,7 +469,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 8462896105215606615}
+        node: {fileID: -6006318965876329594}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -477,7 +585,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: Guarda
+  speaker: R
   dialogue: Finalmente acordou novato? O que quer?
   sprite: {fileID: 21300000, guid: 9d4f153a37c2411459e71d93d36c9ac6, type: 3}
 --- !u!114 &-1643675059869596977
@@ -656,6 +764,8 @@ MonoBehaviour:
   - {fileID: -568304578126812958}
   - {fileID: 9197539942600424235}
   - {fileID: -7300761037055352723}
+  - {fileID: -6006318965876329594}
+  - {fileID: -6274200841528484281}
   current: {fileID: 3516829767805911135}
 --- !u!114 &1145665356397894668
 MonoBehaviour:
@@ -865,7 +975,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2808, y: 88}
+  position: {x: 2888, y: 88}
   ports:
     keys:
     - entry
@@ -1070,7 +1180,7 @@ MonoBehaviour:
   exit2: 0
   exit3: 0
   exit4: 0
-  speaker: Ramion
+  speaker: '?'
   dialogue: 
   option2: "Eu n\xE3o me lembro de nada, nem mesmo meu nome"
   option3: 
@@ -1089,7 +1199,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1768, y: -24}
+  position: {x: 1720, y: -24}
   ports:
     keys:
     - entry
@@ -1379,7 +1489,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2136, y: 520}
+  position: {x: 2216, y: 520}
   ports:
     keys:
     - entry
@@ -1512,7 +1622,7 @@ MonoBehaviour:
   exit2: 0
   exit3: 0
   exit4: 0
-  speaker: 
+  speaker: '?'
   dialogue: 
   option2: "O que \xE9 voc\xEA?"
   option3: Por que estou preso?
@@ -1592,6 +1702,9 @@ MonoBehaviour:
       connections:
       - fieldName: exit3
         node: {fileID: 3516829767805911135}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -6274200841528484281}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1744,7 +1857,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -472, y: -8}
+  position: {x: -760, y: -8}
   ports:
     keys:
     - exit
@@ -1755,7 +1868,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -3764899115102955562}
+        node: {fileID: -6006318965876329594}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
