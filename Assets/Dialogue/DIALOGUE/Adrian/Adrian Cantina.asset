@@ -828,6 +828,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &446607297132189815
 MonoBehaviour:
@@ -1288,6 +1289,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &4964964436231912128
 MonoBehaviour:
@@ -1580,6 +1582,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &7258370021285821686
 MonoBehaviour:
@@ -1918,7 +1921,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   item: {fileID: 11400000, guid: 4c94bb41e8d310d48874b17454b11b83, type: 2}
-  key: 1
+  key: 0
+  flag: 1
 --- !u!114 &9000025809919937815
 MonoBehaviour:
   m_ObjectHideFlags: 0
