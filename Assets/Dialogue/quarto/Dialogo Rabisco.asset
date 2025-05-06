@@ -595,7 +595,7 @@ MonoBehaviour:
   exit4: 0
   speaker: 
   dialogue: 0549
-  option2: 6587
+  option2: 2107
   option3: 2673
   option4: 4325
   sprite: {fileID: 0}
@@ -646,6 +646,7 @@ MonoBehaviour:
   exit: 0
   item: {fileID: 11400000, guid: 006d5e4ea4191ea418a2c47e278cf25c, type: 2}
   key: 1
+  flag: 0
 --- !u!114 &6163858498671446401
 MonoBehaviour:
   m_ObjectHideFlags: 0
