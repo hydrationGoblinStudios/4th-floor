@@ -460,19 +460,16 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 break;
 
             case "Cutscene":
-                if (true)
-                {
-                    Debug.Log("Cutscene");
-                    NodeParser dm = FindObjectOfType<NodeParser>(true);
-                    dm.StartDialogue(graphs.Where(obj => obj.name == "Noite 0 Figura Misteriosa").SingleOrDefault());
-                }
+                Debug.Log("asdasdasdasdasasadszxcadfa");
+                    StartCoroutine(WaitToLoad());
+                
                 break;
             case "Abertura":
                 if (true)
                 {
                     Debug.Log("Abertura");
                     NodeParser dm = FindObjectOfType<NodeParser>(true);
-                    dm.StartDialogue(graphs.Where(obj => obj.name == "abertura").SingleOrDefault());
+                    dm.StartDialogue(graphs.Where(obj => obj.name == "Abertura").SingleOrDefault());
                 }
                 break;
 
@@ -584,5 +581,13 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 break;
 
         }
+    }
+
+    IEnumerator WaitToLoad()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log("Abertura");
+        NodeParser dm = FindObjectOfType<NodeParser>(true);
+        dm.StartDialogue(graphs.Where(obj => obj.name == "Noite 0 Figura Misteriosa").SingleOrDefault());
     }
 }

@@ -187,10 +187,10 @@ public class NodeParser : MonoBehaviour
     }
     public void StartDialogue(DialogueGraph NewGraph)
     {
-       /* InventoryManager IM = FindObjectOfType<InventoryManager>(true);
-        IM.Activatable = !IM.Activatable;
-        MapToggle MT = FindObjectOfType<MapToggle>(true);
-        MT.activatable = !MT.activatable;*/
+        /* InventoryManager IM = FindObjectOfType<InventoryManager>(true);
+         IM.Activatable = !IM.Activatable;
+         MapToggle MT = FindObjectOfType<MapToggle>(true);
+         MT.activatable = !MT.activatable;*/
         hoverGraph = null;
         graph = NewGraph;
         foreach (BaseNode b in graph.nodes)
