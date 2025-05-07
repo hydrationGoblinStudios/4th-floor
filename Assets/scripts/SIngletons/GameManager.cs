@@ -460,14 +460,13 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 break;
 
             case "Cutscene":
-                Debug.Log("asdasdasdasdasasadszxcadfa");
+
                     StartCoroutine(WaitToLoad(graphName: "Noite 0 Figura Misteriosa"));
                 
                 break;
             case "Abertura":
                 if (true)
                 {
-                    Debug.Log("Abertura");
                     StartCoroutine(WaitToLoad(graphName: "abertura"));
                 }
                 break;

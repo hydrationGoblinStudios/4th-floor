@@ -27,7 +27,7 @@ public class SceneMaracutaia : MonoBehaviour
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
-        if (gameManager != null && gameManager.team[0].GetComponent<UnitBehavior>().Weapon.ItemName != "")
+        if (gameManager != null && gameManager.team[0].GetComponent<UnitBehavior>().Weapon.ItemName != "" && gameManager.storyBattle == true)
         {
             SceneManager.LoadScene(scene);
         }
