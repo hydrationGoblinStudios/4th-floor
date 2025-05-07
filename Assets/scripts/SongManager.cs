@@ -19,6 +19,8 @@ public class SongManager : MonoBehaviour
             case "Abertura 2": m_audioSource.clip = m_clip.Where(obj => obj.name == "floor1day").SingleOrDefault(); break;
             case "Pre Battle": m_audioSource.clip = m_clip.Where(obj => obj.name == "youi!").SingleOrDefault(); break;
             case "Battle": m_audioSource.clip = m_clip.Where(obj => obj.name == "battle!").SingleOrDefault(); break;
+            case "Cutscene": m_audioSource.clip = m_clip.Where(obj => obj.name == "senhor mistérios").SingleOrDefault(); break;
+
             default: break;
         }
         if (current != m_audioSource.clip)
