@@ -450,11 +450,17 @@ public class BattleManager : MonoBehaviour
     void Wait()
     {
         if (playerTeam[0].hp > 0) { PlayerBar += Time.deltaTime * playerTeam[0].speed * battleSpeed; }
+        else { playerTeam[0].animator.SetTrigger("UnitDie"); }
         if (playerTeam[1].hp > 0) {PlayerBar2 += Time.deltaTime * playerTeam[1].speed * battleSpeed; }
+        else { playerTeam[1].animator.SetTrigger("UnitDie"); }
         if (playerTeam[2].hp > 0) { PlayerBar3 += Time.deltaTime * playerTeam[2].speed * battleSpeed; }
+        else { playerTeam[2].animator.SetTrigger("UnitDie"); }
         if (enemyTeam[0].hp > 0){EnemyBar += Time.deltaTime * enemyTeam[0].speed * battleSpeed; }
+        else { enemyTeam[0].animator.SetTrigger("UnitDie"); }
         if (enemyTeam[1].hp > 0){EnemyBar2 += Time.deltaTime * enemyTeam[1].speed * battleSpeed; }
+        else { enemyTeam[1].animator.SetTrigger("UnitDie"); }
         if (enemyTeam[2].hp > 0){EnemyBar3 += Time.deltaTime * enemyTeam[2].speed * battleSpeed; }
+        else { enemyTeam[2].animator.SetTrigger("UnitDie"); }
         PlayerBars[0] = PlayerBar;
         PlayerBars[1] = PlayerBar2;
         PlayerBars[2] = PlayerBar3;
