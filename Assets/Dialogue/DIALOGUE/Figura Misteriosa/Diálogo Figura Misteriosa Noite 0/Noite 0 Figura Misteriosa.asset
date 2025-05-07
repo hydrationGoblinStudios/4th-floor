@@ -164,6 +164,66 @@ MonoBehaviour:
   option3: 
   option4: 
   sprite: {fileID: 0}
+--- !u!114 &-7914470191312682808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be90d0b390d57cb43878c358fe4c8159, type: 3}
+  m_Name: Item Check
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -600, y: -184}
+  ports:
+    keys:
+    - entry
+    - exit
+    - exit2
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7914470191312682808}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -4802320144349090503}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7914470191312682808}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7509579829322442375}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: -7914470191312682808}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -1864289063795570082}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  exit2: 0
+  id: 9001
 --- !u!114 &-7509579829322442375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +249,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -4802320144349090503}
+        node: {fileID: -7914470191312682808}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -212,6 +272,38 @@ MonoBehaviour:
   speaker: Ramion
   dialogue: "n\xE3o vai ser f\xE1cil dormir nesses trapos, mas preciso tentar."
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &-6073235178804222879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f247d9b14698438e2d74800ab78da, type: 3}
+  m_Name: Stop
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: -56}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6073235178804222879}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -1864289063795570082}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  spriteRenderer: {fileID: 0}
+  entry: 0
 --- !u!114 &-5639445084944641363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +366,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -280, y: -200}
+  position: {x: -824, y: -184}
   ports:
     keys:
     - exit
@@ -285,7 +377,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -7509579829322442375}
+        node: {fileID: -7914470191312682808}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -389,6 +481,54 @@ MonoBehaviour:
   speaker: ???
   dialogue: "Estamos ansiosos para ver o que voc\xEA far\xE1."
   sprite: {fileID: 21300000, guid: 8cce2a53b09c8354db50730b6d5faa8d, type: 3}
+--- !u!114 &-1864289063795570082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -408, y: -56}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1864289063795570082}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit2
+        node: {fileID: -7914470191312682808}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1864289063795570082}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -6073235178804222879}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: '?'
+  dialogue: "Um monte de farrapos, isso \xE9 para ser uma cama?"
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &-1179892753681880634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,7 +708,10 @@ MonoBehaviour:
   - {fileID: -712792067753987010}
   - {fileID: 3618108549251797487}
   - {fileID: 615942310211375085}
-  current: {fileID: 29615787851689586}
+  - {fileID: -6073235178804222879}
+  - {fileID: -7914470191312682808}
+  - {fileID: -1864289063795570082}
+  current: {fileID: -8795661662627602388}
 --- !u!114 &29615787851689586
 MonoBehaviour:
   m_ObjectHideFlags: 0
