@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Espada Estrelada
+  m_Name: Espada Estelar
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 0
@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 0
   weight: 0
-  ItemName: Espada Estrelada
+  ItemName: Espada Estelar
   description: "Uma espada misteriosa achada no ba\xFA do quarto do Ramion, aumenta
     a Destreza e a Sorte em +1."
   hit: 100
@@ -33,3 +33,4 @@ MonoBehaviour:
   speed: 0
   price: 0
   damageType: 0
+  skill: 

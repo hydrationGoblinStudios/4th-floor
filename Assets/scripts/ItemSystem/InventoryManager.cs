@@ -54,6 +54,10 @@ public class InventoryManager : MonoBehaviour
     public GameObject ClassChangeObject;  
     public void Toggle()
     {
+        if (FindObjectOfType<KeyItemDrawer>().activated)
+        {
+            FindObjectOfType<KeyItemDrawer>().Amongus();
+        }
         if (SceneInteractable == null)
         {
         SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");

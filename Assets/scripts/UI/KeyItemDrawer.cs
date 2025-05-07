@@ -7,7 +7,7 @@ public class KeyItemDrawer : MonoBehaviour
 {
     public GameObject Drawer;
     public GameObject Panel;
-    bool activated = false;
+    public bool activated = false;
     private InventoryManager inventoryManager;
     private GameManager gameManager;
     public void Start()
