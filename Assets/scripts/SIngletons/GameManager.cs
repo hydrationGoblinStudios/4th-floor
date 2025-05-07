@@ -591,7 +591,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         {
         yield return new WaitForSeconds(seconds);
         }
-        Debug.Log("Abertura");
         NodeParser dm = FindObjectOfType<NodeParser>(true);
         dm.StartDialogue(graphs.Where(obj => obj.name == graphName).SingleOrDefault());
     }

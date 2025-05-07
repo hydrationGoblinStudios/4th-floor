@@ -34,7 +34,6 @@ public class KeyItemDrawer : MonoBehaviour
                 tr.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
                 //GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, inventoryManager.ItemSelectPanel.transform);
                 int keyCounts = gameManager.KeyItems.Count;
-                Debug.Log(c +"  " + keyCounts);
                 if (c < keyCounts)
                 {
                 tr.gameObject.name = gameManager.KeyItems[c].ItemName;
