@@ -98,6 +98,55 @@ MonoBehaviour:
     livros da hist\xF3ria desse pa\xEDs que n\xE3o s\xE3o encontrados em mais nenhum
     outro lugar. Espero ter algo l\xE1."
   sprite: {fileID: 0}
+--- !u!114 &-4510281700387093227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd7e28131cab6246927fc2f36836961, type: 3}
+  m_Name: Recruit
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2920, y: -8}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4510281700387093227}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 3259039236840738967}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4510281700387093227}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -1637657828647752581}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: 
+  dialogue: 
+  sprite: {fileID: 0}
+  recruit: {fileID: 0}
 --- !u!114 &-3199606219381756374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,16 +256,16 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 7235717203714244613}
-        reroutePoints: []
-      - fieldName: exit
-        node: {fileID: 3259039236840738967}
-        reroutePoints: []
-      - fieldName: exit
         node: {fileID: -3199606219381756374}
         reroutePoints: []
       - fieldName: exit
         node: {fileID: 9109322427030862134}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 7235717203714244613}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -4510281700387093227}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -543,6 +592,7 @@ MonoBehaviour:
   - {fileID: -3199606219381756374}
   - {fileID: 7235717203714244613}
   - {fileID: -1864521784470941497}
+  - {fileID: -4510281700387093227}
   current: {fileID: -841268567894309013}
 --- !u!114 &38105799660825098
 MonoBehaviour:
@@ -658,7 +708,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2856, y: -88}
+  position: {x: 2696, y: -72}
   ports:
     keys:
     - entry
@@ -682,7 +732,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -1637657828647752581}
+        node: {fileID: -4510281700387093227}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
