@@ -41,5 +41,12 @@ public class InventoryHoverable : MonoBehaviour, IPointerEnterHandler, IPointerE
         texts[1].text = hoverName;
         HoverObject.GetComponent<DontDestroyHoverObject>().HoverOn = true;
         }
-    }   
+    }
+    public void Update()
+    {
+     if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            activate = false;
+        }   
+    }
 }

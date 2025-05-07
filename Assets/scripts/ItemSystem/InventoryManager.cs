@@ -528,6 +528,12 @@ public class InventoryManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            skillNames[0].GetComponentInParent<InventoryHoverable>().activate = false;
+            skillNames[1].GetComponentInParent<InventoryHoverable>().activate = false;
+            skillNames[2].GetComponentInParent<InventoryHoverable>().activate = false;
+            skillNames[3].GetComponentInParent<InventoryHoverable>().activate = false;
+            soulName.GetComponentInParent<InventoryHoverable>().activate = false;
+            skillNames[0].GetComponentInParent<InventoryHoverable>().HoverObject.GetComponent<DontDestroyHoverObject>().HoverOn = false;
             Toggle();
         }
     }
