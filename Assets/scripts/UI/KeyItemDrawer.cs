@@ -7,7 +7,7 @@ public class KeyItemDrawer : MonoBehaviour
 {
     public GameObject Drawer;
     public GameObject Panel;
-    bool activated = false;
+    public bool activated = false;
     private InventoryManager inventoryManager;
     private GameManager gameManager;
     public void Start()
@@ -34,7 +34,6 @@ public class KeyItemDrawer : MonoBehaviour
                 tr.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
                 //GameObject itemButton = Instantiate(inventoryManager.ItemButtonPrefab, inventoryManager.ItemSelectPanel.transform);
                 int keyCounts = gameManager.KeyItems.Count;
-                Debug.Log(c +"  " + keyCounts);
                 if (c < keyCounts)
                 {
                 tr.gameObject.name = gameManager.KeyItems[c].ItemName;
