@@ -199,6 +199,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3467401826676296598, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4573834579158073405, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -503,8 +507,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2125996979}
+    - target: {fileID: 9148582787910373711, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f2987f4852e97eb44810d76636b2c685, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3487233373323245323, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+    - {fileID: 621033942142912523, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+    - {fileID: 8562770084703644698, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+    - {fileID: 5514001873365946826, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 723926034548697298, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
