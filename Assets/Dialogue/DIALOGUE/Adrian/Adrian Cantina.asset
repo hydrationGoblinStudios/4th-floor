@@ -552,6 +552,55 @@ MonoBehaviour:
   option3: "O que voc\xEA acha aqui do coliseu?"
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &-1309519051396986820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd7e28131cab6246927fc2f36836961, type: 3}
+  m_Name: Recruit
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1432, y: 344}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1309519051396986820}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 8860213656628512745}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1309519051396986820}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 277713061623935278}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: 
+  dialogue: 
+  sprite: {fileID: 0}
+  recruit: {fileID: 4445489306633608637, guid: 5f30cb97823418445839f51018e0b533, type: 3}
 --- !u!114 &-826707146279183255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,7 +846,8 @@ MonoBehaviour:
   - {fileID: -6813348204218303832}
   - {fileID: -773422362117305678}
   - {fileID: 9115880384194993736}
-  current: {fileID: 0}
+  - {fileID: -1309519051396986820}
+  current: {fileID: 277713061623935278}
 --- !u!114 &277713061623935278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,7 +861,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: 344}
+  position: {x: 1640, y: 344}
   ports:
     keys:
     - entry
@@ -822,7 +872,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 8860213656628512745}
+        node: {fileID: -1309519051396986820}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1912,7 +1962,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 277713061623935278}
+        node: {fileID: -1309519051396986820}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
