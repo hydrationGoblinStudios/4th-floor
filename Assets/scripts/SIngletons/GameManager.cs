@@ -451,8 +451,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     wakeUpTalk = false;
                 }
                 if(day < 2)
-                {                  
-                    GameObject.Find("Quadro de tarefas").GetComponent<Button>().enabled = false;
+                {
+                    FindObjectOfType<SceneInteractables>(true).transform.Find("Quadro de tarefas").gameObject.SetActive(false);   
                     GameObject.Find("quadro de tarefas sprite").GetComponent<SpriteRenderer>().enabled = false;
                 }
                 break;

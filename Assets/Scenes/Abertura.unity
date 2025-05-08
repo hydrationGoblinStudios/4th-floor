@@ -689,12 +689,12 @@ MonoBehaviour:
     m_Handle: 0
   money: 50
   lumenita: 0
-  day: 0
+  day: 1
   testMode: 0
   storyBattle: 1
   BossBattleID: 0
   TimeIsDay: 1
-  wakeUpTalk: 0
+  wakeUpTalk: 1
   mapButtons:
   - {fileID: 2122676585}
   - {fileID: 2122676584}
