@@ -470,7 +470,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     StartCoroutine(WaitToLoad(graphName: "abertura"));
                 }
                 break;
-
         }
     }
     public void ChangeGraph(DialogueGraph dialogueGraph, string buttonAssigner, string sceneName)
