@@ -293,9 +293,21 @@ public class InventoryManager : MonoBehaviour
         {
             DestroyImmediate(panel.transform.GetChild(0).gameObject);
         }
+        List<Item> allEquiped = new();
+        foreach(GameObject unit in Manager.team)
+        {
+            if (unit.GetComponent<UnitBehavior>().Weapon != null)
+            {
+                allEquiped.Add(unit.GetComponent<UnitBehavior>().Weapon);
+            }
+            if (unit.GetComponent<UnitBehavior>().Accesory != null)
+            {
+                allEquiped.Add(unit.GetComponent<UnitBehavior>().Accesory);
+            }
+        }
         foreach (Item item in ItemList)
         {
-            if(item != selectedUnit.Weapon && item != selectedUnit.Accesory)
+            if(!allEquiped.Contains(item))
             {   
             GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
             itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
