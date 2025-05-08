@@ -40,11 +40,15 @@ public class KeyItemDrawer : MonoBehaviour
                 int a = c;
                 tr.gameObject.GetComponent<Button>().onClick.AddListener(() => inventoryManager.InstantiateKeyItem(gameManager.KeyItems[a], false));
                 tr.gameObject.GetComponent<Image>().sprite = inventoryManager.sprites[0];
+                    tr.gameObject.GetComponent<Image>().color = new() { r = 255, g = 255, b=255,a = 255 };
                 c++;
                 }
                 else
                 {
                     tr.gameObject.GetComponent<Image>().sprite = null;
+                    tr.gameObject.GetComponent<Image>().color = new() {a=0}
+                    ;
+
                 }
             }
         }

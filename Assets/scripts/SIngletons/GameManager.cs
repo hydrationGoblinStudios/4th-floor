@@ -450,6 +450,11 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     mapButtons.Where(obj => obj.name == "Patio").SingleOrDefault().SetActive(true);
                     wakeUpTalk = false;
                 }
+                if(day < 2)
+                {                  
+                    GameObject.Find("Quadro de tarefas").GetComponent<Button>().enabled = false;
+                    GameObject.Find("quadro de tarefas sprite").GetComponent<SpriteRenderer>().enabled = false;
+                }
                 break;
             case "Patio":
                 if (day >= 3)

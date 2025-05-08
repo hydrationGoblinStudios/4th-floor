@@ -128,21 +128,21 @@ public class BattleManager : MonoBehaviour
         ////PLACEHOLDER TODO
         if (playerTeam[1].UnitName == "")
         {
-            playerHpSlider[1].enabled = false;
-            PlayerActionBar[1].enabled = false;
-            PlayerSoulBar[1].enabled = false;
-            enemyHpSlider[1].enabled = false;
-            EnemyActionBar[1].enabled = false;
-            EnemySoulBar[1].enabled = false;
+            playerHpSlider[1].gameObject.SetActive(false);
+            PlayerActionBar[1].gameObject.SetActive(false);
+            PlayerSoulBar[1].gameObject.SetActive(false);
+            enemyHpSlider[1].gameObject.SetActive(false);
+            EnemyActionBar[1].gameObject.SetActive(false);
+            EnemySoulBar[1].gameObject.SetActive(false);
         }
         if (playerTeam[2].UnitName == "")
         {
-            playerHpSlider[2].enabled = false;
-            PlayerActionBar[2].enabled = false;
-            PlayerSoulBar[2].enabled = false;
-            enemyHpSlider[2].enabled = false;
-            EnemyActionBar[2].enabled = false;
-            EnemySoulBar[2].enabled = false;
+            playerHpSlider[2].gameObject.SetActive(false);
+            PlayerActionBar[2].gameObject.SetActive(false);
+            PlayerSoulBar[2].gameObject.SetActive(false);
+            enemyHpSlider[2].gameObject.SetActive(false);
+            EnemyActionBar[2].gameObject.SetActive(false);
+            EnemySoulBar[2].gameObject.SetActive(false);
         }
         startingPosition = hoverObject.transform.localPosition;
         hoverObject.transform.localPosition = new Vector3(400, 0, 0);

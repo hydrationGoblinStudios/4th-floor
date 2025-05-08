@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 359582756}
   - component: {fileID: 359582757}
   m_Layer: 0
-  m_Name: quadro de tarefas
+  m_Name: quadro de tarefas sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
