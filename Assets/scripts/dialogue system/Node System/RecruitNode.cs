@@ -10,10 +10,9 @@ public class RecruitNode : DialogueNode
 
     public override string GetString()
     {
-        Debug.Log("itemcheck");
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
         Manager.AddtoTeam(recruit);
-        return "ItemCheck/" + speaker + "/" + dialogue;
+        return "RecruitNode/";
     }
 }
