@@ -67,7 +67,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     }
     public void SaveData(ref GameData data)
     {
-        Debug.Log("gamemanager data save");
+        Debug.Log("gamemanager data save"); 
         int count = 0;
         units = new List<UnitData>();
         foreach (GameObject unitInTeam in team)
@@ -75,7 +75,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             CurrentUnitData = new();
             UnitBehavior CurrentUnitBehavior = unitInTeam.GetComponent<UnitBehavior>();
             SaveUnitasData(CurrentUnitBehavior);
-            Debug.Log(CurrentUnitData.UnitName);
             units.Add(CurrentUnitData);
             count++;
         }

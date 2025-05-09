@@ -34,8 +34,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             fileName = "AlvorecerLunarEditor.json";
         }
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        this.dataPersistenceObjects = FindAllDataperistenceObjects();
+        StartCoroutine(EndOfFrame());
     }
     public void NewGame()
     {
@@ -59,6 +58,7 @@ public class DataPersistenceManager : MonoBehaviour
     }
     public void SaveGame()
     {
+        Debug.Log("dpm found");
         this.gameData = new GameData();
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
@@ -71,7 +71,12 @@ public class DataPersistenceManager : MonoBehaviour
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
         return new List<IDataPersistence>(dataPersistenceObjects);
     }   
-
+    IEnumerator EndOfFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        this.dataPersistenceObjects = FindAllDataperistenceObjects();
+    }
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))
