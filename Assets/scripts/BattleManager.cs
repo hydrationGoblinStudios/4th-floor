@@ -206,8 +206,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-           hoverObject.transform.localPosition = new Vector3(400, 0, 0);
-        
+           hoverObject.transform.localPosition = new Vector3(400, 0, 0);      
         }
 }
     IEnumerator SetupBattle()
@@ -273,7 +272,6 @@ public class BattleManager : MonoBehaviour
             ub.battleManager = this;
         }
         yield return new WaitForSeconds(0.5f);
-        StatChange();
         SetHud();
         SetHp();
         foreach (UnitBehavior ub in playerTeam)
@@ -450,7 +448,7 @@ public class BattleManager : MonoBehaviour
     }
     void Wait()
     {
-        if (playerTeam[0].hp > 0) { PlayerBar += Time.deltaTime * playerTeam[0].speed * battleSpeed; PlayerBars[0] = PlayerBar;
+        if (playerTeam[0].hp > 0) { PlayerBar += Time.deltaTime * playerTeam[0].speed * battleSpeed; PlayerBars[0] = PlayerBar;Debug.Log(Time.deltaTime);
         }
         else if (playerTeam[0].UnitName != "") { playerTeam[0].animator.SetTrigger("UnitDie"); }
         if (playerTeam[1].hp > 0) {PlayerBar2 += Time.deltaTime * playerTeam[1].speed * battleSpeed; PlayerBars[1] = PlayerBar2;
@@ -1065,80 +1063,6 @@ public class BattleManager : MonoBehaviour
         if(tickRate == 0.01f)
         {
             attacker.animator.transform.position = target;
-        }
-       
-    }
-    public void StatChange()
-    {
-        Pdamage = playerBehavior.str - enemyBehavior.def;
-        if (Pdamage < 1) { Pdamage = 1; }
-
-        Pcrit = playerBehavior.crit + playerBehavior.dex - enemyBehavior.luck;
-        if (Pcrit < 0) { Pcrit = 0; }
-        if (Pcrit > 100) { Pcrit = 100; }
-        if (playerBehavior.Weapon != null)
-        {
-            Pdamage += playerBehavior.Weapon.str;
-            Pcrit += playerBehavior.Weapon.crit;
-        }
-        Edamage = enemyBehavior.str - playerBehavior.def;
-        if (Edamage < 1) { Edamage = 1; }
-        Ehit = (enemyBehavior.hit - playerBehavior.avoid) + (enemyBehavior.dex * 3) - (playerBehavior.dex * 2) + playerBehavior.luck;
-
-        Ecrit = enemyBehavior.crit + enemyBehavior.dex - playerBehavior.luck;
-        if (Ecrit < 0) { Ecrit = 0; }
-        if (Ecrit > 100) { Ecrit = 100; }
-        if (enemyBehavior.Weapon != null)
-        {
-            Edamage += enemyBehavior.Weapon.str;
-            Ehit += enemyBehavior.Weapon.hit;
-            Ecrit += enemyBehavior.Weapon.crit;
-        }
-        if (Ehit < 30)
-        {
-            Ehit = 30;
-        }
-        if (Ehit > 100)
-        {
-            Ehit = 100;
-        }
-        if (playerBehavior.Accesory != null)
-        {
-            pAccSpeed = playerBehavior.Accesory.speed;
-        }
-        if(enemyBehavior.Accesory != null)
-        {
-            eAccSpeed = enemyBehavior.Accesory.speed;
-        }
-        if ((playerBehavior.speed + playerBehavior.Weapon.speed + pAccSpeed) >= (enemyBehavior.speed + enemyBehavior.Weapon.speed + eAccSpeed))
-        {
-            Pspeed = (playerBehavior.speed + playerBehavior.Weapon.speed + pAccSpeed) / (enemyBehavior.speed + enemyBehavior.Weapon.speed + eAccSpeed);
-            Espeed = 1;
-        }
-        else
-        {
-            Espeed = (enemyBehavior.speed + enemyBehavior.Weapon.speed + eAccSpeed) / (playerBehavior.speed + playerBehavior.Weapon.speed + pAccSpeed);
-            Pspeed = 1;
-        }
-        if (playerBehavior.Weapon != null)
-        {
-
-        if (playerBehavior.Weapon.weight == Item.WeaponWeight.Medium)
-            {
-                Pspeed = (float)(Pspeed * 0.80);
-            }
-            else if (playerBehavior.Weapon.weight == Item.WeaponWeight.Heavy)
-            {
-                Pspeed = (float)(Pspeed * 0.65);
-            }
-            if (enemyBehavior.Weapon.weight == Item.WeaponWeight.Medium)
-            {
-                Espeed = (float)(Pspeed * 0.80);
-            }
-            else if (enemyBehavior.Weapon.weight == Item.WeaponWeight.Heavy)
-            {
-                Espeed = (float)(Pspeed * 0.65);
-            }
         }
     }
     public void hoverStatUpdate(int character)
