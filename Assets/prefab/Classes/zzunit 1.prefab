@@ -76,7 +76,7 @@ MonoBehaviour:
   mdef: 0
   defenses: 
   luck: 0
-  speed: -1000
+  speed: 10
   skills: []
   skillInventory: []
   equipedSoul: 
@@ -85,6 +85,7 @@ MonoBehaviour:
   soul: 0
   maxsoul: 0
   soulgain: 0
+  damageSoulGain: 1
   damagereduction: 0
   lifesteal: 0
   armorpen: 0
@@ -110,11 +111,13 @@ MonoBehaviour:
   description: "classe n\xE3o valida"
   Icon: {fileID: 0}
   damageTMP: {fileID: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
   SkillManager: {fileID: 0}
   unitData:
     classId: 0
     Weapon: {fileID: 0}
     Accesory: {fileID: 0}
+    UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
     expmarkplier: 0
@@ -122,6 +125,8 @@ MonoBehaviour:
     currentExp: 0
     ClassID: 
     ClassLevel: 
+    ClassLearningSerializable:
+      thisSeriazableDictionaryItem: []
     hit: 0
     avoid: 0
     crit: 0

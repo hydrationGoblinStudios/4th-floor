@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using static UnityEngine.GraphicsBuffer;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 
 public class BattleManager : MonoBehaviour
 {
@@ -449,24 +450,24 @@ public class BattleManager : MonoBehaviour
     }
     void Wait()
     {
-        if (playerTeam[0].hp > 0) { PlayerBar += Time.deltaTime * playerTeam[0].speed * battleSpeed; }
-        else { playerTeam[0].animator.SetTrigger("UnitDie"); }
-        if (playerTeam[1].hp > 0) {PlayerBar2 += Time.deltaTime * playerTeam[1].speed * battleSpeed; }
-        else { playerTeam[1].animator.SetTrigger("UnitDie"); }
-        if (playerTeam[2].hp > 0) { PlayerBar3 += Time.deltaTime * playerTeam[2].speed * battleSpeed; }
-        else { playerTeam[2].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[0].hp > 0){EnemyBar += Time.deltaTime * enemyTeam[0].speed * battleSpeed; }
-        else { enemyTeam[0].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[1].hp > 0){EnemyBar2 += Time.deltaTime * enemyTeam[1].speed * battleSpeed; }
-        else { enemyTeam[1].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[2].hp > 0){EnemyBar3 += Time.deltaTime * enemyTeam[2].speed * battleSpeed; }
-        else { enemyTeam[2].animator.SetTrigger("UnitDie"); }
-        PlayerBars[0] = PlayerBar;
-        PlayerBars[1] = PlayerBar2;
-        PlayerBars[2] = PlayerBar3;
-        EnemyBars[0] = EnemyBar;
-        EnemyBars[1] = EnemyBar2;
-        EnemyBars[2] = EnemyBar3;
+        if (playerTeam[0].hp > 0) { PlayerBar += Time.deltaTime * playerTeam[0].speed * battleSpeed; PlayerBars[0] = PlayerBar;
+        }
+        else if (playerTeam[0].UnitName != "") { playerTeam[0].animator.SetTrigger("UnitDie"); }
+        if (playerTeam[1].hp > 0) {PlayerBar2 += Time.deltaTime * playerTeam[1].speed * battleSpeed; PlayerBars[1] = PlayerBar2;
+        }
+        else if (playerTeam[1].UnitName != "") { playerTeam[1].animator.SetTrigger("UnitDie"); }
+        if (playerTeam[2].hp > 0) { PlayerBar3 += Time.deltaTime * playerTeam[2].speed * battleSpeed; PlayerBars[2] = PlayerBar3;
+        }
+        else if(playerTeam[2].UnitName != "") { playerTeam[2].animator.SetTrigger("UnitDie"); }
+        if (enemyTeam[0].hp > 0){EnemyBar += Time.deltaTime * enemyTeam[0].speed * battleSpeed; EnemyBars[0] = EnemyBar;
+        }
+        else if (enemyTeam[0].UnitName != "") { enemyTeam[0].animator.SetTrigger("UnitDie"); }
+        if (enemyTeam[1].hp > 0){EnemyBar2 += Time.deltaTime * enemyTeam[1].speed * battleSpeed; EnemyBars[1] = EnemyBar2;
+        }
+        else if (enemyTeam[1].UnitName != "") { enemyTeam[1].animator.SetTrigger("UnitDie"); }
+        if (enemyTeam[2].hp > 0 ) {EnemyBar3 += Time.deltaTime * enemyTeam[2].speed * battleSpeed; EnemyBars[2] = EnemyBar3;
+        }
+        else if(enemyTeam[2].UnitName != "") { enemyTeam[2].animator.SetTrigger("UnitDie"); }
         int c = 0;
         foreach (Slider sl in PlayerActionBar)
         {
@@ -482,31 +483,39 @@ public class BattleManager : MonoBehaviour
         if (PlayerBar >= 100 & state == BattleState.Wait)
         {
             PlayerBar = 0;
-            StartCoroutine(Attack(playerTeam[0], enemyTeam[StandardTargeting(enemyTeam)]));
+            PlayerBars[0] = 0;
+            StartCoroutine(Attack(playerTeam[0], enemyTeam[StandardTargeting(enemyTeam)])); 
         }
         if (PlayerBar2 >= 100 & state == BattleState.Wait)
         {
             PlayerBar2 = 0;
+            PlayerBars[1] = 0;
             StartCoroutine(Attack(playerTeam[1], enemyTeam[StandardTargeting(enemyTeam)]));
         }
         if (PlayerBar3 >= 100 & state == BattleState.Wait)
         {
             PlayerBar3 = 0;
+            PlayerBars[2] = 0;
             StartCoroutine(Attack(playerTeam[2], enemyTeam[StandardTargeting(enemyTeam)]));
         }
         if (EnemyBar >= 100 & state == BattleState.Wait)
             {
                 EnemyBar = 0;
+            EnemyBars[0] = 0;
                 StartCoroutine(Attack(enemyTeam[0], playerTeam[StandardTargeting(playerTeam)]));
             }
         if (EnemyBar2 >= 100 & state == BattleState.Wait)
         {
             EnemyBar2 = 0;
+            EnemyBars[1] = 0;
+
             StartCoroutine(Attack(enemyTeam[1], playerTeam[StandardTargeting(playerTeam)]));
         }
         if (EnemyBar3 >= 100 & state == BattleState.Wait)
         {
             EnemyBar3 = 0;
+            EnemyBars[2] = 0;
+
             StartCoroutine(Attack(enemyTeam[2], playerTeam[StandardTargeting(playerTeam)]));
         }
        
@@ -846,20 +855,19 @@ public class BattleManager : MonoBehaviour
             attacker.soul -= attacker.maxsoul;
             attacker.SkillManager.NaSoulproc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
         }
-        int PskillPostSoullProc = attacker.SkillManager.currentDamageBonus;
-        foreach (string skill in skillsInUse)
-        {
-            attacker.SkillManager.currentDamageBonus += +attacker.SkillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
-        }
         int PskillPostHealthlChange = attacker.SkillManager.currentDamageBonus;
-        foreach (string skill in skillsInUse)
+        foreach (string skill in Target.skills)
         {
-            attacker.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+            Target.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+        }
+            Target.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(Target.Weapon.skill, Target, attacker, targetTeam, attackerTeam);
+        if (Target.Accesory != null)
+        {
+            Target.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(Target.Accesory.skill, Target, attacker, targetTeam, attackerTeam);
         }
         int PskillPostTargetPostHealthChange = attacker.SkillManager.currentDamageBonus;
         Debug.Log(attacker.UnitName +" Pskill progression\n" +
             "Pskill dps de skill proc" + PskillPostSkillProc
-            + "\nPskill dps de soul proc" + PskillPostSoullProc
             + "\nPskill dps de healthChange" + PskillPostHealthlChange
             + "\nPskill dps de target soul proc" + PskillPostTargetPostHealthChange);
         HudUpdate();
@@ -948,13 +956,14 @@ public class BattleManager : MonoBehaviour
         AttackSetup(attacker, Target);
         attacker.SkillManager.currentDamageBonus = 0;
         Debug.Log("extra attack");
-        foreach (string skill in EAskillsInUse)
-        {
-            attacker.SkillManager.currentDamageBonus += +attacker.SkillManager.PostHealthChange(skill, attacker, Target, attackerTeam, targetTeam);
-        }
-        foreach (string skill in EAskillsInUse)
+        foreach (string skill in Target.skills)
         {
             attacker.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+        }
+        attacker.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(Target.Weapon.skill, Target, attacker, targetTeam, attackerTeam);
+        if (Target.Accesory != null)
+        {
+            attacker.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(Target.Accesory.skill, Target, attacker, targetTeam, attackerTeam);
         }
         HudUpdate();
         yield return new WaitForSeconds(1);
