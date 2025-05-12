@@ -86,7 +86,7 @@ public class PreBattleManager : MonoBehaviour
         else
         {
             SelectedPlayer3 = Instantiate(EmptyUnitPrefab, BattleStations[2].transform);
-            SelectedPlayer3.name = SelectedPlayer2.GetComponent<UnitBehavior>().UnitName + "Temp";
+            SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
         }
         playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
         {

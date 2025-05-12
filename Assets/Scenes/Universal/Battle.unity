@@ -9751,18 +9751,9 @@ MonoBehaviour:
   endure: {fileID: 0}
   skillsInUse: []
   EAskillsInUse: []
-  battleSpeed: 20
-  Pdamage: 0
+  battleSpeed: 4
   Phit: 0
   Pcrit: 0
-  Pspeed: 0
-  Pskill: 0
-  P2damage: 0
-  Edamage: 0
-  Ehit: 0
-  Ecrit: 0
-  Espeed: 0
-  Eskill: 0
   sureShot: 0
   enemyList:
   - {fileID: 4445489306633608637, guid: 2184a4f2c538e214a84f1f82c332c545, type: 3}
@@ -9869,6 +9860,7 @@ MonoBehaviour:
   hovering: 0
   startingPosition: {x: 0, y: 0, z: 0}
   state: 0
+  waiting: 0
 --- !u!4 &1704483421
 Transform:
   m_ObjectHideFlags: 0

@@ -17,19 +17,8 @@ public class BattleManager : MonoBehaviour
     public List<string> EAskillsInUse;
     public int battleSpeed = 20;
     //Player1
-    public int Pdamage;
     public int Phit;
     public int Pcrit;
-    public float Pspeed;
-    public int Pskill;
-    //Player2
-    public int P2damage;
-    //Enemy1
-    public int Edamage;
-    public int Ehit;
-    public int Ecrit;
-    public float Espeed;
-    public int Eskill;
 
     public bool sureShot = false;
     public GameObject[] enemyList;
@@ -95,6 +84,8 @@ public class BattleManager : MonoBehaviour
     public Vector3 startingPosition;
     public enum BattleState {BattleStart,Wait,PlayerTurn,EnemyTurn,PlayerWon,EnemyWon}
     public BattleState state;
+
+    public bool waiting = false;
     public void Awake()
     {
         PlayerBars.Clear();
@@ -195,9 +186,9 @@ public class BattleManager : MonoBehaviour
     }
     private void Update()
     {
-        if(state == BattleState.Wait)
+        if(state == BattleState.Wait && waiting == false)
         {
-            Wait();
+            StartCoroutine(Wait());
         }
     
         if (hovering)
@@ -446,24 +437,25 @@ public class BattleManager : MonoBehaviour
             sl.value = enemyTeam[c].hp;
         }
     }
-    void Wait()
+     IEnumerator Wait()
     {
-        if (playerTeam[0].hp > 0) { PlayerBar += Time.deltaTime * playerTeam[0].speed * battleSpeed; PlayerBars[0] = PlayerBar;Debug.Log(Time.deltaTime);
+        waiting = true;
+        if (playerTeam[0].hp > 0 && state == BattleState.Wait) { PlayerBar += Time.fixedUnscaledDeltaTime * playerTeam[0].speed * battleSpeed; PlayerBars[0] = PlayerBar; 
         }
         else if (playerTeam[0].UnitName != "") { playerTeam[0].animator.SetTrigger("UnitDie"); }
-        if (playerTeam[1].hp > 0) {PlayerBar2 += Time.deltaTime * playerTeam[1].speed * battleSpeed; PlayerBars[1] = PlayerBar2;
+        if (playerTeam[1].hp > 0 && state == BattleState.Wait) {PlayerBar2 += Time.fixedUnscaledDeltaTime * playerTeam[1].speed * battleSpeed; PlayerBars[1] = PlayerBar2;
         }
         else if (playerTeam[1].UnitName != "") { playerTeam[1].animator.SetTrigger("UnitDie"); }
-        if (playerTeam[2].hp > 0) { PlayerBar3 += Time.deltaTime * playerTeam[2].speed * battleSpeed; PlayerBars[2] = PlayerBar3;
+        if (playerTeam[2].hp > 0 && state == BattleState.Wait) { PlayerBar3 += Time.fixedUnscaledDeltaTime * playerTeam[2].speed * battleSpeed; PlayerBars[2] = PlayerBar3;
         }
         else if(playerTeam[2].UnitName != "") { playerTeam[2].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[0].hp > 0){EnemyBar += Time.deltaTime * enemyTeam[0].speed * battleSpeed; EnemyBars[0] = EnemyBar;
+        if (enemyTeam[0].hp > 0 && state == BattleState.Wait){EnemyBar += Time.fixedUnscaledDeltaTime * enemyTeam[0].speed * battleSpeed; EnemyBars[0] = EnemyBar;
         }
         else if (enemyTeam[0].UnitName != "") { enemyTeam[0].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[1].hp > 0){EnemyBar2 += Time.deltaTime * enemyTeam[1].speed * battleSpeed; EnemyBars[1] = EnemyBar2;
+        if (enemyTeam[1].hp > 0 && state == BattleState.Wait){EnemyBar2 += Time.fixedUnscaledDeltaTime * enemyTeam[1].speed * battleSpeed; EnemyBars[1] = EnemyBar2;
         }
         else if (enemyTeam[1].UnitName != "") { enemyTeam[1].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[2].hp > 0 ) {EnemyBar3 += Time.deltaTime * enemyTeam[2].speed * battleSpeed; EnemyBars[2] = EnemyBar3;
+        if (enemyTeam[2].hp > 0 && state == BattleState.Wait ) {EnemyBar3 += Time.fixedUnscaledDeltaTime * enemyTeam[2].speed * battleSpeed; EnemyBars[2] = EnemyBar3;
         }
         else if(enemyTeam[2].UnitName != "") { enemyTeam[2].animator.SetTrigger("UnitDie"); }
         int c = 0;
@@ -480,43 +472,60 @@ public class BattleManager : MonoBehaviour
         }
         if (PlayerBar >= 100 & state == BattleState.Wait)
         {
+             state = BattleState.PlayerTurn;
+
+            StartCoroutine(Attack(playerTeam[0], enemyTeam[StandardTargeting(enemyTeam)])); 
+
             PlayerBar = 0;
             PlayerBars[0] = 0;
-            StartCoroutine(Attack(playerTeam[0], enemyTeam[StandardTargeting(enemyTeam)])); 
         }
-        if (PlayerBar2 >= 100 & state == BattleState.Wait)
+        else if (PlayerBar2 >= 100 & state == BattleState.Wait)
         {
+            state = BattleState.PlayerTurn;
+
+            StartCoroutine(Attack(playerTeam[1], enemyTeam[StandardTargeting(enemyTeam)]));
             PlayerBar2 = 0;
             PlayerBars[1] = 0;
-            StartCoroutine(Attack(playerTeam[1], enemyTeam[StandardTargeting(enemyTeam)]));
         }
-        if (PlayerBar3 >= 100 & state == BattleState.Wait)
+        else if (PlayerBar3 >= 100 & state == BattleState.Wait)
         {
+            state = BattleState.PlayerTurn;
+
+            StartCoroutine(Attack(playerTeam[2], enemyTeam[StandardTargeting(enemyTeam)]));
             PlayerBar3 = 0;
             PlayerBars[2] = 0;
-            StartCoroutine(Attack(playerTeam[2], enemyTeam[StandardTargeting(enemyTeam)]));
         }
-        if (EnemyBar >= 100 & state == BattleState.Wait)
+        else if (EnemyBar >= 100 & state == BattleState.Wait)
             {
-                EnemyBar = 0;
+            state = BattleState.EnemyTurn;
+
+            StartCoroutine(Attack(enemyTeam[0], playerTeam[StandardTargeting(playerTeam)]));
+            EnemyBar = 0;
             EnemyBars[0] = 0;
-                StartCoroutine(Attack(enemyTeam[0], playerTeam[StandardTargeting(playerTeam)]));
             }
-        if (EnemyBar2 >= 100 & state == BattleState.Wait)
+        else if (EnemyBar2 >= 100 & state == BattleState.Wait)
         {
-            EnemyBar2 = 0;
-            EnemyBars[1] = 0;
+            state = BattleState.EnemyTurn;
 
             StartCoroutine(Attack(enemyTeam[1], playerTeam[StandardTargeting(playerTeam)]));
+            EnemyBar2 = 0;
+            EnemyBars[1] = 0;
         }
-        if (EnemyBar3 >= 100 & state == BattleState.Wait)
+        else if (EnemyBar3 >= 100 & state == BattleState.Wait)
         {
-            EnemyBar3 = 0;
-            EnemyBars[2] = 0;
+            state = BattleState.EnemyTurn;
 
             StartCoroutine(Attack(enemyTeam[2], playerTeam[StandardTargeting(playerTeam)]));
+            EnemyBar3 = 0;
+            EnemyBars[2] = 0;
         }
-       
+        else
+        {
+            yield return new WaitForSeconds((float)0.01);
+            waiting = false;
+        }
+
+
     }
     public int StandardTargeting(List<UnitBehavior> unitList)
     {
@@ -524,15 +533,18 @@ public class BattleManager : MonoBehaviour
         {
             return 0;
         }
-        if(unitList[1].hp >= 1)
+        else if(unitList[1].hp >= 1)
         {
             return 1;
         }
-        if(unitList[2].hp >= 1)
+        else if(unitList[2].hp >= 1)
         {
             return 2;
         }
+        else
+        { 
         return 0;
+        }
     }
     public int LeastHpTargeting(List<UnitBehavior> unitList)
     {
@@ -541,15 +553,15 @@ public class BattleManager : MonoBehaviour
         {
          leastHp = unitList[0].hp;
         }
-        if (unitList[1].hp >=1  && unitList[1].hp > unitList[0].hp)
+        else if(unitList[1].hp >=1  && unitList[1].hp > unitList[0].hp)
         {
              leastHp = unitList[1].hp;
         }
-        if (unitList[2].hp >= 1 && unitList[2].hp > unitList[1].hp)
+        else if(unitList[2].hp >= 1 && unitList[2].hp > unitList[1].hp)
         {
              leastHp = unitList[1].hp;
         }
-        return leastHp;
+            return leastHp;       
     }
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
@@ -564,10 +576,13 @@ public class BattleManager : MonoBehaviour
         List<UnitBehavior> targetTeam;
         if (attacker.enemy)
         {
+            Debug.Log("attack begin enemy");
             state = BattleState.EnemyTurn;
-
         }
-        else { state = BattleState.PlayerTurn; }
+        else
+        {
+            Debug.Log("attack begin player");
+            ; state = BattleState.PlayerTurn; }
         if(attacker.Weapon.damageType == 0)
         {
         attacker.power = attacker.str +attacker.Weapon.power;
@@ -609,7 +624,6 @@ public class BattleManager : MonoBehaviour
             skillsInUse.Add(attacker.Accesory.skill);
         }
         attacker.soul += 15 + attacker.soulgain;
-        Debug.Log(attacker.UnitName + " hit:" + Phit);
         if (attacker.soul < attacker.maxsoul && Random.Range(0, 101) <= Phit)
         {
             StartCoroutine(AttackHit(attacker,Target,attackerDamage, attackerTeam, targetTeam));
@@ -665,7 +679,9 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("attack end");
             state = BattleState.Wait;
+            waiting = false;
         }
     }
     public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1)

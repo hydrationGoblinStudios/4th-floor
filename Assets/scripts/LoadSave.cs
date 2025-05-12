@@ -12,7 +12,7 @@ public class LoadSave : MonoBehaviour
     }
     IEnumerator LoadGame()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds((float)0.3);
         dpm.LoadGame();
         gm.LoadData(dpm.gameData);
         gm.team.Clear();
