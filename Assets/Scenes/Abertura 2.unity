@@ -680,7 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 479f2e578106c4f4a8a53fec21f7d083, type: 2}
+  graph: {fileID: 11400000, guid: 944a421d8d469fe47974974393fe212d, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 420204867}
 --- !u!1 &438079080
@@ -1448,6 +1448,7 @@ GameObject:
   - component: {fileID: 1106256260}
   - component: {fileID: 1106256259}
   - component: {fileID: 1106256258}
+  - component: {fileID: 1106256261}
   m_Layer: 5
   m_Name: "M\xE3o"
   m_TagString: Untagged
@@ -1556,6 +1557,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106256256}
   m_CullTransparentMesh: 1
+--- !u!114 &1106256261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106256256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000, guid: bf1c296548dbcfa4c8e474f1c4e558c8, type: 2}
+  nodeParser: {fileID: 0}
+  button: {fileID: 1106256258}
 --- !u!1 &1274695797
 GameObject:
   m_ObjectHideFlags: 0
