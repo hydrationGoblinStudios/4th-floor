@@ -536,6 +536,6 @@ MonoBehaviour:
   speaker: Ramion
   dialogue: 
   option2: "Colocar M\xE3o"
-  option3: Siar
+  option3: Sair
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
