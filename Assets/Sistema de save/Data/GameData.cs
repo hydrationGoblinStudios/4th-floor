@@ -7,11 +7,13 @@ public class GameData
 {
     public int money;
     public int day;
+    public bool storyBattle;
     public List<Item> Inventory;
     public List<Item> KeyItems;
     public List<Item> StoryFlags;
     public List<UnitData> units;
     public UnitData unitData;
+
     public GameData()
     {
         this.money = 0;

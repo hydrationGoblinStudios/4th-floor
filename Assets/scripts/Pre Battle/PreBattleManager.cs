@@ -846,6 +846,7 @@ public class PreBattleManager : MonoBehaviour
             newobj.AddComponent<DestroyTemp>();
             CopyComponent(skillManager, newobj);
             newobj.GetComponent<SkillManager>().GetBaseStats();
+            newobj.GetComponent<UnitBehavior>().enemy = true;
             gameManager.enemyTeamPostPreBattle.Add(newobj);
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using TMPro;
+using static UnityEngine.GraphicsBuffer;
 
 public class SkillManager : MonoBehaviour
 {
@@ -496,7 +497,7 @@ public class SkillManager : MonoBehaviour
                 }
                 if (user.position == 3)
                 {
-                    user.power += 3;
+                    user.Weapon.power += 3;
                 }
 
                 return 0;
@@ -852,7 +853,7 @@ public class SkillManager : MonoBehaviour
                     StartCoroutine(IconPopup(user.Icon, "Presença Inabalável"));
                     user.def -= user.def / 5;
                     user.mdef -= user.mdef / 5;
-                    presençainabalavel = true;
+                    presençainabalavel = false;
                 }
 
                 return 0;
@@ -1067,6 +1068,7 @@ public class SkillManager : MonoBehaviour
                 {
                     user.power += (int)(user.maxhp * 0.15);
                     StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                    yield return new WaitForSeconds(1);
                     user.power -= (int)(user.maxhp * 0.15);
 
                 }
@@ -1074,7 +1076,10 @@ public class SkillManager : MonoBehaviour
                 {
 
                     user.hp += (int)(user.maxhp * 0.3);
-                    PostHealthChange(SoulName, user, target, team, enemyTeam);
+                    foreach (string skill in user.skills)
+                    {
+                            PostHealthChange(skill, user, target, team, enemyTeam);
+                    }
                     user.battleManager.HudUpdate();
 
                 }

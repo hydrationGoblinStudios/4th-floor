@@ -566,9 +566,12 @@ public class BattleManager : MonoBehaviour
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
         AttackSetup(attacker, Target);
+        if(attacker.hp > attacker.maxhp) { attacker.hp = attacker.maxhp; }
+        if (Target.hp > Target.maxhp) { Target.hp = Target.maxhp; }
         attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
         if(attacker.Weapon.weapontype != Item.Weapontype.Bow&& attacker.Weapon.weapontype != Item.Weapontype.Receptacle&& attacker.Weapon.weapontype != Item.Weapontype.Tome)
         {
+            Debug.Log(attacker.name + " dashed to " + Target.name);
           StartCoroutine(DashToTarget(attacker, Target.animator.transform.position));
         }
         attacker.animator.SetTrigger("UnitAdvance");
@@ -576,12 +579,10 @@ public class BattleManager : MonoBehaviour
         List<UnitBehavior> targetTeam;
         if (attacker.enemy)
         {
-            Debug.Log("attack begin enemy");
             state = BattleState.EnemyTurn;
         }
         else
         {
-            Debug.Log("attack begin player");
             ; state = BattleState.PlayerTurn; }
         if(attacker.Weapon.damageType == 0)
         {
@@ -591,9 +592,11 @@ public class BattleManager : MonoBehaviour
         {
             attacker.power = attacker.mag + attacker.Weapon.power;
         }
+        Debug.Log(attacker.name + " power: " + attacker.power);
         //Pskill = 0;
         attacker.SkillManager.currentDamageBonus = 0;
         int attackerDamage = attacker.power - (Target.defenses[attacker.Weapon.damageType] + Target.damagereduction);
+        Debug.Log(attackerDamage);
         if (attackerDamage <= 0) { attackerDamage = 1; }
         skillsInUse.Clear();
         skillsInUse.AddRange(attacker.skills);
@@ -624,7 +627,7 @@ public class BattleManager : MonoBehaviour
             skillsInUse.Add(attacker.Accesory.skill);
         }
         attacker.soul += 15 + attacker.soulgain;
-        if (attacker.soul < attacker.maxsoul && Random.Range(0, 101) <= Phit)
+        if (attacker.soul <= attacker.maxsoul && Random.Range(0, 101) <= Phit)
         {
             StartCoroutine(AttackHit(attacker,Target,attackerDamage, attackerTeam, targetTeam));
         }
@@ -679,7 +682,6 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("attack end");
             state = BattleState.Wait;
             waiting = false;
         }
@@ -851,6 +853,7 @@ public class BattleManager : MonoBehaviour
     public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
     {
         //Pskill = 0;
+        Debug.Log(attacker.name + " hit " + Target.name);
         attacker.SkillManager.currentDamageBonus = 0;
         int tempPskill = attacker.SkillManager.currentDamageBonus;
         foreach (string skill in skillsInUse)
@@ -872,12 +875,12 @@ public class BattleManager : MonoBehaviour
         int PskillPostHealthlChange = attacker.SkillManager.currentDamageBonus;
         foreach (string skill in Target.skills)
         {
-            Target.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
+            Target.SkillManager.currentDamageBonus += Target.SkillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
         }
-            Target.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(Target.Weapon.skill, Target, attacker, targetTeam, attackerTeam);
+            Target.SkillManager.currentDamageBonus += Target.SkillManager.PostHealthChange(Target.Weapon.skill, Target, attacker, targetTeam, attackerTeam);
         if (Target.Accesory != null)
         {
-            Target.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(Target.Accesory.skill, Target, attacker, targetTeam, attackerTeam);
+            Target.SkillManager.currentDamageBonus += Target.SkillManager.PostHealthChange(Target.Accesory.skill, Target, attacker, targetTeam, attackerTeam);
         }
         int PskillPostTargetPostHealthChange = attacker.SkillManager.currentDamageBonus;
         Debug.Log(attacker.UnitName +" Pskill progression\n" +
