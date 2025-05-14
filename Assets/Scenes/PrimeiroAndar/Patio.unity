@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 106917905}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -361,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.94, y: -4.05}
+  m_AnchoredPosition: {x: 5.16, y: -4.05}
   m_SizeDelta: {x: 97.5101, y: 88.7058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183072350
@@ -1272,6 +1272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayInventory: 1
+  UIOccupied: 0
 --- !u!4 &662974036
 Transform:
   m_ObjectHideFlags: 0
@@ -1590,6 +1591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9c15f5ed25db946ab024c9c3c3458d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0
@@ -1833,6 +1835,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: AlvorecerLunar.json
+  gameData:
+    money: 0
+    day: 0
+    storyBattle: 0
+    Inventory: []
+    KeyItems: []
+    StoryFlags: []
+    units: []
+    unitData:
+      classId: 0
+      Weapon: {fileID: 0}
+      Accesory: {fileID: 0}
+      UsableWeaponTypes: 
+      UnitName: 
+      currentLevel: 0
+      expmarkplier: 0
+      currentRank: 0
+      currentExp: 0
+      ClassID: 
+      ClassLevel: 
+      ClassLearningSerializable:
+        thisSeriazableDictionaryItem: []
+      hit: 0
+      avoid: 0
+      crit: 0
+      maxhp: 0
+      hp: 0
+      power: 0
+      str: 0
+      mag: 0
+      dex: 0
+      def: 0
+      mdef: 0
+      defenses: 
+      luck: 0
+      speed: 0
+      skills: []
+      skillInventory: []
+      equipedSoul: 
+      equippedSoulIsAttack: 0
+      soulInventory: []
+      soul: 0
+      maxsoul: 0
+      soulgain: 0
+      damagereduction: 0
+      lifesteal: 0
+      armorpen: 0
+      magicpen: 0
+      cooking: 0
+      growths: 
+      classSkill: 
+      personalSkill: 
+      baseSkill: 
+      skill1: 
+      skill2: 
+      skill3: 
+      baseSoul: 
+      soul1: 
+      soul2: 
+      soul3: 
+      description: 
   ClassList:
   - {fileID: 4445489306633608637, guid: 2184a4f2c538e214a84f1f82c332c545, type: 3}
   - {fileID: 4445489306633608637, guid: efaa79524367fcf46bdf5cec92c88e49, type: 3}

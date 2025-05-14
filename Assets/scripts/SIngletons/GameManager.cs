@@ -453,8 +453,11 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 }
                 if(day < 2)
                 {
-                    FindObjectOfType<SceneInteractables>(true).transform.Find("Quadro de tarefas").gameObject.SetActive(false);   
+                    Debug.Log(go.name);
+
+                    go.transform.Find("Quadro de tarefas").gameObject.SetActive(false);   
                     GameObject.Find("quadro de tarefas sprite").GetComponent<SpriteRenderer>().enabled = false;
+                    
                 }
                 break;
             case "Patio":

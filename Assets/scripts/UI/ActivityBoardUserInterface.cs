@@ -21,15 +21,16 @@ public class ActivityBoardUserInterface : MonoBehaviour
         int c = 0;
         Debug.Log("mugshot");
         highlight.SetActive(false);
-        foreach (SpriteRenderer sr in mugshots)
+        foreach (GameObject go in gameManager.team)
         {
+            SpriteRenderer sr = mugshots[c];
             if (gameManager.team[c] != null &&inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault() != null && gameManager.team[c] != null)
             {
             sr.sprite = inventoryManager.playableMugShots.Where((obj) => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault();
             }
             else
             {
-                sr.sprite = inventoryManager.playableMugShots[0];
+                sr.sprite = null ;
             }
             c++;
         }
@@ -37,9 +38,9 @@ public class ActivityBoardUserInterface : MonoBehaviour
     void Update()
     {
         int c = 0;
-        foreach (TextMeshProUGUI activity in activityTexts)
-        {    
-            activity.text = gameManager.team[c].GetComponent<UnitBehavior>().activity;
+        foreach (GameObject go in gameManager.team)
+        {
+            activityTexts[c].text = gameManager.team[c].GetComponent<UnitBehavior>().activity;
             c++;
         }
     }
