@@ -49,7 +49,7 @@ MonoBehaviour:
   dialogue: "Opa, bom dia Ramion, eu consegui arrumar um quadro pra gente poder se
     organizar no que cada um do time vai trabalhar durante a semana. Vou colocar
     aqui na sua parede, voc\xEA pode us\xE1-lo a qualquer momento durante o dia."
-  sprite: {fileID: 21300000, guid: 63e2f33b8b3fb704bb2d913fe550bd47, type: 3}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-4841237357236161373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,4 +179,4 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: "Ah, o p\xE1tio tamb\xE9m reabriu, \xE9 um lugar legal pra passar um
     tempo"
-  sprite: {fileID: 21300000, guid: 63e2f33b8b3fb704bb2d913fe550bd47, type: 3}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}

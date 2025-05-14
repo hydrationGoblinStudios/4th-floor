@@ -79,7 +79,7 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: "\xC9 isso! Com certeza essa placa est\xE1 se referindo a cura que eu
     procuro. Agora eu s\xF3 preciso descobrir o que exatamente isso significa\u2026"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-6628168343863014732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: "Eu vim l\xE1 de Inf\xE2mia, fica bem pro Oeste daqui. Foi uma longa
     viagem mas vai valer a pena, porqu\xEA eu vim para salvar a minha aldeia"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-4899152400333912601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   exit: 0
   speaker: Adrian
   dialogue: "Errh\u2026 Ainda n\xE3o, mas com certeza vou ach\xE1-la!"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-4399747343223841914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   dialogue: "Cara, esse lugar me d\xE1 calafrios, eu fico com nojo s\xF3 da ideia
     de pessoas se divertindo enquanto veem outras pessoas se matando. Mas pelo menos
     isso cria um caminho para os criminosos se redimirem. "
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-4083145946946416944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: "Mas t\xE1 tudo bem, porque existe uma lenda que nesse coliseu foi deixada
     escondida uma cura milagrosa que ser\xE1 capaz de salvar minha aldeia!"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-1896621356757439237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: "Quando eu estiver de volta na minha aldeia eu vou recuperar minha forma
     original. Quem sabe um dia voc\xEA n\xE3o vai l\xE1 me ver?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-773422362117305678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,7 +698,7 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: "Muito obrigado pela ajuda, como retribui\xE7\xE3o eu vou te contar um
     segredinho"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-709230662018501512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +746,7 @@ MonoBehaviour:
   exit: 0
   speaker: Adrian
   dialogue: "At\xE9 mais, qualquer coisa estou aqui!"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-444033126745396622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   dialogue: "\xC9, todo mundo l\xE1 t\xE1 ficando doente, alguns j\xE1 morreram,
     e n\xE3o vai demorar muito pra outros irem tamb\xE9m. Nenhum dos rem\xE9dios
     comuns funciona"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   exit: 0
   speaker: Adrian
   dialogue: Opa, Como posso te ajudar Ramion?
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &958849363748915577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
   dialogue: "Eu vim de uma aldeia l\xE1 de Inf\xE2mia, n\xE3o \xE9 um pa\xEDs t\xE3o
     bonito quanto aqui, mas as pessoas s\xE3o muito mais legais l\xE1. N\xE3o tem
     esse bando de Ascendidos Esnobes."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &1026759557542914541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: "Ei cara, voc\xEA tamb\xE9m veio de um lugar distante? Voc\xEA n\xE3o
     parece com a galera daqui. Prazer, meu nome \xE9 Adrian"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &1126810132948375530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,7 +1076,7 @@ MonoBehaviour:
   dialogue: "Ah, isso \xE9 pela minha forma de exilado. Os moradores de Inf\xE2mia
     tem uma liga\xE7\xE3o muito profunda com o pr\xF3prio pa\xEDs, quando n\xF3s
     sa\xEDmos de l\xE1 n\xF3s assumimos essa forma."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &2491123236906340593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,7 +1126,7 @@ MonoBehaviour:
   dialogue: "Eu vim de uma aldeia l\xE1 de Inf\xE2mia, n\xE3o \xE9 um pa\xEDs t\xE3o
     bonito quanto aqui, mas as pessoas s\xE3o muito mais legais l\xE1. N\xE3o tem
     esse bando de Ascendidos Esnobes."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &2626927276497110114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,7 +1176,7 @@ MonoBehaviour:
   dialogue: "Ah, isso \xE9 pela minha forma de exilado. Os moradores de Inf\xE2mia
     tem uma liga\xE7\xE3o muito profunda com o pr\xF3prio pa\xEDs, quando n\xF3s
     sa\xEDmos de l\xE1 n\xF3s assumimos essa forma."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &2909700644097979647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   exit: 0
   speaker: Adrian
   dialogue: E se encontrar alguma pista sobre a cura que eu procuro me da um toque.
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &3116512188577979438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1491,7 +1491,7 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: "Quando eu estiver de volta na minha aldeia eu vou recuperar minha forma
     original. Quem sabe um dia voc\xEA n\xE3o vai l\xE1 me ver?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &5300207582507973938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,7 +1601,7 @@ MonoBehaviour:
   dialogue: "O \xFAnico problema \xE9 que eu n\xE3o tinha parado pra pensar nas lutas,
     t\xF4 ocupado demais procurando um time\u2026 mas depois disso eu com certeza
     vou achar a cura!"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &7103217503277480802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1742,7 +1742,7 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: "Posso mesmo? Muito obrigado cara, eu tava morrendo de medo de me machucar
     logo nas primeiras lutas e ter que ir embora antes mesmo de come\xE7ar a procurar"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &7438147677626465636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,7 +1792,7 @@ MonoBehaviour:
   dialogue: "Cara, esse lugar me d\xE1 calafrios, eu fico com nojo s\xF3 da ideia
     de pessoas se divertindo enquanto veem outras pessoas se matando. Mas pelo menos
     isso cria um caminho para os criminosos se redimirem. "
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &7724636955792095663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1924,7 +1924,7 @@ MonoBehaviour:
   exit: 0
   speaker: Adrian
   dialogue: "At\xE9 mais, qualquer coisa estou aqui!"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &8860213656628512745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,4 +2106,4 @@ MonoBehaviour:
   dialogue: "Durante a noite, se voc\xEA souber o caminho, tem como voc\xEA ir at\xE9
     a dispensa se esgueirando para pegar alguns petiscos. Eu desenhei esse mapa,
     assim voc\xEA vai conseguir chegar l\xE1 sem encontrar nenhum guarda."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
