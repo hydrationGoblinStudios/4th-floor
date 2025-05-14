@@ -7,6 +7,8 @@ using Unity.VisualScripting;
 using static UnityEngine.GraphicsBuffer;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
+using JetBrains.Annotations;
+using System.Runtime.CompilerServices;
 
 public class BattleManager : MonoBehaviour
 {
@@ -49,7 +51,7 @@ public class BattleManager : MonoBehaviour
     public UnitBehavior enemy3Behavior;
     public List<UnitBehavior> enemyTeam;
 
-    [Header ("UI")]
+    [Header("UI")]
     //names
     //UI sliders
     public List<Slider> playerHpSlider;
@@ -74,6 +76,14 @@ public class BattleManager : MonoBehaviour
     public List<float> PlayerBars;
     public List<float> EnemyBars;
     public GameObject speedList;
+    [Header("ParticleSystem")]
+    public ParticleSystem damageParticlesPlayer1;
+    public ParticleSystem damageParticlesPlayer2;
+    public ParticleSystem damageParticlesPlayer3;
+    public ParticleSystem damageParticlesEnemy1;
+    public ParticleSystem damageParticlesEnemy2;
+    public ParticleSystem damageParticlesEnemy3;
+
     [Header("HoverStats")]
     public GameObject hoverObject;
     public TextMeshProUGUI hoverName;
@@ -82,7 +92,7 @@ public class BattleManager : MonoBehaviour
     public List<TextMeshProUGUI> hoverSkillnames;
     public bool hovering;
     public Vector3 startingPosition;
-    public enum BattleState {BattleStart,Wait,PlayerTurn,EnemyTurn,PlayerWon,EnemyWon}
+    public enum BattleState { BattleStart, Wait, PlayerTurn, EnemyTurn, PlayerWon, EnemyWon }
     public BattleState state;
 
     public bool waiting = false;
@@ -148,7 +158,7 @@ public class BattleManager : MonoBehaviour
         speedList.transform.Find("enemy3ToTurn1").GetComponent<Image>().sprite = ClassIconPicker(enemyTeam[2].classId);
         for (int i = 2; i < 26; i++)
         {
-            GameObject newPlayer1 = Instantiate(speedList.transform.Find("player1ToTurn1").gameObject,speedList.transform);
+            GameObject newPlayer1 = Instantiate(speedList.transform.Find("player1ToTurn1").gameObject, speedList.transform);
             newPlayer1.name = $"player1ToTurn{i}";
             GameObject newPlayer2 = Instantiate(speedList.transform.Find("player2ToTurn1").gameObject, speedList.transform);
             newPlayer2.name = $"player2ToTurn{i}";
@@ -186,60 +196,60 @@ public class BattleManager : MonoBehaviour
     }
     private void Update()
     {
-        if(state == BattleState.Wait && waiting == false)
+        if (state == BattleState.Wait && waiting == false)
         {
             StartCoroutine(Wait());
         }
-    
+
         if (hovering)
         {
             hoverObject.transform.localPosition = startingPosition;
         }
         else
         {
-           hoverObject.transform.localPosition = new Vector3(400, 0, 0);      
+            hoverObject.transform.localPosition = new Vector3(400, 0, 0);
         }
-}
+    }
     IEnumerator SetupBattle()
     {
-       playerGo = Instantiate(playerUnit, playerBattleStation);
-       playerGo.name = playerGo.GetComponent<UnitBehavior>().UnitName + "Battle";
-       playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
-       playerGo2.name = playerGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
-       playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
-       playerGo3.name = playerGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
-        
-       GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
-       enemyGo.name = enemyGo.GetComponent<UnitBehavior>().UnitName + "Battle";
-       GameObject enemyGo2 = Instantiate(enemyUnit2, enemyBattleStation2);
-       enemyGo2.name = enemyGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
-       GameObject enemyGo3 = Instantiate(enemyUnit3, enemyBattleStation3);
-       enemyGo3.name = enemyGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
-       playerBehavior = playerGo.GetComponent<UnitBehavior>();
-       player2Behavior = playerGo2.GetComponent<UnitBehavior>();
-       player3Behavior = playerGo3.GetComponent<UnitBehavior>();
-       enemyBehavior = enemyGo.GetComponent<UnitBehavior>();
-       enemy2Behavior = enemyGo2.GetComponent<UnitBehavior>();
-       enemy3Behavior = enemyGo3.GetComponent<UnitBehavior>();
-       enemyBehavior.enemy = true;
-       enemy2Behavior.enemy = true;
-       enemy3Behavior.enemy = true;
-       playerTeam[0].position = 1;
-       playerTeam[1].position = 2;
-       playerTeam[2].position = 3;
-       playerTeam[0].animator = animators[0];
-       playerTeam[1].animator = animators[1];
-       playerTeam[2].animator = animators[2];
-       enemyTeam[0].animator =animators[3];
-       enemyTeam[1].animator =animators[4];
-       enemyTeam[2].animator =animators[5];
-       enemyTeam[0].position = 1;
-       enemyTeam[1].position = 2;
-       enemyTeam[2].position = 3;
-       playerTeam[0].Icon = IconSlots[0];
-       playerTeam[1].Icon = IconSlots[1];
-       playerTeam[2].Icon = IconSlots[2];
-        enemyTeam[0].Icon = IconSlots[3];        
+        playerGo = Instantiate(playerUnit, playerBattleStation);
+        playerGo.name = playerGo.GetComponent<UnitBehavior>().UnitName + "Battle";
+        playerGo2 = Instantiate(playerUnit2, playerBattleStation2);
+        playerGo2.name = playerGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
+        playerGo3 = Instantiate(playerUnit3, playerBattleStation3);
+        playerGo3.name = playerGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
+
+        GameObject enemyGo = Instantiate(enemyUnit, enemyBattleStation);
+        enemyGo.name = enemyGo.GetComponent<UnitBehavior>().UnitName + "Battle";
+        GameObject enemyGo2 = Instantiate(enemyUnit2, enemyBattleStation2);
+        enemyGo2.name = enemyGo2.GetComponent<UnitBehavior>().UnitName + "Battle";
+        GameObject enemyGo3 = Instantiate(enemyUnit3, enemyBattleStation3);
+        enemyGo3.name = enemyGo3.GetComponent<UnitBehavior>().UnitName + "Battle";
+        playerBehavior = playerGo.GetComponent<UnitBehavior>();
+        player2Behavior = playerGo2.GetComponent<UnitBehavior>();
+        player3Behavior = playerGo3.GetComponent<UnitBehavior>();
+        enemyBehavior = enemyGo.GetComponent<UnitBehavior>();
+        enemy2Behavior = enemyGo2.GetComponent<UnitBehavior>();
+        enemy3Behavior = enemyGo3.GetComponent<UnitBehavior>();
+        enemyBehavior.enemy = true;
+        enemy2Behavior.enemy = true;
+        enemy3Behavior.enemy = true;
+        playerTeam[0].position = 1;
+        playerTeam[1].position = 2;
+        playerTeam[2].position = 3;
+        playerTeam[0].animator = animators[0];
+        playerTeam[1].animator = animators[1];
+        playerTeam[2].animator = animators[2];
+        enemyTeam[0].animator = animators[3];
+        enemyTeam[1].animator = animators[4];
+        enemyTeam[2].animator = animators[5];
+        enemyTeam[0].position = 1;
+        enemyTeam[1].position = 2;
+        enemyTeam[2].position = 3;
+        playerTeam[0].Icon = IconSlots[0];
+        playerTeam[1].Icon = IconSlots[1];
+        playerTeam[2].Icon = IconSlots[2];
+        enemyTeam[0].Icon = IconSlots[3];
         enemyTeam[1].Icon = IconSlots[4];
         enemyTeam[2].Icon = IconSlots[5];
         playerTeam[0].damageTMP = DamagePopups[0];
@@ -248,7 +258,7 @@ public class BattleManager : MonoBehaviour
         enemyTeam[0].damageTMP = DamagePopups[3];
         enemyTeam[1].damageTMP = DamagePopups[4];
         enemyTeam[2].damageTMP = DamagePopups[5];
-        playerTeam[0].startingPosition = playerTeam[0].animator.transform.position ;
+        playerTeam[0].startingPosition = playerTeam[0].animator.transform.position;
         playerTeam[1].startingPosition = playerTeam[1].animator.transform.position;
         playerTeam[2].startingPosition = playerTeam[2].animator.transform.position;
         enemyTeam[0].startingPosition = enemyTeam[0].animator.transform.position;
@@ -300,7 +310,7 @@ public class BattleManager : MonoBehaviour
             foreach (string skill in skillsInUse)
             {
                 ub.SkillManager = ub.GetComponentInParent<SkillManager>();
-                ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)],attackerTeam,targetTeam);
+                ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)], attackerTeam, targetTeam);
             }
         }
         foreach (UnitBehavior ub in enemyTeam)
@@ -341,7 +351,7 @@ public class BattleManager : MonoBehaviour
                 ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)], attackerTeam, targetTeam);
             }
         }
-       
+
         if (playerTeam[0].Weapon.damageType == 0)
         {
 
@@ -359,9 +369,9 @@ public class BattleManager : MonoBehaviour
     void SetHud()
     {
         int c = 0;
-        foreach(Slider sl in playerHpSlider)
+        foreach (Slider sl in playerHpSlider)
         {
-        sl.maxValue = playerTeam[c].maxhp;
+            sl.maxValue = playerTeam[c].maxhp;
         }
         c = 0;
         foreach (Slider sl in enemyHpSlider)
@@ -369,11 +379,11 @@ public class BattleManager : MonoBehaviour
             sl.maxValue = enemyTeam[c].maxhp;
             c++;
         }
-        c=0;
+        c = 0;
         foreach (Slider sl in PlayerSoulBar)
         {
             sl.maxValue = playerTeam[c].maxsoul;
-                c++;
+            c++;
         }
         c = 0;
         foreach (Slider sl in EnemySoulBar)
@@ -381,7 +391,7 @@ public class BattleManager : MonoBehaviour
             sl.maxValue = enemyTeam[c].maxsoul;
             c++;
         }
-        
+
     }
     //manuzeia as barras de hp, alma e turno
     public void HudUpdate()
@@ -437,27 +447,27 @@ public class BattleManager : MonoBehaviour
             sl.value = enemyTeam[c].hp;
         }
     }
-     IEnumerator Wait()
+    IEnumerator Wait()
     {
         waiting = true;
-        if (playerTeam[0].hp > 0 && state == BattleState.Wait) { PlayerBar += Time.fixedUnscaledDeltaTime * playerTeam[0].speed * battleSpeed; PlayerBars[0] = PlayerBar; 
+        if (playerTeam[0].hp > 0 && state == BattleState.Wait) { PlayerBar += Time.fixedUnscaledDeltaTime * playerTeam[0].speed * battleSpeed; PlayerBars[0] = PlayerBar;
         }
         else if (playerTeam[0].UnitName != "") { playerTeam[0].animator.SetTrigger("UnitDie"); }
-        if (playerTeam[1].hp > 0 && state == BattleState.Wait) {PlayerBar2 += Time.fixedUnscaledDeltaTime * playerTeam[1].speed * battleSpeed; PlayerBars[1] = PlayerBar2;
+        if (playerTeam[1].hp > 0 && state == BattleState.Wait) { PlayerBar2 += Time.fixedUnscaledDeltaTime * playerTeam[1].speed * battleSpeed; PlayerBars[1] = PlayerBar2;
         }
         else if (playerTeam[1].UnitName != "") { playerTeam[1].animator.SetTrigger("UnitDie"); }
         if (playerTeam[2].hp > 0 && state == BattleState.Wait) { PlayerBar3 += Time.fixedUnscaledDeltaTime * playerTeam[2].speed * battleSpeed; PlayerBars[2] = PlayerBar3;
         }
-        else if(playerTeam[2].UnitName != "") { playerTeam[2].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[0].hp > 0 && state == BattleState.Wait){EnemyBar += Time.fixedUnscaledDeltaTime * enemyTeam[0].speed * battleSpeed; EnemyBars[0] = EnemyBar;
+        else if (playerTeam[2].UnitName != "") { playerTeam[2].animator.SetTrigger("UnitDie"); }
+        if (enemyTeam[0].hp > 0 && state == BattleState.Wait) { EnemyBar += Time.fixedUnscaledDeltaTime * enemyTeam[0].speed * battleSpeed; EnemyBars[0] = EnemyBar;
         }
         else if (enemyTeam[0].UnitName != "") { enemyTeam[0].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[1].hp > 0 && state == BattleState.Wait){EnemyBar2 += Time.fixedUnscaledDeltaTime * enemyTeam[1].speed * battleSpeed; EnemyBars[1] = EnemyBar2;
+        if (enemyTeam[1].hp > 0 && state == BattleState.Wait) { EnemyBar2 += Time.fixedUnscaledDeltaTime * enemyTeam[1].speed * battleSpeed; EnemyBars[1] = EnemyBar2;
         }
         else if (enemyTeam[1].UnitName != "") { enemyTeam[1].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[2].hp > 0 && state == BattleState.Wait ) {EnemyBar3 += Time.fixedUnscaledDeltaTime * enemyTeam[2].speed * battleSpeed; EnemyBars[2] = EnemyBar3;
+        if (enemyTeam[2].hp > 0 && state == BattleState.Wait) { EnemyBar3 += Time.fixedUnscaledDeltaTime * enemyTeam[2].speed * battleSpeed; EnemyBars[2] = EnemyBar3;
         }
-        else if(enemyTeam[2].UnitName != "") { enemyTeam[2].animator.SetTrigger("UnitDie"); }
+        else if (enemyTeam[2].UnitName != "") { enemyTeam[2].animator.SetTrigger("UnitDie"); }
         int c = 0;
         foreach (Slider sl in PlayerActionBar)
         {
@@ -472,9 +482,9 @@ public class BattleManager : MonoBehaviour
         }
         if (PlayerBar >= 100 & state == BattleState.Wait)
         {
-             state = BattleState.PlayerTurn;
+            state = BattleState.PlayerTurn;
 
-            StartCoroutine(Attack(playerTeam[0], enemyTeam[StandardTargeting(enemyTeam)])); 
+            StartCoroutine(Attack(playerTeam[0], enemyTeam[StandardTargeting(enemyTeam)]));
 
             PlayerBar = 0;
             PlayerBars[0] = 0;
@@ -496,13 +506,13 @@ public class BattleManager : MonoBehaviour
             PlayerBars[2] = 0;
         }
         else if (EnemyBar >= 100 & state == BattleState.Wait)
-            {
+        {
             state = BattleState.EnemyTurn;
 
             StartCoroutine(Attack(enemyTeam[0], playerTeam[StandardTargeting(playerTeam)]));
             EnemyBar = 0;
             EnemyBars[0] = 0;
-            }
+        }
         else if (EnemyBar2 >= 100 & state == BattleState.Wait)
         {
             state = BattleState.EnemyTurn;
@@ -529,21 +539,21 @@ public class BattleManager : MonoBehaviour
     }
     public int StandardTargeting(List<UnitBehavior> unitList)
     {
-        if(unitList[0].hp >= 1)
+        if (unitList[0].hp >= 1)
         {
             return 0;
         }
-        else if(unitList[1].hp >= 1)
+        else if (unitList[1].hp >= 1)
         {
             return 1;
         }
-        else if(unitList[2].hp >= 1)
+        else if (unitList[2].hp >= 1)
         {
             return 2;
         }
         else
-        { 
-        return 0;
+        {
+            return 0;
         }
     }
     public int LeastHpTargeting(List<UnitBehavior> unitList)
@@ -551,28 +561,28 @@ public class BattleManager : MonoBehaviour
         int leastHp = 0;
         if (unitList[0].hp >= 1)
         {
-         leastHp = unitList[0].hp;
+            leastHp = unitList[0].hp;
         }
-        else if(unitList[1].hp >=1  && unitList[1].hp > unitList[0].hp)
+        else if (unitList[1].hp >= 1 && unitList[1].hp > unitList[0].hp)
         {
-             leastHp = unitList[1].hp;
+            leastHp = unitList[1].hp;
         }
-        else if(unitList[2].hp >= 1 && unitList[2].hp > unitList[1].hp)
+        else if (unitList[2].hp >= 1 && unitList[2].hp > unitList[1].hp)
         {
-             leastHp = unitList[1].hp;
+            leastHp = unitList[1].hp;
         }
-            return leastHp;       
+        return leastHp;
     }
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
         AttackSetup(attacker, Target);
-        if(attacker.hp > attacker.maxhp) { attacker.hp = attacker.maxhp; }
+        if (attacker.hp > attacker.maxhp) { attacker.hp = attacker.maxhp; }
         if (Target.hp > Target.maxhp) { Target.hp = Target.maxhp; }
         attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
-        if(attacker.Weapon.weapontype != Item.Weapontype.Bow&& attacker.Weapon.weapontype != Item.Weapontype.Receptacle&& attacker.Weapon.weapontype != Item.Weapontype.Tome)
+        if (attacker.Weapon.weapontype != Item.Weapontype.Bow && attacker.Weapon.weapontype != Item.Weapontype.Receptacle && attacker.Weapon.weapontype != Item.Weapontype.Tome)
         {
             Debug.Log(attacker.name + " dashed to " + Target.name);
-          StartCoroutine(DashToTarget(attacker, Target.animator.transform.position));
+            StartCoroutine(DashToTarget(attacker, Target.animator.transform.position));
         }
         attacker.animator.SetTrigger("UnitAdvance");
         List<UnitBehavior> attackerTeam;
@@ -584,9 +594,9 @@ public class BattleManager : MonoBehaviour
         else
         {
             ; state = BattleState.PlayerTurn; }
-        if(attacker.Weapon.damageType == 0)
+        if (attacker.Weapon.damageType == 0)
         {
-        attacker.power = attacker.str +attacker.Weapon.power;
+            attacker.power = attacker.str + attacker.Weapon.power;
         }
         else
         {
@@ -605,7 +615,7 @@ public class BattleManager : MonoBehaviour
             attackerTeam = enemyTeam;
             targetTeam = playerTeam;
         }
-        else 
+        else
         {
             attackerTeam = playerTeam;
             targetTeam = enemyTeam;
@@ -614,41 +624,41 @@ public class BattleManager : MonoBehaviour
         {
             skillsInUse.Add(attacker.classSkill);
         }
-        if(attacker.personalSkill != null)
+        if (attacker.personalSkill != null)
         {
             skillsInUse.Add(attacker.personalSkill);
         }
-        if(attacker.Weapon != null && attacker.Weapon.skill != null)
+        if (attacker.Weapon != null && attacker.Weapon.skill != null)
         {
             skillsInUse.Add(attacker.Weapon.skill);
         }
-        if(attacker.Accesory!= null  && attacker.Accesory.skill != null)
+        if (attacker.Accesory != null && attacker.Accesory.skill != null)
         {
             skillsInUse.Add(attacker.Accesory.skill);
         }
         attacker.soul += 15 + attacker.soulgain;
         if (attacker.soul <= attacker.maxsoul && Random.Range(0, 101) <= Phit)
         {
-            StartCoroutine(AttackHit(attacker,Target,attackerDamage, attackerTeam, targetTeam));
+            StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
         }
-        else if(attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
+        else if (attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
         {
             if (Random.Range(0, 101) <= Phit)
-            { 
-            StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
+            {
+                StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
             }
         }
         else if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
             attacker.soul -= attacker.maxsoul;
-            StartCoroutine(attacker.SkillManager.NaSoulproc(attacker.equipedSoul,attacker,Target,attackerTeam,targetTeam));
+            StartCoroutine(attacker.SkillManager.NaSoulproc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam));
         }
-        else       
+        else
         {
             Target.animator.SetTrigger("UnitDodge");
         }
         yield return new WaitForSeconds(1.2f);
-        StartCoroutine(DashToTarget(attacker, attacker.startingPosition,0.01f));
+        StartCoroutine(DashToTarget(attacker, attacker.startingPosition, 0.01f));
         //tempo em frames para o proximo turno ate 25 turnos
         Dictionary<string, float> repeatTurns = new();
         for (int i = 1; i < 26; i++)
@@ -742,7 +752,7 @@ public class BattleManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         //inimigo morre
-        if (enemyTeam[0].hp <=0 && enemyTeam[1].hp <= 0 && enemyTeam[2].hp <= 0)
+        if (enemyTeam[0].hp <= 0 && enemyTeam[1].hp <= 0 && enemyTeam[2].hp <= 0)
         {
             StartCoroutine(PlayerWin());
         }
@@ -770,10 +780,10 @@ public class BattleManager : MonoBehaviour
         {
             RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
         }
-        if (gameManager.team.Count > 2) { 
-         RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>(); }
+        if (gameManager.team.Count > 2) {
+            RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>(); }
         RealCharacter1.currentExp += exp1;
-        if(RealCharacter2 != null) {
+        if (RealCharacter2 != null) {
             if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); }
             RealCharacter2.currentExp += exp2;
         }
@@ -803,8 +813,8 @@ public class BattleManager : MonoBehaviour
                 {
                     character.skillInventory.Add(character.skill1);
                 }
-                    break;
-            case(10,1):
+                break;
+            case (10, 1):
                 if (character.skill2 != null)
                 {
                     character.skillInventory.Add(character.skill2);
@@ -815,7 +825,7 @@ public class BattleManager : MonoBehaviour
         switch (character.currentLevel, character.currentRank)
         {
             case (10, 1):
-                if(character.soul1 != null)
+                if (character.soul1 != null)
                 {
                     character.soulInventory.Add(character.soul1);
                 }
@@ -824,7 +834,7 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             int r = Random.Range(0, 100);
-            if(r <= character.growths[i])
+            if (r <= character.growths[i])
             {
                 switch (i)
                 {
@@ -842,8 +852,8 @@ public class BattleManager : MonoBehaviour
         };
     }
     public void AttackSetup(UnitBehavior Attacker, UnitBehavior Target)
-    {     
-        Phit = (int)(Attacker.Weapon.hit + (Attacker.dex *3) + Attacker.luck + Attacker.hit - (Target.speed * 2) - Target.luck -Target.avoid);
+    {
+        Phit = (int)(Attacker.Weapon.hit + (Attacker.dex * 3) + Attacker.luck + Attacker.hit - (Target.speed * 2) - Target.luck - Target.avoid);
         if (Phit < 30)
         {
             Phit = 30;
@@ -858,7 +868,7 @@ public class BattleManager : MonoBehaviour
         int tempPskill = attacker.SkillManager.currentDamageBonus;
         foreach (string skill in skillsInUse)
         {
-            attacker.SkillManager.currentDamageBonus += + attacker.SkillManager.SkillProc(skill, attacker, Target, attackerTeam, targetTeam);
+            attacker.SkillManager.currentDamageBonus += +attacker.SkillManager.SkillProc(skill, attacker, Target, attackerTeam, targetTeam);
         }
         int PskillPostSkillProc = attacker.SkillManager.currentDamageBonus;
         if (attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
@@ -877,13 +887,13 @@ public class BattleManager : MonoBehaviour
         {
             Target.SkillManager.currentDamageBonus += Target.SkillManager.PostHealthChange(skill, Target, attacker, targetTeam, attackerTeam);
         }
-            Target.SkillManager.currentDamageBonus += Target.SkillManager.PostHealthChange(Target.Weapon.skill, Target, attacker, targetTeam, attackerTeam);
+        Target.SkillManager.currentDamageBonus += Target.SkillManager.PostHealthChange(Target.Weapon.skill, Target, attacker, targetTeam, attackerTeam);
         if (Target.Accesory != null)
         {
             Target.SkillManager.currentDamageBonus += Target.SkillManager.PostHealthChange(Target.Accesory.skill, Target, attacker, targetTeam, attackerTeam);
         }
         int PskillPostTargetPostHealthChange = attacker.SkillManager.currentDamageBonus;
-        Debug.Log(attacker.UnitName +" Pskill progression\n" +
+        Debug.Log(attacker.UnitName + " Pskill progression\n" +
             "Pskill dps de skill proc" + PskillPostSkillProc
             + "\nPskill dps de healthChange" + PskillPostHealthlChange
             + "\nPskill dps de target soul proc" + PskillPostTargetPostHealthChange);
@@ -893,24 +903,25 @@ public class BattleManager : MonoBehaviour
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
 
-               hitAudio[1].Play();
-            if(attackerDamage + attacker.SkillManager.currentDamageBonus <= 0)
+            ParticleHit(Target);
+            hitAudio[1].Play();
+            if (attackerDamage + attacker.SkillManager.currentDamageBonus <= 0)
             {
                 damageDone = 2;
             }
 
             Target.hp -= damageDone;
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
-            
+
             if (attacker.lifesteal >= 0.01)
             {
                 attacker.hp += damageDone * attacker.lifesteal;
- 
+
             }
             Target.soul += damageDone / 5;
             yield return new WaitForSeconds(1);
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
-                    + attacker.UnitName + " base power: " + attacker.power +"\n"
+                    + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
                     + Target.UnitName + " enemy defense: " + Target.def + "\n"
                     + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
@@ -931,15 +942,16 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            ParticleHit(Target);
             hitAudio[0].Play();
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus);
             if (damageDone <= 0)
             {
                 damageDone = 1;
             }
-           
+
             Target.hp -= damageDone;
-            StartCoroutine(FadeOutText(Target.damageTMP,damageDone));
+            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
 
             if (attacker.lifesteal >= 0.01)
@@ -947,7 +959,7 @@ public class BattleManager : MonoBehaviour
                 attacker.hp += (damageDone) * attacker.lifesteal;
             }
             Target.soul += ((damageDone) / 5) * Target.damageSoulGain;
-            Debug.Log( attacker.UnitName + " atacou " + Target.UnitName + " " + (damageDone) + " de dano\n"
+            Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + (damageDone) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
                     + Target.UnitName + " enemy defense: " + Target.def + "\n"
@@ -986,6 +998,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (Random.Range(0, 101) <= Pcrit)
         {
+            ParticleHit(Target);
             hitAudio[1].Play();
             int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2 * DamageMultiplier);
 
@@ -997,7 +1010,7 @@ public class BattleManager : MonoBehaviour
         + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
         + Target.UnitName + " enemy defense: " + Target.def + "\n"
         + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
-                            + "acerto critico, dano dobrado" +" Foi um ataque extra"
+                            + "acerto critico, dano dobrado" + " Foi um ataque extra"
     );
             if (attacker.lifesteal >= 0.01)
             {
@@ -1021,6 +1034,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * DamageMultiplier);
+            ParticleHit(Target);
             hitAudio[0].Play();
             Target.hp -= damageDone;
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
@@ -1079,32 +1093,32 @@ public class BattleManager : MonoBehaviour
             c++;
         }
         attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
-        if(tickRate == 0.01f)
+        if (tickRate == 0.01f)
         {
             attacker.animator.transform.position = target;
         }
     }
     public void hoverStatUpdate(int character)
     {
-        if(character < 3)
+        if (character < 3)
         {
-        hoverName.text = playerTeam[character].UnitName;
-        weaponStats[0].text = playerTeam[character].Weapon.power.ToString();
-        weaponStats[1].text = playerTeam[character].Weapon.hit.ToString();
-        weaponStats[2].text = playerTeam[character].Weapon.crit.ToString();
-        unitStats[0].text = playerTeam[character].hp.ToString();
-        unitStats[1].text = playerTeam[character].str.ToString();
-        unitStats[2].text = playerTeam[character].mag.ToString();
-        unitStats[3].text = playerTeam[character].dex.ToString();
-        unitStats[4].text = playerTeam[character].speed.ToString();
-        unitStats[5].text = playerTeam[character].def.ToString();
-        unitStats[6].text = playerTeam[character].mdef.ToString();
-        unitStats[7].text = playerTeam[character].luck.ToString();
+            hoverName.text = playerTeam[character].UnitName;
+            weaponStats[0].text = playerTeam[character].Weapon.power.ToString();
+            weaponStats[1].text = playerTeam[character].Weapon.hit.ToString();
+            weaponStats[2].text = playerTeam[character].Weapon.crit.ToString();
+            unitStats[0].text = playerTeam[character].hp.ToString();
+            unitStats[1].text = playerTeam[character].str.ToString();
+            unitStats[2].text = playerTeam[character].mag.ToString();
+            unitStats[3].text = playerTeam[character].dex.ToString();
+            unitStats[4].text = playerTeam[character].speed.ToString();
+            unitStats[5].text = playerTeam[character].def.ToString();
+            unitStats[6].text = playerTeam[character].mdef.ToString();
+            unitStats[7].text = playerTeam[character].luck.ToString();
         }
         else
         {
             hoverName.text = enemyTeam[character - 3].UnitName;
-            weaponStats[0].text = enemyTeam[character -3].Weapon.power.ToString();
+            weaponStats[0].text = enemyTeam[character - 3].Weapon.power.ToString();
             weaponStats[1].text = enemyTeam[character - 3].Weapon.hit.ToString();
             weaponStats[2].text = enemyTeam[character - 3].Weapon.crit.ToString();
             unitStats[0].text = enemyTeam[character - 3].hp.ToString();
@@ -1124,7 +1138,7 @@ public class BattleManager : MonoBehaviour
 
         switch (classID)
         {
-            case 101: return  inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault();
+            case 101: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault();
             case 102: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Guerreiro").SingleOrDefault();
             case 103: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Soldado").SingleOrDefault();
             case 104: return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Feiticeiro").SingleOrDefault();
@@ -1135,4 +1149,20 @@ public class BattleManager : MonoBehaviour
                 return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault();
         }
     }
+
+    private void ParticleHit(UnitBehavior targetUB)
+    {
+
+        ParticleSystem currentparticle = damageParticlesPlayer1;
+
+        if (targetUB.position == 1 && targetUB.enemy == false) { currentparticle = damageParticlesPlayer1; };
+        if (targetUB.position == 2 && targetUB.enemy == false) { currentparticle = damageParticlesPlayer2; };
+        if (targetUB.position == 3 && targetUB.enemy == false) { currentparticle = damageParticlesPlayer3; };
+        if (targetUB.position == 1 && targetUB.enemy == true) { currentparticle = damageParticlesEnemy1; };
+        if (targetUB.position == 2 && targetUB.enemy == true) { currentparticle = damageParticlesEnemy2; };
+        if (targetUB.position == 3 && targetUB.enemy == true) { currentparticle = damageParticlesEnemy3; };
+        currentparticle.Emit(10);
+    }
+       
+
 }
