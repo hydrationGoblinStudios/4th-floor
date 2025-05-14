@@ -31,10 +31,8 @@ public class GMButtonAssigner : MonoBehaviour
     }
     public void ChangeActivity(string activity)
     {
-        Debug.Log(activity);
         if(gameManager.selectedUB4Activity != null)
         {
-            Debug.Log("ub4A encontrado");
             gameManager.selectedUB4Activity.activity = activity;
         }        
     }
