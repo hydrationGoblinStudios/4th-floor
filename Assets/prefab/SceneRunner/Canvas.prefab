@@ -1276,6 +1276,7 @@ GameObject:
   - component: {fileID: 1160312242040037699}
   - component: {fileID: 4375303501102328168}
   - component: {fileID: 1579856065447584319}
+  - component: {fileID: 2790289705326115483}
   m_Layer: 0
   m_Name: Treinar
   m_TagString: Untagged
@@ -1397,6 +1398,24 @@ MonoBehaviour:
           m_StringArgument: Treinar
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2790289705326115483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531545946696854108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Treinar
+  description: Personagem ganha 25 de XP
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &626804555980341576
 GameObject:
   m_ObjectHideFlags: 0
@@ -4955,6 +4974,7 @@ GameObject:
   - component: {fileID: 317669629996542770}
   - component: {fileID: 6886426604581380993}
   - component: {fileID: 1279568977069166085}
+  - component: {fileID: 5080199382175538951}
   m_Layer: 0
   m_Name: Trabalhar
   m_TagString: Untagged
@@ -5076,6 +5096,24 @@ MonoBehaviour:
           m_StringArgument: Trabalhar
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5080199382175538951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208559865626158354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Trabalhar
+  description: "Recebe 500 de Ouro para cada n\xEDvel do andar atual."
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &1268123486698799887
 GameObject:
   m_ObjectHideFlags: 0
@@ -5193,7 +5231,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5201,7 +5239,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6916543262937014907
@@ -8408,7 +8446,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8416,7 +8454,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6209128953484250968
@@ -15319,7 +15357,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15327,7 +15365,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2760977107106294710
@@ -17174,7 +17212,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17182,7 +17220,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8605538439351489668
@@ -18737,6 +18775,7 @@ GameObject:
   - component: {fileID: 987885838715737256}
   - component: {fileID: 545525279713535196}
   - component: {fileID: 2422974867091676485}
+  - component: {fileID: 555651624919105892}
   m_Layer: 0
   m_Name: Fortalecer
   m_TagString: Untagged
@@ -18858,6 +18897,26 @@ MonoBehaviour:
           m_StringArgument: Fortalecer
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &555651624919105892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5807941750089260229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Fortalecer
+  description: "Aplica a chance de taxa de crescimento em 1 atributo (Exemplo: fortalecer
+    For\xE7a com um personagem com 50% de crescimento em for\xE7a da 50% chance de
+    For\xE7a aumentar em 1)"
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &5852398590768491877
 GameObject:
   m_ObjectHideFlags: 0
@@ -20072,6 +20131,7 @@ GameObject:
   - component: {fileID: 3309938699912317531}
   - component: {fileID: 6212743597544917006}
   - component: {fileID: 8870478107133861053}
+  - component: {fileID: 5347533019623763376}
   m_Layer: 0
   m_Name: Espionar
   m_TagString: Untagged
@@ -20193,6 +20253,25 @@ MonoBehaviour:
           m_StringArgument: Espionar
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5347533019623763376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168116046504693166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Espionar
+  description: "Da 1 informa\xE7\xE3o sobre o time oponente no combate do final de
+    semana, pode ser classe atributos composi\xE7\xE3o e etc"
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &6221040718037970894
 GameObject:
   m_ObjectHideFlags: 0
@@ -26612,6 +26691,7 @@ GameObject:
   - component: {fileID: 7381698613739021548}
   - component: {fileID: 7402561230573850747}
   - component: {fileID: 7930813132455095983}
+  - component: {fileID: 3392161343347023921}
   m_Layer: 0
   m_Name: Aprender
   m_TagString: Untagged
@@ -26733,6 +26813,25 @@ MonoBehaviour:
           m_StringArgument: Aprender
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3392161343347023921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117733969873989267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d209b4414f1333459677e6f9e316952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverName: Aprender
+  description: Treina a semana inteira para aprender uma classe nova de um rank igual
+    ou menor do sua classe de rank mais alto.
+  HoverObject: {fileID: 0}
+  texts: []
+  inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &8145771741989859442
 GameObject:
   m_ObjectHideFlags: 0
@@ -30229,6 +30328,54 @@ PrefabInstance:
     - target: {fileID: 2454032247297945299, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
       propertyPath: m_Name
       value: Key Items
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037491187360491049, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037491187360491049, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037491187360491049, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037491187360491049, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217332769268168808, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217332769268168808, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217332769268168808, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217332769268168808, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622016022052575564, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622016022052575564, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622016022052575564, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622016022052575564, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1504,6 +1504,7 @@ MonoBehaviour:
   gameData:
     money: 0
     day: 0
+    storyBattle: 0
     Inventory: []
     KeyItems: []
     StoryFlags: []
@@ -2552,6 +2553,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 394899192324569187, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 432037786991403171, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_Name
       value: Canvas

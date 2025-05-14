@@ -534,8 +534,6 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds((float)0.01);
             waiting = false;
         }
-
-
     }
     public int StandardTargeting(List<UnitBehavior> unitList)
     {
