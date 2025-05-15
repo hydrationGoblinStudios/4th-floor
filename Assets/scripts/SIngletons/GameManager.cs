@@ -464,7 +464,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 if (day >= 3)
                 {
                     ChangeSprite("Leyni Sprite", 1);
-                    //ChangeGraph(graphs[3], "Leyni Interactable",m_scene.name);
+                    ChangeGraph(graphs[3], "Leyni Interactable",m_scene.name);
                 }
                 break;
 
