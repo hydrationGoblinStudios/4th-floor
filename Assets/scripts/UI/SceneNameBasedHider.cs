@@ -5,19 +5,20 @@ using UnityEngine.SceneManagement;
 public class SceneNameBasedHider : MonoBehaviour
 {
     public string OriginalSceneName;
-    public void Toggled()
+    public void Toggled(GameManager gm)
     {
-        if(SceneManager.GetActiveScene().name == OriginalSceneName)
-        {
-           transform.position = new Vector3(10000, transform.position.y, transform.position.z);
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            transform.position = new Vector3(80, transform.position.y, transform.position.z);
-            gameObject.SetActive(true);
+            if(SceneManager.GetActiveScene().name == OriginalSceneName || !gm.unlockedMaps.Contains(OriginalSceneName))
+                {
+                   transform.position = new Vector3(10000, transform.position.y, transform.position.z);
+                    gameObject.SetActive(false);
+                }
+            else if(gm.unlockedMaps.Contains(OriginalSceneName))
+                {
+                    transform.position = new Vector3(80, transform.position.y, transform.position.z);
+                    gameObject.SetActive(true);
 
-        }
+                }
+        
     }
 
 }

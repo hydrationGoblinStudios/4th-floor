@@ -26,7 +26,8 @@ public class MapToggle : MonoBehaviour
             }
             foreach(Transform child in panel.transform)
             {
-                child.gameObject.GetComponent<SceneNameBasedHider>().Toggled();
+                GameManager gm = FindObjectOfType<GameManager>();
+                child.gameObject.GetComponent<SceneNameBasedHider>().Toggled(gm);
             }
         }
     }

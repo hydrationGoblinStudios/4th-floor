@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public bool TimeIsDay;
     public bool wakeUpTalk;
     public List<GameObject> mapButtons;
+    public List<string> unlockedMaps;
     public List<DialogueGraph> graphs;
     public DayResultsManager DayResultsManager;
     public CalendarioUI cui;
