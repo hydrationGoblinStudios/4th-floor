@@ -11,6 +11,7 @@ public class GameData
     public List<Item> Inventory;
     public List<Item> KeyItems;
     public List<Item> StoryFlags;
+    public List<string> unlockedMaps;
     public List<UnitData> units;
     public UnitData unitData;
 
@@ -20,6 +21,7 @@ public class GameData
         this.day = 0;
         Inventory = new List<Item>();
         KeyItems = new List<Item>();
+
         units = new();
     }
 }

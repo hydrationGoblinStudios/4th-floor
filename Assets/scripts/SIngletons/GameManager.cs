@@ -66,6 +66,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         this.Inventory = data.Inventory;
         this.KeyItems = data.KeyItems;
         this.StoryFlags = data.StoryFlags;
+        this.unlockedMaps = data.unlockedMaps;
     }
     public void SaveData(ref GameData data)
     {
@@ -86,6 +87,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         data.Inventory = this.Inventory;
         data.StoryFlags = this.StoryFlags;
         data.KeyItems = this.KeyItems;
+        data.unlockedMaps = this.unlockedMaps;
         count = 0;
         data.units = units;
     }
@@ -429,7 +431,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 {
                     NodeParser dm = FindObjectOfType<NodeParser>(true);
                     dm.StartDialogue(graphs.Where(obj => obj.name == "Gandios Dia 1").SingleOrDefault());
-                    mapButtons.Where(obj => obj.name == "Cantina").SingleOrDefault().SetActive(true);
+                    unlockedMaps.Add("Cantina");
                     wakeUpTalk = false;
                 }
                 if (day == 2 && wakeUpTalk)
@@ -437,7 +439,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     Debug.Log("DIA 2");
                     NodeParser dm = FindObjectOfType<NodeParser>(true);
                     dm.StartDialogue(graphs.Where(obj => obj.name == "Adrian Começo Dia 2").SingleOrDefault());
-                    mapButtons.Where(obj => obj.name == "Patio").SingleOrDefault().SetActive(true);
+                    unlockedMaps.Add("Patio");
                     wakeUpTalk = false;
                 }
                 if(day== 5 && storyBattle)
@@ -449,7 +451,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     Debug.Log("DIA 6");
                     NodeParser dm = FindObjectOfType<NodeParser>(true);
                     dm.StartDialogue(graphs.Where(obj => obj.name == "Gandios Dia 6").SingleOrDefault());
-                    mapButtons.Where(obj => obj.name == "Patio").SingleOrDefault().SetActive(true);
+                    unlockedMaps.Add("Laboratorio");
                     wakeUpTalk = false;
                 }
                 if(day < 2)

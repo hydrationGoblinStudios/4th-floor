@@ -12048,7 +12048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Dispensa
+  OriginalSceneName: Quarto Dos Guardas
 --- !u!1 &3418464552827325353
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,9 +16,6 @@ public class SceneNameBasedHider : MonoBehaviour
                 {
                     transform.position = new Vector3(80, transform.position.y, transform.position.z);
                     gameObject.SetActive(true);
-
-                }
-        
+                }       
     }
-
 }
