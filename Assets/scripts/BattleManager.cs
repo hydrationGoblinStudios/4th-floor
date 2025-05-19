@@ -9,6 +9,8 @@ using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using JetBrains.Annotations;
 using System.Runtime.CompilerServices;
+using UnityEditor;
+using UnityEngine.TextCore.Text;
 
 public class BattleManager : MonoBehaviour
 {
@@ -84,6 +86,10 @@ public class BattleManager : MonoBehaviour
     public ParticleSystem damageParticlesEnemy2;
     public ParticleSystem damageParticlesEnemy3;
 
+    [Header("LevelUp")]
+
+    public List<GameObject> LUPObjects;
+    public List<TextMeshProUGUI> levelUpUnitStats;
     [Header("HoverStats")]
     public GameObject hoverObject;
     public TextMeshProUGUI hoverName;
@@ -600,7 +606,6 @@ public class BattleManager : MonoBehaviour
         {
             attacker.power = attacker.mag + attacker.Weapon.power;
         }
-        Debug.Log(attacker.name + " power: " + attacker.power);
         //Pskill = 0;
         attacker.SkillManager.currentDamageBonus = 0;
         int attackerDamage = attacker.power - (Target.defenses[attacker.Weapon.damageType] + Target.damagereduction);
@@ -761,6 +766,7 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator PlayerWin()
     {
+        StatsBreakdown();
         state = BattleState.PlayerWon;
         yield return new WaitForSeconds(1);
         gameManager.money += 50;
@@ -1130,6 +1136,19 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    private void StatsBreakdown()
+    {
+        LUPObjects[0].SetActive(true);
+        levelUpUnitStats[0].text = playerTeam[1].SkillManager.maxhp.ToString();
+        levelUpUnitStats[1].text = playerTeam[1].SkillManager.str.ToString();
+        levelUpUnitStats[2].text = playerTeam[1].SkillManager.mag.ToString();
+        levelUpUnitStats[3].text = playerTeam[1].SkillManager.dex.ToString();
+        levelUpUnitStats[4].text = playerTeam[1].SkillManager.speed.ToString();
+        levelUpUnitStats[5].text = playerTeam[1].SkillManager.def.ToString();
+        levelUpUnitStats[6].text = playerTeam[1].SkillManager.mdef.ToString();
+        levelUpUnitStats[7].text = playerTeam[1].SkillManager.luck.ToString();
+    }
+
     public Sprite ClassIconPicker(int classID)
     {
         InventoryManager inventoryManager = FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);
@@ -1160,7 +1179,5 @@ public class BattleManager : MonoBehaviour
         if (targetUB.position == 2 && targetUB.enemy == true) { currentparticle = damageParticlesEnemy2; };
         if (targetUB.position == 3 && targetUB.enemy == true) { currentparticle = damageParticlesEnemy3; };
         currentparticle.Emit(10);
-    }
-       
-
+    }       
 }
