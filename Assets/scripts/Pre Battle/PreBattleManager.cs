@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
+using Unity.VisualScripting;
 
 public class PreBattleManager : MonoBehaviour
 {
@@ -815,7 +817,8 @@ public class PreBattleManager : MonoBehaviour
     }
     public void UnitSelect(int i,GameObject SelectedPlayer = null)
     {
-        if(SelectedPlayer != null && SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer1.GetComponent<UnitBehavior>().UnitName 
+        if(SelectedPlayer != null 
+            && SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer1.GetComponent<UnitBehavior>().UnitName 
             && SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer2.GetComponent<UnitBehavior>().UnitName
             && SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer3.GetComponent<UnitBehavior>().UnitName)
         {
@@ -828,7 +831,102 @@ public class PreBattleManager : MonoBehaviour
                 default: SelectedPlayer3 = SelectedPlayer; SelectedPlayerList[2] = SelectedPlayer; break;
             }
         }
+        else if (SelectedPlayer != null
+            && SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer1.GetComponent<UnitBehavior>().UnitName||
+            SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer2.GetComponent<UnitBehavior>().UnitName ||
+            SelectedPlayer.GetComponent<UnitBehavior>().UnitName != SelectedPlayer3.GetComponent<UnitBehavior>().UnitName)          
+        {
+            int copy;
+            if(SelectedPlayer.GetComponent<UnitBehavior>().UnitName == SelectedPlayer1.GetComponent<UnitBehavior>().UnitName)
+            {
+                copy = 1;
+            }
+            else if(SelectedPlayer.GetComponent<UnitBehavior>().UnitName == SelectedPlayer2.GetComponent<UnitBehavior>().UnitName)
+            {
+                copy = 2;
+            }
+            else
+            {
+                copy = 3;
+            }
+            GameObject originalGO = null;
+            switch (copy)
+            {
+                case 1: originalGO = SelectedPlayer1; break;
+                case 2: originalGO = SelectedPlayer2; break;
+                case 3: originalGO = SelectedPlayer3; break;
+
+                default: break;
+            }
+            switch (i)
+            {
+                case 1: 
+                    if(copy == 2)
+                    {
+                        SelectedPlayer2 = SelectedPlayer1; 
+                    }
+                    else if(copy == 3)
+                    {
+                        SelectedPlayer3 = SelectedPlayer1;
+                    }
+                    SelectedPlayer1 = originalGO; break;
+                case 2:
+                    if (copy == 1)
+                    {
+                        SelectedPlayer1 = SelectedPlayer2;
+                    }
+                    else if(copy == 3)
+                    {
+                        SelectedPlayer3 = SelectedPlayer2;
+                    }
+                    ; SelectedPlayer2 = originalGO; break;
+                case 3:
+                    if (copy == 1)
+                    {
+                        SelectedPlayer1 = SelectedPlayer3;
+                    }
+                    else if (copy == 2)
+                    {
+                        SelectedPlayer2 = SelectedPlayer3;
+                    }
+                    ; SelectedPlayer3 = originalGO; break;
+                default: break;
+            }
+        }
+
         else { Debug.Log("null SP"); }
+        playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
+        {
+            107 => Animations[6],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            _ => null,
+        };
+        playerAnimations[1].runtimeAnimatorController = SelectedPlayer2.GetComponent<UnitBehavior>().classId switch
+        {
+            107 => Animations[6],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            _ => null,
+        }; playerAnimations[2].runtimeAnimatorController = SelectedPlayer3.GetComponent<UnitBehavior>().classId switch
+        {
+            107 => Animations[6],
+            101 => Animations[0],
+            102 => Animations[1],
+            103 => Animations[2],
+            104 => Animations[3],
+            105 => Animations[4],
+            106 => Animations[5],
+            _ => null,
+        };
     }
     public void InstantiateToGM(List<GameObject> List, List<GameObject> EnemyList)
     {
