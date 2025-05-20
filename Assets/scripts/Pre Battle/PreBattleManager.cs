@@ -863,32 +863,47 @@ public class PreBattleManager : MonoBehaviour
                 case 1: 
                     if(copy == 2)
                     {
+                        SelectedPlayerList[1] = SelectedPlayer1;
                         SelectedPlayer2 = SelectedPlayer1; 
                     }
                     else if(copy == 3)
                     {
+                        SelectedPlayerList[2] = SelectedPlayer1;
                         SelectedPlayer3 = SelectedPlayer1;
                     }
+                    SelectedPlayerList[0] = originalGO;
+
                     SelectedPlayer1 = originalGO; break;
                 case 2:
                     if (copy == 1)
                     {
+                        SelectedPlayerList[0] = SelectedPlayer2;
+
                         SelectedPlayer1 = SelectedPlayer2;
                     }
                     else if(copy == 3)
                     {
+                        SelectedPlayerList[2] = SelectedPlayer2;
+
                         SelectedPlayer3 = SelectedPlayer2;
                     }
+                    SelectedPlayerList[1] = originalGO;
                     ; SelectedPlayer2 = originalGO; break;
                 case 3:
                     if (copy == 1)
                     {
+                        SelectedPlayerList[0] = SelectedPlayer3;
+
                         SelectedPlayer1 = SelectedPlayer3;
                     }
                     else if (copy == 2)
                     {
+                        SelectedPlayerList[2] = SelectedPlayer1;
+
                         SelectedPlayer2 = SelectedPlayer3;
                     }
+                    SelectedPlayerList[2] = originalGO;
+
                     ; SelectedPlayer3 = originalGO; break;
                 default: break;
             }

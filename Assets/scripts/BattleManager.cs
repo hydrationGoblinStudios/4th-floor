@@ -88,8 +88,12 @@ public class BattleManager : MonoBehaviour
 
     [Header("LevelUp")]
 
+    public Animator unitLUPAnimator;
     public List<GameObject> LUPObjects;
     public List<TextMeshProUGUI> levelUpUnitStats;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI LevelUpNameText;
+    public Slider expSlider;
     [Header("HoverStats")]
     public GameObject hoverObject;
     public TextMeshProUGUI hoverName;
@@ -1147,6 +1151,10 @@ public class BattleManager : MonoBehaviour
         levelUpUnitStats[5].text = playerTeam[1].SkillManager.def.ToString();
         levelUpUnitStats[6].text = playerTeam[1].SkillManager.mdef.ToString();
         levelUpUnitStats[7].text = playerTeam[1].SkillManager.luck.ToString();
+        LevelUpNameText.text = playerTeam[1].UnitName;
+        levelText.text = $"lvl: {playerTeam[1].currentLevel.ToString()}";
+        unitLUPAnimator.runtimeAnimatorController = animators[1].runtimeAnimatorController;
+        expSlider.value = playerTeam[1].currentExp;
     }
 
     public Sprite ClassIconPicker(int classID)
