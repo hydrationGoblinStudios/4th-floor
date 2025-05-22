@@ -128,7 +128,6 @@ public class BattleManager : MonoBehaviour
         EnemyBars.Add(EnemyBar);
         EnemyBars.Add(EnemyBar2);
         EnemyBars.Add(EnemyBar3);
-
     }
     void Start()
     {
@@ -812,6 +811,7 @@ public class BattleManager : MonoBehaviour
 
 
         RealCharacter1.currentExp += exp1;
+        expSliderP3.value = RealCharacter3.currentExp;
         if (RealCharacter3 != null)
         {
             RealCharacter3.currentExp += exp3;
@@ -819,6 +819,8 @@ public class BattleManager : MonoBehaviour
                 yield return new WaitForSeconds(1);
             }
         }
+        expSliderP2.value = RealCharacter2.currentExp;
+
         if (RealCharacter2 != null) {
             if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(2, RealCharacter2);
                 yield return new WaitForSeconds(1);
@@ -826,12 +828,15 @@ public class BattleManager : MonoBehaviour
             RealCharacter2.currentExp += exp2;
         }
         yield return new WaitForSeconds(1);
+        expSliderP1.value = RealCharacter1.currentExp;
+
         if (RealCharacter1.currentExp >= 100) 
         { 
             LevelUp(RealCharacter1);
             StatsBreakdown(1, RealCharacter1);
             yield return new WaitForSeconds(1);
         }
+        yield return new WaitForSeconds(1);
         gameManager.BossBattleID = 0;
         gameManager.storyBattle = false;
         gameManager.teamPostPreBattle.Clear();
@@ -1016,7 +1021,6 @@ public class BattleManager : MonoBehaviour
                 c++;
             }
         }
-
     }
     public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam, float DamageMultiplier = 1)
     {

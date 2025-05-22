@@ -38,7 +38,10 @@ public class CalendarioUI : MonoBehaviour
             c++;
         }
         yield return new WaitForSeconds(1);
+        if (gameObject.activeInHierarchy)
+        {
         StartCoroutine(UIUpdate());
+        }
         yield break;
     }
 }
