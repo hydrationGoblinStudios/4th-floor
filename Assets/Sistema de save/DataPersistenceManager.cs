@@ -77,22 +77,4 @@ public class DataPersistenceManager : MonoBehaviour
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistenceObjects = FindAllDataperistenceObjects();
     }
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            NewGame();
-            Debug.Log("newGame");
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SaveGame();
-            Debug.Log(gameData.money);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadGame();
-            Debug.Log(gameData.money);
-        }
-    }
 }

@@ -394,7 +394,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             DayResultsManager = FindObjectOfType<DayResultsManager>(true);
             DayResultsManager.Sleep();
             cui = FindObjectOfType<CalendarioUI>(true);
-            cui.UIUpdate();
+           StartCoroutine(cui.UIUpdate());
             wakeUpTalk = true;
             storyBattle = true;
             TimeIsDay = true;
@@ -591,7 +591,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
 
         }
     }
-
     IEnumerator WaitToLoad(float seconds = 0, string graphName = "")
     {
         if(seconds == 0)
@@ -604,5 +603,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         }
         NodeParser dm = FindObjectOfType<NodeParser>(true);
         dm.StartDialogue(graphs.Where(obj => obj.name == graphName).SingleOrDefault());
+        cui.gameManager = this;
+        StartCoroutine(cui.UIUpdate());
     }
 }

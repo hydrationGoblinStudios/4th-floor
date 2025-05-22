@@ -161,5 +161,7 @@ public class DayResultsManager : MonoBehaviour
             }
             c++;
         }
+        DataPersistenceManager dpm = FindAnyObjectByType<DataPersistenceManager>();
+        dpm.SaveGame();
     }
 }

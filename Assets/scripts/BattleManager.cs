@@ -88,12 +88,24 @@ public class BattleManager : MonoBehaviour
 
     [Header("LevelUp")]
 
-    public Animator unitLUPAnimator;
+    public Animator unitLUPAnimatorP1;
     public List<GameObject> LUPObjects;
-    public List<TextMeshProUGUI> levelUpUnitStats;
-    public TextMeshProUGUI levelText;
-    public TextMeshProUGUI LevelUpNameText;
-    public Slider expSlider;
+    public List<TextMeshProUGUI> levelUpUnitStatsP1;
+    public TextMeshProUGUI levelTextP1;
+    public TextMeshProUGUI LevelUpNameTextP1;
+    public Slider expSliderP1;
+
+    public Animator unitLUPAnimatorP2;
+    public List<TextMeshProUGUI> levelUpUnitStatsP2;
+    public TextMeshProUGUI levelTextP2;
+    public TextMeshProUGUI LevelUpNameTextP2;
+    public Slider expSliderP2;
+
+    public Animator unitLUPAnimatorP3;
+    public List<TextMeshProUGUI> levelUpUnitStatsP3;
+    public TextMeshProUGUI levelTextP3;
+    public TextMeshProUGUI LevelUpNameTextP3;
+    public Slider expSliderP3;
     [Header("HoverStats")]
     public GameObject hoverObject;
     public TextMeshProUGUI hoverName;
@@ -770,7 +782,23 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator PlayerWin()
     {
-        StatsBreakdown();
+        UnitBehavior RealCharacter1 = gameManager.team[0].GetComponent<UnitBehavior>();
+        UnitBehavior RealCharacter2 = null;
+        UnitBehavior RealCharacter3 = null;
+        if (gameManager.team.Count > 1)
+        {
+            RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
+            StatsBreakdown(2, RealCharacter2);
+
+        }
+        if (gameManager.team.Count > 2)
+        {
+            RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
+            StatsBreakdown(3, RealCharacter3);
+
+        }
+        StatsBreakdown(1, RealCharacter1);
+
         state = BattleState.PlayerWon;
         yield return new WaitForSeconds(1);
         gameManager.money += 50;
@@ -781,27 +809,29 @@ public class BattleManager : MonoBehaviour
         if (exp2 <= 0) { exp2 = 1; }
         int exp3 = (int)(30 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player3Behavior.expmarkplier);
         if (exp3 <= 0) { exp3 = 1; }
-        UnitBehavior RealCharacter2 = null;
-        UnitBehavior RealCharacter3 = null;
-        UnitBehavior RealCharacter1 = gameManager.team[0].GetComponent<UnitBehavior>();
-        if (gameManager.team.Count > 1)
-        {
-            RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
-        }
-        if (gameManager.team.Count > 2) {
-            RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>(); }
+
+
         RealCharacter1.currentExp += exp1;
-        if (RealCharacter2 != null) {
-            if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); }
-            RealCharacter2.currentExp += exp2;
-        }
         if (RealCharacter3 != null)
         {
             RealCharacter3.currentExp += exp3;
-            if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); }
+            if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); StatsBreakdown(3, RealCharacter3);
+                yield return new WaitForSeconds(1);
+            }
+        }
+        if (RealCharacter2 != null) {
+            if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(2, RealCharacter2);
+                yield return new WaitForSeconds(1);
+            }
+            RealCharacter2.currentExp += exp2;
         }
         yield return new WaitForSeconds(1);
-        if (RealCharacter1.currentExp >= 100) { LevelUp(RealCharacter1); }
+        if (RealCharacter1.currentExp >= 100) 
+        { 
+            LevelUp(RealCharacter1);
+            StatsBreakdown(1, RealCharacter1);
+            yield return new WaitForSeconds(1);
+        }
         gameManager.BossBattleID = 0;
         gameManager.storyBattle = false;
         gameManager.teamPostPreBattle.Clear();
@@ -1140,22 +1170,67 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    private void StatsBreakdown()
+    private void StatsBreakdown(int Unit1, UnitBehavior displayedUB)
     {
+        switch (Unit1) 
+       {
+            case 1: 
+        
         LUPObjects[0].SetActive(true);
-        levelUpUnitStats[0].text = playerTeam[1].SkillManager.maxhp.ToString();
-        levelUpUnitStats[1].text = playerTeam[1].SkillManager.str.ToString();
-        levelUpUnitStats[2].text = playerTeam[1].SkillManager.mag.ToString();
-        levelUpUnitStats[3].text = playerTeam[1].SkillManager.dex.ToString();
-        levelUpUnitStats[4].text = playerTeam[1].SkillManager.speed.ToString();
-        levelUpUnitStats[5].text = playerTeam[1].SkillManager.def.ToString();
-        levelUpUnitStats[6].text = playerTeam[1].SkillManager.mdef.ToString();
-        levelUpUnitStats[7].text = playerTeam[1].SkillManager.luck.ToString();
-        LevelUpNameText.text = playerTeam[1].UnitName;
-        levelText.text = $"lvl: {playerTeam[1].currentLevel.ToString()}";
-        unitLUPAnimator.runtimeAnimatorController = animators[1].runtimeAnimatorController;
-        expSlider.value = playerTeam[1].currentExp;
+
+        levelUpUnitStatsP1[0].text = displayedUB.maxhp.ToString();
+        levelUpUnitStatsP1[1].text = displayedUB.str.ToString();
+        levelUpUnitStatsP1[2].text = displayedUB.mag.ToString();    
+        levelUpUnitStatsP1[3].text = displayedUB.dex.ToString();
+        levelUpUnitStatsP1[4].text = displayedUB.speed.ToString();
+        levelUpUnitStatsP1[5].text = displayedUB.def.ToString();
+        levelUpUnitStatsP1[6].text = displayedUB.mdef.ToString();
+        levelUpUnitStatsP1[7].text = displayedUB.luck.ToString();
+        LevelUpNameTextP1.text = displayedUB.UnitName;
+        levelTextP1.text = $"lvl: {displayedUB.currentLevel.ToString()}";
+        unitLUPAnimatorP1.runtimeAnimatorController = animators[0].runtimeAnimatorController;
+        expSliderP1.value = displayedUB.currentExp;
+                break;
+            case 2:
+                if (gameManager.team.Count >= 2)
+        {
+            LUPObjects[1].SetActive(true);
+
+            levelUpUnitStatsP2[0].text = displayedUB.maxhp.ToString();
+            levelUpUnitStatsP2[1].text = displayedUB.str.ToString();
+            levelUpUnitStatsP2[2].text = displayedUB.mag.ToString();
+            levelUpUnitStatsP2[3].text = displayedUB.dex.ToString();
+            levelUpUnitStatsP2[4].text = displayedUB.speed.ToString();
+            levelUpUnitStatsP2[5].text = displayedUB.def.ToString();
+            levelUpUnitStatsP2[6].text = displayedUB.mdef.ToString();
+            levelUpUnitStatsP2[7].text = displayedUB.luck.ToString();
+            LevelUpNameTextP2.text = displayedUB.UnitName;
+            levelTextP2.text = $"lvl: {displayedUB.currentLevel.ToString()}";
+            unitLUPAnimatorP2.runtimeAnimatorController = animators[1].runtimeAnimatorController;
+            expSliderP2.value = displayedUB.currentExp;
+        }
+                break;
+            case 3:
+                if (gameManager.team.Count >= 3)
+        {
+            LUPObjects[2].SetActive(true);
+
+            levelUpUnitStatsP3[0].text = displayedUB.maxhp.ToString();
+            levelUpUnitStatsP3[1].text = displayedUB.str.ToString();
+            levelUpUnitStatsP3[2].text = displayedUB.mag.ToString();
+            levelUpUnitStatsP3[3].text = displayedUB.dex.ToString();
+            levelUpUnitStatsP3[4].text = displayedUB.speed.ToString();
+            levelUpUnitStatsP3[5].text = displayedUB.def.ToString();
+            levelUpUnitStatsP3[6].text = displayedUB.mdef.ToString();
+            levelUpUnitStatsP3[7].text = displayedUB.luck.ToString();
+            LevelUpNameTextP3.text = displayedUB.UnitName;
+            levelTextP3.text = $"lvl: {displayedUB.currentLevel.ToString()}";
+            unitLUPAnimatorP3.runtimeAnimatorController = animators[2].runtimeAnimatorController;
+            expSliderP3.value = displayedUB.currentExp;
+        }break;
+        default:break;
     }
+}
 
     public Sprite ClassIconPicker(int classID)
     {

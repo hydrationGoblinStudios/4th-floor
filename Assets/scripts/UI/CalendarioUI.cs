@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class CalendarioUI : MonoBehaviour
 {
@@ -16,10 +17,11 @@ public class CalendarioUI : MonoBehaviour
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
-        UIUpdate();
+        StartCoroutine(UIUpdate());
     }
-    public void UIUpdate()
+    public IEnumerator UIUpdate()
     {
+        yield return new WaitForEndOfFrame();
         dinheiro.text = gameManager.money.ToString();
         if(gameManager.TimeIsDay)
         {
@@ -35,5 +37,8 @@ public class CalendarioUI : MonoBehaviour
             tmp.text = (gameManager.day + c).ToString();
             c++;
         }
+        yield return new WaitForSeconds(1);
+        StartCoroutine(UIUpdate());
+        yield break;
     }
 }
