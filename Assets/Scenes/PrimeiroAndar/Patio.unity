@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 106917905}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -4.01, y: 0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -361,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.16, y: -4.05}
+  m_AnchoredPosition: {x: 3.92, y: -3.7}
   m_SizeDelta: {x: 97.5101, y: 88.7058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183072350
@@ -1367,7 +1367,7 @@ Transform:
   m_GameObject: {fileID: 734010768}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8237407, y: -1.003597, z: 0}
+  m_LocalPosition: {x: -7.44, y: -2.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1842,6 +1842,7 @@ MonoBehaviour:
     Inventory: []
     KeyItems: []
     StoryFlags: []
+    unlockedMaps: []
     units: []
     unitData:
       classId: 0
@@ -2067,7 +2068,7 @@ Transform:
   m_GameObject: {fileID: 1174804489}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.039568342, y: -0.26258993, z: 0}
+  m_LocalPosition: {x: 0.19, y: -0.77, z: 0}
   m_LocalScale: {x: 0.7913669, y: 0.7913669, z: 0.7913669}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2584,7 +2585,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.78, y: 2.78, z: 2.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1539463036}
