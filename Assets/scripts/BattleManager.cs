@@ -782,19 +782,27 @@ public class BattleManager : MonoBehaviour
         {
             RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
             StatsBreakdown(2, RealCharacter2);
-
         }
         if (gameManager.team.Count > 2)
         {
             RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
             StatsBreakdown(3, RealCharacter3);
-
         }
         StatsBreakdown(1, RealCharacter1);
 
         state = BattleState.PlayerWon;
         yield return new WaitForSeconds(1);
         gameManager.money += 50;
+        expSliderP1.value = RealCharacter1.currentExp;
+        if (gameManager.team.Count > 1)
+        {
+            expSliderP2.value = RealCharacter2.currentExp;
+        }
+        if (gameManager.team.Count > 2)
+        {
+            expSliderP3.value = RealCharacter3.currentExp;
+        }
+
         yield return new WaitForSeconds(1);
         int exp1 = (int)(30 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
         if (exp1 <= 0) { exp1 = 1; }
@@ -805,7 +813,10 @@ public class BattleManager : MonoBehaviour
 
 
         RealCharacter1.currentExp += exp1;
-        expSliderP3.value = RealCharacter3.currentExp;
+        if (gameManager.team.Count > 2)
+        {
+            expSliderP3.value = RealCharacter3.currentExp;
+        }
         if (RealCharacter3 != null)
         {
             RealCharacter3.currentExp += exp3;
@@ -813,7 +824,10 @@ public class BattleManager : MonoBehaviour
                 yield return new WaitForSeconds(1);
             }
         }
-        expSliderP2.value = RealCharacter2.currentExp;
+        if (gameManager.team.Count > 1)
+        {
+            expSliderP2.value = RealCharacter2.currentExp;
+        }
 
         if (RealCharacter2 != null) {
             if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(2, RealCharacter2);
@@ -822,7 +836,6 @@ public class BattleManager : MonoBehaviour
             RealCharacter2.currentExp += exp2;
         }
         yield return new WaitForSeconds(1);
-        expSliderP1.value = RealCharacter1.currentExp;
 
         if (RealCharacter1.currentExp >= 100) 
         { 

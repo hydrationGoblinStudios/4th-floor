@@ -432,6 +432,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     NodeParser dm = FindObjectOfType<NodeParser>(true);
                     dm.StartDialogue(graphs.Where(obj => obj.name == "Gandios Dia 1").SingleOrDefault());
                     unlockedMaps.Add("Cantina");
+                    unlockedMaps.Add("Preparation1A");
                     wakeUpTalk = false;
                 }
                 if (day == 2 && wakeUpTalk)
@@ -603,7 +604,10 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         }
         NodeParser dm = FindObjectOfType<NodeParser>(true);
         dm.StartDialogue(graphs.Where(obj => obj.name == graphName).SingleOrDefault());
+        if(cui != null)
+        {
         cui.gameManager = this;
         StartCoroutine(cui.UIUpdate());
+        }
     }
 }
