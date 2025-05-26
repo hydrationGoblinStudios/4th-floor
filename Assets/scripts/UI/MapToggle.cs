@@ -13,6 +13,8 @@ public class MapToggle : MonoBehaviour
         {
         invert.Clear();
         invert.Add(FindObjectOfType<SceneInteractables>(true).gameObject);
+            ConfigToggle CT = FindObjectOfType<ConfigToggle>(true);
+            CT.activatable = !CT.activatable;
             InventoryManager IM = FindObjectOfType<InventoryManager>(true); 
             IM.Activatable = !IM.Activatable;
             gameObject.SetActive(!gameObject.activeInHierarchy);

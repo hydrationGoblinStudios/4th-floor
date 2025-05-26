@@ -56,12 +56,14 @@ public class InventoryManager : MonoBehaviour
     {
         if (FindObjectOfType<KeyItemDrawer>().activated)
         {
-            FindObjectOfType<KeyItemDrawer>().Amongus();
+            FindObjectOfType<KeyItemDrawer>().Draw();
         }
         if (SceneInteractable == null)
         {
         SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
         }
+        ConfigToggle CT = FindObjectOfType<ConfigToggle>(true);
+        CT.activatable = !CT.activatable;
         if (Activatable)
         {
             foreach (GameObject go in new List<GameObject>{ SceneInteractable,gameObject,calendario})

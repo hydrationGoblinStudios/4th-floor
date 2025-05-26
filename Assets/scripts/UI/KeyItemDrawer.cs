@@ -15,7 +15,7 @@ public class KeyItemDrawer : MonoBehaviour
         inventoryManager = FindObjectOfType<InventoryManager>(true);
         gameManager = FindObjectOfType<GameManager>(true);
     }
-    public void Amongus()
+    public void Draw()
     {
         if (activated)
         {
