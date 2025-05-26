@@ -1908,6 +1908,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5c7588fb002a87e4b96a3c9482d828dd, type: 3}
   - {fileID: 8300000, guid: d37d485d8de508241b66bee126b17020, type: 3}
   - {fileID: 8300000, guid: 90c430f737d2d014da905f64222790c7, type: 3}
+  fadeOutTime: 25
+  fadeInTime: 0.2
 --- !u!82 &1744728911
 AudioSource:
   m_ObjectHideFlags: 0
