@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1832, y: 280}
+  position: {x: 1960, y: 280}
   ports:
     keys:
     - entry
@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Name: Scene
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1960, y: 280}
+  position: {x: 2168, y: 280}
   ports:
     keys:
     - entry

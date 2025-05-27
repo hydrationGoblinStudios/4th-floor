@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 216, y: -360}
+  position: {x: 280, y: -360}
   ports:
     keys:
     - entry
@@ -1287,7 +1287,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: 7957209648305956757}
         reroutePoints: []
       _direction: 0
@@ -1752,7 +1752,10 @@ MonoBehaviour:
       _node: {fileID: 3994782108569350762}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 4249916330416136788}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -1761,10 +1764,7 @@ MonoBehaviour:
       _node: {fileID: 3994782108569350762}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 4249916330416136788}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -1793,8 +1793,8 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: '?'
-  dialogue: 
-  option2: Lembrar meu nome
+  dialogue: Lembrar meu nome
+  option2: 
   option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
@@ -1906,7 +1906,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: 3994782108569350762}
         reroutePoints: []
       _direction: 0
@@ -2295,7 +2295,10 @@ MonoBehaviour:
       _node: {fileID: 7957209648305956757}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 2327775003188535121}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -2304,10 +2307,7 @@ MonoBehaviour:
       _node: {fileID: 7957209648305956757}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 2327775003188535121}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -2336,8 +2336,8 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: '?'
-  dialogue: 
-  option2: "Lembrar onde est\xE1"
+  dialogue: "Lembrar onde est\xE1"
+  option2: 
   option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
