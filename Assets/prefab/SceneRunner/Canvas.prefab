@@ -26654,6 +26654,7 @@ MonoBehaviour:
   - {fileID: 7631611099256901391, guid: 747de2c9004befc45bd844711e77f941, type: 3}
   - {fileID: 7631611099256901391, guid: b8c2161e6162ead4ea861cb80155bcaa, type: 3}
   - {fileID: 7631611099256901391, guid: 8b05f3aeecd8bfb4f8e3da468a84b9b0, type: 3}
+  - {fileID: 7631611099256901391, guid: d0e96196278de0c43b601f199240c2c9, type: 3}
   ClassChangeObject: {fileID: 8626097234946098502}
 --- !u!1 &7863391906144820613
 GameObject:

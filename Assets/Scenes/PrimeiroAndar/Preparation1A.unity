@@ -1082,6 +1082,7 @@ MonoBehaviour:
   - Cantina
   - Horta
   - Dispensa
+  - Patio
   graphs:
   - {fileID: 11400000, guid: 3dc738677bd3db647a05f4ed683b05d3, type: 2}
   - {fileID: 11400000, guid: be1fb045bf1c6d74785e2195e4f438b2, type: 2}
@@ -2721,6 +2722,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3497219750921709488, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: DragAndDroppables.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497219750921709488, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: DragAndDroppables.Array.data[7]
+      value: 
+      objectReference: {fileID: 7631611099256901391, guid: d0e96196278de0c43b601f199240c2c9, type: 3}
     - target: {fileID: 4573834579158073405, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

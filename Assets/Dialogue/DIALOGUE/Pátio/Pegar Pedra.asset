@@ -47,6 +47,7 @@ MonoBehaviour:
   exit: 0
   item: {fileID: 11400000, guid: 39b6aeffe0c2957438535ef734080044, type: 2}
   key: 1
+  flag: 0
 --- !u!114 &-1428969328377112396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +164,7 @@ MonoBehaviour:
   - {fileID: -4171832251240867651}
   - {fileID: 2205232115490373587}
   - {fileID: 2939879096273127849}
+  - {fileID: 2320847039722411211}
   current: {fileID: 0}
 --- !u!114 &163858968365390516
 MonoBehaviour:
@@ -194,6 +196,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &2205232115490373587
 MonoBehaviour:
@@ -232,7 +235,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 2939879096273127849}
+        node: {fileID: 2320847039722411211}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -242,6 +245,54 @@ MonoBehaviour:
   exit: 0
   buttonAssigner: Pedra Interactable
   dialogueGraph: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
+--- !u!114 &2320847039722411211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d326aaea4db3f184b83ff587b7767339, type: 3}
+  m_Name: Item
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1416, y: -296}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 2320847039722411211}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 2205232115490373587}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 2320847039722411211}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2939879096273127849}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  item: {fileID: 11400000, guid: 10c89949753b76047903d6e3fecd413a, type: 2}
+  key: 0
+  flag: 1
 --- !u!114 &2939879096273127849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +318,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 2205232115490373587}
+        node: {fileID: 2320847039722411211}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
