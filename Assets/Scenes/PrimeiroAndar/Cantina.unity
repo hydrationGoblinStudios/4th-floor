@@ -1384,6 +1384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  semArma: {fileID: 11400000, guid: 1372dd0c50b775a45ab29ffe75500e03, type: 2}
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0
