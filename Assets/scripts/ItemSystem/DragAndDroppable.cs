@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using System.Collections;
+using UnityEngine.UI;
 
 public class DragAndDroppable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -26,6 +28,7 @@ public class DragAndDroppable : MonoBehaviour, IPointerEnterHandler, IPointerExi
             interactions.Add(dialogueGraphTarget[c], dialogueGraphs[c]);
             c++;
         }
+        nodeParser.banText = true;
         isDragging = true;
     }
     private void Update()
@@ -39,16 +42,17 @@ public class DragAndDroppable : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             if (nodeParser.hoverGraph != null  && interactions.ContainsKey(nodeParser.hoverGraph))
             {
+                nodeParser.banText = false;
             nodeParser.StartDialogue(interactions[nodeParser.hoverGraph]);
             }
             isDragging = false;
-            Destroy(gameObject);
+            StartCoroutine(TurnOnNodeParser());
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             isDragging = false;
-            Destroy(gameObject);
-        }
+            StartCoroutine(TurnOnNodeParser());
+                }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -59,5 +63,13 @@ public class DragAndDroppable : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void OnPointerExit(PointerEventData eventData)
     {
         //mouseOver = false;
+    }
+
+    IEnumerator TurnOnNodeParser()
+    {
+        gameObject.GetComponent<Image>().color = new(0, 0, 0, 0);
+        yield return new WaitForSeconds((float)0.2);
+        nodeParser.banText = false;
+        Destroy(gameObject);
     }
 }

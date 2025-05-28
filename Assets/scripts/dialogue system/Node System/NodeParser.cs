@@ -23,6 +23,7 @@ public class NodeParser : MonoBehaviour
     public GameObject[] options;
     public GameObject[] fakeOptions;
 
+    public bool banText = false;
     public bool welcometext;
 
     private void Start()
@@ -187,21 +188,24 @@ public class NodeParser : MonoBehaviour
     }
     public void StartDialogue(DialogueGraph NewGraph)
     {
-        /* InventoryManager IM = FindObjectOfType<InventoryManager>(true);
-         IM.Activatable = !IM.Activatable;
-         MapToggle MT = FindObjectOfType<MapToggle>(true);
-         MT.activatable = !MT.activatable;*/
-        hoverGraph = null;
-        graph = NewGraph;
-        foreach (BaseNode b in graph.nodes)
+        if (!banText)
         {
-            if (b.GetString() == "Start")
-            {
-                graph.current = b;
-                break;
+                /* InventoryManager IM = FindObjectOfType<InventoryManager>(true);
+                 IM.Activatable = !IM.Activatable;
+                 MapToggle MT = FindObjectOfType<MapToggle>(true);
+                 MT.activatable = !MT.activatable;*/
+                hoverGraph = null;
+                graph = NewGraph;
+                foreach (BaseNode b in graph.nodes)
+                {
+                    if (b.GetString() == "Start")
+                    {
+                        graph.current = b;
+                        break;
+                    }
+                }
+                _parser = StartCoroutine(ParseNode());
             }
         }
-        _parser = StartCoroutine(ParseNode());
-    }
 
 }
