@@ -120,6 +120,11 @@ public class InventoryManager : MonoBehaviour
     public void InstantiateKeyItem(Item item, bool toggle = true)
     {
         if (toggle) { Toggle(); }
+        KeyItemDrawer kid = GameObject.FindObjectOfType<KeyItemDrawer>();
+        if(kid != null && kid.activated)
+        {
+            kid.Draw();
+        }
         Instantiate(DragAndDroppables.Where(obj => obj.name == item.name).SingleOrDefault(), gameObject.GetComponentInParent<Canvas>().transform);
     }
     public void Select(UnitBehavior unitBehavior)
