@@ -71,11 +71,11 @@ MonoBehaviour:
   power: 0
   str: 10
   mag: 9
-  dex: 9
-  def: 8
-  mdef: 8
+  dex: 10
+  def: 6
+  mdef: 6
   defenses: 
-  luck: 12
+  luck: 14
   speed: 11
   skills:
   - "Persist\xEAncia"
@@ -100,7 +100,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 4b0000003200000032000000320000003200000032000000320000003c000000
+  growths: 4b000000320000003200000032000000320000002d0000002d0000003c000000
   classSkill: 
   personalSkill: 
   baseSkill: 

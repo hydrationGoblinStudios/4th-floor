@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: Adrian
+  m_Name: Hiro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,11 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6de528c2771f64591434fba436f0ee, type: 3}
+  m_Script: {fileID: 11500000, guid: bd777b7274bf9b842aae7763ec4c7977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classId: 103
-  Weapon: {fileID: 11400000, guid: 4b8bfbb8f6f8b3f4c816cfa15fed312b, type: 2}
+  classId: 107
+  Weapon: {fileID: 11400000, guid: 4786e2f717a2087408fb237d93d698c3, type: 2}
   UsableWeaponTypes: 
   Accesory: {fileID: 0}
   battleManager: {fileID: 0}
@@ -54,44 +54,42 @@ MonoBehaviour:
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: Adrian
+  UnitName: Hiro
   currentLevel: 1
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
-  ClassID: 67000000
+  ClassID: 
   ClassLevel: 
   ClassLearningSerializable:
-    thisSeriazableDictionaryItem:
-    - key: 103
-      value: 5
-    - key: 102
-      value: 5
+    thisSeriazableDictionaryItem: []
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 130
-  hp: 130
+  maxhp: 80
+  hp: 80
   power: 0
-  str: 12
-  mag: 7
-  dex: 8
+  str: 5
+  mag: 13
+  dex: 10
   def: 4
-  mdef: 9
+  mdef: 8
   defenses: 
-  luck: 8
-  speed: 9
+  luck: 13
+  speed: 10
   skills:
-  - "Presen\xE7a Inabal\xE1vel"
-  - "Lutador Vers\xE1til"
+  - "Concentra\xE7\xE3o de Feiticeiro"
+  - Encantamento
   skillInventory:
-  - "Presen\xE7a Inabal\xE1vel"
-  - "Lutador Vers\xE1til"
-  equipedSoul: Revigoramento
-  equippedSoulIsAttack: 0
+  - "Concentra\xE7\xE3o de Feiticeiro"
+  - Encantamento
+  equipedSoul: Bola de Fogo
+  equippedSoulIsAttack: 1
   soulInventory:
-  - Golpe Poderoso
-  - Golpe Atordoante
+  - Bola de Fogo
+  - Trovoada
+  - Disparo de Gelo
+  - "Restaura\xE7\xE3o Espiritual"
   soul: 0
   maxsoul: 100
   soulgain: 0
@@ -107,7 +105,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 550000003c00000019000000320000002d00000037000000230000001e000000
+  growths: 370000001e000000410000002d00000037000000230000003200000032000000
   classSkill: 
   personalSkill: 
   baseSkill: 

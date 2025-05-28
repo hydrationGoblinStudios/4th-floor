@@ -69,11 +69,11 @@ MonoBehaviour:
   maxhp: 90
   hp: 90
   power: 0
-  str: 8
-  mag: 7
+  str: 9
+  mag: 8
   dex: 12
-  def: 7
-  mdef: 7
+  def: 5
+  mdef: 6
   defenses: 
   luck: 10
   speed: 14
@@ -83,7 +83,7 @@ MonoBehaviour:
   skillInventory:
   - Dano Ascendente
   - Foco
-  equipedSoul: Trovoada
+  equipedSoul: Tiro certeiro
   equippedSoulIsAttack: 1
   soulInventory:
   - Tiro certeiro
@@ -103,7 +103,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 41000000280000002300000041000000500000001e0000001e00000037000000
+  growths: 4100000028000000230000004100000050000000230000002300000037000000
   classSkill: 
   personalSkill: 
   baseSkill: 
