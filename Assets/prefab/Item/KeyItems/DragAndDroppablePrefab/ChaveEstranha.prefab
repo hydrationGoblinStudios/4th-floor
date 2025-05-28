@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8952692957907384358}
   - component: {fileID: 1645214775516689556}
   - component: {fileID: 3387756151629906763}
-  - component: {fileID: -8636220633315032727}
+  - component: {fileID: 9218728865184602513}
   m_Layer: 0
-  m_Name: ChaveVelha
+  m_Name: ChaveEstranha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6378122792513323595
@@ -55,9 +55,9 @@ MonoBehaviour:
   MainCamera: {fileID: 0}
   canvas: {fileID: 0}
   dialogueGraphTarget:
-  - {fileID: 11400000, guid: b521aa23cfbb21a46a008c09a2b26bf9, type: 2}
+  - {fileID: 11400000, guid: 76442b6ed916c204996a8d339b45bd61, type: 2}
   dialogueGraphs:
-  - {fileID: 11400000, guid: 5c9faab7042ec0a4fac0b1f357de0b74, type: 2}
+  - {fileID: 11400000, guid: d193345852411244b848b2414de3dac2, type: 2}
   nodeParser: {fileID: 0}
 --- !u!58 &8952692957907384358
 CircleCollider2D:
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8d1b9d6fd52826c469bd9a60088fc35b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 029041afa47a79942be43cdaa1c27065, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!223 &-8636220633315032727
+--- !u!223 &9218728865184602513
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

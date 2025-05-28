@@ -55,9 +55,9 @@ MonoBehaviour:
   MainCamera: {fileID: 0}
   canvas: {fileID: 0}
   dialogueGraphTarget:
-  - {fileID: 11400000, guid: 78764de7fb68946478f4eeb5f1383728, type: 2}
+  - {fileID: 11400000, guid: 3743a6b42d93b67468dfcaedbdc04ca2, type: 2}
   dialogueGraphs:
-  - {fileID: 11400000, guid: 11b618c1c436ddc47a2278604abc02ce, type: 2}
+  - {fileID: 11400000, guid: 1db2ea9064552684c98901212514891d, type: 2}
   nodeParser: {fileID: 0}
 --- !u!58 &8952692957907384358
 CircleCollider2D:
