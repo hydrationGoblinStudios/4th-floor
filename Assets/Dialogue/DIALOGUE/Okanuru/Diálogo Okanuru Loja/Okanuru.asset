@@ -1,38 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8336017428514782676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5ad222eb59626b438dafde7257101da, type: 3}
-  m_Name: Stop N Shop
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 1720, y: -8}
-  ports:
-    keys:
-    - entry
-    values:
-    - _fieldName: entry
-      _node: {fileID: -8336017428514782676}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 7731724005296783463}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  spriteRenderer: {fileID: 0}
-  SceneInteractable: {fileID: 0}
-  entry: 0
 --- !u!114 &-6823934211518331773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +199,6 @@ MonoBehaviour:
   - {fileID: 2064937479228193510}
   - {fileID: 932916334851324136}
   - {fileID: 811716752313037925}
-  - {fileID: -8336017428514782676}
   current: {fileID: 0}
 --- !u!114 &811716752313037925
 MonoBehaviour:
@@ -720,11 +686,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-<<<<<<< HEAD
   position: {x: 1480, y: -200}
-=======
-  position: {x: 1480, y: -56}
->>>>>>> e1513f65115302d589d44f76d93283c5a7b79e5e
   ports:
     keys:
     - entry
@@ -761,10 +723,7 @@ MonoBehaviour:
       _node: {fileID: 7731724005296783463}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -8336017428514782676}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
