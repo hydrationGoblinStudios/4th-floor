@@ -262,7 +262,10 @@ MonoBehaviour:
       _node: {fileID: -5645795804256512923}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -5046983874671082889}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -272,6 +275,38 @@ MonoBehaviour:
   speaker: Ramion
   dialogue: "N\xE3o tem mais nada aqui"
   sprite: {fileID: 0}
+--- !u!114 &-5046983874671082889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f247d9b14698438e2d74800ab78da, type: 3}
+  m_Name: Stop
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 458.5, y: -322.5}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5046983874671082889}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -5645795804256512923}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  spriteRenderer: {fileID: 0}
+  entry: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +336,8 @@ MonoBehaviour:
   - {fileID: 6476727464849521396}
   - {fileID: -9193697023588891615}
   - {fileID: -5645795804256512923}
-  current: {fileID: 0}
+  - {fileID: -5046983874671082889}
+  current: {fileID: -5645795804256512923}
 --- !u!114 &442086347688451712
 MonoBehaviour:
   m_ObjectHideFlags: 0
