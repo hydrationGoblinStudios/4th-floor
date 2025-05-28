@@ -24,6 +24,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject UnitSelectButton;
     public UnitBehavior selectedUnit;
     public Sprite[] sprites;
+    public Sprite[] keyItemSprites;
     public Sprite[] skillIcons;
     public GameObject[] skillIconsObjects;
     public GameObject soulIconObject;

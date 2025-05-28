@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -39,7 +41,7 @@ public class KeyItemDrawer : MonoBehaviour
                 tr.gameObject.name = gameManager.KeyItems[c].ItemName;
                 int a = c;
                 tr.gameObject.GetComponent<Button>().onClick.AddListener(() => inventoryManager.InstantiateKeyItem(gameManager.KeyItems[a], false));
-                tr.gameObject.GetComponent<Image>().sprite = inventoryManager.sprites[0];
+                tr.gameObject.GetComponent<Image>().sprite = inventoryManager.keyItemSprites.Where(obj => obj.name == gameManager.KeyItems[a].name).SingleOrDefault();
                     tr.gameObject.GetComponent<Image>().color = new() { r = 255, g = 255, b=255,a = 255 };
                 c++;
                 }

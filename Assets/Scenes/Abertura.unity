@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  semArma: {fileID: 0}
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0
@@ -714,7 +715,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 479f2e578106c4f4a8a53fec21f7d083, type: 2}
   - {fileID: 11400000, guid: bdfa898425e16f94ebaad94f4668c257, type: 2}
   - {fileID: 11400000, guid: ee82f19b4d452de4993261f7c0595245, type: 2}
-  - {fileID: 11400000, guid: 7544b28066d178c41a7189b128521fea, type: 2}
+  - {fileID: 11400000, guid: 3bf68dd24265c724eae2094a274aed46, type: 2}
   DayResultsManager: {fileID: 0}
   cui: {fileID: 0}
   selectedUB4Activity: {fileID: 0}

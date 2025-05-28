@@ -26467,6 +26467,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d518eef8a7850814ca2cae618d459a4d, type: 3}
   - {fileID: 21300000, guid: 91bde4881171df84aa78d23c29c0a10c, type: 3}
   - {fileID: 21300000, guid: d98786fa8f3fdf94cb3c2a81436911a0, type: 3}
+  keyItemSprites:
+  - {fileID: 21300000, guid: 583969acf4f8cbd4cb994eaefe42e25b, type: 3}
+  - {fileID: 21300000, guid: 7eafdff05dfdff54f92653b10832ffb9, type: 3}
+  - {fileID: 21300000, guid: 75f988fc6db59dd44a640238c62edab4, type: 3}
+  - {fileID: 21300000, guid: c84bc753f08615f409f647a513daec84, type: 3}
+  - {fileID: 21300000, guid: 0bfc38281fe55cb4ab6cb829972250f1, type: 3}
+  - {fileID: 21300000, guid: 40f4975e249ae7f47bfb44d69af35ada, type: 3}
+  - {fileID: 21300000, guid: 82be1e3be45c30d4a84089b24d55b411, type: 3}
+  - {fileID: 21300000, guid: 467ffc3618b55aa408a9208933d73f6b, type: 3}
+  - {fileID: 21300000, guid: 0974cced0cd097542bf5327481fa520d, type: 3}
+  - {fileID: 21300000, guid: 1be17275b36075740a8bf6015a962f1a, type: 3}
+  - {fileID: 21300000, guid: 9b3f23633a18b3648a8e2a77c11bc569, type: 3}
+  - {fileID: 21300000, guid: 651467c23953f84438d7a69f59b0fe4c, type: 3}
+  - {fileID: 21300000, guid: c658c824cc9d692499acc35236d1303a, type: 3}
+  - {fileID: 21300000, guid: 22e94d2ec77b426448c5f32fa6c585a8, type: 3}
   skillIcons:
   - {fileID: 21300000, guid: 88128c7e952cd7e4f8749015cde9092c, type: 3}
   - {fileID: 21300000, guid: 1affa752379200f4db673db4588514f4, type: 3}

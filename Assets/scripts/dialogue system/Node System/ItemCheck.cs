@@ -18,6 +18,7 @@ public class ItemCheck : BaseNode
         int hasItem = 0;
         foreach(Item item in Manager.KeyItems)
         {
+            Debug.Log($"item:{item.ItemName} id:{item.id}");
             if(item.id == id)
             {
                 hasItem = 1;
@@ -25,6 +26,7 @@ public class ItemCheck : BaseNode
         }
         foreach (Item item in Manager.StoryFlags)
         {
+            Debug.Log($"item:{item.name} id:{item.id}");
             if (item.id == id)
             {
                 hasItem = 1;

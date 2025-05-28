@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 888, y: -360}
+  position: {x: 360, y: -344}
   ports:
     keys:
     - exit
@@ -233,7 +233,7 @@ MonoBehaviour:
   - {fileID: 932916334851324136}
   - {fileID: 811716752313037925}
   - {fileID: -8336017428514782676}
-  current: {fileID: 0}
+  current: {fileID: 1026120560893938874}
 --- !u!114 &811716752313037925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1576, y: -360}
+  position: {x: 1336, y: -344}
   ports:
     keys:
     - entry
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1352, y: -360}
+  position: {x: 1112, y: -344}
   ports:
     keys:
     - entry
@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1256, y: -168}
+  position: {x: 1112, y: -152}
   ports:
     keys:
     - entry
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1480, y: -56}
+  position: {x: 1480, y: -72}
   ports:
     keys:
     - entry
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Name: Item Check
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1112, y: -360}
+  position: {x: 888, y: -344}
   ports:
     keys:
     - entry

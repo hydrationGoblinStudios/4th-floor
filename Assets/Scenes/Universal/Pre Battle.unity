@@ -1288,6 +1288,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &167167986
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1654,7 +1655,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.8745098}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2018,7 +2019,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.8745098}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2628,7 +2629,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.8745098}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4660,6 +4661,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &739572412
 GameObject:
   m_ObjectHideFlags: 0
@@ -5144,6 +5146,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &777889281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5586,6 +5589,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &795668195
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9175,6 +9179,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &1122592778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10789,6 +10794,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &1348444181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11247,6 +11253,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &1368399531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12265,6 +12272,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!1 &1518176659
 GameObject:
   m_ObjectHideFlags: 0
@@ -12473,6 +12481,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &1518176665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13063,6 +13072,7 @@ MonoBehaviour:
   HoverObject: {fileID: 0}
   texts: []
   inventoryManager: {fileID: 0}
+  activate: 0
 --- !u!61 &1587803036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15681,7 +15691,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.8745098}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}

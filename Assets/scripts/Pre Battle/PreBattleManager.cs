@@ -291,6 +291,7 @@ public class PreBattleManager : MonoBehaviour
                 else
                 {
                     b.transform.GetComponent<Image>().sprite = inventoryManager.playableMugShots[0];
+                    b.transform.GetComponent<Image>().color = new Color(0, 0, 0, 0);
                 }
                 c++;
             }
