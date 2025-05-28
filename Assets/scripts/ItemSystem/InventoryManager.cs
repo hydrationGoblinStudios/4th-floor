@@ -387,7 +387,10 @@ public class InventoryManager : MonoBehaviour
                 GameObject SkillButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
                 SkillButton.GetComponent<Button>().onClick.AddListener(() => EquipSkill(skill, skillSLot));
                 SkillButton.GetComponentInChildren<TextMeshProUGUI>().text = skill;
-                SkillButton.GetComponentInChildren<Image>().sprite = skillIcons.Where(obj => obj.name == skill).SingleOrDefault();
+                if (skillIcons.Where(obj => obj.name == skill).SingleOrDefault() != null)
+                {
+                    SkillButton.GetComponentInChildren<Image>().sprite = skillIcons.Where(obj => obj.name == skill).SingleOrDefault();
+                }
             }
         }
     }
@@ -403,7 +406,7 @@ public class InventoryManager : MonoBehaviour
             GameObject SkillButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
             SkillButton.GetComponent<Button>().onClick.AddListener(() => EquipSoul(soul));
             SkillButton.GetComponentInChildren<TextMeshProUGUI>().text = soul;
-            SkillButton.GetComponentInChildren<Image>().sprite = skillIcons.Where(obj => obj.name == soul).SingleOrDefault();
+            
         }
     }
     public void UpdateSkillName()
