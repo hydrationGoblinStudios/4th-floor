@@ -47,7 +47,7 @@ MonoBehaviour:
   exit: 0
   speaker: Hiro
   dialogue: "Ei, voc\xEA tamb\xE9m veio aqui pra falar com o pesquisador?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}
 --- !u!114 &-4718306551416954141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   dialogue: "Sim, no 3o andar do coliseu tem uma biblioteca que cont\xE9m alguns
     livros da hist\xF3ria desse pa\xEDs que n\xE3o s\xE3o encontrados em mais nenhum
     outro lugar. Espero ter algo l\xE1."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}
 --- !u!114 &-4510281700387093227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   speaker: 
   dialogue: 
   sprite: {fileID: 0}
-  recruit: {fileID: 0}
+  recruit: {fileID: 4445489306633608637, guid: 922febcbb33808d49ae264fb8c756c96, type: 3}
 --- !u!114 &-3199606219381756374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   speaker: Hiro
   dialogue: "Meu pai fazia pesquisas sobre a hist\xF3ria do pa\xEDs, mas ele percebeu
     que mal t\xEDnhamos informa\xE7\xF5es sobre alguns s\xE9culos atr\xE1s."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}
 --- !u!114 &-1864521784470941497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
   exit: 0
   speaker: Hiro
   dialogue: Eu estou estudo o passado esquecido deste reino.
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}
 --- !u!114 &-841268567894309013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,7 +643,7 @@ MonoBehaviour:
   dialogue: "Hmm, entendi. Meu nome \xE9 Hiro, de certa formas somos parecidos. Eu
     tamb\xE9m estou em busca de mem\xF3rias perdidas, mas no meu caso essas mem\xF3rias
     n\xE3o s\xE3o minhas. "
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}
 --- !u!114 &2047589166520088638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ MonoBehaviour:
     o evento onde as boas pessoas foram aben\xE7oadas e viraram os ascendidos, e
     os caras maus foram punidos virando os valentes. Mas n\xE3o se sabe nada sobre
     como era o pa\xEDs antes disso"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}
 --- !u!114 &3259039236840738967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
   speaker: Hiro
   dialogue: "Acho que eu realmente preciso de alguns aliados se eu quiser subir aqui
     no coliseu\u2026 Aceito sua proposta."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}
 --- !u!114 &4872579926579181229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,7 +823,7 @@ MonoBehaviour:
   speaker: Hiro
   dialogue: "Meu pai fazia pesquisas sobre a hist\xF3ria do pa\xEDs, mas ele percebeu
     que mal t\xEDnhamos informa\xE7\xF5es sobre alguns s\xE9culos atr\xE1s."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}
 --- !u!114 &7235717203714244613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,7 +874,7 @@ MonoBehaviour:
     o evento onde as boas pessoas foram aben\xE7oadas e viraram os ascendidos, e
     os caras maus foram punidos virando os valentes. Mas n\xE3o se sabe nada sobre
     como era o pa\xEDs antes disso"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}
 --- !u!114 &9109322427030862134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,4 +924,4 @@ MonoBehaviour:
   dialogue: "Sim, no 3o andar do coliseu tem uma biblioteca que cont\xE9m alguns
     livros da hist\xF3ria desse pa\xEDs que n\xE3o s\xE3o encontrados em mais nenhum
     outro lugar. Espero ter algo l\xE1."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6c899a331236bdb4588d2396cdc2931c, type: 3}

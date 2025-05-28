@@ -126,7 +126,7 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: 
-  dialogue: "Obteve <color = blue> anota\xE7\xF5es sobre criminoso"
+  dialogue: "Obteve <color=blue> anota\xE7\xF5es sobre criminoso"
   sprite: {fileID: 0}
 --- !u!114 &-318190349751811837
 MonoBehaviour:

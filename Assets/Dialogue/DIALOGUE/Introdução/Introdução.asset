@@ -1118,7 +1118,7 @@ MonoBehaviour:
   - {fileID: -8277143024172324172}
   - {fileID: 3783403016201901881}
   - {fileID: 4093277590245541137}
-  current: {fileID: 2783573697433305663}
+  current: {fileID: -1155375657586869731}
 --- !u!114 &598865352638258011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,9 +1411,6 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 2783573697433305663}
-        reroutePoints: []
-      - fieldName: entry
         node: {fileID: 2451232735364844148}
         reroutePoints: []
       _direction: 1
@@ -1473,9 +1470,6 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
-        node: {fileID: 2555124234810348273}
-        reroutePoints: []
       - fieldName: exit
         node: {fileID: 2555124234810348273}
         reroutePoints: []
