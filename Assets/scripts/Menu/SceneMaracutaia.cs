@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneMaracutaia : MonoBehaviour
 {
     public GameManager gameManager;
-
+    public DialogueGraph semArma;
     public void PlayGame()
     {
         SceneManager.LoadScene("Abertura");
@@ -30,6 +31,11 @@ public class SceneMaracutaia : MonoBehaviour
         if (gameManager != null && gameManager.team[0].GetComponent<UnitBehavior>().Weapon.ItemName != "" && gameManager.storyBattle == true)
         {
             SceneManager.LoadScene(scene);
+        }
+        else
+        {
+            NodeParser dm = FindObjectOfType<NodeParser>(true);
+            dm.StartDialogue(semArma);
         }
     }
     public void QuitGame()

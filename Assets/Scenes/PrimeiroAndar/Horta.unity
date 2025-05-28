@@ -1115,11 +1115,11 @@ MonoBehaviour:
   vazio: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
   items:
   - {fileID: 11400000, guid: 52cd729b9fa9f9645ae657a7cbea5d34, type: 2}
-  - {fileID: 11400000, guid: cc90fc18a2cfc4c4d96e136772f8846a, type: 2}
+  - {fileID: 11400000, guid: dd0905b48e6164c4b8de4fc16612790b, type: 2}
   - {fileID: 11400000, guid: 262a94c568a296245a32a3108d825ae6, type: 2}
-  - {fileID: 11400000, guid: 3f0566dc90b7688498bcfcbf97562889, type: 2}
+  - {fileID: 11400000, guid: 3ef4e9bd13c3c1b44a05db674214ee07, type: 2}
   - {fileID: 11400000, guid: b6f8a0c53fbfcd045b063955bb3195a0, type: 2}
-  - {fileID: 11400000, guid: 261a039b1c4bdf541b738c16239e2629, type: 2}
+  - {fileID: 11400000, guid: 2901cd7f62c8e7648a0e6eaa4bd8fafd, type: 2}
   interactables:
   - {fileID: 1243683085}
   - {fileID: 932101145}
@@ -1180,6 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayInventory: 1
+  UIOccupied: 0
 --- !u!4 &662974036
 Transform:
   m_ObjectHideFlags: 0
@@ -1759,6 +1760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9c15f5ed25db946ab024c9c3c3458d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0
@@ -1866,6 +1868,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: AlvorecerLunar.json
+  gameData:
+    money: 0
+    day: 0
+    storyBattle: 0
+    Inventory: []
+    KeyItems: []
+    StoryFlags: []
+    unlockedMaps: []
+    units: []
+    unitData:
+      classId: 0
+      Weapon: {fileID: 0}
+      Accesory: {fileID: 0}
+      UsableWeaponTypes: 
+      UnitName: 
+      currentLevel: 0
+      expmarkplier: 0
+      currentRank: 0
+      currentExp: 0
+      ClassID: 
+      ClassLevel: 
+      ClassLearningSerializable:
+        thisSeriazableDictionaryItem: []
+      hit: 0
+      avoid: 0
+      crit: 0
+      maxhp: 0
+      hp: 0
+      power: 0
+      str: 0
+      mag: 0
+      dex: 0
+      def: 0
+      mdef: 0
+      defenses: 
+      luck: 0
+      speed: 0
+      skills: []
+      skillInventory: []
+      equipedSoul: 
+      equippedSoulIsAttack: 0
+      soulInventory: []
+      soul: 0
+      maxsoul: 0
+      soulgain: 0
+      damagereduction: 0
+      lifesteal: 0
+      armorpen: 0
+      magicpen: 0
+      cooking: 0
+      growths: 
+      classSkill: 
+      personalSkill: 
+      baseSkill: 
+      skill1: 
+      skill2: 
+      skill3: 
+      baseSoul: 
+      soul1: 
+      soul2: 
+      soul3: 
+      description: 
   ClassList:
   - {fileID: 4445489306633608637, guid: 2184a4f2c538e214a84f1f82c332c545, type: 3}
   - {fileID: 4445489306633608637, guid: efaa79524367fcf46bdf5cec92c88e49, type: 3}

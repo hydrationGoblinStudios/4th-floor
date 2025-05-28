@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 662974035}
   m_Layer: 0
   m_Name: ScreenManager
-  m_TagString: Untagged
+  m_TagString: Screen Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1079,6 +1079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  semArma: {fileID: 0}
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0
@@ -1322,6 +1323,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: AlvorecerLunar.json
+  gameData:
+    money: 0
+    day: 0
+    storyBattle: 0
+    Inventory: []
+    KeyItems: []
+    StoryFlags: []
+    unlockedMaps: []
+    units: []
+    unitData:
+      classId: 0
+      Weapon: {fileID: 0}
+      Accesory: {fileID: 0}
+      UsableWeaponTypes: 
+      UnitName: 
+      currentLevel: 0
+      expmarkplier: 0
+      currentRank: 0
+      currentExp: 0
+      ClassID: 
+      ClassLevel: 
+      ClassLearningSerializable:
+        thisSeriazableDictionaryItem: []
+      hit: 0
+      avoid: 0
+      crit: 0
+      maxhp: 0
+      hp: 0
+      power: 0
+      str: 0
+      mag: 0
+      dex: 0
+      def: 0
+      mdef: 0
+      defenses: 
+      luck: 0
+      speed: 0
+      skills: []
+      skillInventory: []
+      equipedSoul: 
+      equippedSoulIsAttack: 0
+      soulInventory: []
+      soul: 0
+      maxsoul: 0
+      soulgain: 0
+      damagereduction: 0
+      lifesteal: 0
+      armorpen: 0
+      magicpen: 0
+      cooking: 0
+      growths: 
+      classSkill: 
+      personalSkill: 
+      baseSkill: 
+      skill1: 
+      skill2: 
+      skill3: 
+      baseSoul: 
+      soul1: 
+      soul2: 
+      soul3: 
+      description: 
   ClassList:
   - {fileID: 4445489306633608637, guid: 2184a4f2c538e214a84f1f82c332c545, type: 3}
   - {fileID: 4445489306633608637, guid: efaa79524367fcf46bdf5cec92c88e49, type: 3}
