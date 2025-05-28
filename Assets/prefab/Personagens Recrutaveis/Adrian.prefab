@@ -41,11 +41,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6de528c2771f64591434fba436f0ee, type: 3}
+  m_Script: {fileID: 11500000, guid: a1214384a1164a240ad3a7593228e20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   classId: 103
   Weapon: {fileID: 11400000, guid: 4b8bfbb8f6f8b3f4c816cfa15fed312b, type: 2}
+=======
+  classId: 102
+  Weapon: {fileID: 11400000, guid: 4859b3cd6f48cc64f8c498ae349056b8, type: 2}
+>>>>>>> parent of 14458cd (mergendo)
   UsableWeaponTypes: 
   Accesory: {fileID: 0}
   battleManager: {fileID: 0}
@@ -63,7 +68,7 @@ MonoBehaviour:
   ClassLevel: 
   ClassLearningSerializable:
     thisSeriazableDictionaryItem:
-    - key: 103
+    - key: 101
       value: 5
     - key: 102
       value: 5

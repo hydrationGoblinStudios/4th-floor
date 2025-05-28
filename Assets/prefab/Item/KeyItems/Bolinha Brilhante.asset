@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 2
   weapontype: 0
   weight: 0
-  ItemName: Bolinha Brilhante
+  ItemName: 
   description: 
   hit: 0
   crit: 0

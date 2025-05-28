@@ -25,7 +25,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -3167243255898792355}
+        node: {fileID: 3378662620126236440}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -48,54 +48,6 @@ MonoBehaviour:
   speaker: 
   dialogue: Obteve <color=green>Gancho
   sprite: {fileID: 0}
---- !u!114 &-3167243255898792355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d326aaea4db3f184b83ff587b7767339, type: 3}
-  m_Name: Item
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 2344, y: -392}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: -3167243255898792355}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 3378662620126236440}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: -3167243255898792355}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -3712773873007301950}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  item: {fileID: 11400000, guid: 2901cd7f62c8e7648a0e6eaa4bd8fafd, type: 2}
-  key: 0
-  flag: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +68,6 @@ MonoBehaviour:
   - {fileID: -3712773873007301950}
   - {fileID: 5943714276710170697}
   - {fileID: 6989638394281887254}
-  - {fileID: -3167243255898792355}
   current: {fileID: 8407341404431043856}
 --- !u!114 &3378662620126236440
 MonoBehaviour:
@@ -155,7 +106,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -3167243255898792355}
+        node: {fileID: -3712773873007301950}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -165,7 +116,6 @@ MonoBehaviour:
   exit: 0
   item: {fileID: 11400000, guid: 261a039b1c4bdf541b738c16239e2629, type: 2}
   key: 1
-  flag: 0
 --- !u!114 &5943714276710170697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +271,6 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &8708530232121286098
 MonoBehaviour:

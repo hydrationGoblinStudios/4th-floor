@@ -27,19 +27,5 @@ public class KeyItemParadoxController : MonoBehaviour
             c++;
             }
         }
-        foreach (Item item in manager.StoryFlags)
-        {
-            int c = 0;
-            foreach (GameObject i in interactables)
-            {
-                if (i.name == item.name + " Interactable")
-                {
-                    sprites[c].sprite = null;
-                    i.GetComponent<ButtonAssigner>().graph = vazio;
-                    i.GetComponent<ButtonAssigner>().AddListener();
-                }
-                c++;
-            }
-        }
     }
 }

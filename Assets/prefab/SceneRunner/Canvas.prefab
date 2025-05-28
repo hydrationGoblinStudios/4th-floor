@@ -26654,7 +26654,6 @@ MonoBehaviour:
   - {fileID: 7631611099256901391, guid: 747de2c9004befc45bd844711e77f941, type: 3}
   - {fileID: 7631611099256901391, guid: b8c2161e6162ead4ea861cb80155bcaa, type: 3}
   - {fileID: 7631611099256901391, guid: 8b05f3aeecd8bfb4f8e3da468a84b9b0, type: 3}
-  - {fileID: 7631611099256901391, guid: d0e96196278de0c43b601f199240c2c9, type: 3}
   ClassChangeObject: {fileID: 8626097234946098502}
 --- !u!1 &7863391906144820613
 GameObject:
@@ -31474,10 +31473,6 @@ PrefabInstance:
     - target: {fileID: 5622016022052575564, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395951654497457877, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Draw
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

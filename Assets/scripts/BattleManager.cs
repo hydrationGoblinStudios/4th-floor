@@ -792,14 +792,7 @@ public class BattleManager : MonoBehaviour
 
         state = BattleState.PlayerWon;
         yield return new WaitForSeconds(1);
-        if(gameManager.day == 5 || gameManager.day == 10)
-        {
-            gameManager.money += 4000;
-        }
-        else
-        {
-        gameManager.money += 1000;
-        }
+        gameManager.money += 50;
         expSliderP1.value = RealCharacter1.currentExp;
         if (gameManager.team.Count > 1)
         {

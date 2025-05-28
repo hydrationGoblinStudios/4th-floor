@@ -223,10 +223,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8395951654497457877, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Draw
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -550,7 +546,7 @@ MonoBehaviour:
         m_MethodName: StartDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 658b088654180dd478642960737fc15e, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 664e16c7a503a6c44972b4e4d261a1d4, type: 2}
           m_ObjectArgumentAssemblyTypeName: DialogueGraph, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1086,7 +1082,6 @@ MonoBehaviour:
   - Cantina
   - Horta
   - Dispensa
-  - Patio
   graphs:
   - {fileID: 11400000, guid: 3dc738677bd3db647a05f4ed683b05d3, type: 2}
   - {fileID: 11400000, guid: be1fb045bf1c6d74785e2195e4f438b2, type: 2}
@@ -1180,7 +1175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  semArma: {fileID: 0}
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0
@@ -2727,14 +2721,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3497219750921709488, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
-      propertyPath: DragAndDroppables.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497219750921709488, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
-      propertyPath: DragAndDroppables.Array.data[7]
-      value: 
-      objectReference: {fileID: 7631611099256901391, guid: d0e96196278de0c43b601f199240c2c9, type: 3}
     - target: {fileID: 4573834579158073405, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

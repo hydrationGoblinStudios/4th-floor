@@ -17,7 +17,6 @@ public class ShopManager : MonoBehaviour
     public Sprite[] sprites;
     public DialogueGraph graph;
     public bool blackMarketOpen = false;
-    public TextMeshProUGUI money;
 
     void Start()
     {
@@ -29,7 +28,6 @@ public class ShopManager : MonoBehaviour
             GameObject button = Instantiate(buttonPrefab, panel.transform);
             button.GetComponent<Button>().onClick.AddListener(() => Buy(item));
             button.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName +" " + item.price;
-            money.text = Manager.money.ToString();
             switch (item.weapontype)
             {
                 case Item.Weapontype.Sword:
@@ -44,14 +42,8 @@ public class ShopManager : MonoBehaviour
                 case Item.Weapontype.Bow:
                     button.GetComponentInChildren<Image>().sprite = sprites[3];
                     break;
-                case Item.Weapontype.Receptacle:
-                    button.GetComponentInChildren<Image>().sprite = sprites[4];
-                    break;
-                case Item.Weapontype.Tome:
-                    button.GetComponentInChildren<Image>().sprite = sprites[5];
-                    break;
                 case Item.Weapontype.Accesory:
-                    button.GetComponentInChildren<Image>().sprite = sprites[6];
+                    button.GetComponentInChildren<Image>().sprite = sprites[4];
                     break;
             }
         }
