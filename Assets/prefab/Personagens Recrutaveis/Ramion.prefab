@@ -75,8 +75,8 @@ MonoBehaviour:
   def: 6
   mdef: 6
   defenses: 
-  luck: 14
-  speed: 11
+  luck: 13
+  speed: 12
   skills:
   - "Persist\xEAncia"
   skillInventory:
