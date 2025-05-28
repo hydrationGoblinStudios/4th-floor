@@ -42,6 +42,7 @@ public class ClassChangeManager : MonoBehaviour
 
             }
         }
+        inventoryManager.UpdateUITop();
     }
     void Update()
     {

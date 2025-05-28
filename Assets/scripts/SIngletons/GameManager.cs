@@ -355,7 +355,17 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CopyUnitBehavior(OriginalUB, Unit, ClassId);
         Destroy(OriginalUB);
         Unit.GetComponent<UnitBehavior>().classId = ClassId;
-    }
+             switch (ClassId)
+        {
+            case (101): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() {Item.Weapontype.Sword}; break;
+            case (102): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Axe }; break;
+            case (103): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Lance }; break;
+            case (104): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Tome }; break;
+            case (105): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Receptacle }; break;
+            case (106): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Bow }; break;
+            case (107): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Sword }; break; 
+        }
+        }
     T CopyUnitBehavior<T>(T original, GameObject destination, int ClassId) where T : Component
     {
         System.Type type = original.GetType();
