@@ -46,9 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classId: 102
   Weapon: {fileID: 11400000, guid: 4859b3cd6f48cc64f8c498ae349056b8, type: 2}
+  UsableWeaponTypes: 
   Accesory: {fileID: 0}
-  playerBehavior: {fileID: 0}
-  enemyBehavior: {fileID: 0}
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
@@ -62,20 +61,22 @@ MonoBehaviour:
   currentExp: 0
   ClassID: 
   ClassLevel: 
+  ClassLearningSerializable:
+    thisSeriazableDictionaryItem: []
   hit: 0
   avoid: 0
   crit: 0
   maxhp: 150
   hp: 150
   power: 0
-  str: 13
+  str: 12
   mag: 4
-  dex: 5
+  dex: 4
   def: 5
   mdef: 5
   defenses: 
   luck: 7
-  speed: 8
+  speed: 7
   skills:
   - "Lutador Vers\xE1til"
   skillInventory: []
@@ -85,6 +86,7 @@ MonoBehaviour:
   soul: 0
   maxsoul: 0
   soulgain: 0
+  damageSoulGain: 1
   damagereduction: 0
   lifesteal: 0
   armorpen: 0
@@ -92,6 +94,7 @@ MonoBehaviour:
   cooking: 0
   position: 0
   Pendure: 0
+  animator: {fileID: 0}
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
@@ -108,10 +111,14 @@ MonoBehaviour:
   soul3: 
   description: "classe n\xE3o valida"
   Icon: {fileID: 0}
+  damageTMP: {fileID: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
+  SkillManager: {fileID: 0}
   unitData:
     classId: 0
     Weapon: {fileID: 0}
     Accesory: {fileID: 0}
+    UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
     expmarkplier: 1
@@ -119,6 +126,8 @@ MonoBehaviour:
     currentExp: 0
     ClassID: 
     ClassLevel: 
+    ClassLearningSerializable:
+      thisSeriazableDictionaryItem: []
     hit: 0
     avoid: 0
     crit: 0
