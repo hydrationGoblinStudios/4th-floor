@@ -10,5 +10,4 @@ public class StartNode : BaseNode
     {
         return "Start";
     }
-
 }
