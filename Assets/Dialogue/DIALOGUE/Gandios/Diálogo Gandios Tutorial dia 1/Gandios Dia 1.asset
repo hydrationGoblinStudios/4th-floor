@@ -229,7 +229,7 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Gandios
-  dialogue: "A cada 5 dias voc\xEA ir\xE1 participar de uma batalha maior, s\xE3o
+  dialogue: "A cada 4 dias voc\xEA ir\xE1 participar de uma batalha maior, s\xE3o
     os dias que o coliseu fica mais cheio. Tome cuidado, ao mesmo tempo que essas
     lutas tem recompensas maiores, voc\xEA tamb\xE9m corre mais riscos, j\xE1 que
     nelas vale tudo."
@@ -462,7 +462,7 @@ MonoBehaviour:
   - {fileID: -262840456879348786}
   - {fileID: -2163645436797976}
   - {fileID: 2181205780538499101}
-  current: {fileID: 0}
+  current: {fileID: 2181205780538499101}
 --- !u!114 &2181205780538499101
 MonoBehaviour:
   m_ObjectHideFlags: 0
