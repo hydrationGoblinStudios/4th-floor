@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Chave
+  m_Name: PegouChave
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 9009
   sprite: {fileID: 0}
   type: 0
   weapontype: 0
   weight: 0
-  ItemName: Chave
+  ItemName: 
   description: 
   hit: 0
   crit: 0

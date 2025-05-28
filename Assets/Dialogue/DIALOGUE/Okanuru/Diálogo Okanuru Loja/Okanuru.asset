@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 888, y: -360}
+  position: {x: 856, y: -328}
   ports:
     keys:
     - exit
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1576, y: -360}
+  position: {x: 1512, y: -440}
   ports:
     keys:
     - entry
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1352, y: -360}
+  position: {x: 1288, y: -440}
   ports:
     keys:
     - entry
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1480, y: -168}
+  position: {x: 1480, y: -200}
   ports:
     keys:
     - entry
@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Name: Item Check
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1112, y: -360}
+  position: {x: 1080, y: -328}
   ports:
     keys:
     - entry
