@@ -46,7 +46,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -1859744873041232192}
+        node: {fileID: -2687404557616255856}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -180,6 +180,39 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
+--- !u!114 &-2687404557616255856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ad222eb59626b438dafde7257101da, type: 3}
+  m_Name: Stop N Shop
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 886.52386, y: -36.13571}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2687404557616255856}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -7199687618204851447}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  spriteRenderer: {fileID: 0}
+  SceneInteractable: {fileID: 0}
+  entry: 0
 --- !u!114 &-2560209615417789324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,37 +264,6 @@ MonoBehaviour:
   speaker: Okanuru
   dialogue: "Ol\xE1, o que voc\xEA vai  querer comprar amigo!"
   sprite: {fileID: 21300000, guid: cd8344c78912d45489d97132ed6b8648, type: 3}
---- !u!114 &-1859744873041232192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b02f247d9b14698438e2d74800ab78da, type: 3}
-  m_Name: Stop
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 792.07587, y: -57.29237}
-  ports:
-    keys:
-    - entry
-    values:
-    - _fieldName: entry
-      _node: {fileID: -1859744873041232192}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: -7199687618204851447}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
 --- !u!114 &-622518795272278241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +383,7 @@ MonoBehaviour:
   - {fileID: -6749097581517227495}
   - {fileID: -622518795272278241}
   - {fileID: 6619742988493011377}
-  - {fileID: -1859744873041232192}
+  - {fileID: -2687404557616255856}
   current: {fileID: 0}
 --- !u!114 &3148930976647225439
 MonoBehaviour:
