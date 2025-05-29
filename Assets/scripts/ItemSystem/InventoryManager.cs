@@ -438,6 +438,7 @@ public class InventoryManager : MonoBehaviour
             soulName.text = selectedUnit.equipedSoul;
             soulName.GetComponentInParent<InventoryHoverable>().hoverName = selectedUnit.equipedSoul;
             soulName.GetComponentInParent<InventoryHoverable>().description = Description(selectedUnit.equipedSoul);
+            soulIconObject.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.equipedSoul).SingleOrDefault();
         }
     }
     public void DisplaySwordList()
