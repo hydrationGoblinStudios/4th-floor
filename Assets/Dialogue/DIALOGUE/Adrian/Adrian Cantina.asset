@@ -31,6 +31,52 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
+--- !u!114 &-7815488637425873477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0345c564f7eae94459b8fe49de4c69eb, type: 3}
+  m_Name: Map
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2584, y: -1496}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7815488637425873477}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -5410549194791890470}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7815488637425873477}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -4083145946946416944}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  map: Quarto Dos Guardas
 --- !u!114 &-6813348204218303832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +302,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -4083145946946416944}
+        node: {fileID: -7815488637425873477}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -393,9 +439,6 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 7438147677626465636}
-        reroutePoints: []
-      - fieldName: exit
         node: {fileID: 5287819366427665545}
         reroutePoints: []
       - fieldName: exit
@@ -405,10 +448,13 @@ MonoBehaviour:
         node: {fileID: 7258370021285821686}
         reroutePoints: []
       - fieldName: exit
-        node: {fileID: -5410549194791890470}
+        node: {fileID: 4322069909535347552}
         reroutePoints: []
       - fieldName: exit
-        node: {fileID: 4322069909535347552}
+        node: {fileID: 7438147677626465636}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -7815488637425873477}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -903,7 +949,8 @@ MonoBehaviour:
   - {fileID: -1309519051396986820}
   - {fileID: -5410549194791890470}
   - {fileID: 4322069909535347552}
-  current: {fileID: 4964964436231912128}
+  - {fileID: -7815488637425873477}
+  current: {fileID: 277713061623935278}
 --- !u!114 &277713061623935278
 MonoBehaviour:
   m_ObjectHideFlags: 0

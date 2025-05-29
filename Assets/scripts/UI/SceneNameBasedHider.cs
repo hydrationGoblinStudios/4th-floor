@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 public class SceneNameBasedHider : MonoBehaviour
 {
     public string OriginalSceneName;
+    public bool nightOnly = false;
     public void Toggled(GameManager gm)
     {
-            if(SceneManager.GetActiveScene().name == OriginalSceneName || !gm.unlockedMaps.Contains(OriginalSceneName))
+        
+            if(SceneManager.GetActiveScene().name == OriginalSceneName|| !gm.unlockedMaps.Contains(OriginalSceneName))
                 {
                    transform.position = new Vector3(10000, transform.position.y, transform.position.z);
                     gameObject.SetActive(false);
@@ -16,6 +18,10 @@ public class SceneNameBasedHider : MonoBehaviour
                 {
                     transform.position = new Vector3(80, transform.position.y, transform.position.z);
                     gameObject.SetActive(true);
-                }       
+                }
+        if (nightOnly && gm.storyBattle == true)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

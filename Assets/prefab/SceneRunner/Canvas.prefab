@@ -13027,6 +13027,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginalSceneName: Quarto Dos Guardas
+  nightOnly: 0
+  isNight: 1
 --- !u!1 &3418464552827325353
 GameObject:
   m_ObjectHideFlags: 0
@@ -15199,6 +15201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginalSceneName: Dispensa
+  nightOnly: 1
+  isNight: 1
 --- !u!1 &4096917826939792031
 GameObject:
   m_ObjectHideFlags: 0
@@ -15444,6 +15448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginalSceneName: Laboratio
+  nightOnly: 0
+  isNight: 1
 --- !u!1 &4173366066749720526
 GameObject:
   m_ObjectHideFlags: 0
@@ -15603,6 +15609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginalSceneName: Cantina
+  nightOnly: 0
+  isNight: 1
 --- !u!1 &4210498976536640126
 GameObject:
   m_ObjectHideFlags: 0
@@ -18127,6 +18135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginalSceneName: Patio
+  nightOnly: 0
+  isNight: 1
 --- !u!1 &5127932481769500659
 GameObject:
   m_ObjectHideFlags: 0
@@ -30943,6 +30953,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginalSceneName: Preparation1A
+  nightOnly: 0
+  isNight: 1
 --- !u!1 &9107551034971290842
 GameObject:
   m_ObjectHideFlags: 0
@@ -31807,6 +31819,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginalSceneName: Horta
+  nightOnly: 0
+  isNight: 1
 --- !u!1 &9221649457196326927
 GameObject:
   m_ObjectHideFlags: 0

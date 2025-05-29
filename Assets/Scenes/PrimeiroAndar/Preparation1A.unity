@@ -1137,7 +1137,7 @@ MonoBehaviour:
   lumenita: 0
   day: 4
   testMode: 0
-  storyBattle: 1
+  storyBattle: 0
   BossBattleID: 0
   TimeIsDay: 1
   wakeUpTalk: 0

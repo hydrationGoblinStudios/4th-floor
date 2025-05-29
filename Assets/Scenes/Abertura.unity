@@ -690,7 +690,7 @@ MonoBehaviour:
   units: []
   m_scene:
     m_Handle: 0
-  money: 50
+  money: 0
   lumenita: 0
   day: 1
   testMode: 0

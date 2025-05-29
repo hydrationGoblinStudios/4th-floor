@@ -15,6 +15,8 @@ public class ConfigToggle : MonoBehaviour
             invert.Add(FindObjectOfType<SceneInteractables>(true).gameObject);
             InventoryManager IM = FindObjectOfType<InventoryManager>(true);
             IM.Activatable = !IM.Activatable;
+            MapToggle mt = FindObjectOfType<MapToggle>(true);
+            mt.activatable = !mt.activatable;
             gameObject.SetActive(!gameObject.activeInHierarchy);
 
             foreach (GameObject go in invert)
@@ -30,6 +32,7 @@ public class ConfigToggle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if(activatable == false) { activatable = true; };
             Toggle();
         }
     }
