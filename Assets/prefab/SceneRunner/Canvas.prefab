@@ -15441,7 +15441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Laboratio
+  OriginalSceneName: Laboratorio
   nightOnly: 0
 --- !u!1 &4173366066749720526
 GameObject:
