@@ -18,9 +18,14 @@ public class ShopManager : MonoBehaviour
     public DialogueGraph graph;
     public bool blackMarketOpen = false;
     public TextMeshProUGUI money;
+    public bool open = false;
 
     void Start()
     {
+        if (SceneInteractable == null)
+        {
+            SceneInteractable = FindObjectOfType<SceneInteractables>(true).gameObject;
+        }
         nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
@@ -80,30 +85,33 @@ public class ShopManager : MonoBehaviour
     }
     public void Toggle()
     {
+        open = !open;
+        Debug.Log("toggle");
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
-        if (Manager.TimeIsDay || blackMarketOpen)
-        {
             if (SceneInteractable == null)
             {
-                SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
+                SceneInteractable = FindObjectOfType<SceneInteractables>(true).gameObject;
             }
             if (SceneInteractable != null)
             {
+            Debug.Log("SI isnt null");
                 foreach (Transform child in SceneInteractable.transform)
                 {
                     if (child.name != "shop")
                     {
-                        child.gameObject.SetActive(!child.gameObject.activeInHierarchy);
+                        child.gameObject.SetActive(!open);
                     }
                 }
             }
+        if (Manager.TimeIsDay || blackMarketOpen)
+        {
             gameObject.SetActive(!gameObject.activeInHierarchy);
             if (calendario == null)
             {
                 calendario = FindObjectOfType<CalendarioUI>(true).gameObject;
             }
-            if (calendario != null)
+            if (!calendario.activeInHierarchy)
             {
                 calendario.SetActive(!calendario.activeInHierarchy);
             }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using XNode;
 
@@ -7,6 +8,7 @@ public class StopNShopNode : BaseNode
 {
     public SpriteRenderer spriteRenderer;
     public GameObject SceneInteractable;
+    public GameObject calendario;
 
     [Input] public int entry;
     public override string GetString()
@@ -14,22 +16,17 @@ public class StopNShopNode : BaseNode
         GameObject go = GameObject.Find("Dialogue Sprite");
         if (go != null)
         {
-            if (SceneInteractable == null)
+            if (calendario == null)
             {
-                SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
+                calendario = FindObjectOfType<CalendarioUI>(true).gameObject;
             }
-            if (SceneInteractable != null)
+            if (calendario != null)
             {
-                foreach (Transform child in SceneInteractable.transform)
-                {
-                    if (child.name != "shop")
-                    {
-                        child.gameObject.SetActive(!child.gameObject.activeInHierarchy);
-                    }
-                }
+                calendario.SetActive(false);
             }
             ShopManager shopManager = FindObjectOfType<ShopManager>(true);
-            shopManager.gameObject.SetActive(!shopManager.gameObject.activeInHierarchy);
+            shopManager.Toggle();
+            shopManager.open = true;
             spriteRenderer = go.GetComponent<SpriteRenderer>();
             shopManager.blackMarketOpen = true;
         spriteRenderer.sprite = null;

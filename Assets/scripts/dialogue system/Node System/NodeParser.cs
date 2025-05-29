@@ -38,8 +38,8 @@ public class NodeParser : MonoBehaviour
         BaseNode b = graph.current;
         string data  = b.GetString();
         string[] dataParts = data.Split('/');
-       
-        if(dataParts[0] == "Start")
+
+        if (dataParts[0] == "Start")
         {
             interactables.SetActive(false);
             UserInterface.SetActive(true);
@@ -48,32 +48,32 @@ public class NodeParser : MonoBehaviour
         else if (dataParts[0] == "Stop" || dataParts[0] == null)
         {
             interactables.SetActive(true);
-            if(action.onClick != null)
+            if (action.onClick != null)
             {
                 action.onClick.Invoke();
             }
-            foreach(GameObject fakeOption in fakeOptions)
+            foreach (GameObject fakeOption in fakeOptions)
             {
                 fakeOption.SetActive(false);
             }
             UserInterface.SetActive(false);
             yield return null;
         }
-        else if(dataParts[0] == "DialogueNode")
+        else if (dataParts[0] == "DialogueNode")
         {
             extraTextObj.SetActive(false);
             foreach (GameObject gameOBJ in options)
             {
                 gameOBJ.SetActive(true);
             }
-            foreach(GameObject gameOBJ in fakeOptions)
+            foreach (GameObject gameOBJ in fakeOptions)
             {
                 gameOBJ.SetActive(false);
             }
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
             speakerImage.sprite = b.GetSprite();
-            if(speakerImage.sprite == null)
+            if (speakerImage.sprite == null)
             {
                 speakerImage.color = new Color(255, 255, 255, 0);
             }
@@ -89,7 +89,7 @@ public class NodeParser : MonoBehaviour
         {
             int counter = 0;
             extraTextObj.SetActive(true);
-            
+
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
             QuestionNode questionNode = (QuestionNode)b;
@@ -98,7 +98,7 @@ public class NodeParser : MonoBehaviour
             extraTexts[2].text = questionNode.option4;
             foreach (GameObject gameOBJ in options)
             {
-                if(counter == 0)
+                if (counter == 0)
                 {
                     gameOBJ.SetActive(true);
                     fakeOptions[0].SetActive(true);
@@ -150,7 +150,7 @@ public class NodeParser : MonoBehaviour
         }
         else if (dataParts[0] == "ItemCheck")
         {
-            if(dataParts[1] == "1")
+            if (dataParts[1] == "1")
             {
                 NextNode("exit");
             }
