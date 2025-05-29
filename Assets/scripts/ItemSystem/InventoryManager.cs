@@ -514,7 +514,7 @@ public class InventoryManager : MonoBehaviour
     {
         return skillName switch
         {
-            //Class tier 1 skills
+            //Class Tier 1 skills
             //Espadachim
             "Dano Ascendente" => "A cada 3 vezes que fazer um ataque básico, Aumenta o Dano em 1 e Redução de dano em 1 pelo resto do combate",
             "Ataque Rápido" => "%DES de quando fazer um ataque basico, em vez disso fazer 2 ataques basicos.",
@@ -542,6 +542,23 @@ public class InventoryManager : MonoBehaviour
             "Maestria Posição 2" => "No inicio do combate ganha +15 de Acerto e Evasão quando posicionado na Posição 2.",
             "Maestria Posição 3" => "No inicio do combate ganha +3 de Dano quando posicionado na Posição 3." ,
             "Começo Afortunado" => "Ganha +12 de Evasão e Acerto pelos primeiros 16 segundos da batalha, além disso começa com +15 de Alma.",
+            //Class Tier 1 Souls
+            "Poder Oculto" => "Ataca 2 vezes com 75% do Dano cada ataque no alvo, o primeiro golpe recupera 50% do dano causado e o 2 atordoa o inimigo por 2 segundos, Custo 100",
+            "Ataque Inspirador" => "Causa 125% do Dano no alvo e aumenta a Velocidade e Dano de todos os aliados em 20% por 10 segundos, Custo 130. ",
+            "Golpe Triplo" => "Ataca 3 vezes com 50% do Dano. Custo 70. ",
+            "Golpe Focado" => "Causa 150% do Dano, esta alma tem chance dobrada de critico e cura 20% do Dano do Usuário se o ataque for um critico. Custo 100. ",
+            "Tiro Certeiro" => "Ataca o alvo atual com um golpe que causa 150% do Dano e não pode errar. Custo 80. ",
+            "Rajada de Flechas" => "(Só pode ser usada quando estiver usando um arco) Causa 60% do Dano em todos os inimigos. Custo 110. ",
+            "Golpe Poderoso" => "Ataca o alvo causando 200% do Dano, mas com -25 de Acerto. Custo 100. ",
+            "Revigoramento" => "Cura 30% do hp máximo ou se o hp estiver cheio, ataca o alvo com um golpe que causa 100% do Dano + 15% do HP máximo do usuário como dano. Custo 100. ",
+            "Golpe Atordoante " => "Ataca o alvo atual causando 50% de dano a mais e atordoamento de 2 segundos. Custo 110. ",
+            "Fortificar" => "Aumenta a Defesa Física em 15% pelo resto do combate. Custo 110. ",
+            "Bola de Fogo" => "(Só pode ser usada se tiver uma arma magica) Causa 125% do Dano no alvo que ignora 50% da defesa magica dele. Custo 70 ",
+            "Trovoada" => "(Só pode ser usada se tiver uma arma magica) Causa dano no alvo atual equivalente a 25% da vida máxima dele como dano magico. Custo 100. ",
+            "Disparo de Gelo" => "(Só pode ser usada se tiver uma arma magica) Causa dano no alvo igual a 125% do Dano e diminui a evasão e a velocidade em 10% + 10% da sua magia por 15 segundos. Custo 80. ",
+            "Restauração Espiritual" => "Restaura a vida do aliado com menos vida em 10 + 20% da magia do usuário. Custo 110. ",
+            "Benção dos Ventos" => "Aumenta a evasão de todos os aliados em 10% + 20% da Magia do usuário por 20 segundos. Custo 115. ",
+
 
 
             _ => skillName,
