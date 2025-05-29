@@ -223,7 +223,7 @@ MonoBehaviour:
   exit: 0
   speaker: Leyni
   dialogue: "Voc\xEA realmente deve estar desesperado pra vir falar comigo."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
 --- !u!114 &-2318895649360501642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ MonoBehaviour:
   - {fileID: -1777179994389544893}
   - {fileID: -6658975079818602009}
   - {fileID: 3356644350922878581}
-  current: {fileID: -5483615880342603015}
+  current: {fileID: 827031224499378280}
 --- !u!114 &827031224499378280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,7 +630,7 @@ MonoBehaviour:
   speaker: Ramion
   dialogue: "Como voc\xEA veio parar aqui?"
   option2: Como eu posso sair do coliseu?
-  option3: "voc\xEA busca algo aqui no coliseu?"
+  option3: "Voc\xEA busca algo aqui no coliseu?"
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &4145314444732501454
@@ -716,7 +716,7 @@ MonoBehaviour:
   exit4: 0
   speaker: Ramion
   dialogue: "Voc\xEA parece solit\xE1ria"
-  option2: estou procurando aliados
+  option2: Estou procurando aliados
   option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
@@ -1033,4 +1033,4 @@ MonoBehaviour:
   speaker: Leyni
   dialogue: "Bem, voc\xEA n\xE3o t\xE1 errado. Por algum motivo os outros merdas
     do primeiro andar n\xE3o quiseram formar time comigo."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
