@@ -65,7 +65,7 @@ public class CoisaQueVaiNoGelo : MonoBehaviour
                 blocksTemp = new List<int>();
                 foreach (int n in blocks) { blocksTemp.Add(n - 12); }
                 gameObject.transform.position = grid[position].transform.position;
-                while (!list.Contains(position) && !blocksTemp.Contains(position)) { position += 12; gameObject.transform.position = grid[position].transform.position;Debug.Log(position); }
+                while (!list.Contains(position) && !blocksTemp.Contains(position)) { position += 12; gameObject.transform.position = grid[position].transform.position;}
                 direction = 0; actionable = true;  break;
             case 3:
                 list = new List<int>() { 11, 23, 35, 47, 59, 71, 83, 95, 107, 119, 131, 143, 155, 167, 179 }; position += 1; gameObject.transform.position = grid[position].transform.position;
