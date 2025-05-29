@@ -780,17 +780,23 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator PlayerWin()
     {
-        UnitBehavior RealCharacter1 = gameManager.teamPostPreBattle[0].GetComponent<UnitBehavior>();
+        UnitBehavior RealCharacter1 = gameManager.team[0].GetComponent<UnitBehavior>();
+        UnitBehavior DisplayCharacter1 = gameManager.teamPostPreBattle[0].GetComponent<UnitBehavior>();
         UnitBehavior RealCharacter2 = null;
         UnitBehavior RealCharacter3 = null;
+        UnitBehavior DisplayCharacter2 = null;
+        UnitBehavior DisplayCharacter3 = null;
         if (gameManager.team.Count > 1)
         {
-            RealCharacter2 = gameManager.teamPostPreBattle[1].GetComponent<UnitBehavior>();
+            RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
+            DisplayCharacter2 = gameManager.teamPostPreBattle[1].GetComponent<UnitBehavior>();
+
             StatsBreakdown(2, RealCharacter2);
         }
         if (gameManager.team.Count > 2)
         {
-            RealCharacter3 = gameManager.teamPostPreBattle[2].GetComponent<UnitBehavior>();
+            RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
+            DisplayCharacter3 = gameManager.teamPostPreBattle[2].GetComponent<UnitBehavior>();
             StatsBreakdown(3, RealCharacter3);
         }
         StatsBreakdown(1, RealCharacter1);
@@ -832,7 +838,7 @@ public class BattleManager : MonoBehaviour
         if (RealCharacter3 != null)
         {
             RealCharacter3.currentExp += exp3;
-            if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); StatsBreakdown(3, RealCharacter3);
+            if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); StatsBreakdown(3, DisplayCharacter3);
                 yield return new WaitForSeconds(1);
             }
         }
@@ -842,7 +848,7 @@ public class BattleManager : MonoBehaviour
         }
 
         if (RealCharacter2 != null) {
-            if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(2, RealCharacter2);
+            if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(2, DisplayCharacter2);
                 yield return new WaitForSeconds(1);
             }
             RealCharacter2.currentExp += exp2;
@@ -852,7 +858,7 @@ public class BattleManager : MonoBehaviour
         if (RealCharacter1.currentExp >= 100) 
         { 
             LevelUp(RealCharacter1);
-            StatsBreakdown(1, RealCharacter1);
+            StatsBreakdown(1, DisplayCharacter1);
             yield return new WaitForSeconds(1);
         }
         yield return new WaitForSeconds(1);

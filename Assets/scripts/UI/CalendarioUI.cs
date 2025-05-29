@@ -15,15 +15,20 @@ public class CalendarioUI : MonoBehaviour
     public Sprite[] batalhas;
     public void Start()
     {
+        StartCoroutine(GetafterSingletonCleanse());
+        StartCoroutine(UIUpdate());
+    }
+    public IEnumerator GetafterSingletonCleanse()
+    {
+        yield return new WaitForEndOfFrame();
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
-        StartCoroutine(UIUpdate());
     }
     public IEnumerator UIUpdate()
     {
         yield return new WaitForEndOfFrame();
-        dinheiro.text = gameManager.money.ToString();
-        if(gameManager.TimeIsDay)
+        dinheiro.text = gameManager.money.ToString();      
+        if(gameManager.storyBattle)
         {
             Tempo.sprite = tempos[0];
         }
