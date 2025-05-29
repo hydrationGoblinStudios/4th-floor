@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class SceneMaracutaia : MonoBehaviour
 {
     public GameManager gameManager;
-    public DialogueGraph semArma;
+    public DialogueGraph[] barrarEntrada;
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Abertura");
@@ -28,14 +29,24 @@ public class SceneMaracutaia : MonoBehaviour
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
-        if (gameManager != null && gameManager.team[0].GetComponent<UnitBehavior>().Weapon.ItemName != "" && gameManager.storyBattle == true)
+        if (gameManager.day == 5 && gameManager.team.Count <=2)
+        {
+            NodeParser dm = FindObjectOfType<NodeParser>(true);
+            dm.StartDialogue(barrarEntrada[1]);
+        }
+        else if(gameManager != null && gameManager.team[0].GetComponent<UnitBehavior>().Weapon.ItemName != "" && gameManager.storyBattle == true)
         {
             SceneManager.LoadScene(scene);
+        }
+        else if (!gameManager.storyBattle)
+        {
+            NodeParser dm = FindObjectOfType<NodeParser>(true);
+            dm.StartDialogue(barrarEntrada[2]);
         }
         else
         {
             NodeParser dm = FindObjectOfType<NodeParser>(true);
-            dm.StartDialogue(semArma);
+            dm.StartDialogue(barrarEntrada[0]);
         }
     }
     public void QuitGame()

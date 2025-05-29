@@ -1384,7 +1384,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  semArma: {fileID: 11400000, guid: 1372dd0c50b775a45ab29ffe75500e03, type: 2}
+  barrarEntrada:
+  - {fileID: 11400000, guid: 1372dd0c50b775a45ab29ffe75500e03, type: 2}
+  - {fileID: 11400000, guid: e9f0b5053b04a5646b369b0c0e41b4ae, type: 2}
+  - {fileID: 11400000, guid: cfd1ed9f139068544bbd7154bdba42cb, type: 2}
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0
@@ -1883,6 +1886,7 @@ MonoBehaviour:
   graph: {fileID: 11400000, guid: 4da51e4c49234c44b878011a68640849, type: 2}
   blackMarketOpen: 0
   money: {fileID: 995559405}
+  open: 0
 --- !u!114 &1391148272
 MonoBehaviour:
   m_ObjectHideFlags: 0
