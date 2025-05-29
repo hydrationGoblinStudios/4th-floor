@@ -702,6 +702,11 @@ public class BattleManager : MonoBehaviour
         {
             StartCoroutine(PlayerWin());
         }
+        else if (playerTeam[0].hp <= 0 && playerTeam[1].hp <= 0 && playerTeam[2].hp <= 0)
+        {
+            gameManager.storyBattle = false;
+            gameManager.PrepScreen();
+        }
         else
         {
             state = BattleState.Wait;
@@ -775,17 +780,17 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator PlayerWin()
     {
-        UnitBehavior RealCharacter1 = gameManager.team[0].GetComponent<UnitBehavior>();
+        UnitBehavior RealCharacter1 = gameManager.teamPostPreBattle[0].GetComponent<UnitBehavior>();
         UnitBehavior RealCharacter2 = null;
         UnitBehavior RealCharacter3 = null;
         if (gameManager.team.Count > 1)
         {
-            RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
+            RealCharacter2 = gameManager.teamPostPreBattle[1].GetComponent<UnitBehavior>();
             StatsBreakdown(2, RealCharacter2);
         }
         if (gameManager.team.Count > 2)
         {
-            RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
+            RealCharacter3 = gameManager.teamPostPreBattle[2].GetComponent<UnitBehavior>();
             StatsBreakdown(3, RealCharacter3);
         }
         StatsBreakdown(1, RealCharacter1);

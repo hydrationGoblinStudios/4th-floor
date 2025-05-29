@@ -19,7 +19,7 @@ public class GMButtonAssigner : MonoBehaviour
     }
     public void SelectUnit(int unit)
     {
-        if(gameManager.team[unit] != null && gameManager.team[unit].GetComponent<UnitBehavior>() != null)
+        if(gameManager.team.Count > unit && gameManager.team[unit].GetComponent<UnitBehavior>() != null)
         {
         gameManager.selectedUB4Activity = gameManager.team[unit].GetComponent<UnitBehavior>();
             GameObject ab = GameObject.FindGameObjectWithTag("Activity Board");

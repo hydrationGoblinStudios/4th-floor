@@ -287,6 +287,7 @@ public class PreBattleManager : MonoBehaviour
                 if (inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault() != null)
                 {
                     b.transform.GetComponent<Image>().sprite = inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault();
+                    b.transform.GetComponent<Image>().color = new Color(255, 255, 255, 255);
                 }
                 else
                 {
@@ -899,7 +900,7 @@ public class PreBattleManager : MonoBehaviour
                     }
                     else if (copy == 2)
                     {
-                        SelectedPlayerList[2] = SelectedPlayer1;
+                        SelectedPlayerList[1] = SelectedPlayer3;
 
                         SelectedPlayer2 = SelectedPlayer3;
                     }

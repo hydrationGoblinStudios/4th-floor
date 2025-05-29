@@ -12,6 +12,7 @@ public class CoisaQueVaiNoGelo : MonoBehaviour
     public GameObject canvas;
     public List<GameObject> grid;
     public List<int> blocks;
+    public List<int> corners;
     public int position;
     public DialogueGraph graph;
 
@@ -26,25 +27,25 @@ public class CoisaQueVaiNoGelo : MonoBehaviour
     {
         timer -= Time.deltaTime;
         List<int> list = new List<int>() { 0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168 , 180 };
-        if (Input.GetKeyDown(KeyCode.UpArrow) && actionable == true && !list.Contains(position))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && actionable == true && !list.Contains(position) && !blocks.Contains(position -1))
         {
             actionable = false;
             direction = 1;
         }
         list = new List<int>() { 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179 };
-        if (Input.GetKeyDown(KeyCode.RightArrow) && actionable == true && !list.Contains(position))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && actionable == true && !list.Contains(position) && !blocks.Contains(position + 12))
         {
             actionable = false;
             direction = 2;
         }
         list = new List<int>() { 11, 23, 35, 47, 59, 71, 83, 95, 107, 119, 131, 143, 155, 167, 179 };
-        if (Input.GetKeyDown(KeyCode.DownArrow) && actionable == true && !list.Contains(position))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && actionable == true && !list.Contains(position)&& !blocks.Contains(position + 1))
         {
             actionable = false;
             direction = 3;
         }
         list = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && actionable == true && !list.Contains(position))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && actionable == true && !list.Contains(position) && !blocks.Contains(position - 12))
         {
             actionable = false;
             direction = 4;
@@ -81,10 +82,14 @@ public class CoisaQueVaiNoGelo : MonoBehaviour
                 direction = 0; actionable = true; break;
             default: break;
         }
+        if (corners.Contains(position))
+        {
+            position = 76; gameObject.transform.position = grid[position].transform.position;
+        }
         if(position == 95)
         {
             SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
-            sm.LoadSceneNDialogue("Dispensa", graph);
+            sm.LoadSceneNDialogue("Quarto Dos Guardas", graph);
         }
     }
 }

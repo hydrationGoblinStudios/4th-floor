@@ -32,7 +32,8 @@ default: break;
 }
         if (current != m_audioSource.clip)
         {
-            StartCoroutine(ChangeSong(m_scene.name));
+            m_audioSource.Play();
+            //StartCoroutine(ChangeSong(m_scene.name));
         }
     }
 
