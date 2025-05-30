@@ -87,10 +87,11 @@ MonoBehaviour:
   skillInventory:
   - "Presen\xE7a Inabal\xE1vel"
   - "Lutador Vers\xE1til"
-  equipedSoul: Golpe Poderoso
+  equipedSoul: Golpe Atordoante
   equippedSoulIsAttack: 1
   soulInventory:
   - Golpe Poderoso
+  - Golpe Atordoante
   soul: 0
   maxsoul: 100
   soulgain: 0
