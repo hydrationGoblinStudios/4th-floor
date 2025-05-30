@@ -767,6 +767,14 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Golpe Atordoante":
+
+                StartCoroutine(IconPopup(user.Icon, "Golpe Atordoante"));
+
+                target.soul -= 30;
+
+                return user.power / 2;
+
             case "Ataque Inspirador":
 
                 StartCoroutine(IconPopup(user.Icon, "Disparo de Gelo"));
@@ -774,14 +782,6 @@ public class SkillManager : MonoBehaviour
 
                 return user.power / 4;
 
-
-
-
-            case "Poder Oculto":
-
-                StartCoroutine(IconPopup(user.Icon, "Poder Oculto"));
-                Debug.Log("poderOcultado");
-                return 0;
 
             case "Genki Dama":
 
@@ -1062,7 +1062,23 @@ public class SkillManager : MonoBehaviour
 
         switch (SoulName)
         {
+
+            case "Poder Oculto":
+
+                StartCoroutine(IconPopup(user.Icon, "Poder Oculto"));
+
+                user.lifesteal += (int) 0.25;
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                user.lifesteal -= (int) 0.25;
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                target.soul -= 30;
+
+                break;
+
+
             case "Revigoramento":
+
+                StartCoroutine(IconPopup(user.Icon, "Revigoramento"));
 
                 if (user.hp == user.maxhp)
                 {
@@ -1091,6 +1107,8 @@ public class SkillManager : MonoBehaviour
 
             case "Golpe Poderoso":
 
+                StartCoroutine(IconPopup(user.Icon, "Golpe Poderoso"));
+
                 Debug.Log("Golpe Poderosado");
                 user.hit -= 25;
                 Debug.Log(user.power + "poder");
@@ -1106,12 +1124,16 @@ public class SkillManager : MonoBehaviour
 
             case "Rajada de Flechas":
 
+                StartCoroutine(IconPopup(user.Icon, "Rajada de Flechas"));
+
                 StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0], (float)0.6));
                 StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1], (float)0.6));
                 StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2], (float)0.6));
                 break;
 
             case "Golpe Triplo":
+
+                StartCoroutine(IconPopup(user.Icon, "Golpe Triplo"));
 
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
@@ -1121,11 +1143,16 @@ public class SkillManager : MonoBehaviour
 
             case "Fortalecimento":
 
+                StartCoroutine(IconPopup(user.Icon, "Fortalecimento"));
+
                 user.def += (int)(user.def * 0.15);
 
                 break;
 
             case "Restauração Espiritual":
+
+                StartCoroutine(IconPopup(user.Icon, "Restauração Espiritual"));
+
                 if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp)
                 {
                     team[0].hp += 10 + user.mag / 5;
@@ -1141,6 +1168,8 @@ public class SkillManager : MonoBehaviour
                 break;
 
             case "Benção dos Ventos":
+
+                StartCoroutine(IconPopup(user.Icon, "Benção dos Ventos"));
 
                 team[0].avoid += team[0].avoid / 10 + user.mag / 5;
                 team[1].avoid += team[1].avoid / 10 + user.mag / 5;
