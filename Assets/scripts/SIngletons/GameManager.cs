@@ -243,7 +243,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         Debug.Log($"loaded:{CurrentUnitBehavior.UnitName}");
         newUnit.name = CurrentUnitBehavior.UnitName;
         SelectedUBClassChange = newUnit;
-        ClassChange(newUnit.GetComponent<UnitBehavior>().classId);
+        ClassChange(newUnit.GetComponent<UnitBehavior>().classId, newUnit.GetComponent<UnitBehavior>().Weapon);
         team.Add(newUnit);
     }
 
@@ -348,27 +348,27 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             }
         }
     }
-    public void ClassChange(int ClassId)
+    public void ClassChange(int ClassId, Item item)
     {
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
+        OriginalUB.Weapon = item;
         CopyUnitBehavior(OriginalUB, Unit, ClassId);
         Destroy(OriginalUB);
-        Unit.GetComponent<UnitBehavior>().classId = ClassId;
-        Debug.Log(Unit.GetComponent<UnitBehavior>().classId);
-             switch (ClassId)
-        {
-            case (101): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() {Item.Weapontype.Sword}; break;
-            case (102): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Axe }; break;
-            case (103): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Lance }; break;
-            case (104): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Tome }; break;
-            case (105): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Receptacle }; break;
-            case (106): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Bow }; break;
-            case (107): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Sword }; break; 
-        }
         }
     T CopyUnitBehavior<T>(T original, GameObject destination, int ClassId) where T : Component
     {
+        original.GetComponent<UnitBehavior>().classId = ClassId;
+        switch (ClassId)
+        {
+            case (101): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
+            case (102): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Axe }; break;
+            case (103): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Lance }; break;
+            case (104): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Tome }; break;
+            case (105): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Receptacle }; break;
+            case (106): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Bow }; break;
+            case (107): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
+        }
         System.Type type = original.GetType();
         Component copy;
         switch (ClassId)

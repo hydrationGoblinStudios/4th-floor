@@ -30013,6 +30013,13 @@ MonoBehaviour:
   - {fileID: 2650553054145800463}
   - {fileID: 3499170491833440328}
   - {fileID: 2851117130190531849}
+  ImprovisedWeapon:
+  - {fileID: 11400000, guid: 1635049560726fa408c6664f79687e74, type: 2}
+  - {fileID: 11400000, guid: 55c5a6411c4fe864f82253c9dde92941, type: 2}
+  - {fileID: 11400000, guid: 2952d058afa336f46afa7a54e422e143, type: 2}
+  - {fileID: 11400000, guid: 6cbee3122e39a614cb3a412586913271, type: 2}
+  - {fileID: 11400000, guid: ed3f8418219b70d419878bb612d6e401, type: 2}
+  - {fileID: 11400000, guid: 77c963823ee317849a976ed275ad2322, type: 2}
   ClassChangeManagerSprites:
   - {fileID: 4669581020387170689}
   - {fileID: 6887545833589224691}
