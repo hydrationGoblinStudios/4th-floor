@@ -15,6 +15,11 @@ public class CalendarioUI : MonoBehaviour
     public Sprite[] batalhas;
     public void Start()
     {
+       // StartCoroutine(GetafterSingletonCleanse());
+       // StartCoroutine(UIUpdate());
+    }
+    public void OnEnable()
+    {
         StartCoroutine(GetafterSingletonCleanse());
         StartCoroutine(UIUpdate());
     }
@@ -42,11 +47,7 @@ public class CalendarioUI : MonoBehaviour
             tmp.text = (gameManager.day + c).ToString();
             c++;
         }
-        yield return new WaitForSeconds(1);
-        if (gameObject.activeInHierarchy)
-        {
-        StartCoroutine(UIUpdate());
-        }
-        yield break;
+        yield return new WaitForSeconds(1);     
+       StartCoroutine(UIUpdate());        
     }
 }

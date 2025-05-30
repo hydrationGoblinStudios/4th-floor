@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5214458976601174790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0714c9090de2314a9d677c4d7454a16, type: 3}
+  m_Name: Graph Changer
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 984, y: -152}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5214458976601174790}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -3095363811128929490}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -5214458976601174790}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -1525391339734579670}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  buttonAssigner: Escada Interactable
+  dialogueGraph: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
 --- !u!114 &-3095363811128929490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,7 +72,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 2116657645174820038}
+        node: {fileID: 4780754956673157908}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -33,6 +80,54 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: -3095363811128929490}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5214458976601174790}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: 
+  dialogue: Obteve <color=green> Escada
+  sprite: {fileID: 0}
+--- !u!114 &-1525391339734579670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71014e132154d4d4aa11a60114bfefb6, type: 3}
+  m_Name: Change Sprite
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1208, y: -152}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1525391339734579670}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -5214458976601174790}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1525391339734579670}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -45,9 +140,8 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: 
-  dialogue: Obteve <color=green> Escada
-  sprite: {fileID: 0}
+  spriteObject: escada dispensa
+  targetSprite: 1
 --- !u!114 &-1511202177378790619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +186,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 984, y: -168}
+  position: {x: 1448, y: -168}
   ports:
     keys:
     - entry
@@ -103,12 +197,13 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -3095363811128929490}
+        node: {fileID: -1525391339734579670}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  spriteRenderer: {fileID: 0}
   entry: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -128,7 +223,10 @@ MonoBehaviour:
   - {fileID: -875470226918278688}
   - {fileID: 2116657645174820038}
   - {fileID: -3095363811128929490}
-  current: {fileID: 0}
+  - {fileID: -5214458976601174790}
+  - {fileID: -1525391339734579670}
+  - {fileID: 4780754956673157908}
+  current: {fileID: -875470226918278688}
 --- !u!114 &2116657645174820038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +264,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -3095363811128929490}
+        node: {fileID: 4780754956673157908}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -176,6 +274,55 @@ MonoBehaviour:
   exit: 0
   item: {fileID: 11400000, guid: 10276d0493d256944ab01966a031c9a4, type: 2}
   key: 1
+  flag: 0
+--- !u!114 &4780754956673157908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d326aaea4db3f184b83ff587b7767339, type: 3}
+  m_Name: Item
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 888, y: -360}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4780754956673157908}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 2116657645174820038}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 4780754956673157908}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -3095363811128929490}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  item: {fileID: 11400000, guid: 6613f2277dafb0245bb262df1d5a4b98, type: 2}
+  key: 0
+  flag: 1
 --- !u!114 &5390368003397130833
 MonoBehaviour:
   m_ObjectHideFlags: 0

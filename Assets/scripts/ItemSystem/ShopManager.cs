@@ -61,6 +61,10 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
+    private void FixedUpdate()
+    {
+        money.text = Manager.money.ToString();
+    }
     public void Buy(Item item)
     {
         Debug.Log(Manager.money);

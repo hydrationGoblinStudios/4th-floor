@@ -1706,12 +1706,15 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 10c89949753b76047903d6e3fecd413a, type: 2}
   - {fileID: 11400000, guid: 78f6622d166c20b46ad26a26cd98503b, type: 2}
+  - {fileID: 11400000, guid: fecf3fc27ba417548aefe654acc57129, type: 2}
   interactables:
   - {fileID: 183072348}
   - {fileID: 1828804707}
+  - {fileID: 1255415562}
   sprites:
   - {fileID: 106917907}
   - {fileID: 146214436}
+  - {fileID: 455794276}
   manager: {fileID: 0}
 --- !u!4 &817694824
 Transform:
@@ -1758,7 +1761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  semArma: {fileID: 0}
+  barrarEntrada: []
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0

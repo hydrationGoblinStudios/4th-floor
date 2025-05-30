@@ -136,7 +136,7 @@ public class PreBattleManager : MonoBehaviour
 
             switch (gameManager.BossBattleID)
             {
-                case 101: SpawnTeam(bossBattles.Where(obj => obj.name == "Day5").SingleOrDefault()); break;
+                case 101: SpawnTeam(bossBattles.Where(obj => obj.name == "Day4").SingleOrDefault()); break;
                 default:
                     SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
                     SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
@@ -153,7 +153,7 @@ public class PreBattleManager : MonoBehaviour
         else
         {
             bool choice = true;
-            int week = (gameManager.day / 5) + 1;
+            int week = (gameManager.day / 4) + 1;
             while (choice == true)
             {
                 GameObject slot1 = enemyListRandomP1[Random.Range(0, enemyListRandomP1.Length)];

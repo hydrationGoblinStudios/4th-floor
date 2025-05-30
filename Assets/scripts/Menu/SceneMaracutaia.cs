@@ -29,7 +29,7 @@ public class SceneMaracutaia : MonoBehaviour
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
-        if (gameManager.day == 5 && gameManager.team.Count <=2)
+        if (gameManager.day == 4 && gameManager.team.Count <=2)
         {
             NodeParser dm = FindObjectOfType<NodeParser>(true);
             dm.StartDialogue(barrarEntrada[1]);

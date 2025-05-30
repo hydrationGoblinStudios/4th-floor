@@ -355,6 +355,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CopyUnitBehavior(OriginalUB, Unit, ClassId);
         Destroy(OriginalUB);
         Unit.GetComponent<UnitBehavior>().classId = ClassId;
+        Debug.Log(Unit.GetComponent<UnitBehavior>().classId);
              switch (ClassId)
         {
             case (101): Unit.GetComponent<UnitBehavior>().UsableWeaponTypes = new() {Item.Weapontype.Sword}; break;
@@ -390,6 +391,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             field.SetValue(copy, field.GetValue(original));
         }
         Destroy(original);
+        copy.GetComponent<UnitBehavior>().classId = ClassId;
         return copy as T;
     }
     public void Sleep()
@@ -453,7 +455,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     unlockedMaps.Add("Patio");
                     wakeUpTalk = false;
                 }
-                if(day== 5 && storyBattle)
+                if(day== 4 && storyBattle)
                 {
                     BossBattleID = 101;
                 }
