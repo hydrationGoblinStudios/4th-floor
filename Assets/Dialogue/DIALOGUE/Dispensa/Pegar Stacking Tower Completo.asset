@@ -127,6 +127,52 @@ MonoBehaviour:
   speaker: 
   dialogue: obteve <color=yellow> Lingua de porco
   sprite: {fileID: 0}
+--- !u!114 &-730275181501765525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649bb85ae6aa90a4bad9887140b14ad9, type: 3}
+  m_Name: Scene
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1368, y: 56}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -730275181501765525}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 7041106584683963267}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -730275181501765525}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 5960853771503863266}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  scene: Dispensa
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +194,7 @@ MonoBehaviour:
   - {fileID: 5128568279848559573}
   - {fileID: -1061169858853236985}
   - {fileID: 7041106584683963267}
+  - {fileID: -730275181501765525}
   current: {fileID: 5960853771503863266}
 --- !u!114 &3652691177795786902
 MonoBehaviour:
@@ -306,7 +353,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1304, y: 56}
+  position: {x: 1624, y: 56}
   ports:
     keys:
     - entry
@@ -317,7 +364,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 7041106584683963267}
+        node: {fileID: -730275181501765525}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -362,7 +409,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 5960853771503863266}
+        node: {fileID: -730275181501765525}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
