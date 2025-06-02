@@ -191,7 +191,14 @@ public class InventoryManager : MonoBehaviour
         skillIconsObjects[1].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[1]).SingleOrDefault();
         skillIconsObjects[2].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[2]).SingleOrDefault();
         skillIconsObjects[3].GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == selectedUnit.skills[3]).SingleOrDefault();
+        if(selectedUnit != null)
+        {
         Manager.SelectedUBClassChange = selectedUnit.gameObject;
+        }
+        else
+        {
+            selectedUnit = Manager.SelectedUBClassChange.GetComponent<UnitBehavior>();
+        }
         if(panelList.Count > 0)
         {
             int counter = 0;

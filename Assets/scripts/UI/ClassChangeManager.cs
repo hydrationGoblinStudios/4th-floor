@@ -7,6 +7,7 @@ public class ClassChangeManager : MonoBehaviour
 {
      public InventoryManager inventoryManager;
      public List<GameObject> ClassChangeManagerButtons;
+    public List<Item> ImprovisedWeapon;
     public List<SpriteRenderer> ClassChangeManagerSprites;
     [HideInInspector] public GameObject GameManagerOBJ;
     [HideInInspector] public GameManager Manager;    
@@ -26,22 +27,19 @@ public class ClassChangeManager : MonoBehaviour
         }
         foreach (KeyValuePair<int, int> entry in Manager.SelectedUBClassChange.GetComponent<UnitBehavior>().ClassLearning)
         {
-            Debug.Log("checando classes de " + Manager.SelectedUBClassChange.GetComponent<UnitBehavior>().UnitName);
-            Debug.Log("CLASSE ID " + entry.Key);
-            Debug.Log("CLASSE Value " + entry.Value);
             
             switch (entry.Key)
             {
-                case 101: if (entry.Value >= 5) { ClassChangeManagerSprites[0].color = new Color(1,1,1, 1) ; ClassChangeManagerButtons[0].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(101)); } break;
-                case 106: if (entry.Value >= 5) {  ClassChangeManagerSprites[1].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[1].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(106)); } break;
-                case 102: if (entry.Value >= 5) {  ClassChangeManagerSprites[2].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[2].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(102)); } break;
-                case 103: if (entry.Value >= 5) { ClassChangeManagerSprites[3].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[3].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(103)); } break;
-                case 104: if (entry.Value >= 5) { ClassChangeManagerSprites[4].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[4].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(104)); } break;
-                case 105: if (entry.Value >= 5) {  ClassChangeManagerSprites[5].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[5].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(105)); } break;
-                case 107: if (entry.Value >= 5) {  ClassChangeManagerSprites[6].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[6].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(107)); } break;
-
+                case 101: if (entry.Value >= 5) { ClassChangeManagerSprites[0].color = new Color(1,1,1, 1) ; ClassChangeManagerButtons[0].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(101, ImprovisedWeapon[0])); } break;
+                case 106: if (entry.Value >= 5) {  ClassChangeManagerSprites[1].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[1].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(106, ImprovisedWeapon[3])); } break;
+                case 102: if (entry.Value >= 5) {  ClassChangeManagerSprites[2].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[2].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(102, ImprovisedWeapon[1])); } break;
+                case 103: if (entry.Value >= 5) { ClassChangeManagerSprites[3].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[3].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(103, ImprovisedWeapon[2])); } break;
+                case 104: if (entry.Value >= 5) { ClassChangeManagerSprites[4].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[4].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(104, ImprovisedWeapon[4])); } break;
+                case 105: if (entry.Value >= 5) {  ClassChangeManagerSprites[5].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[5].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(105, ImprovisedWeapon[5])); } break;
+                case 107: if (entry.Value >= 5) {  ClassChangeManagerSprites[6].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[6].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(107, ImprovisedWeapon[0])); } break;
             }
         }
+        inventoryManager.Select(inventoryManager.selectedUnit);
         inventoryManager.UpdateUITop();
     }
     void Update()
