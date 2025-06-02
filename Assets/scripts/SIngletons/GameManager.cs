@@ -483,6 +483,25 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     ChangeGraph(graphs[3], "Leyni Interactable",m_scene.name);
                 }
                 break;
+            case "Dispensa":
+                bool t = false;
+                foreach(Item item in StoryFlags)
+                {
+                    if(item.name == "CartaHumano02")
+                    {
+                        t = true;
+                    }
+                }
+
+                if (t)
+                {
+                    Debug.Log("tem Carta 2");
+                    ChangeSprite("sacos caixa direita", 1);
+                    ChangeSprite("sacos caixa esquerda", 0);
+                    ChangeGraph(graphs[6], "sacos caixa esquerda Interactable", m_scene.name);
+                    GameObject.Find("sacos caixa esquerda Interactable").SetActive(false);
+                }
+                break;
 
             case "Cutscene":
 

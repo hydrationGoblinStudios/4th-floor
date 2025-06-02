@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 264688737}
   - component: {fileID: 264688736}
   - component: {fileID: 264688735}
+  - component: {fileID: 264688738}
   m_Layer: 5
   m_Name: sacos caixa esquerda Interactable
   m_TagString: Untagged
@@ -204,19 +205,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 264688736}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 996546828}
-        m_TargetAssemblyTypeName: SceneMaracutaia, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Hanoi
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &264688736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +244,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264688732}
   m_CullTransparentMesh: 1
+--- !u!114 &264688738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264688732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000, guid: 463c56075d8f7474caebeac8ebef67ac, type: 2}
+  nodeParser: {fileID: 0}
+  button: {fileID: 264688735}
 --- !u!1 &437843498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701449703}
   - component: {fileID: 1701449704}
+  - component: {fileID: 1701449705}
   m_Layer: 0
   m_Name: sacos caixa direita
   m_TagString: Untagged
@@ -2118,7 +2123,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 129cb89ce53b695419be6223302ff825, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2126,9 +2131,25 @@ SpriteRenderer:
   m_Size: {x: 6.4, y: 3.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1701449705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701449702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0ade48d71090540b2101b868491bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1701449704}
+  sprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 129cb89ce53b695419be6223302ff825, type: 3}
 --- !u!1 &2125996977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,6 +2297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2146842650}
   - component: {fileID: 2146842651}
+  - component: {fileID: 2146842652}
   m_Layer: 0
   m_Name: sacos caixa esquerda
   m_TagString: Untagged
@@ -2350,6 +2372,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2146842652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146842649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0ade48d71090540b2101b868491bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2146842651}
+  sprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 0865e2a0a13e6594b8cd01f92f7ebe45, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

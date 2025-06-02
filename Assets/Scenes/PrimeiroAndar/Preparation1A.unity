@@ -1159,6 +1159,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9602b6aec4e1de149a73e81870adf581, type: 2}
   - {fileID: 11400000, guid: 479f2e578106c4f4a8a53fec21f7d083, type: 2}
   - {fileID: 11400000, guid: bdfa898425e16f94ebaad94f4668c257, type: 2}
+  - {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
   DayResultsManager: {fileID: 0}
   cui: {fileID: 0}
   selectedUB4Activity: {fileID: 0}
