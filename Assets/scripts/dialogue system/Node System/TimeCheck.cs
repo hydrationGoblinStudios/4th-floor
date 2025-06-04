@@ -8,7 +8,6 @@ public class TimeCheck : BaseNode
     [Input] public int entry;
     [Output] public int exit;
     [Output] public int exit2;
-    public int id;
     private GameManager Manager;
     private GameObject GameManagerOBJ;
     public override string GetString()

@@ -501,7 +501,10 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     ChangeGraph(graphs[6], "sacos caixa esquerda Interactable", m_scene.name);
                     GameObject.Find("sacos caixa esquerda Interactable").SetActive(false);
                 }
-                break;
+                if (day >= 9)
+                    ChangeGraph(graphs[7], "Gancho De Carne Interactable", m_scene.name);
+                ChangeSprite("carnes sprites", 1);
+                    break;
 
             case "Cutscene":
 
