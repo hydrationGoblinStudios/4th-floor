@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8952692957907384358}
   - component: {fileID: 1645214775516689556}
   - component: {fileID: 3387756151629906763}
-  - component: {fileID: -633413982220338445}
+  - component: {fileID: 4602239821904654627}
   m_Layer: 0
-  m_Name: Tesoura
+  m_Name: "Peda\xE7o Mapa Mundi"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,12 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 0}
   canvas: {fileID: 0}
-  dialogueGraphTarget:
-  - {fileID: 11400000, guid: 414ee2178328d75488c3ff8984170cd3, type: 2}
-  - {fileID: 11400000, guid: 1309a23e2754b3e4cb530a9dc5487d66, type: 2}
-  dialogueGraphs:
-  - {fileID: 11400000, guid: 4ed59f5978d8433429d858889fcf5fc9, type: 2}
-  - {fileID: 11400000, guid: 2657201942aed3c4dbab4c63d8375d08, type: 2}
+  dialogueGraphTarget: []
+  dialogueGraphs: []
   nodeParser: {fileID: 0}
 --- !u!58 &8952692957907384358
 CircleCollider2D:
@@ -124,7 +120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b05a04df0570bb54d9b3a062187b668a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0974cced0cd097542bf5327481fa520d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -134,7 +130,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!223 &-633413982220338445
+--- !u!223 &4602239821904654627
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
