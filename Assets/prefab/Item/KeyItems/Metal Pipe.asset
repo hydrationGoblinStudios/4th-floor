@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Peda\xE7oMapaMundi"
+  m_Name: Metal Pipe
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 8012
+  id: 8016
   sprite: {fileID: 0}
   type: 2
   weapontype: 0
   weight: 0
-  ItemName: "Peda\xE7o Mapa Mundi"
+  ItemName: Cano de metal
   description: 
   hit: 0
   crit: 0

@@ -14,8 +14,7 @@ public class ButtonAssigner : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
         if(graph != null)
         {
-            Debug.Log(this.name +" button assigned");
-        button.onClick.AddListener( delegate { nodeParser.StartDialogue(graph); });
+        button.onClick.AddListener( delegate {nodeParser.StartDialogue(graph);});
         }
     }
     public void AddListener()
