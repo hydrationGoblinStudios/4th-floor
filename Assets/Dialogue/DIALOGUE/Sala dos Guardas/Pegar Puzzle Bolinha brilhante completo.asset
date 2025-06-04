@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4855171549286856237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649bb85ae6aa90a4bad9887140b14ad9, type: 3}
+  m_Name: Scene
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1112, y: -56}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4855171549286856237}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 5449605110740844942}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4855171549286856237}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -3033258222165612147}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  scene: Quarto Dos Guardas
 --- !u!114 &-4844057134820370491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +156,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1112, y: -24}
+  position: {x: 1432, y: -24}
   ports:
     keys:
     - entry
@@ -121,7 +167,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 5449605110740844942}
+        node: {fileID: -4855171549286856237}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -198,7 +244,8 @@ MonoBehaviour:
   - {fileID: 5656389938729020021}
   - {fileID: -1732322240730694809}
   - {fileID: 5449605110740844942}
-  current: {fileID: 0}
+  - {fileID: -4855171549286856237}
+  current: {fileID: -3033258222165612147}
 --- !u!114 &5449605110740844942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +283,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -3033258222165612147}
+        node: {fileID: -4855171549286856237}
         reroutePoints: []
       _direction: 1
       _connectionType: 0

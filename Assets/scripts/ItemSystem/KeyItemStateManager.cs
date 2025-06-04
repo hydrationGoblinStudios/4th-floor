@@ -16,30 +16,25 @@ public class KeyItemStateManager : MonoBehaviour
         manager = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
         foreach (Item item in manager.KeyItems)
         {
-            int c = 0;
-
             if (items[0].name == item.name)
             {
                 Debug.Log("keyitem");
-                sprites[c].sprite = sprite;
+                sprites[0].sprite = sprite;
                 interactables[0].GetComponent<ButtonAssigner>().graph = target;
                 interactables[0].GetComponent<ButtonAssigner>().AddListener();
-                c++;
             }
         }
         foreach (Item item in manager.StoryFlags)
         {
-            int c = 0;
             Debug.Log(items[0].name);
             Debug.Log(item.name);
                 if (items[0].name == item.name)
             {
             Debug.Log("storyFlag");
-           sprites[c].sprite = sprite;
+           sprites[0].sprite = sprite;
             interactables[0].GetComponent<ButtonAssigner>().graph = target;
             interactables[0].GetComponent<ButtonAssigner>().AddListener();
             }   
-                c++;
             
         }
     }

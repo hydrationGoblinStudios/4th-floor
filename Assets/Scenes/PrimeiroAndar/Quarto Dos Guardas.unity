@@ -273,6 +273,8 @@ GameObject:
   - component: {fileID: 197786980}
   - component: {fileID: 197786983}
   - component: {fileID: 197786984}
+  - component: {fileID: 197786985}
+  - component: {fileID: 197786986}
   m_Layer: 5
   m_Name: Cofre Interactable
   m_TagString: Untagged
@@ -410,6 +412,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 11400000, guid: 2d9fa2e3fa48e054384bc24ce55ab6ae, type: 2}
   sprite: {fileID: 21300000, guid: a80fb162a0f492e4399aeafeb57641cc, type: 3}
+  items:
+  - {fileID: 11400000, guid: c07379feffff9c945b9e962550d1b12a, type: 2}
+  interactables:
+  - {fileID: 197786978}
+  sprites:
+  - {fileID: 743881918}
+  manager: {fileID: 0}
+--- !u!114 &197786985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197786978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0beb927c5df4a43878d63f917a7922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 11400000, guid: 94b0ef2bbd2aa6f40ba26a3b762f83a6, type: 2}
+  sprite: {fileID: 21300000, guid: a93324e497a0f30498cc0ae517d92cdd, type: 3}
+  items:
+  - {fileID: 11400000, guid: c07379feffff9c945b9e962550d1b12a, type: 2}
+  interactables:
+  - {fileID: 197786978}
+  sprites:
+  - {fileID: 1357198303}
+  manager: {fileID: 0}
+--- !u!114 &197786986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197786978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0beb927c5df4a43878d63f917a7922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 11400000, guid: 94b0ef2bbd2aa6f40ba26a3b762f83a6, type: 2}
+  sprite: {fileID: 0}
   items:
   - {fileID: 11400000, guid: c07379feffff9c945b9e962550d1b12a, type: 2}
   interactables:

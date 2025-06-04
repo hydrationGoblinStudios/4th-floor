@@ -1198,6 +1198,7 @@ MonoBehaviour:
   KeyItems:
   - {fileID: 11400000, guid: 006d5e4ea4191ea418a2c47e278cf25c, type: 2}
   - {fileID: 11400000, guid: 39b6aeffe0c2957438535ef734080044, type: 2}
+  - {fileID: 11400000, guid: ee5eebe068d4e034da9c8e391f4e2dec, type: 2}
   StoryFlags: []
   SwordList: []
   LanceList: []

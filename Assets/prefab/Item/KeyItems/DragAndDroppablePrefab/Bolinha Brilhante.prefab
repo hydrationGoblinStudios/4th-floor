@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3387756151629906763}
   - component: {fileID: -633413982220338445}
   m_Layer: 0
-  m_Name: BolinhaBrilhante
+  m_Name: Bolinha Brilhante
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
