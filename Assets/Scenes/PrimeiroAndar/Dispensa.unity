@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0ade48d71090540b2101b868491bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 792254743}
   sprites:
   - {fileID: 0}
   - {fileID: 21300000, guid: bf4caacdfdb8a904f8229a4116c92f9d, type: 3}

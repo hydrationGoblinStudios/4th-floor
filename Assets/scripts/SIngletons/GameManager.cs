@@ -502,14 +502,27 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     GameObject.Find("sacos caixa esquerda Interactable").SetActive(false);
                 }
                 if (day >= 9)
+                {
                     ChangeGraph(graphs[7], "Gancho De Carne Interactable", m_scene.name);
                 ChangeSprite("carnes sprites", 1);
+                }
                     break;
-
             case "Cutscene":
 
-                    StartCoroutine(WaitToLoad(graphName: "Noite 0 Figura Misteriosa"));
-                
+                StartCoroutine(WaitToLoad(graphName: "Noite 0 Figura Misteriosa"));
+
+                break;
+            case "Horta":
+                if (day >= 5)
+                {
+                    ChangeGraph(graphs[8], "Planta estranha Interactable", m_scene.name);
+                    ChangeSprite("planta murcha Sprite", 1);
+                }
+                if (day >= 9)
+                {
+                    ChangeGraph(graphs[9], "Planta estranha Interactable", m_scene.name);
+                    ChangeSprite("planta murcha Sprite", 2);
+                }
                 break;
             case "Abertura":
                 if (true)
