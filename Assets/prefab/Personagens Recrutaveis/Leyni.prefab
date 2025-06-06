@@ -69,14 +69,14 @@ MonoBehaviour:
   maxhp: 90
   hp: 90
   power: 0
-  str: 9
+  str: 11
   mag: 8
   dex: 12
   def: 5
   mdef: 6
   defenses: 
   luck: 10
-  speed: 14
+  speed: 15
   skills:
   - Dano Ascendente
   - Foco
