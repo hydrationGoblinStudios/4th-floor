@@ -52,7 +52,7 @@ public class DayResultsManager : MonoBehaviour
                         case 0:
                             if(r <= currentUnit.growths[currentUnit.fortalecerStat])
                             {
-                            currentUnit.maxhp++; Texts[c].text = "+1 HP";
+                            currentUnit.maxhp += 10; Texts[c].text = "+10 HP";
                             }
                             else
                             {
@@ -89,7 +89,7 @@ public class DayResultsManager : MonoBehaviour
                                 Texts[c].text = "Treino não foi bem sucedido";
                             }
                             break;
-                        case 4:
+                        case 5:
                             if (r <= currentUnit.growths[currentUnit.fortalecerStat])
                             {
                                 currentUnit.def++; Texts[c].text = "+1 Def";
@@ -99,7 +99,7 @@ public class DayResultsManager : MonoBehaviour
                                 Texts[c].text = "Treino não foi bem sucedido";
                             }
                             break;
-                        case 5:
+                        case 6:
                             if (r <= currentUnit.growths[currentUnit.fortalecerStat])
                             {
                                 currentUnit.mdef++; Texts[c].text = "+1 MDef";
@@ -109,7 +109,7 @@ public class DayResultsManager : MonoBehaviour
                                 Texts[c].text = "Treino não foi bem sucedido";
                             }
                             break;
-                        case 6:
+                        case 4:
                             if (r <= currentUnit.growths[currentUnit.fortalecerStat])
                             {
                                 currentUnit.speed++; Texts[c].text = "+1 Vel";
