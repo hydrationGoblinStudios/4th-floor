@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 8010
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 651467c23953f84438d7a69f59b0fe4c, type: 3}
   type: 2
   weapontype: 0
   weight: 0

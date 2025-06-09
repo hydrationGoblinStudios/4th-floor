@@ -48,7 +48,7 @@ MonoBehaviour:
   speaker: Navor
   dialogue: "Voc\xEA perdeu sua mem\xF3ria? deixe-me ver, fique em p\xE9 perto deste
     c\xEDrculo."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-8375134757185349295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   exit: 0
   speaker: Navor
   dialogue: "\u2026"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-6893014475596427891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   speaker: Navor
   dialogue: "Hmm, parece que a coisa respons\xE1vel por selar suas mem\xF3rias \xE9
     poderosa demais para eu fazer algo sobre. Me desculpe"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-6667551777511978611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   exit: 0
   speaker: Navor
   dialogue: Bom dia Ramion, como posso ajudar?
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-5012497074821732351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
   exit: 0
   speaker: Navor
   dialogue: "Sim, ela \xE9 quem comanda o coliseu. Tem um quadro dela na cantina."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-4802737869529724531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   speaker: Navor
   dialogue: "Hmm, parece que a coisa respons\xE1vel por selar suas mem\xF3rias \xE9
     poderosa demais para eu fazer algo sobre. Me desculpe"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-2708376811445401858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   dialogue: "Todas fazem parte das minhas pesquisas. S\xE3o artefatos e s\xEDmbolos
     com o poder interagir com as almas, mas nenhum desses faz exatamente o que eu
     estou procurando."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-2103544066181798221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   exit: 0
   speaker: Navor
   dialogue: "\u2026"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-1978124187074286759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,7 +660,7 @@ MonoBehaviour:
   speaker: Navor
   dialogue: "Voc\xEA perdeu sua mem\xF3ria? deixe-me ver, fique em p\xE9 perto deste
     c\xEDrculo."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-750369835601041857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,7 +710,7 @@ MonoBehaviour:
   dialogue: "Meu nome \xE9 Navor, eu sou um pesquisador, e nos \xFAltimos anos nutri
     um interesse por este lugar. A Suserana foi gentil suficiente para me deixar
     criar este pequeno laborat\xF3rio para minha pesquisas."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &-471874390467464438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   speaker: Navor
   dialogue: "Se voc\xEA encontrar algum item assim por a\xED traga at\xE9 mim, que
     eu lhe ajudarei a us\xE1-los."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,7 +854,7 @@ MonoBehaviour:
   dialogue: "Ah, n\xE3o me surpreendo. Eu venho de Greevar, fica ao sul daqui. O
     meu povo n\xE3o \xE9 de criar ra\xEDzes, n\xF3s normalmente somos n\xF4mades
     que viajam pelo mundo. A mera ideia de uma pris\xE3o \xE9 agoniante."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &1987514770294984801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1192, y: -168}
+  position: {x: 1192, y: -136}
   ports:
     keys:
     - entry
@@ -902,7 +902,7 @@ MonoBehaviour:
   exit: 0
   speaker: Navor
   dialogue: "Boa tarde, Quem \xE9 voc\xEA?"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &2032893128295903187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   exit: 0
   speaker: Navor
   dialogue: "Uma mente curiosa \xE9 sempre bom, me diga o que quer saber."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &2381864451638483046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   speaker: Navor
   dialogue: "Ah, comparado \xE0 aqui n\xE3o \xE9 nada demais. Na verdade l\xE1 \xE9
     um lugar bem mais in\xF3spito que este."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &2650930084645459495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,7 +1287,7 @@ MonoBehaviour:
     matando, enquanto os lutadores nem questionam esse sistema. Peda\xE7os de terra
     no meio do c\xE9u como se fossem ilhas no meio do mar\u2026 At\xE9 a chefe desse
     lugar \xE9 um mist\xE9rio completo."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &3910754080507924256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   dialogue: "Ah, n\xE3o me surpreendo. Eu venho de Greevar, fica ao sul daqui. O
     meu povo n\xE3o \xE9 de criar ra\xEDzes, n\xF3s normalmente somos n\xF4mades
     que viajam pelo mundo. A mera ideia de uma pris\xE3o \xE9 agoniante."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &4117389227617144264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,7 +1420,7 @@ MonoBehaviour:
   exit: 0
   speaker: Navor
   dialogue: "Sim, ela \xE9 quem comanda o coliseu. Tem um quadro dela na cantina."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &4601379168543163581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,7 +1470,7 @@ MonoBehaviour:
   dialogue: "Quem bom que perguntou! eu busco estudar as almas dos seres. Durante
     sua estadia aqui, voc\xEA pode se deparar com <color=yellow> itens que emanam
     poder. <color=black> Eu posso infundir esse poder na alma dos competidos"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
 --- !u!114 &4909634644192111637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,4 +1743,4 @@ MonoBehaviour:
   speaker: Navor
   dialogue: "Ramion\u2026 voc\xEA \xE9 interessante\u2026 \xFAnico at\xE9. Nunca
     vi algu\xE9m como voc\xEA antes"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4c59d383975806f4aa1ff4dd86467d32, type: 3}
