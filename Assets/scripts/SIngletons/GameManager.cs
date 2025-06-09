@@ -503,7 +503,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 }
                 if (day >= 9)
                 {
-                    ChangeGraph(graphs[7], "Gancho De Carne Interactable", m_scene.name);
+                    ChangeGraph(graphs.Where(obj => obj.name == "Pegar Gancho de Carne Semana 2+").SingleOrDefault(), "Gancho De Carne Interactable", m_scene.name);
                 ChangeSprite("carnes sprites", 1);
                 }
                     break;
@@ -515,12 +515,12 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             case "Horta":
                 if (day >= 5)
                 {
-                    ChangeGraph(graphs[8], "Planta estranha Interactable", m_scene.name);
+                    ChangeGraph(graphs.Where(obj => obj.name == "Interagir Planta Esquisita Regada").SingleOrDefault(), "Planta estranha Interactable", m_scene.name);
                     ChangeSprite("planta murcha Sprite", 1);
                 }
                 if (day >= 9)
                 {
-                    ChangeGraph(graphs[9], "Planta estranha Interactable", m_scene.name);
+                    ChangeGraph(graphs.Where(obj => obj.name == "Interagir Planta esquisita Regada semana 4+").SingleOrDefault(), "Planta estranha Interactable", m_scene.name);
                     ChangeSprite("planta murcha Sprite", 2);
                 }
                 break;

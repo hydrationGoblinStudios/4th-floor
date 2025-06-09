@@ -1135,7 +1135,7 @@ MonoBehaviour:
     m_Handle: 0
   money: 50
   lumenita: 0
-  day: 5
+  day: 9
   testMode: 0
   storyBattle: 0
   BossBattleID: 0
