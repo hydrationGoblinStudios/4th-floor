@@ -67,6 +67,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         this.KeyItems = data.KeyItems;
         this.StoryFlags = data.StoryFlags;
         this.unlockedMaps = data.unlockedMaps;
+        wakeUpTalk = true;
     }
     public void SaveData(ref GameData data)
     {

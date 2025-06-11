@@ -45,5 +45,7 @@ public class GMButtonAssigner : MonoBehaviour
         GameObject ab = GameObject.FindGameObjectWithTag("Activity Board");
         ab.transform.GetChild(0).gameObject.SetActive(true);
         ab.GetComponentInChildren<ActivityBoardUserInterface>().Mugshot();
+        ConfigToggle CT = FindObjectOfType<ConfigToggle>(true);
+        CT.activatable = false;
     }
 }

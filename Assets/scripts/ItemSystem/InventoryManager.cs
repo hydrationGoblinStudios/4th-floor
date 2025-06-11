@@ -78,10 +78,31 @@ public class InventoryManager : MonoBehaviour
     }
     public void ToggleClassChange()
     {
+        if (!ClassChangeObject.GetComponent<ClassChangeManager>().classLearn)
+        {
         ClassChangeObject.SetActive(!ClassChangeObject.activeInHierarchy);
         gameObject.SetActive(!gameObject.activeInHierarchy);
         ClassChangeObject.GetComponent<ClassChangeManager>().AllowChanges();
         UpdateUITop();
+        }
+        else
+        {
+            ClassChangeObject.SetActive(false);
+            if (SceneInteractable == null)
+            {
+                SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
+            }
+            foreach (GameObject go in new List<GameObject> {SceneInteractable })
+            {               
+                    go.SetActive(!go.activeInHierarchy);                
+            }
+            ClassChangeObject.GetComponent<ClassChangeManager>().classLearn = false;
+            Activatable = true;
+            ConfigToggle CT = FindObjectOfType<ConfigToggle>(true);
+            CT.activatable = true;
+            MapToggle MT = FindObjectOfType<MapToggle>(true);
+            MT.activatable = !MT.activatable;
+        }
     }
     public void Equip(Item item)
     {if(item.type == Item.Type.weapon)
