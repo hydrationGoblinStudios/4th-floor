@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -78,8 +79,33 @@ public class InventoryManager : MonoBehaviour
     }
     public void ToggleClassChange()
     {
+
         if (!ClassChangeObject.GetComponent<ClassChangeManager>().classLearn)
         {
+            int c = 0;
+            ClassChangeManager CCM = ClassChangeObject.GetComponent<ClassChangeManager>();
+            List<int> classID = new() { 101, 106, 102, 103, 104, 105, 107 };
+            UnitBehavior UB = Manager.SelectedUBClassChange.GetComponent<UnitBehavior>();
+            foreach (GameObject entry in CCM.ClassChangeManagerButtons)
+            {
+                string learnedClassLevel = "0";
+                UB.ClassLearning.TryGetValue(classID[c], out int value);
+                if (UB.ClassLearning.TryGetValue(classID[c], out int temp))
+                {
+                    learnedClassLevel = value.ToString();
+                }
+                switch (classID[c])
+                {
+                    case 101:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 106:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 102:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 103:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 104:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 105:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 107:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                }
+                c++;
+            }
         ClassChangeObject.SetActive(!ClassChangeObject.activeInHierarchy);
         gameObject.SetActive(!gameObject.activeInHierarchy);
         ClassChangeObject.GetComponent<ClassChangeManager>().AllowChanges();
@@ -96,6 +122,7 @@ public class InventoryManager : MonoBehaviour
             {               
                     go.SetActive(!go.activeInHierarchy);                
             }
+            
             ClassChangeObject.GetComponent<ClassChangeManager>().classLearn = false;
             Activatable = true;
             ConfigToggle CT = FindObjectOfType<ConfigToggle>(true);
