@@ -38,6 +38,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<Item> Inventory;
     public List<Item> KeyItems;
     public List<Item> StoryFlags;
+    [HideInInspector]
+    public int plantaDia = 40;
     [Header("ItemParseLists")]
     public List<Item> SwordList;
     public List<Item> LanceList;
@@ -67,6 +69,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         this.KeyItems = data.KeyItems;
         this.StoryFlags = data.StoryFlags;
         this.unlockedMaps = data.unlockedMaps;
+        plantaDia = data.plantaDia;
         wakeUpTalk = true;
     }
     public void SaveData(ref GameData data)
@@ -90,6 +93,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         data.KeyItems = this.KeyItems;
         data.unlockedMaps = this.unlockedMaps;
         count = 0;
+        data.plantaDia = this.plantaDia;
+
         data.units = units;
     }
     public void PrepScreen()
@@ -514,12 +519,12 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
 
                 break;
             case "Horta":
-                if (day >= 5)
+                if (day >= plantaDia)
                 {
                     ChangeGraph(graphs.Where(obj => obj.name == "Interagir Planta Esquisita Regada").SingleOrDefault(), "Planta estranha Interactable", m_scene.name);
                     ChangeSprite("planta murcha Sprite", 1);
                 }
-                if (day >= 9)
+                if (day >= plantaDia +4)
                 {
                     ChangeGraph(graphs.Where(obj => obj.name == "Interagir Planta esquisita Regada semana 4+").SingleOrDefault(), "Planta estranha Interactable", m_scene.name);
                     ChangeSprite("planta murcha Sprite", 2);

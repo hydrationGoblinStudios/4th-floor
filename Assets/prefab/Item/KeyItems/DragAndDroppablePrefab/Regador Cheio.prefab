@@ -55,7 +55,7 @@ MonoBehaviour:
   MainCamera: {fileID: 0}
   canvas: {fileID: 0}
   dialogueGraphTarget:
-  - {fileID: 11400000, guid: 1309a23e2754b3e4cb530a9dc5487d66, type: 2}
+  - {fileID: 11400000, guid: 78764de7fb68946478f4eeb5f1383728, type: 2}
   dialogueGraphs:
   - {fileID: 11400000, guid: 11b618c1c436ddc47a2278604abc02ce, type: 2}
   nodeParser: {fileID: 0}

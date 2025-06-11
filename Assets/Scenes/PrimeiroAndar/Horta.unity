@@ -1890,6 +1890,7 @@ MonoBehaviour:
   gameData:
     money: 0
     day: 0
+    plantaDia: 40
     storyBattle: 0
     Inventory: []
     KeyItems: []
