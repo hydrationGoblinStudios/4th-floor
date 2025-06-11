@@ -59,10 +59,14 @@ MonoBehaviour:
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
-  ClassID: 65000000
+  ClassID: 6a000000
   ClassLevel: 
   ClassLearningSerializable:
-    thisSeriazableDictionaryItem: []
+    thisSeriazableDictionaryItem:
+    - key: 106
+      value: 5
+    - key: 101
+      value: 5
   hit: 0
   avoid: 0
   crit: 0

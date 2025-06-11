@@ -62,7 +62,11 @@ MonoBehaviour:
   ClassID: 68000000
   ClassLevel: 
   ClassLearningSerializable:
-    thisSeriazableDictionaryItem: []
+    thisSeriazableDictionaryItem:
+    - key: 104
+      value: 5
+    - key: 105
+      value: 5
   hit: 0
   avoid: 0
   crit: 0
