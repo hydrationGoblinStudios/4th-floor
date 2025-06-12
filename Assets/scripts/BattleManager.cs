@@ -784,6 +784,7 @@ public class BattleManager : MonoBehaviour
         UnitBehavior DisplayCharacter1 = gameManager.teamPostPreBattle[0].GetComponent<UnitBehavior>();
         UnitBehavior RealCharacter2 = null;
         UnitBehavior RealCharacter3 = null;
+        UnitBehavior RealCharacter4 = null;
         UnitBehavior DisplayCharacter2 = null;
         UnitBehavior DisplayCharacter3 = null;
         if (gameManager.team.Count > 1)
@@ -798,6 +799,10 @@ public class BattleManager : MonoBehaviour
             RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
             DisplayCharacter3 = gameManager.teamPostPreBattle[2].GetComponent<UnitBehavior>();
             StatsBreakdown(3, RealCharacter3);
+        }
+        if (gameManager.team.Count > 3)
+        {
+            RealCharacter4 = gameManager.team[3].GetComponent<UnitBehavior>();
         }
         StatsBreakdown(1, RealCharacter1);
 
@@ -822,14 +827,15 @@ public class BattleManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1);
-        int exp1 = (int)(30 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
+        int exp1 = (int)(50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
         if (exp1 <= 0) { exp1 = 1; }
-        int exp2 = (int)(30 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player2Behavior.expmarkplier);
+        int exp2 = (int)(50 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player2Behavior.expmarkplier);
         if (exp2 <= 0) { exp2 = 1; }
-        int exp3 = (int)(30 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player3Behavior.expmarkplier);
+        int exp3 = (int)(50 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player3Behavior.expmarkplier);
         if (exp3 <= 0) { exp3 = 1; }
-
-
+        int exp4 = (int)(50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
+        if (exp4 <= 0) { exp1 = 1; }
+        RealCharacter4.currentExp += exp4;
         RealCharacter1.currentExp += exp1;
         if (gameManager.team.Count > 2)
         {
