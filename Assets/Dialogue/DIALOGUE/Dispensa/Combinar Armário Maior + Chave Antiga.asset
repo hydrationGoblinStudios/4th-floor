@@ -93,7 +93,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
   key: 0
   flag: 0
 --- !u!114 &-2462394412949217350
@@ -141,7 +141,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 7da4ef9cd392b9a4ea38aa8a152265b1, type: 2}
   key: 0
   flag: 0
 --- !u!114 &11400000
@@ -163,6 +163,7 @@ MonoBehaviour:
   - {fileID: -2462394412949217350}
   - {fileID: 704557761107286565}
   - {fileID: 2631697018355306701}
+  - {fileID: 3209725325072946060}
   current: {fileID: 0}
 --- !u!114 &704557761107286565
 MonoBehaviour:
@@ -247,7 +248,10 @@ MonoBehaviour:
       _node: {fileID: 2631697018355306701}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 3209725325072946060}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -288,3 +292,35 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
+--- !u!114 &3209725325072946060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f247d9b14698438e2d74800ab78da, type: 3}
+  m_Name: Stop
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1352, y: -56}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: 3209725325072946060}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 2631697018355306701}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  spriteRenderer: {fileID: 0}
+  entry: 0
