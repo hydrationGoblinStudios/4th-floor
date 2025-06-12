@@ -54,6 +54,9 @@ public struct UnitData
     public int magicpen;
     [Header("Cooking")]
     public int cooking;
+    [Header("actrivity related")]
+    public string activity;
+    public int fortalecerStat;
     [Header("Growths")]
     public List<int> growths;
     [Header("Learn Set")]

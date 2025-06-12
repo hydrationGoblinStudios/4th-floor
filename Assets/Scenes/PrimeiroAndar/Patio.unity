@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 455794276}
   - component: {fileID: 455794277}
   m_Layer: 0
-  m_Name: Placa Sprite
+  m_Name: "PlacaEst\xE1tua Sprite"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2008,6 +2008,7 @@ MonoBehaviour:
   gameData:
     money: 0
     day: 0
+    plantaDia: 40
     storyBattle: 0
     Inventory: []
     KeyItems: []
@@ -2310,7 +2311,7 @@ GameObject:
   - component: {fileID: 1255415565}
   - component: {fileID: 1255415564}
   m_Layer: 5
-  m_Name: Placa Interactable
+  m_Name: "PlacaEst\xE1tua Interactable"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

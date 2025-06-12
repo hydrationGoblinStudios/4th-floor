@@ -45,7 +45,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  buttonAssigner: Placa Interactable
+  buttonAssigner: "PlacaEst\xE1tua Interactable"
   dialogueGraph: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
 --- !u!114 &-1428969328377112396
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   - {fileID: 1097232827753876723}
   - {fileID: -7533102661249780823}
   - {fileID: 4469601395465446730}
-  current: {fileID: 163858968365390516}
+  current: {fileID: -7533102661249780823}
 --- !u!114 &163858968365390516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  spriteObject: Placa Sprite
+  spriteObject: "PlacaEst\xE1tua Sprite"
   targetSprite: 1
 --- !u!114 &5175520828475312862
 MonoBehaviour:

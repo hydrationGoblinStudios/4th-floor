@@ -148,6 +148,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CurrentUnitData.defenses = CurrentUnitBehavior.defenses;
         CurrentUnitData.luck = CurrentUnitBehavior.luck;
         CurrentUnitData.speed = CurrentUnitBehavior.speed;
+        CurrentUnitData.activity = CurrentUnitBehavior.activity;
+        CurrentUnitData.fortalecerStat = CurrentUnitBehavior.fortalecerStat;
         //sistema de skills
         CurrentUnitData.skills = CurrentUnitBehavior.skills;
         CurrentUnitData.skillInventory = CurrentUnitBehavior.skillInventory;
@@ -218,6 +220,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CurrentUnitBehavior.defenses = CurrentUnitData.defenses;
         CurrentUnitBehavior.luck = CurrentUnitData.luck;
         CurrentUnitBehavior.speed = CurrentUnitData.speed;
+        CurrentUnitBehavior.activity = CurrentUnitData.activity;
+        CurrentUnitBehavior.fortalecerStat = CurrentUnitData.fortalecerStat;
         //sistema de skills
         CurrentUnitBehavior.skills = CurrentUnitData.skills;
         CurrentUnitBehavior.skillInventory = CurrentUnitData.skillInventory;
