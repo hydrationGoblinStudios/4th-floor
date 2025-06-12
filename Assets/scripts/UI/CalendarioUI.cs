@@ -47,7 +47,10 @@ public class CalendarioUI : MonoBehaviour
             tmp.text = (gameManager.day + c).ToString();
             c++;
         }
-        yield return new WaitForSeconds(1);     
-       StartCoroutine(UIUpdate());        
+        yield return new WaitForSeconds(1);
+        if (Calendario.gameObject.activeInHierarchy)
+        {
+        StartCoroutine(UIUpdate());
+        }
     }
 }

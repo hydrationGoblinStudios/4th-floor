@@ -64,7 +64,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     {
         this.money = data.money;
         this.day = data.day;
-        this.storyBattle = data.storyBattle;
+        //this.storyBattle = data.storyBattle;
+        this.storyBattle = true;
         this.Inventory = data.Inventory;
         this.KeyItems = data.KeyItems;
         this.StoryFlags = data.StoryFlags;

@@ -317,11 +317,11 @@ public class PreBattleManager : MonoBehaviour
         playerWeaponStatText[1].text = selectedUnit.Weapon.hit.ToString();
         playerWeaponStatText[2].text = selectedUnit.Weapon.crit.ToString();
         playerWeaponStatText[3].text = selectedUnit.Weapon.name.ToString();
-        equipsRenderers[0].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.ItemName).SingleOrDefault();
+        equipsRenderers[0].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.name).SingleOrDefault();
         if (selectedUnit.Accesory != null)
         {
             playerWeaponStatText[4].text = selectedUnit.Accesory.name.ToString();
-            equipsRenderers[1].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.ItemName).SingleOrDefault();
+            equipsRenderers[1].sprite = inventoryManager.EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.name).SingleOrDefault();
         }
         else
         {

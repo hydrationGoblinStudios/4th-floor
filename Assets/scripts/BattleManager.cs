@@ -834,7 +834,10 @@ public class BattleManager : MonoBehaviour
         if (exp3 <= 0) { exp3 = 1; }
         int exp4 = (int)(50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
         if (exp4 <= 0) { exp1 = 1; }
+        if (gameManager.team.Count > 3)
+        {
         RealCharacter4.currentExp += exp4;
+        }
         RealCharacter1.currentExp += exp1;
         expSliderP1.value = RealCharacter1.currentExp;
 
