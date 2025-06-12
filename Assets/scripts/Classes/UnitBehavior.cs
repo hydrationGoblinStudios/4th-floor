@@ -92,8 +92,7 @@ public class UnitBehavior : MonoBehaviour
         {
         Weapon.holder = this;
         }
-        battleTextObj = GameObject.FindGameObjectWithTag("Battle Text");
-        battleText = battleTextObj.GetComponent<TextMeshPro>();
+        
         battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");
         Pendure = false;
         Eendure = false;

@@ -2735,10 +2735,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7215677822197021451, guid: 8a85fe2a8829c4c4b91a31e3231d12de, type: 3}
-      propertyPath: m_SortingOrder
-      value: 99
-      objectReference: {fileID: 0}
     - target: {fileID: 9146674072892825633, guid: 8a85fe2a8829c4c4b91a31e3231d12de, type: 3}
       propertyPath: m_Name
       value: Hover Object

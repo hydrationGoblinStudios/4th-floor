@@ -459,10 +459,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 4928064795052408956}
     m_Modifications:
     - target: {fileID: 1505923142613024445, guid: ea096737e9219f8478278bb96ef56a9e, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1505923142613024445, guid: ea096737e9219f8478278bb96ef56a9e, type: 3}
       propertyPath: m_ChunkCullingBounds.x
       value: 0.82000005
       objectReference: {fileID: 0}
