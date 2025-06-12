@@ -7410,7 +7410,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1110
+  m_SortingOrder: 10
   m_SortAtRoot: 0
 --- !u!1 &1900517200202177092
 GameObject:
@@ -8549,7 +8549,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1110
+  m_SortingOrder: 10
   m_SortAtRoot: 0
 --- !u!1 &2180897497263402439
 GameObject:
@@ -12646,7 +12646,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1110
+  m_SortingOrder: 10
   m_SortAtRoot: 0
 --- !u!1 &3300229850469038924
 GameObject:
@@ -21336,7 +21336,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1110
+  m_SortingOrder: 10
   m_SortAtRoot: 0
 --- !u!1 &5914586247250110962
 GameObject:
@@ -24592,7 +24592,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1110
+  m_SortingOrder: 10
   m_SortAtRoot: 0
 --- !u!1 &6719978438674985903
 GameObject:
@@ -31569,6 +31569,7 @@ MonoBehaviour:
   - {fileID: 554861578996903195}
   GameManagerOBJ: {fileID: 0}
   Manager: {fileID: 0}
+  classLearn: 0
 --- !u!1 &8631203370690038954
 GameObject:
   m_ObjectHideFlags: 0
