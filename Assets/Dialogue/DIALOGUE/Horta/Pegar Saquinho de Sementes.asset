@@ -45,7 +45,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  buttonAssigner: Saco de semente Interactable
+  buttonAssigner: Saquinho de sementes Interactable
   dialogueGraph: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
 --- !u!114 &-8787675772382058887
 MonoBehaviour:
@@ -123,7 +123,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  spriteObject: Saco De Semente Sprite
+  spriteObject: Saquinho de sementes Sprite
   targetSprite: 1
 --- !u!114 &-1297596071401354180
 MonoBehaviour:
@@ -242,7 +242,7 @@ MonoBehaviour:
   - {fileID: -8822201476823743257}
   - {fileID: -4270998398779968977}
   - {fileID: 8684575930140531014}
-  current: {fileID: 0}
+  current: {fileID: -4270998398779968977}
 --- !u!114 &3493639502326281869
 MonoBehaviour:
   m_ObjectHideFlags: 0

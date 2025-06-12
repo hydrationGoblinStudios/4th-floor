@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 21193747}
   - component: {fileID: 21193746}
   m_Layer: 5
-  m_Name: Saco de semente Interactable
+  m_Name: Saquinho de sementes Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1938,6 +1938,8 @@ MonoBehaviour:
       armorpen: 0
       magicpen: 0
       cooking: 0
+      activity: 
+      fortalecerStat: 0
       growths: 
       classSkill: 
       personalSkill: 
@@ -2892,7 +2894,7 @@ GameObject:
   - component: {fileID: 1420951846}
   - component: {fileID: 1420951848}
   m_Layer: 0
-  m_Name: Saco De Semente Sprite
+  m_Name: Saquinho de sementes Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
