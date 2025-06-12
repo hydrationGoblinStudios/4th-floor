@@ -47,7 +47,7 @@ MonoBehaviour:
   exit: 0
   speaker: Leyni
   dialogue: "O que voc\xEA quer?"
-  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+  sprite: {fileID: 21300000, guid: b1fa092f7490a7a41b38d07f59cdcd72, type: 3}
 --- !u!114 &-6658975079818602009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   exit: 0
   speaker: Leyni
   dialogue: "Do que voc\xEA precisa?"
-  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+  sprite: {fileID: 21300000, guid: b1fa092f7490a7a41b38d07f59cdcd72, type: 3}
 --- !u!114 &-3618379925329401116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   exit: 0
   speaker: Leyni
   dialogue: "Voc\xEA realmente deve estar desesperado pra vir falar comigo."
-  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+  sprite: {fileID: 21300000, guid: b1fa092f7490a7a41b38d07f59cdcd72, type: 3}
 --- !u!114 &-2318895649360501642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   exit: 0
   speaker: Leyni
   dialogue: "Eu fui presa. Roubando. Era isso ou morrer de fome, n\xE3o me arrependo."
-  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+  sprite: {fileID: 21300000, guid: b1fa092f7490a7a41b38d07f59cdcd72, type: 3}
 --- !u!114 &-1777179994389544893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   speaker: Leyni
   dialogue: "Bem, sim. Tem um filho da puta que eu quero ver com a cabe\xE7a longe
     do pesco\xE7o "
-  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+  sprite: {fileID: 21300000, guid: b1fa092f7490a7a41b38d07f59cdcd72, type: 3}
 --- !u!114 &-405026492986277714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
   speaker: Leyni
   dialogue: "Olha, eu realmente to precisando de um time, e S\xD3 POR ISSO eu vou
     aceitar. mas n\xE3o pense que somos amiguinhos. Meu nome \xE9 Leyni por sinal."
-  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+  sprite: {fileID: 21300000, guid: b1fa092f7490a7a41b38d07f59cdcd72, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,7 +770,7 @@ MonoBehaviour:
     voc\xEA precisa se tornar o cara mais forte daqui. A\xED voc\xEA pode pedir pra
     enfrentar o campe\xE3o da suserana, se voc\xEA ganhar, voc\xEA pode fazer qualquer
     pedido pra ela, inclusive a liberdade."
-  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+  sprite: {fileID: 21300000, guid: b1fa092f7490a7a41b38d07f59cdcd72, type: 3}
 --- !u!114 &5737358319249477965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,4 +1033,4 @@ MonoBehaviour:
   speaker: Leyni
   dialogue: "Bem, voc\xEA n\xE3o t\xE1 errado. Por algum motivo os outros merdas
     do primeiro andar n\xE3o quiseram formar time comigo."
-  sprite: {fileID: 21300000, guid: e8e15e5b08068c24696a7507159576a8, type: 3}
+  sprite: {fileID: 21300000, guid: b1fa092f7490a7a41b38d07f59cdcd72, type: 3}
