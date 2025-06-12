@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Lan\xE7a de aco"
+  m_Name: Lanca de aco
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 1
