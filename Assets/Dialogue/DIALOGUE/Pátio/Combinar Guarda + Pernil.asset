@@ -126,7 +126,7 @@ MonoBehaviour:
   exit: 0
   speaker: Guarda gordo
   dialogue: "\xC9 disso que eu to falando! T\xE1 t\xE1, posso passar"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 367a160311227dd4a94dd7e9bebdaf2e, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
