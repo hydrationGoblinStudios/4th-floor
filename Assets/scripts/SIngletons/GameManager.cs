@@ -481,6 +481,10 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     GameObject.Find("quadro de tarefas sprite").GetComponent<SpriteRenderer>().enabled = false;
                     
                 }
+                if(day > 19)
+                {
+                    GameObject.Find("ObrigadoPorJogar").gameObject.GetComponent<SpriteRenderer>().enabled = true ;
+                }
                 break;
             case "Patio":
                 if (day >= 3)

@@ -805,7 +805,6 @@ public class BattleManager : MonoBehaviour
             RealCharacter4 = gameManager.team[3].GetComponent<UnitBehavior>();
         }
         StatsBreakdown(1, RealCharacter1);
-
         state = BattleState.PlayerWon;
         yield return new WaitForSeconds(1);
         if(gameManager.day == 5 || gameManager.day == 10)
@@ -837,6 +836,8 @@ public class BattleManager : MonoBehaviour
         if (exp4 <= 0) { exp1 = 1; }
         RealCharacter4.currentExp += exp4;
         RealCharacter1.currentExp += exp1;
+        expSliderP1.value = RealCharacter1.currentExp;
+
         if (gameManager.team.Count > 2)
         {
             expSliderP3.value = RealCharacter3.currentExp;

@@ -15,7 +15,7 @@ public class TimeCheck : BaseNode
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
         int isDay = 0;
-            if(Manager.TimeIsDay)
+            if(Manager.storyBattle)
             {
                 isDay = 1;
             }

@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 244716231}
   - component: {fileID: 244716230}
   m_Layer: 0
-  m_Name: SceneInteractables
+  m_Name: SceneInteractablesCantina
   m_TagString: Scene Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
