@@ -28383,6 +28383,7 @@ MonoBehaviour:
   - {fileID: 7631611099256901391, guid: 863ec0fecff5775438a8af40ed9aeba4, type: 3}
   - {fileID: 7631611099256901391, guid: d0e96196278de0c43b601f199240c2c9, type: 3}
   - {fileID: 7631611099256901391, guid: b328ddf684570e24c90811f8f36b00a7, type: 3}
+  - {fileID: 7631611099256901391, guid: 4b318c854c4b06546a5c23fa1a8f3f0a, type: 3}
   ClassChangeObject: {fileID: 8626097234946098502}
 --- !u!1 &7863391906144820613
 GameObject:
