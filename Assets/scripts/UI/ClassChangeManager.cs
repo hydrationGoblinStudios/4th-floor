@@ -49,6 +49,12 @@ public class ClassChangeManager : MonoBehaviour
     }
     public void ChooseClassToLearn()
     {
+        GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
+        Manager = GameManagerOBJ.GetComponent<GameManager>();
+        if (Manager.selectedUB4Activity == null)
+        {
+            Manager.selectedUB4Activity = Manager.team[0].GetComponent<UnitBehavior>();
+        }
         classLearn = true;
         if (inventoryManager.SceneInteractable == null)
         {

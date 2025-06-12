@@ -803,6 +803,10 @@ public class BattleManager : MonoBehaviour
         if (gameManager.team.Count > 3)
         {
             RealCharacter4 = gameManager.team[3].GetComponent<UnitBehavior>();
+            if (RealCharacter4.currentExp >= 100)
+            {
+                LevelUp(RealCharacter4);
+            }
         }
         StatsBreakdown(1, RealCharacter1);
         state = BattleState.PlayerWon;
