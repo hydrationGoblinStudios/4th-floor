@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
+  m_Name: Quelicera infecciosa
+  m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  id: 0
+  sprite: {fileID: 0}
+  type: 0
+  weapontype: 0
+  weight: 1
+  ItemName: "Quel\xEDcera Infecciosa"
+  description: "Uma espada que parece estar encantada com um feiti\xE7o que destroi
+    a vida dos seus inimigos.Toda vez que causar dano com um ataque b\xE1sico, o
+    alvo perde 10 de vida m\xE1xima at\xE9 o final do combate."
+  hit: 75
+  crit: 5
+  power: 14
+  str: 0
+  mag: 0
+  dex: 0
+  def: 0
+  Mdef: 0
+  luck: 0
+  speed: 0
+  price: 3
+  damageType: 0
+  skill: Espada Maldita

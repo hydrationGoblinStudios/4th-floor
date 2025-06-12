@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 3
   weight: 0
-  ItemName: Arco da Rapidez
+  ItemName: Arco de seda
   description: Um arco que te deixa mais veloz depois de usar uma alma. Ganha mais
     20% de Velocidade por 10 Segundos depois de usar a Alma.
   hit: 80
