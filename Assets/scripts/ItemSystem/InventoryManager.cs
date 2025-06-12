@@ -336,10 +336,10 @@ public class InventoryManager : MonoBehaviour
         UITopName.text = selectedUnit.UnitName;
         expbar.value = selectedUnit.currentExp;
         LvlText.text = "Lvl:" + selectedUnit.currentLevel;
-        WeaponImage.sprite = EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.ItemName).SingleOrDefault();
+        WeaponImage.sprite = EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.name).SingleOrDefault();
         if (selectedUnit.Accesory != null)
         {
-            AccesoryImage.sprite = EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.ItemName).SingleOrDefault();
+            AccesoryImage.sprite = EquipableImages.Where(obj => obj.name == selectedUnit.Accesory.name).SingleOrDefault();
         }
         else{
             AccesoryImage.sprite = null;
