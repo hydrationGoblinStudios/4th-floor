@@ -911,7 +911,7 @@ public class BattleManager : MonoBehaviour
         }
         for (int i = 0; i < 8; i++)
         {
-            int r = Random.Range(0, 100);
+            int r = Random.Range(0, 101);
             if (r <= character.growths[i])
             {
                 switch (i)
