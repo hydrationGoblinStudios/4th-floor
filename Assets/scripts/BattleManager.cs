@@ -862,7 +862,6 @@ public class BattleManager : MonoBehaviour
         {
             RealCharacter3.currentExp += exp3;
             if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); StatsBreakdown(3, DisplayCharacter3);
-                yield return new WaitForSeconds(1);
             }
         }
         if (gameManager.team.Count > 1)
@@ -872,7 +871,6 @@ public class BattleManager : MonoBehaviour
 
         if (RealCharacter2 != null) {
             if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(2, DisplayCharacter2);
-                yield return new WaitForSeconds(1);
             }
             RealCharacter2.currentExp += exp2;
         }
@@ -882,9 +880,8 @@ public class BattleManager : MonoBehaviour
         { 
             LevelUp(RealCharacter1);
             StatsBreakdown(1, DisplayCharacter1);
-            yield return new WaitForSeconds(1);
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
         gameManager.BossBattleID = 0;
         gameManager.storyBattle = false;
         gameManager.teamPostPreBattle.Clear();
@@ -929,7 +926,7 @@ public class BattleManager : MonoBehaviour
             {
                 switch (i)
                 {
-                    case 0: character.maxhp++; break;
+                    case 0: character.maxhp +=10; break;
                     case 1: character.str++; break;
                     case 2: character.mag++; break;
                     case 3: character.dex++; break;
