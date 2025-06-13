@@ -38,7 +38,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<Item> Inventory;
     public List<Item> KeyItems;
     public List<Item> StoryFlags;
-    [HideInInspector]
+   // [HideInInspector]
     public int plantaDia = 40;
     [Header("ItemParseLists")]
     public List<Item> SwordList;

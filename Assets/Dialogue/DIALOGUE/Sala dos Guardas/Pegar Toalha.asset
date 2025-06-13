@@ -224,7 +224,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  buttonAssigner: Toalha Sprite
+  buttonAssigner: Toalha Interactable
   dialogueGraph: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
 --- !u!114 &972620600785805275
 MonoBehaviour:
