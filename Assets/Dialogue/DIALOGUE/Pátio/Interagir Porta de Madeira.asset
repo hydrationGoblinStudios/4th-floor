@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7766426856426872838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be90d0b390d57cb43878c358fe4c8159, type: 3}
+  m_Name: Item Check
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 552, y: -56}
+  ports:
+    keys:
+    - entry
+    - exit
+    - exit2
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7766426856426872838}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 5175520828475312862}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7766426856426872838}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 4364564177880344040}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: -7766426856426872838}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -1428969328377112396}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  exit2: 0
+  id: 9005
 --- !u!114 &-1428969328377112396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +73,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 840, y: -8}
+  position: {x: 840, y: 24}
   ports:
     keys:
     - entry
@@ -24,8 +84,8 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit
-        node: {fileID: 5175520828475312862}
+      - fieldName: exit2
+        node: {fileID: -7766426856426872838}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -64,7 +124,10 @@ MonoBehaviour:
   - {fileID: 163858968365390516}
   - {fileID: 5175520828475312862}
   - {fileID: -1428969328377112396}
-  current: {fileID: 0}
+  - {fileID: -7766426856426872838}
+  - {fileID: 4364564177880344040}
+  - {fileID: 3616647316934231879}
+  current: {fileID: 163858968365390516}
 --- !u!114 &163858968365390516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +141,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1064, y: -8}
+  position: {x: 1064, y: 24}
   ports:
     keys:
     - entry
@@ -97,6 +160,87 @@ MonoBehaviour:
       _dynamic: 0
   spriteRenderer: {fileID: 0}
   entry: 0
+--- !u!114 &3616647316934231879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f247d9b14698438e2d74800ab78da, type: 3}
+  m_Name: Stop
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1064, y: -216}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: 3616647316934231879}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 4364564177880344040}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  spriteRenderer: {fileID: 0}
+  entry: 0
+--- !u!114 &4364564177880344040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 840, y: -216}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4364564177880344040}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -7766426856426872838}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 4364564177880344040}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 3616647316934231879}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Ramion
+  dialogue: "Aquele guarda se deixou ser subornado por um peda\xE7o de carne. Agora
+    eu posso entrar na horta."
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &5175520828475312862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +254,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 616, y: -8}
+  position: {x: 296, y: 8}
   ports:
     keys:
     - exit
@@ -121,7 +265,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -1428969328377112396}
+        node: {fileID: -7766426856426872838}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
