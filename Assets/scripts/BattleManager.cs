@@ -789,6 +789,7 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator PlayerWin()
     {
+        Debug.Log(gameManager.team.Count);
         UnitBehavior RealCharacter1 = gameManager.team[0].GetComponent<UnitBehavior>();
         UnitBehavior DisplayCharacter1 = gameManager.teamPostPreBattle[0].GetComponent<UnitBehavior>();
         UnitBehavior RealCharacter2 = null;
@@ -800,6 +801,7 @@ public class BattleManager : MonoBehaviour
         {
             RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
             DisplayCharacter2 = gameManager.teamPostPreBattle[1].GetComponent<UnitBehavior>();
+            Debug.Log(RealCharacter2.name + RealCharacter2.currentExp);
 
             StatsBreakdown(2, RealCharacter2);
         }
@@ -807,19 +809,17 @@ public class BattleManager : MonoBehaviour
         {
             RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
             DisplayCharacter3 = gameManager.teamPostPreBattle[2].GetComponent<UnitBehavior>();
+            Debug.Log(RealCharacter3.name + RealCharacter3.currentExp);
+
             StatsBreakdown(3, RealCharacter3);
         }
         if (gameManager.team.Count > 3)
         {
             RealCharacter4 = gameManager.team[3].GetComponent<UnitBehavior>();
-            if (RealCharacter4.currentExp >= 100)
-            {
-                LevelUp(RealCharacter4);
-            }
+            Debug.Log(RealCharacter4.name + RealCharacter4.currentExp);
         }
         StatsBreakdown(1, RealCharacter1);
         state = BattleState.PlayerWon;
-        yield return new WaitForSeconds(1);
         if(gameManager.day == 5 || gameManager.day == 10)
         {
             gameManager.money += 4000;
@@ -837,8 +837,6 @@ public class BattleManager : MonoBehaviour
         {
             expSliderP3.value = RealCharacter3.currentExp;
         }
-
-        yield return new WaitForSeconds(1);
         int exp1 = (int)(50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
         if (exp1 <= 0) { exp1 = 1; }
         int exp2 = (int)(50 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player2Behavior.expmarkplier);
@@ -847,13 +845,17 @@ public class BattleManager : MonoBehaviour
         if (exp3 <= 0) { exp3 = 1; }
         int exp4 = (int)(50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
         if (exp4 <= 0) { exp1 = 1; }
+        yield return new WaitForSeconds(1);
         if (gameManager.team.Count > 3)
         {
         RealCharacter4.currentExp += exp4;
+            if (RealCharacter4.currentExp >= 100)
+            {
+                LevelUp(RealCharacter4);
+            }
         }
         RealCharacter1.currentExp += exp1;
         expSliderP1.value = RealCharacter1.currentExp;
-
         if (gameManager.team.Count > 2)
         {
             expSliderP3.value = RealCharacter3.currentExp;
@@ -870,9 +872,9 @@ public class BattleManager : MonoBehaviour
         }
 
         if (RealCharacter2 != null) {
+            RealCharacter2.currentExp += exp2;
             if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(2, DisplayCharacter2);
             }
-            RealCharacter2.currentExp += exp2;
         }
         yield return new WaitForSeconds(1);
 
@@ -936,7 +938,7 @@ public class BattleManager : MonoBehaviour
                     case 7: character.luck++; break;
                 }
             }
-            Debug.Log("roll = " + r + "\n growth = " + character.growths[i]);
+            //Debug.Log("roll = " + r + "\n growth = " + character.growths[i]);
         };
     }
     public void AttackSetup(UnitBehavior Attacker, UnitBehavior Target)

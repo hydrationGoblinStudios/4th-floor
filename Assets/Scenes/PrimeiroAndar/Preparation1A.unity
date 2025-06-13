@@ -1757,6 +1757,8 @@ MonoBehaviour:
       armorpen: 0
       magicpen: 0
       cooking: 0
+      activity: 
+      fortalecerStat: 0
       growths: 
       classSkill: 
       personalSkill: 
