@@ -28201,6 +28201,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 651467c23953f84438d7a69f59b0fe4c, type: 3}
   - {fileID: 21300000, guid: c658c824cc9d692499acc35236d1303a, type: 3}
   - {fileID: 21300000, guid: 22e94d2ec77b426448c5f32fa6c585a8, type: 3}
+  - {fileID: 21300000, guid: 9f6e141cc22c4db4fa3987a4ea6997dd, type: 3}
   skillIcons:
   - {fileID: 21300000, guid: ddb61a94559818549a6fe3476fb99540, type: 3}
   - {fileID: 21300000, guid: 807bf3946588a164997a05a9984f5e48, type: 3}
