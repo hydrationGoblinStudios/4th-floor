@@ -1069,8 +1069,10 @@ public class SkillManager : MonoBehaviour
 
                 user.lifesteal += (int) 0.25;
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                yield return new WaitForSeconds(1.05f);
                 user.lifesteal -= (int) 0.25;
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                yield return new WaitForSeconds(1.05f);
                 target.soul -= 30;
 
                 break;

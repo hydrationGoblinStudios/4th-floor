@@ -84,7 +84,7 @@ MonoBehaviour:
   skillInventory:
   - "Persist\xEAncia"
   equipedSoul: Poder Oculto
-  equippedSoulIsAttack: 1
+  equippedSoulIsAttack: 0
   soulInventory:
   - Poder Oculto
   soul: 0
@@ -159,6 +159,8 @@ MonoBehaviour:
     armorpen: 0
     magicpen: 0
     cooking: 0
+    activity: 
+    fortalecerStat: 0
     growths: 
     classSkill: 
     personalSkill: 
