@@ -30,6 +30,6 @@ MonoBehaviour:
   Mdef: 0
   luck: 0
   speed: 0
-  price: 0
+  price: 3500
   damageType: 0
   skill: Espada Curta

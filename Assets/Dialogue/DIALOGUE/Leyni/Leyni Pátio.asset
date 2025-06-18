@@ -128,6 +128,54 @@ MonoBehaviour:
       _dynamic: 0
   spriteRenderer: {fileID: 0}
   entry: 0
+--- !u!114 &-4729217414644636018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d326aaea4db3f184b83ff587b7767339, type: 3}
+  m_Name: Item
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 3112, y: -504}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4729217414644636018}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 3356644350922878581}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4729217414644636018}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 763530045360479337}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  item: {fileID: 11400000, guid: 973c69435c4261d42903e66bef62a563, type: 2}
+  key: 0
+  flag: 0
 --- !u!114 &-4224819087413385939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +449,57 @@ MonoBehaviour:
   - {fileID: -1777179994389544893}
   - {fileID: -6658975079818602009}
   - {fileID: 3356644350922878581}
+  - {fileID: -4729217414644636018}
+  - {fileID: 763530045360479337}
   current: {fileID: 827031224499378280}
+--- !u!114 &763530045360479337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d326aaea4db3f184b83ff587b7767339, type: 3}
+  m_Name: Item
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 3352, y: -504}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 763530045360479337}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -4729217414644636018}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 763530045360479337}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 827031224499378280}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  item: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
+  key: 0
+  flag: 0
 --- !u!114 &827031224499378280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +513,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3096, y: -504}
+  position: {x: 3608, y: -504}
   ports:
     keys:
     - entry
@@ -426,7 +524,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 3356644350922878581}
+        node: {fileID: 763530045360479337}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -531,7 +629,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 827031224499378280}
+        node: {fileID: -4729217414644636018}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
