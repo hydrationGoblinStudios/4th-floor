@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Anel de Vida
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 702
   sprite: {fileID: 0}
   type: 1
   weapontype: 6

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Anel do Pacto Real
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 703
   sprite: {fileID: 0}
   type: 1
   weapontype: 6

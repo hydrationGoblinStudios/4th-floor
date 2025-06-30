@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lanca de aco
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 303
   sprite: {fileID: 0}
   type: 0
   weapontype: 2

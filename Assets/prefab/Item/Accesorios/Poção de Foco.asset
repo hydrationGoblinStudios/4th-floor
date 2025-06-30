@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Po\xE7\xE3o de Foco"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 709
   sprite: {fileID: 0}
   type: 1
   weapontype: 6

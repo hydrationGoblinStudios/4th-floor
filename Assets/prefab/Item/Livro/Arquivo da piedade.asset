@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arquivo da piedade
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 400
   sprite: {fileID: 0}
   type: 0
   weapontype: 4

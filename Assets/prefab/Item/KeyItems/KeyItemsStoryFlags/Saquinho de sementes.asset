@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Saquinho de sementes
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 110
   sprite: {fileID: 0}
   type: 2
   weapontype: 0

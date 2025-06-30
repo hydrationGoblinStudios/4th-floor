@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Receptaculo Amaldi\xE7oado"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 500
   sprite: {fileID: 0}
   type: 0
   weapontype: 5

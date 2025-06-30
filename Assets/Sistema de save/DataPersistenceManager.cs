@@ -23,18 +23,27 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.LogError("Multiplos data instance managers");
         }
         instance = this;
-    }
-    private void Start()
-    {
         if (Application.isEditor)
         {
             fileName = "AlvorecerLunarEditor.json";
         }
         else
         {
-            fileName = "AlvorecerLunarEditor.json";
+            fileName = "AlvorecerLunar.json";
         }
         StartCoroutine(EndOfFrame());
+    }
+    private void Start()
+    {
+       /* if (Application.isEditor)
+        {
+            fileName = "AlvorecerLunarEditor.json";
+        }
+        else
+        {
+            fileName = "AlvorecerLunar.json";
+        }
+        StartCoroutine(EndOfFrame());*/
     }
     public void NewGame()
     {

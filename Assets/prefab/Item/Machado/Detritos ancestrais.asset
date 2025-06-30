@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Detritos ancestrais
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 201
   sprite: {fileID: 0}
   type: 0
   weapontype: 1

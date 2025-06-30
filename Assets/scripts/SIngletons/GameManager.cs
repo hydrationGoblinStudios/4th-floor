@@ -6,9 +6,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
-
 public class GameManager : Singleton<GameManager>, IDataPersistence
 {
+
     UnitData CurrentUnitData;
 
     public List<UnitData> units;
@@ -48,17 +48,19 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<Item> TomeList;
     public List<Item> ReceptacleList;
     public List<Item> AccesoriesList;
-    public List<Item> ExampleList;
+    public List<Item.Weapontype> weaponTypeList = new() { Item.Weapontype.Sword, Item.Weapontype.Lance, Item.Weapontype.Axe, Item.Weapontype.Bow, Item.Weapontype.Tome, Item.Weapontype.Receptacle, Item.Weapontype.Accesory };
     [Header("ClassChange")]
     public GameObject SelectedUBClassChange;
     [Header("Song manager")]
     public SongManager songManager;
+    [Header("Item Lists")]
+    public List<Item> equipList;
+    public List<Item> keyItemList;
+    public List<Item> storyFlagList;
 
-
-    public void Start()
+    public  void Start()
     {
-        LoadTeam();
-        SelectedUBClassChange = team[0];
+        StartCoroutine(LoadTeam());
     }
     public void LoadData(GameData data)
     {
@@ -66,9 +68,22 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         this.day = data.day;
         //this.storyBattle = data.storyBattle;
         this.storyBattle = true;
-        this.Inventory = data.Inventory;
-        this.KeyItems = data.KeyItems;
-        this.StoryFlags = data.StoryFlags;
+
+        this.Inventory.Clear();
+        foreach(int itemID in data.Inventory)
+        {
+            Inventory.Add(GetbyID(itemID, equipList));
+        }
+        this.KeyItems.Clear();
+        foreach (int itemID in data.KeyItems)
+        {
+            KeyItems.Add(GetbyID(itemID, keyItemList));
+        }
+        this.StoryFlags.Clear();
+        foreach (int itemID in data.StoryFlags)
+        {
+            StoryFlags.Add(GetbyID(itemID, storyFlagList));
+        }
         this.unlockedMaps = data.unlockedMaps;
         plantaDia = data.plantaDia;
         wakeUpTalk = true;
@@ -89,13 +104,23 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         data.money = this.money;
         data.day = this.day;
         data.storyBattle = this.storyBattle;
-        data.Inventory = this.Inventory;
-        data.StoryFlags = this.StoryFlags;
-        data.KeyItems = this.KeyItems;
+        data.Inventory.Clear();
+       foreach (Item itemId in Inventory)
+        {
+            data.Inventory.Add(itemId.id);
+        }
+        data.StoryFlags.Clear();
+        foreach (Item itemId in StoryFlags)
+        {
+            data.StoryFlags.Add(itemId.id);
+        }
+        data.KeyItems.Clear();
+        foreach (Item itemId in KeyItems)
+        {
+            data.KeyItems.Add(itemId.id);
+        }
         data.unlockedMaps = this.unlockedMaps;
-        count = 0;
         data.plantaDia = this.plantaDia;
-
         data.units = units;
     }
     public void PrepScreen()
@@ -116,11 +141,19 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         //equip
         if (CurrentUnitBehavior.Weapon != null)
         {
-            CurrentUnitData.Weapon = CurrentUnitBehavior.Weapon;
+            CurrentUnitData.Weapon = CurrentUnitBehavior.Weapon.id;
+        }
+        else
+        {
+            CurrentUnitData.Weapon = 0;
         }
         if (CurrentUnitBehavior.Accesory != null)
         {
-            CurrentUnitData.Accesory = CurrentUnitBehavior.Accesory;
+            CurrentUnitData.Accesory = CurrentUnitBehavior.Accesory.id;
+        }
+        else
+        {
+            CurrentUnitData.Accesory = 0;
         }
         CurrentUnitData.UsableWeaponTypes = CurrentUnitBehavior.UsableWeaponTypes;
         //parameters
@@ -180,19 +213,20 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CurrentUnitData.soul3 = CurrentUnitBehavior.soul3;
         CurrentUnitData.description = CurrentUnitBehavior.description;
     }
-    public void LoadDataAsUnit(UnitData CurrentUnitData)
+    public IEnumerator LoadDataAsUnit(UnitData CurrentUnitData)
     {
+        yield return new WaitForEndOfFrame();
         GameObject newUnit = Instantiate(new GameObject(), transform);
         UnitBehavior CurrentUnitBehavior = newUnit.AddComponent<UnitBehavior>();
         CurrentUnitBehavior.classId = CurrentUnitData.classId;
         //equip
-        if (CurrentUnitData.Weapon != null)
+        if (CurrentUnitData.Weapon != 0)
         {
-            CurrentUnitBehavior.Weapon = CurrentUnitData.Weapon;
+            CurrentUnitBehavior.Weapon = GetbyID(CurrentUnitData.Weapon, equipList );
         }
-        if (CurrentUnitData.Accesory != null)
+        if (CurrentUnitData.Accesory != 0)
         {
-            CurrentUnitBehavior.Accesory = CurrentUnitData.Accesory;
+            CurrentUnitBehavior.Accesory = GetbyID(CurrentUnitData.Accesory, equipList);
         }
         CurrentUnitBehavior.UsableWeaponTypes = CurrentUnitData.UsableWeaponTypes;
         //parameters
@@ -251,15 +285,17 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CurrentUnitBehavior.soul2 = CurrentUnitData.soul2;
         CurrentUnitBehavior.soul3 = CurrentUnitData.soul3;
         CurrentUnitBehavior.description = CurrentUnitData.description;
-        Debug.Log($"loaded:{CurrentUnitBehavior.UnitName}");
         newUnit.name = CurrentUnitBehavior.UnitName;
         SelectedUBClassChange = newUnit;
-        ClassChange(newUnit.GetComponent<UnitBehavior>().classId, newUnit.GetComponent<UnitBehavior>().Weapon);
+        //todo
+       // ClassChange(newUnit.GetComponent<UnitBehavior>().classId, CurrentUnitData.Weapon);
+        
         team.Add(newUnit);
     }
 
-    public void LoadTeam()
+    IEnumerator LoadTeam()
     {
+        yield return new WaitForEndOfFrame();
         foreach (GameObject obj in playerUnit)
         {
             GameObject newobj = Instantiate(obj, this.transform);
@@ -267,6 +303,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             newobj.name = newobj.GetComponent<UnitBehavior>().UnitName + "Prep";
             SoulPrice(newobj.GetComponent<UnitBehavior>().equipedSoul, newobj.GetComponent<UnitBehavior>());
         }
+        SelectedUBClassChange = team[0];
     }
     public void AddtoTeam(GameObject recruit)
     {
@@ -282,9 +319,11 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     }
     public void ParseWeaponList()
     {
-        foreach (Item ExampleItem in ExampleList)
+        Debug.Log("parse");
+        foreach (Item.Weapontype ExampleItem in weaponTypeList)
         {
-            switch (ExampleItem.weapontype)
+            Debug.Log(ExampleItem);
+            switch (ExampleItem)
             {
                 case Item.Weapontype.Sword:
                     SwordList.Clear();
@@ -356,29 +395,33 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                         }
                     }
                     break;
+                default:break;
             }
         }
     }
-    public void ClassChange(int ClassId, Item item)
+    public void ClassChange(int ClassId, Item item = null)
     {
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
+        if(item != null)
+        {
         OriginalUB.Weapon = item;
+        }
         CopyUnitBehavior(OriginalUB, Unit, ClassId);
         Destroy(OriginalUB);
         }
-    T CopyUnitBehavior<T>(T original, GameObject destination, int ClassId) where T : Component
+    UnitBehavior CopyUnitBehavior(UnitBehavior original, GameObject destination, int ClassId)
     {
-        original.GetComponent<UnitBehavior>().classId = ClassId;
+        original.classId = ClassId;
         switch (ClassId)
         {
-            case (101): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
-            case (102): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Axe }; break;
-            case (103): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Lance }; break;
-            case (104): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Tome }; break;
-            case (105): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Receptacle }; break;
-            case (106): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Bow }; break;
-            case (107): original.GetComponent<UnitBehavior>().UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
+            case (101): original.UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
+            case (102): original.UsableWeaponTypes = new() { Item.Weapontype.Axe }; break;
+            case (103): original.UsableWeaponTypes = new() { Item.Weapontype.Lance }; break;
+            case (104): original.UsableWeaponTypes = new() { Item.Weapontype.Tome }; break;
+            case (105): original.UsableWeaponTypes = new() { Item.Weapontype.Receptacle }; break;
+            case (106): original.UsableWeaponTypes = new() { Item.Weapontype.Bow }; break;
+            case (107): original.UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
         }
         System.Type type = original.GetType();
         Component copy;
@@ -403,7 +446,11 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         }
         Destroy(original);
         copy.GetComponent<UnitBehavior>().classId = ClassId;
-        return copy as T;
+       /* if(copy.GetComponent<UnitBehavior>().Weapon == null)
+        {
+            copy.GetComponent<UnitBehavior>().Weapon = Inventory[0] ;
+        }*/
+        return copy as UnitBehavior;
     }
     public void Sleep()
     {
@@ -671,5 +718,14 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         cui.gameManager = this;
         StartCoroutine(cui.UIUpdate());
         }
+    }
+
+    public Item  GetbyID(int itemID, List<Item> ItemList)
+    {
+        if(itemID != 0)
+        {
+        return ItemList.Where(obj => obj.id == itemID).SingleOrDefault();
+        }
+        return null;
     }
 }

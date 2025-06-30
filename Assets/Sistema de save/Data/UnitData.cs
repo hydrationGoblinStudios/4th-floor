@@ -10,8 +10,8 @@ public struct UnitData
     [Header("classID")]
     public int classId;
     [Header("Equips")]
-    public Item Weapon;
-    public Item Accesory;
+    public int Weapon;
+    public int Accesory;
     public List<Item.Weapontype> UsableWeaponTypes;
     [Header("Parameters")]
     public string UnitName;

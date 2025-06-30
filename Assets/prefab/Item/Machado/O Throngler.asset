@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: O Throngler
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 206
   sprite: {fileID: 0}
   type: 0
   weapontype: 1
@@ -32,3 +32,4 @@ MonoBehaviour:
   speed: 0
   price: -2147483648
   damageType: 0
+  skill: 

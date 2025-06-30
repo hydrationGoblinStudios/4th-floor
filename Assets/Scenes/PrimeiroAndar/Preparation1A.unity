@@ -703,19 +703,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 438079083}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 549974024}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: StartDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 658b088654180dd478642960737fc15e, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DialogueGraph, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &438079083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,17 +785,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: -9
   m_TargetDisplay: 0
---- !u!114 &549974024 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3717663523145488675, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
-  m_PrefabInstance: {fileID: 6350704725300868944}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0a578dff33819b40a334cbd8573e782, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &662974034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,19 +1101,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 823992455}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 549974024}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: StartDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 08ffc1f790c27f5469af19b0353b9055, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DialogueGraph, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &823992455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,19 +1560,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1031590061}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 549974024}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: StartDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b521aa23cfbb21a46a008c09a2b26bf9, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DialogueGraph, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1031590061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2278,19 +2231,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1885171200}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 549974024}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: StartDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 812e8f58745745d4e8a2ef4e15deaff2, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DialogueGraph, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1885171200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4012,6 +3953,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2125996979}
+    - target: {fileID: 8890242880666363195, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8490299222907581370, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}

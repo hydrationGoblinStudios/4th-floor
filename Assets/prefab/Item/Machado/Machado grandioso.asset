@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Machado grandioso
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 205
   sprite: {fileID: 0}
   type: 0
   weapontype: 1

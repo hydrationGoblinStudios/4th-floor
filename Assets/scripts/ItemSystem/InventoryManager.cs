@@ -192,7 +192,7 @@ public class InventoryManager : MonoBehaviour
             case 107: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Prisioneiro").SingleOrDefault(); break;
             default: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault(); break;
         }
-        if(selectedUnit.Weapon.damageType == 0)
+        if(selectedUnit.Weapon.damageType == 0) 
         {
             statTexts[8].text = (selectedUnit.str + selectedUnit.Weapon.power).ToString();
         }
@@ -203,7 +203,10 @@ public class InventoryManager : MonoBehaviour
         statTexts[9].text = ((selectedUnit.dex * 3) +selectedUnit.luck + selectedUnit.Weapon.hit).ToString();
         statTexts[10].text = ((selectedUnit.speed * 2) + selectedUnit.luck).ToString();
         statTexts[11].text = ((int)(selectedUnit.dex/2) + selectedUnit.Weapon.crit).ToString();
+        if(unitBehavior.Weapon != null)
+        {
         equipText.text = "Arma:\n" + unitBehavior.Weapon.ItemName + "\nAtk:" + unitBehavior.Weapon.str + "\nAcerto:" + unitBehavior.Weapon.hit + "\nCrit:" + unitBehavior.Weapon.crit;
+        }
         if(unitBehavior.Accesory != null)
         {
             accesoryText.text = "Accesorio:\n" + unitBehavior.Accesory.ItemName + "\nAtk:" + unitBehavior.Accesory.str + "\nDef:" + unitBehavior.Weapon.def + "\nDes:" + unitBehavior.Weapon.dex + "\nSorte:" + unitBehavior.Weapon.luck + "\nvel:" + unitBehavior.Weapon.speed;
@@ -221,7 +224,7 @@ public class InventoryManager : MonoBehaviour
             go.GetComponent<SpriteRenderer>().sprite = skillIcons.Where(obj => obj.name == skillNames[c].text).SingleOrDefault();
             c++;
         }
-        DisplayItemList(CurrentItemList);
+        DisplayItemList(Manager.Inventory);
         UpdateUITop();
         if (soulIconObject.GetComponent<SpriteRenderer>().sprite != null && skillIcons.Where(obj => obj.name == selectedUnit.equipedSoul).SingleOrDefault() != null)
         {
@@ -325,6 +328,8 @@ public class InventoryManager : MonoBehaviour
     }
     public void UpdateUITop()
     {
+        UITopName.text = selectedUnit.UnitName;
+        expbar.value = selectedUnit.currentExp;
         if (playableMugShots.Where(obj => obj.name == selectedUnit.UnitName + " mugshot").SingleOrDefault() != null)
         {
             MugShot.sprite = playableMugShots.Where(obj => obj.name == selectedUnit.UnitName + " mugshot").SingleOrDefault();
@@ -336,11 +341,17 @@ public class InventoryManager : MonoBehaviour
         UITopName.text = selectedUnit.UnitName;
         expbar.value = selectedUnit.currentExp;
         LvlText.text = "Lvl:" + selectedUnit.currentLevel;
+        if (selectedUnit.Weapon != null)
+        {
         WeaponImage.sprite = EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.ItemName).SingleOrDefault();
-        
-        if (EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.name).SingleOrDefault() != null)
+        }
+        if (selectedUnit.Weapon != null && EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.name).SingleOrDefault() != null)
         {
             WeaponImage.sprite = EquipableImages.Where(obj => obj.name == selectedUnit.Weapon.name).SingleOrDefault();
+        }
+        else
+        {
+            WeaponImage.sprite = null;
         }
         if (selectedUnit.Accesory != null)
         {
@@ -352,7 +363,11 @@ public class InventoryManager : MonoBehaviour
     }
     public void DisplayItemList(List<Item> ItemList, int button = 0)
     {
-        Manager.ParseWeaponList();
+            Manager = FindObjectOfType<GameManager>();      
+        if (Manager != null)
+        {
+           Manager.ParseWeaponList();
+        }
         foreach(GameObject itemselector in ItemSelectorList)
         {
             itemselector.GetComponent<Image>().sprite = ItemSelectorListSprites[2];

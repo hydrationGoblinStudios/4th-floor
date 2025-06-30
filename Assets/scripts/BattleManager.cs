@@ -190,12 +190,12 @@ public class BattleManager : MonoBehaviour
         Dictionary<string, float> repeatTurns = new();
         for (int i = 1; i < 26; i++)
         {
-            repeatTurns.Add($"player1ToTurn{i}", ((100 * i) - PlayerBar) / playerTeam[0].speed);
-            repeatTurns.Add($"player2ToTurn{i}", ((100 * i) - PlayerBar2) / playerTeam[1].speed);
-            repeatTurns.Add($"player3ToTurn{i}", ((100 * i) - PlayerBar3) / playerTeam[2].speed);
-            repeatTurns.Add($"enemy1ToTurn{i}", ((100 * i) - EnemyBar) / enemyTeam[0].speed);
-            repeatTurns.Add($"enemy2ToTurn{i}", ((100 * i) - EnemyBar2) / enemyTeam[1].speed);
-            repeatTurns.Add($"enemy3ToTurn{i}", ((100 * i) - EnemyBar3) / enemyTeam[2].speed);
+            repeatTurns.Add($"player1ToTurn{i}", ((100 * i) - PlayerBar) /  (playerTeam[0].speed * CheckWeight(playerTeam[0])));
+            repeatTurns.Add($"player2ToTurn{i}", ((100 * i) - PlayerBar2) / (playerTeam[1].speed * CheckWeight(playerTeam[1])));
+            repeatTurns.Add($"player3ToTurn{i}", ((100 * i) - PlayerBar3) / (playerTeam[2].speed * CheckWeight(playerTeam[2])));
+            repeatTurns.Add($"enemy1ToTurn{i}", ((100 * i) - EnemyBar) /    (enemyTeam[0].speed * CheckWeight(enemyTeam[0])));
+            repeatTurns.Add($"enemy2ToTurn{i}", ((100 * i) - EnemyBar2) /   (enemyTeam[1].speed * CheckWeight(enemyTeam[1])));
+            repeatTurns.Add($"enemy3ToTurn{i}", ((100 * i) - EnemyBar3) /   (enemyTeam[2].speed * CheckWeight(enemyTeam[2])));
         }
         //organiza os turnos em mais proximo a acontecer
         var sortedTurnsrepeatTurns = from entry in repeatTurns orderby entry.Value ascending select entry;
@@ -474,22 +474,22 @@ public class BattleManager : MonoBehaviour
     IEnumerator Wait()
     {
         waiting = true;
-        if (playerTeam[0].hp > 0 && state == BattleState.Wait) { PlayerBar += Time.fixedUnscaledDeltaTime * playerTeam[0].speed * battleSpeed; PlayerBars[0] = PlayerBar;
+        if (playerTeam[0].hp > 0 && state == BattleState.Wait) { PlayerBar += Time.fixedUnscaledDeltaTime * (playerTeam[0].speed * CheckWeight(playerTeam[0])) * battleSpeed; PlayerBars[0] = PlayerBar;
         }
         else if (playerTeam[0].UnitName != "") { playerTeam[0].animator.SetTrigger("UnitDie"); }
-        if (playerTeam[1].hp > 0 && state == BattleState.Wait) { PlayerBar2 += Time.fixedUnscaledDeltaTime * playerTeam[1].speed * battleSpeed; PlayerBars[1] = PlayerBar2;
+        if (playerTeam[1].hp > 0 && state == BattleState.Wait) { PlayerBar2 += Time.fixedUnscaledDeltaTime * (playerTeam[1].speed * CheckWeight(playerTeam[0])) * battleSpeed; PlayerBars[1] = PlayerBar2;
         }
         else if (playerTeam[1].UnitName != "") { playerTeam[1].animator.SetTrigger("UnitDie"); }
-        if (playerTeam[2].hp > 0 && state == BattleState.Wait) { PlayerBar3 += Time.fixedUnscaledDeltaTime * playerTeam[2].speed * battleSpeed; PlayerBars[2] = PlayerBar3;
+        if (playerTeam[2].hp > 0 && state == BattleState.Wait) { PlayerBar3 += Time.fixedUnscaledDeltaTime * (playerTeam[2].speed * CheckWeight(playerTeam[0])) * battleSpeed; PlayerBars[2] = PlayerBar3;
         }
         else if (playerTeam[2].UnitName != "") { playerTeam[2].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[0].hp > 0 && state == BattleState.Wait) { EnemyBar += Time.fixedUnscaledDeltaTime * enemyTeam[0].speed * battleSpeed; EnemyBars[0] = EnemyBar;
+        if (enemyTeam[0].hp > 0 && state == BattleState.Wait) { EnemyBar += Time.fixedUnscaledDeltaTime * (enemyTeam[0].speed * CheckWeight(enemyTeam[0])) * battleSpeed; EnemyBars[0] = EnemyBar;
         }
         else if (enemyTeam[0].UnitName != "") { enemyTeam[0].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[1].hp > 0 && state == BattleState.Wait) { EnemyBar2 += Time.fixedUnscaledDeltaTime * enemyTeam[1].speed * battleSpeed; EnemyBars[1] = EnemyBar2;
+        if (enemyTeam[1].hp > 0 && state == BattleState.Wait) { EnemyBar2 += Time.fixedUnscaledDeltaTime * (enemyTeam[1].speed * CheckWeight(enemyTeam[1])) * battleSpeed; EnemyBars[1] = EnemyBar2;
         }
         else if (enemyTeam[1].UnitName != "") { enemyTeam[1].animator.SetTrigger("UnitDie"); }
-        if (enemyTeam[2].hp > 0 && state == BattleState.Wait) { EnemyBar3 += Time.fixedUnscaledDeltaTime * enemyTeam[2].speed * battleSpeed; EnemyBars[2] = EnemyBar3;
+        if (enemyTeam[2].hp > 0 && state == BattleState.Wait) { EnemyBar3 += Time.fixedUnscaledDeltaTime * (enemyTeam[2].speed * CheckWeight(enemyTeam[2])) * battleSpeed; EnemyBars[2] = EnemyBar3;
         }
         else if (enemyTeam[2].UnitName != "") { enemyTeam[2].animator.SetTrigger("UnitDie"); }
         int c = 0;
@@ -1300,6 +1300,18 @@ public class BattleManager : MonoBehaviour
                 return inventoryManager.ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault();
         }
     }
+    private float CheckWeight(UnitBehavior ub)
+    {
+        if(ub.Weapon.weight == Item.WeaponWeight.Heavy)
+        {
+            return (float)0.7;
+        }
+        if (ub.Weapon.weight == Item.WeaponWeight.Medium)
+        {
+            return (float)0.85;
+        }
+        return 1;
+    } 
 
     private void ParticleHit(UnitBehavior targetUB)
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Receptaculo Potente
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 502
   sprite: {fileID: 0}
   type: 0
   weapontype: 5
@@ -32,3 +32,4 @@ MonoBehaviour:
   speed: 0
   price: 3000
   damageType: 1
+  skill: 

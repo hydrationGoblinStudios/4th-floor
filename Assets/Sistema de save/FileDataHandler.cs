@@ -35,7 +35,7 @@ public class FileDataHandler
             }
             catch(Exception e)
             {
-                Debug.LogError("load n?o funcionou: " + fullPath + "\n" + e);
+                Debug.LogError("load não funcionou: " + fullPath + "\n" + e);
 
             }
         }
@@ -60,7 +60,7 @@ public class FileDataHandler
         }
         catch (Exception e)
         {
-            Debug.LogError("save n?o funcionou: " + fullPath + "\n" + e);
+            Debug.LogError("save não funcionou: " + fullPath + "\n" + e);
         }
     }
 }

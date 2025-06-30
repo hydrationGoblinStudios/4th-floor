@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tomo esplendoroso
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 404
   sprite: {fileID: 0}
   type: 0
   weapontype: 4

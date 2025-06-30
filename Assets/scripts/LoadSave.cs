@@ -12,13 +12,22 @@ public class LoadSave : MonoBehaviour
     }
     IEnumerator LoadGame()
     {
-        yield return new WaitForSeconds((float)0.3);
+        if (!Application.isEditor)
+        {
+           // StartCoroutine(ForceLoad());
+        }
+        yield return new WaitForSeconds((float)2);
+        gm = FindObjectOfType<GameManager>();
+        dpm.gameData.StoryFlags.Clear();
+        dpm.gameData.Inventory.Clear();
+        dpm.gameData.KeyItems.Clear();
+        dpm.gameData.unlockedMaps.Clear();
         dpm.LoadGame();
         gm.LoadData(dpm.gameData);
         gm.team.Clear();
         foreach(UnitData unit in dpm.gameData.units)
         {
-        gm.LoadDataAsUnit(unit);
+            StartCoroutine(gm.LoadDataAsUnit(unit));
         }
         gm.PrepScreen();
         

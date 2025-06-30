@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "L\xEDngua de porco"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 707
   sprite: {fileID: 0}
   type: 1
   weapontype: 6

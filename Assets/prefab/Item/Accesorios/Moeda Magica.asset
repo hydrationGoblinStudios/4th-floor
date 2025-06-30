@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Moeda Magica
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 1
+  id: 708
   sprite: {fileID: 0}
   type: 1
   weapontype: 6

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Naginata
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 305
   sprite: {fileID: 0}
   type: 0
   weapontype: 2
