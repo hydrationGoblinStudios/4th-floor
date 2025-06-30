@@ -16,7 +16,7 @@ public class LoadSave : MonoBehaviour
         {
            // StartCoroutine(ForceLoad());
         }
-        yield return new WaitForSeconds((float)2);
+        yield return new WaitForSeconds((float)0.3);
         gm = FindObjectOfType<GameManager>();
         dpm.gameData.StoryFlags.Clear();
         dpm.gameData.Inventory.Clear();
