@@ -820,7 +820,7 @@ public class BattleManager : MonoBehaviour
         }
         StatsBreakdown(1, RealCharacter1);
         state = BattleState.PlayerWon;
-        if(gameManager.day == 5 || gameManager.day == 10)
+        if(gameManager.day % 4 ==  0)
         {
             gameManager.money += 2000;
         }
