@@ -319,10 +319,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     }
     public void ParseWeaponList()
     {
-        Debug.Log("parse");
         foreach (Item.Weapontype ExampleItem in weaponTypeList)
         {
-            Debug.Log(ExampleItem);
             switch (ExampleItem)
             {
                 case Item.Weapontype.Sword:

@@ -152,7 +152,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -9
+  m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!212 &1165001
 SpriteRenderer:
@@ -214,12 +214,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164999}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1685292186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1165003
 MonoBehaviour:
@@ -2010,15 +2010,15 @@ MonoBehaviour:
     day: 0
     plantaDia: 40
     storyBattle: 0
-    Inventory: []
-    KeyItems: []
-    StoryFlags: []
+    Inventory: 
+    KeyItems: 
+    StoryFlags: 
     unlockedMaps: []
     units: []
     unitData:
       classId: 0
-      Weapon: {fileID: 0}
-      Accesory: {fileID: 0}
+      Weapon: 0
+      Accesory: 0
       UsableWeaponTypes: 
       UnitName: 
       currentLevel: 0
@@ -2056,6 +2056,8 @@ MonoBehaviour:
       armorpen: 0
       magicpen: 0
       cooking: 0
+      activity: 
+      fortalecerStat: 0
       growths: 
       classSkill: 
       personalSkill: 
@@ -2766,6 +2768,7 @@ Transform:
   - {fileID: 455794275}
   - {fileID: 1174804490}
   - {fileID: 734010770}
+  - {fileID: 1165002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1828804707
@@ -3461,6 +3464,5 @@ SceneRoots:
   - {fileID: 996546829}
   - {fileID: 788691424}
   - {fileID: 1685292186}
-  - {fileID: 1165002}
   - {fileID: 662974036}
   - {fileID: 817694824}

@@ -2015,15 +2015,15 @@ MonoBehaviour:
     day: 0
     plantaDia: 40
     storyBattle: 0
-    Inventory: []
-    KeyItems: []
-    StoryFlags: []
+    Inventory: 
+    KeyItems: 
+    StoryFlags: 
     unlockedMaps: []
     units: []
     unitData:
       classId: 0
-      Weapon: {fileID: 0}
-      Accesory: {fileID: 0}
+      Weapon: 0
+      Accesory: 0
       UsableWeaponTypes: 
       UnitName: 
       currentLevel: 0
@@ -2302,12 +2302,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112608967}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.36101085, y: 0.36101085, z: 0.36101085}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1685292186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1156954384
 GameObject:
@@ -3296,7 +3296,8 @@ Transform:
   m_LocalPosition: {x: -1.5485263, y: 0.67736095, z: -0.052148633}
   m_LocalScale: {x: 2.77, y: 2.77, z: 2.77}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 1112608971}
   m_Father: {fileID: 561054566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886575132
@@ -3773,4 +3774,3 @@ SceneRoots:
   - {fileID: 591157668}
   - {fileID: 304406995}
   - {fileID: 299674014}
-  - {fileID: 1112608971}

@@ -390,8 +390,9 @@ public class InventoryManager : MonoBehaviour
         }
         foreach (Item item in ItemList)
         {
-            if(!allEquiped.Contains(item))
-            {   
+            bool equipped = false;
+            if (!allEquiped.Contains(item))
+            { equipped = true; }   
             GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
             itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
                 if (!selectedUnit.UsableWeaponTypes.Contains(item.weapontype) && item.type != Item.Type.accesory && item.type != Item.Type.key)
@@ -403,6 +404,10 @@ public class InventoryManager : MonoBehaviour
                 itemButton.transform.Find("Hit").GetComponent<TextMeshProUGUI>().text = $"{item.hit}";
                 itemButton.transform.Find("Crit").GetComponent<TextMeshProUGUI>().text = $"{item.crit}";
 
+            if (equipped)
+            {
+                itemButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            }
                 switch (item.weapontype)
                 {
                     case Item.Weapontype.Sword:
@@ -426,8 +431,7 @@ public class InventoryManager : MonoBehaviour
                     case Item.Weapontype.Accesory:
                         itemButton.GetComponentInChildren<Image>().sprite = sprites[6];
                         break;
-                }
-            }
+                }           
         }
     }
     public void DisplayKeyItemList(List<Item> ItemList)
