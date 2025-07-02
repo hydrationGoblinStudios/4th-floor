@@ -822,11 +822,11 @@ public class BattleManager : MonoBehaviour
         state = BattleState.PlayerWon;
         if(gameManager.day == 5 || gameManager.day == 10)
         {
-            gameManager.money += 4000;
+            gameManager.money += 2000;
         }
         else
         {
-        gameManager.money += 1000;
+        gameManager.money += 500;
         }
         expSliderP1.value = RealCharacter1.currentExp;
         if (gameManager.team.Count > 1)
@@ -928,7 +928,7 @@ public class BattleManager : MonoBehaviour
             {
                 switch (i)
                 {
-                    case 0: character.maxhp +=10; break;
+                    case 0: character.maxhp +=5; break;
                     case 1: character.str++; break;
                     case 2: character.mag++; break;
                     case 3: character.dex++; break;
@@ -1002,14 +1002,13 @@ public class BattleManager : MonoBehaviour
 
             Target.hp -= damageDone;
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
-
+            HudUpdate();
             if (attacker.lifesteal >= 0.01)
             {
                 attacker.hp += damageDone * attacker.lifesteal;
 
             }
             Target.soul += damageDone / 5;
-            yield return new WaitForSeconds(1);
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
