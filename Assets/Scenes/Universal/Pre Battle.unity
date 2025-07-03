@@ -1325,7 +1325,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.29, y: 0.24}
+    oldSize: {x: 0.19333333, y: 0.16}
     newSize: {x: 0.29, y: 0.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -14072,7 +14072,7 @@ MonoBehaviour:
   selectedUnitSlot: 0
   ButtonPrefab: {fileID: 8115672569003287087, guid: 5184169b5466b05418fe2c046c51bc5b, type: 3}
   skillManager: {fileID: 1328268768}
-  ActivityPanel: {fileID: 1501346693}
+  usedPrepSkills: []
   ItemSelectPanel: {fileID: 604020270}
   EmptyUnitPrefab: {fileID: 4445489306633608637, guid: 235712d0f18690f4aaa9e191f40d2463, type: 3}
 --- !u!1 &1747876900
