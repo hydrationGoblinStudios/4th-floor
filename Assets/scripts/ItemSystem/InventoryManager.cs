@@ -391,8 +391,10 @@ public class InventoryManager : MonoBehaviour
         foreach (Item item in ItemList)
         {
             bool equipped = false;
-            if (!allEquiped.Contains(item))
-            { equipped = true; }   
+            if (allEquiped.Contains(item))
+            { equipped = true;
+                allEquiped.Remove(item);
+            }   
             GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
             itemButton.GetComponent<Button>().onClick.AddListener(() => Equip(item));
                 if (!selectedUnit.UsableWeaponTypes.Contains(item.weapontype) && item.type != Item.Type.accesory && item.type != Item.Type.key)
@@ -406,8 +408,24 @@ public class InventoryManager : MonoBehaviour
 
             if (equipped)
             {
+                string nameOfEquipee = "";
+                foreach(GameObject unit in Manager.team)
+                {
+                    UnitBehavior unitUB = unit.GetComponent<UnitBehavior>();
+                    if(unitUB.Weapon.ItemName == item.ItemName)
+                    {
+                        nameOfEquipee = unitUB.UnitName;
+                    }
+                }
                 itemButton.GetComponent<Button>().onClick.RemoveAllListeners();
+                itemButton.GetComponentInChildren<TextMeshProUGUI>().color = new((float)0.6, (float)0.6, (float)0.6, 1);
+                if (playableMugShots.Where(obj => obj.name == nameOfEquipee + " mugshot").SingleOrDefault() != null)
+                {
+                    itemButton.GetComponentInChildren<Image>().sprite = playableMugShots.Where(obj => obj.name == nameOfEquipee + " mugshot").SingleOrDefault();
+                }
             }
+            else
+            {
                 switch (item.weapontype)
                 {
                     case Item.Weapontype.Sword:
@@ -431,7 +449,8 @@ public class InventoryManager : MonoBehaviour
                     case Item.Weapontype.Accesory:
                         itemButton.GetComponentInChildren<Image>().sprite = sprites[6];
                         break;
-                }           
+                }
+            }          
         }
     }
     public void DisplayKeyItemList(List<Item> ItemList)
