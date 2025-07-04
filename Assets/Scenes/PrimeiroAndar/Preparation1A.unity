@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Key Items Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2783758993773285474, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
+      propertyPath: m_OverrideSorting
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3847499357372759603, guid: 037add93cfda34947a87a1baa155a7c5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1271,16 +1275,12 @@ MonoBehaviour:
   TomeList: []
   ReceptacleList: []
   AccesoriesList: []
-  ExampleList:
-  - {fileID: 11400000, guid: 046a82c701327134682831272ae61cda, type: 2}
-  - {fileID: 11400000, guid: 4b8bfbb8f6f8b3f4c816cfa15fed312b, type: 2}
-  - {fileID: 11400000, guid: 4859b3cd6f48cc64f8c498ae349056b8, type: 2}
-  - {fileID: 11400000, guid: 4c8315433aa433c4c8bb98f5dd036b10, type: 2}
-  - {fileID: 11400000, guid: 4786e2f717a2087408fb237d93d698c3, type: 2}
-  - {fileID: 11400000, guid: c5564337666a0fc4f851b21db3ba0111, type: 2}
-  - {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
+  weaponTypeList: 00000000020000000100000003000000040000000500000006000000
   SelectedUBClassChange: {fileID: 0}
   songManager: {fileID: 1744728910}
+  equipList: []
+  keyItemList: []
+  storyFlagList: []
 --- !u!1 &996546827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,15 +1664,15 @@ MonoBehaviour:
     day: 0
     plantaDia: 40
     storyBattle: 0
-    Inventory: []
-    KeyItems: []
-    StoryFlags: []
+    Inventory: 
+    KeyItems: 
+    StoryFlags: 
     unlockedMaps: []
     units: []
     unitData:
       classId: 0
-      Weapon: {fileID: 0}
-      Accesory: {fileID: 0}
+      Weapon: 0
+      Accesory: 0
       UsableWeaponTypes: 
       UnitName: 
       currentLevel: 0
@@ -3808,6 +3808,10 @@ PrefabInstance:
     - target: {fileID: 5579350771438327096, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593889264905157014, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0001373291
       objectReference: {fileID: 0}
     - target: {fileID: 5639380072256335493, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_SizeDelta.y
