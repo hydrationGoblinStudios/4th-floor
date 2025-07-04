@@ -405,6 +405,10 @@ public class InventoryManager : MonoBehaviour
                 itemButton.transform.Find("Power").GetComponent<TextMeshProUGUI>().text = $"{item.power}";
                 itemButton.transform.Find("Hit").GetComponent<TextMeshProUGUI>().text = $"{item.hit}";
                 itemButton.transform.Find("Crit").GetComponent<TextMeshProUGUI>().text = $"{item.crit}";
+            InventoryHoverable IH = itemButton.transform.GetComponent<InventoryHoverable>();
+            IH.name = item.ItemName;
+            IH.hoverName = item.ItemName;
+            IH.description = $"{item.description}";
 
             if (equipped)
             {
