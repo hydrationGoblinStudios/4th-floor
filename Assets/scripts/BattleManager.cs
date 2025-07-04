@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.SearchService;
 
 public class BattleManager : MonoBehaviour
 {
@@ -714,7 +715,11 @@ public class BattleManager : MonoBehaviour
         else if (playerTeam[0].hp <= 0 && playerTeam[1].hp <= 0 && playerTeam[2].hp <= 0)
         {
             gameManager.storyBattle = false;
-            gameManager.PrepScreen();
+            Destroy(GameObject.Find("Hover Object"));
+            Destroy(GameObject.Find("GameManager"));
+            Destroy(GameObject.Find("Main Canvas"));
+            Destroy(GameObject.Find("[Debug Updater]"));
+            gameManager.SceneLoader("MainMenu");
         }
         else
         {
