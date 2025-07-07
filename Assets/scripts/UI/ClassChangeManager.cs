@@ -44,6 +44,10 @@ public class ClassChangeManager : MonoBehaviour
                 case 107: if (entry.Value >= 5) {  ClassChangeManagerSprites[6].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[6].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(107, ImprovisedWeapon[0])); } break;
             }
         }
+        foreach(GameObject go in ClassChangeManagerButtons)
+        {
+            go.GetComponent<Button>().onClick.AddListener(inventoryManager.ToggleClassChange);
+        }
         inventoryManager.Select(inventoryManager.selectedUnit);
         inventoryManager.UpdateUITop();
     }
