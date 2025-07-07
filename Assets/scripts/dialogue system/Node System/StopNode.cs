@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[NodeTint("#F53E07")]
 public class StopNode : BaseNode 
 {
     public SpriteRenderer spriteRenderer;
