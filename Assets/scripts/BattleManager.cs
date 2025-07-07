@@ -802,28 +802,55 @@ public class BattleManager : MonoBehaviour
         UnitBehavior RealCharacter4 = null;
         UnitBehavior DisplayCharacter2 = null;
         UnitBehavior DisplayCharacter3 = null;
+        UnitBehavior DisplayCharacter1Real = null;
+        UnitBehavior DisplayCharacter2Real = null;
+        UnitBehavior DisplayCharacter3Real = null;
+        
+        foreach (GameObject go in gameManager.team)
+            {
+                if (DisplayCharacter1.UnitName == go.GetComponent<UnitBehavior>().UnitName)
+                {
+                    DisplayCharacter1Real = go.GetComponent<UnitBehavior>();
+                }
+            }
+       
+
         if (gameManager.team.Count > 1)
         {
             RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
             DisplayCharacter2 = gameManager.teamPostPreBattle[1].GetComponent<UnitBehavior>();
             Debug.Log(RealCharacter2.name + RealCharacter2.currentExp);
-
-            StatsBreakdown(2, RealCharacter2);
+            foreach (GameObject go in gameManager.team)
+            {
+                if (DisplayCharacter2.UnitName == go.GetComponent<UnitBehavior>().UnitName)
+                {
+                    DisplayCharacter2Real = go.GetComponent<UnitBehavior>();
+                }
+            }
+            StatsBreakdown(DisplayCharacter2.position, DisplayCharacter2Real);
         }
+        
         if (gameManager.team.Count > 2)
         {
             RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
             DisplayCharacter3 = gameManager.teamPostPreBattle[2].GetComponent<UnitBehavior>();
             Debug.Log(RealCharacter3.name + RealCharacter3.currentExp);
-
-            StatsBreakdown(3, RealCharacter3);
+            foreach (GameObject go in gameManager.team)
+            {
+                if (DisplayCharacter3.UnitName == go.GetComponent<UnitBehavior>().UnitName)
+                {
+                    DisplayCharacter3Real = go.GetComponent<UnitBehavior>();
+                }
+            }
+            StatsBreakdown(DisplayCharacter3.position, DisplayCharacter3Real);
         }
+        
         if (gameManager.team.Count > 3)
         {
             RealCharacter4 = gameManager.team[3].GetComponent<UnitBehavior>();
             Debug.Log(RealCharacter4.name + RealCharacter4.currentExp);
         }
-        StatsBreakdown(1, RealCharacter1);
+        StatsBreakdown(DisplayCharacter1.position, DisplayCharacter1Real);
         state = BattleState.PlayerWon;
         if(gameManager.day % 4 ==  0)
         {
@@ -861,14 +888,22 @@ public class BattleManager : MonoBehaviour
         }
         RealCharacter1.currentExp += exp1;
         expSliderP1.value = RealCharacter1.currentExp;
+
+        if (RealCharacter3 != null)
+        {
+            RealCharacter3.currentExp += exp3;
+            if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); StatsBreakdown(DisplayCharacter3.position, DisplayCharacter3Real);
+            }
+        }
         if (gameManager.team.Count > 2)
         {
             expSliderP3.value = RealCharacter3.currentExp;
         }
-        if (RealCharacter3 != null)
-        {
-            RealCharacter3.currentExp += exp3;
-            if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); StatsBreakdown(3, DisplayCharacter3);
+
+
+        if (RealCharacter2 != null) {
+            RealCharacter2.currentExp += exp2;
+            if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(DisplayCharacter2.position, DisplayCharacter2Real);
             }
         }
         if (gameManager.team.Count > 1)
@@ -876,17 +911,10 @@ public class BattleManager : MonoBehaviour
             expSliderP2.value = RealCharacter2.currentExp;
         }
 
-        if (RealCharacter2 != null) {
-            RealCharacter2.currentExp += exp2;
-            if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(2, DisplayCharacter2);
-            }
-        }
-        yield return new WaitForSeconds(1);
-
         if (RealCharacter1.currentExp >= 100) 
         { 
             LevelUp(RealCharacter1);
-            StatsBreakdown(1, DisplayCharacter1);
+            StatsBreakdown(DisplayCharacter1.position, DisplayCharacter1Real);
         }
         yield return new WaitForSeconds(4);
         gameManager.BossBattleID = 0;
