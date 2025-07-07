@@ -55,7 +55,7 @@ MonoBehaviour:
   fortalecerStat: 0
   currentLearnigClassID: 0
   UnitName: Hiro
-  currentLevel: 1
+  currentLevel: 4
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
@@ -70,17 +70,17 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 80
-  hp: 80
+  maxhp: 90
+  hp: 90
   power: 0
-  str: 5
-  mag: 13
-  dex: 10
-  def: 4
-  mdef: 8
+  str: 6
+  mag: 15
+  dex: 11
+  def: 5
+  mdef: 9
   defenses: 
-  luck: 13
-  speed: 10
+  luck: 14
+  speed: 11
   skills:
   - "Concentra\xE7\xE3o de Feiticeiro"
   - Encantamento
@@ -127,8 +127,8 @@ MonoBehaviour:
   SkillManager: {fileID: 0}
   unitData:
     classId: 0
-    Weapon: {fileID: 0}
-    Accesory: {fileID: 0}
+    Weapon: 0
+    Accesory: 0
     UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
@@ -166,6 +166,8 @@ MonoBehaviour:
     armorpen: 0
     magicpen: 0
     cooking: 0
+    activity: 
+    fortalecerStat: 0
     growths: 
     classSkill: 
     personalSkill: 

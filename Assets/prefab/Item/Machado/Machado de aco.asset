@@ -22,7 +22,7 @@ MonoBehaviour:
   description: "Uma machado com uma l\xE2mina de a\xE7o."
   hit: 70
   crit: 0
-  power: 19
+  power: 16
   str: 0
   mag: 0
   dex: 0

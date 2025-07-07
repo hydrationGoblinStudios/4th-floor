@@ -22,7 +22,7 @@ MonoBehaviour:
   description: Um machado pesado que diminui a Velocidade do Usuario em 25%.
   hit: 70
   crit: 10
-  power: 25
+  power: 22
   str: 0
   mag: 0
   dex: 0

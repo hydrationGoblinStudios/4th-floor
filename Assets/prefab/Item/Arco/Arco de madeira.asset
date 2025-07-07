@@ -20,7 +20,7 @@ MonoBehaviour:
   weight: 0
   ItemName: Arco de madeira
   description: Um arco simples.
-  hit: 95
+  hit: 100
   crit: 5
   power: 4
   str: 0

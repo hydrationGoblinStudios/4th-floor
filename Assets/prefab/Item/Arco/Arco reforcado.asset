@@ -20,7 +20,7 @@ MonoBehaviour:
   weight: 0
   ItemName: "Arco refor\xE7ado"
   description: "Um arco com parte do revestimento feito de a\xE7o."
-  hit: 85
+  hit: 90
   crit: 5
   power: 8
   str: 0

@@ -22,9 +22,9 @@ MonoBehaviour:
   description: "Um Arco que beneficia os sortudos,ganha mais +7 de Sorte, al\xE9m
     disso tem Sorte% de chance de no inicio do combate aumentar o Dano, Acerto e
     o Critico em +7."
-  hit: 75
+  hit: 77
   crit: 1
-  power: 6
+  power: 7
   str: 0
   mag: 0
   dex: 0

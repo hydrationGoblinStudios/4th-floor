@@ -22,7 +22,7 @@ MonoBehaviour:
   description: Uma espada simples.
   hit: 90
   crit: 0
-  power: 5
+  power: 6
   str: 0
   mag: 0
   dex: 0
