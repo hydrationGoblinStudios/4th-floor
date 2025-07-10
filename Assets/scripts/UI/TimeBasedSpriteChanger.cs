@@ -5,12 +5,13 @@ using UnityEngine;
 public class TimeBasedSpriteChanger : MonoBehaviour
 {
     public SpriteRenderer TurnOnIfNight;
+    public List<Sprite> Sprites;
     public void Start()
     {
         GameManager gm = FindObjectOfType<GameManager>();
         if (!gm.storyBattle)
         {
-            TurnOnIfNight.color = new(255, 255, 255, 255);
+            TurnOnIfNight.sprite = Sprites[1];
         }
     }
 }
