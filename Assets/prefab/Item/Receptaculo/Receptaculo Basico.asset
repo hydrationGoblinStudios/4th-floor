@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Receptaculo B\xE1sico"
+  m_Name: Receptaculo Basico
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 501
@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 5
   weight: 1
-  ItemName: "Receptaculo B\xE1sico"
+  ItemName: "Receptaculo b\xE1sico"
   description: Um receptaculo com poder fraco.
   hit: 75
   crit: 5

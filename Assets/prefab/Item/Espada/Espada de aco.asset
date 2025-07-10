@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Espada de Aco
+  m_Name: Espada de aco
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 104
@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 0
   weight: 0
-  ItemName: "Espada de A\xE7o"
+  ItemName: "Espada de a\xE7o"
   description: "Uma espada com uma l\xE2mina de a\xE7o."
   hit: 75
   crit: 0

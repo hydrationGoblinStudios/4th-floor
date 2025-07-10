@@ -869,8 +869,8 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Persistência":
-                //StartCoroutine(IconPopup(user.Icon, "Persistência"));
-               // user.speed = speed + ((user.maxhp - user.hp) / 10);
+                StartCoroutine(IconPopup(user.Icon, "Persistência"));
+                user.speed = speed + ((user.maxhp - user.hp) / 10);
 
                 return 0;
 
