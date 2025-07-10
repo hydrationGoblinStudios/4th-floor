@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 0
   weight: 0
-  ItemName: Espada Curta
+  ItemName: Espada curta
   description: "Espada Pequena, que aumenta sua Evas\xE3o em 15."
   hit: 100
   crit: 5
