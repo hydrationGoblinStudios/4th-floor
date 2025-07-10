@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 2
   weight: 1
-  ItemName: "Lan\xE7a de a\xE7o."
+  ItemName: "Lan\xE7a de a\xE7o"
   description: "Uma lan\xE7a com uma l\xE2mina de a\xE7o."
   hit: 85
   crit: 0

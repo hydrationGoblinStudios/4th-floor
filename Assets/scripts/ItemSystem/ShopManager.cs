@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+
 
 public class ShopManager : MonoBehaviour
 {
@@ -20,6 +23,9 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI money;
     public bool open = false;
 
+    public SpriteRenderer WeaponSprite;
+    public List<TextMeshProUGUI> Texts;
+
     void Start()
     {
         if (SceneInteractable == null)
@@ -33,8 +39,12 @@ public class ShopManager : MonoBehaviour
         {
             GameObject button = Instantiate(buttonPrefab, panel.transform);
             button.GetComponent<Button>().onClick.AddListener(() => Buy(item));
-            button.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName +" " + item.price;
-            money.text = Manager.money.ToString();
+            button.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = item.ItemName +" " + item.price;
+            button.transform.Find("Power").GetComponent<TextMeshProUGUI>().text = $"{item.power}";
+            button.transform.Find("Hit").GetComponent<TextMeshProUGUI>().text = $"{item.hit}";
+            button.transform.Find("Crit").GetComponent<TextMeshProUGUI>().text = $"{item.crit}";
+            HoverShop hv = button.AddComponent<HoverShop>();
+            hv.item = item;
             switch (item.weapontype)
             {
                 case Item.Weapontype.Sword:
@@ -61,9 +71,17 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        money.text = Manager.money.ToString();
+        //  money.text = Manager.money.ToString();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Toggle();
+        }
+        if (Input.GetKeyDown(KeyCode.Numlock))
+        {
+            UpdateSprites(Manager.Inventory[3]);
+        }
     }
     public void Buy(Item item)
     {
@@ -121,5 +139,20 @@ public class ShopManager : MonoBehaviour
             }
             blackMarketOpen = false;
         }
+    }
+    public void UpdateSprites(Item item)
+    {
+        InventoryManager inventoryManager = FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);
+
+        WeaponSprite.sprite = inventoryManager.EquipableImages.Where(obj => obj.name == item.ItemName).SingleOrDefault();
+        if (inventoryManager.EquipableImages.Where(obj => obj.name == item.ItemName).SingleOrDefault() == null)
+        {
+            WeaponSprite.sprite = inventoryManager.EquipableImages.Where(obj => obj.name == item.name).SingleOrDefault();
+        }
+
+        Texts[0].text = item.power.ToString();
+        Texts[1].text = item.hit.ToString();
+        Texts[2].text = item.crit.ToString();
+        Texts[3].text = item.description.ToString();
     }
 }

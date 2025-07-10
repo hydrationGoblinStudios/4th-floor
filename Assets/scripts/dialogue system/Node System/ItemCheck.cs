@@ -25,7 +25,6 @@ public class ItemCheck : BaseNode
         }
         foreach (Item item in Manager.StoryFlags)
         {
-            Debug.Log($"item:{item.name} id:{item.id}");
             if (item.id == id)
             {
                 hasItem = 1;
