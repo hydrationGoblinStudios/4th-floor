@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 0
   weapontype: 0
   weight: 0
-  ItemName: Espada de Ferro
+  ItemName: Espada de ferro
   description: Uma espada simples.
   hit: 90
   crit: 0
