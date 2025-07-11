@@ -3048,6 +3048,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9de3f058e5845ed43bb6f96ef2c26556, type: 2}
   - {fileID: 11400000, guid: 070de6d083a676647ab0cc48ae00b911, type: 2}
   - {fileID: 11400000, guid: f61d0a7e5414f194ba9b2048384a0d18, type: 2}
+  - {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
+  - {fileID: 11400000, guid: a9691ade132f945488fa2114bc90a99f, type: 2}
+  - {fileID: 11400000, guid: 37655520312092e4aa9b6b18aa41d8c4, type: 2}
+  - {fileID: 11400000, guid: 1544d580e8acae746a449116c391377f, type: 2}
+  - {fileID: 11400000, guid: ff06557b7ce141b4489d0abd8f85a625, type: 2}
+  - {fileID: 11400000, guid: 0c8347a8227361b4cbd06004a184e44a, type: 2}
   sprites:
   - {fileID: 21300000, guid: 56ffc22c81a88954c98d079b3a47a513, type: 3}
   - {fileID: 21300000, guid: 18563a489e96c72478b762829b12bb3a, type: 3}

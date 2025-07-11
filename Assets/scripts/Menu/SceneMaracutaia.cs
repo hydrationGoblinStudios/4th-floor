@@ -38,7 +38,6 @@ public class SceneMaracutaia : MonoBehaviour
         SceneManager.LoadScene(scene);
         NodeParser nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
         nodeParser.StartDialogue(graph);
-
     }
     public void LoadCombat(string scene)
     {
