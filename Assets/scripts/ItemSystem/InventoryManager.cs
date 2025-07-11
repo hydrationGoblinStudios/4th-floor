@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using static UnityEngine.EventSystems.EventTrigger;
+using UnityEditor.Experimental.GraphView;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -508,7 +509,10 @@ public class InventoryManager : MonoBehaviour
             GameObject SkillButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
             SkillButton.GetComponent<Button>().onClick.AddListener(() => EquipSoul(soul));
             SkillButton.GetComponentInChildren<TextMeshProUGUI>().text = soul;
-            
+            if (skillIcons.Where(obj => obj.name == soul).SingleOrDefault() != null)
+            {
+                SkillButton.GetComponentInChildren<Image>().sprite = skillIcons.Where(obj => obj.name == soul).SingleOrDefault();
+            }
         }
     }
     public void UpdateSkillName()
