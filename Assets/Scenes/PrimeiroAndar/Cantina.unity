@@ -3060,6 +3060,9 @@ MonoBehaviour:
   blackMarketOpen: 0
   money: {fileID: 0}
   open: 0
+  dialogues:
+  - {fileID: 11400000, guid: 8b591902ff775834cbfd87cfad6f2513, type: 2}
+  - {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
   WeaponSprite: {fileID: 21146443}
   Texts:
   - {fileID: 1692425964}

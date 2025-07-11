@@ -23,6 +23,7 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI money;
     public bool open = false;
 
+    public List<DialogueGraph> dialogues;
     public SpriteRenderer WeaponSprite;
     public List<TextMeshProUGUI> Texts;
 
@@ -108,7 +109,14 @@ public class ShopManager : MonoBehaviour
     public void Toggle()
     {
         open = !open;
-        Debug.Log("toggle");
+        if (open)
+        {
+            transform.parent.GetComponent<ButtonAssigner>().graph = dialogues[1];
+        }
+        else
+        {
+            transform.parent.GetComponent<ButtonAssigner>().graph = dialogues[0];
+        }
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
             if (SceneInteractable == null)
@@ -117,7 +125,6 @@ public class ShopManager : MonoBehaviour
             }
             if (SceneInteractable != null)
             {
-            Debug.Log("SI isnt null");
                 foreach (Transform child in SceneInteractable.transform)
                 {
                     if (child.name != "shop")
