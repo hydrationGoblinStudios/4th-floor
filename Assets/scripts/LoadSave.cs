@@ -8,7 +8,9 @@ public class LoadSave : MonoBehaviour
     public GameManager gm;
     void Start()
     {
+
         StartCoroutine(LoadGame());
+
     }
     IEnumerator LoadGame()
     {

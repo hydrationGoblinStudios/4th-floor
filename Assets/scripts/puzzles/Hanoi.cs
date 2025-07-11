@@ -25,6 +25,14 @@ public class Hanoi : MonoBehaviour
         pillars.Add(pillar3);
         CheckSprites();
     }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
+            sm.LoadScene("Dispensa");
+        }
+    }
     public void Button(int i)
     {
         if (holding && pillars[i][0] > held)

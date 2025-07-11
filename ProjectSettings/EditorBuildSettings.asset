@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PrimeiroAndar/Minigames/Minigame de gelo.unity
     guid: b6ebee631d4150347a2d87b887c5c31a
+  - enabled: 1
+    path: Assets/Scenes/PrimeiroAndar/Minigames/Cadeado.unity
+    guid: 7e47a27794db33c4992e064ffd68dcf5
   m_configObjects: {}

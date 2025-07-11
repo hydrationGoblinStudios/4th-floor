@@ -91,5 +91,10 @@ public class CoisaQueVaiNoGelo : MonoBehaviour
             SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
             sm.LoadSceneNDialogue("Quarto Dos Guardas", graph);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
+            sm.LoadScene("Quarto Dos Guardas");
+        }
     }
 }

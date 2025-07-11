@@ -18,7 +18,6 @@ public class KeyItemStateManager : MonoBehaviour
         {
             if (items[0].name == item.name)
             {
-                Debug.Log("keyitem");
                 sprites[0].sprite = sprite;
                 interactables[0].GetComponent<ButtonAssigner>().graph = target;
                 interactables[0].GetComponent<ButtonAssigner>().AddListener();
@@ -26,12 +25,9 @@ public class KeyItemStateManager : MonoBehaviour
         }
         foreach (Item item in manager.StoryFlags)
         {
-            Debug.Log(items[0].name);
-            Debug.Log(item.name);
                 if (items[0].name == item.name)
             {
-            Debug.Log("storyFlag");
-           sprites[0].sprite = sprite;
+            sprites[0].sprite = sprite;
             interactables[0].GetComponent<ButtonAssigner>().graph = target;
             interactables[0].GetComponent<ButtonAssigner>().AddListener();
             }   

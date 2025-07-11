@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
-using static UnityEngine.EventSystems.EventTrigger;
-using UnityEditor.Experimental.GraphView;
-
 public class InventoryManager : MonoBehaviour
 {
     public GameObject GameManagerOBJ;

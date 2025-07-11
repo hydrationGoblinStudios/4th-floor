@@ -18,6 +18,21 @@ public class SceneMaracutaia : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+    public void LoadGame()
+    {
+        string FileName = "/AlvorecerLunar.json";
+
+        if (Application.isEditor)
+        {
+            FileName = "/AlvorecerLunarEditor.json";
+        }
+        Debug.Log(Application.persistentDataPath + FileName);
+        if (System.IO.File.Exists(Application.persistentDataPath + FileName))
+        {
+            Debug.Log("tem file");
+            SceneManager.LoadScene("LoadSave");
+        }
+    }
     public void LoadSceneNDialogue(string scene, DialogueGraph graph)
     {
         SceneManager.LoadScene(scene);

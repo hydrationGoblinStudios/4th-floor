@@ -4,6 +4,7 @@ using TMPro; // se estiver usando TextMeshPro
 
 public class LockCode : MonoBehaviour
 {
+        public DialogueGraph graph;
     [System.Serializable]
     public class Digit
     {
@@ -56,5 +57,15 @@ public class LockCode : MonoBehaviour
     {
         Debug.Log("Senha correta!");
         // chame aqui o que quiser: abrir porta, tocar som, etc
+        SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
+        sm.LoadSceneNDialogue("Preparation1A",graph);
+    }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
+            sm.LoadScene("Preparation1A");
+        }
     }
 }
