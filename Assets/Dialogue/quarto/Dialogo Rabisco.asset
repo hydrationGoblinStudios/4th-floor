@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1496, y: -120}
+  position: {x: 1480, y: -168}
   ports:
     keys:
     - entry
@@ -216,7 +216,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 5691860223725880749}
+        node: {fileID: 5316232466263283539}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -224,9 +224,9 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: 
-  dialogue: O painel se abre, revelando uma chave velha.
-  sprite: {fileID: 0}
+  speaker: Ramion
+  dialogue: O painel abriu, revelando uma chave.
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &-5645795804256512923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 132.85645, y: -275.1326}
+  position: {x: 104, y: -408}
   ports:
     keys:
     - entry
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 458.5, y: -322.5}
+  position: {x: 440, y: -504}
   ports:
     keys:
     - entry
@@ -337,6 +337,7 @@ MonoBehaviour:
   - {fileID: -9193697023588891615}
   - {fileID: -5645795804256512923}
   - {fileID: -5046983874671082889}
+  - {fileID: 5316232466263283539}
   current: {fileID: -5645795804256512923}
 --- !u!114 &442086347688451712
 MonoBehaviour:
@@ -582,7 +583,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2184, y: -136}
+  position: {x: 2408, y: -104}
   ports:
     keys:
     - entry
@@ -650,6 +651,54 @@ MonoBehaviour:
   dialogue: "Tem um um v\xE3o em formato de m\xE3o aqui, talvez eu devesse encostar
     nele"
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &5316232466263283539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1704, y: -168}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 5316232466263283539}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -8033578571691764286}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 5316232466263283539}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 5691860223725880749}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: 
+  dialogue: Obteve <color=green> Chave Velha
+  sprite: {fileID: 0}
 --- !u!114 &5392071631304700072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,7 +805,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1720, y: -136}
+  position: {x: 1944, y: -104}
   ports:
     keys:
     - entry
@@ -768,7 +817,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -8033578571691764286}
+        node: {fileID: 5316232466263283539}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -804,7 +853,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1432, y: 72}
+  position: {x: 1400, y: 152}
   ports:
     keys:
     - entry
@@ -858,7 +907,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1960, y: -136}
+  position: {x: 2184, y: -104}
   ports:
     keys:
     - entry
