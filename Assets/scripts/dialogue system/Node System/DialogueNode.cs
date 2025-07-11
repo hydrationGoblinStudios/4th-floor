@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using XNode;
-using XNodeEditor;
-using static XNodeEditor.NodeEditor;
+//using static XNodeEditor.NodeEditor;
 
-[CustomNodeEditor(typeof(DialogueNode))]
+//[CustomNodeEditor(typeof(DialogueNode))]
 public class DialogueNode : BaseNode {
 
 	[Input] public int entry;

@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Pedra
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
+<<<<<<< Updated upstream
   id: 111
+=======
+  id: 112
+>>>>>>> Stashed changes
   sprite: {fileID: 0}
   type: 2
   weapontype: 0
