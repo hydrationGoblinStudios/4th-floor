@@ -745,7 +745,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: Ramion
+  speaker: '?'
   dialogue: "Um painel de quatro d\xEDgitos apareceu."
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &6367131847075684154
