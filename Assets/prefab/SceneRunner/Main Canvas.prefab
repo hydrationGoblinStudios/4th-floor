@@ -28318,8 +28318,8 @@ MonoBehaviour:
   WeaponImage: {fileID: 8000708147043298229}
   AccesoryImage: {fileID: 6075465521156271860}
   EquipableImages:
-  - {fileID: 21300000, guid: 49b842d04740ccd40929b78916cd2331, type: 3}
-  - {fileID: 21300000, guid: 4c7a5e637ed9ce44fbee30ed7eafaee6, type: 3}
+  - {fileID: 21300000, guid: 9cd6bc03617a7f14eaf22941c9d439ad, type: 3}
+  - {fileID: 21300000, guid: 699b76f40a6c9524e9a083df902839a0, type: 3}
   - {fileID: 21300000, guid: 9fc61178f9e28894cae8187a57233e34, type: 3}
   - {fileID: 21300000, guid: eb6a64288a8696443b5a53e433acddc9, type: 3}
   - {fileID: 21300000, guid: 21c75d8df079a6e4b8e3e58d685afca6, type: 3}
@@ -28354,7 +28354,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 83e2ef6a2932e964bb18422a303a2758, type: 3}
   - {fileID: 21300000, guid: 050c94a9cc92ea4429515d3f4ed69ccb, type: 3}
   - {fileID: 21300000, guid: 5c9162c494e6db34bb9bfae5fbe6b8b1, type: 3}
-  - {fileID: 21300000, guid: c8288b5bb3fd3654eb0c6d81f4082e90, type: 3}
+  - {fileID: 21300000, guid: c6e3e86a4e2de284a9c6c8aba22f89b2, type: 3}
   - {fileID: 21300000, guid: 49d14a728eb1d384b98a6f985fa0fb6b, type: 3}
   - {fileID: 21300000, guid: 3e2f29f5d6bcf324f8df63f6578696a0, type: 3}
   - {fileID: 21300000, guid: 0f973aa5f7a2fdd4587fc2685e4ae041, type: 3}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Anel Vamp\xEDrico"
+  m_Name: Brincos sanguinarios
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 704
@@ -18,9 +18,9 @@ MonoBehaviour:
   type: 1
   weapontype: 6
   weight: 0
-  ItemName: "Anel Vamp\xEDrico"
+  ItemName: "Brincos sanguin\xE1rios"
   description: Um anel que faz com que seu portador cure baseado no seu dano de Ataques
-    Basicos. Ganha 10% de Roubo de Vida..
+    Basicos. Ganha 10% de Roubo de Vida.
   hit: 0
   crit: 0
   power: 0
