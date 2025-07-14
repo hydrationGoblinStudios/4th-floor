@@ -64,7 +64,10 @@ public class LockCode : MonoBehaviour
         {
             sm.LoadSceneNDialogue("Abertura 2", graph);
         }
+        else
+        {
         sm.LoadSceneNDialogue("Preparation1A",graph);
+        }
     }
     public void Update()
     {
@@ -77,6 +80,10 @@ public class LockCode : MonoBehaviour
             if (!gameManager.unlockedMaps.Contains("Cantina"))
             {
                 sm.LoadScene("Abertura 2");
+            }
+            else
+            {
+                sm.LoadSceneNDialogue("Preparation1A", graph);
             }
         }
     }
