@@ -279,10 +279,10 @@ public class PreBattleManager : MonoBehaviour
                 b.onClick.RemoveAllListeners();
                 switch (c)
                 {
-                    case 0: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[0]); }); break;
-                    case 1: if (gameManager.team.Count >= 2) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[1]); }); } break;
-                    case 2: if (gameManager.team.Count >= 3) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[2]); }); } break;
-                    default: if (gameManager.team.Count >= 4) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, gameManager.team[3]); }); } break;
+                    case 0: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot,Instantiate(gameManager.team[0])); }); break;
+                    case 1: if (gameManager.team.Count >= 2) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, Instantiate(gameManager.team[1])); }); } break;
+                    case 2: if (gameManager.team.Count >= 3) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, Instantiate(gameManager.team[2])); }); } break;
+                    default: if (gameManager.team.Count >= 4) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, Instantiate(gameManager.team[3])); }); } break;
                 }
                 if (inventoryManager.playableMugShots.Where(obj => obj.name == gameManager.team[c].GetComponent<UnitBehavior>().UnitName + " mugshot").SingleOrDefault() != null)
                 {
