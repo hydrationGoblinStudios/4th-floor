@@ -58,6 +58,12 @@ public class LockCode : MonoBehaviour
         Debug.Log("Senha correta!");
         // chame aqui o que quiser: abrir porta, tocar som, etc
         SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
+        GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
+        GameManager gameManager = GMobject.GetComponent<GameManager>();
+        if (!gameManager.unlockedMaps.Contains("Cantina")) 
+        {
+            sm.LoadSceneNDialogue("Abertura 2", graph);
+        }
         sm.LoadSceneNDialogue("Preparation1A",graph);
     }
     public void Update()
@@ -66,6 +72,12 @@ public class LockCode : MonoBehaviour
         {
             SceneMaracutaia sm = FindObjectOfType<SceneMaracutaia>(true);
             sm.LoadScene("Preparation1A");
+            GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
+            GameManager gameManager = GMobject.GetComponent<GameManager>();
+            if (!gameManager.unlockedMaps.Contains("Cantina"))
+            {
+                sm.LoadScene("Abertura 2");
+            }
         }
     }
 }

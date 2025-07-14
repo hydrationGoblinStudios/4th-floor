@@ -1707,7 +1707,7 @@ MonoBehaviour:
   exit: 0
   item: {fileID: 11400000, guid: c394bce12029dff499e437ea2f2f7467, type: 2}
   key: 0
-  flag: 0
+  flag: 1
 --- !u!114 &3994782108569350762
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 648, y: 120}
+  position: {x: 648, y: 168}
   ports:
     keys:
     - entry
@@ -462,7 +462,7 @@ MonoBehaviour:
   - {fileID: -262840456879348786}
   - {fileID: -2163645436797976}
   - {fileID: 2181205780538499101}
-  current: {fileID: 2181205780538499101}
+  current: {fileID: -7150805457900034079}
 --- !u!114 &2181205780538499101
 MonoBehaviour:
   m_ObjectHideFlags: 0
