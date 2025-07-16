@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Guerreiro : UnitBehavior
 {
+    public Guerreiro()
+    {
+        currentRank = 1;
+    }
     public void Awake()
     {
         baseSkill = "Lutador Versátil";

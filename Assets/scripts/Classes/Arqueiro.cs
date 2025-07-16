@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Arqueiro : UnitBehavior
 {
+    public Arqueiro()
+    {
+        currentRank = 1;
+    }
+
     public void Awake()
     {
      baseSkill = "Foco";

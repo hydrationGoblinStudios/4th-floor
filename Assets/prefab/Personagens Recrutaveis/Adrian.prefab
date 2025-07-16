@@ -57,7 +57,7 @@ MonoBehaviour:
   UnitName: Adrian
   currentLevel: 1
   expmarkplier: 1
-  currentRank: 0
+  currentRank: 1
   currentExp: 0
   ClassID: 67000000
   ClassLevel: 
@@ -125,8 +125,8 @@ MonoBehaviour:
   SkillManager: {fileID: 0}
   unitData:
     classId: 0
-    Weapon: {fileID: 0}
-    Accesory: {fileID: 0}
+    Weapon: 0
+    Accesory: 0
     UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
@@ -164,6 +164,8 @@ MonoBehaviour:
     armorpen: 0
     magicpen: 0
     cooking: 0
+    activity: 
+    fortalecerStat: 0
     growths: 
     classSkill: 
     personalSkill: 

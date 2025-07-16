@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class  Místico : UnitBehavior
 {
+    public Místico()
+    {
+        currentRank = 1;
+    }
     public void Awake()
     {
         baseSkill = "Encantamento";

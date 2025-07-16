@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Soldado : UnitBehavior
 {
+    public Soldado()
+    {
+        currentRank = 1;
+    }
     public void Awake()
     {
     baseSkill = "Presença Inabalável";

@@ -193,14 +193,14 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Livro Curativo":
-                if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp)
+                if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp && team[0].hp >0)
                 {
                     StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                     Debug.Log(team[0].hp + " hp slot 1");
                     team[0].hp += user.mag / 2 + 2;                   
                     Debug.Log(team[0].hp + " hp slot 1");
                 }
-                if (team[1].hp <= team[0].hp & team[1].hp <= team[2].hp)
+                if (team[1].hp <= team[0].hp & team[1].hp <= team[2].hp && team[1].hp > 0)
                 {
                     StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                     Debug.Log(team[1].hp + " hp slot 2");
@@ -208,7 +208,7 @@ public class SkillManager : MonoBehaviour
                     Debug.Log(team[1].hp + " hp slot 2");
 
                 }
-                if (team[2].hp <= team[1].hp & team[2].hp <= team[0].hp)
+                if (team[2].hp <= team[1].hp & team[2].hp <= team[0].hp && team[2].hp > 0)
                 {
                     StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                     Debug.Log(team[2].hp + " hp slot 3");
@@ -1155,15 +1155,15 @@ public class SkillManager : MonoBehaviour
 
                 StartCoroutine(IconPopup(user.Icon, "Restauração Espiritual"));
 
-                if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp)
+                if (team[0].hp <= team[1].hp & team[0].hp <= team[2].hp && team[0].hp > 0)
                 {
                     team[0].hp += 10 + user.mag / 5;
                 }
-                if (team[1].hp <= team[0].hp & team[1].hp <= team[2].hp)
+                if (team[1].hp <= team[0].hp & team[1].hp <= team[2].hp && team[1].hp > 0)
                 {
                     team[1].hp += 10 + user.mag / 5;
                 }
-                if (team[2].hp <= team[1].hp & team[2].hp <= team[0].hp)
+                if (team[2].hp <= team[1].hp & team[2].hp <= team[0].hp && team[2].hp > 0)
                 {
                     team[2].hp += 10 + user.mag / 5;
                 }

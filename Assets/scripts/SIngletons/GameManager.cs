@@ -288,7 +288,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         newUnit.name = CurrentUnitBehavior.UnitName;
         SelectedUBClassChange = newUnit;
         //todo
-       // ClassChange(newUnit.GetComponent<UnitBehavior>().classId, CurrentUnitData.Weapon);
+       ClassChange(newUnit.GetComponent<UnitBehavior>().classId, GetbyID(CurrentUnitData.Weapon, equipList));
         
         team.Add(newUnit);
     }

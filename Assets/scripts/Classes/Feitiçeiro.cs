@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Feitiçeiro : UnitBehavior
 {
+    public Feitiçeiro()
+    {
+        currentRank = 1;
+    }
     public void Awake()
     {
         baseSkill = "Presença Inabalável";

@@ -57,7 +57,7 @@ MonoBehaviour:
   UnitName: Hiro
   currentLevel: 4
   expmarkplier: 1
-  currentRank: 0
+  currentRank: 1
   currentExp: 0
   ClassID: 68000000
   ClassLevel: 

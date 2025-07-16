@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Espadachim : UnitBehavior
 {
+    public Espadachim()
+    {
+        currentRank = 1;
+    }
     public void Awake()
     {
         baseSkill = "Dano Ascendente";
