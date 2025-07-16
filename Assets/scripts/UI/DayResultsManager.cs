@@ -133,6 +133,7 @@ public class DayResultsManager : MonoBehaviour
                     break;
                 case "Trabalhar":
                     gameManager.money += 500;
+                    Texts[c].text = "+500 gold";
                     break;
                 case "Aprender":
                     if (currentUnit.ClassLearning.ContainsKey(currentUnit.currentLearnigClassID))

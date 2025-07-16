@@ -24,10 +24,28 @@ public class SongManager : MonoBehaviour
         lowering = true;
        switch (m_scene.name)
 {
-case "Preparation1A": m_audioSource.clip = m_clip.Where(obj => obj.name == "floor1day").SingleOrDefault(); break;
+case "Preparation1A":
+                if (transform.parent.GetComponent<GameManager>().storyBattle == true)
+                {
+                    m_audioSource.clip = m_clip.Where(obj => obj.name == "floor1day").SingleOrDefault(); 
+                }
+                else 
+                {
+                    m_audioSource.clip = m_clip.Where(obj => obj.name == "003_Nightwatch").SingleOrDefault();
+                }
+                break;
 case "Abertura 2": m_audioSource.clip = m_clip.Where(obj => obj.name == "floor1day").SingleOrDefault(); break;
 case "Pre Battle": m_audioSource.clip = m_clip.Where(obj => obj.name == "youi!").SingleOrDefault(); break;
-case "Battle": m_audioSource.clip = m_clip.Where(obj => obj.name == "battle!").SingleOrDefault(); break;
+case "Battle":
+                if(transform.parent.GetComponent<GameManager>().day %4 == 0)
+                {
+                    m_audioSource.clip = m_clip.Where(obj => obj.name == "Boss Battle").SingleOrDefault();
+                }
+                else
+                {
+                m_audioSource.clip = m_clip.Where(obj => obj.name == "battle!").SingleOrDefault();
+                }
+                break;
 default: break;
 }
         if (current != m_audioSource.clip)
