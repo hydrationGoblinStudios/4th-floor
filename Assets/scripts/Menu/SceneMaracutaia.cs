@@ -10,6 +10,12 @@ public class SceneMaracutaia : MonoBehaviour
     public GameManager gameManager;
     public DialogueGraph[] barrarEntrada;
 
+    public void Awake()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Abertura");
