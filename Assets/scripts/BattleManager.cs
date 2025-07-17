@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
+using static UnityEngine.GraphicsBuffer;
 
 public class BattleManager : MonoBehaviour
 {
@@ -106,6 +108,10 @@ public class BattleManager : MonoBehaviour
     public List<TextMeshProUGUI> weaponStats;
     public List<TextMeshProUGUI> unitStats;
     public List<TextMeshProUGUI> hoverSkillnames;
+    public TextMeshProUGUI soulName;
+    public SpriteRenderer WeaponImage;
+    public SpriteRenderer AccessoryImage;
+    public SpriteRenderer Mugshot;
     public bool hovering;
     public Vector3 startingPosition;
     public enum BattleState { BattleStart, Wait, PlayerTurn, EnemyTurn, PlayerWon, EnemyWon }
@@ -1223,6 +1229,17 @@ public class BattleManager : MonoBehaviour
         if (character < 3)
         {
             hoverName.text = playerTeam[character].UnitName;
+            int c = 0;
+            foreach (TextMeshProUGUI skill in hoverSkillnames)
+            {
+                skill.text = "";
+            }
+            foreach (string skill in playerTeam[character].skills)
+            {
+                hoverSkillnames[c].text = playerTeam[character].skills[c];
+                c++;
+            }
+            soulName.text = playerTeam[character].equipedSoul;
             weaponStats[0].text = playerTeam[character].Weapon.power.ToString();
             weaponStats[1].text = playerTeam[character].Weapon.hit.ToString();
             weaponStats[2].text = playerTeam[character].Weapon.crit.ToString();
@@ -1234,10 +1251,44 @@ public class BattleManager : MonoBehaviour
             unitStats[5].text = playerTeam[character].def.ToString();
             unitStats[6].text = playerTeam[character].mdef.ToString();
             unitStats[7].text = playerTeam[character].luck.ToString();
+            unitStats[8].text = (playerTeam[character].str + playerTeam[character].Weapon.power).ToString();
+            unitStats[9].text = (playerTeam[character].Weapon.hit + (playerTeam[character].dex * 3) + playerTeam[character].luck + playerTeam[character].hit).ToString();
+            unitStats[10].text = ((playerTeam[character].speed * 2) - playerTeam[character].luck - playerTeam[character].avoid).ToString();
+            unitStats[11].text = ((playerTeam[character].dex / 2) + playerTeam[character].Weapon.crit).ToString();
+            InventoryManager im = FindAnyObjectByType<InventoryManager>(findObjectsInactive: FindObjectsInactive.Include);
+            WeaponImage.sprite = im.EquipableImages.Where(obj => obj.name == playerTeam[character].Weapon.ItemName).SingleOrDefault();
+            Mugshot.sprite = im.playableMugShots.Where(obj => obj.name == playerTeam[character].UnitName + " mugshot").SingleOrDefault();
+            if (im.EquipableImages.Where(obj => obj.name == playerTeam[character].Weapon.name).SingleOrDefault() != null)
+            {
+                WeaponImage.sprite = im.EquipableImages.Where(obj => obj.name == playerTeam[character].Weapon.name).SingleOrDefault();
+            }
+            if (playerTeam[character].Accesory != null)
+            {
+            AccessoryImage.sprite = im.EquipableImages.Where(obj => obj.name == playerTeam[character].Accesory.ItemName).SingleOrDefault();
+                if (im.EquipableImages.Where(obj => obj.name == playerTeam[character].Accesory.name).SingleOrDefault() != null)
+                {
+                    AccessoryImage.sprite = im.EquipableImages.Where(obj => obj.name == playerTeam[character].Accesory.name).SingleOrDefault();
+                }
+            }
+            else
+            {
+                AccessoryImage.sprite = null;
+            }
         }
         else
         {
             hoverName.text = enemyTeam[character - 3].UnitName;
+            int c = 0;
+            foreach (TextMeshProUGUI skill in hoverSkillnames)
+            {
+                skill.text = "";
+            }
+            foreach (string skill in enemyTeam[character -3].skills)
+            {
+                hoverSkillnames[c].text = enemyTeam[character -3].skills[c];
+                c++;
+            }
+            soulName.text = enemyTeam[character -3].equipedSoul;      
             weaponStats[0].text = enemyTeam[character - 3].Weapon.power.ToString();
             weaponStats[1].text = enemyTeam[character - 3].Weapon.hit.ToString();
             weaponStats[2].text = enemyTeam[character - 3].Weapon.crit.ToString();
@@ -1249,6 +1300,29 @@ public class BattleManager : MonoBehaviour
             unitStats[5].text = enemyTeam[character - 3].def.ToString();
             unitStats[6].text = enemyTeam[character - 3].mdef.ToString();
             unitStats[7].text = enemyTeam[character - 3].luck.ToString();
+            unitStats[8].text = (enemyTeam[character - 3].str + enemyTeam[character - 3].Weapon.power).ToString();
+            unitStats[9].text = (enemyTeam[character - 3].Weapon.hit + (enemyTeam[character - 3].dex * 3) + enemyTeam[character - 3].luck + enemyTeam[character - 3].hit).ToString();
+            unitStats[10].text = ((enemyTeam[character - 3].speed * 2) - enemyTeam[character - 3].luck - enemyTeam[character - 3].avoid).ToString();
+            unitStats[11].text = ((enemyTeam[character - 3].dex / 2) + enemyTeam[character - 3].Weapon.crit).ToString();
+            InventoryManager im = FindAnyObjectByType<InventoryManager>(findObjectsInactive: FindObjectsInactive.Include);
+            WeaponImage.sprite = im.EquipableImages.Where(obj => obj.name == enemyTeam[character - 3].Weapon.ItemName).SingleOrDefault();
+            Mugshot.sprite = im.playableMugShots.Where(obj => obj.name == enemyTeam[character - 3].UnitName + " mugshot").SingleOrDefault();
+            if (im.EquipableImages.Where(obj => obj.name == enemyTeam[character - 3].Weapon.name).SingleOrDefault() != null)
+            {
+                WeaponImage.sprite = im.EquipableImages.Where(obj => obj.name == enemyTeam[character - 3].Weapon.name).SingleOrDefault();
+            }
+            if (enemyTeam[character - 3].Accesory != null)
+            {
+                AccessoryImage.sprite = im.EquipableImages.Where(obj => obj.name == enemyTeam[character - 3].Accesory.ItemName).SingleOrDefault();
+                if (im.EquipableImages.Where(obj => obj.name == enemyTeam[character - 3].Accesory.name).SingleOrDefault() != null)
+                {
+                    AccessoryImage.sprite = im.EquipableImages.Where(obj => obj.name == enemyTeam[character - 3].Accesory.name).SingleOrDefault();
+                }
+            }
+            else
+            {
+                AccessoryImage.sprite = null;
+            }
         }
     }
 
