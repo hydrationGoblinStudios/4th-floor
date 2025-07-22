@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
-using static UnityEngine.GraphicsBuffer;
+using Unity.VisualScripting;
 
 public class BattleManager : MonoBehaviour
 {
@@ -732,7 +731,7 @@ public class BattleManager : MonoBehaviour
             waiting = false;
         }
     }
-    public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1)
+    public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1, float lifeSteal = 0)
     {
         List<UnitBehavior> attackerTeam;
         List<UnitBehavior> targetTeam;
@@ -776,7 +775,7 @@ public class BattleManager : MonoBehaviour
         }
         if (Random.Range(0, 101) <= Phit)
         {
-            StartCoroutine(ExtraAttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam, DamageMultiplier));
+            StartCoroutine(ExtraAttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam, DamageMultiplier, lifeSteal));
         }
         else
         {
@@ -1044,7 +1043,7 @@ public class BattleManager : MonoBehaviour
             if (attacker.lifesteal >= 0.01)
             {
                 attacker.hp += damageDone * attacker.lifesteal;
-
+                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true));
             }
             Target.soul += damageDone / 5;
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
@@ -1084,6 +1083,7 @@ public class BattleManager : MonoBehaviour
             if (attacker.lifesteal >= 0.01)
             {
                 attacker.hp += (damageDone) * attacker.lifesteal;
+                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true));
             }
             Target.soul += ((damageDone) / 5) * Target.damageSoulGain;
             Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + (damageDone) + " de dano\n"
@@ -1106,7 +1106,7 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam, float DamageMultiplier = 1)
+    public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam, float DamageMultiplier = 1, float lifeSteal =0)
     {
         AttackSetup(attacker, Target);
         attacker.SkillManager.currentDamageBonus = 0;
@@ -1138,9 +1138,13 @@ public class BattleManager : MonoBehaviour
         + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
                             + "acerto critico, dano dobrado" + " Foi um ataque extra"
     );
-            if (attacker.lifesteal >= 0.01)
+            Debug.Log(lifeSteal);
+            if (attacker.lifesteal >= 0.01 | lifeSteal >= 0.01)
             {
                 attacker.hp += (damageDone) * attacker.lifesteal;
+                attacker.hp += (int)((damageDone) * lifeSteal);
+                Debug.Log("life stolen");
+                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true));
             }
             Target.soul += (damageDone * 2) / 5;
             yield return new WaitForSeconds(1);
@@ -1167,7 +1171,15 @@ public class BattleManager : MonoBehaviour
 
             if (attacker.lifesteal >= 0.01)
             {
-                attacker.hp += damageDone * attacker.lifesteal;
+                attacker.hp += (damageDone) * attacker.lifesteal;
+                Debug.Log("life stolen");
+                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true));
+            }
+            if (lifeSteal >= 0.01)
+            {
+                attacker.hp += (int)((damageDone) * lifeSteal);
+                Debug.Log("life stolen");
+                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * lifeSteal), true));
             }
             Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + damageDone + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
@@ -1191,7 +1203,7 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public IEnumerator FadeOutText(TextMeshProUGUI tmpOG, int damageDone = 0)
+    public IEnumerator FadeOutText(TextMeshProUGUI tmpOG, int damageDone = 0, bool heal = false)
     {
         TextMeshProUGUI tmp = Instantiate(tmpOG, tmpOG.gameObject.transform);
         tmp.rectTransform.localPosition = new Vector3(0, 0, 0);
@@ -1203,6 +1215,10 @@ public class BattleManager : MonoBehaviour
             Color c = tmp.color;
             c.a = f;
             tmp.color = c;
+            if (heal)
+            {
+                tmp.color = Color.green;
+            }
             yield return new WaitForSeconds(0.05f);
         }
         tmp.gameObject.SetActive(false);
@@ -1236,7 +1252,10 @@ public class BattleManager : MonoBehaviour
             }
             foreach (string skill in playerTeam[character].skills)
             {
+                if(c <4)
+                {
                 hoverSkillnames[c].text = playerTeam[character].skills[c];
+                }
                 c++;
             }
             soulName.text = playerTeam[character].equipedSoul;

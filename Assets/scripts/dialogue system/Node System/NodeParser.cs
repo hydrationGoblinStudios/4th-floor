@@ -22,6 +22,8 @@ public class NodeParser : MonoBehaviour
     public TextMeshProUGUI[] extraTexts;
     public GameObject[] options;
     public GameObject[] fakeOptions;
+    public float cooldown = 0.3f;
+    public float currentCooldown = 0.3f;
 
     public bool banText = false;
     public bool welcometext;
@@ -167,29 +169,44 @@ public class NodeParser : MonoBehaviour
     }
     public void NextNode(string fieldName)
     {
-        if(_parser != null)
-        {
-            StopCoroutine(_parser);
-            _parser = null;
-        }
-        foreach (NodePort p in graph.current.Ports)
-        {
-            if(p.fieldName == fieldName)
+            StartCoroutine(DelayOptions());
+            if (_parser != null)
             {
-                graph.current = p.Connection.node as BaseNode;
-                break;
+                StopCoroutine(_parser);
+                _parser = null;
             }
-        }
-        _parser = StartCoroutine(ParseNode());
+            foreach (NodePort p in graph.current.Ports)
+            {
+                if (p.fieldName == fieldName)
+                {
+                    graph.current = p.Connection.node as BaseNode;
+                    break;
+                }
+            }
+            _parser = StartCoroutine(ParseNode());
     }
     public void ButtonPress(int option)
     {
         buttonPress = option;
     }
+    IEnumerator DelayOptions()
+    {
+        foreach (GameObject go in options)
+        {
+            go.GetComponent<Button>().onClick.RemoveAllListeners();
+        }
+        yield return new WaitForSeconds(0.2f);
+        int c = 0;
+        foreach (GameObject go in options)
+        {
+            go.GetComponent<Button>().onClick.AddListener(() => ButtonPress(c));
+        }
+    }
     public void StartDialogue(DialogueGraph NewGraph)
     {
         if (!banText)
         {
+            StartCoroutine(DelayOptions());
                 /* InventoryManager IM = FindObjectOfType<InventoryManager>(true);
                  IM.Activatable = !IM.Activatable;
                  MapToggle MT = FindObjectOfType<MapToggle>(true);

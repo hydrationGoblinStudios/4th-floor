@@ -4613,19 +4613,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8573249315270863702}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3717663523145488675}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: ButtonPress
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!61 &7571034511953981353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7257,19 +7245,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5198728009957387263}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3717663523145488675}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: ButtonPress
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!61 &3698103272025077011
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7818,19 +7794,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 858092933553270965}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3717663523145488675}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: ButtonPress
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!61 &5608967301259111837
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14498,19 +14462,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6208766334317297903}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3717663523145488675}
-        m_TargetAssemblyTypeName: NodeParser, Assembly-CSharp
-        m_MethodName: ButtonPress
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!61 &4225277514348836928
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33463,6 +33415,8 @@ MonoBehaviour:
   - {fileID: 8432338375655371438}
   - {fileID: 3484090066641895810}
   - {fileID: 9126948841404026277}
+  cooldown: 0.3
+  currentCooldown: 0.3
   banText: 0
   welcometext: 0
 --- !u!1001 &6331466769875754345

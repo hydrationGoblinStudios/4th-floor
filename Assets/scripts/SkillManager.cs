@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using TMPro;
 using static UnityEngine.GraphicsBuffer;
+using static BattleManager;
 
 public class SkillManager : MonoBehaviour
 {
@@ -1066,13 +1067,12 @@ public class SkillManager : MonoBehaviour
             case "Poder Oculto":
 
                 StartCoroutine(IconPopup(user.Icon, "Poder Oculto"));
-
-                user.lifesteal += (int) 0.25;
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.75,lifeSteal: 0.5f));
                 yield return new WaitForSeconds(1.05f);
                 user.lifesteal -= (int) 0.25;
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.75));
                 yield return new WaitForSeconds(1.05f);
+
                 target.soul -= 30;
 
                 break;
