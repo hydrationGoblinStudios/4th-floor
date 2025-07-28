@@ -15,9 +15,12 @@ public class KeyItemDrawer : MonoBehaviour
     }
     public void Draw()
     {
+        if(gameManager.currentState == GameManager.UIState.Available || activated)
+        {
         if (activated)
         {
-          Drawer.transform.localPosition = new() {x= Drawer.transform.localPosition.x -200,y= Drawer.transform.localPosition.y};
+                gameManager.currentState = GameManager.UIState.Available;
+                Drawer.transform.localPosition = new() {x= Drawer.transform.localPosition.x -200,y= Drawer.transform.localPosition.y};
             foreach(Transform tr in Panel.transform)
             {
                 tr.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
@@ -25,7 +28,9 @@ public class KeyItemDrawer : MonoBehaviour
         }
         else
         {
-        Drawer.transform.localPosition = new() { x = Drawer.transform.localPosition.x + 200, y = Drawer.transform.localPosition.y };
+                gameManager.currentState = GameManager.UIState.Ocuppied;
+
+                Drawer.transform.localPosition = new() { x = Drawer.transform.localPosition.x + 200, y = Drawer.transform.localPosition.y };
             int c = 0;
             foreach (Transform tr in Panel.transform)
             {
@@ -51,5 +56,6 @@ public class KeyItemDrawer : MonoBehaviour
             }
         }
         activated = !activated;
+        }
     }
 }

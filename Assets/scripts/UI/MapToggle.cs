@@ -9,6 +9,11 @@ public class MapToggle : MonoBehaviour
     public GameObject panel;
     public void Toggle()
     {
+        GameObject GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
+        GameManager Manager = GameManagerOBJ.GetComponent<GameManager>();
+        if(Manager.currentState == GameManager.UIState.Available)
+        {
+
         if (activatable)
         {
         invert.Clear();
@@ -31,6 +36,7 @@ public class MapToggle : MonoBehaviour
                 GameManager gm = FindObjectOfType<GameManager>();
                 child.gameObject.GetComponent<SceneNameBasedHider>().Toggled(gm);
             }
+        }
         }
     }
     public void Update()

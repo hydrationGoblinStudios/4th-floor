@@ -9,6 +9,11 @@ public class ConfigToggle : MonoBehaviour
     public GameObject panel;
     public void Toggle()
     {
+      GameObject  GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
+      GameManager  Manager = GameManagerOBJ.GetComponent<GameManager>();
+
+        if(Manager.currentState == GameManager.UIState.Available)
+        {
         if (activatable)
         {
             invert.Clear();
@@ -26,6 +31,7 @@ public class ConfigToggle : MonoBehaviour
                     go.SetActive(!go.activeInHierarchy);
                 }
             }
+        }
         }
     }
     public void Update()

@@ -54,6 +54,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject ClassChangeObject;  
     public void Toggle()
     {
+        GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
+        Manager = GameManagerOBJ.GetComponent<GameManager>();
         if (FindObjectOfType<KeyItemDrawer>().activated)
         {
             FindObjectOfType<KeyItemDrawer>().Draw();
@@ -73,6 +75,14 @@ public class InventoryManager : MonoBehaviour
                  go.SetActive(!go.activeInHierarchy);
                 }
             }
+        }
+        if(Manager.currentState == GameManager.UIState.Available)
+        {
+            Manager.currentState = GameManager.UIState.Ocuppied;
+        }
+        else
+        {
+            Manager.currentState = GameManager.UIState.Available;
         }
     }
     public void ToggleClassChange()

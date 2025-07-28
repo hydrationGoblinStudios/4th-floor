@@ -58,7 +58,11 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<Item> keyItemList;
     public List<Item> storyFlagList;
 
-    public  void Start()
+    public enum UIState {Available, Ocuppied}
+    public UIState currentState = UIState.Available;
+
+
+    public void Start()
     {
         StartCoroutine(LoadTeam());
     }
