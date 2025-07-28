@@ -5,23 +5,26 @@ using UnityEngine;
 public class MapToggle : MonoBehaviour
 {
     public List<GameObject> invert;
-    public bool activatable;
     public GameObject panel;
+    public bool activated;
     public void Toggle()
     {
+        activated = !activated;
         GameObject GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         GameManager Manager = GameManagerOBJ.GetComponent<GameManager>();
-        if(Manager.currentState == GameManager.UIState.Available)
+        if (activated)
         {
-
-        if (activatable)
+            Manager.currentState = GameManager.UIState.Ocuppied;
+        }
+        else
         {
-        invert.Clear();
-        invert.Add(FindObjectOfType<SceneInteractables>(true).gameObject);
-            ConfigToggle CT = FindObjectOfType<ConfigToggle>(true);
-            CT.activatable = !CT.activatable;
-            InventoryManager IM = FindObjectOfType<InventoryManager>(true); 
-            IM.Activatable = !IM.Activatable;
+            Manager.currentState = GameManager.UIState.Available;
+        }
+        if(Manager.currentState == GameManager.UIState.Available || activated)
+        {
+            
+            invert.Clear();
+            invert.Add(FindObjectOfType<SceneInteractables>(true).gameObject);
             gameObject.SetActive(!gameObject.activeInHierarchy);
             
             foreach (GameObject go in invert)
@@ -36,7 +39,6 @@ public class MapToggle : MonoBehaviour
                 GameManager gm = FindObjectOfType<GameManager>();
                 child.gameObject.GetComponent<SceneNameBasedHider>().Toggled(gm);
             }
-        }
         }
     }
     public void Update()

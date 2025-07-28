@@ -20,7 +20,7 @@ public class PrepManager : MonoBehaviour
         {
         SceneManager.LoadScene(sceneName);
         InventoryManager IM = FindObjectOfType<InventoryManager>(true);
-        IM.Activatable = !IM.Activatable;
+        IM.Activated = !IM.Activated;
         }
     }
     public void MapToggle(GameObject mapObject)

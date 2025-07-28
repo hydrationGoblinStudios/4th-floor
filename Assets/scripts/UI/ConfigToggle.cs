@@ -5,40 +5,30 @@ using UnityEngine;
 public class ConfigToggle : MonoBehaviour
 {
     public List<GameObject> invert;
-    public bool activatable;
     public GameObject panel;
     public void Toggle()
     {
       GameObject  GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
       GameManager  Manager = GameManagerOBJ.GetComponent<GameManager>();
 
-        if(Manager.currentState == GameManager.UIState.Available)
-        {
-        if (activatable)
+        if (Manager.currentState == GameManager.UIState.Available)
         {
             invert.Clear();
             invert.Add(FindObjectOfType<SceneInteractables>(true).gameObject);
-            InventoryManager IM = FindObjectOfType<InventoryManager>(true);
-            IM.Activatable = !IM.Activatable;
-            MapToggle mt = FindObjectOfType<MapToggle>(true);
-            mt.activatable = !mt.activatable;
             gameObject.SetActive(!gameObject.activeInHierarchy);
-
             foreach (GameObject go in invert)
             {
                 if (go != null)
                 {
                     go.SetActive(!go.activeInHierarchy);
                 }
-            }
-        }
+            }      
         }
     }
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(activatable == false) { activatable = true; };
             Toggle();
         }
     }

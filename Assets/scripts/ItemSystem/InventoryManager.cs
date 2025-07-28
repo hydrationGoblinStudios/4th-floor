@@ -35,7 +35,7 @@ public class InventoryManager : MonoBehaviour
     public NodeParser nodeParser;
     public GameObject[] ItemSelectorList;
     public Sprite[] ItemSelectorListSprites;
-    public bool Activatable;
+    public bool Activated;
 
     [Header("Ui top")]
     public SpriteRenderer MugShot;
@@ -56,6 +56,9 @@ public class InventoryManager : MonoBehaviour
     {
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
+        if (Manager.currentState == GameManager.UIState.Available || Activated)
+        {
+            Activated = !Activated;
         if (FindObjectOfType<KeyItemDrawer>().activated)
         {
             FindObjectOfType<KeyItemDrawer>().Draw();
@@ -64,18 +67,13 @@ public class InventoryManager : MonoBehaviour
         {
         SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
         }
-        ConfigToggle CT = FindObjectOfType<ConfigToggle>(true);
-        CT.activatable = !CT.activatable;
-        if (Activatable)
-        {
             foreach (GameObject go in new List<GameObject>{ SceneInteractable,gameObject,calendario})
             {
                 if(go != null)
                 {
                  go.SetActive(!go.activeInHierarchy);
                 }
-            }
-        }
+            }        
         if(Manager.currentState == GameManager.UIState.Available)
         {
             Manager.currentState = GameManager.UIState.Ocuppied;
@@ -83,6 +81,7 @@ public class InventoryManager : MonoBehaviour
         else
         {
             Manager.currentState = GameManager.UIState.Available;
+        }
         }
     }
     public void ToggleClassChange()
@@ -132,11 +131,7 @@ public class InventoryManager : MonoBehaviour
             }
             
             ClassChangeObject.GetComponent<ClassChangeManager>().classLearn = false;
-            Activatable = true;
-            ConfigToggle CT = FindObjectOfType<ConfigToggle>(true);
-            CT.activatable = true;
-            MapToggle MT = FindObjectOfType<MapToggle>(true);
-            MT.activatable = !MT.activatable;
+            Activated = true;
         }
     }
     public void Equip(Item item)
