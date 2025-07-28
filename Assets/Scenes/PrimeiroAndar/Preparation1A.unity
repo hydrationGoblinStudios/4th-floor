@@ -2721,6 +2721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 469506128656129897, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1279568977069166085, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2867,6 +2871,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3299229038012488859, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301253088402988170, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: hoverName
+      value: Critico
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301253088402988170, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: description
+      value: (Destreza/2) + Critico da arma
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547445154125810754, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4573834579158073405, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
@@ -3793,6 +3809,14 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[61].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 5541103593819147953, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: hoverName
+      value: "Evas\xE3o"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541103593819147953, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: description
+      value: Velocidade x 2 + Sorte
+      objectReference: {fileID: 0}
     - target: {fileID: 5579350771438327096, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3897,6 +3921,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5683131317729498725, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5893259970381281423, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3916,6 +3944,10 @@ PrefabInstance:
     - target: {fileID: 6822368552069919518, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: activatable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327580715679068509, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833326396226072353, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_IsActive
@@ -3952,6 +3984,14 @@ PrefabInstance:
     - target: {fileID: 7930813132455095983, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684014389249190695, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: hoverName
+      value: "Precis\xE3o"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684014389249190695, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: description
+      value: Destreza x 3 + Sorte
       objectReference: {fileID: 0}
     - target: {fileID: 8890242880666363195, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_Camera

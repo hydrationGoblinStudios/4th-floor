@@ -1036,7 +1036,14 @@ public class SkillManager : MonoBehaviour
         Debug.Log(target.speed + " speed antes");
         Debug.Log(target.power + " power antes");
         target.speed -= target.speed / 10;
-        target.Weapon.power -= Receptaculoamaldiçoadopower;
+        if (target.Weapon.damageType == 0)
+        {
+            target.str -= Receptaculoamaldiçoadopower;
+        }
+        else
+        {
+            target.mag -= Receptaculoamaldiçoadopower;
+        }
 
         Debug.Log(target.speed + " speed nerfada");
         Debug.Log(target.power + " power nerfado");
@@ -1044,7 +1051,14 @@ public class SkillManager : MonoBehaviour
 
         yield return new WaitForSeconds(15);
         target.speed += Receptaculoamaldiçoadospeed;
-        target.Weapon.power += Receptaculoamaldiçoadopower;
+        if (target.Weapon.damageType == 0)
+        {
+            target.str += Receptaculoamaldiçoadopower;
+        }
+        else
+        {
+            target.mag += Receptaculoamaldiçoadopower;
+        }
         Debug.Log(target.speed + " speed voltando");
         Debug.Log(target.power + " power voltando");
     }
