@@ -9,9 +9,12 @@ public class MapToggle : MonoBehaviour
     public bool activated;
     public void Toggle()
     {
-        activated = !activated;
         GameObject GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         GameManager Manager = GameManagerOBJ.GetComponent<GameManager>();
+        if(Manager.currentState == GameManager.UIState.Available || activated)
+        {
+
+        activated = !activated;
         if (activated)
         {
             Manager.currentState = GameManager.UIState.Ocuppied;
@@ -39,6 +42,7 @@ public class MapToggle : MonoBehaviour
                 GameManager gm = FindObjectOfType<GameManager>();
                 child.gameObject.GetComponent<SceneNameBasedHider>().Toggled(gm);
             }
+        }
         }
     }
     public void Update()
