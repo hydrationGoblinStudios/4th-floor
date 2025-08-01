@@ -86,6 +86,9 @@ public class UnitBehavior : MonoBehaviour
 
     public SkillManager SkillManager;
     public UnitData unitData;
+
+    public string target;
+    public int targetStat;
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
         if(Weapon != null)

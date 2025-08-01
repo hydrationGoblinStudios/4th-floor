@@ -513,7 +513,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.PlayerTurn;
 
-            StartCoroutine(Attack(playerTeam[0], enemyTeam[StandardTargeting(enemyTeam)]));
+            StartCoroutine(Attack(playerTeam[0], enemyTeam[PickTargeting(playerTeam[0],enemyTeam)]));
 
             PlayerBar = 0;
             PlayerBars[0] = 0;
@@ -522,7 +522,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.PlayerTurn;
 
-            StartCoroutine(Attack(playerTeam[1], enemyTeam[StandardTargeting(enemyTeam)]));
+            StartCoroutine(Attack(playerTeam[1], enemyTeam[PickTargeting(playerTeam[1], enemyTeam)]));
             PlayerBar2 = 0;
             PlayerBars[1] = 0;
         }
@@ -530,7 +530,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.PlayerTurn;
 
-            StartCoroutine(Attack(playerTeam[2], enemyTeam[StandardTargeting(enemyTeam)]));
+            StartCoroutine(Attack(playerTeam[2], enemyTeam[PickTargeting(playerTeam[2], enemyTeam)]));
             PlayerBar3 = 0;
             PlayerBars[2] = 0;
         }
@@ -564,6 +564,16 @@ public class BattleManager : MonoBehaviour
             waiting = false;
         }
     }
+
+    public int PickTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
+    {
+        switch (ub.target)
+        {
+            case "LowestStat": return LowestStatTargeting(unitList, ub.targetStat);
+            case "LeastHp": return LeastHpTargeting(unitList);
+            default: return StandardTargeting(unitList);
+        }
+    }
     public int StandardTargeting(List<UnitBehavior> unitList)
     {
         if (unitList[0].hp >= 1)
@@ -575,6 +585,29 @@ public class BattleManager : MonoBehaviour
             return 1;
         }
         else if (unitList[2].hp >= 1)
+        {
+            return 2;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    public int LowestStatTargeting(List<UnitBehavior> unitList, int stat)
+    {
+        List<int> unitList0stat = new(){ unitList[0].hp , unitList[0].str, unitList[0].mag, unitList[0].dex, (int)unitList[0].speed,unitList[0].luck };
+        List<int> unitList1stat = new() { unitList[1].hp, unitList[1].str, unitList[1].mag, unitList[1].dex, (int)unitList[1].speed, unitList[1].luck };
+        List<int> unitList2stat = new() { unitList[2].hp, unitList[2].str, unitList[2].mag, unitList[2].dex, (int)unitList[2].speed, unitList[2].luck };
+
+        if (unitList0stat[stat] > unitList1stat[stat] && unitList0stat[stat] > unitList2stat[stat])
+        {
+        return 0;
+        }
+        if (unitList1stat[stat] > unitList0stat[stat] && unitList1stat[stat] > unitList2stat[stat])
+        {
+            return 1;
+        }
+        if (unitList2stat[stat] > unitList0stat[stat] && unitList2stat[stat] > unitList1stat[stat])
         {
             return 2;
         }
@@ -620,7 +653,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            ; state = BattleState.PlayerTurn; }
+            state = BattleState.PlayerTurn; }
         if (attacker.Weapon.damageType == 0)
         {
             attacker.power = attacker.str + attacker.Weapon.power;

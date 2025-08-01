@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using System;
 
 public class ActivityBoardUserInterface : MonoBehaviour
 {
@@ -35,8 +36,21 @@ public class ActivityBoardUserInterface : MonoBehaviour
             c++;
         }
     }
+    public void Close()
+    {
+        gameObject.SetActive(false);
+        GameObject GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
+        GameManager Manager = GameManagerOBJ.GetComponent<GameManager>();
+
+                Manager.currentState = GameManager.UIState.Available;           
+    }
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Close();
+        }
         int c = 0;
         foreach (GameObject go in gameManager.team)
         {
