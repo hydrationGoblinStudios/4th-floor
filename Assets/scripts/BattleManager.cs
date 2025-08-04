@@ -570,6 +570,7 @@ public class BattleManager : MonoBehaviour
         switch (ub.target)
         {
             case "LowestStat": return LowestStatTargeting(unitList, ub.targetStat);
+            case "HighestStat": return HighestStatTargeting(unitList, ub.targetStat);
             case "LeastHp": return LeastHpTargeting(unitList);
             default: return StandardTargeting(unitList);
         }
@@ -595,9 +596,9 @@ public class BattleManager : MonoBehaviour
     }
     public int LowestStatTargeting(List<UnitBehavior> unitList, int stat)
     {
-        List<int> unitList0stat = new(){ unitList[0].hp , unitList[0].str, unitList[0].mag, unitList[0].dex, (int)unitList[0].speed,unitList[0].luck };
-        List<int> unitList1stat = new() { unitList[1].hp, unitList[1].str, unitList[1].mag, unitList[1].dex, (int)unitList[1].speed, unitList[1].luck };
-        List<int> unitList2stat = new() { unitList[2].hp, unitList[2].str, unitList[2].mag, unitList[2].dex, (int)unitList[2].speed, unitList[2].luck };
+        List<int> unitList0stat = new(){ unitList[0].hp , unitList[0].str, unitList[0].mag, unitList[0].dex, (int)unitList[0].speed,unitList[0].luck, unitList[0].def, unitList[0].mdef };
+        List<int> unitList1stat = new() { unitList[1].hp, unitList[1].str, unitList[1].mag, unitList[1].dex, (int)unitList[1].speed, unitList[1].luck, unitList[1].def, unitList[1].mdef };
+        List<int> unitList2stat = new() { unitList[2].hp, unitList[2].str, unitList[2].mag, unitList[2].dex, (int)unitList[2].speed, unitList[2].luck, unitList[2].def, unitList[2].mdef };
 
         if (unitList0stat[stat] > unitList1stat[stat] && unitList0stat[stat] > unitList2stat[stat])
         {
@@ -613,7 +614,30 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            return StandardTargeting(unitList);
+        }
+    }
+    public int HighestStatTargeting(List<UnitBehavior> unitList, int stat)
+    {
+        List<int> unitList0stat = new() { unitList[0].hp, unitList[0].str, unitList[0].mag, unitList[0].dex, (int)unitList[0].speed, unitList[0].luck, unitList[0].def, unitList[0].mdef };
+        List<int> unitList1stat = new() { unitList[1].hp, unitList[1].str, unitList[1].mag, unitList[1].dex, (int)unitList[1].speed, unitList[1].luck, unitList[1].def, unitList[1].mdef };
+        List<int> unitList2stat = new() { unitList[2].hp, unitList[2].str, unitList[2].mag, unitList[2].dex, (int)unitList[2].speed, unitList[2].luck, unitList[2].def, unitList[2].mdef };
+
+        if (unitList0stat[stat] < unitList1stat[stat] && unitList0stat[stat] < unitList2stat[stat])
+        {
             return 0;
+        }
+        if (unitList1stat[stat] < unitList0stat[stat] && unitList1stat[stat] < unitList2stat[stat])
+        {
+            return 1;
+        }
+        if (unitList2stat[stat] < unitList0stat[stat] && unitList2stat[stat] < unitList1stat[stat])
+        {
+            return 2;
+        }
+        else
+        {
+            return StandardTargeting(unitList);
         }
     }
     public int LeastHpTargeting(List<UnitBehavior> unitList)
@@ -631,7 +655,20 @@ public class BattleManager : MonoBehaviour
         {
             leastHp = unitList[1].hp;
         }
-        return leastHp;
+        return StandardTargeting(unitList);
+    }
+    public int ClassIDTarget(List<UnitBehavior> unitList, int stat)
+    {
+        int c = 0;
+        foreach(UnitBehavior ul in unitList)
+        {
+            if(ul.classId == stat)
+            {
+                return c;
+            }
+            c++;
+        }
+        return StandardTargeting(unitList);
     }
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {
