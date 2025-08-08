@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using static UnityEditor.Progress;
+using UnityEditor.Experimental.GraphView;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject GameManagerOBJ;
@@ -51,7 +53,11 @@ public class InventoryManager : MonoBehaviour
 
     public List<GameObject> DragAndDroppables;
 
-    public GameObject ClassChangeObject;  
+    public GameObject ClassChangeObject;
+
+    public List<Sprite> statIcons;
+    public List<string> targets = new() { "LeastHp" , "HighestStat", "LowestStat","mais próximo" };
+    public GameObject TargetStatButton;
     public void Toggle()
     {
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
@@ -150,6 +156,23 @@ public class InventoryManager : MonoBehaviour
         UpdateUITop();
         Select(selectedUnit);
     }
+    public void ChangeTargeting(string target, int targetStat = 0)
+    {
+        selectedUnit.target = target;
+        Debug.Log(target);
+        SubTargeting(target);
+    }
+    public void SubTargeting(string target)
+    {
+        switch (target)
+        {
+            case "HighestStat": DisplayTargeChoice(target); break;
+            case "LowestStat": DisplayTargeChoice(target); break;
+            default: DisplayAllList(); break;
+        }
+    }
+
+
     public void EquipSkill(string Skill, int SkillSlot)
     {
         while (selectedUnit.skills.Count <= SkillSlot)
@@ -364,6 +387,33 @@ public class InventoryManager : MonoBehaviour
             AccesoryImage.sprite = null;
         }
     }
+
+    public void DisplayTargeting()
+    {
+        Manager = FindObjectOfType<GameManager>();
+        if (Manager != null)
+        {
+            Manager.ParseWeaponList();
+        }
+        foreach (GameObject itemselector in ItemSelectorList)
+        {
+            itemselector.GetComponent<Image>().sprite = ItemSelectorListSprites[2];
+        }
+        while (panel.transform.childCount > 0)
+        {
+            DestroyImmediate(panel.transform.GetChild(0).gameObject);
+        }
+        foreach(string target in targets)
+        {
+        GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
+        itemButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target));
+        itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = target;
+        itemButton.transform.Find("Power").GetComponent<TextMeshProUGUI>().text = $"";
+        itemButton.transform.Find("Hit").GetComponent<TextMeshProUGUI>().text = $"";
+        itemButton.transform.Find("Crit").GetComponent<TextMeshProUGUI>().text = $"";
+        itemButton.GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
+        }
+    }
     public void DisplayItemList(List<Item> ItemList, int button = 0)
     {
             Manager = FindObjectOfType<GameManager>();      
@@ -404,7 +454,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     itemButton.GetComponentInChildren<TextMeshProUGUI>().color = new((float)0.6, (float)0.6, (float)0.6, 1);
                 }
-            itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = $"{item.ItemName}";
+                itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = $"{item.ItemName}";
                 itemButton.transform.Find("Power").GetComponent<TextMeshProUGUI>().text = $"{item.power}";
                 itemButton.transform.Find("Hit").GetComponent<TextMeshProUGUI>().text = $"{item.hit}";
                 itemButton.transform.Find("Crit").GetComponent<TextMeshProUGUI>().text = $"{item.crit}";
@@ -616,6 +666,45 @@ public class InventoryManager : MonoBehaviour
         DisplayKeyItemList(Manager.KeyItems);
         ItemSelectorList[7].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
 
+    }
+
+
+    public void DisplayTargeChoice(string target = "")
+    {
+        Manager = FindObjectOfType<GameManager>();
+        if (Manager != null)
+        {
+            Manager.ParseWeaponList();
+        }
+        foreach (GameObject itemselector in ItemSelectorList)
+        {
+            itemselector.GetComponent<Image>().sprite = ItemSelectorListSprites[2];
+        }
+        while (panel.transform.childCount > 0)
+        {
+            DestroyImmediate(panel.transform.GetChild(0).gameObject);
+        }
+        List<string> Stats = new() {"vida", "força", "magia", "destreza", "velocidade", "defesa fisica", "defesa magica", "sorte" };
+        foreach(string stat in Stats)
+        {
+        GameObject targetButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
+        targetButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = stat;
+            switch (stat)
+            {
+                case "vida": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,0)); break;
+                case "força": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,1)); break;
+                case "magia": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,2)); break;
+                case "destresa": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,3)); break;
+                case "velocidade": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,4)); break;
+                case "defesa fisica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,5)); break;
+                case "defesa magica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,6)); break;
+                case "sorte": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,7)); break;
+                default: targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target)); break;
+            }
+            targetButton.GetComponent<Button>().onClick.AddListener(() => DisplayAllList());
+            targetButton.GetComponentInChildren<Image>().sprite = statIcons.Where(obj => obj.name == stat+ " icone").SingleOrDefault();
+
+        }
     }
 
 
