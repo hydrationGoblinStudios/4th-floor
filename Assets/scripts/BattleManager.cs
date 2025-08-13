@@ -572,6 +572,18 @@ public class BattleManager : MonoBehaviour
             case "LowestStat": return LowestStatTargeting(unitList, ub.targetStat);
             case "HighestStat": return HighestStatTargeting(unitList, ub.targetStat);
             case "LeastHp": return LeastHpTargeting(unitList);
+            case "ClassID": return ClassIDTarget(unitList, ub.targetStat);
+            default: return PickTargeting2(ub,unitList);
+        }
+    }
+    public int PickTargeting2(UnitBehavior ub, List<UnitBehavior> unitList)
+    {
+        switch (ub.target2)
+        {
+            case "LowestStat": return LowestStatTargeting(unitList, ub.targetStat);
+            case "HighestStat": return HighestStatTargeting(unitList, ub.targetStat);
+            case "LeastHp": return LeastHpTargeting(unitList);
+            case "ClassID": return ClassIDTarget(unitList, ub.targetStat);
             default: return StandardTargeting(unitList);
         }
     }

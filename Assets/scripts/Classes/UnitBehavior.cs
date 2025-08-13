@@ -88,7 +88,9 @@ public class UnitBehavior : MonoBehaviour
     public UnitData unitData;
 
     public string target;
+    public string target2;
     public int targetStat;
+    public int targetStat2;
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
         if(Weapon != null)

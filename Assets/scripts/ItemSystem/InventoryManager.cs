@@ -56,7 +56,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject ClassChangeObject;
 
     public List<Sprite> statIcons;
-    public List<string> targets = new() { "LeastHp" , "HighestStat", "LowestStat","mais próximo" };
+    List<string> targets = new() { "LeastHp" , "HighestStat", "LowestStat", "ClassID","mais próximo" };
     public GameObject TargetStatButton;
     public GameObject TargetStatPanel;
     public void Toggle()
@@ -157,19 +157,28 @@ public class InventoryManager : MonoBehaviour
         UpdateUITop();
         Select(selectedUnit);
     }
-    public void ChangeTargeting(string target, int targetStat = 0)
+    public void ChangeTargeting(string target, int targetStat = 0, bool primaryTarget = true)
     {
+        if (primaryTarget)
+        {
         selectedUnit.target = target;
+            selectedUnit.targetStat = targetStat;
+        }
+        else
+        {
+            selectedUnit.target2 = target;
+            selectedUnit.targetStat2 = targetStat;
+        }
         Debug.Log(target);
-        SubTargeting(target);
+        SubTargeting(target, primaryTarget);
     }
-    public void SubTargeting(string target)
+    public void SubTargeting(string target, bool primaryTarget = true)
     {
         switch (target)
         {
-            case "HighestStat": DisplayTargeChoice(target); break;
-            case "LowestStat": DisplayTargeChoice(target); break;
-            default: DisplayAllList(); TargetStatPanel.transform.parent.gameObject.SetActive(false); ; break;
+            case "HighestStat": DisplayTargeChoice(target,primaryTarget); break;
+            case "LowestStat": DisplayTargeChoice(target, primaryTarget); break;
+            default: DisplayAllList(); TargetStatPanel.transform.parent.gameObject.SetActive(false); break;
         }
     }
 
@@ -389,7 +398,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void DisplayTargeting()
+    public void DisplayTargeting(bool primaryTarget)
     {
         Manager = FindObjectOfType<GameManager>();
         if (Manager != null)
@@ -412,8 +421,8 @@ public class InventoryManager : MonoBehaviour
         {
         TargetStatPanel.transform.parent.gameObject.SetActive(true);
         GameObject itemButton = Instantiate(TargetStatButton, TargetStatPanel.transform);
-        itemButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target));
-            itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = target;
+        itemButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 0, primaryTarget));
+        itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = target;
         itemButton.GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
         }
     }
@@ -672,7 +681,7 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    public void DisplayTargeChoice(string target = "")
+    public void DisplayTargeChoice(string target = "", bool primaryTarget = true)
     {
         foreach (Transform child in TargetStatPanel.transform)
         {
@@ -699,15 +708,15 @@ public class InventoryManager : MonoBehaviour
         targetButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = stat;
             switch (stat)
             {
-                case "vida": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,0)); break;
-                case "força": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,1)); break;
-                case "magia": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,2)); break;
-                case "destresa": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,3)); break;
-                case "velocidade": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,4)); break;
-                case "defesa fisica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,5)); break;
-                case "defesa magica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,6)); break;
-                case "sorte": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,7)); break;
-                default: targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target)); break;
+                case "vida": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,0, primaryTarget)); break;
+                case "força": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,1, primaryTarget)); break;
+                case "magia": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,2, primaryTarget)); break;
+                case "destresa": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,3, primaryTarget)); break;
+                case "velocidade": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,4, primaryTarget)); break;
+                case "defesa fisica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,5, primaryTarget)); break;
+                case "defesa magica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,6, primaryTarget)); break;
+                case "sorte": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,7, primaryTarget)); break;
+                default: targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,0, primaryTarget)); break;
             }
             targetButton.GetComponent<Button>().onClick.AddListener(() => DisplayAllList());
             targetButton.GetComponent<Button>().onClick.AddListener(() => TargetStatPanel.transform.parent.gameObject.SetActive(false));
