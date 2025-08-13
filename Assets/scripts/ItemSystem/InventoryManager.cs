@@ -58,6 +58,7 @@ public class InventoryManager : MonoBehaviour
     public List<Sprite> statIcons;
     public List<string> targets = new() { "LeastHp" , "HighestStat", "LowestStat","mais próximo" };
     public GameObject TargetStatButton;
+    public GameObject TargetStatPanel;
     public void Toggle()
     {
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
@@ -168,7 +169,7 @@ public class InventoryManager : MonoBehaviour
         {
             case "HighestStat": DisplayTargeChoice(target); break;
             case "LowestStat": DisplayTargeChoice(target); break;
-            default: DisplayAllList(); break;
+            default: DisplayAllList(); TargetStatPanel.transform.parent.gameObject.SetActive(false); ; break;
         }
     }
 
@@ -403,14 +404,16 @@ public class InventoryManager : MonoBehaviour
         {
             DestroyImmediate(panel.transform.GetChild(0).gameObject);
         }
-        foreach(string target in targets)
+        foreach (Transform child in TargetStatPanel.transform)
         {
-        GameObject itemButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach (string target in targets)
+        {
+        TargetStatPanel.transform.parent.gameObject.SetActive(true);
+        GameObject itemButton = Instantiate(TargetStatButton, TargetStatPanel.transform);
         itemButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target));
-        itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = target;
-        itemButton.transform.Find("Power").GetComponent<TextMeshProUGUI>().text = $"";
-        itemButton.transform.Find("Hit").GetComponent<TextMeshProUGUI>().text = $"";
-        itemButton.transform.Find("Crit").GetComponent<TextMeshProUGUI>().text = $"";
+            itemButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = target;
         itemButton.GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
         }
     }
@@ -671,6 +674,10 @@ public class InventoryManager : MonoBehaviour
 
     public void DisplayTargeChoice(string target = "")
     {
+        foreach (Transform child in TargetStatPanel.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         Manager = FindObjectOfType<GameManager>();
         if (Manager != null)
         {
@@ -685,9 +692,10 @@ public class InventoryManager : MonoBehaviour
             DestroyImmediate(panel.transform.GetChild(0).gameObject);
         }
         List<string> Stats = new() {"vida", "força", "magia", "destreza", "velocidade", "defesa fisica", "defesa magica", "sorte" };
+        TargetStatPanel.transform.gameObject.SetActive(true);
         foreach(string stat in Stats)
         {
-        GameObject targetButton = Instantiate(ItemButtonPrefab, ItemSelectPanel.transform);
+        GameObject targetButton = Instantiate(TargetStatButton, TargetStatPanel.transform);
         targetButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = stat;
             switch (stat)
             {
@@ -702,6 +710,9 @@ public class InventoryManager : MonoBehaviour
                 default: targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target)); break;
             }
             targetButton.GetComponent<Button>().onClick.AddListener(() => DisplayAllList());
+            targetButton.GetComponent<Button>().onClick.AddListener(() => TargetStatPanel.transform.parent.gameObject.SetActive(false));
+            targetButton.GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
+
             targetButton.GetComponentInChildren<Image>().sprite = statIcons.Where(obj => obj.name == stat+ " icone").SingleOrDefault();
 
         }
