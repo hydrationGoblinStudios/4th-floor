@@ -70,8 +70,8 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 130
-  hp: 130
+  maxhp: 100
+  hp: 100
   power: 0
   str: 12
   mag: 7
@@ -80,7 +80,7 @@ MonoBehaviour:
   mdef: 4
   defenses: 
   luck: 8
-  speed: 9
+  speed: 8
   skills:
   - "Presen\xE7a Inabal\xE1vel"
   - "Lutador Vers\xE1til"
@@ -107,7 +107,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 550000003c00000019000000320000002d00000037000000230000001e000000
+  growths: 550000003c00000019000000320000002800000037000000230000001e000000
   classSkill: 
   personalSkill: 
   baseSkill: 
@@ -178,3 +178,7 @@ MonoBehaviour:
     soul2: 
     soul3: 
     description: 
+  target: 
+  target2: 
+  targetStat: 0
+  targetStat2: 0

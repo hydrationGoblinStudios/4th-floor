@@ -70,8 +70,8 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 90
-  hp: 90
+  maxhp: 80
+  hp: 80
   power: 0
   str: 6
   mag: 15
@@ -109,7 +109,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 370000001e000000410000002d00000037000000230000003200000032000000
+  growths: 320000001e000000410000002d00000037000000230000003200000032000000
   classSkill: 
   personalSkill: 
   baseSkill: 
@@ -180,3 +180,7 @@ MonoBehaviour:
     soul2: 
     soul3: 
     description: 
+  target: 
+  target2: 
+  targetStat: 0
+  targetStat2: 0

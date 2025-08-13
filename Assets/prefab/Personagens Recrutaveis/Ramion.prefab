@@ -68,8 +68,8 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 110
-  hp: 110
+  maxhp: 80
+  hp: 80
   power: 0
   str: 12
   mag: 9
@@ -173,3 +173,7 @@ MonoBehaviour:
     soul2: 
     soul3: 
     description: 
+  target: 
+  target2: 
+  targetStat: 0
+  targetStat2: 0
