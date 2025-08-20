@@ -19,8 +19,8 @@ MonoBehaviour:
   weapontype: 6
   weight: 0
   ItemName: Pingente da vitalidade
-  description: Um anel que aumenta a Vida. Ganha +40 de Vida.
-  hit: 40
+  description: Um pingente que aumenta a Vida. Ganha +20 de Vida.
+  hit: 20
   crit: 0
   power: 0
   str: 0
