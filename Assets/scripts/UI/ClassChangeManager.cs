@@ -42,6 +42,7 @@ public class ClassChangeManager : MonoBehaviour
                 case 104: if (entry.Value >= 5) { ClassChangeManagerSprites[4].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[4].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(104, ImprovisedWeapon[4])); } break;
                 case 105: if (entry.Value >= 5) {  ClassChangeManagerSprites[5].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[5].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(105, ImprovisedWeapon[5])); } break;
                 case 107: if (entry.Value >= 5) {  ClassChangeManagerSprites[6].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[6].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(107, ImprovisedWeapon[0])); } break;
+                case 201: if (entry.Value >= 5) {  ClassChangeManagerSprites[7].color = new Color(1, 1, 1, 1); ClassChangeManagerButtons[6].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.ClassChange(201, ImprovisedWeapon[0])); } break;
             }
         }
         foreach(GameObject go in ClassChangeManagerButtons)
@@ -83,7 +84,7 @@ public class ClassChangeManager : MonoBehaviour
         {
             go.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
         }
-        List<int> classID = new() { 101,106,102,103,104,105,107};
+        List<int> classID = new() { 101,106,102,103,104,105,107,201};
         int c = 0;
         foreach (GameObject entry in ClassChangeManagerButtons)
         {
@@ -104,6 +105,7 @@ public class ClassChangeManager : MonoBehaviour
                 case 104: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  104); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
                 case 105: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  105); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
                 case 107: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  107); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 201: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 201); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
             }
             c++;
         }

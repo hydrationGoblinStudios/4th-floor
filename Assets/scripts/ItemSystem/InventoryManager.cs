@@ -56,7 +56,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject ClassChangeObject;
 
     public List<Sprite> statIcons;
-    List<string> targets = new() { "LeastHp" , "HighestStat", "LowestStat", "ClassID","mais próximo" };
+    List<string> targets = new() { "LeastHp" , "HighestStat", "LowestStat", "ClassID", "Weapon", "mais próximo", "mais longe" };
     public GameObject TargetStatButton;
     public GameObject TargetStatPanel;
     public void Toggle()
@@ -98,7 +98,7 @@ public class InventoryManager : MonoBehaviour
         {
             int c = 0;
             ClassChangeManager CCM = ClassChangeObject.GetComponent<ClassChangeManager>();
-            List<int> classID = new() { 101, 106, 102, 103, 104, 105, 107 };
+            List<int> classID = new() { 101, 106, 102, 103, 104, 105, 107,201 };
             UnitBehavior UB = Manager.SelectedUBClassChange.GetComponent<UnitBehavior>();
             foreach (GameObject entry in CCM.ClassChangeManagerButtons)
             {
@@ -169,7 +169,6 @@ public class InventoryManager : MonoBehaviour
             selectedUnit.target2 = target;
             selectedUnit.targetStat2 = targetStat;
         }
-        Debug.Log(target);
         SubTargeting(target, primaryTarget);
     }
     public void SubTargeting(string target, bool primaryTarget = true)

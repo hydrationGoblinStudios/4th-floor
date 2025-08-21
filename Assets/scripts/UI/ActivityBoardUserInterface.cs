@@ -20,7 +20,6 @@ public class ActivityBoardUserInterface : MonoBehaviour
     public void Mugshot()
     {
         int c = 0;
-        Debug.Log("mugshot");
         highlight.SetActive(false);
         foreach (GameObject go in gameManager.team)
         {

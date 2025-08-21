@@ -573,6 +573,7 @@ public class BattleManager : MonoBehaviour
             case "HighestStat": return HighestStatTargeting(unitList, ub.targetStat);
             case "LeastHp": return LeastHpTargeting(unitList);
             case "ClassID": return ClassIDTarget(unitList, ub.targetStat);
+            case "Weapon": return WeaponIDTarget(unitList, ub.targetStat);
             default: return PickTargeting2(ub,unitList);
         }
     }
@@ -580,10 +581,11 @@ public class BattleManager : MonoBehaviour
     {
         switch (ub.target2)
         {
-            case "LowestStat": return LowestStatTargeting(unitList, ub.targetStat);
-            case "HighestStat": return HighestStatTargeting(unitList, ub.targetStat);
+            case "LowestStat": return LowestStatTargeting(unitList, ub.targetStat2);
+            case "HighestStat": return HighestStatTargeting(unitList, ub.targetStat2);
             case "LeastHp": return LeastHpTargeting(unitList);
-            case "ClassID": return ClassIDTarget(unitList, ub.targetStat);
+            case "ClassID": return ClassIDTarget(unitList, ub.targetStat2);
+            case "Weapon": return WeaponIDTarget(unitList, ub.targetStat2);
             default: return StandardTargeting(unitList);
         }
     }
@@ -600,6 +602,25 @@ public class BattleManager : MonoBehaviour
         else if (unitList[2].hp >= 1)
         {
             return 2;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    public int ReverseTargeting(List<UnitBehavior> unitList)
+    {
+        if (unitList[2].hp >= 1)
+        {
+            return 2;
+        }
+        else if (unitList[1].hp >= 1)
+        {
+            return 1;
+        }
+        else if (unitList[0].hp >= 1)
+        {
+            return 0;
         }
         else
         {
@@ -678,6 +699,31 @@ public class BattleManager : MonoBehaviour
         foreach(UnitBehavior ul in unitList)
         {
             if(ul.classId == stat)
+            {
+                return c;
+            }
+            c++;
+        }
+        return StandardTargeting(unitList);
+    }
+    public int WeaponIDTarget(List<UnitBehavior> unitList, int stat)
+    {
+        int c = 0;
+        Item.Weapontype weaponType = new();
+        switch (stat)
+        {
+            case 1:weaponType = Item.Weapontype.Sword; break;
+            case 2:weaponType = Item.Weapontype.Axe; break;
+            case 3:weaponType = Item.Weapontype.Lance; break;
+            case 4:weaponType = Item.Weapontype.Tome; break;
+            case 5:weaponType = Item.Weapontype.Receptacle; break;
+            case 6:weaponType = Item.Weapontype.Bow; break;
+            default:weaponType = Item.Weapontype.Sword; break;
+        }
+
+        foreach (UnitBehavior ul in unitList)
+        {
+            if(ul.Weapon.weapontype == weaponType)
             {
                 return c;
             }

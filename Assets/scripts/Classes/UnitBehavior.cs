@@ -67,6 +67,8 @@ public class UnitBehavior : MonoBehaviour
     public TextMeshPro battleText;
     public GameObject battleTextObj;
     public List<int> growths;
+    public List<int> classStats;
+    public List<int> ClassGrowths;
     [Header("Learn Set")]
     public string classSkill;
     public string personalSkill;
@@ -97,7 +99,12 @@ public class UnitBehavior : MonoBehaviour
         {
         Weapon.holder = this;
         }
-        
+        if (classStats == new List<int>{ })
+        {
+            Debug.Log("empty"); 
+        }
+        classStats ??= new() { 0, 0, 0, 0, 0, 0, 0, 0 };
+        ClassGrowths ??= new() { 0, 0, 0, 0, 0, 0, 0, 0 };
         battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");
         Pendure = false;
         Eendure = false;

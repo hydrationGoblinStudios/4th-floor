@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Arqueiro : UnitBehavior
 {
-    public Arqueiro()
+   public Arqueiro()
     {
         currentRank = 1;
+        ClassGrowths = new() { 0, 0, 0, 5, 5, 0, 0, 0 };
+        classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
     }
-
     public void Awake()
     {
      baseSkill = "Foco";
@@ -16,8 +17,7 @@ public class Arqueiro : UnitBehavior
      baseSoul = "Tiro Certeiro";
      soul1 = "Rajada de Flechas";   
      UsableWeaponTypes = new() { Item.Weapontype.Bow };
+        ClassGrowths = new() { 0, 0, 0, 5, 5, 0, 0, 0 };
+        classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
     }
-    
-
 }
-

@@ -1144,6 +1144,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823992451}
   m_CullTransparentMesh: 1
+--- !u!114 &842657119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2423107354366973979, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+  m_PrefabInstance: {fileID: 6350704725300868944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &891314480 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4294529436660044903, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
@@ -2896,6 +2907,14 @@ PrefabInstance:
       propertyPath: description
       value: (Destreza/2) + Critico da arma
       objectReference: {fileID: 0}
+    - target: {fileID: 3497219750921709488, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: skillNames.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497219750921709488, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: skillNames.Array.data[4]
+      value: 
+      objectReference: {fileID: 842657119}
     - target: {fileID: 3547445154125810754, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_Color.a
       value: 0

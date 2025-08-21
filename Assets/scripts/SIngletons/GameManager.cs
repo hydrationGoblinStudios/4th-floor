@@ -403,9 +403,18 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     }
     public void ClassChange(int ClassId, Item item = null)
     {
+        
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
-        if(item != null)
+        OriginalUB.maxhp -= OriginalUB.classStats[0];
+        OriginalUB.str -= OriginalUB.classStats[1];
+        OriginalUB.mag -= OriginalUB.classStats[2];
+        OriginalUB.dex -= OriginalUB.classStats[3];
+        OriginalUB.speed -= OriginalUB.classStats[4];
+        OriginalUB.def -= OriginalUB.classStats[5];
+        OriginalUB.mdef -= OriginalUB.classStats[6];
+        OriginalUB.luck -= OriginalUB.classStats[7];
+        if (item != null)
         {
         OriginalUB.Weapon = item;
         }
@@ -424,6 +433,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             case (105): original.UsableWeaponTypes = new() { Item.Weapontype.Receptacle }; break;
             case (106): original.UsableWeaponTypes = new() { Item.Weapontype.Bow }; break;
             case (107): original.UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
+            case (201): original.UsableWeaponTypes = new() { Item.Weapontype.Sword, Item.Weapontype.Receptacle }; break;
+
         }
         System.Type type = original.GetType();
         Component copy;
@@ -436,6 +447,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             case (105): copy = destination.AddComponent<Místico>(); break;
             case (106): copy = destination.AddComponent<Arqueiro>(); break;
             case (107): copy = destination.AddComponent<Prisioneiro>(); break;
+            case (201): copy = destination.AddComponent<CavaleiroEncantado>(); break;
 
             default:
                  copy = destination.AddComponent(type);
@@ -448,10 +460,21 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         }
         Destroy(original);
         copy.GetComponent<UnitBehavior>().classId = ClassId;
-       /* if(copy.GetComponent<UnitBehavior>().Weapon == null)
-        {
-            copy.GetComponent<UnitBehavior>().Weapon = Inventory[0] ;
-        }*/
+        UnitBehavior CopyUB = copy.GetComponent<UnitBehavior>();
+        CopyUB.maxhp += CopyUB.classStats[0];
+        CopyUB.str += CopyUB.classStats[1];
+        CopyUB.mag += CopyUB.classStats[2];
+        CopyUB.dex += CopyUB.classStats[3];
+        CopyUB.speed += CopyUB.classStats[4];
+        CopyUB.def += CopyUB.classStats[5];
+        CopyUB.mdef += CopyUB.classStats[6];
+        CopyUB.luck += CopyUB.classStats[7];
+
+        /* if(copy.GetComponent<UnitBehavior>().Weapon == null)
+         {
+             copy.GetComponent<UnitBehavior>().Weapon = Inventory[0] ;
+         }*/
+
         return copy as UnitBehavior;
     }
     public void Sleep()

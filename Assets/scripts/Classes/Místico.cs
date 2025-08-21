@@ -7,6 +7,8 @@ public class  Místico : UnitBehavior
     public Místico()
     {
         currentRank = 1;
+        ClassGrowths = new() { 0, 0, 5, 0, 0, 0, 5, 0 };
+        classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
     }
     public void Awake()
     {
@@ -15,7 +17,8 @@ public class  Místico : UnitBehavior
         baseSoul = "Restauração Espiritual";
         soul1 = "Benção dos Ventos";
         UsableWeaponTypes = new() { Item.Weapontype.Receptacle };
-
+        ClassGrowths = new() { 0, 0, 5, 0, 0, 0, 5, 0 };
+        classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
     }
 }
 
