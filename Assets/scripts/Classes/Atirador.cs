@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ladino : UnitBehavior
+public class Atirador : UnitBehavior
 {
-    public Ladino()
+    public Atirador()
     {
         currentRank = 1;
-        ClassGrowths = new() { 0, 0, 0, 10, 10, 0, 0, 10 };
-        classStats = new() { 0, 0, 0, 2, 3, 0, 0, 0 };
+        ClassGrowths = new() { 0, 5, 0, 10, 10, 0, 5, 0 };
+        classStats = new() { 0, 1, 0, 3, 1, 0, 0, 0 };
     }
 
     public void Awake()

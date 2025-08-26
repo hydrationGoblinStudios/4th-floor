@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CavaleiroEncantado: UnitBehavior
+public class Duelista: UnitBehavior
 {
-public CavaleiroEncantado()
+public Duelista()
     {
         currentRank = 1;
         ClassGrowths = new() { 5, 5, 5, 5, 5, 0, 0, 5 };
@@ -16,8 +16,8 @@ public CavaleiroEncantado()
         skill1 = "Precisão Mortal";
         baseSoul = "Tiro Certeiro";
         soul1 = "Rajada de Flechas";
-        UsableWeaponTypes = new() { Item.Weapontype.Sword,Item.Weapontype.Receptacle };
-        ClassGrowths = new List<int> { 5, 5, 5, 5, 5, 0, 0, 5 };
-        classStats = new List<int> { 5, 1, 1, 1, 1, 0, 0, 0 };
+        UsableWeaponTypes = new() { Item.Weapontype.Sword };
+        ClassGrowths = new List<int> { 5, 5, 0, 10, 10, 0, 0, 0 };
+        classStats = new List<int> { 0, 1, 0, 2, 2, 0, 0, 0 };
     }
 }

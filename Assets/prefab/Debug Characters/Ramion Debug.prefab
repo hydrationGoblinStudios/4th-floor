@@ -77,6 +77,8 @@ MonoBehaviour:
       value: 5
     - key: 107
       value: 5
+    - key: 201
+      value: 5
   hit: 0
   avoid: 0
   crit: 0
@@ -118,6 +120,7 @@ MonoBehaviour:
   soul: 0
   maxsoul: 0
   soulgain: 0
+  damageSoulGain: 1
   damagereduction: 0
   lifesteal: 0
   armorpen: 0
@@ -130,6 +133,8 @@ MonoBehaviour:
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
   growths: 4b0000003200000032000000320000003200000032000000320000003c000000
+  classStats: 0000000000000000000000000000000000000000000000000000000000000000
+  ClassGrowths: 0500000000000000000000000000000005000000000000000000000005000000
   classSkill: 
   personalSkill: 
   baseSkill: 
@@ -143,11 +148,13 @@ MonoBehaviour:
   description: "classe n\xE3o valida"
   Icon: {fileID: 0}
   damageTMP: {fileID: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
   SkillManager: {fileID: 0}
   unitData:
     classId: 0
-    Weapon: {fileID: 0}
-    Accesory: {fileID: 0}
+    Weapon: 0
+    Accesory: 0
+    UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
     expmarkplier: 1
@@ -155,6 +162,8 @@ MonoBehaviour:
     currentExp: 0
     ClassID: 
     ClassLevel: 
+    ClassLearningSerializable:
+      thisSeriazableDictionaryItem: []
     hit: 0
     avoid: 0
     crit: 0
@@ -182,6 +191,8 @@ MonoBehaviour:
     armorpen: 0
     magicpen: 0
     cooking: 0
+    activity: 
+    fortalecerStat: 0
     growths: 
     classSkill: 
     personalSkill: 
@@ -194,3 +205,7 @@ MonoBehaviour:
     soul2: 
     soul3: 
     description: 
+  target: 
+  target2: 
+  targetStat: 0
+  targetStat2: 0

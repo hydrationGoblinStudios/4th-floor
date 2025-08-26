@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ladino : UnitBehavior
+public class Lanceiro : UnitBehavior
 {
-    public Ladino()
+    public Lanceiro()
     {
         currentRank = 1;
         ClassGrowths = new() { 0, 0, 0, 10, 10, 0, 0, 10 };

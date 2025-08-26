@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
+using System;
 public class GameManager : Singleton<GameManager>, IDataPersistence
 {
 
@@ -423,6 +424,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         }
     UnitBehavior CopyUnitBehavior(UnitBehavior original, GameObject destination, int ClassId)
     {
+        Debug.Log(ClassId);
         original.classId = ClassId;
         switch (ClassId)
         {
@@ -448,6 +450,18 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             case (106): copy = destination.AddComponent<Arqueiro>(); break;
             case (107): copy = destination.AddComponent<Prisioneiro>(); break;
             case (201): copy = destination.AddComponent<CavaleiroEncantado>(); break;
+            case (202): copy = destination.AddComponent<Duelista>(); break;
+            case (203): copy = destination.AddComponent<Ladino>(); break;
+            case (204): copy = destination.AddComponent<Atirador>(); break;
+            case (205): copy = destination.AddComponent<Patrulheiro>(); break;
+            case (206): copy = destination.AddComponent<Barbaro>(); break;
+            case (207): copy = destination.AddComponent<Armadurado>(); break;
+            case (208): copy = destination.AddComponent<Lanceiro>(); break;
+            case (209): copy = destination.AddComponent<Paladino>(); break;
+            case (210): copy = destination.AddComponent<Mago>(); break;
+            case (211): copy = destination.AddComponent<Curandeiro>(); break;
+            case (212): copy = destination.AddComponent<Ocultista>(); break;
+            case (213): copy = destination.AddComponent<Gladiador>(); break;
 
             default:
                  copy = destination.AddComponent(type);
@@ -456,11 +470,33 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         System.Reflection.FieldInfo[] fields = type.GetFields();
         foreach (System.Reflection.FieldInfo field in fields)
         {
+            if(field.Name != "classStats" && field.Name != "ClassGrowths")
+            {
             field.SetValue(copy, field.GetValue(original));
+            }
         }
         Destroy(original);
         copy.GetComponent<UnitBehavior>().classId = ClassId;
+
+
+        StartCoroutine(ClassBases(copy));
+        
+
+        /* if(copy.GetComponent<UnitBehavior>().Weapon == null)
+         {
+             copy.GetComponent<UnitBehavior>().Weapon = Inventory[0] ;
+         }*/
+
+        return copy as UnitBehavior;
+    }
+
+    public IEnumerator ClassBases(Component copy)
+
+    {
+        yield return new WaitForEndOfFrame();
         UnitBehavior CopyUB = copy.GetComponent<UnitBehavior>();
+        Debug.Log(CopyUB.classStats[0]);
+        
         CopyUB.maxhp += CopyUB.classStats[0];
         CopyUB.str += CopyUB.classStats[1];
         CopyUB.mag += CopyUB.classStats[2];
@@ -469,13 +505,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CopyUB.def += CopyUB.classStats[5];
         CopyUB.mdef += CopyUB.classStats[6];
         CopyUB.luck += CopyUB.classStats[7];
-
-        /* if(copy.GetComponent<UnitBehavior>().Weapon == null)
-         {
-             copy.GetComponent<UnitBehavior>().Weapon = Inventory[0] ;
-         }*/
-
-        return copy as UnitBehavior;
+        InventoryManager im = FindAnyObjectByType<InventoryManager>();
+        im.Select(CopyUB);
     }
     public void Sleep()
     {

@@ -98,7 +98,7 @@ public class InventoryManager : MonoBehaviour
         {
             int c = 0;
             ClassChangeManager CCM = ClassChangeObject.GetComponent<ClassChangeManager>();
-            List<int> classID = new() { 101, 106, 102, 103, 104, 105, 107,201 };
+            List<int> classID = new() { 101, 106, 102, 103, 104, 105, 107,201,202,203,204,205,206,207,208,209,210,211,212,213 };
             UnitBehavior UB = Manager.SelectedUBClassChange.GetComponent<UnitBehavior>();
             foreach (GameObject entry in CCM.ClassChangeManagerButtons)
             {
@@ -117,6 +117,20 @@ public class InventoryManager : MonoBehaviour
                     case 104:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
                     case 105:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
                     case 107:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 201:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 202:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 203:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 204:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 205:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 206:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 207:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 208:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 209:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 210:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 211:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 212:  entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                    case 213: entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+
                 }
                 c++;
             }
@@ -225,6 +239,7 @@ public class InventoryManager : MonoBehaviour
             case 105: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Mistico").SingleOrDefault(); break;
             case 106: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Arqueiro").SingleOrDefault(); break;
             case 107: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Prisioneiro").SingleOrDefault(); break;
+            case 201: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Prisioneiro").SingleOrDefault(); break;
             default: ClassIconObj.sprite = ClassIcons.Where(obj => obj.name == "Icone_Espadachim").SingleOrDefault(); break;
         }
         if(selectedUnit.Weapon.damageType == 0) 
