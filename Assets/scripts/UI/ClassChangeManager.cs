@@ -97,7 +97,8 @@ public class ClassChangeManager : MonoBehaviour
         {
             go.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
         }
-        List<int> classID = new() { 101,106,102,103,104,105,107,201};
+        AllowPromotion(Manager.selectedUB4Activity);
+        List<int> classID = new() { 101, 106, 102, 103, 104, 105, 107, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213 };
         int c = 0;
         foreach (GameObject entry in ClassChangeManagerButtons)
         {
@@ -111,16 +112,48 @@ public class ClassChangeManager : MonoBehaviour
 
             switch (classID[c])
             {
-                case 101: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  101); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
-                case 106: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  106); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
-                case 102: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  102); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
-                case 103: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  103); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
-                case 104: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  104); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
-                case 105: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  105); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
-                case 107: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID =  107); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 101: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 101); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                case 106: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 106); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 102: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 102); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                case 103: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 103); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                case 104: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 104); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;
+                case 105: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 105); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 107: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 107); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
                 case 201: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 201); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 202: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 202); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 203: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 203); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 204: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 204); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 205: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 205); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 206: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 206); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 207: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 207); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 208: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 208); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 209: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 209); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 210: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 210); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 211: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 211); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 212: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 212); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
+                case 213: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 213); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
             }
             c++;
+        }
+    }
+
+    public void AllowPromotion(UnitBehavior ub)
+    {
+        List<int> classID = new() { 101, 106, 102, 103, 104, 105, 107, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213 };
+        foreach (int classid in ub.ClassLearning.Keys)
+        {
+            switch (classid)
+            {
+                case 101 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(201)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(202)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(203)].SetActive(true); } break;
+                case 106 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(203)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(204)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(205)].SetActive(true); ; }break;
+                case 102 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(205)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(206)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(207)].SetActive(true); } break;
+                case 103 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(207)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(208)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(209)].SetActive(true); } break;
+                case 104 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(209)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(210)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(211)].SetActive(true); } break;
+                case 105 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(211)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(212)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(201)].SetActive(true); } break;
+                case 107 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(213)].SetActive(true); } break;
+                default:break;
+            }
+            
         }
     }
     void Update()

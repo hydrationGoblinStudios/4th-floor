@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Curandeiro : UnitBehavior
 {
+    public Curandeiro()
+    {
+        currentRank = 1;
+        ClassGrowths = new() { 5, 5, 5, 5, 5, 0, 0, 5 };
+        classStats = new() { 5, 1, 1, 1, 1, 0, 0, 0 };
+    }
     public void Awake()
     {
-        baseSkill = "Foco";
-        skill1 = "Precisão Mortal";
-        baseSoul = "Tiro Certeiro";
-        soul1 = "Rajada de Flechas";
-        UsableWeaponTypes = new() { Item.Weapontype.Tome,Item.Weapontype.Receptacle };
-        ClassGrowths = new List<int> { 0, -5, 10, 0, 0, 0, 15, 10 };
-        classStats = new List<int> { 0, -1, 3, 0, 0, 0, 3, 0 };
+        baseSkill = "Presença Inabalável";
+        skill1 = "Pancada";
+        baseSoul = "Golpe Atordoante";
+        soul1 = "Fortificar";
+        UsableWeaponTypes = new() { Item.Weapontype.Tome };
+        ClassGrowths = new List<int> { -5, -5, 15, 0, 10, 0, 10, 5 };
+        classStats = new List<int> { -10, -1, 4, 0, 2, 0, 2, 0 };
     }
 }
