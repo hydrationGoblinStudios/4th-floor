@@ -103,8 +103,7 @@ public class ClassChangeManager : MonoBehaviour
         foreach (GameObject entry in ClassChangeManagerButtons)
         {
             string learnedClassLevel = "0";
-            Debug.Log(Manager.selectedUB4Activity.ClassLearning.TryGetValue(classID[c], out int value));
-            Debug.Log(value);
+            Manager.selectedUB4Activity.ClassLearning.TryGetValue(classID[c], out int value);
             if (Manager.selectedUB4Activity.ClassLearning.TryGetValue(classID[c], out int temp))
             {
                 learnedClassLevel = value.ToString();
