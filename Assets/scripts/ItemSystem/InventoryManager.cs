@@ -194,6 +194,8 @@ public class InventoryManager : MonoBehaviour
         {
             case "HighestStat": DisplayTargetChoice(target,primaryTarget);break;
             case "LowestStat": DisplayTargetChoice(target, primaryTarget); break;
+            case "Weapon": DisplayTargetChoice(target, primaryTarget); break;
+            case "ClassID": DisplayTargetChoice(target, primaryTarget); break;
             default: DisplayAllList(); TargetStatPanel.transform.parent.gameObject.SetActive(false); break;
         }
     }
@@ -213,8 +215,14 @@ public class InventoryManager : MonoBehaviour
         }
         switch (target)
         {
+            case "LeastHp": return $"Menor vida";
             case "HighestStat": return $"Maior{stat}";
             case "LowestStat": return $"Menor{stat}";
+            case "ClassID": List<string> Classes = new() {"Espadachim", "Arqueiro", "Guerreiro", "Soldado", "Feiticeiro", "Mistico", "Prisioneiro",
+            "cavaleiro Encantado","Duelista","Ladino","Atirador","Patrulheiro","Bárbaro","Armadurado","Lanceiro","Paladino","Mago","Curandeiro","Ocultista","Gladiador"}; return $"Focando {Classes[targetStat]}";
+            case "Weapon": List<string> Armas = new() { "Espada equipada", "Lança equipada", "Machado equipado", "Arco equipado", "Tomo equipado", "Receptaculo equipado" }; return $"{Armas[targetStat]}";
+            case "mais próximo": return $"mais próximo";
+            case "mais longe": return $"mais longe";
             default: return "-";
         }
     }
@@ -716,8 +724,6 @@ public class InventoryManager : MonoBehaviour
         ItemSelectorList[7].GetComponent<Image>().sprite = ItemSelectorListSprites[1];
 
     }
-
-
     public void DisplayTargetChoice(string target = "", bool primaryTarget = true)
     {
         foreach (Transform child in TargetStatPanel.transform)
@@ -737,34 +743,90 @@ public class InventoryManager : MonoBehaviour
         {
             DestroyImmediate(panel.transform.GetChild(0).gameObject);
         }
-        List<string> Stats = new() {"vida", "força", "magia", "destreza", "velocidade", "defesa fisica", "defesa magica", "sorte" };
-        TargetStatPanel.transform.gameObject.SetActive(true);
-        foreach(string stat in Stats)
+        if (target != "Weapon" && target != "ClassID")
         {
-        GameObject targetButton = Instantiate(TargetStatButton, TargetStatPanel.transform);
-        targetButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = stat;
-            switch (stat)
+            List<string> Stats = new() { "vida", "força", "magia", "destreza", "velocidade", "defesa fisica", "defesa magica", "sorte" };
+            TargetStatPanel.transform.gameObject.SetActive(true);
+            foreach (string stat in Stats)
             {
-                case "vida": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,0, primaryTarget)); break;
-                case "força": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,1, primaryTarget)); break;
-                case "magia": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,2, primaryTarget)); break;
-                case "destreza": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,3, primaryTarget)); break;
-                case "velocidade": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,4, primaryTarget)); break;
-                case "defesa fisica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,5, primaryTarget)); break;
-                case "defesa magica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,6, primaryTarget)); break;
-                case "sorte": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,7, primaryTarget)); break;
-                default: targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target,0, primaryTarget)); break;
+                GameObject targetButton = Instantiate(TargetStatButton, TargetStatPanel.transform);
+                targetButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = stat;
+                switch (stat)
+                {
+                    case "vida": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 0, primaryTarget)); break;
+                    case "força": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 1, primaryTarget)); break;
+                    case "magia": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 2, primaryTarget)); break;
+                    case "destreza": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 3, primaryTarget)); break;
+                    case "velocidade": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 4, primaryTarget)); break;
+                    case "defesa fisica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 5, primaryTarget)); break;
+                    case "defesa magica": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 6, primaryTarget)); break;
+                    case "sorte": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 7, primaryTarget)); break;
+                    default: targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 0, primaryTarget)); break;
+                }
+                targetButton.GetComponent<Button>().onClick.AddListener(() => DisplayAllList());
+                targetButton.GetComponent<Button>().onClick.AddListener(() => TargetStatPanel.transform.parent.gameObject.SetActive(false));
+                targetButton.GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
+                targetButton.GetComponentInChildren<Image>().sprite = statIcons.Where(obj => obj.name == stat + " icone").SingleOrDefault();
             }
-            targetButton.GetComponent<Button>().onClick.AddListener(() => DisplayAllList());
-            targetButton.GetComponent<Button>().onClick.AddListener(() => TargetStatPanel.transform.parent.gameObject.SetActive(false));
-            targetButton.GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
-
-            targetButton.GetComponentInChildren<Image>().sprite = statIcons.Where(obj => obj.name == stat+ " icone").SingleOrDefault();
-
+        }
+        else if (target == "Weapon")
+        {
+            List<string> Stats = new() { "Espada", "Lança", "Machado", "Arco", "Tomo", "Receptaculo" };
+            TargetStatPanel.transform.gameObject.SetActive(true);
+            foreach (string stat in Stats)
+            {
+                GameObject targetButton = Instantiate(TargetStatButton, TargetStatPanel.transform);
+                targetButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = stat;
+                switch (stat)
+                {
+                    case "Lança": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 1, primaryTarget)); break;
+                    case "Machado": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 2, primaryTarget)); break;
+                    case "Arco": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 3, primaryTarget)); break;
+                    case "Tomo": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 4, primaryTarget)); break;
+                    case "Receptaculo": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 5, primaryTarget)); break;
+                    default: targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 0, primaryTarget)); break;
+                }
+                targetButton.GetComponent<Button>().onClick.AddListener(() => DisplayAllList());
+                targetButton.GetComponent<Button>().onClick.AddListener(() => TargetStatPanel.transform.parent.gameObject.SetActive(false));
+            }
+        }
+        else if (target == "ClassID")
+        {
+            List<string> Classes = new() {"Espadachim", "Arqueiro", "Guerreiro", "Soldado", "Feiticeiro", "Mistico", "Prisioneiro",
+            "Cavaleiro Encantado","Duelista","Ladino","Atirador","Patrulheiro","Bárbaro","Armadurado","Lanceiro","Paladino","Mago","Curandeiro","Ocultista","Gladiador"};
+            TargetStatPanel.transform.gameObject.SetActive(true);
+            foreach (string stat in Classes)
+            {
+                GameObject targetButton = Instantiate(TargetStatButton, TargetStatPanel.transform);
+                targetButton.transform.Find("Nome").GetComponent<TextMeshProUGUI>().text = stat;
+                switch (stat)
+                {
+                    case "Arqueiro": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 1, primaryTarget)); break;
+                    case "Guerreiro": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 2, primaryTarget)); break;
+                    case "Soldado": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 3, primaryTarget)); break;
+                    case "Feiticeiro": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 4, primaryTarget)); break;
+                    case "Mistico": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 5, primaryTarget)); break;
+                    case "Prisioneiro": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 6, primaryTarget)); break;
+                    case "Cavaleiro Encantado": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 7, primaryTarget)); break;
+                    case "Duelista": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 8, primaryTarget)); break;
+                    case "Ladino": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 9, primaryTarget)); break;
+                    case "Atirador": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 10, primaryTarget)); break;
+                    case "Patrulheiro": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 11, primaryTarget)); break;
+                    case "Bárbaro": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 12, primaryTarget)); break;
+                    case "Armadurado": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 13, primaryTarget)); break;
+                    case "Lanceiro": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 14, primaryTarget)); break;
+                    case "Paladino": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 15, primaryTarget)); break;
+                    case "Mago": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 16, primaryTarget)); break;
+                    case "Curandeiro": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 17, primaryTarget)); break;
+                    case "Ocultista": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 18, primaryTarget)); break;
+                    case "Gladiador": targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 19, primaryTarget)); break;
+                    default: targetButton.GetComponent<Button>().onClick.AddListener(() => ChangeTargeting(target, 0, primaryTarget)); break;
+                }
+                targetButton.GetComponent<Button>().onClick.AddListener(() => DisplayAllList());
+                targetButton.GetComponent<Button>().onClick.AddListener(() => TargetStatPanel.transform.parent.gameObject.SetActive(false));
+            }
         }
     }
-
-
     public string Description(string skillName)
     {
         return skillName switch
