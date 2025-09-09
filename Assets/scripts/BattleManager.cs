@@ -117,6 +117,8 @@ public class BattleManager : MonoBehaviour
     public BattleState state;
 
     public bool waiting = false;
+
+    private bool targetingRerun;
     public void Awake()
     {
         PlayerBars.Clear();
@@ -330,7 +332,7 @@ public class BattleManager : MonoBehaviour
             foreach (string skill in skillsInUse)
             {
                 ub.SkillManager = ub.GetComponentInParent<SkillManager>();
-                ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)], attackerTeam, targetTeam);
+                ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(ub, enemyTeam)], attackerTeam, targetTeam);
             }
         }
         foreach (UnitBehavior ub in enemyTeam)
@@ -368,7 +370,7 @@ public class BattleManager : MonoBehaviour
             foreach (string skill in skillsInUse)
             {
                 ub.SkillManager = ub.GetComponentInParent<SkillManager>();
-                ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(enemyTeam)], attackerTeam, targetTeam);
+                ub.SkillManager.MatchStartProc(skill, ub, targetTeam[StandardTargeting(ub, enemyTeam)], attackerTeam, targetTeam);
             }
         }
 
@@ -538,7 +540,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.EnemyTurn;
 
-            StartCoroutine(Attack(enemyTeam[0], playerTeam[StandardTargeting(playerTeam)]));
+            StartCoroutine(Attack(enemyTeam[0], playerTeam[StandardTargeting(enemyTeam[0],playerTeam)]));
             EnemyBar = 0;
             EnemyBars[0] = 0;
         }
@@ -546,7 +548,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.EnemyTurn;
 
-            StartCoroutine(Attack(enemyTeam[1], playerTeam[StandardTargeting(playerTeam)]));
+            StartCoroutine(Attack(enemyTeam[1], playerTeam[StandardTargeting(enemyTeam[1],playerTeam)]));
             EnemyBar2 = 0;
             EnemyBars[1] = 0;
         }
@@ -554,7 +556,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.EnemyTurn;
 
-            StartCoroutine(Attack(enemyTeam[2], playerTeam[StandardTargeting(playerTeam)]));
+            StartCoroutine(Attack(enemyTeam[2], playerTeam[StandardTargeting(enemyTeam[2],playerTeam)]));
             EnemyBar3 = 0;
             EnemyBars[2] = 0;
         }
@@ -567,29 +569,55 @@ public class BattleManager : MonoBehaviour
 
     public int PickTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
     {
-        switch (ub.target)
+        int x = 99999;        
+            switch (ub.target)
+            {
+                case "LowestStat": x = LowestStatTargeting(ub, unitList, ub.targetStat);break ;
+                case "HighestStat": x = HighestStatTargeting(ub, unitList, ub.targetStat); break;
+                case "LeastHp": x = LeastHpTargeting(ub, unitList); break;
+                case "ClassID": x = ClassIDTarget(ub, unitList, ub.targetStat); break;
+                case "Weapon": x = WeaponIDTarget(ub, unitList, ub.targetStat); break;
+                case "mais longe": x = ReverseTargeting(ub, unitList); break;
+                case "primeira posição": x = FirstTargeting(ub, unitList); break;
+                case "segunda posição": x = SecondTargeting(ub, unitList); break;
+                case "terceira posição": x = TerceiroTargeting(ub, unitList); break;
+            default:break;
+            }
+        if (x != 9999)
         {
-            case "LowestStat": return LowestStatTargeting(unitList, ub.targetStat);
-            case "HighestStat": return HighestStatTargeting(unitList, ub.targetStat);
-            case "LeastHp": return LeastHpTargeting(unitList);
-            case "ClassID": return ClassIDTarget(unitList, ub.targetStat);
-            case "Weapon": return WeaponIDTarget(unitList, ub.targetStat);
-            default: return PickTargeting2(ub,unitList);
+            return x;
+        }
+        else
+        {
+            x = PickTargeting2(ub, unitList);
+            if (x == 9999)
+            {
+                return StandardTargeting(ub, unitList);
+            }
+            else
+            {
+                return x;
+            }
         }
     }
     public int PickTargeting2(UnitBehavior ub, List<UnitBehavior> unitList)
     {
+
         switch (ub.target2)
         {
-            case "LowestStat": return LowestStatTargeting(unitList, ub.targetStat2);
-            case "HighestStat": return HighestStatTargeting(unitList, ub.targetStat2);
-            case "LeastHp": return LeastHpTargeting(unitList);
-            case "ClassID": return ClassIDTarget(unitList, ub.targetStat2);
-            case "Weapon": return WeaponIDTarget(unitList, ub.targetStat2);
-            default: return StandardTargeting(unitList);
+            case "LowestStat": return LowestStatTargeting(ub, unitList, ub.targetStat2);
+            case "HighestStat": return HighestStatTargeting(ub, unitList, ub.targetStat2);
+            case "LeastHp": return LeastHpTargeting(ub, unitList);
+            case "ClassID": return ClassIDTarget(ub, unitList, ub.targetStat2);
+            case "Weapon": return WeaponIDTarget(ub, unitList, ub.targetStat2);
+            case "mais longe": return ReverseTargeting(ub, unitList);
+            case "primeira posição": return FirstTargeting(ub, unitList);
+            case "segunda posição": return SecondTargeting(ub, unitList);
+            case "terceira posição": return TerceiroTargeting(ub, unitList);
+            default: return StandardTargeting(ub, unitList);
         }
     }
-    public int StandardTargeting(List<UnitBehavior> unitList)
+    public int StandardTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
     {
         if (unitList[0].hp >= 1)
         {
@@ -608,7 +636,7 @@ public class BattleManager : MonoBehaviour
             return 0;
         }
     }
-    public int ReverseTargeting(List<UnitBehavior> unitList)
+    public int ReverseTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
     {
         if (unitList[2].hp >= 1)
         {
@@ -624,12 +652,45 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            return 0;
+            return 9999;
         }
     }
-    public int LowestStatTargeting(List<UnitBehavior> unitList, int stat)
+    public int FirstTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
     {
-        List<int> unitList0stat = new(){ unitList[0].hp , unitList[0].str, unitList[0].mag, unitList[0].dex, (int)unitList[0].speed, unitList[0].def, unitList[0].mdef, unitList[0].luck };
+        if (unitList[0].hp >= 1)
+        {
+            return 0;
+        }
+        else
+        {
+            return 9999;
+        }
+    }
+    public int SecondTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
+    {
+        if (unitList[1].hp >= 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return 9999;
+        }
+    }
+    public int TerceiroTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
+    {
+        if (unitList[2].hp >= 1)
+        {
+            return 2;
+        }
+        else
+        {
+            return 9999;
+        }
+    }
+    public int LowestStatTargeting(UnitBehavior ub, List<UnitBehavior> unitList, int stat)
+    {
+        List<int> unitList0stat = new() { unitList[0].hp, unitList[0].str, unitList[0].mag, unitList[0].dex, (int)unitList[0].speed, unitList[0].def, unitList[0].mdef, unitList[0].luck };
         List<int> unitList1stat = new() { unitList[1].hp, unitList[1].str, unitList[1].mag, unitList[1].dex, (int)unitList[1].speed, unitList[1].def, unitList[1].mdef, unitList[1].luck };
         List<int> unitList2stat = new() { unitList[2].hp, unitList[2].str, unitList[2].mag, unitList[2].dex, (int)unitList[2].speed, unitList[2].def, unitList[2].mdef, unitList[2].luck };
 
@@ -647,10 +708,10 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            return StandardTargeting(unitList);
+            return 9999;
         }
     }
-    public int HighestStatTargeting(List<UnitBehavior> unitList, int stat)
+    public int HighestStatTargeting(UnitBehavior ub, List<UnitBehavior> unitList, int stat)
     {
         List<int> unitList0stat = new() { unitList[0].hp, unitList[0].str, unitList[0].mag, unitList[0].dex, (int)unitList[0].speed, unitList[0].def, unitList[0].mdef, unitList[0].luck };
         List<int> unitList1stat = new() { unitList[1].hp, unitList[1].str, unitList[1].mag, unitList[1].dex, (int)unitList[1].speed, unitList[1].def, unitList[1].mdef, unitList[1].luck };
@@ -670,10 +731,10 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            return StandardTargeting(unitList);
+            return 9999;
         }
     }
-    public int LeastHpTargeting(List<UnitBehavior> unitList)
+    public int LeastHpTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
     {
         Debug.Log("leastHpTargeting" + unitList);
         if (unitList[0].hp >= 1 && unitList[0].hp < unitList[1].hp &&  unitList[0].hp < unitList[2].hp)
@@ -690,10 +751,10 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-        return StandardTargeting(unitList);
+            return 9999;
         }
     }
-    public int ClassIDTarget(List<UnitBehavior> unitList, int stat)
+    public int ClassIDTarget(UnitBehavior ub, List<UnitBehavior> unitList, int stat)
     {
         int c = 0;
         foreach(UnitBehavior ul in unitList)
@@ -704,9 +765,9 @@ public class BattleManager : MonoBehaviour
             }
             c++;
         }
-        return StandardTargeting(unitList);
+        return 9999;
     }
-    public int WeaponIDTarget(List<UnitBehavior> unitList, int stat)
+    public int WeaponIDTarget(UnitBehavior ub, List<UnitBehavior> unitList, int stat)
     {
         int c = 0;
         Item.Weapontype weaponType = new();
@@ -729,7 +790,7 @@ public class BattleManager : MonoBehaviour
             }
             c++;
         }
-        return StandardTargeting(unitList);
+        return 9999;
     }
     public virtual IEnumerator Attack(UnitBehavior attacker, UnitBehavior Target)
     {

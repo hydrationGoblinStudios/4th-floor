@@ -56,7 +56,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject ClassChangeObject;
 
     public List<Sprite> statIcons;
-    List<string> targets = new() { "LeastHp" , "HighestStat", "LowestStat", "ClassID", "Weapon", "mais próximo", "mais longe" };
+    List<string> targets = new() { "LeastHp" , "HighestStat", "LowestStat", "ClassID", "Weapon", "mais próximo", "mais longe","primeira posição", "segunda posição", "terceira posição" };
     public GameObject TargetStatButton;
     public GameObject TargetStatPanel;
     public List<TextMeshProUGUI> targetTexts;
@@ -223,6 +223,9 @@ public class InventoryManager : MonoBehaviour
             case "Weapon": List<string> Armas = new() { "Espada equipada", "Lança equipada", "Machado equipado", "Arco equipado", "Tomo equipado", "Receptaculo equipado" }; return $"{Armas[targetStat]}";
             case "mais próximo": return $"mais próximo";
             case "mais longe": return $"mais longe";
+            case "primeira posição": return $"primeira posição";
+            case "segunda posição": return $"segunda posição";
+            case "terceira posição": return $"terceira posição";
             default: return "-";
         }
     }
