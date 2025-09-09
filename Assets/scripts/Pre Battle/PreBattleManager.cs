@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
 using Unity.VisualScripting;
+using UnityEngine.TextCore.Text;
 
 public class PreBattleManager : MonoBehaviour
 {
@@ -544,7 +545,6 @@ public class PreBattleManager : MonoBehaviour
                 PrepSkills[2].onClick.RemoveAllListeners();
                 return;
         }
-        
     }
     public void EnemySelect(UnitBehavior unitBehavior)
     {
@@ -609,8 +609,6 @@ public class PreBattleManager : MonoBehaviour
         Select(SelectedPlayer3.GetComponent<UnitBehavior>());
         selectedUnitSlot = 3;
     }
-
-
     public void InventoryToggleButton()
     {
         InventoryToggle(gameManager.Inventory);
@@ -1197,6 +1195,35 @@ public class PreBattleManager : MonoBehaviour
                         break;
                 }
             }
+        }
+    }
+    public void EnemyLevelUp(UnitBehavior ub, int levels)
+    {
+        for( int c=0; c <levels; c++)
+        {
+        for (int i = 0; i < 8; i++)
+        {
+            int r = Random.Range(0, 101);
+            if (r <= ub.growths[i])
+            {
+                switch (i)
+                {
+                    case 0: ub.maxhp += 5; ub.growths[i] -= (ub.growths[i]/5); break;
+                    case 1: ub.str++; Debug.Log("+1 str"); ub.growths[i] -= (ub.growths[i] / 5); break;
+                    case 2: ub.mag++; ub.growths[i] -= (ub.growths[i] / 5); break;
+                    case 3: ub.dex++; ub.growths[i] -= (ub.growths[i] / 5); break;
+                    case 4: ub.def++; ub.growths[i] -= (ub.growths[i] / 5); break;
+                    case 5: ub.mdef++; ub.growths[i] -= (ub.growths[i] / 5); break;
+                    case 6: ub.speed++; ub.growths[i] -= (ub.growths[i] / 5); break;
+                    case 7: ub.luck++; ub.growths[i] -= (ub.growths[i] / 5); break;
+                }
+            }
+            else
+            {
+                ub.growths[i] += (ub.growths[i] / 5);
+            }
+            Debug.Log("roll = " + r + "\n growth = " + ub.growths[i]);
+        }
         }
     }
 }
