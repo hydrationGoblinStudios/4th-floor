@@ -1222,7 +1222,6 @@ public class PreBattleManager : MonoBehaviour
             {
                 ub.growths[i] += (ub.growths[i] / 5);
             }
-            Debug.Log("roll = " + r + "\n growth = " + ub.growths[i]);
         }
         }
     }
