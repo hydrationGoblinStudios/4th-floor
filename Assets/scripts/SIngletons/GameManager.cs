@@ -407,6 +407,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
+        try
+        {
         OriginalUB.maxhp -= OriginalUB.classStats[0];
         OriginalUB.str -= OriginalUB.classStats[1];
         OriginalUB.mag -= OriginalUB.classStats[2];
@@ -415,6 +417,11 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         OriginalUB.def -= OriginalUB.classStats[5];
         OriginalUB.mdef -= OriginalUB.classStats[6];
         OriginalUB.luck -= OriginalUB.classStats[7];
+        }
+        catch
+        {
+            Debug.Log("class modifiers null");
+        }
         if (item != null)
         {
         OriginalUB.Weapon = item;
@@ -478,10 +485,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         Destroy(original);
         copy.GetComponent<UnitBehavior>().classId = ClassId;
 
-
         StartCoroutine(ClassBases(copy));
-        
-
         /* if(copy.GetComponent<UnitBehavior>().Weapon == null)
          {
              copy.GetComponent<UnitBehavior>().Weapon = Inventory[0] ;
@@ -506,7 +510,11 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CopyUB.mdef += CopyUB.classStats[6];
         CopyUB.luck += CopyUB.classStats[7];
         InventoryManager im = FindAnyObjectByType<InventoryManager>();
+        try
+        {
         im.Select(CopyUB);
+        }
+        catch{}
     }
     public void Sleep()
     {

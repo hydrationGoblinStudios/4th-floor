@@ -569,7 +569,7 @@ public class BattleManager : MonoBehaviour
 
     public int PickTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
     {
-        int x = 99999;        
+        int x = 9999;        
             switch (ub.target)
             {
                 case "LowestStat": x = LowestStatTargeting(ub, unitList, ub.targetStat);break ;
