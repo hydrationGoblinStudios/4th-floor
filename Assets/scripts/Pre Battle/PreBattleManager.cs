@@ -64,6 +64,11 @@ public class PreBattleManager : MonoBehaviour
     public List<string> usedPrepSkills;
     public GameObject ItemSelectPanel;
     public GameObject EmptyUnitPrefab;
+
+
+
+    //calculador de nivel
+    public List<int> levelList = new() {1,1,2,2,3,3,3,4,4,5,5,6,6,7,7,7,8,8,9,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,28,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,91,92,93,94,95,96,97,98,99,100100,100,100,100,100,100,100,100,100 };
     void Start()
     {
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
@@ -298,6 +303,17 @@ public class PreBattleManager : MonoBehaviour
                 c++;
             }
         }
+
+        //enemy leveler
+      // List<GameObject> enemies = new() { SelectedEnemy1, SelectedEnemy2 , SelectedEnemy3 };
+        foreach(GameObject ubGO in SelectedEnemyList)
+        {              
+            if(ubGO.GetComponent<UnitBehavior>().currentLevel < levelList[gameManager.day] && gameManager.day % 4 != 0)
+            {
+            EnemyLevelUp(ubGO.GetComponent<UnitBehavior>(), levelList[gameManager.day] - ubGO.GetComponent<UnitBehavior>().currentLevel);
+            }
+        }
+
         EnemySelect(SelectedEnemy1.GetComponent<UnitBehavior>());
     }
     public void Select(UnitBehavior unitBehavior)
