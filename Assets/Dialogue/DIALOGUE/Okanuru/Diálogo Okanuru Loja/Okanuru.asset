@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2232, y: -104}
+  position: {x: 2216, y: 40}
   ports:
     keys:
     - entry
@@ -217,9 +217,9 @@ MonoBehaviour:
   m_Name: Okanuru
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 8975191546002678695}
-  - {fileID: 1308509591053478799}
   - {fileID: -6823934211518331773}
+  - {fileID: 1308509591053478799}
+  - {fileID: 8975191546002678695}
   - {fileID: 7101195708168506331}
   - {fileID: 2885691433753280860}
   - {fileID: 7731724005296783463}
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2248, y: 104}
+  position: {x: 2232, y: 344}
   ports:
     keys:
     - entry
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2664, y: -72}
+  position: {x: 2664, y: 40}
   ports:
     keys:
     - entry
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2440, y: -72}
+  position: {x: 2440, y: 56}
   ports:
     keys:
     - entry
@@ -486,7 +486,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit
+      - fieldName: exit2
         node: {fileID: 8975191546002678695}
         reroutePoints: []
       _direction: 0
@@ -635,7 +635,7 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exit2
+      - fieldName: exit
         node: {fileID: 8975191546002678695}
         reroutePoints: []
       _direction: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 2885691433753280860}
+        node: {fileID: 7101195708168506331}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -860,7 +860,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 7101195708168506331}
+        node: {fileID: 2885691433753280860}
         reroutePoints: []
       _direction: 1
       _connectionType: 0

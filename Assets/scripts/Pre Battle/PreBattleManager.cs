@@ -305,7 +305,6 @@ public class PreBattleManager : MonoBehaviour
         }
 
         //enemy leveler
-      // List<GameObject> enemies = new() { SelectedEnemy1, SelectedEnemy2 , SelectedEnemy3 };
         foreach(GameObject ubGO in SelectedEnemyList)
         {              
             if(ubGO.GetComponent<UnitBehavior>().currentLevel < levelList[gameManager.day] && gameManager.day % 4 != 0)
@@ -1239,6 +1238,6 @@ public class PreBattleManager : MonoBehaviour
                 ub.growths[i] += (ub.growths[i] / 5);
             }
         }
-        }
     }
+}
 }
