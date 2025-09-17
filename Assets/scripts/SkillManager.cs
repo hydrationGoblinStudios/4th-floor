@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using static UnityEngine.GraphicsBuffer;
 using static BattleManager;
+using UnityEditor.Experimental.GraphView;
 
 public class SkillManager : MonoBehaviour
 {
@@ -277,6 +278,17 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Empunhadeira Dupla":
+
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, DamageMultiplier: (int) 0.25));
+
+                return 0;
+
+            case "Critico Rampante":
+
+                user.crit += 2;
+
+                return 0;
 
             default: return 0;
 
@@ -694,6 +706,23 @@ public class SkillManager : MonoBehaviour
                 user.soulgain *= 0;
 
                 return 0;
+
+            case "Negar Fraqueza":
+                 
+                List<float> Status = new List<float>() {user.str, user.mag , user.def , user.mdef , user.dex , user.luck };
+                Status.Sort();
+                Status[0] += (int) (Status[0] * 0.25);
+
+                return 0;
+
+            case "Poder Híbrido":
+
+                user.str += (int) (mag * 0.2);
+                user.mag += (int)(str * 0.2);
+
+                return 0;
+
+
 
             //Skills de preparo
             case "Golpe sujo":
