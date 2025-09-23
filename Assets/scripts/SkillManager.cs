@@ -290,6 +290,18 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+
+            case "Desprezo pelos Fracos":
+                if (target.hp <= target.maxhp/2) 
+                {
+                    return user.power / 4;
+                }
+                else
+                {
+
+                    return 0;
+                }
+
             default: return 0;
 
 
