@@ -42,39 +42,39 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _Tolerance: 0.01
+    - _Tolerance: 0.00412
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColor: {r: 0.43529415, g: 0.36078432, b: 0.6313726, a: 1}
-    - _OriginalColorCLOTHES1: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorCLOTHES2: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorCLOTHES3: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorCLOTHES4: {r: 1, g: 1, b: 1, a: 1}
+    - _OriginalColorCLOTHES1: {r: 0.48627454, g: 0.52156866, b: 0.48627454, a: 1}
+    - _OriginalColorCLOTHES2: {r: 0.37254903, g: 0.38823533, b: 0.37254903, a: 1}
+    - _OriginalColorCLOTHES3: {r: 0.36862746, g: 0.3647059, b: 0.34901962, a: 1}
+    - _OriginalColorCLOTHES4: {r: 0.18431373, g: 0.19607845, b: 0.18431373, a: 1}
     - _OriginalColorHAIR1: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColorHAIR2: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColorHAIR3: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorSKIN1: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorSKIN2: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorSKIN3: {r: 1, g: 1, b: 1, a: 1}
+    - _OriginalColorSKIN1: {r: 0.7960785, g: 0.86666673, b: 0.9490197, a: 1}
+    - _OriginalColorSKIN2: {r: 0.7176471, g: 0.8078432, b: 0.8980393, a: 1}
+    - _OriginalColorSKIN3: {r: 0.6431373, g: 0.7411765, b: 0.8470589, a: 1}
     - _OriginalColorSKIN4: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorWPN1: {r: 1, g: 1, b: 1, a: 1}
+    - _OriginalColorWPN1: {r: 0.82745105, g: 1, b: 1, a: 1}
     - _OriginalColorWPN2: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColorWPN3: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColor: {r: 0.25786912, g: 1, b: 0, a: 1}
-    - _TargetColorCLOTHES1: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorCLOTHES2: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorCLOTHES3: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorCLOTHES4: {r: 1, g: 1, b: 1, a: 1}
+    - _TargetColorCLOTHES1: {r: 0.48627454, g: 0.52156866, b: 0.48627454, a: 1}
+    - _TargetColorCLOTHES2: {r: 0.37254903, g: 0.38823533, b: 0.37254903, a: 1}
+    - _TargetColorCLOTHES3: {r: 0.36862746, g: 0.3647059, b: 0.34901962, a: 1}
+    - _TargetColorCLOTHES4: {r: 0.18431373, g: 0.19607845, b: 0.18431373, a: 1}
     - _TargetColorHAIR1: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorHAIR2: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorHAIR3: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorSKIN1: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorSKIN2: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorSKIN3: {r: 1, g: 1, b: 1, a: 1}
+    - _TargetColorSKIN1: {r: 0.62352943, g: 0.854902, b: 1, a: 1}
+    - _TargetColorSKIN2: {r: 0.48627454, g: 0.7686275, b: 1, a: 1}
+    - _TargetColorSKIN3: {r: 0.37647063, g: 0.6666667, b: 1, a: 1}
     - _TargetColorSKIN4: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorWPN1: {r: 1, g: 1, b: 1, a: 1}
+    - _TargetColorWPN1: {r: 0.82745105, g: 1, b: 1, a: 1}
     - _TargetColorWPN2: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorWPN3: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
