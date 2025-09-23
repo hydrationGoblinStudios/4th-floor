@@ -54,9 +54,9 @@ Material:
     - _OriginalColorHAIR1: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColorHAIR2: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColorHAIR3: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorSKIN1: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorSKIN2: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorSKIN3: {r: 1, g: 1, b: 1, a: 1}
+    - _OriginalColorSKIN1: {r: 0.7960785, g: 0.86666673, b: 0.9490197, a: 1}
+    - _OriginalColorSKIN2: {r: 0.7176471, g: 0.8078432, b: 0.8980393, a: 1}
+    - _OriginalColorSKIN3: {r: 0.6431373, g: 0.7411765, b: 0.8470589, a: 1}
     - _OriginalColorSKIN4: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColorWPN1: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColorWPN2: {r: 1, g: 1, b: 1, a: 1}
@@ -70,9 +70,9 @@ Material:
     - _TargetColorHAIR1: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorHAIR2: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorHAIR3: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorSKIN1: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorSKIN2: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorSKIN3: {r: 1, g: 1, b: 1, a: 1}
+    - _TargetColorSKIN1: {r: 0.65882355, g: 0.8313726, b: 0.35686275, a: 1}
+    - _TargetColorSKIN2: {r: 0.5058824, g: 0.64705884, b: 0.2392157, a: 1}
+    - _TargetColorSKIN3: {r: 0.34901962, g: 0.4666667, b: 0.10980393, a: 1}
     - _TargetColorSKIN4: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorWPN1: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorWPN2: {r: 1, g: 1, b: 1, a: 1}
