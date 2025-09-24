@@ -735,6 +735,19 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
 
+            case "Mestre da Flecha":
+
+                if (user.Weapon.weapontype == Item.Weapontype.Bow)
+                {
+                    user.crit += 10;
+                    user.hit += 20;
+                    user.power += 5;
+                }
+
+
+                return 0;
+
+
 
             //Skills de preparo
             case "Golpe sujo":
