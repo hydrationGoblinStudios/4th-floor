@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
 {
     public AudioSource[] hitAudio;
     public Animator[] animators;
+    public Material[] matRaces;
     public UnitBehavior endure;
     public List<string> skillsInUse;
     public List<string> EAskillsInUse;
@@ -265,6 +266,16 @@ public class BattleManager : MonoBehaviour
         enemyTeam[0].animator = animators[3];
         enemyTeam[1].animator = animators[4];
         enemyTeam[2].animator = animators[5];
+
+        Random.InitState(enemyTeam[0].UnitName.GetHashCode());
+        animators[3].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+
+        Random.InitState(enemyTeam[1].UnitName.GetHashCode());
+        animators[4].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+
+        Random.InitState(enemyTeam[2].UnitName.GetHashCode());
+        animators[5].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+
         enemyTeam[0].position = 1;
         enemyTeam[1].position = 2;
         enemyTeam[2].position = 3;

@@ -14,6 +14,8 @@ public class PreBattleManager : MonoBehaviour
     public RuntimeAnimatorController[] Animations;
     public Animator[] playerAnimations;
     public Animator[] enemyAnimations;
+    public Material[] matRaces;
+
 
     public GameManager gameManager;
     public InventoryManager inventoryManager;
@@ -265,6 +267,21 @@ public class PreBattleManager : MonoBehaviour
                 _ => null,
             };
         }
+
+        
+
+
+
+        //race randomizer
+        Random.InitState(SelectedEnemy1.GetComponent<UnitBehavior>().UnitName.GetHashCode());
+        enemyAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+
+        Random.InitState(SelectedEnemy2.GetComponent<UnitBehavior>().UnitName.GetHashCode());
+        enemyAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+
+        Random.InitState(SelectedEnemy3.GetComponent<UnitBehavior>().UnitName.GetHashCode());
+        enemyAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+
         SelectedPlayerList.Add(SelectedPlayer1);
         SelectedPlayerList.Add(SelectedPlayer2);
         SelectedPlayerList.Add(SelectedPlayer3);
@@ -274,6 +291,9 @@ public class PreBattleManager : MonoBehaviour
         gameManager.SoulPrice(SelectedEnemy1.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy1.GetComponent<UnitBehavior>());
         gameManager.SoulPrice(SelectedEnemy2.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy2.GetComponent<UnitBehavior>());
         gameManager.SoulPrice(SelectedEnemy3.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy3.GetComponent<UnitBehavior>());
+
+        ShaderSelect();
+
         Select1();
         int c = 0;
         foreach (Button b in UnitSelectButton)
@@ -962,6 +982,65 @@ public class PreBattleManager : MonoBehaviour
             evilEnergy--;
         }
     }
+
+   public void ShaderSelect()
+    {
+        foreach (GameObject sp in SelectedPlayerList)
+        {
+            if (sp.GetComponent<UnitBehavior>().UnitName == "Adrian")
+            {
+                Debug.Log("adrian detectado");
+                if (sp == SelectedPlayer1)
+                {
+                    playerAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[2];
+                }
+                else if (sp == SelectedPlayer2)
+                {
+                    playerAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[2];
+                }
+                else
+                {
+                    playerAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[2];
+
+                }
+            }
+            if (sp.GetComponent<UnitBehavior>().UnitName == "Hiro")
+            {
+                Debug.Log("Hiro detectado");
+                if (sp == SelectedPlayer1)
+                {
+                    playerAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[1];
+                }
+                else if (sp == SelectedPlayer2)
+                {
+                    playerAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[1];
+                }
+                else
+                {
+                    playerAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[1];
+
+                }
+            }
+            if (sp.GetComponent<UnitBehavior>().UnitName == "Leyni")
+            {
+                Debug.Log("Leyni detectado");
+                if (sp == SelectedPlayer1)
+                {
+                    playerAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[0];
+                }
+                else if (sp == SelectedPlayer2)
+                {
+                    playerAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[0];
+                }
+                else
+                {
+                    playerAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[0];
+
+                }
+            }
+        }
+
+    }
     public void UnitSelect(int i,GameObject SelectedPlayer = null)
     {
         if(SelectedPlayer != null 
@@ -1089,6 +1168,8 @@ public class PreBattleManager : MonoBehaviour
             106 => Animations[5],
             _ => null,
         };
+
+        ShaderSelect();
     }
     public void InstantiateToGM(List<GameObject> List, List<GameObject> EnemyList)
     {
