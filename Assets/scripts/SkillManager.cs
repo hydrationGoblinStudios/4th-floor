@@ -302,6 +302,12 @@ public class SkillManager : MonoBehaviour
                     return 0;
                 }
 
+            case "Despedaçar Armadura":
+                target.def -= 2;
+
+                return 0;
+
+
             default: return 0;
 
 
@@ -748,6 +754,20 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
 
+                case "Estudo de Batalha":
+                
+                StartCoroutine(EstudodeBatalha(user));
+                
+
+                return 0;
+
+            case "Finalizador":
+
+                StartCoroutine(Finalizador(user));
+
+                return 0;
+
+
 
             //Skills de preparo
             case "Golpe sujo":
@@ -981,6 +1001,28 @@ public class SkillManager : MonoBehaviour
                 return 0;
             default: return 0;
         } 
+    }
+
+    IEnumerator EstudodeBatalha(UnitBehavior user)
+    {
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 5);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 5);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 5);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 5);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 5);
+        
+    }
+
+    IEnumerator Finalizador(UnitBehavior user)
+    {
+        yield return new WaitForSeconds(60);
+
+        user.crit += 50;
     }
 
     IEnumerator ReforçarArmadura(UnitBehavior user)
