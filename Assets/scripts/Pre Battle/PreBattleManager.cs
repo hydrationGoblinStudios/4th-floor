@@ -983,6 +983,22 @@ public class PreBattleManager : MonoBehaviour
         }
     }
 
+    public void LockInPlayerTeam()
+    {
+        UnitSelectButton[0].transform.parent.gameObject.SetActive(false);
+        if (SelectedPlayer1.GetComponent<UnitBehavior>().skills.Contains("Gatuno"))
+        {
+            energy++;
+        }
+        if (SelectedPlayer2.GetComponent<UnitBehavior>().skills.Contains("Gatuno"))
+        {
+            energy++;
+        }
+        if (SelectedPlayer3.GetComponent<UnitBehavior>().skills.Contains("Gatuno"))
+        {
+            energy++;
+        }
+    }
    public void ShaderSelect()
     {
         foreach (GameObject sp in SelectedPlayerList)
