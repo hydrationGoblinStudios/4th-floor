@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using XNode;
 using TMPro;
+using Unity.VisualScripting;
 
 public class NodeParser : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class NodeParser : MonoBehaviour
     public bool banText = false;
     public bool welcometext;
 
+    public List<string> dialogueHistory = new();
+
     private void Start()
     {
         if (welcometext)
@@ -45,6 +48,8 @@ public class NodeParser : MonoBehaviour
         {
             interactables.SetActive(false);
             UserInterface.SetActive(true);
+            dialogueHistory.Clear();
+            Debug.Log("clearted");
             NextNode("exit");
         }
         else if (dataParts[0] == "Stop" || dataParts[0] == null)
@@ -74,6 +79,7 @@ public class NodeParser : MonoBehaviour
             }
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
+            dialogueHistory.Add(data);
             speakerImage.sprite = b.GetSprite();
             if (speakerImage.sprite == null)
             {
@@ -130,23 +136,35 @@ public class NodeParser : MonoBehaviour
                 speakerImage.color = new Color(255, 255, 255, 255);
             }
             yield return new WaitUntil(() => buttonPress != -1);
+            string questionData = "question/";
+            questionData += speaker.text + "/";
+            Debug.Log(questionData);
+            dialogueHistory.Add(data);
             switch (buttonPress)
             {
                 case 2:
                     buttonPress = -1;
                     NextNode("exit2");
+                    questionData += extraTexts[1].text;
+                    dialogueHistory.Add(questionData);
                     break;
                 case 3:
                     buttonPress = -1;
                     NextNode("exit3");
+                    questionData += extraTexts[2].text;
+                    dialogueHistory.Add(questionData);
                     break;
                 case 4:
                     buttonPress = -1;
                     NextNode("exit4");
+                    questionData += extraTexts[3].text;
+                    dialogueHistory.Add(questionData);
                     break;
                 default:
                     buttonPress = -1;
                     NextNode("exit");
+                    questionData += dialogue.text;
+                    dialogueHistory.Add(questionData);
                     break;
             }
         }
@@ -202,6 +220,16 @@ public class NodeParser : MonoBehaviour
             go.GetComponent<Button>().onClick.AddListener(() => ButtonPress(c));
         }
     }
+
+    public void ShowHistory()
+    {
+        foreach(string data in dialogueHistory)
+        {
+            string[] dataParsed = data.Split("/");
+            Debug.Log($"{dataParsed[1]}: {dataParsed[2]}");
+        }
+    }
+
     public void StartDialogue(DialogueGraph NewGraph)
     {
         if (!banText)
