@@ -23,6 +23,8 @@ public class NodeParser : MonoBehaviour
     public TextMeshProUGUI[] extraTexts;
     public GameObject[] options;
     public GameObject[] fakeOptions;
+
+    public GameObject TextBox;
     public float cooldown = 0.3f;
     public float currentCooldown = 0.3f;
 
@@ -30,6 +32,8 @@ public class NodeParser : MonoBehaviour
     public bool welcometext;
 
     public List<string> dialogueHistory = new();
+    public List<Sprite> spriteHistory;
+    public GameObject dialogueHistoryTarget;
 
     private void Start()
     {
@@ -49,7 +53,7 @@ public class NodeParser : MonoBehaviour
             interactables.SetActive(false);
             UserInterface.SetActive(true);
             dialogueHistory.Clear();
-            Debug.Log("clearted");
+            spriteHistory.Clear();
             NextNode("exit");
         }
         else if (dataParts[0] == "Stop" || dataParts[0] == null)
@@ -80,6 +84,7 @@ public class NodeParser : MonoBehaviour
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
             dialogueHistory.Add(data);
+            spriteHistory.Add(b.GetSprite());
             speakerImage.sprite = b.GetSprite();
             if (speakerImage.sprite == null)
             {
@@ -126,6 +131,7 @@ public class NodeParser : MonoBehaviour
                 }
                 counter++;
             }
+            spriteHistory.Add(b.GetSprite());
             speakerImage.sprite = b.GetSprite();
             if (speakerImage.sprite == null)
             {
@@ -136,35 +142,44 @@ public class NodeParser : MonoBehaviour
                 speakerImage.color = new Color(255, 255, 255, 255);
             }
             yield return new WaitUntil(() => buttonPress != -1);
-            string questionData = "question/";
-            questionData += speaker.text + "/";
-            Debug.Log(questionData);
-            dialogueHistory.Add(data);
             switch (buttonPress)
             {
                 case 2:
                     buttonPress = -1;
-                    NextNode("exit2");
+                    string questionData = "question/";
+                    questionData += speaker.text + "/";
+                    Debug.Log(questionData);
                     questionData += extraTexts[1].text;
                     dialogueHistory.Add(questionData);
+                    NextNode("exit2");
                     break;
                 case 3:
                     buttonPress = -1;
-                    NextNode("exit3");
-                    questionData += extraTexts[2].text;
+                    questionData = "question/";
+                    questionData += speaker.text + "/";
+                    Debug.Log(questionData);
+                    questionData += extraTexts[1].text;
                     dialogueHistory.Add(questionData);
+                    NextNode("exit3");
                     break;
                 case 4:
                     buttonPress = -1;
-                    NextNode("exit4");
-                    questionData += extraTexts[3].text;
+                    questionData = "question/";
+                    questionData += speaker.text + "/";
+                    Debug.Log(questionData);
+                    questionData += extraTexts[1].text;
                     dialogueHistory.Add(questionData);
+                    NextNode("exit4");
                     break;
                 default:
                     buttonPress = -1;
-                    NextNode("exit");
+                    questionData = "question/";
+                    questionData += speaker.text + "/";
+                    Debug.Log(questionData);
                     questionData += dialogue.text;
                     dialogueHistory.Add(questionData);
+                    NextNode("exit");
+
                     break;
             }
         }
@@ -187,6 +202,10 @@ public class NodeParser : MonoBehaviour
     }
     public void NextNode(string fieldName)
     {
+        foreach (Transform child in dialogueHistoryTarget.transform)
+        {
+            Destroy(child.gameObject);
+        }
             StartCoroutine(DelayOptions());
             if (_parser != null)
             {
@@ -220,13 +239,21 @@ public class NodeParser : MonoBehaviour
             go.GetComponent<Button>().onClick.AddListener(() => ButtonPress(c));
         }
     }
-
     public void ShowHistory()
     {
+        int c = 0;
         foreach(string data in dialogueHistory)
         {
             string[] dataParsed = data.Split("/");
             Debug.Log($"{dataParsed[1]}: {dataParsed[2]}");
+            GameObject textHistObj = Instantiate(TextBox, dialogueHistoryTarget.transform);
+            Debug.Log(textHistObj.name);
+            TextMeshProUGUI tmp = textHistObj.transform.GetChild(0).Find("text").GetComponent<TextMeshProUGUI>();
+            tmp.text = dataParsed[2];
+            tmp = textHistObj.transform.GetChild(0).Find("name text").GetComponent<TextMeshProUGUI>();
+            tmp.text = dataParsed[1];
+            textHistObj.transform.GetChild(0).Find("head").GetComponent<Image>().sprite = spriteHistory[c];
+            c++;
         }
     }
 
