@@ -6,7 +6,6 @@ using TMPro;
 using System.Linq;
 using UnityEditor;
 using Unity.VisualScripting;
-
 public class BattleManager : MonoBehaviour
 {
     public AudioSource[] hitAudio;
@@ -117,8 +116,18 @@ public class BattleManager : MonoBehaviour
     public enum BattleState { BattleStart, Wait, PlayerTurn, EnemyTurn, PlayerWon, EnemyWon }
     public BattleState state;
 
-    public bool waiting = false;
+    public class CombatLog
+    {
+        public string unitName;
+        public int damage;
+        public int damageTaken;
+        public int damageHeal;
+    }
+    public CombatLog cl1 = new();
+    public CombatLog cl2 = new();
+    public CombatLog cl3 = new();
 
+    public bool waiting = false;
     private bool targetingRerun;
     public void Awake()
     {
@@ -215,6 +224,19 @@ public class BattleManager : MonoBehaviour
                 if (speedList.transform.Find(i.Key) != null && i.Key == i2.Key) { speedList.transform.Find(i.Key).SetSiblingIndex(loop); }
             }
             loop++;
+        }
+
+            cl1.unitName = playerTeam[0].UnitName;
+            Debug.Log(cl1.unitName);
+        if (playerTeam[1].UnitName != "")
+        {
+            cl2.unitName = playerTeam[1].UnitName;
+            Debug.Log(cl2.unitName);
+        }
+        if (playerTeam[2].UnitName != "")
+        {
+            cl3.unitName = playerTeam[2].UnitName;
+            Debug.Log(cl3.unitName);
         }
     }
     private void Update()
