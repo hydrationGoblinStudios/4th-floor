@@ -6,6 +6,7 @@ using TMPro;
 using System.Linq;
 using UnityEditor;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 public class BattleManager : MonoBehaviour
 {
     public AudioSource[] hitAudio;
@@ -1264,18 +1265,8 @@ public class BattleManager : MonoBehaviour
             {
                 damageDone = 2;
             }
-            if (playerBehavior.UnitName == attacker.UnitName)
-            {
-                cl1.damage += damageDone;
-            }
-            else if (player2Behavior.UnitName == attacker.UnitName)
-            {
-                cl2.damage += damageDone;
-            }
-            else
-            {
-                cl3.damage += damageDone;
-            }
+            CheckDamage(attacker, Target, damageDone);
+
             Target.hp -= damageDone;
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
             HudUpdate();
@@ -1310,22 +1301,7 @@ public class BattleManager : MonoBehaviour
             ParticleHit(Target);
             hitAudio[0].Play();
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus);
-            if (damageDone <= 0)
-            {
-                damageDone = 1;
-            }
-            if(playerBehavior.UnitName == attacker.UnitName)
-            {
-                cl1.damage += damageDone;
-            }
-            else if (player2Behavior.UnitName == attacker.UnitName)
-            {
-                cl2.damage += damageDone;
-            }
-            else
-            {
-                cl3.damage += damageDone;
-            }
+            CheckDamage(attacker, Target, damageDone);
             Target.hp -= damageDone;
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
@@ -1379,6 +1355,8 @@ public class BattleManager : MonoBehaviour
             int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2 * DamageMultiplier);
 
             Target.hp -= damageDone;
+            CheckDamage(attacker, Target, damageDone);
+
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + damageDone + " de dano\n"
@@ -1417,6 +1395,7 @@ public class BattleManager : MonoBehaviour
             ParticleHit(Target);
             hitAudio[0].Play();
             Target.hp -= damageDone;
+            CheckDamage(attacker, Target, damageDone);
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
             if (attacker.lifesteal >= 0.01)
@@ -1453,6 +1432,37 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+
+    public void CheckDamage(UnitBehavior attacker, UnitBehavior target, int damageDone = 0)
+    {
+        if (playerBehavior.UnitName == attacker.UnitName)
+        {
+            cl1.damage += damageDone;
+        }
+        else if (player2Behavior.UnitName == attacker.UnitName)
+        {
+            cl2.damage += damageDone;
+        }
+        else if(player3Behavior.UnitName == attacker.UnitName)
+        {
+            cl3.damage += damageDone;
+        }
+
+        if (playerBehavior.UnitName == target.UnitName)
+        {
+            cl1.damageTaken += damageDone;
+        }
+        else if (player2Behavior.UnitName == target.UnitName)
+        {
+            cl2.damageTaken += damageDone;
+        }
+        else if (player3Behavior.UnitName == target.UnitName)
+        {
+            cl3.damageTaken += damageDone;
+        }
+
+    }
+     
     public IEnumerator FadeOutText(TextMeshProUGUI tmpOG, int damageDone = 0, bool heal = false)
     {
         TextMeshProUGUI tmp = Instantiate(tmpOG, tmpOG.gameObject.transform);
