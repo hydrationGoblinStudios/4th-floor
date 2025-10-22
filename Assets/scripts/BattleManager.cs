@@ -1023,7 +1023,10 @@ public class BattleManager : MonoBehaviour
     }
     public IEnumerator PlayerWin()
     {
-        Debug.Log(gameManager.team.Count);
+        Debug.Log($"name:{cl1.unitName}, damage done:{cl1.damage}, damage taken:{cl1.damageTaken}");
+        Debug.Log($"name:{cl2.unitName}, damage done:{cl2.damage}, damage taken:{cl2.damageTaken}");
+        Debug.Log($"name:{cl3.unitName}, damage done:{cl3.damage}, damage taken:{cl3.damageTaken}");
+
         UnitBehavior RealCharacter1 = gameManager.team[0].GetComponent<UnitBehavior>();
         UnitBehavior DisplayCharacter1 = gameManager.teamPostPreBattle[0].GetComponent<UnitBehavior>();
         UnitBehavior RealCharacter2 = null;
@@ -1261,7 +1264,18 @@ public class BattleManager : MonoBehaviour
             {
                 damageDone = 2;
             }
-
+            if (playerBehavior.UnitName == attacker.UnitName)
+            {
+                cl1.damage += damageDone;
+            }
+            else if (player2Behavior.UnitName == attacker.UnitName)
+            {
+                cl2.damage += damageDone;
+            }
+            else
+            {
+                cl3.damage += damageDone;
+            }
             Target.hp -= damageDone;
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
             HudUpdate();
@@ -1300,7 +1314,18 @@ public class BattleManager : MonoBehaviour
             {
                 damageDone = 1;
             }
-
+            if(playerBehavior.UnitName == attacker.UnitName)
+            {
+                cl1.damage += damageDone;
+            }
+            else if (player2Behavior.UnitName == attacker.UnitName)
+            {
+                cl2.damage += damageDone;
+            }
+            else
+            {
+                cl3.damage += damageDone;
+            }
             Target.hp -= damageDone;
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
@@ -1329,7 +1354,7 @@ public class BattleManager : MonoBehaviour
                 sl.value = playerTeam[c].hp;
                 c++;
             }
-        }
+        }        
     }
     public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam, float DamageMultiplier = 1, float lifeSteal =0)
     {
