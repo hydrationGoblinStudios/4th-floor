@@ -114,6 +114,8 @@ public class BattleManager : MonoBehaviour
     public SpriteRenderer Mugshot;
     public bool hovering;
     public Vector3 startingPosition;
+    public GameObject postMatch;
+    public List<TextMeshProUGUI> postMatchTexts;
     public enum BattleState { BattleStart, Wait, PlayerTurn, EnemyTurn, PlayerWon, EnemyWon }
     public BattleState state;
 
@@ -1154,6 +1156,14 @@ public class BattleManager : MonoBehaviour
         gameManager.storyBattle = false;
         gameManager.teamPostPreBattle.Clear();
         gameManager.enemyTeamPostPreBattle.Clear();
+        hoverObject.SetActive(false);
+
+        postMatch.SetActive(true);
+        postMatchTexts[0].text = cl1.damage.ToString();
+    }
+
+    public void PrepScreen()
+    {
         gameManager.PrepScreen();
     }
     //randomiza growths
