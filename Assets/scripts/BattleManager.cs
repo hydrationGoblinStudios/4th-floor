@@ -115,7 +115,7 @@ public class BattleManager : MonoBehaviour
     public bool hovering;
     public Vector3 startingPosition;
     public GameObject postMatch;
-    public List<TextMeshProUGUI> postMatchTexts;
+    public List<Slider> postMatchSlides;
     public enum BattleState { BattleStart, Wait, PlayerTurn, EnemyTurn, PlayerWon, EnemyWon }
     public BattleState state;
 
@@ -1158,10 +1158,60 @@ public class BattleManager : MonoBehaviour
         gameManager.enemyTeamPostPreBattle.Clear();
         hoverObject.SetActive(false);
 
-        postMatch.SetActive(true);
-        postMatchTexts[0].text = cl1.damage.ToString();
+
+        PostMatch("damage");
+
     }
 
+    public void PostMatch(string statistic)
+    {
+        LUPObjects[0].SetActive(false);
+        LUPObjects[1].SetActive(false);
+        LUPObjects[2].SetActive(false);
+        postMatch.SetActive(true);
+
+        foreach(Slider sl in postMatchSlides)
+        {
+            List<int> slideList = new() { cl1.damage,cl2.damage,cl3.damage };
+            slideList.Sort();
+            sl.maxValue = slideList[2];
+        }
+
+
+        switch (statistic)
+        {
+            case "damage" :
+                foreach (Slider sl in postMatchSlides)
+                {
+                    List<int> slideList = new() { cl1.damage, cl2.damage, cl3.damage };
+                    slideList.Sort();
+                    sl.maxValue = slideList[2];
+                }
+                postMatchSlides[0].value = cl1.damage;
+        postMatchSlides[1].value = cl2.damage;
+        postMatchSlides[2].value = cl3.damage; break;
+            case "damageTaken":
+                foreach (Slider sl in postMatchSlides)
+                {
+                    List<int> slideList = new() { cl1.damageTaken, cl2.damageTaken, cl3.damageTaken };
+                    slideList.Sort();
+                    sl.maxValue = slideList[2];
+                }
+                postMatchSlides[0].value = cl1.damageTaken;
+                postMatchSlides[1].value = cl2.damageTaken;
+                postMatchSlides[2].value = cl3.damageTaken; break;
+            case "heal":
+                foreach (Slider sl in postMatchSlides)
+                {
+                    List<int> slideList = new() { cl1.damageHeal, cl2.damageHeal, cl3.damageHeal };
+                    slideList.Sort();
+                    sl.maxValue = slideList[2];
+                }
+                postMatchSlides[0].value = cl1.damageHeal;
+                postMatchSlides[1].value = cl2.damageHeal;
+                postMatchSlides[2].value = cl3.damageHeal; break;
+        }
+    }
     public void PrepScreen()
     {
         gameManager.PrepScreen();
