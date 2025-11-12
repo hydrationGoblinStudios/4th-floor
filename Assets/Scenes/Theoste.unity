@@ -2029,7 +2029,14 @@ MonoBehaviour:
   - {fileID: 349058108}
   - {fileID: 2011698888}
   - {fileID: 994545681}
+  TextBox: {fileID: 0}
+  cooldown: 0.3
+  currentCooldown: 0.3
+  banText: 0
   welcometext: 0
+  dialogueHistory: []
+  spriteHistory: []
+  dialogueHistoryTarget: {fileID: 0}
 --- !u!224 &549974025
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3937,9 +3944,11 @@ MonoBehaviour:
   day: 1
   testMode: 0
   storyBattle: 0
+  BossBattleID: 0
   TimeIsDay: 0
   wakeUpTalk: 0
   mapButtons: []
+  unlockedMaps: []
   graphs: []
   DayResultsManager: {fileID: 0}
   cui: {fileID: 0}
@@ -3956,7 +3965,6 @@ MonoBehaviour:
   enemyTeamPostPreBattle: []
   selectedPlayerBehavior: {fileID: 0}
   selectedEnemyBehavior: {fileID: 0}
-  moneyText: {fileID: 788691422}
   Inventory:
   - {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
   - {fileID: 11400000, guid: c9fcc6fc0521a994ca76c9d0d8a49e5b, type: 2}
@@ -3968,6 +3976,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ff06557b7ce141b4489d0abd8f85a625, type: 2}
   KeyItems: []
   StoryFlags: []
+  plantaDia: 40
   SwordList: []
   LanceList: []
   AxeList: []
@@ -3975,15 +3984,13 @@ MonoBehaviour:
   TomeList: []
   ReceptacleList: []
   AccesoriesList: []
-  ExampleList:
-  - {fileID: 11400000, guid: 046a82c701327134682831272ae61cda, type: 2}
-  - {fileID: 11400000, guid: 3c34e74de6a79fe4ca8dea9368fb3a38, type: 2}
-  - {fileID: 11400000, guid: 4859b3cd6f48cc64f8c498ae349056b8, type: 2}
-  - {fileID: 11400000, guid: 4c8315433aa433c4c8bb98f5dd036b10, type: 2}
-  - {fileID: 11400000, guid: f24e954180430844a8d56624e1fba5d4, type: 2}
-  - {fileID: 11400000, guid: c5564337666a0fc4f851b21db3ba0111, type: 2}
-  - {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
+  weaponTypeList: 00000000020000000100000003000000040000000500000006000000
   SelectedUBClassChange: {fileID: 0}
+  songManager: {fileID: 0}
+  equipList: []
+  keyItemList: []
+  storyFlagList: []
+  currentState: 0
 --- !u!1 &988566888
 GameObject:
   m_ObjectHideFlags: 0
@@ -4220,6 +4227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9c15f5ed25db946ab024c9c3c3458d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  barrarEntrada: []
 --- !u!4 &996546829
 Transform:
   m_ObjectHideFlags: 0
@@ -5797,11 +5806,15 @@ MonoBehaviour:
   GameManagerOBJ: {fileID: 0}
   SceneInteractable: {fileID: 0}
   calendario: {fileID: 0}
+  button: {fileID: 0}
   Manager: {fileID: 0}
   panel: {fileID: 452545381}
+  CurrentItemList: []
   charSelectPanel: {fileID: 940760236}
   ItemSelectPanel: {fileID: 452545381}
   unitSelectPanel: {fileID: 1857660256}
+  panelList: []
+  panelSprites: []
   buttonPrefab: {fileID: 7561249815366343786, guid: c5367feaf0bb4534c8d5fe8eaec98ffb, type: 3}
   ItemButtonPrefab: {fileID: 8115672569003287087, guid: b96ab1c36b3a13943b140be1022448d0, type: 3}
   UnitSelectButton: {fileID: 7561249815366343786, guid: 87d25ed7d068fb44aafa94725da96ca6, type: 3}
@@ -5812,6 +5825,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 288c98e4a140c0a4182bacdfc3350730, type: 3}
   - {fileID: 21300000, guid: a13cb5cc82dce85468dd06f2fbd3a2cb, type: 3}
   - {fileID: 21300000, guid: d98786fa8f3fdf94cb3c2a81436911a0, type: 3}
+  keyItemSprites: []
   skillIcons: []
   skillIconsObjects: []
   soulIconObject: {fileID: 0}
@@ -5821,21 +5835,25 @@ MonoBehaviour:
   equipText: {fileID: 726355371}
   accesoryText: {fileID: 1047786658}
   nodeParser: {fileID: 0}
-  Activatable: 0
+  ItemSelectorList: []
+  ItemSelectorListSprites: []
+  Activated: 0
   MugShot: {fileID: 0}
   playableMugShots: []
   UITopName: {fileID: 0}
   LvlText: {fileID: 0}
   expbar: {fileID: 0}
-  ClassIcon: {fileID: 0}
+  ClassIconObj: {fileID: 0}
+  ClassIcons: []
   WeaponImage: {fileID: 0}
   AccesoryImage: {fileID: 0}
   EquipableImages: []
   DragAndDroppables: []
   ClassChangeObject: {fileID: 0}
-  texts: []
-  hoverObject: {fileID: 0}
-  HoverOn: 0
+  statIcons: []
+  TargetStatButton: {fileID: 0}
+  TargetStatPanel: {fileID: 0}
+  targetTexts: []
 --- !u!1 &1301217289
 GameObject:
   m_ObjectHideFlags: 0
@@ -6630,8 +6648,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542544770}
-  - component: {fileID: 1542544769}
   - component: {fileID: 1542544768}
+  - component: {fileID: 1542544771}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -6691,27 +6709,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1542544769
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542544767}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8f77d0f0ffa7f4947a0621646e4e08cd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1542544770
 Transform:
   m_ObjectHideFlags: 0
@@ -6727,6 +6724,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1542544771
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542544767}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 653df48037306144d843d8984f0c9217, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1561778286
 GameObject:
   m_ObjectHideFlags: 0
