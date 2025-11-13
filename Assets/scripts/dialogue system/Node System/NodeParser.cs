@@ -245,9 +245,7 @@ public class NodeParser : MonoBehaviour
         foreach(string data in dialogueHistory)
         {
             string[] dataParsed = data.Split("/");
-            Debug.Log($"{dataParsed[1]}: {dataParsed[2]}");
             GameObject textHistObj = Instantiate(TextBox, dialogueHistoryTarget.transform);
-            Debug.Log(textHistObj.name);
             TextMeshProUGUI tmp = textHistObj.transform.GetChild(0).Find("text").GetComponent<TextMeshProUGUI>();
             tmp.text = dataParsed[2];
             tmp = textHistObj.transform.GetChild(0).Find("name text").GetComponent<TextMeshProUGUI>();
