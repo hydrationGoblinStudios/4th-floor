@@ -39322,7 +39322,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d8674ff8a24b845b9ecfa17b53fe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueHistoryTarget: {fileID: 6414802009827956599}
+  background: {fileID: 6414802009827956599}
+  dialogueHistoryTarget: {fileID: 4266611651676070759}
+  textBox: {fileID: 6132498811335992684}
 --- !u!1 &9080623236103511820
 GameObject:
   m_ObjectHideFlags: 0
