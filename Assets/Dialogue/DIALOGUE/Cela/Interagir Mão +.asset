@@ -25,7 +25,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 6147713582721425330}
+        node: {fileID: -486660713581663774}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 600, y: -536}
+  position: {x: 648, y: -536}
   ports:
     keys:
     - entry
@@ -171,9 +171,10 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speaker: Ramion
-  dialogue: "Um painel de quatro d\xEDgitos apareceu."
-  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+  speaker: 
+  dialogue: "Quando voc\xEA encosta a m\xE3o, um pequeno painel se abre, onde uma
+    senha de quatro d\xEDgitos pode ser inserida."
+  sprite: {fileID: 0}
 --- !u!114 &-5043371223474105203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -104, y: 344}
+  position: {x: -56, y: 344}
   ports:
     keys:
     - entry
@@ -209,10 +210,7 @@ MonoBehaviour:
       _node: {fileID: -5043371223474105203}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -4296583681145824496}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -247,9 +245,6 @@ MonoBehaviour:
       connections:
       - fieldName: exit
         node: {fileID: -7032394694635191872}
-        reroutePoints: []
-      - fieldName: exit
-        node: {fileID: -5043371223474105203}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -320,6 +315,55 @@ MonoBehaviour:
       _dynamic: 0
   spriteRenderer: {fileID: 0}
   entry: 0
+--- !u!114 &-486660713581663774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 696, y: 104}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -486660713581663774}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 3788045594740372922}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -486660713581663774}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7493274422258329252}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: 
+  dialogue: "Quando voc\xEA encosta a m\xE3o, um pequeno painel se abre, onde uma
+    senha de quatro d\xEDgitos pode ser inserida."
+  sprite: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +374,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
-  m_Name: "Interagir M\xE3o"
+  m_Name: "Interagir M\xE3o +"
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -3442638309083473870}
@@ -342,7 +386,6 @@ MonoBehaviour:
   - {fileID: 5258021628768377373}
   - {fileID: 3788045594740372922}
   - {fileID: -1581156685518262893}
-  - {fileID: 6147713582721425330}
   - {fileID: 7739838985995707046}
   - {fileID: 1479190709833962855}
   - {fileID: -5043371223474105203}
@@ -352,7 +395,8 @@ MonoBehaviour:
   - {fileID: 3063556138992739490}
   - {fileID: 5956844256768010402}
   - {fileID: -4296583681145824496}
-  current: {fileID: -5043371223474105203}
+  - {fileID: -486660713581663774}
+  current: {fileID: 519846856971097916}
 --- !u!114 &519846856971097916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +502,7 @@ MonoBehaviour:
   m_Name: Scene
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 872, y: -520}
+  position: {x: 856, y: -536}
   ports:
     keys:
     - entry
@@ -531,7 +575,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 6147713582721425330}
+        node: {fileID: -486660713581663774}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -574,7 +618,7 @@ MonoBehaviour:
   exit4: 0
   speaker: '?'
   dialogue: "Colocar M\xE3o"
-  option2: Sair
+  option2: Siar
   option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
@@ -624,7 +668,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Ramion
-  dialogue: "Tem um um v\xE3o em formato de m\xE3o aqui, talvez eu devesse encost\xE1-lo."
+  dialogue: "Tem um um v\xE3o em formato de m\xE3o aqui, como se fosse feito para
+    encostar nele."
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &5258021628768377373
 MonoBehaviour:
@@ -672,7 +717,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: '?'
-  dialogue: "Tem um um v\xE3o em formato de m\xE3o aqui, talvez eu devesse encost\xE1-lo."
+  dialogue: "Tem um um v\xE3o em formato de m\xE3o aqui, como se fosse feito para
+    encostar nele."
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &5956844256768010402
 MonoBehaviour:
@@ -687,7 +733,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1128, y: -520}
+  position: {x: 1064, y: -536}
   ports:
     keys:
     - entry
@@ -706,54 +752,6 @@ MonoBehaviour:
       _dynamic: 0
   spriteRenderer: {fileID: 0}
   entry: 0
---- !u!114 &6147713582721425330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 792, y: 72}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 6147713582721425330}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 3788045594740372922}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 6147713582721425330}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -7493274422258329252}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  speaker: '?'
-  dialogue: "Um painel de quatro d\xEDgitos apareceu."
-  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &6367131847075684154
 MonoBehaviour:
   m_ObjectHideFlags: 0
