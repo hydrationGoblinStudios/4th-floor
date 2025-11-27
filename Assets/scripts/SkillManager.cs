@@ -274,8 +274,8 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Pólen Dourado":
+                AddHealToLog(user, (int)((user.maxhp - user.hp) * 0.15));
                 user.hp += (int) ((user.maxhp - user.hp) * 0.15);
-
                 return 0;
 
             case "Empunhadeira Dupla":
@@ -992,6 +992,8 @@ public class SkillManager : MonoBehaviour
                 if (user.hp <= user.maxhp * 0.3 && poçãodevidause == false)
                 {
                     StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
+                    AddHealToLog(user, (int)(user.maxhp * 0.2));
+
                     user.hp += (int)(user.maxhp * 0.2);
 
                     poçãodevidause = true;
@@ -1202,6 +1204,7 @@ public class SkillManager : MonoBehaviour
                 }
                 else
                 {
+                    AddHealToLog(user, (int)(user.maxhp * 0.3));
 
                     user.hp += (int)(user.maxhp * 0.3);
                     foreach (string skill in user.skills)
@@ -1299,6 +1302,17 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds(0);
     }
 
+
+    public void AddHealToLog(UnitBehavior ub, int value)
+    {
+        switch (ub.position)
+        {
+            case 1: ub.battleManager.cl1.damageHeal += value; break;
+            case 2: ub.battleManager.cl2.damageHeal += value; break;
+            default: ub.battleManager.cl3.damageHeal += value; break;
+
+        }
+    }
     public IEnumerator IconPopup(GameObject IconGOOG, string SkillName)
     {
 

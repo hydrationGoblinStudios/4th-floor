@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 5fc1349621229d84e8eaee3f896c43f8
   - enabled: 1
     path: Assets/Scenes/Universal/LoadSave.unity
-    guid: 37c9024c47e7d0f4a9ce81494a1ccaa5
+    guid: 6395e8bed2b1d6e4ea8c7161cae3ebc5
   - enabled: 1
     path: Assets/Scenes/PrimeiroAndar/Preparation1A.unity
     guid: 1ff956a98d74ae4469d9894d4838086b
@@ -38,7 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Debug.unity
     guid: 506c3db76cf1a6949928ca220050e1ed
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI Persistency test.unity
     guid: b6a1c747357afb04f8e93fc2d483e317
   - enabled: 1
@@ -68,4 +68,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PrimeiroAndar/Minigames/Cadeado.unity
     guid: 7e47a27794db33c4992e064ffd68dcf5
+  - enabled: 1
+    path: Assets/Scenes/SegundoAndar/Banheiro.unity
+    guid: d0a208f3f6caff147a5f7f3f8fdb0e99
+  - enabled: 1
+    path: Assets/Scenes/SegundoAndar/Biblioteca.unity
+    guid: 760c532327f64cb4a9ccf7d4928426b7
+  - enabled: 1
+    path: Assets/Scenes/SegundoAndar/Cozinha.unity
+    guid: 42b01dfec19bb1f408dfca75a99007d4
+  - enabled: 1
+    path: Assets/Scenes/SegundoAndar/Enfermaria.unity
+    guid: 83d3a9fb480d5b54cb28145180e9c9f9
+  - enabled: 1
+    path: Assets/Scenes/SegundoAndar/Forja.unity
+    guid: 32f5c5cdba0b93b4296b5513d683f53a
   m_configObjects: {}

@@ -18,13 +18,20 @@ public class KeyItemParadoxController : MonoBehaviour
         int c = 0;
             foreach(GameObject i in interactables)
             {
+
+                try
+                {
                 if(i.name == item.name + " Interactable")
                 {
                     sprites[c].sprite = null;
                     i.GetComponent<ButtonAssigner>().graph = vazio;
                     i.GetComponent<ButtonAssigner>().AddListener();
                 }
-            c++;
+                }
+                catch
+                {
+                }
+                    c++;
             }
         }
         foreach (Item item in manager.StoryFlags)

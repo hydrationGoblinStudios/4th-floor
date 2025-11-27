@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 24939916}
   - component: {fileID: 24939915}
   m_Layer: 5
-  m_Name: "Peda\xE7o Mapa Mundi Interactable"
+  m_Name: Pena Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.6404, y: -1.3044}
+  m_AnchoredPosition: {x: 5.79, y: -1.9}
   m_SizeDelta: {x: 45.2134, y: 39.5569}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &24939915
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 160982011}
   - component: {fileID: 160982010}
   m_Layer: 0
-  m_Name: PecaDoAparelho Sprite (1)
+  m_Name: Pena Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 197786985}
   - component: {fileID: 197786986}
   m_Layer: 5
-  m_Name: Cofre Interactable
+  m_Name: Livro1 Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,8 +399,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.2178, y: -0.6207}
-  m_SizeDelta: {x: 230.583, y: 237.9638}
+  m_AnchoredPosition: {x: -4.0352, y: 1.9255}
+  m_SizeDelta: {x: 34.5065, y: 92.689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &197786980
 MonoBehaviour:
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 244839384}
   - component: {fileID: 244839383}
   m_Layer: 0
-  m_Name: PecaDoAparelho Sprite (2)
+  m_Name: Lupa Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 317576240}
   - component: {fileID: 317576243}
   m_Layer: 5
-  m_Name: Beliches Interactable
+  m_Name: Livro2 Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -699,8 +699,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.0213, y: -1.6514}
-  m_SizeDelta: {x: 440.1456, y: 382.9373}
+  m_AnchoredPosition: {x: 3.3432, y: 1.9935}
+  m_SizeDelta: {x: 40.4511, y: 86.3088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &317576240
 MonoBehaviour:
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -813,7 +813,7 @@ GameObject:
   - component: {fileID: 451194423}
   - component: {fileID: 451194422}
   m_Layer: 5
-  m_Name: Toalha Interactable
+  m_Name: Lupa Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,8 +835,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.0868015, y: 0.9133}
-  m_SizeDelta: {x: 109.1418, y: 176.3793}
+  m_AnchoredPosition: {x: 6.5759, y: -2.1497}
+  m_SizeDelta: {x: 59.0591, y: 35.2374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451194422
 MonoBehaviour:
@@ -910,7 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 539974504}
   - component: {fileID: 539974507}
   m_Layer: 5
-  m_Name: Lockers Interactable
+  m_Name: Livro3 Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -971,8 +971,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.7632, y: 0.2226}
-  m_SizeDelta: {x: 454.692, y: 916.4473}
+  m_AnchoredPosition: {x: -2.7677, y: -1.1408}
+  m_SizeDelta: {x: 33.0874, y: 98.7346}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &539974504
 MonoBehaviour:
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 547982423}
   - component: {fileID: 547982424}
   m_Layer: 0
-  m_Name: Gaveta Sprite
+  m_Name: Livro3 Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 743881918}
   - component: {fileID: 743881919}
   m_Layer: 0
-  m_Name: Frascos Sprite
+  m_Name: Livro1 Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1506,7 +1506,7 @@ GameObject:
   - component: {fileID: 903977880}
   - component: {fileID: 903977883}
   m_Layer: 5
-  m_Name: Metal Pipe Interactable
+  m_Name: Livro4 Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1528,8 +1528,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.861, y: 0.2165}
-  m_SizeDelta: {x: 72.968, y: 391.8848}
+  m_AnchoredPosition: {x: 1.7249, y: -1.1122}
+  m_SizeDelta: {x: 42.0078, y: 89.5679}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903977880
 MonoBehaviour:
@@ -1588,7 +1588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1920,7 +1920,7 @@ GameObject:
   - component: {fileID: 1318941793}
   - component: {fileID: 1318941794}
   m_Layer: 0
-  m_Name: LuzesDoAparelho Sprite
+  m_Name: Livro2 Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2020,7 +2020,7 @@ GameObject:
   - component: {fileID: 1372198796}
   - component: {fileID: 1372198797}
   m_Layer: 0
-  m_Name: SceneInteractablesQuarto Dos Guardas
+  m_Name: SceneInteractablesBiblioteca
   m_TagString: Scene Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2045,6 +2045,7 @@ Transform:
   - {fileID: 903977879}
   - {fileID: 24939914}
   - {fileID: 451194421}
+  - {fileID: 1883857103}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1372198797
@@ -2059,7 +2060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c960503ec74ab34c9306672de5c7144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Quarto Dos Guardas
+  OriginalSceneName: Biblioteca
   m_Scene:
     m_Handle: 0
   InteractablesGO: {fileID: 0}
@@ -2159,11 +2160,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1979681299}
   - {fileID: 743881917}
-  - {fileID: 547982422}
   - {fileID: 1318941792}
+  - {fileID: 547982422}
   - {fileID: 2012352424}
+  - {fileID: 1979681299}
   - {fileID: 160982009}
   - {fileID: 244839382}
   m_Father: {fileID: 0}
@@ -2223,6 +2224,142 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1883857102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1883857103}
+  - component: {fileID: 1883857107}
+  - component: {fileID: 1883857106}
+  - component: {fileID: 1883857105}
+  - component: {fileID: 1883857104}
+  m_Layer: 5
+  m_Name: Carta Interactable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1883857103
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883857102}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 94.99998}
+  m_LocalScale: {x: 0.008789999, y: 0.008789999, z: 0.008789999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1372198796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4.9, y: -3.13}
+  m_SizeDelta: {x: 59.0591, y: 35.2374}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1883857104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883857102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000, guid: f1b85e15aa8b81f408b9ab06126bf492, type: 2}
+  nodeParser: {fileID: 0}
+  button: {fileID: 1883857105}
+--- !u!114 &1883857105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883857102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1883857106}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1883857106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883857102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 61baf6b9daa5dfd4db5c0b4524329187, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1883857107
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883857102}
+  m_CullTransparentMesh: 1
 --- !u!1 &1979681298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,7 +2371,7 @@ GameObject:
   - component: {fileID: 1979681299}
   - component: {fileID: 1979681300}
   m_Layer: 0
-  m_Name: Esparadrapo Sprite
+  m_Name: Carta Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2319,7 +2456,7 @@ GameObject:
   - component: {fileID: 2012352426}
   - component: {fileID: 2012352425}
   m_Layer: 0
-  m_Name: PecaDoAparelho Sprite
+  m_Name: Livro4 Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

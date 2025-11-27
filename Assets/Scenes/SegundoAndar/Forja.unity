@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 24939916}
   - component: {fileID: 24939915}
   m_Layer: 5
-  m_Name: "Peda\xE7o Mapa Mundi Interactable"
+  m_Name: Espeto Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.6404, y: -1.3044}
-  m_SizeDelta: {x: 45.2134, y: 39.5569}
+  m_AnchoredPosition: {x: -3.16, y: -2.0549}
+  m_SizeDelta: {x: 286.3886, y: 74.8509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &24939915
 MonoBehaviour:
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 197786985}
   - component: {fileID: 197786986}
   m_Layer: 5
-  m_Name: Cofre Interactable
+  m_Name: Cadeado Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,8 +298,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.2178, y: -0.6207}
-  m_SizeDelta: {x: 230.583, y: 237.9638}
+  m_AnchoredPosition: {x: -6.1385, y: -2.232}
+  m_SizeDelta: {x: 51.1721, y: 60.0236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &197786980
 MonoBehaviour:
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 317576240}
   - component: {fileID: 317576243}
   m_Layer: 5
-  m_Name: Beliches Interactable
+  m_Name: MachadoQuebrado Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,8 +497,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.0213, y: -1.6514}
-  m_SizeDelta: {x: 440.1456, y: 382.9373}
+  m_AnchoredPosition: {x: 3.5052, y: -3.1872}
+  m_SizeDelta: {x: 234.2646, y: 169.7031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &317576240
 MonoBehaviour:
@@ -597,142 +597,6 @@ MonoBehaviour:
   graph: {fileID: 11400000, guid: 853789b176dd6314fa0b50f0895dbd49, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 317576240}
---- !u!1 &451194420
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 451194421}
-  - component: {fileID: 451194425}
-  - component: {fileID: 451194424}
-  - component: {fileID: 451194423}
-  - component: {fileID: 451194422}
-  m_Layer: 5
-  m_Name: Toalha Interactable
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &451194421
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451194420}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 94.99998}
-  m_LocalScale: {x: 0.008789999, y: 0.008789999, z: 0.008789999}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1372198796}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.0868015, y: 0.9133}
-  m_SizeDelta: {x: 109.1418, y: 176.3793}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &451194422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451194420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: f1b85e15aa8b81f408b9ab06126bf492, type: 2}
-  nodeParser: {fileID: 0}
-  button: {fileID: 451194423}
---- !u!114 &451194423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451194420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 451194424}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &451194424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451194420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 61baf6b9daa5dfd4db5c0b4524329187, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &451194425
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451194420}
-  m_CullTransparentMesh: 1
 --- !u!1 &539974502
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +611,7 @@ GameObject:
   - component: {fileID: 539974504}
   - component: {fileID: 539974507}
   m_Layer: 5
-  m_Name: Lockers Interactable
+  m_Name: Martelo Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -769,8 +633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.7632, y: 0.2226}
-  m_SizeDelta: {x: 454.692, y: 916.4473}
+  m_AnchoredPosition: {x: 1.2402, y: -0.1159}
+  m_SizeDelta: {x: 67.9296, y: 103.2164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &539974504
 MonoBehaviour:
@@ -1304,7 +1168,7 @@ GameObject:
   - component: {fileID: 903977880}
   - component: {fileID: 903977883}
   m_Layer: 5
-  m_Name: Metal Pipe Interactable
+  m_Name: MoedaDeLumenita Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1326,8 +1190,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.861, y: 0.2165}
-  m_SizeDelta: {x: 72.968, y: 391.8848}
+  m_AnchoredPosition: {x: -1.1462, y: -0.3035}
+  m_SizeDelta: {x: 21.4976, y: 31.5926}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903977880
 MonoBehaviour:
@@ -1818,7 +1682,7 @@ GameObject:
   - component: {fileID: 1372198796}
   - component: {fileID: 1372198797}
   m_Layer: 0
-  m_Name: SceneInteractablesQuarto Dos Guardas
+  m_Name: SceneInteractablesForja
   m_TagString: Scene Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1842,7 +1706,6 @@ Transform:
   - {fileID: 539974503}
   - {fileID: 903977879}
   - {fileID: 24939914}
-  - {fileID: 451194421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1372198797
@@ -1857,7 +1720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c960503ec74ab34c9306672de5c7144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Quarto Dos Guardas
+  OriginalSceneName: Forja
   m_Scene:
     m_Handle: 0
   InteractablesGO: {fileID: 0}

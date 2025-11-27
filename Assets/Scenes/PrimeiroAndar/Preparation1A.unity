@@ -1227,6 +1227,11 @@ MonoBehaviour:
   - Dispensa
   - Patio
   - Quarto Dos Guardas
+  - Banheiro
+  - Biblioteca
+  - Cozinha
+  - Enfermaria
+  - Forja
   graphs:
   - {fileID: 11400000, guid: 3dc738677bd3db647a05f4ed683b05d3, type: 2}
   - {fileID: 11400000, guid: be1fb045bf1c6d74785e2195e4f438b2, type: 2}
@@ -2803,6 +2808,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 712936544563495266, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 55.199997
+      objectReference: {fileID: 0}
+    - target: {fileID: 928597598789805470, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 55.199997
+      objectReference: {fileID: 0}
     - target: {fileID: 1279568977069166085, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -4022,6 +4035,10 @@ PrefabInstance:
     - target: {fileID: 5156436664168746724, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185517916714812157, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 55.199997
       objectReference: {fileID: 0}
     - target: {fileID: 5250894532235244963, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_Sprite
