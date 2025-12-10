@@ -1174,6 +1174,7 @@ public class BattleManager : MonoBehaviour
         {
             List<int> slideList = new() { cl1.damage,cl2.damage,cl3.damage };
             slideList.Sort();
+            Debug.Log(sl.name);
             sl.maxValue = slideList[2];
         }
 

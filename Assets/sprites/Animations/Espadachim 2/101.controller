@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DuelistaAtaque
+  m_Name: EspadachimAtaqueAnimation
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ef3939c6376be2742bb89bfda5ceaa26, type: 2}
+  m_Motion: {fileID: 7400000, guid: eee2d110d9e8f1146978034e3f43d89a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -109,7 +109,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DuelistaMorte
+  m_Name: EspadachimMorteAnimation
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -122,7 +122,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7f418c8946ab56943b8967f8107344fc, type: 2}
+  m_Motion: {fileID: 7400000, guid: 26c67f6474d685b4c875d1cad2f59731, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -135,7 +135,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DuelistaIdle
+  m_Name: EspadachimIdleAnimation
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -152,7 +152,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ec0c59163661e8e4ba4b5a574240294a, type: 2}
+  m_Motion: {fileID: 7400000, guid: c4bd9c245cf5afe438ba06d41fca07e5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -165,7 +165,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "DuelistaAvan\xE7o"
+  m_Name: "EspadachimAvan\xE7oAnimation"
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -179,7 +179,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3cbc24b089eff29489785a5ddaaf3864, type: 2}
+  m_Motion: {fileID: 7400000, guid: e32f174ece5d2d0459474b553bd46cb7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -238,7 +238,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DuelistaController
+  m_Name: 101
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: UnitAttack
@@ -363,7 +363,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DuelistaDesvio
+  m_Name: EspadachimDesvioAnimation
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -377,7 +377,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d9dd0945186c1ec49b17161ed577c367, type: 2}
+  m_Motion: {fileID: 7400000, guid: 59408c7dde6cffe45b15caf04f13a91d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OcultistaAtaque
+  m_Name: CavaleiroEncantandoEspadaAtaque
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -21,12 +21,37 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8cdbf904b650813498a4c64c54cb3771, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2c9e8439a22ada64090f3d0a5155f9f0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-5945929106778587263
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: UnitAdvance
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -1359900464122613944}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 1
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-5021460577398980879
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -84,7 +109,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OcultistaMorte
+  m_Name: CavaleiroEncantadoMorte
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -97,7 +122,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a3b0cdfbda3ba8346b884acab61d5f98, type: 2}
+  m_Motion: {fileID: 7400000, guid: fb96be9caf23f014eb1606ca4dc320a5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -110,11 +135,12 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OcultistaIdle
+  m_Name: CavaleiroEncantadoEspadaIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5021460577398980879}
+  - {fileID: -5945929106778587263}
   - {fileID: -1244879100529514779}
   - {fileID: -3592228299294656779}
   m_StateMachineBehaviours: []
@@ -126,7 +152,34 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2a693b7b17bad804c8e61c5b3ef2289b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1ad1b9631ce3b8d4493ef9fcb0942a31, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-1359900464122613944
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "CavaleiroEncantandoAvan\xE7o"
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -878214689832048483}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 588d683d9854a624a9f388d13e91fff6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -157,13 +210,35 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &-878214689832048483
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8205770005321955816}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 1
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OcultistaController
+  m_Name: 201
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: UnitAttack
@@ -219,11 +294,14 @@ AnimatorStateMachine:
     m_State: {fileID: -8205770005321955816}
     m_Position: {x: 210, y: 180, z: 0}
   - serializedVersion: 1
+    m_State: {fileID: -1359900464122613944}
+    m_Position: {x: 420, y: 130, z: 0}
+  - serializedVersion: 1
     m_State: {fileID: 9211325036669075208}
     m_Position: {x: 250, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2990839224759070572}
-    m_Position: {x: 640, y: -10, z: 0}
+    m_Position: {x: 639.6903, y: -8.932983, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -285,7 +363,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OcultistaDesvio
+  m_Name: CavaleiroEncantandoDesvio
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -299,7 +377,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2c5c720ec866bb9478dee521ab807007, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7f9c2957154396645978a63cf0962672, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

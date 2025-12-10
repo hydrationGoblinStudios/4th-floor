@@ -7,11 +7,12 @@ using TMPro;
 using UnityEditor;
 using Unity.VisualScripting;
 using UnityEngine.TextCore.Text;
+using System.IO;
 
 public class PreBattleManager : MonoBehaviour
 {
     //animations
-    public RuntimeAnimatorController[] Animations;
+    public List<RuntimeAnimatorController> Animations;
     public Animator[] playerAnimations;
     public Animator[] enemyAnimations;
     public Material[] matRaces;
@@ -70,9 +71,22 @@ public class PreBattleManager : MonoBehaviour
 
 
     //calculador de nivel
-    public List<int> levelList = new() {1,1,2,2,3,3,3,4,4,5,5,6,6,7,7,7,8,8,9,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,28,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,91,92,93,94,95,96,97,98,99,100100,100,100,100,100,100,100,100,100 };
+    public List<int> levelList = new() {1,1,2,2,3,3,3,4,4,5,5,6,6,7,7,7,8,8,9,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,28,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,91,92,93,94,95,96,97,98,99,100,100,100,100,100,100,100,100,100,100 };
     void Start()
     {
+        DirectoryInfo dirInfo = new DirectoryInfo("Assets/sprites/Animations");
+        DirectoryInfo[] subDirInfo = dirInfo.GetDirectories();
+
+        foreach(DirectoryInfo subDireInf in subDirInfo)
+        {
+            FileInfo[] fileinf = subDireInf.GetFiles("*.controller");
+
+            foreach (FileInfo fi in fileinf)
+            {
+                Animations.Add(AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>($"Assets/sprites/Animations/{fi.Directory.Name}/{fi.Name}"));
+            }
+        }
+
         GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
         gameManager = GMobject.GetComponent<GameManager>();
         inventoryManager = GameObject.FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);
@@ -98,38 +112,11 @@ public class PreBattleManager : MonoBehaviour
             SelectedPlayer3 = Instantiate(EmptyUnitPrefab, BattleStations[2].transform);
             SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
         }
-        playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
-        {
-            107 => Animations[6],
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            _ => null,
-        };
-        playerAnimations[1].runtimeAnimatorController = SelectedPlayer2.GetComponent<UnitBehavior>().classId switch
-        {
-            107 => Animations[6],
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            _ => null,
-        }; playerAnimations[2].runtimeAnimatorController = SelectedPlayer3.GetComponent<UnitBehavior>().classId switch
-        {
-            107 => Animations[6],
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            _ => null,
-        };
+
+        playerAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+        playerAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+        playerAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+
         if (gameManager.testMode)
         {
             SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
@@ -234,38 +221,9 @@ public class PreBattleManager : MonoBehaviour
                 }
             }
 
-            enemyAnimations[0].runtimeAnimatorController = SelectedEnemy1.GetComponent<UnitBehavior>().classId switch
-            {
-                107 => Animations[6],
-                101 => Animations[0],
-                102 => Animations[1],
-                103 => Animations[2],
-                104 => Animations[3],
-                105 => Animations[4],
-                106 => Animations[5],
-                _ => null,
-            };
-            enemyAnimations[1].runtimeAnimatorController = SelectedEnemy2.GetComponent<UnitBehavior>().classId switch
-            {
-                107 => Animations[6],
-                101 => Animations[0],
-                102 => Animations[1],
-                103 => Animations[2],
-                104 => Animations[3],
-                105 => Animations[4],
-                106 => Animations[5],
-                _ => null,
-            }; enemyAnimations[2].runtimeAnimatorController = SelectedEnemy3.GetComponent<UnitBehavior>().classId switch
-            {
-                107 => Animations[6],
-                101 => Animations[0],
-                102 => Animations[1],
-                103 => Animations[2],
-                104 => Animations[3],
-                105 => Animations[4],
-                106 => Animations[5],
-                _ => null,
-            };
+            enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+            enemyAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+            enemyAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
         }
 
         
@@ -1152,38 +1110,9 @@ public class PreBattleManager : MonoBehaviour
         }
 
         else { Debug.Log("null SP"); }
-        playerAnimations[0].runtimeAnimatorController = SelectedPlayer1.GetComponent<UnitBehavior>().classId switch
-        {
-            107 => Animations[6],
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            _ => null,
-        };
-        playerAnimations[1].runtimeAnimatorController = SelectedPlayer2.GetComponent<UnitBehavior>().classId switch
-        {
-            107 => Animations[6],
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            _ => null,
-        }; playerAnimations[2].runtimeAnimatorController = SelectedPlayer3.GetComponent<UnitBehavior>().classId switch
-        {
-            107 => Animations[6],
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            _ => null,
-        };
+        playerAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+        playerAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+        playerAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
 
         ShaderSelect();
     }
@@ -1226,38 +1155,9 @@ public class PreBattleManager : MonoBehaviour
         SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
         SelectedEnemy3 = enemyTeam.transform.GetChild(2).gameObject;
         SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
-        enemyAnimations[0].runtimeAnimatorController = SelectedEnemy1.GetComponent<UnitBehavior>().classId switch
-        {
-            107 => Animations[6],
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            _ => null,
-        };
-        enemyAnimations[1].runtimeAnimatorController = SelectedEnemy2.GetComponent<UnitBehavior>().classId switch
-        {
-            107 => Animations[6],
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            _ => null,
-        }; enemyAnimations[2].runtimeAnimatorController = SelectedEnemy3.GetComponent<UnitBehavior>().classId switch
-        {
-            107 => Animations[6],
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            _ => null,
-        };
+        enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+        enemyAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+        enemyAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
     }
     public void DisplayItemList(List<Item> ItemList)
     {

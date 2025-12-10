@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CavaleiroEncantandoEspadaAtaque
+  m_Name: "PaladinoLan\xE7aAtaque"
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2c9e8439a22ada64090f3d0a5155f9f0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4a6328c90194426408c368de064689db, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -109,7 +109,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CavaleiroEncantadoMorte
+  m_Name: PaladinoMorte
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -122,7 +122,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fb96be9caf23f014eb1606ca4dc320a5, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6ae89d16f55ea314da24ffa9cb3fad1b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -135,7 +135,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CavaleiroEncantadoEspadaIdle
+  m_Name: "PaladinoLan\xE7aIdle"
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -152,7 +152,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1ad1b9631ce3b8d4493ef9fcb0942a31, type: 2}
+  m_Motion: {fileID: 7400000, guid: e1c6f6e2ba9779b439861f3730d466b9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -165,7 +165,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "CavaleiroEncantandoAvan\xE7o"
+  m_Name: "PaladinoAvan\xE7o"
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -179,7 +179,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 588d683d9854a624a9f388d13e91fff6, type: 2}
+  m_Motion: {fileID: 7400000, guid: baf3f9a53296c0d4d9b3c6dab8b86e1c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -238,7 +238,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CavaleiroEncantandoEspadaController
+  m_Name: 209
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: UnitAttack
@@ -301,7 +301,7 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2990839224759070572}
-    m_Position: {x: 639.6903, y: -8.932983, z: 0}
+    m_Position: {x: 640, y: -10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -363,7 +363,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CavaleiroEncantandoDesvio
+  m_Name: "PaladinoLan\xE7aDesviar"
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -377,7 +377,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7f9c2957154396645978a63cf0962672, type: 2}
+  m_Motion: {fileID: 7400000, guid: 63ae4b4f01e52a44d9419670f5ad5ef1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
