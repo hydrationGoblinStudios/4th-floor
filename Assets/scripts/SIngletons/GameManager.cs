@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
 using System;
+using System.IO;
+using UnityEditor;
 public class GameManager : Singleton<GameManager>, IDataPersistence
 {
 
@@ -69,6 +71,29 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     }
     public void LoadData(GameData data)
     {
+        if(keyItemList.Count != 0)
+        {
+            return;
+        }
+        DirectoryInfo dirInfo = new DirectoryInfo("Assets/prefab/Item/KeyItems");
+        DirectoryInfo[] subDirInfo = dirInfo.GetDirectories();
+        FileInfo[] fileinf = dirInfo.GetFiles("*.asset");
+
+        foreach (FileInfo fi in fileinf)
+        {
+            Debug.Log(fi.Name);
+            keyItemList.Add(AssetDatabase.LoadAssetAtPath<Item>($"Assets/prefab/Item/KeyItems/{fi.Name}"));
+        }
+        foreach (DirectoryInfo subDireInf in subDirInfo)
+        {
+            fileinf = subDireInf.GetFiles("*.asset");
+
+            foreach (FileInfo fi in fileinf)
+            {            
+               storyFlagList.Add(AssetDatabase.LoadAssetAtPath<Item>($"Assets/prefab/Item/KeyItems/{fi.Directory.Name}/{fi.Name}"));
+            }
+        }
+
         this.money = data.money;
         this.day = data.day;
         //this.storyBattle = data.storyBattle;
