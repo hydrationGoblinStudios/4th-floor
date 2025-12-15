@@ -793,15 +793,31 @@ public class SkillManager : MonoBehaviour
             case "Reforçar Armadura":
                 StartCoroutine(ReforçarArmadura(user));
                 return 0;
+
             case "Carregar Alma":
                 user.soul += user.maxsoul / 2;
                 return 0;
+
             case "Encantamento Benevolente":
                 StartCoroutine(EncantamentoBenevolente(user));
                 return 0;
+
             case "Encantamento Malevolente":
                 StartCoroutine(EncantamentoMalevolente(user));
                 return 0;
+
+            case "Sede de Sangue":
+                user.lifesteal =+ (int) 0.25;
+                return 0;
+
+            case "Ataque Descuidado":
+                user.str += user.str / 5;
+                user.crit += 10;
+                user.hit -= 15;
+                user.avoid -= 15;
+
+                return 0;
+
             default: return 0;
 
         }
