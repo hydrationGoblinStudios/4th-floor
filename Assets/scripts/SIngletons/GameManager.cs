@@ -468,6 +468,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             case (106): original.UsableWeaponTypes = new() { Item.Weapontype.Bow }; break;
             case (107): original.UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
             case (201): original.UsableWeaponTypes = new() { Item.Weapontype.Sword, Item.Weapontype.Receptacle }; break;
+            case (202): original.UsableWeaponTypes = new() { Item.Weapontype.Sword}; Debug.Log("cub 202"); break;
 
         }
         System.Type type = original.GetType();
