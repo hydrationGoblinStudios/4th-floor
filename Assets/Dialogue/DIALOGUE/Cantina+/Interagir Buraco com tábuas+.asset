@@ -1,23 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
-  m_Name: Interagir Quadro
-  m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: 7911735229068274777}
-  - {fileID: 2707948956287851337}
-  - {fileID: 3311811404701955498}
-  current: {fileID: 3311811404701955498}
---- !u!114 &2707948956287851337
+--- !u!114 &-6661085146062624735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,31 +13,31 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -200, y: -24}
+  position: {x: 40, y: -200}
   ports:
     keys:
     - entry
     - exit
     values:
     - _fieldName: entry
-      _node: {fileID: 2707948956287851337}
+      _node: {fileID: -6661085146062624735}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 7911735229068274777}
+        node: {fileID: 1069084739306010287}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
-      _node: {fileID: 2707948956287851337}
+      _node: {fileID: -6661085146062624735}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 3311811404701955498}
+        node: {fileID: 7889537993377185658}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -63,11 +46,9 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Ramion
-  dialogue: "\xC9 um quadro estranho de uma mulher encapuzada com m\xE1scara. Em
-    baixo se l\xEA \u201CSuserana, autoridade m\xE1xima respons\xE1vel pelo coliseu
-    de Sora\u201D."
+  dialogue: "Tem um monte de t\xE1buas aqui, como se tivessem tapando algo"
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
---- !u!114 &3311811404701955498
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,30 +57,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b02f247d9b14698438e2d74800ab78da, type: 3}
-  m_Name: Stop
+  m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
+  m_Name: "Interagir Buraco com t\xE1buas+"
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 8, y: -24}
-  ports:
-    keys:
-    - entry
-    values:
-    - _fieldName: entry
-      _node: {fileID: 3311811404701955498}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 2707948956287851337}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  spriteRenderer: {fileID: 0}
-  entry: 0
---- !u!114 &7911735229068274777
+  nodes:
+  - {fileID: 1069084739306010287}
+  - {fileID: -6661085146062624735}
+  - {fileID: 7889537993377185658}
+  current: {fileID: 7889537993377185658}
+--- !u!114 &1069084739306010287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,21 +78,53 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -424, y: -24}
+  position: {x: -440, y: -200}
   ports:
     keys:
     - exit
     values:
     - _fieldName: exit
-      _node: {fileID: 7911735229068274777}
+      _node: {fileID: 1069084739306010287}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 2707948956287851337}
+        node: {fileID: -6661085146062624735}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
+--- !u!114 &7889537993377185658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f247d9b14698438e2d74800ab78da, type: 3}
+  m_Name: Stop
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 280, y: -200}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: 7889537993377185658}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -6661085146062624735}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  spriteRenderer: {fileID: 0}
+  entry: 0
