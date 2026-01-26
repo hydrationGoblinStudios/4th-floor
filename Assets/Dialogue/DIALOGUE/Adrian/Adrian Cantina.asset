@@ -77,6 +77,241 @@ MonoBehaviour:
   entry: 0
   exit: 0
   map: Dispensa
+--- !u!114 &-7312168892973282986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1800, y: 712}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7312168892973282986}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2124189519051201329}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7312168892973282986}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Adrian
+  dialogue: "Quem sabe, ningu\xE9m nunca tenha encontrado a cura, porqu\xEA todos
+    que est\xE3o aqui est\xE3o ocupados demais para procurar? Ou at\xE9, tantas pessoas
+    tiveram esse mesmo pensamento, de achar que \xE9 s\xF3 uma lenda, que nem se
+    deram o trabalho de vir at\xE9 aqui."
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
+--- !u!114 &-7308524660338835821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1352, y: 88}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7308524660338835821}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit3
+        node: {fileID: 4324672756712598643}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7308524660338835821}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -1650516550112704980}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Adrian
+  dialogue: "Hmmm, de onde eu venho eu posso te garantir que n\xE3o tem ningu\xE9m
+    que nem voc\xEA, j\xE1 em outros pa\xEDses eu n\xE3o sei, fiz toda a viagem de
+    barco quase sem fazer paradas."
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
+--- !u!114 &-7304761005735990641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1368, y: -216}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7304761005735990641}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit2
+        node: {fileID: 4324672756712598643}
+        reroutePoints: []
+      - fieldName: exit2
+        node: {fileID: -1650516550112704980}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7304761005735990641}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -444033126745396622}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Adrian
+  dialogue: "\xC9, eu n\xE3o gosto de lutar, e se pudesse escolher preferia ter ficado
+    na minha terra natal, l\xE1 em inf\xE2mia, mas algo terr\xEDvel aconteceu e precisei
+    vir pra c\xE1."
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
+--- !u!114 &-7178146687303734448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475ecc11ae4f609438615f9a8b52efa1, type: 3}
+  m_Name: Question
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2040, y: 408}
+  ports:
+    keys:
+    - entry
+    - exit
+    - exit2
+    - exit3
+    - exit4
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7178146687303734448}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -1633525833520278630}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7178146687303734448}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2672777859317414773}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: -7178146687303734448}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit3
+      _node: {fileID: -7178146687303734448}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit4
+      _node: {fileID: -7178146687303734448}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  exit2: 0
+  exit3: 0
+  exit4: 0
+  speaker: Ramion
+  dialogue: "O que voc\xEA acha de nos aliarmos?"
+  option2: 
+  option3: 
+  option4: 
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &-6813348204218303832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +325,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1576, y: -1464}
+  position: {x: 1272, y: -2024}
   ports:
     keys:
     - entry
@@ -139,7 +374,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1528, y: -1304}
+  position: {x: 1224, y: -1864}
   ports:
     keys:
     - entry
@@ -229,7 +464,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1000, y: -248}
+  position: {x: 1352, y: -520}
   ports:
     keys:
     - entry
@@ -241,7 +476,10 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 1026759557542914541}
+        node: {fileID: 4324672756712598643}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -1650516550112704980}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -263,7 +501,7 @@ MonoBehaviour:
   exit: 0
   speaker: Adrian
   dialogue: "Eu vim l\xE1 de Inf\xE2mia, fica bem pro Oeste daqui. Foi uma longa
-    viagem mas vai valer a pena, porqu\xEA eu vim para salvar a minha aldeia"
+    viagem mas eu precisava vir."
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-5410549194791890470
 MonoBehaviour:
@@ -278,7 +516,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2344, y: -1528}
+  position: {x: 2040, y: -2088}
   ports:
     keys:
     - entry
@@ -326,7 +564,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1224, y: 40}
+  position: {x: 1320, y: 408}
   ports:
     keys:
     - entry
@@ -359,7 +597,9 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: "Errh\u2026 Ainda n\xE3o, mas com certeza vou ach\xE1-la!"
+  dialogue: "Errh\u2026 \xC9, esse exatamente o passo em que eu estou, foi t\xE3o
+    dif\xEDcil chegar aqui, que eu n\xE3o parei pra pensar muito no que eu faria
+    depois de chegar"
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-4399747343223841914
 MonoBehaviour:
@@ -374,7 +614,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1864, y: -1048}
+  position: {x: 1560, y: -1608}
   ports:
     keys:
     - entry
@@ -424,7 +664,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1656, y: 344}
+  position: {x: 1640, y: 1144}
   ports:
     keys:
     - entry
@@ -472,7 +712,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1144, y: -616}
+  position: {x: 840, y: -1176}
   ports:
     keys:
     - entry
@@ -574,7 +814,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 776, y: 40}
+  position: {x: 776, y: 456}
   ports:
     keys:
     - entry
@@ -607,8 +847,147 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: "Mas t\xE1 tudo bem, porque existe uma lenda que nesse coliseu foi deixada
-    escondida uma cura milagrosa que ser\xE1 capaz de salvar minha aldeia!"
+  dialogue: "Mas existem muitas lendas desse pa\xEDs, incluindo uma sobre o coliseu.
+    Dizem que existe um elixir milagroso capaz de curar qualquer doen\xE7a escondido
+    aqui."
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
+--- !u!114 &-2142194574124598787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475ecc11ae4f609438615f9a8b52efa1, type: 3}
+  m_Name: Question
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 664, y: 1128}
+  ports:
+    keys:
+    - entry
+    - exit
+    - exit2
+    - exit3
+    - exit4
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2142194574124598787}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 2938243030466282739}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -2142194574124598787}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 4920889152433499095}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: -2142194574124598787}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 4920889152433499095}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit3
+      _node: {fileID: -2142194574124598787}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit4
+      _node: {fileID: -2142194574124598787}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  exit2: 0
+  exit3: 0
+  exit4: 0
+  speaker: Ramion
+  dialogue: "Meu nome \xE9 Ramion."
+  option2: "Meu nome \xE9 Ramion, eu acho."
+  option3: 
+  option4: 
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &-2124189519051201329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1560, y: 712}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2124189519051201329}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 8511261871183658675}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -2124189519051201329}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7312168892973282986}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Adrian
+  dialogue: "Mas sabe, desde que eu cheguei aqui, minhas esperan\xE7as aumentaram
+    bastante, as pessoas quem v\xEAm assistir ficam em espa\xE7os muito limitados,
+    na arquibancada, camarote e halls de entrada, e os competidores parecem t\xE3o
+    ocupados pensando em suas lutas que mal exploram o coliseu"
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-1896621356757439237
 MonoBehaviour:
@@ -623,7 +1002,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: -744}
+  position: {x: 1144, y: -1304}
   ports:
     keys:
     - entry
@@ -700,6 +1079,142 @@ MonoBehaviour:
   option3: "O que voc\xEA acha aqui do coliseu?"
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &-1650516550112704980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475ecc11ae4f609438615f9a8b52efa1, type: 3}
+  m_Name: Question
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1688, y: 56}
+  ports:
+    keys:
+    - entry
+    - exit
+    - exit2
+    - exit3
+    - exit4
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1650516550112704980}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -7308524660338835821}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1650516550112704980}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5430871215810779101}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: -1650516550112704980}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7304761005735990641}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit3
+      _node: {fileID: -1650516550112704980}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit4
+      _node: {fileID: -1650516550112704980}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  exit2: 0
+  exit3: 0
+  exit4: 0
+  speaker: Ramion
+  dialogue: "De onde voc\xEA veio?"
+  option2: "Voc\xEA veio aqui voluntariamente?"
+  option3: 
+  option4: 
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &-1633525833520278630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1800, y: 408}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1633525833520278630}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 6758675095638780486}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1633525833520278630}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7178146687303734448}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Adrian
+  dialogue: "Desse jeito eu vou passar tanto tempo preocupado em me manter inteiro
+    que eu n\xE3o vou achar a cura nunca."
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-1309519051396986820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,7 +1228,7 @@ MonoBehaviour:
   m_Name: Recruit
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1432, y: 344}
+  position: {x: 1416, y: 1144}
   ports:
     keys:
     - entry
@@ -762,7 +1277,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2120, y: -1208}
+  position: {x: 1816, y: -1768}
   ports:
     keys:
     - entry
@@ -811,7 +1326,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1864, y: -1528}
+  position: {x: 1560, y: -2088}
   ports:
     keys:
     - entry
@@ -860,7 +1375,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: -408}
+  position: {x: 1144, y: -968}
   ports:
     keys:
     - entry
@@ -908,7 +1423,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 536, y: 40}
+  position: {x: 536, y: 456}
   ports:
     keys:
     - entry
@@ -921,6 +1436,9 @@ MonoBehaviour:
       connections:
       - fieldName: exit
         node: {fileID: 9000025809919937815}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -7304761005735990641}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -941,9 +1459,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: "\xC9, todo mundo l\xE1 t\xE1 ficando doente, alguns j\xE1 morreram,
-    e n\xE3o vai demorar muito pra outros irem tamb\xE9m. Nenhum dos rem\xE9dios
-    comuns funciona"
+  dialogue: "Bem, na aldeia onde eu nasci come\xE7ou a se espalhar uma praga, nenhum
+    rem\xE9dio comum funciona, e quase sempre \xE9 fatal."
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -967,8 +1484,6 @@ MonoBehaviour:
   - {fileID: 7724636955792095663}
   - {fileID: -4899152400333912601}
   - {fileID: 6758675095638780486}
-  - {fileID: 2909700644097979647}
-  - {fileID: 7388239096957707609}
   - {fileID: 2938243030466282739}
   - {fileID: 277713061623935278}
   - {fileID: 8860213656628512745}
@@ -1000,6 +1515,20 @@ MonoBehaviour:
   - {fileID: -7815488637425873477}
   - {fileID: -4110386959006591665}
   - {fileID: 7964223708652719311}
+  - {fileID: 4324672756712598643}
+  - {fileID: -7304761005735990641}
+  - {fileID: -7308524660338835821}
+  - {fileID: -1650516550112704980}
+  - {fileID: -1633525833520278630}
+  - {fileID: 8511261871183658675}
+  - {fileID: -7312168892973282986}
+  - {fileID: -2124189519051201329}
+  - {fileID: -7178146687303734448}
+  - {fileID: 3074642981315913872}
+  - {fileID: 484661278757752162}
+  - {fileID: 2672777859317414773}
+  - {fileID: -2142194574124598787}
+  - {fileID: 4920889152433499095}
   current: {fileID: 3116512188577979438}
 --- !u!114 &277713061623935278
 MonoBehaviour:
@@ -1014,7 +1543,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2104, y: 344}
+  position: {x: 2088, y: 1144}
   ports:
     keys:
     - entry
@@ -1081,6 +1610,90 @@ MonoBehaviour:
   speaker: Adrian
   dialogue: Opa, Como posso te ajudar Ramion?
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
+--- !u!114 &484661278757752162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475ecc11ae4f609438615f9a8b52efa1, type: 3}
+  m_Name: Question
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2280, y: 712}
+  ports:
+    keys:
+    - entry
+    - exit
+    - exit2
+    - exit3
+    - exit4
+    values:
+    - _fieldName: entry
+      _node: {fileID: 484661278757752162}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 3074642981315913872}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 484661278757752162}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2672777859317414773}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: 484661278757752162}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit3
+      _node: {fileID: 484661278757752162}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit4
+      _node: {fileID: 484661278757752162}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  exit2: 0
+  exit3: 0
+  exit4: 0
+  speaker: Ramion
+  dialogue: "O que voc\xEA acha de nos aliarmos?"
+  option2: 
+  option3: 
+  option4: 
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &958849363748915577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,7 +1707,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1752, y: -744}
+  position: {x: 1448, y: -1304}
   ports:
     keys:
     - entry
@@ -1168,7 +1781,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -5430871215810779101}
+        node: {fileID: 4324672756712598643}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1193,7 +1806,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1864, y: -1208}
+  position: {x: 1560, y: -1768}
   ports:
     keys:
     - entry
@@ -1243,7 +1856,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1864, y: -1368}
+  position: {x: 1560, y: -1928}
   ports:
     keys:
     - entry
@@ -1293,7 +1906,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1752, y: -584}
+  position: {x: 1448, y: -1144}
   ports:
     keys:
     - entry
@@ -1330,7 +1943,7 @@ MonoBehaviour:
     tem uma liga\xE7\xE3o muito profunda com o pr\xF3prio pa\xEDs, quando n\xF3s
     sa\xEDmos de l\xE1 n\xF3s assumimos essa forma."
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
---- !u!114 &2909700644097979647
+--- !u!114 &2672777859317414773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1339,81 +1952,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 475ecc11ae4f609438615f9a8b52efa1, type: 3}
-  m_Name: Question
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 520, y: 344}
+  position: {x: 2584, y: 520}
   ports:
     keys:
     - entry
     - exit
-    - exit2
-    - exit3
-    - exit4
     values:
     - _fieldName: entry
-      _node: {fileID: 2909700644097979647}
+      _node: {fileID: 2672777859317414773}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 6758675095638780486}
+        node: {fileID: -7178146687303734448}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 484661278757752162}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
-      _node: {fileID: 2909700644097979647}
+      _node: {fileID: 2672777859317414773}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 7388239096957707609}
+        node: {fileID: 2938243030466282739}
         reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit2
-      _node: {fileID: 2909700644097979647}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit3
-      _node: {fileID: 2909700644097979647}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit4
-      _node: {fileID: 2909700644097979647}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
   exit: 0
-  exit2: 0
-  exit3: 0
-  exit4: 0
-  speaker: Ramion
-  dialogue: "Voc\xEA deveria se juntar ao meu time"
-  option2: 
-  option3: 
-  option4: 
-  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+  speaker: Adrian
+  dialogue: "Hm, acho que faz sentido. Eu ouvi dizer que existem times aqui no coliseu,
+    e cada time pode mandar at\xE9 3 pessoas de uma vez para uma batalha. Se n\xF3s
+    dois estivermos juntos nossas chances definitivamente v\xE3o melhorar"
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &2938243030466282739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,7 +2009,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1000, y: 344}
+  position: {x: 440, y: 1128}
   ports:
     keys:
     - entry
@@ -1439,7 +2021,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 7388239096957707609}
+        node: {fileID: 2672777859317414773}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1451,7 +2033,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 8860213656628512745}
+        node: {fileID: -2142194574124598787}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1460,7 +2042,55 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: E se encontrar alguma pista sobre a cura que eu procuro me da um toque.
+  dialogue: "Al\xE9m disso, eu vou poder ter mais tempo pra procurar a cura, e se
+    voc\xEA achar qualquer pista que seja, lembre de vir falar comigo.\nInclusive,
+    voc\xEA n\xE3o me disse seu nome"
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
+--- !u!114 &3074642981315913872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2040, y: 712}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 3074642981315913872}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 3074642981315913872}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 484661278757752162}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Adrian
+  dialogue: "Mas nada disso importa de fato agora, porqu\xEA eu to ocupado demais
+    pensando em como sobreviver \xE0 todas as lutas que eu vou precisar encarar."
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &3116512188577979438
 MonoBehaviour:
@@ -1475,7 +2105,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1752, y: -264}
+  position: {x: 2040, y: -776}
   ports:
     keys:
     - entry
@@ -1554,6 +2184,148 @@ MonoBehaviour:
   exit: 0
   exit2: 0
   id: 9010
+--- !u!114 &4324672756712598643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475ecc11ae4f609438615f9a8b52efa1, type: 3}
+  m_Name: Question
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 984, y: -248}
+  ports:
+    keys:
+    - entry
+    - exit
+    - exit2
+    - exit3
+    - exit4
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4324672756712598643}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 1026759557542914541}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 4324672756712598643}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5430871215810779101}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: 4324672756712598643}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7304761005735990641}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit3
+      _node: {fileID: 4324672756712598643}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7308524660338835821}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit4
+      _node: {fileID: 4324672756712598643}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  exit2: 0
+  exit3: 0
+  exit4: 0
+  speaker: Ramion
+  dialogue: "De onde voc\xEA veio?"
+  option2: "Voc\xEA veio aqui voluntariamente?"
+  option3: "Voc\xEA j\xE1 viu algu\xE9m como eu?"
+  option4: 
+  sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
+--- !u!114 &4920889152433499095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 952, y: 1112}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4920889152433499095}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2142194574124598787}
+        reroutePoints: []
+      - fieldName: exit2
+        node: {fileID: -2142194574124598787}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 4920889152433499095}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 8860213656628512745}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Adrian
+  dialogue: "\xC9 um prazer te conhecer Ramion, espero que a gente se torne bons
+    amigos. "
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &4964964436231912128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,7 +2339,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1144, y: -1016}
+  position: {x: 840, y: -1576}
   ports:
     keys:
     - entry
@@ -1666,7 +2438,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1992, y: -584}
+  position: {x: 1688, y: -1144}
   ports:
     keys:
     - entry
@@ -1775,7 +2547,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: 40}
+  position: {x: 1560, y: 408}
   ports:
     keys:
     - entry
@@ -1799,7 +2571,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 2909700644097979647}
+        node: {fileID: -1633525833520278630}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1808,9 +2580,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: "O \xFAnico problema \xE9 que eu n\xE3o tinha parado pra pensar nas lutas,
-    t\xF4 ocupado demais procurando um time\u2026 mas depois disso eu com certeza
-    vou achar a cura!"
+  dialogue: "E pra piorar aquele tal de gandios veio me avisar que pra poder ficar
+    aqui eu vou precisar come\xE7ar a participar de lutar imediatamente."
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &7103217503277480802
 MonoBehaviour:
@@ -1825,7 +2596,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1864, y: -888}
+  position: {x: 1560, y: -1448}
   ports:
     keys:
     - entry
@@ -1857,7 +2628,7 @@ MonoBehaviour:
   m_Name: Item Check
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 904, y: -856}
+  position: {x: 600, y: -1416}
   ports:
     keys:
     - entry
@@ -1904,55 +2675,6 @@ MonoBehaviour:
   exit: 0
   exit2: 0
   id: 6005
---- !u!114 &7388239096957707609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 760, y: 344}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 7388239096957707609}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 2909700644097979647}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 7388239096957707609}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 2938243030466282739}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  speaker: Adrian
-  dialogue: "Posso mesmo? Muito obrigado cara, eu tava morrendo de medo de me machucar
-    logo nas primeiras lutas e ter que ir embora antes mesmo de come\xE7ar a procurar"
-  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &7438147677626465636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,7 +2688,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1752, y: -424}
+  position: {x: 1448, y: -984}
   ports:
     keys:
     - entry
@@ -2016,7 +2738,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1000, y: 40}
+  position: {x: 1000, y: 456}
   ports:
     keys:
     - entry
@@ -2053,7 +2775,10 @@ MonoBehaviour:
       _node: {fileID: 7724636955792095663}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 8511261871183658675}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -2082,8 +2807,9 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: Ramion
-  dialogue: "Voc\xEA j\xE1 fez algum progresso em achar essa cura?"
-  option2: 
+  dialogue: "E como voc\xEA planeja encontrar essa cura?"
+  option2: "Voc\xEA n\xE3o acha que se essa lenda fosse verdade j\xE1 teriam achado
+    essa cura?"
   option3: 
   option4: 
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
@@ -2100,7 +2826,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1880, y: 344}
+  position: {x: 1864, y: 1144}
   ports:
     keys:
     - entry
@@ -2135,6 +2861,56 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 4859b3cd6f48cc64f8c498ae349056b8, type: 2}
   key: 0
   flag: 0
+--- !u!114 &8511261871183658675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1320, y: 712}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8511261871183658675}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit2
+        node: {fileID: 7724636955792095663}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 8511261871183658675}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -2124189519051201329}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Adrian
+  dialogue: "Realmente \xE9 um pensamento que faz sentido, mas era minha \xFAnica
+    op\xE7\xE3o, eu precisava acreditar nisso, pra mim \xE9 impens\xE1vel que eu
+    tenha que ficar olhando todos morrerem sem poder fazer nada."
+  sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &8547313835438002459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2148,7 +2924,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1592, y: -936}
+  position: {x: 1288, y: -1496}
   ports:
     keys:
     - entry
@@ -2196,7 +2972,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1224, y: 344}
+  position: {x: 1208, y: 1144}
   ports:
     keys:
     - entry
@@ -2208,7 +2984,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 2938243030466282739}
+        node: {fileID: 4920889152433499095}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -2244,7 +3020,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1224, y: -248}
+  position: {x: 1640, y: -520}
   ports:
     keys:
     - entry
@@ -2310,7 +3086,7 @@ MonoBehaviour:
   exit3: 0
   exit4: 0
   speaker: Ramion
-  dialogue: Salvar sua aldeia?
+  dialogue: "Porqu\xEA voc\xEA precisava vir pra c\xE1?"
   option2: 
   option3: 
   option4: 
@@ -2328,7 +3104,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2120, y: -1528}
+  position: {x: 1816, y: -2088}
   ports:
     keys:
     - entry
