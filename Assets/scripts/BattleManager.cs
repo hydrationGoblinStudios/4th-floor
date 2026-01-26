@@ -1174,7 +1174,6 @@ public class BattleManager : MonoBehaviour
         {
             List<int> slideList = new() { cl1.damage,cl2.damage,cl3.damage };
             slideList.Sort();
-            Debug.Log(sl.name);
             sl.maxValue = slideList[2];
         }
 
@@ -1280,7 +1279,6 @@ public class BattleManager : MonoBehaviour
     public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
     {
         //Pskill = 0;
-        Debug.Log(attacker.name + " hit " + Target.name);
         attacker.SkillManager.currentDamageBonus = 0;
         int tempPskill = attacker.SkillManager.currentDamageBonus;
         foreach (string skill in skillsInUse)

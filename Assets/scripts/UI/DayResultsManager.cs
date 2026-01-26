@@ -22,7 +22,6 @@ public class DayResultsManager : MonoBehaviour
         foreach (GameObject unit in gameManager.team)
         {
             UnitBehavior currentUnit = unit.GetComponent<UnitBehavior>();
-            Debug.Log(currentUnit.UnitName);
             if (inventoryManager.playableMugShots.Where(obj => obj.name == currentUnit.UnitName + " mugshot").SingleOrDefault() != null)
             {
             mugShots[c].sprite = inventoryManager.playableMugShots.Where(obj => obj.name == currentUnit.UnitName + " mugshot").SingleOrDefault();

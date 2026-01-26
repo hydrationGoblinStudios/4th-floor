@@ -120,7 +120,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     }
     public void SaveData(ref GameData data)
     {
-        Debug.Log("gamemanager data save"); 
         int count = 0;
         units = new List<UnitData>();
         foreach (GameObject unitInTeam in team)

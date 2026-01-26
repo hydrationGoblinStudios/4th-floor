@@ -18,15 +18,17 @@ public class SongManager : MonoBehaviour
     public void ChecksScene()
     {
         startVolume = m_audioSource.volume;
-
+        bool keepTime = false;
         m_scene = SceneManager.GetActiveScene();
         current = m_audioSource.clip;
         lowering = true;
+        float time = m_audioSource.time;
        switch (m_scene.name)
 {
 case "Preparation1A":
                 if (transform.parent.GetComponent<GameManager>().storyBattle == true)
                 {
+                    keepTime = true;
                     m_audioSource.clip = m_clip.Where(obj => obj.name == "floor1day").SingleOrDefault(); 
                 }
                 else 
@@ -52,6 +54,17 @@ default: break;
         {
             m_audioSource.Play();
             //StartCoroutine(ChangeSong(m_scene.name));
+        }
+        if (keepTime)
+        {
+            try
+            {
+            m_audioSource.time = time;
+            }
+            catch
+            {
+
+            }
         }
     }
 
