@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 0}
+  graph: {fileID: 11400000, guid: 944a421d8d469fe47974974393fe212d, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 420204867}
 --- !u!1 &438079080
@@ -4267,14 +4267,6 @@ PrefabInstance:
     - target: {fileID: 7327580715679068509, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_Color.a
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7426635101678204102, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7426635101678204102, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.48588753
       objectReference: {fileID: 0}
     - target: {fileID: 7665159885465578253, guid: c0b88e2cb6060d246a0d6dc946b25348, type: 3}
       propertyPath: m_AnchorMax.x

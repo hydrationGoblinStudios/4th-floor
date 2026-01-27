@@ -13,7 +13,7 @@ public class TextLogScroller : MonoBehaviour
     {
         if (Input.mouseScrollDelta.y > 0)
         {
-            background.transform.position = background.transform.position + new Vector3(0, 0.4f, 0);
+            background.transform.position = background.transform.position + new Vector3(-background.transform.position.x, 0.4f, 0);
             if (dialogueHistoryTarget.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<RectTransform>().rect.Overlaps(textBox.rect))
             {
                 Debug.Log("overlap");
@@ -26,7 +26,7 @@ public class TextLogScroller : MonoBehaviour
             if (dialogueHistoryTarget.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<RectTransform>().rect.Overlaps(textBox.rect))
             {
                 Debug.Log("overlap");
-                dialogueHistoryTarget.transform.position = background.transform.position + new Vector3(0, 0.4f, 0);
+                dialogueHistoryTarget.transform.position = new Vector3(0, background.transform.position.y - 0.4f, 0);
             }
         }
     }
