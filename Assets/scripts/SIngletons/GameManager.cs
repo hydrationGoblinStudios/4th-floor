@@ -678,7 +678,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             case "Abertura":
                 if (true)
                 {
-                    StartCoroutine(WaitToLoad(graphName: "Introdução"));
+                    StartCoroutine(WaitToLoad(graphName: "Introdução +"));
                 }
                 break;
         }
