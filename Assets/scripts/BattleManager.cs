@@ -614,9 +614,9 @@ public class BattleManager : MonoBehaviour
                 case "ClassID": x = ClassIDTarget(ub, unitList, ub.targetStat); break;
                 case "Weapon": x = WeaponIDTarget(ub, unitList, ub.targetStat); break;
                 case "mais longe": x = ReverseTargeting(ub, unitList); break;
-                case "primeira posição": x = FirstTargeting(ub, unitList); break;
-                case "segunda posição": x = SecondTargeting(ub, unitList); break;
-                case "terceira posição": x = TerceiroTargeting(ub, unitList); break;
+                case "primeira posiï¿½ï¿½o": x = FirstTargeting(ub, unitList); break;
+                case "segunda posiï¿½ï¿½o": x = SecondTargeting(ub, unitList); break;
+                case "terceira posiï¿½ï¿½o": x = TerceiroTargeting(ub, unitList); break;
             default:break;
             }
         if (x != 9999)
@@ -647,9 +647,9 @@ public class BattleManager : MonoBehaviour
             case "ClassID": return ClassIDTarget(ub, unitList, ub.targetStat2);
             case "Weapon": return WeaponIDTarget(ub, unitList, ub.targetStat2);
             case "mais longe": return ReverseTargeting(ub, unitList);
-            case "primeira posição": return FirstTargeting(ub, unitList);
-            case "segunda posição": return SecondTargeting(ub, unitList);
-            case "terceira posição": return TerceiroTargeting(ub, unitList);
+            case "primeira posiï¿½ï¿½o": return FirstTargeting(ub, unitList);
+            case "segunda posiï¿½ï¿½o": return SecondTargeting(ub, unitList);
+            case "terceira posiï¿½ï¿½o": return TerceiroTargeting(ub, unitList);
             default: return StandardTargeting(ub, unitList);
         }
     }
@@ -1543,21 +1543,21 @@ public class BattleManager : MonoBehaviour
         tmp.gameObject.SetActive(false);
         Destroy(tmp.gameObject);
     }
-    IEnumerator DashToTarget(UnitBehavior attacker, Vector3 target, float tickRate = 0.04f)
+    IEnumerator DashToTarget(UnitBehavior attacker, Vector3 target, float speedMult = 1f)
     {
         int c = 0;
         float dashSpeed = 30 + (2 * attacker.speed);
         while (c <= 13)
         {
             attacker.animator.transform.position = Vector3.Lerp(attacker.animator.transform.position, target, dashSpeed * Time.deltaTime);
-            yield return new WaitForSeconds(tickRate);
+            yield return null;
             c++;
         }
         attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
-        if (tickRate == 0.01f)
+        /*if (speedMult >= 10f)
         {
             attacker.animator.transform.position = target;
-        }
+        }*/
     }
     public void hoverStatUpdate(int character)
     {
