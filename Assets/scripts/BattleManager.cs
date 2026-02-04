@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEditor;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.TextCore.Text;
 public class BattleManager : MonoBehaviour
 {
     public AudioSource[] hitAudio;
@@ -1118,7 +1119,7 @@ public class BattleManager : MonoBehaviour
         RealCharacter4.currentExp += exp4;
             if (RealCharacter4.currentExp >= 100)
             {
-                LevelUp(RealCharacter4);
+                StartCoroutine(LevelUp(RealCharacter4));
             }
         }
         RealCharacter1.currentExp += exp1;
@@ -1127,7 +1128,9 @@ public class BattleManager : MonoBehaviour
         if (RealCharacter3 != null)
         {
             RealCharacter3.currentExp += exp3;
-            if (RealCharacter3.currentExp >= 100) { LevelUp(RealCharacter3); StatsBreakdown(DisplayCharacter3.position, DisplayCharacter3Real);
+            if (RealCharacter3.currentExp >= 100) {
+                StartCoroutine(LevelUp(RealCharacter3));
+                StatsBreakdown(DisplayCharacter3.position, DisplayCharacter3Real);
             }
         }
         if (gameManager.team.Count > 2)
@@ -1138,7 +1141,9 @@ public class BattleManager : MonoBehaviour
 
         if (RealCharacter2 != null) {
             RealCharacter2.currentExp += exp2;
-            if (RealCharacter2.currentExp >= 100) { LevelUp(RealCharacter2); StatsBreakdown(DisplayCharacter2.position, DisplayCharacter2Real);
+            if (RealCharacter2.currentExp >= 100) {
+                StartCoroutine(LevelUp(RealCharacter2));
+                StatsBreakdown(DisplayCharacter2.position, DisplayCharacter2Real);
             }
         }
         if (gameManager.team.Count > 1)
@@ -1147,8 +1152,8 @@ public class BattleManager : MonoBehaviour
         }
 
         if (RealCharacter1.currentExp >= 100) 
-        { 
-            LevelUp(RealCharacter1);
+        {
+            StartCoroutine(LevelUp(RealCharacter1));
             StatsBreakdown(DisplayCharacter1.position, DisplayCharacter1Real);
         }
         yield return new WaitForSeconds(4);
@@ -1217,7 +1222,7 @@ public class BattleManager : MonoBehaviour
         gameManager.PrepScreen();
     }
     //randomiza growths
-    public void LevelUp(UnitBehavior character)
+    IEnumerator LevelUp(UnitBehavior character)
     {
         character.currentLevel += 1;
         character.currentExp -= 100;
@@ -1254,18 +1259,21 @@ public class BattleManager : MonoBehaviour
             {
                 switch (i)
                 {
-                    case 0: character.maxhp +=5; break;
-                    case 1: character.str++; break;
-                    case 2: character.mag++; break;
-                    case 3: character.dex++; break;
-                    case 4: character.def++; break;
-                    case 5: character.mdef++; break;
-                    case 6: character.speed++; break;
-                    case 7: character.luck++; break;
+                    case 0: character.maxhp +=5; StatGainJingle(character.UnitName, 0);  break;
+                    case 1: character.str++; StatGainJingle(character.UnitName, 1);  break;
+                    case 2: character.mag++; StatGainJingle(character.UnitName, 2);  break;
+                    case 3: character.dex++; StatGainJingle(character.UnitName, 3); break;
+                    case 4: character.def++; StatGainJingle(character.UnitName, 4);  break;
+                    case 5: character.mdef++; StatGainJingle(character.UnitName, 5);  break;
+                    case 6: character.speed++; StatGainJingle(character.UnitName, 6);  break;
+                    case 7: character.luck++; StatGainJingle(character.UnitName, 7);  break;
                 }
             }
+            yield return new WaitForSeconds(0.2f);
             //Debug.Log("roll = " + r + "\n growth = " + character.growths[i]);
-        };
+        }
+        ;
+        yield return new WaitForSeconds(0);
     }
     public void AttackSetup(UnitBehavior Attacker, UnitBehavior Target)
     {
@@ -1726,6 +1734,21 @@ public class BattleManager : MonoBehaviour
     }
 }
 
+    private void StatGainJingle(string unitName, int stat)
+    {
+        try
+        {
+        int position = playerTeam.Where(obj => obj.UnitName == unitName).SingleOrDefault().position;
+            List<List<TextMeshProUGUI>> currentUnit = new List<List<TextMeshProUGUI>> { levelUpUnitStatsP1, levelUpUnitStatsP2, levelUpUnitStatsP3 };
+            currentUnit[position - 1][stat].color = Color.blue;
+            hitAudio[1].Play();
+        }
+        catch
+        {
+            Debug.Log("slot 4 levelup");
+        }
+
+    }
     public Sprite ClassIconPicker(int classID)
     {
         InventoryManager inventoryManager = FindAnyObjectByType<InventoryManager>(FindObjectsInactive.Include);

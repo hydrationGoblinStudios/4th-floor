@@ -940,7 +940,7 @@ MonoBehaviour:
   - {fileID: 1985880887849088885}
   - {fileID: 4447585663845586562}
   - {fileID: 8590447376906520906}
-  current: {fileID: 6479440310947059776}
+  current: {fileID: 1603336506014674691}
 --- !u!114 &1145665356397894668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1240, y: -8}
+  position: {x: 1240, y: -72}
   ports:
     keys:
     - entry
@@ -1073,7 +1073,10 @@ MonoBehaviour:
       _node: {fileID: 1603336506014674691}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 5577978347463542236}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -1535,6 +1538,9 @@ MonoBehaviour:
         reroutePoints: []
       - fieldName: exit
         node: {fileID: -7718765280336588761}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 1603336506014674691}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
