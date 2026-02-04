@@ -913,7 +913,7 @@ public class BattleManager : MonoBehaviour
             Target.animator.SetTrigger("UnitDodge");
         }
         yield return new WaitForSeconds(1.2f);
-        StartCoroutine(DashToTarget(attacker, attacker.startingPosition, 0.01f));
+        StartCoroutine(DashToTarget(attacker, attacker.startingPosition, 0.05f));
         //tempo em frames para o proximo turno ate 25 turnos
         Dictionary<string, float> repeatTurns = new();
         for (int i = 1; i < 26; i++)
@@ -1326,8 +1326,6 @@ public class BattleManager : MonoBehaviour
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
 
-            ParticleHit(Target);
-            hitAudio[1].Play();
             if (attackerDamage + attacker.SkillManager.currentDamageBonus <= 0)
             {
                 damageDone = 2;
@@ -1335,12 +1333,18 @@ public class BattleManager : MonoBehaviour
             CheckDamage(attacker, Target, damageDone);
 
             Target.hp -= damageDone;
+
+            // TODO: Mudar a autoridade do timing desses efeitos para a animacao.
+            ParticleHit(Target);
+            hitAudio[1].Play();
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
+
             HudUpdate();
+
             if (attacker.lifesteal >= 0.01)
             {
                 attacker.hp += damageDone * attacker.lifesteal;
-                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true));
+                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true)); // TODO: timing animacao
             }
             Target.soul += damageDone / 5;
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
@@ -1365,18 +1369,19 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            ParticleHit(Target);
-            hitAudio[0].Play();
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus);
             CheckDamage(attacker, Target, damageDone);
             Target.hp -= damageDone;
-            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
+            // TODO: Mudar a autoridade do timing desses efeitos para a animacao.
+            ParticleHit(Target);
+            hitAudio[0].Play();
+            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
             if (attacker.lifesteal >= 0.01)
             {
                 attacker.hp += (damageDone) * attacker.lifesteal;
-                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true));
+                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true)); // TODO: timing animacao
             }
             Target.soul += ((damageDone) / 5) * Target.damageSoulGain;
             Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + (damageDone) + " de dano\n"
@@ -1417,13 +1422,13 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (Random.Range(0, 101) <= Pcrit)
         {
-            ParticleHit(Target);
-            hitAudio[1].Play();
             int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2 * DamageMultiplier);
 
             Target.hp -= damageDone;
             CheckDamage(attacker, Target, damageDone);
 
+            ParticleHit(Target);
+            hitAudio[1].Play();
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + damageDone + " de dano\n"
@@ -1551,16 +1556,20 @@ public class BattleManager : MonoBehaviour
         tmp.gameObject.SetActive(false);
         Destroy(tmp.gameObject);
     }
-    IEnumerator DashToTarget(UnitBehavior attacker, Vector3 target, float speedMult = 1f)
+    IEnumerator DashToTarget(UnitBehavior attacker, Vector3 target, float duration = 0.22f)
     {
-        int c = 0;
-        float dashSpeed = 30 + (2 * attacker.speed);
-        while (c <= 13)
+        float t = 0;
+
+        if(duration <= 0){ 
+            duration = 0.01f; }
+
+        while (t < duration)
         {
-            attacker.animator.transform.position = Vector3.Lerp(attacker.animator.transform.position, target, dashSpeed * Time.deltaTime);
-            yield return null;
-            c++;
+            attacker.animator.transform.position = Vector3.Lerp(attacker.animator.transform.position, target, Time.deltaTime/duration);
+            t += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
         }
+        attacker.animator.transform.position = target;
         attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
         /*if (speedMult >= 10f)
         {
@@ -1678,58 +1687,58 @@ public class BattleManager : MonoBehaviour
        {
             case 1: 
         
-        LUPObjects[0].SetActive(true);
-
-        levelUpUnitStatsP1[0].text = displayedUB.maxhp.ToString();
-        levelUpUnitStatsP1[1].text = displayedUB.str.ToString();
-        levelUpUnitStatsP1[2].text = displayedUB.mag.ToString();    
-        levelUpUnitStatsP1[3].text = displayedUB.dex.ToString();
-        levelUpUnitStatsP1[4].text = displayedUB.speed.ToString();
-        levelUpUnitStatsP1[5].text = displayedUB.def.ToString();
-        levelUpUnitStatsP1[6].text = displayedUB.mdef.ToString();
-        levelUpUnitStatsP1[7].text = displayedUB.luck.ToString();
-        LevelUpNameTextP1.text = displayedUB.UnitName;
-        levelTextP1.text = $"lvl: {displayedUB.currentLevel.ToString()}";
-        unitLUPAnimatorP1.runtimeAnimatorController = animators[0].runtimeAnimatorController;
-        expSliderP1.value = displayedUB.currentExp;
+                LUPObjects[0].SetActive(true);
+        
+                levelUpUnitStatsP1[0].text = displayedUB.maxhp.ToString();
+                levelUpUnitStatsP1[1].text = displayedUB.str.ToString();
+                levelUpUnitStatsP1[2].text = displayedUB.mag.ToString();    
+                levelUpUnitStatsP1[3].text = displayedUB.dex.ToString();
+                levelUpUnitStatsP1[4].text = displayedUB.speed.ToString();
+                levelUpUnitStatsP1[5].text = displayedUB.def.ToString();
+                levelUpUnitStatsP1[6].text = displayedUB.mdef.ToString();
+                levelUpUnitStatsP1[7].text = displayedUB.luck.ToString();
+                LevelUpNameTextP1.text = displayedUB.UnitName;
+                levelTextP1.text = $"lvl: {displayedUB.currentLevel.ToString()}";
+                unitLUPAnimatorP1.runtimeAnimatorController = animators[0].runtimeAnimatorController;
+                expSliderP1.value = displayedUB.currentExp;
                 break;
             case 2:
                 if (gameManager.team.Count >= 2)
-        {
-            LUPObjects[1].SetActive(true);
+                {
+                    LUPObjects[1].SetActive(true);
 
-            levelUpUnitStatsP2[0].text = displayedUB.maxhp.ToString();
-            levelUpUnitStatsP2[1].text = displayedUB.str.ToString();
-            levelUpUnitStatsP2[2].text = displayedUB.mag.ToString();
-            levelUpUnitStatsP2[3].text = displayedUB.dex.ToString();
-            levelUpUnitStatsP2[4].text = displayedUB.speed.ToString();
-            levelUpUnitStatsP2[5].text = displayedUB.def.ToString();
-            levelUpUnitStatsP2[6].text = displayedUB.mdef.ToString();
-            levelUpUnitStatsP2[7].text = displayedUB.luck.ToString();
-            LevelUpNameTextP2.text = displayedUB.UnitName;
-            levelTextP2.text = $"lvl: {displayedUB.currentLevel.ToString()}";
-            unitLUPAnimatorP2.runtimeAnimatorController = animators[1].runtimeAnimatorController;
-            expSliderP2.value = displayedUB.currentExp;
-        }
+                    levelUpUnitStatsP2[0].text = displayedUB.maxhp.ToString();
+                    levelUpUnitStatsP2[1].text = displayedUB.str.ToString();
+                    levelUpUnitStatsP2[2].text = displayedUB.mag.ToString();
+                    levelUpUnitStatsP2[3].text = displayedUB.dex.ToString();
+                    levelUpUnitStatsP2[4].text = displayedUB.speed.ToString();
+                    levelUpUnitStatsP2[5].text = displayedUB.def.ToString();
+                    levelUpUnitStatsP2[6].text = displayedUB.mdef.ToString();
+                    levelUpUnitStatsP2[7].text = displayedUB.luck.ToString();
+                    LevelUpNameTextP2.text = displayedUB.UnitName;
+                    levelTextP2.text = $"lvl: {displayedUB.currentLevel.ToString()}";
+                    unitLUPAnimatorP2.runtimeAnimatorController = animators[1].runtimeAnimatorController;
+                    expSliderP2.value = displayedUB.currentExp;
+                }
                 break;
             case 3:
                 if (gameManager.team.Count >= 3)
-        {
-            LUPObjects[2].SetActive(true);
+                {
+                    LUPObjects[2].SetActive(true);
 
-            levelUpUnitStatsP3[0].text = displayedUB.maxhp.ToString();
-            levelUpUnitStatsP3[1].text = displayedUB.str.ToString();
-            levelUpUnitStatsP3[2].text = displayedUB.mag.ToString();
-            levelUpUnitStatsP3[3].text = displayedUB.dex.ToString();
-            levelUpUnitStatsP3[4].text = displayedUB.speed.ToString();
-            levelUpUnitStatsP3[5].text = displayedUB.def.ToString();
-            levelUpUnitStatsP3[6].text = displayedUB.mdef.ToString();
-            levelUpUnitStatsP3[7].text = displayedUB.luck.ToString();
-            LevelUpNameTextP3.text = displayedUB.UnitName;
-            levelTextP3.text = $"lvl: {displayedUB.currentLevel.ToString()}";
-            unitLUPAnimatorP3.runtimeAnimatorController = animators[2].runtimeAnimatorController;
-            expSliderP3.value = displayedUB.currentExp;
-        }break;
+                    levelUpUnitStatsP3[0].text = displayedUB.maxhp.ToString();
+                    levelUpUnitStatsP3[1].text = displayedUB.str.ToString();
+                    levelUpUnitStatsP3[2].text = displayedUB.mag.ToString();
+                    levelUpUnitStatsP3[3].text = displayedUB.dex.ToString();
+                    levelUpUnitStatsP3[4].text = displayedUB.speed.ToString();
+                    levelUpUnitStatsP3[5].text = displayedUB.def.ToString();
+                    levelUpUnitStatsP3[6].text = displayedUB.mdef.ToString();
+                    levelUpUnitStatsP3[7].text = displayedUB.luck.ToString();
+                    LevelUpNameTextP3.text = displayedUB.UnitName;
+                    levelTextP3.text = $"lvl: {displayedUB.currentLevel.ToString()}";
+                    unitLUPAnimatorP3.runtimeAnimatorController = animators[2].runtimeAnimatorController;
+                    expSliderP3.value = displayedUB.currentExp;
+                }break;
         default:break;
     }
 }
