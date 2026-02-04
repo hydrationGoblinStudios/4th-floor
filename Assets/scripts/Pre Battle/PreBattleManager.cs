@@ -903,7 +903,13 @@ public class PreBattleManager : MonoBehaviour
                 SelectedPlayer3.GetComponent<UnitBehavior>().speed += 3;
                 energy--;
                 usedPrepSkills.Add("Camaradagem " + selectedUnit.UnitName);
+
                 energyText.text = energy.ToString();
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("CamaradagemBuffVFX"));
+                VFX.transform.SetParent(playerAnimations[1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+                
                 Select(selectedUnit);
             }
         }
