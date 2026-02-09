@@ -1269,7 +1269,7 @@ public class BattleManager : MonoBehaviour
                     case 7: character.luck++; StatGainJingle(character.UnitName, 7);  break;
                 }
             }
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.3f);
             //Debug.Log("roll = " + r + "\n growth = " + character.growths[i]);
         }
         ;
@@ -1749,14 +1749,13 @@ public class BattleManager : MonoBehaviour
         {
         int position = playerTeam.Where(obj => obj.UnitName == unitName).SingleOrDefault().position;
             List<List<TextMeshProUGUI>> currentUnit = new List<List<TextMeshProUGUI>> { levelUpUnitStatsP1, levelUpUnitStatsP2, levelUpUnitStatsP3 };
-            currentUnit[position - 1][stat].color = Color.blue;
+            currentUnit[position - 1][stat].color = Color.green;
             hitAudio[1].Play();
         }
         catch
         {
             Debug.Log("slot 4 levelup");
         }
-
     }
     public Sprite ClassIconPicker(int classID)
     {

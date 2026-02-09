@@ -194,6 +194,25 @@ public class NodeParser : MonoBehaviour
                 NextNode("exit2");
             }
         }
+        else if (dataParts[0] == "RandomNode")
+        {
+            if (dataParts[1] == "2")
+            {
+                NextNode("exit2");
+            }
+            else if (dataParts[1] == "3")
+            {
+                NextNode("exit3");
+            }
+            else if (dataParts[1] == "4")
+            {
+                NextNode("exit4");
+            }
+            else
+            {
+                NextNode("exit");
+            }
+        }
         else
         {
             NextNode("exit");
