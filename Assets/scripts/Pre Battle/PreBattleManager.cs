@@ -731,6 +731,12 @@ public class PreBattleManager : MonoBehaviour
             energy--;
             energyText.text = energy.ToString();
             usedPrepSkills.Add("AfiarArma "+ selectedUnit.UnitName);
+            
+            GameObject VFX = Instantiate(Resources.Load<GameObject>("AfiarArmaBuffVFX"));
+            VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+            VFX.transform.localPosition = Vector3.zero;
+            VFX.transform.localScale = Vector3.one;
+
             Select(selectedUnit);
         }
     }
@@ -742,6 +748,11 @@ public class PreBattleManager : MonoBehaviour
             energy--;
             energyText.text = energy.ToString();
             usedPrepSkills.Add("AfiarMente " + selectedUnit.UnitName);
+
+            GameObject VFX = Instantiate(Resources.Load<GameObject>("AfiarMenteBuffVFX"));
+            VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+            VFX.transform.localPosition = Vector3.zero;
+            VFX.transform.localScale = Vector3.one;
 
             Select(selectedUnit);
         }
@@ -783,6 +794,12 @@ public class PreBattleManager : MonoBehaviour
             energy--;
             usedPrepSkills.Add("ForcaDeVontadeAumentada " + selectedUnit.UnitName);
             energyText.text = energy.ToString();
+
+            GameObject VFX = Instantiate(Resources.Load<GameObject>("ForcaDeVontadeBuffVFX"));
+            VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+            VFX.transform.localPosition = Vector3.zero;
+            VFX.transform.localScale = Vector3.one;
+
             Select(selectedUnit);
         }
     }
@@ -821,6 +838,11 @@ public class PreBattleManager : MonoBehaviour
                 energy--;
                 energyText.text = energy.ToString();
                 usedPrepSkills.Add("ReforcarCritico " + selectedUnit.UnitName);
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("ReforcarCriticoBuffVFX"));
+                VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
 
                 Select(selectedUnit);
             }
