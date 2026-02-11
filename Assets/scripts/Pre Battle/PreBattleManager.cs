@@ -396,9 +396,9 @@ public class PreBattleManager : MonoBehaviour
             case 103:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { ReforcarArmadura(selectedUnit); });
-                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Refor�ar armadura";
-                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Refor�ar armadura";
-                if (usedPrepSkills.Contains("Refor�arArmadura " + selectedUnit.UnitName))
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar armadura";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Reforçar armadura";
+                if (usedPrepSkills.Contains("ReforçarArmadura " + selectedUnit.UnitName))
                 {
                     PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
                 }
@@ -406,11 +406,11 @@ public class PreBattleManager : MonoBehaviour
                 {
                     PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
                 }
-                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta Defesa F�sica de um aliado em 20% pelos primeiros 20 segundos da batalha.";
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta Defesa Física de um aliado em 20% pelos primeiros 20 segundos da batalha.";
                 PrepSkills[1].onClick.RemoveAllListeners();
                 PrepSkills[1].onClick.AddListener(delegate { ReforcarCritico(selectedUnit); });
-                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Refor�ar critico";
-                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Refor�ar critico";
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar critico";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Reforçar critico";
                 PrepSkills[1].GetComponent<InventoryHoverable>().description = "Aumenta o Critico de um aliado em 10.";
                 if (usedPrepSkills.Contains("ReforcarCritico " + selectedUnit.UnitName))
                 {
@@ -767,7 +767,11 @@ public class PreBattleManager : MonoBehaviour
             energy--;
             energyText.text = energy.ToString();
             usedPrepSkills.Add("MirarNaCabeca " + selectedUnit.UnitName);
-
+            
+            GameObject VFX = Instantiate(Resources.Load<GameObject>("MirarNaCabecaBuffVFX"));
+            VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+            VFX.transform.localPosition = Vector3.zero;
+            VFX.transform.localScale = Vector3.one;
 
             Select(selectedUnit);
         }
@@ -782,6 +786,12 @@ public class PreBattleManager : MonoBehaviour
             energy--;
             energyText.text = energy.ToString();
             usedPrepSkills.Add("ApontarAberturas " + selectedUnit.UnitName);
+
+            GameObject VFX = Instantiate(Resources.Load<GameObject>("ApontarAberturasBuffVFX"));
+            VFX.transform.SetParent(playerAnimations[1].transform);
+            VFX.transform.localPosition = Vector3.zero;
+            VFX.transform.localScale = Vector3.one;
+
             Select(selectedUnit);
         }
     }
