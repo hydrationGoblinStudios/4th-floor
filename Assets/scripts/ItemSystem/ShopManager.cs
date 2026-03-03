@@ -17,9 +17,9 @@ public class ShopManager : MonoBehaviour
     public GameObject buttonPrefab;
     public NodeParser nodeParser; 
     public Item[] stock;
+    public Item[] blackStock;
     public Sprite[] sprites;
     public DialogueGraph graph;
-    public bool blackMarketOpen = false;
     public TextMeshProUGUI money;
     public bool open = false;
 
@@ -36,7 +36,12 @@ public class ShopManager : MonoBehaviour
         nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
-        foreach (Item item in stock)
+        Item[] stockInUse = blackStock; 
+        if (Manager.TimeIsDay)
+        {
+            stockInUse = stock;
+        }
+        foreach (Item item in stockInUse)
         {
             GameObject button = Instantiate(buttonPrefab, panel.transform);
             button.GetComponent<Button>().onClick.AddListener(() => Buy(item));
@@ -86,7 +91,9 @@ public class ShopManager : MonoBehaviour
     }
     public void Buy(Item item)
     {
-        Debug.Log(Manager.money);
+        if (Manager.TimeIsDay)
+        {
+
         if(Manager.money >= item.price)
         {
             Manager.money -= item.price;
@@ -96,6 +103,20 @@ public class ShopManager : MonoBehaviour
         {
             Toggle();
             nodeParser.StartDialogue(graph);
+        }
+        }
+        else
+        {
+            if (Manager.lumenita >= item.price)
+            {
+                Manager.lumenita -= item.price;
+                Manager.Inventory.Add(item);
+            }
+            else
+            {
+                Toggle();
+                nodeParser.StartDialogue(graph);
+            }
         }
         GameObject[] moneys =  GameObject.FindGameObjectsWithTag("money");
         foreach (GameObject money in moneys)
@@ -133,8 +154,7 @@ public class ShopManager : MonoBehaviour
                     }
                 }
             }
-        if (Manager.TimeIsDay || blackMarketOpen)
-        {
+
             gameObject.SetActive(!gameObject.activeInHierarchy);
             if (calendario == null)
             {
@@ -144,8 +164,6 @@ public class ShopManager : MonoBehaviour
             {
                 calendario.SetActive(!calendario.activeInHierarchy);
             }
-            blackMarketOpen = false;
-        }
     }
     public void UpdateSprites(Item item)
     {

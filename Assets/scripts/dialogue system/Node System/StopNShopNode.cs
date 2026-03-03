@@ -29,7 +29,6 @@ public class StopNShopNode : BaseNode
             shopManager.Toggle();
             shopManager.open = true;
             spriteRenderer = go.GetComponent<SpriteRenderer>();
-            shopManager.blackMarketOpen = true;
         spriteRenderer.sprite = null;
         }
         return "Stop";

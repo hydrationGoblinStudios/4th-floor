@@ -175,7 +175,6 @@ public class NodeParser : MonoBehaviour
                     buttonPress = -1;
                     questionData = "question/";
                     questionData += speaker.text + "/";
-                    Debug.Log(questionData);
                     questionData += dialogue.text;
                     dialogueHistory.Add(questionData);
                     NextNode("exit");
