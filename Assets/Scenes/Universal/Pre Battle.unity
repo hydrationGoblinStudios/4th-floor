@@ -13820,7 +13820,7 @@ MonoBehaviour:
   matRaces:
   - {fileID: 2100000, guid: 477fe80d8a581a740bfc0cdd3002f1ab, type: 2}
   matClothes:
-  - {fileID: 2100000, guid: a04365fb5ab575343a4676efe4eff962, type: 2}
+  - {fileID: 2100000, guid: e2eb693bdd11ef24abda2494e7dd0bd4, type: 2}
   gameManager: {fileID: 0}
   inventoryManager: {fileID: 0}
   animator: {fileID: 0}
