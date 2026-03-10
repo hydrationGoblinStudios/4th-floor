@@ -13818,9 +13818,9 @@ MonoBehaviour:
   - {fileID: 85324826}
   - {fileID: 972198689}
   matRaces:
-  - {fileID: 2100000, guid: 21e1bfe93c2643b449ab4fb16e32d7af, type: 2}
-  - {fileID: 2100000, guid: aa645706c8a313041896d1ac743b507e, type: 2}
-  - {fileID: 2100000, guid: 8802109ed6c1fcf4eab4efd9bc487ed5, type: 2}
+  - {fileID: 2100000, guid: 477fe80d8a581a740bfc0cdd3002f1ab, type: 2}
+  matClothes:
+  - {fileID: 2100000, guid: a04365fb5ab575343a4676efe4eff962, type: 2}
   gameManager: {fileID: 0}
   inventoryManager: {fileID: 0}
   animator: {fileID: 0}

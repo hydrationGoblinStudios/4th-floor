@@ -16,6 +16,7 @@ public class PreBattleManager : MonoBehaviour
     public Animator[] playerAnimations;
     public Animator[] enemyAnimations;
     public Material[] matRaces;
+    public Material[] matClothes;
 
 
     public GameManager gameManager;
@@ -229,17 +230,20 @@ public class PreBattleManager : MonoBehaviour
 
         
 
-
-
         //race randomizer
         Random.InitState(SelectedEnemy1.GetComponent<UnitBehavior>().UnitName.GetHashCode());
-        enemyAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+        enemyAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
 
         Random.InitState(SelectedEnemy2.GetComponent<UnitBehavior>().UnitName.GetHashCode());
-        enemyAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+        enemyAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
 
         Random.InitState(SelectedEnemy3.GetComponent<UnitBehavior>().UnitName.GetHashCode());
-        enemyAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+        enemyAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
+
+
+        enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
+        enemyAnimations[1].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
+        enemyAnimations[2].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
 
         SelectedPlayerList.Add(SelectedPlayer1);
         SelectedPlayerList.Add(SelectedPlayer2);
@@ -1023,22 +1027,23 @@ public class PreBattleManager : MonoBehaviour
     }
    public void ShaderSelect()
     {
-        foreach (GameObject sp in SelectedPlayerList)
+        Debug.Log("yo lembra de implementar shaders pras player units depois");
+        /*foreach (GameObject sp in SelectedPlayerList)
         {
             if (sp.GetComponent<UnitBehavior>().UnitName == "Adrian")
             {
                 Debug.Log("adrian detectado");
                 if (sp == SelectedPlayer1)
                 {
-                    playerAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[2];
+                    playerAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[0];
                 }
                 else if (sp == SelectedPlayer2)
                 {
-                    playerAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[2];
+                    playerAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[0];
                 }
                 else
                 {
-                    playerAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[2];
+                    playerAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[0];
 
                 }
             }
@@ -1076,7 +1081,7 @@ public class PreBattleManager : MonoBehaviour
 
                 }
             }
-        }
+        }*/
 
     }
     public void UnitSelect(int i,GameObject SelectedPlayer = null)

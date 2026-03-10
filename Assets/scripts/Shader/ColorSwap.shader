@@ -172,7 +172,5 @@ Shader "Custom/ExactColorSwap"
             }
             ENDCG
         }
- 
- 
     }
 }
