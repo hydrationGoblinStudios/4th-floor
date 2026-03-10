@@ -468,7 +468,7 @@ public class PreBattleManager : MonoBehaviour
                 {
                     PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
                 }
-                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta a Velocidade, Acerto e Evas�o da equipe inteira em 15% pelos primeiros 10 Segundos do Combate.";
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta a Velocidade, Acerto e Evasão da equipe inteira em 15% pelos primeiros 10 Segundos do Combate.";
                 PrepSkills[1].onClick.RemoveAllListeners();
                 PrepSkills[1].onClick.AddListener(delegate { EncantamentoMalevolente(selectedUnit); });
                 PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Encantamento malevolente";
@@ -481,7 +481,7 @@ public class PreBattleManager : MonoBehaviour
                     PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
                 }
                 PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Encantamento malevolente";
-                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Diminui a Velocidade, Acerto e Evas�o da equipe inimiga inteira em 10% pelos primeiros 20 Segundos do Combate.";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Diminui a Velocidade, Acerto e Evasão da equipe inimiga inteira em 10% pelos primeiros 20 Segundos do Combate.";
                 PrepSkills[2].onClick.RemoveAllListeners();
                 return;
             case 106:
@@ -825,6 +825,12 @@ public class PreBattleManager : MonoBehaviour
             energy--;
             usedPrepSkills.Add("GolpeSujo " + selectedUnit.UnitName);
             energyText.text = energy.ToString();
+
+            GameObject VFX = Instantiate(Resources.Load<GameObject>("GolpeSujoPrepareVFX"));
+            VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+            VFX.transform.localPosition = Vector3.zero;
+            VFX.transform.localScale = Vector3.one;
+
             Select(selectedUnit);
         }
     }
@@ -838,6 +844,11 @@ public class PreBattleManager : MonoBehaviour
                 energy--;
                 energyText.text = energy.ToString();
                 usedPrepSkills.Add("ReforcarArmadura " + selectedUnit.UnitName);
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("DefesaPrepareVFX"));
+                VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
 
                 Select(selectedUnit);
             }
@@ -872,6 +883,12 @@ public class PreBattleManager : MonoBehaviour
                 energy--;
                 energyText.text = energy.ToString();
                 usedPrepSkills.Add("ReforcarMagia " + selectedUnit.UnitName);
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("ReforcarMagiaBuffVFX"));
+                VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
                 Select(selectedUnit);
             }
         }
@@ -885,6 +902,12 @@ public class PreBattleManager : MonoBehaviour
                 energy--;
                 usedPrepSkills.Add("CarregarAlma " + selectedUnit.UnitName);
                 energyText.text = energy.ToString();
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("CarregarAlmaPrepareVFX"));
+                VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
                 Select(selectedUnit);
             }
         }
@@ -901,6 +924,12 @@ public class PreBattleManager : MonoBehaviour
                 energy--;
                 usedPrepSkills.Add("EncantamentoBenevolente " + selectedUnit.UnitName);
                 energyText.text = energy.ToString();
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("EncBenevolentePrepareVFX"));
+                VFX.transform.SetParent(playerAnimations[1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
                 Select(selectedUnit);
             }
         }
@@ -916,6 +945,12 @@ public class PreBattleManager : MonoBehaviour
                 energy--;
                 usedPrepSkills.Add("EncantamentoMalevolente " + selectedUnit.UnitName);
                 energyText.text = energy.ToString();
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("EncMalevolentePrepareVFX"));
+                VFX.transform.SetParent(enemyAnimations[1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
                 Select(selectedUnit);
             }
         }
@@ -939,8 +974,8 @@ public class PreBattleManager : MonoBehaviour
                 SelectedPlayer3.GetComponent<UnitBehavior>().speed += 3;
                 energy--;
                 usedPrepSkills.Add("Camaradagem " + selectedUnit.UnitName);
-
                 energyText.text = energy.ToString();
+
                 GameObject VFX = Instantiate(Resources.Load<GameObject>("CamaradagemBuffVFX"));
                 VFX.transform.SetParent(playerAnimations[1].transform);
                 VFX.transform.localPosition = Vector3.zero;
