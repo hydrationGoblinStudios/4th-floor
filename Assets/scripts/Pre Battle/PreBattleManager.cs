@@ -994,6 +994,12 @@ public class PreBattleManager : MonoBehaviour
                 selectedUnit.expmarkplier += (float)0.25;
                 energy--;
                 usedPrepSkills.Add("AprenderComOInimigo " + selectedUnit.UnitName);
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("AprenderComOInimigoBuffVFX"));
+                VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+                
                 energyText.text = energy.ToString();
                 Select(selectedUnit);
             }
@@ -1006,6 +1012,12 @@ public class PreBattleManager : MonoBehaviour
             selectedUnit.def += (int)(selectedUnit.def * 0.15);
             energy--;
             energyText.text = energy.ToString();
+
+            GameObject VFX = Instantiate(Resources.Load<GameObject>("AfiarEscudoBuffVFX"));
+            VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+            VFX.transform.localPosition = Vector3.zero;
+            VFX.transform.localScale = Vector3.one;
+
             Select(selectedUnit);
         }
     }
@@ -1016,6 +1028,12 @@ public class PreBattleManager : MonoBehaviour
             selectedUnit.mag += (int)(selectedUnit.mag * 0.15);
             energy--;
             energyText.text = energy.ToString();
+
+            GameObject VFX = Instantiate(Resources.Load<GameObject>("AfiarEspertoBuffVFX"));
+            VFX.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
+            VFX.transform.localPosition = Vector3.zero;
+            VFX.transform.localScale = Vector3.one;
+
             Select(selectedUnit);
         }
     } 
