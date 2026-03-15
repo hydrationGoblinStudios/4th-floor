@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6037484541879776926}
   - component: {fileID: 2643263610751278759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SwordHitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 8808451151683794430}
   - component: {fileID: 3579172983019155188}
   - component: {fileID: 8619324390632384277}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4948,7 +4948,7 @@ GameObject:
   - component: {fileID: 5500524811381853159}
   - component: {fileID: 5785355112243977225}
   - component: {fileID: 7974857989260505431}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Splatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

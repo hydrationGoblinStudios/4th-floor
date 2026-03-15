@@ -1785,8 +1785,10 @@ public class BattleManager : MonoBehaviour
 
     private void ParticleHit(UnitBehavior targetUB)
     {
+        /*
         Debug.Log(targetUB.gameObject.name);
         HitEffect effect = Instantiate(hitEffectPrefab);
         effect.transform.position = targetUB.animator.transform.position;
+        */
     }       
 }
