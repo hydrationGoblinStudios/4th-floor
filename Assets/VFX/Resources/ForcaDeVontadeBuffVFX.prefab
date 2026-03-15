@@ -77,7 +77,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7675638779085904460
 Transform:
   m_ObjectHideFlags: 0
@@ -157,12 +157,12 @@ GameObject:
   - component: {fileID: 177672099506550937}
   - component: {fileID: 7387175680116442412}
   m_Layer: 0
-  m_Name: Crit Particles
+  m_Name: Alma Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3252037134367335111
 Transform:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0, g: 1, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4980,7 +4980,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36c73c0430cf4d949a0be3453934ac4f, type: 2}
+  - {fileID: 2100000, guid: 5ae53055d2c2a0a46916a6541c04af9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

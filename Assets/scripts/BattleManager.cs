@@ -75,13 +75,9 @@ public class BattleManager : MonoBehaviour
     public List<float> PlayerBars;
     public List<float> EnemyBars;
     public GameObject speedList;
+
     [Header("ParticleSystem")]
-    public ParticleSystem damageParticlesPlayer1;
-    public ParticleSystem damageParticlesPlayer2;
-    public ParticleSystem damageParticlesPlayer3;
-    public ParticleSystem damageParticlesEnemy1;
-    public ParticleSystem damageParticlesEnemy2;
-    public ParticleSystem damageParticlesEnemy3;
+    public HitEffect hitEffectPrefab;
 
     [Header("LevelUp")]
 
@@ -1789,15 +1785,10 @@ public class BattleManager : MonoBehaviour
 
     private void ParticleHit(UnitBehavior targetUB)
     {
-
-        ParticleSystem currentparticle = damageParticlesPlayer1;
-
-        if (targetUB.position == 1 && targetUB.enemy == false) { currentparticle = damageParticlesPlayer1; };
-        if (targetUB.position == 2 && targetUB.enemy == false) { currentparticle = damageParticlesPlayer2; };
-        if (targetUB.position == 3 && targetUB.enemy == false) { currentparticle = damageParticlesPlayer3; };
-        if (targetUB.position == 1 && targetUB.enemy == true) { currentparticle = damageParticlesEnemy1; };
-        if (targetUB.position == 2 && targetUB.enemy == true) { currentparticle = damageParticlesEnemy2; };
-        if (targetUB.position == 3 && targetUB.enemy == true) { currentparticle = damageParticlesEnemy3; };
-        currentparticle.Emit(10);
+        /*
+        Debug.Log(targetUB.gameObject.name);
+        HitEffect effect = Instantiate(hitEffectPrefab);
+        effect.transform.position = targetUB.animator.transform.position;
+        */
     }       
 }
