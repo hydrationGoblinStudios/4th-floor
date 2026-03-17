@@ -232,13 +232,13 @@ public class PreBattleManager : MonoBehaviour
 
         //race randomizer
         Random.InitState(SelectedEnemy1.GetComponent<UnitBehavior>().UnitName.GetHashCode());
-        enemyAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
+        enemyAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(matRaces.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
 
         Random.InitState(SelectedEnemy2.GetComponent<UnitBehavior>().UnitName.GetHashCode());
-        enemyAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
+        enemyAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(matRaces.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
 
         Random.InitState(SelectedEnemy3.GetComponent<UnitBehavior>().UnitName.GetHashCode());
-        enemyAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
+        enemyAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(matRaces.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
 
 
         enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);

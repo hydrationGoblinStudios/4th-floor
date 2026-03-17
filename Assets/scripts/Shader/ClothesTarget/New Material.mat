@@ -64,7 +64,7 @@ Material:
     - _TargetColorCLOTHES1: {r: 0, g: 1, b: 0.32941177, a: 1}
     - _TargetColorCLOTHES2: {r: 0.015686275, g: 0.72156864, b: 0.24705884, a: 1}
     - _TargetColorCLOTHES3: {r: 0.019607844, g: 0.39607847, b: 0.14117648, a: 1}
-    - _TargetColorCLOTHES4: {r: 0, g: 0.20754719, b: 0.06702046, a: 1}
+    - _TargetColorCLOTHES4: {r: 0.14509805, g: 0.17254902, b: 0.09411766, a: 1}
     - _TargetColorHAIR1: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorHAIR2: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorHAIR3: {r: 1, g: 1, b: 1, a: 1}

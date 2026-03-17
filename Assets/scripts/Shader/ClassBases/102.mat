@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 101
+  m_Name: 102
   m_Shader: {fileID: 4800000, guid: 3946f7ec230e8fa4086e59f5cec02722, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -47,10 +47,10 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColor: {r: 0.43529415, g: 0.36078432, b: 0.6313726, a: 1}
-    - _OriginalColorCLOTHES1: {r: 0.38823533, g: 0.41960788, b: 0.24313727, a: 1}
-    - _OriginalColorCLOTHES2: {r: 0.29803923, g: 0.3372549, b: 0.18039216, a: 1}
-    - _OriginalColorCLOTHES3: {r: 0.14509805, g: 0.17254902, b: 0.09411766, a: 1}
-    - _OriginalColorCLOTHES4: {r: 0.18431373, g: 0.19607845, b: 0.18431373, a: 1}
+    - _OriginalColorCLOTHES1: {r: 0.9176471, g: 0, b: 0.13333334, a: 1}
+    - _OriginalColorCLOTHES2: {r: 0.77647066, g: 0, b: 0.09019608, a: 1}
+    - _OriginalColorCLOTHES3: {r: 0.5882353, g: 0, b: 0.04705883, a: 1}
+    - _OriginalColorCLOTHES4: {r: 0.37647063, g: 0, b: 0.011764707, a: 1}
     - _OriginalColorHAIR1: {r: 0.9686275, g: 0.62352943, b: 0.06666667, a: 1}
     - _OriginalColorHAIR2: {r: 0.97647065, g: 0.72156864, b: 0.2392157, a: 1}
     - _OriginalColorHAIR3: {r: 0.9686275, g: 0.62352943, b: 0.06666667, a: 1}
@@ -65,8 +65,8 @@ Material:
     - _TargetColor: {r: 0.25786912, g: 1, b: 0, a: 1}
     - _TargetColorCLOTHES1: {r: 0.48627454, g: 0.52156866, b: 0.48627454, a: 1}
     - _TargetColorCLOTHES2: {r: 0.37254903, g: 0.38823533, b: 0.37254903, a: 1}
-    - _TargetColorCLOTHES3: {r: 0.36862746, g: 0.3647059, b: 0.34901962, a: 1}
-    - _TargetColorCLOTHES4: {r: 0.18431373, g: 0.19607845, b: 0.18431373, a: 1}
+    - _TargetColorCLOTHES3: {r: 0.2627451, g: 0.25882354, b: 0.24705884, a: 1}
+    - _TargetColorCLOTHES4: {r: 0.17254902, g: 0.17254902, b: 0.16470589, a: 1}
     - _TargetColorHAIR1: {r: 0.9686275, g: 0.62352943, b: 0.06666667, a: 1}
     - _TargetColorHAIR2: {r: 0.97647065, g: 0.72156864, b: 0.2392157, a: 1}
     - _TargetColorHAIR3: {r: 0.9686275, g: 0.62352943, b: 0.06666667, a: 1}
