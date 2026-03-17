@@ -222,10 +222,16 @@ public class PreBattleManager : MonoBehaviour
                     }
                 }
             }
-
+            try
+            {
             enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
             enemyAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
             enemyAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+            }
+            catch
+            {
+                Debug.Log("classID não encontrado");
+            }
         }
 
         
