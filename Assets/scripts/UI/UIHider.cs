@@ -26,11 +26,11 @@ public class UIHIder : MonoBehaviour
         }
         if (screenManager != null && !screenManager.displayInventory)
         {
-            transform.position = new Vector3(1000, transform.position.y, transform.position.z);
+            transform.localPosition = new Vector3(1000, transform.localPosition.y, transform.localPosition.z);
         }
         else if (screenManager != null && screenManager.displayInventory)
         {
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
         }
     }
 }
