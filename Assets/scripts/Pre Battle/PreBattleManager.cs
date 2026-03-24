@@ -15,6 +15,7 @@ public class PreBattleManager : MonoBehaviour
     public List<RuntimeAnimatorController> Animations;
     public Animator[] playerAnimations;
     public Animator[] enemyAnimations;
+    public Material[] OriginalMatClass;
     public Material[] matRaces;
     public Material[] matClothes;
 
@@ -246,6 +247,7 @@ public class PreBattleManager : MonoBehaviour
         Random.InitState(SelectedEnemy3.GetComponent<UnitBehavior>().UnitName.GetHashCode());
         enemyAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
 
+        enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
 
         enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
         enemyAnimations[1].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
@@ -1086,62 +1088,12 @@ public class PreBattleManager : MonoBehaviour
     }
    public void ShaderSelect()
     {
-        Debug.Log("yo lembra de implementar shaders pras player units depois");
-        /*foreach (GameObject sp in SelectedPlayerList)
-        {
-            if (sp.GetComponent<UnitBehavior>().UnitName == "Adrian")
-            {
-                Debug.Log("adrian detectado");
-                if (sp == SelectedPlayer1)
-                {
-                    playerAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[0];
-                }
-                else if (sp == SelectedPlayer2)
-                {
-                    playerAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[0];
-                }
-                else
-                {
-                    playerAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[0];
-
-                }
-            }
-            if (sp.GetComponent<UnitBehavior>().UnitName == "Hiro")
-            {
-                Debug.Log("Hiro detectado");
-                if (sp == SelectedPlayer1)
-                {
-                    playerAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[1];
-                }
-                else if (sp == SelectedPlayer2)
-                {
-                    playerAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[1];
-                }
-                else
-                {
-                    playerAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[1];
-
-                }
-            }
-            if (sp.GetComponent<UnitBehavior>().UnitName == "Leyni")
-            {
-                Debug.Log("Leyni detectado");
-                if (sp == SelectedPlayer1)
-                {
-                    playerAnimations[0].GetComponent<SpriteRenderer>().material = matRaces[0];
-                }
-                else if (sp == SelectedPlayer2)
-                {
-                    playerAnimations[1].GetComponent<SpriteRenderer>().material = matRaces[0];
-                }
-                else
-                {
-                    playerAnimations[2].GetComponent<SpriteRenderer>().material = matRaces[0];
-
-                }
-            }
-        }*/
-
+        playerAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+        playerAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+        playerAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+        enemyAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+        enemyAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+        enemyAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
     }
     public void UnitSelect(int i,GameObject SelectedPlayer = null)
     {

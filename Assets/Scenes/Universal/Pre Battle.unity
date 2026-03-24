@@ -13737,6 +13737,13 @@ MonoBehaviour:
   - {fileID: 1546280431}
   - {fileID: 85324826}
   - {fileID: 972198689}
+  OriginalMatClass:
+  - {fileID: 2100000, guid: 477fe80d8a581a740bfc0cdd3002f1ab, type: 2}
+  - {fileID: 2100000, guid: 69cc96a1ef61cab4bbf962d610e6dce9, type: 2}
+  - {fileID: 2100000, guid: 341c7c336572ad840979000816f321f6, type: 2}
+  - {fileID: 2100000, guid: bde759945756a7f4ba9cce1d8211cc8e, type: 2}
+  - {fileID: 2100000, guid: e2b0024e8902aef4d8a2e8f79237462d, type: 2}
+  - {fileID: 2100000, guid: e5319b1d3bf1c7442a493aea47323afb, type: 2}
   matRaces:
   - {fileID: 2100000, guid: 477fe80d8a581a740bfc0cdd3002f1ab, type: 2}
   matClothes:
