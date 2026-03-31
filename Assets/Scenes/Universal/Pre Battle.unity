@@ -13744,6 +13744,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: bde759945756a7f4ba9cce1d8211cc8e, type: 2}
   - {fileID: 2100000, guid: e2b0024e8902aef4d8a2e8f79237462d, type: 2}
   - {fileID: 2100000, guid: e5319b1d3bf1c7442a493aea47323afb, type: 2}
+  - {fileID: 2100000, guid: 20c79301de6ccc348b559435b025b803, type: 2}
   matRaces:
   - {fileID: 2100000, guid: 477fe80d8a581a740bfc0cdd3002f1ab, type: 2}
   matClothes:
