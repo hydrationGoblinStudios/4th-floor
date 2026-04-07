@@ -253,6 +253,7 @@ public class PreBattleManager : MonoBehaviour
         enemyAnimations[1].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
         enemyAnimations[2].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
 
+
         SelectedPlayerList.Add(SelectedPlayer1);
         SelectedPlayerList.Add(SelectedPlayer2);
         SelectedPlayerList.Add(SelectedPlayer3);
