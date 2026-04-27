@@ -307,6 +307,12 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Debilitar Velocidade":
+
+                StartCoroutine(PoçãodeVelocidade(target));
+
+                return 0;
+
 
             default: return 0;
 
@@ -1183,6 +1189,15 @@ public class SkillManager : MonoBehaviour
         user.speed -= 7;
 
     }
+
+    IEnumerator Debilitarvelocidade(UnitBehavior target)
+    {
+        target.speed -= 5;
+        yield return new WaitForSeconds(10);
+        target.speed += 5;
+
+    }
+
 
     //almas que não atacam (geralmente)
 
