@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Po\xE7\xE3o de Velocidade"
+  m_Name: Elixir Fortificante
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 711
+  id: 710
   sprite: {fileID: 0}
   type: 1
   weapontype: 6
   weight: 0
-  ItemName: "Po\xE7\xE3o de Velocidade"
-  description: "Uma po\xE7\xE3o que aumenta sua Velocidade (Consumivel). No inicio
-    da batalha,  Ganha +7 de Velocidade por 10 segundos. ataques b\xE1sicos."
+  ItemName: Elixir Fortificante
+  description: "Uma bebida que d\xE1 mais energia aos m\xFAsculos."
   hit: 0
   crit: 0
   power: 0
@@ -33,4 +32,4 @@ MonoBehaviour:
   speed: 0
   price: 1500
   damageType: 0
-  skill: "Po\xE7\xE3o de Velocidade"
+  skill: "Po\xE7\xE3o de For\xE7a"
