@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: clothes1
+  m_Name: Blue
   m_Shader: {fileID: 4800000, guid: ed7a0600431b36b4296f9ad78b7a81ec, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -61,10 +61,10 @@ Material:
     - _OriginalColorWPN2: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColorWPN3: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorCLOTHES1: {r: 0, g: 1, b: 0.32941177, a: 1}
-    - _TargetColorCLOTHES2: {r: 0.015686275, g: 0.72156864, b: 0.24705884, a: 1}
-    - _TargetColorCLOTHES3: {r: 0.019607844, g: 0.39607847, b: 0.14117648, a: 1}
-    - _TargetColorCLOTHES4: {r: 0, g: 0.20754719, b: 0.06702046, a: 1}
+    - _TargetColorCLOTHES1: {r: 0.1346288, g: 0.11028039, b: 0.8553459, a: 1}
+    - _TargetColorCLOTHES2: {r: 0.09226611, g: 0.07050737, b: 0.72327036, a: 1}
+    - _TargetColorCLOTHES3: {r: 0.08711274, g: 0.07135789, b: 0.55345905, a: 1}
+    - _TargetColorCLOTHES4: {r: 0.07197256, g: 0.059530772, b: 0.44025147, a: 1}
     - _TargetColorHAIR1: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorHAIR2: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorHAIR3: {r: 1, g: 1, b: 1, a: 1}

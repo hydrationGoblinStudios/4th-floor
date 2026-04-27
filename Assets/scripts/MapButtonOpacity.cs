@@ -10,7 +10,7 @@ public class MapButtonOpacity : MonoBehaviour, IPointerEnterHandler,IPointerExit
     [SerializeField] bool hover = false;
     public void Start()
     {
-        gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0.4f);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -31,7 +31,7 @@ public class MapButtonOpacity : MonoBehaviour, IPointerEnterHandler,IPointerExit
                 mapButtonColor = new Color(1, 1, 1, (float)(mapButtonColor.a + 0.1));
             }
         }
-        else if(mapButtonColor.a >= 0)
+        else if(mapButtonColor.a >= 0.4f)
         {
             mapButtonColor = new Color(1, 1, 1, (float)(mapButtonColor.a - 0.1));
         }

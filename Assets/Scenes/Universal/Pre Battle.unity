@@ -13766,14 +13766,24 @@ MonoBehaviour:
   - {fileID: 1546280431}
   - {fileID: 85324826}
   - {fileID: 972198689}
-  OriginalMatClass: []
+  OriginalMatClass:
+  - {fileID: 2100000, guid: 477fe80d8a581a740bfc0cdd3002f1ab, type: 2}
+  - {fileID: 2100000, guid: 69cc96a1ef61cab4bbf962d610e6dce9, type: 2}
+  - {fileID: 2100000, guid: 341c7c336572ad840979000816f321f6, type: 2}
+  - {fileID: 2100000, guid: bde759945756a7f4ba9cce1d8211cc8e, type: 2}
+  - {fileID: 2100000, guid: e2b0024e8902aef4d8a2e8f79237462d, type: 2}
+  - {fileID: 2100000, guid: e5319b1d3bf1c7442a493aea47323afb, type: 2}
+  - {fileID: 2100000, guid: 20c79301de6ccc348b559435b025b803, type: 2}
   matRaces:
-  - {fileID: 2100000, guid: 477fe80d8a581a740bfc0cdd3002f1ab, type: 2}
-  - {fileID: 2100000, guid: 477fe80d8a581a740bfc0cdd3002f1ab, type: 2}
-  - {fileID: 2100000, guid: 477fe80d8a581a740bfc0cdd3002f1ab, type: 2}
+  - {fileID: 2100000, guid: 0a99bb1f05bc67a45a25baab74dbabb0, type: 2}
+  - {fileID: 2100000, guid: 6566ddd12eae5424caf50f186c7274e4, type: 2}
+  - {fileID: 2100000, guid: 1fc6f81d192587f489f07346fab11a71, type: 2}
+  - {fileID: 2100000, guid: 7661700dee114614692f14013ce69998, type: 2}
   matClothes:
+  - {fileID: 2100000, guid: 7284093fcfbce9d48b1a311bfa126f96, type: 2}
   - {fileID: 2100000, guid: e2eb693bdd11ef24abda2494e7dd0bd4, type: 2}
   - {fileID: 2100000, guid: 63b60486a022fe440a794b1bc84ed8a7, type: 2}
+  - {fileID: 2100000, guid: 3f60ada2a7aead74685b3d1fb13807f6, type: 2}
   gameManager: {fileID: 0}
   inventoryManager: {fileID: 0}
   animator: {fileID: 0}

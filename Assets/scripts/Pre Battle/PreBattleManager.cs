@@ -235,23 +235,18 @@ public class PreBattleManager : MonoBehaviour
             }
         }
 
-        
+
+        ShaderSelect();
 
         //race randomizer
-        Random.InitState(SelectedEnemy1.GetComponent<UnitBehavior>().UnitName.GetHashCode());
-        enemyAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
+        //Random.InitState(SelectedEnemy1.GetComponent<UnitBehavior>().UnitName.GetHashCode());
 
-        Random.InitState(SelectedEnemy2.GetComponent<UnitBehavior>().UnitName.GetHashCode());
-        enemyAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
 
-        Random.InitState(SelectedEnemy3.GetComponent<UnitBehavior>().UnitName.GetHashCode());
-        enemyAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(matRaces[Random.Range(0, 1)]);
+        enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length+1)]);
 
-        enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
+        enemyAnimations[1].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length + 1)]);
 
-        enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
-        enemyAnimations[1].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
-        enemyAnimations[2].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[0]);
+        enemyAnimations[2].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length + 1)]);
 
 
         SelectedPlayerList.Add(SelectedPlayer1);
@@ -264,7 +259,6 @@ public class PreBattleManager : MonoBehaviour
         gameManager.SoulPrice(SelectedEnemy2.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy2.GetComponent<UnitBehavior>());
         gameManager.SoulPrice(SelectedEnemy3.GetComponent<UnitBehavior>().equipedSoul, SelectedEnemy3.GetComponent<UnitBehavior>());
 
-        ShaderSelect();
 
         // Selection Highlight
         selectedHighlight = new GameObject().AddComponent<SpriteRenderer>();

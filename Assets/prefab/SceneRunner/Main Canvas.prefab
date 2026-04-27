@@ -7610,7 +7610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7721,7 +7721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &1621685120880481372
 GameObject:
@@ -13111,7 +13111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13222,7 +13222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &2800474642092429102
 GameObject:
@@ -15377,7 +15377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15488,7 +15488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &3418464552827325353
 GameObject:
@@ -17626,7 +17626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17737,7 +17737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &4096917826939792031
 GameObject:
@@ -17886,7 +17886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17997,7 +17997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &4173366066749720526
 GameObject:
@@ -18060,7 +18060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18171,7 +18171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &4177144096116991360
 GameObject:
@@ -21739,7 +21739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -21850,7 +21850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &5063635427353248525
 GameObject:
@@ -22440,7 +22440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -22551,7 +22551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &5213791413522859581
 GameObject:
@@ -31670,7 +31670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31781,7 +31781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &7238970407736391859
 GameObject:
@@ -31844,7 +31844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31955,7 +31955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &7257618084625262727
 GameObject:
@@ -39730,7 +39730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -39841,7 +39841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &9107551034971290842
 GameObject:
@@ -40620,7 +40620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -40731,7 +40731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75d66cd9df222a45a7d6a72d602f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  mapButtonColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   hover: 0
 --- !u!1 &9221649457196326927
 GameObject:
