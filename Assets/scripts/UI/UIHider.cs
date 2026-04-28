@@ -26,7 +26,7 @@ public class UIHIder : MonoBehaviour
         }
         if (screenManager != null && !screenManager.displayInventory)
         {
-            transform.localPosition = new Vector3(1000, transform.localPosition.y, transform.localPosition.z);
+            transform.localPosition = new Vector3(10000, transform.localPosition.y, transform.localPosition.z);
         }
         else if (screenManager != null && screenManager.displayInventory)
         {

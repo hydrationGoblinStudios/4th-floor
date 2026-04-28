@@ -241,12 +241,12 @@ public class PreBattleManager : MonoBehaviour
         //race randomizer
         //Random.InitState(SelectedEnemy1.GetComponent<UnitBehavior>().UnitName.GetHashCode());
 
+        Debug.Log(matClothes.Length);
+        enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length)]);
 
-        enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length+1)]);
+        enemyAnimations[1].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length)]);
 
-        enemyAnimations[1].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length + 1)]);
-
-        enemyAnimations[2].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length + 1)]);
+        enemyAnimations[2].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length)]);
 
 
         SelectedPlayerList.Add(SelectedPlayer1);
@@ -1286,17 +1286,36 @@ public class PreBattleManager : MonoBehaviour
     }
     public void EnemyLevelUp(UnitBehavior ub, int levels)
     {
+        string levelChange = ($"\n{ub.UnitName} class: {ub.GetType().ToString()}\noriginal stats({ub.currentLevel}):maxhp:{ub.maxhp} str:{ub.str} mag:{ub.mag} dex:{ub.dex} def:{ub.def} mdef:{ub.mdef} speed:{ub.speed} luck:{ub.luck}");
         for( int c=0; c <levels; c++)
         {
-        for (int i = 0; i < 8; i++)
-        {
-            int r = Random.Range(0, 101);
+            //aprender Skills
+            switch (ub.currentLevel, ub.classId.ToString()[0])
+            {
+                case (5, (char)1):
+                    if (ub.skill1 != null)
+                    {
+                        ub.skillInventory.Add(ub.skill1);
+                        levelChange += $"\nnew skill: {ub.skill1}";
+                    }
+                    break;
+                case (10, (char)1):
+                    if (ub.skill2 != null)
+                    {
+                        ub.skillInventory.Add(ub.skill2);
+                        levelChange += $"\nnew skill: {ub.skill2}";
+                    }
+                    break;
+            }
+            for (int i = 0; i < 8; i++)
+        {                
+                int r = Random.Range(0, 101);
             if (r <= ub.growths[i])
             {
                 switch (i)
                 {
                     case 0: ub.maxhp += 5; ub.growths[i] -= (ub.growths[i]/5); break;
-                    case 1: ub.str++; Debug.Log("+1 str"); ub.growths[i] -= (ub.growths[i] / 5); break;
+                    case 1: ub.str++; ub.growths[i] -= (ub.growths[i] / 5); break;
                     case 2: ub.mag++; ub.growths[i] -= (ub.growths[i] / 5); break;
                     case 3: ub.dex++; ub.growths[i] -= (ub.growths[i] / 5); break;
                     case 4: ub.def++; ub.growths[i] -= (ub.growths[i] / 5); break;
@@ -1310,6 +1329,9 @@ public class PreBattleManager : MonoBehaviour
                 ub.growths[i] += (ub.growths[i] / 5);
             }
         }
+                            ub.currentLevel++;
     }
-}
+         levelChange += ($"\npost leveling({ub.currentLevel})maxhp:{ub.maxhp} str:{ub.str} mag:{ub.mag} dex:{ub.dex} def:{ub.def} mdef:{ub.mdef} speed:{ub.speed} luck:{ub.luck}");
+        Debug.Log( levelChange );
+    }
 }
