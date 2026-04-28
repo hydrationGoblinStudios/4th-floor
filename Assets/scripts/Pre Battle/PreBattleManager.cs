@@ -1286,27 +1286,10 @@ public class PreBattleManager : MonoBehaviour
     }
     public void EnemyLevelUp(UnitBehavior ub, int levels)
     {
+        ub.InitClass();
         string levelChange = ($"\n{ub.UnitName} class: {ub.GetType().ToString()}\noriginal stats({ub.currentLevel}):maxhp:{ub.maxhp} str:{ub.str} mag:{ub.mag} dex:{ub.dex} def:{ub.def} mdef:{ub.mdef} speed:{ub.speed} luck:{ub.luck}");
         for( int c=0; c <levels; c++)
         {
-            //aprender Skills
-            switch (ub.currentLevel, ub.classId.ToString()[0])
-            {
-                case (5, (char)1):
-                    if (ub.skill1 != null)
-                    {
-                        ub.skillInventory.Add(ub.skill1);
-                        levelChange += $"\nnew skill: {ub.skill1}";
-                    }
-                    break;
-                case (10, (char)1):
-                    if (ub.skill2 != null)
-                    {
-                        ub.skillInventory.Add(ub.skill2);
-                        levelChange += $"\nnew skill: {ub.skill2}";
-                    }
-                    break;
-            }
             for (int i = 0; i < 8; i++)
         {                
                 int r = Random.Range(0, 101);
@@ -1331,7 +1314,17 @@ public class PreBattleManager : MonoBehaviour
         }
                             ub.currentLevel++;
     }
-         levelChange += ($"\npost leveling({ub.currentLevel})maxhp:{ub.maxhp} str:{ub.str} mag:{ub.mag} dex:{ub.dex} def:{ub.def} mdef:{ub.mdef} speed:{ub.speed} luck:{ub.luck}");
+        if (ub.currentLevel >= 5 && ub.skill1 != "")
+        {
+            ub.skillInventory.Add(ub.skill1);
+            levelChange += $"\nnew skill: {ub.skill1}";
+        }
+        if (ub.currentLevel >= 10 && ub.skill2 != "")
+        {
+            ub.skillInventory.Add(ub.skill2);
+            levelChange += $"\nnew skill: {ub.skill2}";
+        }
+        levelChange += ($"\npost leveling({ub.currentLevel})maxhp:{ub.maxhp} str:{ub.str} mag:{ub.mag} dex:{ub.dex} def:{ub.def} mdef:{ub.mdef} speed:{ub.speed} luck:{ub.luck}");
         Debug.Log( levelChange );
     }
 }

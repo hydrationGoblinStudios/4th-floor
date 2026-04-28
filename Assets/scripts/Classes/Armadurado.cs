@@ -12,12 +12,16 @@ public class Armadurado : UnitBehavior
     }
     public void Awake()
     {
+        InitClass();
+    }
+    public override void InitClass()
+    {
         baseSkill = "Foco";
         skill1 = "Precisão Mortal";
         baseSoul = "Tiro Certeiro";
         soul1 = "Rajada de Flechas";
-        UsableWeaponTypes = new() { Item.Weapontype.Axe};
+        UsableWeaponTypes = new() { Item.Weapontype.Axe };
         ClassGrowths = new List<int> { 10, 10, 0, 5, 0, 15, -10, 0 };
-        classStats = new List<int> { 10, 1, 0,1, -2, 4, -3, 0 };
+        classStats = new List<int> { 10, 1, 0, 1, -2, 4, -3, 0 };
     }
 }

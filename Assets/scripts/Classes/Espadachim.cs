@@ -20,4 +20,14 @@ public class Espadachim : UnitBehavior
         ClassGrowths = new() { 0, 0, 0, 5, 5, 0, 0, 0 };
         classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
     }
-}
+    public override void InitClass()
+    {
+        baseSkill = "Dano Ascendente";
+        skill1 = "Ataque Rápido";
+        baseSoul = "Golpe Triplo";
+        soul1 = "Golpe Focado";
+        UsableWeaponTypes = new() { Item.Weapontype.Sword };
+        ClassGrowths = new() { 0, 0, 0, 5, 5, 0, 0, 0 };
+        classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
+    }
+} 

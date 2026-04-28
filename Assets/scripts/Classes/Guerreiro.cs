@@ -19,7 +19,15 @@ public class Guerreiro : UnitBehavior
         UsableWeaponTypes = new() { Item.Weapontype.Axe };
         ClassGrowths = new() { 5, 5, 0, 0, 0, 0, 0, 0 };
         classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
-
     }
-
+    public override void InitClass()
+    {
+        baseSkill = "Lutador Versátil";
+        skill1 = "Durão";
+        baseSoul = "Golpe Poderoso";
+        soul1 = "Revigoramento";
+        UsableWeaponTypes = new() { Item.Weapontype.Axe };
+        ClassGrowths = new() { 5, 5, 0, 0, 0, 0, 0, 0 };
+        classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
+    }
 }

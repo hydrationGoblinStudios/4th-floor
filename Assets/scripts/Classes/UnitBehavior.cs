@@ -154,5 +154,8 @@ public class UnitBehavior : MonoBehaviour
         [SerializeField]
         public int value;
     }
+    public virtual void InitClass()
+    {
 
+    }
 }

@@ -20,4 +20,14 @@ public class Soldado : UnitBehavior
         ClassGrowths = new() { 0, 0, 0, 5, 0, 5, 0, 0 };
         classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
     }
+    public override void InitClass()
+    {
+        baseSkill = "Presença Inabalável";
+        skill1 = "Pancada";
+        baseSoul = "Golpe Atordoante";
+        soul1 = "Fortificar";
+        UsableWeaponTypes = new() { Item.Weapontype.Lance };
+        ClassGrowths = new() { 0, 0, 0, 5, 0, 5, 0, 0 };
+        classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
+    }
 }

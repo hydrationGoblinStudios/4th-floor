@@ -20,4 +20,14 @@ public CavaleiroEncantado()
         ClassGrowths = new List<int> { 5, 5, 5, 5, 5, 0, 0, 5 };
         classStats = new List<int> { 5, 1, 1, 1, 1, 0, 0, 0 };
     }
+    public override void InitClass()
+    {
+        baseSkill = "Foco";
+        skill1 = "Precisão Mortal";
+        baseSoul = "Tiro Certeiro";
+        soul1 = "Rajada de Flechas";
+        UsableWeaponTypes = new() { Item.Weapontype.Sword, Item.Weapontype.Receptacle };
+        ClassGrowths = new List<int> { 5, 5, 5, 5, 5, 0, 0, 5 };
+        classStats = new List<int> { 5, 1, 1, 1, 1, 0, 0, 0 };
+    }
 }

@@ -20,5 +20,15 @@ public class  Místico : UnitBehavior
         ClassGrowths = new() { 0, 0, 5, 0, 0, 0, 5, 0 };
         classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
     }
+    public override void InitClass()
+    {
+        baseSkill = "Encantamento";
+        skill1 = "Maldição";
+        baseSoul = "Restauração Espiritual";
+        soul1 = "Benção dos Ventos";
+        UsableWeaponTypes = new() { Item.Weapontype.Receptacle };
+        ClassGrowths = new() { 0, 0, 5, 0, 0, 0, 5, 0 };
+        classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
+    }
 }
 
