@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: Feiticeiro P2 Parte 1
+  m_Name: Feiticeiro P2 Andar 2 Parte 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classId: 104
-  Weapon: {fileID: 11400000, guid: 4786e2f717a2087408fb237d93d698c3, type: 2}
+  Weapon: {fileID: 11400000, guid: 98af88b2fc42e0640bdf5a5f3a382b95, type: 2}
   UsableWeaponTypes: 
-  Accesory: {fileID: 0}
+  Accesory: {fileID: 11400000, guid: 45c960cd22d30be4abb49ee58d553e2a, type: 2}
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
@@ -79,8 +79,9 @@ MonoBehaviour:
   speed: 9
   skills:
   - Foco de Feiticeiro
+  - Magia Destrutiva
   skillInventory: []
-  equipedSoul: Trovoada
+  equipedSoul: Bola de Fogo
   equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0

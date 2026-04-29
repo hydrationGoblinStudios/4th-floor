@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: Feiticeiro P2 Parte 1
+  m_Name: Arqueiro P2 Andar 2 Parte 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,20 +41,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd777b7274bf9b842aae7763ec4c7977, type: 3}
+  m_Script: {fileID: 11500000, guid: 25d0bc60155d4b147a1e2bf10b0cc021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classId: 104
-  Weapon: {fileID: 11400000, guid: 4786e2f717a2087408fb237d93d698c3, type: 2}
+  classId: 106
+  Weapon: {fileID: 11400000, guid: 4c8315433aa433c4c8bb98f5dd036b10, type: 2}
   UsableWeaponTypes: 
-  Accesory: {fileID: 0}
+  Accesory: {fileID: 11400000, guid: 45c960cd22d30be4abb49ee58d553e2a, type: 2}
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: Feiticeiro
+  UnitName: Arqueiro
   currentLevel: 1
   expmarkplier: 1
   currentRank: 0
@@ -66,21 +66,22 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 50
-  hp: 50
+  maxhp: 60
+  hp: 60
   power: 0
-  str: 6
-  mag: 12
-  dex: 10
-  def: 3
-  mdef: 7
+  str: 9
+  mag: 6
+  dex: 13
+  def: 4
+  mdef: 2
   defenses: 
-  luck: 9
-  speed: 9
+  luck: 8
+  speed: 13
   skills:
-  - Foco de Feiticeiro
+  - Foco
+  - "Precis\xE3o Mortal"
   skillInventory: []
-  equipedSoul: Trovoada
+  equipedSoul: Tiro Certeiro
   equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0
@@ -98,9 +99,9 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 2d00000014000000320000002300000014000000230000001e00000028000000
+  growths: 2d000000280000001e0000003200000019000000190000001e00000032000000
   classStats: 0000000000000000000000000000000000000000000000000000000000000000
-  ClassGrowths: 0000000000000000000000000000000005000000000000000000000005000000
+  ClassGrowths: 0000000000000000000000000500000005000000000000000000000000000000
   classSkill: 
   personalSkill: 
   baseSkill: 

@@ -81,7 +81,7 @@ MonoBehaviour:
   - Foco de Feiticeiro
   - Magia Destrutiva
   skillInventory: []
-  equipedSoul: Bola de Fogo
+  equipedSoul: Trovoada
   equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0

@@ -47,7 +47,7 @@ MonoBehaviour:
   classId: 101
   Weapon: {fileID: 11400000, guid: 2f04af8f6cf029243af0f1e41d97575d, type: 2}
   UsableWeaponTypes: 
-  Accesory: {fileID: 11400000, guid: 92b901e9db07bc540aea77a9c412deab, type: 2}
+  Accesory: {fileID: 11400000, guid: 9f884b721dbe3f7499e5fff0ce413acf, type: 2}
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
@@ -81,7 +81,7 @@ MonoBehaviour:
   - Dano Ascendente
   - "Ataque R\xE1pido"
   skillInventory: []
-  equipedSoul: Golpe Triplo
+  equipedSoul: Golpe Focado
   equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0
