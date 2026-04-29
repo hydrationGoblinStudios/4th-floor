@@ -47,6 +47,9 @@ public class Item : ScriptableObject
     public int luck;
     public int speed;
     public int price;
+    public int avoid;
+    public int critAvoid;
+    public int lifesteal;
     public int damageType = 0;
     public string skill ="";
 

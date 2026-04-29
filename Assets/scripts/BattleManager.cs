@@ -1273,7 +1273,7 @@ public class BattleManager : MonoBehaviour
     }
     public void AttackSetup(UnitBehavior Attacker, UnitBehavior Target)
     {
-        Phit = (int)(Attacker.Weapon.hit + (Attacker.dex * 3) + Attacker.luck + Attacker.hit - (Target.speed * 2) - Target.luck - Target.avoid);
+        Phit = (int)(Attacker.Weapon.hit + (Attacker.dex * 3) + Attacker.luck + Attacker.hit - (Target.speed * 2) - Target.luck - Target.avoid - Target.Weapon.avoid);
         if (Phit < 30)
         {
             Phit = 30;
@@ -1318,7 +1318,7 @@ public class BattleManager : MonoBehaviour
             + "\nPskill dps de target soul proc" + PskillPostTargetPostHealthChange);
         HudUpdate();
         yield return new WaitForSeconds(1);
-        if (Random.Range(0, 101) <= (int)(attacker.dex / 2) + attacker.Weapon.crit)
+        if (Random.Range(0, 101) <= (int)(attacker.dex / 2) + attacker.Weapon.crit - Target.Weapon.critAvoid)
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
 
@@ -1337,9 +1337,9 @@ public class BattleManager : MonoBehaviour
 
             HudUpdate();
 
-            if (attacker.lifesteal >= 0.01)
+            if (attacker.lifesteal >= 0.01 || attacker.Weapon.lifesteal >= 0.01)
             {
-                attacker.hp += damageDone * attacker.lifesteal;
+                attacker.hp += damageDone * (attacker.lifesteal + attacker.Weapon.lifesteal);
                 StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true)); // TODO: timing animacao
             }
             Target.soul += damageDone / 5;
@@ -1435,7 +1435,7 @@ public class BattleManager : MonoBehaviour
                             + "acerto critico, dano dobrado" + " Foi um ataque extra"
     );
             Debug.Log(lifeSteal);
-            if (attacker.lifesteal >= 0.01 | lifeSteal >= 0.01)
+            if (attacker.lifesteal >= 0.01 | lifeSteal >= 0.01 || attacker.Weapon.lifesteal >= 0.01)
             {
                 attacker.hp += (damageDone) * attacker.lifesteal;
                 attacker.hp += (int)((damageDone) * lifeSteal);
@@ -1466,9 +1466,9 @@ public class BattleManager : MonoBehaviour
             CheckDamage(attacker, Target, damageDone);
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
-            if (attacker.lifesteal >= 0.01)
+            if (attacker.lifesteal >= 0.01 || attacker.Weapon.lifesteal >= 0.01)
             {
-                attacker.hp += (damageDone) * attacker.lifesteal;
+                attacker.hp += (damageDone) * (attacker.lifesteal + attacker.Weapon.lifesteal);
                 Debug.Log("life stolen");
                 StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true));
             }
