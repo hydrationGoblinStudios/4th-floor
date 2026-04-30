@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1160, y: -2312}
+  position: {x: 1144, y: -2616}
   ports:
     keys:
     - entry
@@ -358,8 +358,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: "\xC9 isso! Com certeza essa placa est\xE1 se referindo a cura que eu
-    procuro. Agora eu s\xF3 preciso descobrir o que exatamente isso significa\u2026"
+  dialogue: "Hmm, essa placa estava numa est\xE1tua do p\xE1tio? realmente parece
+    com as lendas que eu ouvi, mas o que ser\xE1 esse tal fruto? "
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-6628168343863014732
 MonoBehaviour:
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1928, y: -2376}
+  position: {x: 1928, y: -2664}
   ports:
     keys:
     - entry
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: -1896}
+  position: {x: 1416, y: -1736}
   ports:
     keys:
     - entry
@@ -647,9 +647,9 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: "Cara, esse lugar me d\xE1 calafrios, eu fico com nojo s\xF3 da ideia
-    de pessoas se divertindo enquanto veem outras pessoas se matando. Mas pelo menos
-    isso cria um caminho para os criminosos se redimirem. "
+  dialogue: "Sendo bem sincero, eu n\xE3o gosto nem um pouco daqui, toda essa ideia
+    de pessoas se divertindo vendo outros se matando.... Eu espero sair daqui antes
+    de come\xE7ar a achar isso normal."
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-4110386959006591665
 MonoBehaviour:
@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: -2376}
+  position: {x: 1448, y: -2664}
   ports:
     keys:
     - entry
@@ -1359,8 +1359,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: "Muito obrigado pela ajuda, como retribui\xE7\xE3o eu vou te contar um
-    segredinho"
+  dialogue: "Acho que para encontrarmos mais respostas precisaremos investigar ainda
+    mais as outras \xE1reas do coliseu."
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &-709230662018501512
 MonoBehaviour:
@@ -1608,7 +1608,7 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: Opa, Como posso te ajudar Ramion?
+  dialogue: Oi Ramion, como posso te ajudar?
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &484661278757752162
 MonoBehaviour:
@@ -1707,7 +1707,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: -1304}
+  position: {x: 1448, y: -1448}
   ports:
     keys:
     - entry
@@ -1856,7 +1856,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1448, y: -2216}
+  position: {x: 1448, y: -2360}
   ports:
     keys:
     - entry
@@ -1890,8 +1890,8 @@ MonoBehaviour:
   exit: 0
   speaker: Adrian
   dialogue: "Eu vim de uma aldeia l\xE1 de Inf\xE2mia, n\xE3o \xE9 um pa\xEDs t\xE3o
-    bonito quanto aqui, mas as pessoas s\xE3o muito mais legais l\xE1. N\xE3o tem
-    esse bando de Ascendidos Esnobes."
+    bonito quanto aqui, nem temos essas constru\xE7\xF5es grandes, mas a gente encontra
+    felicidade na simplicidade."
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
 --- !u!114 &2626927276497110114
 MonoBehaviour:
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 728, y: -1864}
+  position: {x: 728, y: -1880}
   ports:
     keys:
     - entry
@@ -2924,7 +2924,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1176, y: -1784}
+  position: {x: 1112, y: -1688}
   ports:
     keys:
     - entry
@@ -3104,7 +3104,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1704, y: -2376}
+  position: {x: 1704, y: -2664}
   ports:
     keys:
     - entry
@@ -3137,7 +3137,9 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Adrian
-  dialogue: "Durante a noite, se voc\xEA souber o caminho, tem como voc\xEA ir at\xE9
-    a dispensa se esgueirando para pegar alguns petiscos. Eu desenhei esse mapa,
-    assim voc\xEA vai conseguir chegar l\xE1 sem encontrar nenhum guarda."
+  dialogue: "Como agradecimento, eu vou te contar um segredo que eu descobri. Eu
+    estive observando bem os guardas, e de noite eles quase n\xE3o patrulham lugar
+    nenhum, inclusive tem um caminho que d\xE1 pra chegar na dispensa sem ningu\xE9m
+    te ver. Eu vou te mostrar, ent\xE3o se voc\xEA achar uma forma de sair da sua
+    cela de noite, voc\xEA poed ir l\xE1. "
   sprite: {fileID: 21300000, guid: f0ed09269d73e6c4391addbb2d9aa58d, type: 3}
