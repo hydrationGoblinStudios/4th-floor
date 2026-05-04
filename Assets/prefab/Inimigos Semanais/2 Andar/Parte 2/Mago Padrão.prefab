@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: "B\xE1rbaro Ofensivo"
+  m_Name: "Mago Padr\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,20 +41,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b77d87b6d9cf14d857600ed02a479a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e9efd01d1a69bb42b2a331e6e50b09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classId: 206
-  Weapon: {fileID: 11400000, guid: 2c152c318fe445f4ebedc3e88ea9d5dd, type: 2}
+  classId: 210
+  Weapon: {fileID: 11400000, guid: 98af88b2fc42e0640bdf5a5f3a382b95, type: 2}
   UsableWeaponTypes: 
-  Accesory: {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
+  Accesory: {fileID: 11400000, guid: 45c960cd22d30be4abb49ee58d553e2a, type: 2}
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: "B\xE1rbaro"
+  UnitName: Mago
   currentLevel: 1
   expmarkplier: 1
   currentRank: 0
@@ -66,23 +66,23 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 110
-  hp: 110
+  maxhp: 50
+  hp: 50
   power: 0
-  str: 13
-  mag: 4
-  dex: 6
-  def: 3
-  mdef: 3
+  str: 4
+  mag: 12
+  dex: 10
+  def: 2
+  mdef: 7
   defenses: 
-  luck: 8
-  speed: 7
+  luck: 9
+  speed: 10
   skills:
-  - "Lutador Vers\xE1til"
-  - "Dur\xE3o"
-  - 
+  - "Concentra\xE7\xE3o de Feiticeiro"
+  - Magia Destrutiva
+  - "Come\xE7o Afortunado"
   skillInventory: []
-  equipedSoul: Revigoramento
+  equipedSoul: Raio Paralisante
   equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 5500000032000000140000001e0000001900000019000000280000001e000000
+  growths: 2d00000014000000370000002800000014000000230000002800000028000000
   classStats: 0000000000000000000000000000000000000000000000000000000000000000
   ClassGrowths: 0000000000000000000000000500000005000000000000000000000000000000
   classSkill: 

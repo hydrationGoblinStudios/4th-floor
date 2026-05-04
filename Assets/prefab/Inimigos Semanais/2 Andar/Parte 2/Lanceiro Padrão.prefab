@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: "B\xE1rbaro Ofensivo"
+  m_Name: "Lanceiro Padr\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,11 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b77d87b6d9cf14d857600ed02a479a, type: 3}
+  m_Script: {fileID: 11500000, guid: 42691713d328e784589eb128ea046c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classId: 206
-  Weapon: {fileID: 11400000, guid: 2c152c318fe445f4ebedc3e88ea9d5dd, type: 2}
+  classId: 208
+  Weapon: {fileID: 11400000, guid: e61093df644d5df48bd8aeb1bca18c38, type: 2}
   UsableWeaponTypes: 
   Accesory: {fileID: 11400000, guid: 708a35f9273f01a48b2a164fe0630ca9, type: 2}
   battleManager: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: "B\xE1rbaro"
+  UnitName: Lanceiro
   currentLevel: 1
   expmarkplier: 1
   currentRank: 0
@@ -66,23 +66,23 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 110
-  hp: 110
+  maxhp: 70
+  hp: 70
   power: 0
-  str: 13
-  mag: 4
-  dex: 6
-  def: 3
+  str: 10
+  mag: 6
+  dex: 12
+  def: 6
   mdef: 3
   defenses: 
-  luck: 8
-  speed: 7
+  luck: 7
+  speed: 9
   skills:
-  - "Lutador Vers\xE1til"
-  - "Dur\xE3o"
+  - "Presen\xE7a Inabalavel"
+  - Pancada
   - 
   skillInventory: []
-  equipedSoul: Revigoramento
+  equipedSoul: Perfurar
   equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 5500000032000000140000001e0000001900000019000000280000001e000000
+  growths: 370000002d0000001400000028000000230000000f0000001e00000028000000
   classStats: 0000000000000000000000000000000000000000000000000000000000000000
   ClassGrowths: 0000000000000000000000000500000005000000000000000000000000000000
   classSkill: 
