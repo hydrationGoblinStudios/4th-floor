@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Change Sprite
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1512, y: -8}
+  position: {x: 1720, y: -8}
   ports:
     keys:
     - entry
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1400, y: -216}
+  position: {x: 1496, y: -8}
   ports:
     keys:
     - entry
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1768, y: -8}
+  position: {x: 1976, y: -8}
   ports:
     keys:
     - entry
