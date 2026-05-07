@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: Pingente de vitalidade
+  m_Name: Estandarte do Soberano
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 702
+  id: 714
   sprite: {fileID: 0}
   type: 1
   weapontype: 6
   weight: 0
-  ItemName: Pingente da vitalidade
-  description: Um pingente que aumenta a Vida. Ganha +20 de Vida.
+  ItemName: Estandarte do Soberano
+  description: Estandarte do Soberano
   hit: 0
   crit: 0
   power: 0
@@ -30,9 +30,9 @@ MonoBehaviour:
   Mdef: 0
   luck: 0
   speed: 0
-  price: 3000
+  price: 10000
   avoid: 0
   critAvoid: 0
   lifesteal: 0
   damageType: 0
-  skill: 
+  skill: Estandarte do Soberano

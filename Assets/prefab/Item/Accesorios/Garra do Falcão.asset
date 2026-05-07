@@ -20,7 +20,7 @@ MonoBehaviour:
   weight: 0
   ItemName: "Garra do Falc\xE3o"
   description: Marge Simpson
-  hit: 0
+  hit: 13
   crit: 0
   power: 0
   str: 0
@@ -31,5 +31,8 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 5500
+  avoid: 13
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
   skill: 
