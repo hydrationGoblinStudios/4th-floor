@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 440, y: -184}
+  position: {x: 282.48087, y: -74.032234}
   ports:
     keys:
     - entry
@@ -24,7 +24,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 7346425477928790905}
+        node: {fileID: 135722843074130173}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -42,13 +42,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
-  m_Name: Combinar Caixinha Trancada + Massa Velha
+  m_Name: Interagir Enfermeira NOTDONE
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 1761358115784956343}
   - {fileID: -6202461685861323823}
   - {fileID: 135722843074130173}
-  - {fileID: 7346425477928790905}
   current: {fileID: 0}
 --- !u!114 &135722843074130173
 MonoBehaviour:
@@ -87,7 +86,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 7346425477928790905}
+        node: {fileID: -6202461685861323823}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -96,8 +95,7 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Ramion
-  dialogue: "Se eu colocar essa massa na fechadura, eu vou ter um molde perfeito
-    da chave, a\xED \xE9 s\xF3 eu conseguir fazer uma chave nova a partir disso."
+  dialogue: Esse sou eu.
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &1761358115784956343
 MonoBehaviour:
@@ -112,7 +110,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -328, y: -184}
+  position: {x: -328, y: -104}
   ports:
     keys:
     - exit
@@ -130,51 +128,3 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
---- !u!114 &7346425477928790905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d326aaea4db3f184b83ff587b7767339, type: 3}
-  m_Name: Item
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 200, y: -184}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 7346425477928790905}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 135722843074130173}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 7346425477928790905}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -6202461685861323823}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  item: {fileID: 11400000, guid: f930949d4171a3e4eac67d7f58bf0a9a, type: 2}
-  key: 1
-  flag: 0
