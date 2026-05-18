@@ -21,7 +21,6 @@ public class BattleManager : MonoBehaviour
     public int Phit;
     public int Pcrit;
 
-    public bool sureShot = false;
     public GameObject[] enemyList;
     [HideInInspector]
     public int pAccSpeed;
@@ -573,7 +572,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.EnemyTurn;
 
-            StartCoroutine(Attack(enemyTeam[0], playerTeam[StandardTargeting(enemyTeam[0],playerTeam)]));
+            StartCoroutine(Attack(enemyTeam[0], playerTeam[PickTargeting(enemyTeam[0],playerTeam)]));
             EnemyBar = 0;
             EnemyBars[0] = 0;
         }
@@ -581,7 +580,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.EnemyTurn;
 
-            StartCoroutine(Attack(enemyTeam[1], playerTeam[StandardTargeting(enemyTeam[1],playerTeam)]));
+            StartCoroutine(Attack(enemyTeam[1], playerTeam[PickTargeting(enemyTeam[1],playerTeam)]));
             EnemyBar2 = 0;
             EnemyBars[1] = 0;
         }
@@ -589,7 +588,7 @@ public class BattleManager : MonoBehaviour
         {
             state = BattleState.EnemyTurn;
 
-            StartCoroutine(Attack(enemyTeam[2], playerTeam[StandardTargeting(enemyTeam[2],playerTeam)]));
+            StartCoroutine(Attack(enemyTeam[2], playerTeam[PickTargeting(enemyTeam[2],playerTeam)]));
             EnemyBar3 = 0;
             EnemyBars[2] = 0;
         }
@@ -602,8 +601,24 @@ public class BattleManager : MonoBehaviour
 
     public int PickTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
     {
-        int x = 9999;        
-            switch (ub.target)
+        int x = 9999;
+
+
+        if (unitList[0].skills.Contains("Escudo Protetor"))
+        {
+            if (Random.Range(0, 201) <= unitList[0].def)
+            {
+                return 0;
+            }    
+        }
+        if (unitList[1].skills.Contains("Escudo Protetor"))
+        {
+            if (Random.Range(0, 201) <= unitList[1].def)
+            {
+                return 1;
+            }
+        }
+        switch (ub.target)
             {
                 case "LowestStat": x = LowestStatTargeting(ub, unitList, ub.targetStat);break ;
                 case "HighestStat": x = HighestStatTargeting(ub, unitList, ub.targetStat); break;
@@ -636,6 +651,20 @@ public class BattleManager : MonoBehaviour
     public int PickTargeting2(UnitBehavior ub, List<UnitBehavior> unitList)
     {
 
+        if (unitList[0].skills.Contains("Escudo Protetor"))
+        {
+            if (Random.Range(0, 201) <= unitList[0].def)
+            {
+                return 0;
+            }
+        }
+        if (unitList[1].skills.Contains("Escudo Protetor"))
+        {
+            if (Random.Range(0, 201) <= unitList[1].def)
+            {
+                return 1;
+            }
+        }
         switch (ub.target2)
         {
             case "LowestStat": return LowestStatTargeting(ub, unitList, ub.targetStat2);
@@ -888,14 +917,16 @@ public class BattleManager : MonoBehaviour
             skillsInUse.Add(attacker.Accesory.skill);
         }
         attacker.soul += 15 + attacker.soulgain;
-        if (attacker.soul <= attacker.maxsoul && Random.Range(0, 101) <= Phit)
+        if (attacker.soul <= attacker.maxsoul && Random.Range(0, 101) <= Phit || attacker.sureShot)
         {
+            attacker.sureShot = false;
             StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
         }
         else if (attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
         {
-            if (Random.Range(0, 101) <= Phit)
+            if (Random.Range(0, 101) <= Phit|| attacker.sureShot)
             {
+                attacker.sureShot = false;
                 StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
             }
         }
@@ -1274,10 +1305,61 @@ public class BattleManager : MonoBehaviour
     public void AttackSetup(UnitBehavior Attacker, UnitBehavior Target)
     {
         Phit = (int)(Attacker.Weapon.hit + (Attacker.dex * 3) + Attacker.luck + Attacker.hit - (Target.speed * 2) - Target.luck - Target.avoid - Target.Weapon.avoid);
+
+        if (!Attacker.skills.Contains("Mira Perfeita"))
+        {
+           if(Target.position == 2 && !Attacker.enemy)
+            {
+                if (enemyTeam[0].hp <= 0)
+                {
+                    Phit -= 10;
+                }
+            }
+            if (Target.position == 2 && Attacker.enemy)
+            {
+                if (playerTeam[0].hp <= 0)
+                {
+                    Phit -= 10;
+                }
+            }
+            if (Target.position == 3 && !Attacker.enemy)
+            {
+                if (enemyTeam[0].hp <= 0)
+                {
+                    Phit -= 10;
+                }
+                if (enemyTeam[1].hp <= 0)
+                {
+                    Phit -= 10;
+                }
+            }
+            if (Target.position == 3 && Attacker.enemy)
+            {
+                if (playerTeam[0].hp <= 0)
+                {
+                    Phit -= 10;
+                }
+                if (playerTeam[1].hp <= 0)
+                {
+                    Phit -= 10;
+                }
+            }
+        }
         if (Phit < 30)
         {
             Phit = 30;
         }
+
+        if (Target.defenses[0] > Target.defenses[1])
+        {
+            Target.defenses[2] = Target.defenses[1];
+        }
+        else
+        {
+            Target.defenses[2] = Target.defenses[0];
+        }
+
+        Pcrit = (int)(Attacker.dex / 2) + Attacker.crit + Attacker.Weapon.crit - Target.Weapon.critAvoid;
     }
 
     public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
@@ -1318,7 +1400,7 @@ public class BattleManager : MonoBehaviour
             + "\nPskill dps de target soul proc" + PskillPostTargetPostHealthChange);
         HudUpdate();
         yield return new WaitForSeconds(1);
-        if (Random.Range(0, 101) <= (int)(attacker.dex / 2) + attacker.Weapon.crit - Target.Weapon.critAvoid)
+        if (Random.Range(0, 101) <= Pcrit)
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
 
@@ -1326,6 +1408,8 @@ public class BattleManager : MonoBehaviour
             {
                 damageDone = 2;
             }
+
+            damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen)/100) ;
             CheckDamage(attacker, Target, damageDone);
 
             Target.hp -= damageDone;
@@ -1339,8 +1423,8 @@ public class BattleManager : MonoBehaviour
 
             if (attacker.lifesteal >= 0.01 || attacker.Weapon.lifesteal >= 0.01)
             {
-                attacker.hp += damageDone * (attacker.lifesteal + attacker.Weapon.lifesteal);
-                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true)); // TODO: timing animacao
+                attacker.hp += (int)(damageDone * (attacker.lifesteal + attacker.Weapon.lifesteal));
+                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * attacker.lifesteal), true)); // TODO: timing animacao
             }
             Target.soul += damageDone / 5;
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
@@ -1348,6 +1432,7 @@ public class BattleManager : MonoBehaviour
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
                     + Target.UnitName + " enemy defense: " + Target.def + "\n"
                     + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
+                    + attacker.UnitName + " SkillCritRate = " + attacker.crit + "\n"
                                         + "acerto critico, dano dobrado"
                 );
             int c = 0;
@@ -1366,6 +1451,8 @@ public class BattleManager : MonoBehaviour
         else
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus);
+            damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
+
             CheckDamage(attacker, Target, damageDone);
             Target.hp -= damageDone;
 
@@ -1376,8 +1463,8 @@ public class BattleManager : MonoBehaviour
 
             if (attacker.lifesteal >= 0.01)
             {
-                attacker.hp += (damageDone) * attacker.lifesteal;
-                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true)); // TODO: timing animacao
+                attacker.hp += (int)((damageDone) * attacker.lifesteal);
+                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * attacker.lifesteal), true)); // TODO: timing animacao
             }
             Target.soul += ((damageDone) / 5) * Target.damageSoulGain;
             Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + (damageDone) + " de dano\n"
@@ -1385,6 +1472,8 @@ public class BattleManager : MonoBehaviour
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
                     + Target.UnitName + " enemy defense: " + Target.def + "\n"
                     + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
+                    + attacker.UnitName + " SkillCritRate = " + attacker.crit + "\n"
+
                 );
             int c = 0;
             foreach (Slider sl in enemyHpSlider)
@@ -1418,9 +1507,10 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (Random.Range(0, 101) <= Pcrit)
         {
-            int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2 * DamageMultiplier);
+            int damageDone = (int)(attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
+            damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
 
-            Target.hp -= damageDone;
+            Target.hp -= (int)(damageDone * DamageMultiplier);
             CheckDamage(attacker, Target, damageDone);
 
             ParticleHit(Target);
@@ -1432,15 +1522,17 @@ public class BattleManager : MonoBehaviour
         + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
         + Target.UnitName + " enemy defense: " + Target.def + "\n"
         + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
+                            + attacker.UnitName + " SkillCritRate = " + attacker.crit + "\n"
+
                             + "acerto critico, dano dobrado" + " Foi um ataque extra"
     );
             Debug.Log(lifeSteal);
             if (attacker.lifesteal >= 0.01 | lifeSteal >= 0.01 || attacker.Weapon.lifesteal >= 0.01)
             {
-                attacker.hp += (damageDone) * attacker.lifesteal;
+                attacker.hp += (int)((damageDone) * attacker.lifesteal);
                 attacker.hp += (int)((damageDone) * lifeSteal);
                 Debug.Log("life stolen");
-                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true));
+                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * attacker.lifesteal), true));
             }
             Target.soul += (damageDone * 2) / 5;
             yield return new WaitForSeconds(1);
@@ -1459,18 +1551,20 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            int damageDone = (int)((attackerDamage + attacker.SkillManager.currentDamageBonus) * DamageMultiplier);
+            int damageDone = (int)(attackerDamage + attacker.SkillManager.currentDamageBonus);
             ParticleHit(Target);
             hitAudio[0].Play();
+            damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
+
             Target.hp -= damageDone;
             CheckDamage(attacker, Target, damageDone);
             StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
             if (attacker.lifesteal >= 0.01 || attacker.Weapon.lifesteal >= 0.01)
             {
-                attacker.hp += (damageDone) * (attacker.lifesteal + attacker.Weapon.lifesteal);
+                attacker.hp += (int)((damageDone) * (attacker.lifesteal + attacker.Weapon.lifesteal));
                 Debug.Log("life stolen");
-                StartCoroutine(FadeOutText(attacker.damageTMP, (damageDone * attacker.lifesteal), true));
+                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * attacker.lifesteal), true));
             }
             if (lifeSteal >= 0.01)
             {
@@ -1483,6 +1577,8 @@ public class BattleManager : MonoBehaviour
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
                     + Target.UnitName + " enemy defense: " + Target.def + "\n"
                     + Target.UnitName + " enemy magic defense: " + Target.mdef + "\n"
+                                        + attacker.UnitName + " SkillCritRate = " + attacker.crit + "\n"
+
                     + "\n Foi um ataque extra"
                 );
             Target.soul += damageDone / 5;

@@ -59,7 +59,7 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed2;
     private int Ataqueinspiradorspeed3;
     private int poçãodeforçastacks;
-    
+    private int RitmoCritico;
 
     public int currentDamageBonus;
 
@@ -127,6 +127,23 @@ public class SkillManager : MonoBehaviour
                 {
                     return 0;
                 }
+            case "Lanca Perfurante":
+                if(target.position != 3 && user.Weapon.weapontype == Item.Weapontype.Lance)
+                {
+                    StartCoroutine(IconPopup(user.Icon, "Lança Perfurante"));
+                    enemyTeam[target.position].hp -= (user.power / 2) - target.defenses[user.Weapon.damageType];                   
+                }
+                return 0;
+            case "Ritmo Crítico":
+                if (RitmoCritico < 3)
+                {
+                    RitmoCritico++;
+                }
+                else
+                {
+                    StartCoroutine(RitmoCriticoBuff(user));
+                }
+                return 0;
 
 
             case "Precisão Mortal":
@@ -273,6 +290,7 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+          
             case "Pólen Dourado":
                 AddHealToLog(user, (int)((user.maxhp - user.hp) * 0.15));
                 user.hp += (int) ((user.maxhp - user.hp) * 0.15);
@@ -289,8 +307,38 @@ public class SkillManager : MonoBehaviour
                 user.crit += 2;
 
                 return 0;
+            case "Lamina Dancante":
+                //todo
+                //mano tem texto aparecendo em cima do proprio time e ta feio pra caralho
+                if (Random.Range(0, 101) <= user.dex/2)
+                {
+                    int i = 0;
+                    while(i <2)
+                    {
+                        foreach (UnitBehavior ub in user.battleManager.enemyTeam)
+                        {
+                            StartCoroutine(user.battleManager.ExtraAttack(user, ub, DamageMultiplier: (int)1));
+                        }
+                    i++;
+                    }
+                return - (user.power - target.defenses[user.Weapon.damageType]) / 2;
+                }
+                else
+                {
+                    return 0;
+                }
 
 
+            case "Disparo Obliterador":
+                if (Random.Range(0, 101) <= user.dex / 2)
+                {
+                    user.sureShot = true;
+                    return (int)((user.power - target.defenses[user.Weapon.damageType]) * 1.5);
+                }
+                else
+                {
+                    return 0;
+                }
             case "Desprezo pelos Fracos":
                 if (target.hp <= target.maxhp/2) 
                 {
@@ -466,6 +514,13 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Armas Magicas":
+                user.Weapon.damageType = 2;
+                return 0;
+            case "Penetrar Defesas":
+                user.armorpen += 25;
+                user.magicpen += 25;
+                return 0;
             case "Concentração de Feiticeiro":
 
                 if (user.hp == user.maxhp)
@@ -501,7 +556,13 @@ public class SkillManager : MonoBehaviour
                     }
                 }
                 return 0;
+            case "Machado Sangrento":
+                if (user.Weapon.weapontype == Item.Weapontype.Axe)
+                {
+                    user.lifesteal += (float)0.15;
+                }
 
+                return 0;
             case "Foco":
                 {
                     StartCoroutine(IconPopup(user.Icon, "Foco"));
@@ -889,6 +950,19 @@ public class SkillManager : MonoBehaviour
         }
     }
 
+    public int MissProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
+    {
+        switch (skillName)
+        {
+            case "Ritmo Crítico":
+                RitmoCritico = 0;
+                return 0;
+
+            default: return 0;
+        }
+
+    }
+
     public int PostHealthChange(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
         switch (skillName)
@@ -1048,6 +1122,12 @@ public class SkillManager : MonoBehaviour
 
         user.crit += 50;
     }
+    IEnumerator RitmoCriticoBuff(UnitBehavior user) 
+    {
+        user.crit += 30;
+        yield return new WaitForSeconds(1);
+        user.crit -= 30;
+    }
 
     IEnumerator ReforçarArmadura(UnitBehavior user)
     {
@@ -1187,6 +1267,13 @@ public class SkillManager : MonoBehaviour
         user.speed += 7;
         yield return new WaitForSeconds(10);
         user.speed -= 7;
+
+    }
+    IEnumerator MiraPerfeita(UnitBehavior user, int boost)
+    {
+        user.hit += 7;
+        yield return new WaitForSeconds(10);
+        user.hit -= 7;
 
     }
 

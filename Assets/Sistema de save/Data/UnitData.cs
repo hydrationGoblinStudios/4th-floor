@@ -49,7 +49,7 @@ public struct UnitData
     public float soulgain;
     [Header("Status que não aparecem na UI")]
     public int damagereduction;
-    public int lifesteal;
+    public float lifesteal;
     public int armorpen;
     public int magicpen;
     [Header("Cooking")]

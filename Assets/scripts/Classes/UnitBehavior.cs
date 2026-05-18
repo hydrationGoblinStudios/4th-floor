@@ -53,7 +53,7 @@ public class UnitBehavior : MonoBehaviour
     public float damageSoulGain =1;
     [Header("Status que não aparecem na UI")]
     public int damagereduction;
-    public int lifesteal;
+    public float lifesteal;
     public int armorpen;
     public int magicpen;
     [Header("Cooking")]
@@ -93,6 +93,8 @@ public class UnitBehavior : MonoBehaviour
     public string target2;
     public int targetStat;
     public int targetStat2;
+
+    public bool sureShot;
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
         if(Weapon != null)
@@ -108,7 +110,7 @@ public class UnitBehavior : MonoBehaviour
         battleManagerOBJ = GameObject.FindGameObjectWithTag("Battle Manager");
         Pendure = false;
         Eendure = false;
-        defenses = new int[2]; defenses[0] = def; defenses[1] = mdef;
+        defenses = new int[3]; defenses[0] = def; defenses[1] = mdef; defenses[2] = 0;
         if (battleManagerOBJ != null)
         {
             battleManager = battleManagerOBJ.GetComponent<BattleManager>();
