@@ -92,7 +92,19 @@ public class SkillManager : MonoBehaviour
 
                 }
                 return 0;
+            case "Poder Divino":
+                return user.luck / 2;
 
+            case "Bateria da Alma":
+                if(user.position == 2)
+                {
+                    team[0].soul += 15 + (user.soulgain / 2);
+                }
+                if (user.position == 3)
+                {
+                    team[1].soul += 15 + (user.soulgain / 2);
+                }
+                return 0;
             case "Ataque Rápido":
 
                 if (Random.Range(0, 101) <= user.dex)
@@ -479,7 +491,16 @@ public class SkillManager : MonoBehaviour
                     }
                 }
                 return 0;
-
+            case "Conhecimento da Alma":
+                user.soulgain += 5;
+                return 0;
+            case "Leitura Rápida":
+                 if (user.Weapon.weapontype == Item.Weapontype.Tome)
+                {
+                    user.speed += speed / 5;
+                        user.crit += 10;
+                }
+                return 0;
             case "Espada Curta":
                 if (!espadaCurtaBoost)
                 {
@@ -502,6 +523,9 @@ public class SkillManager : MonoBehaviour
                 }
                 return 0;
 
+            case "Aura De Regeneração":
+                StartCoroutine(AuraDeRegeneraçãoTimer(user,target,team,enemyTeam));
+                return 0;
             case "Machado Cortado":
 
                 if (user.hp >= user.maxhp * 0.8 & machadocortadoboost == false)
@@ -1116,6 +1140,45 @@ public class SkillManager : MonoBehaviour
         
     }
 
+    IEnumerator AuraDeRegeneraçãoTimer(UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(15);
+            StartCoroutine(IconPopup(user.Icon, "Aura de Regeneração"));
+            foreach (UnitBehavior ub in team)
+            {
+                ub.hp += (int)user.luck / 2;
+                foreach(string skill in ub.skills)
+                {
+                PostHealthChange(skill, ub, target, team, enemyTeam);
+                }
+            }
+        }
+    }
+
+    IEnumerator CuraTimer(UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
+    {
+        while (true)
+        {
+            UnitBehavior lowestHpUb = user;
+            yield return new WaitForSeconds(10);
+            StartCoroutine(IconPopup(user.Icon, "Cura"));
+            foreach (UnitBehavior ub in team)
+            {
+                if (ub.hp < lowestHpUb.hp)
+                {
+                    lowestHpUb = ub;
+                }
+
+            }
+            lowestHpUb.hp += (int)user.mag / 2;
+            foreach (string skill in lowestHpUb.skills)
+            {
+            PostHealthChange(skill, lowestHpUb, target, team, enemyTeam);
+            }
+        }
+    }
     IEnumerator Finalizador(UnitBehavior user)
     {
         yield return new WaitForSeconds(60);
