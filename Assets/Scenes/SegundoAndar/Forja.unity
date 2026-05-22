@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 5c397d4e4d371ef409384f0381171afb, type: 2}
+  graph: {fileID: 11400000, guid: 11adaec1deb617041a06c3ffea7447bd, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 24939916}
 --- !u!114 &24939916
@@ -273,8 +273,6 @@ GameObject:
   - component: {fileID: 197786980}
   - component: {fileID: 197786983}
   - component: {fileID: 197786984}
-  - component: {fileID: 197786985}
-  - component: {fileID: 197786986}
   m_Layer: 5
   m_Name: Cadeado Interactable
   m_TagString: Untagged
@@ -395,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 414ee2178328d75488c3ff8984170cd3, type: 2}
+  graph: {fileID: 11400000, guid: 85befdfae54a9584b99674b8cf117c70, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 197786980}
 --- !u!114 &197786984
@@ -412,48 +410,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 11400000, guid: 2d9fa2e3fa48e054384bc24ce55ab6ae, type: 2}
   sprite: {fileID: 21300000, guid: a80fb162a0f492e4399aeafeb57641cc, type: 3}
-  items:
-  - {fileID: 11400000, guid: c07379feffff9c945b9e962550d1b12a, type: 2}
-  interactables:
-  - {fileID: 197786978}
-  sprites:
-  - {fileID: 743881918}
-  manager: {fileID: 0}
---- !u!114 &197786985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197786978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae0beb927c5df4a43878d63f917a7922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: 94b0ef2bbd2aa6f40ba26a3b762f83a6, type: 2}
-  sprite: {fileID: 21300000, guid: a93324e497a0f30498cc0ae517d92cdd, type: 3}
-  items:
-  - {fileID: 11400000, guid: 5eb177ae8abbf5f48937df75a698d1ae, type: 2}
-  interactables:
-  - {fileID: 197786978}
-  sprites:
-  - {fileID: 0}
-  manager: {fileID: 0}
---- !u!114 &197786986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197786978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae0beb927c5df4a43878d63f917a7922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: 2d9fa2e3fa48e054384bc24ce55ab6ae, type: 2}
-  sprite: {fileID: 0}
   items:
   - {fileID: 11400000, guid: c07379feffff9c945b9e962550d1b12a, type: 2}
   interactables:
@@ -651,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 853789b176dd6314fa0b50f0895dbd49, type: 2}
+  graph: {fileID: 11400000, guid: 5badb0bb72785af4eadd6f501a7bdf29, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 317576240}
 --- !u!1 &539974502
@@ -787,7 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 51a7c7e942822bb4686426fd2dabbc21, type: 2}
+  graph: {fileID: 11400000, guid: 5737e13d2d36e8645afb72bcb2400c5f, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 539974504}
 --- !u!1 &547982421
@@ -889,7 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 547982423}
   sprites:
-  - {fileID: 21300000, guid: 8ec6638da3b2ebd4c9f331cdfd37a85c, type: 3}
+  - {fileID: 21300000, guid: da4f7e15bbd358742a7e3612f77b8352, type: 3}
   - {fileID: 0}
 --- !u!1 &662974034
 GameObject:
@@ -1036,8 +992,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 743881918}
   sprites:
-  - {fileID: 21300000, guid: 4d23d8bd379262f4bb9d5da983957fd5, type: 3}
-  - {fileID: 21300000, guid: a80fb162a0f492e4399aeafeb57641cc, type: 3}
+  - {fileID: 21300000, guid: 27fd1202d3f94304f99bcafe34fe1b09, type: 3}
+  - {fileID: 0}
 --- !u!1 &788691421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: f608ef3cc18a4b946abb6b802ae79074, type: 2}
+  graph: {fileID: 11400000, guid: c396fb4ec515bc8429bfbca281f92ea7, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 903977880}
 --- !u!1 &996546827
@@ -1440,6 +1396,142 @@ MonoBehaviour:
   Manager: {fileID: 0}
   GameManagerOBJ: {fileID: 0}
   UnitBehavior: {fileID: 0}
+--- !u!1 &1080321488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080321489}
+  - component: {fileID: 1080321493}
+  - component: {fileID: 1080321492}
+  - component: {fileID: 1080321491}
+  - component: {fileID: 1080321490}
+  m_Layer: 5
+  m_Name: "Quadro da arma lendar\xEDa Interactable"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1080321489
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080321488}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 94.99998}
+  m_LocalScale: {x: 0.008789999, y: 0.008789999, z: 0.008789999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1372198796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.39, y: 1.9818}
+  m_SizeDelta: {x: 286.3886, y: 144.9714}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1080321490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080321488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000, guid: 541cfa2e489c2d54c83e24ac619762d1, type: 2}
+  nodeParser: {fileID: 0}
+  button: {fileID: 1080321491}
+--- !u!114 &1080321491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080321488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1080321492}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1080321492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080321488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 61baf6b9daa5dfd4db5c0b4524329187, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1080321493
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080321488}
+  m_CullTransparentMesh: 1
 --- !u!1 &1102837522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1318941793}
   sprites:
-  - {fileID: 21300000, guid: 6f5239c3510712c429ff0b7b851bb0d2, type: 3}
+  - {fileID: 21300000, guid: 7da10f12028e5674c8e25668c0357264, type: 3}
   - {fileID: 0}
 --- !u!1 &1372198795
 GameObject:
@@ -1763,6 +1855,7 @@ Transform:
   - {fileID: 539974503}
   - {fileID: 903977879}
   - {fileID: 24939914}
+  - {fileID: 1080321489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1372198797
@@ -1915,14 +2008,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vazio: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
   items:
-  - {fileID: 11400000, guid: 9548e499a74f5874893eb33e114eadc5, type: 2}
-  - {fileID: 11400000, guid: f1c0f849e3d058a4ab804de45e6df085, type: 2}
+  - {fileID: 11400000, guid: 744b367148357d44992f7290b65f415f, type: 2}
+  - {fileID: 11400000, guid: ab62a07525498e148910533a0118870e, type: 2}
   interactables:
-  - {fileID: 903977878}
   - {fileID: 24939913}
+  - {fileID: 317576238}
   sprites:
-  - {fileID: 547982423}
-  - {fileID: 1318941793}
+  - {fileID: 2012352426}
+  - {fileID: 743881918}
   manager: {fileID: 0}
 --- !u!4 &1728932349
 Transform:
@@ -2070,7 +2163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2012352426}
   sprites:
-  - {fileID: 21300000, guid: 6f5239c3510712c429ff0b7b851bb0d2, type: 3}
+  - {fileID: 21300000, guid: 537a35047c0d8a746bc44addab4cdc3a, type: 3}
   - {fileID: 0}
 --- !u!212 &2012352426
 SpriteRenderer:

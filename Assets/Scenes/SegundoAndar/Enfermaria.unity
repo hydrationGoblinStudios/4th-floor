@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 5c397d4e4d371ef409384f0381171afb, type: 2}
+  graph: {fileID: 11400000, guid: f6a2b51436c30d2439e1432507899762, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 24939916}
 --- !u!114 &24939916
@@ -272,9 +272,6 @@ GameObject:
   - component: {fileID: 197786981}
   - component: {fileID: 197786980}
   - component: {fileID: 197786983}
-  - component: {fileID: 197786984}
-  - component: {fileID: 197786985}
-  - component: {fileID: 197786986}
   m_Layer: 5
   m_Name: Esparadrapo Interactable
   m_TagString: Untagged
@@ -395,72 +392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 414ee2178328d75488c3ff8984170cd3, type: 2}
+  graph: {fileID: 11400000, guid: cee0f944b06f7184ab74d1bf626a6eca, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 197786980}
---- !u!114 &197786984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197786978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae0beb927c5df4a43878d63f917a7922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: 2d9fa2e3fa48e054384bc24ce55ab6ae, type: 2}
-  sprite: {fileID: 21300000, guid: a80fb162a0f492e4399aeafeb57641cc, type: 3}
-  items:
-  - {fileID: 11400000, guid: c07379feffff9c945b9e962550d1b12a, type: 2}
-  interactables:
-  - {fileID: 197786978}
-  sprites:
-  - {fileID: 743881918}
-  manager: {fileID: 0}
---- !u!114 &197786985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197786978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae0beb927c5df4a43878d63f917a7922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: 94b0ef2bbd2aa6f40ba26a3b762f83a6, type: 2}
-  sprite: {fileID: 21300000, guid: a93324e497a0f30498cc0ae517d92cdd, type: 3}
-  items:
-  - {fileID: 11400000, guid: 5eb177ae8abbf5f48937df75a698d1ae, type: 2}
-  interactables:
-  - {fileID: 197786978}
-  sprites:
-  - {fileID: 0}
-  manager: {fileID: 0}
---- !u!114 &197786986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197786978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae0beb927c5df4a43878d63f917a7922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: 2d9fa2e3fa48e054384bc24ce55ab6ae, type: 2}
-  sprite: {fileID: 0}
-  items:
-  - {fileID: 11400000, guid: c07379feffff9c945b9e962550d1b12a, type: 2}
-  interactables:
-  - {fileID: 197786978}
-  sprites:
-  - {fileID: 743881918}
-  manager: {fileID: 0}
 --- !u!1 &317576238
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 853789b176dd6314fa0b50f0895dbd49, type: 2}
+  graph: {fileID: 11400000, guid: e5bc2a57469ed2048955cd36c066a36d, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 317576240}
 --- !u!1 &539974502
@@ -730,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 51a7c7e942822bb4686426fd2dabbc21, type: 2}
+  graph: {fileID: 11400000, guid: 2b5b9e20d6d049a4ea5948e78478b82e, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 539974504}
 --- !u!1 &547982421
@@ -1287,7 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f5cde2d6ea61b43aa793d48c691225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: f608ef3cc18a4b946abb6b802ae79074, type: 2}
+  graph: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
   nodeParser: {fileID: 0}
   button: {fileID: 903977880}
 --- !u!1 &996546827
