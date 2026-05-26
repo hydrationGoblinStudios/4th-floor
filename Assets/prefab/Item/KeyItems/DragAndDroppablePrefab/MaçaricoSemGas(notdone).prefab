@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3387756151629906763}
   - component: {fileID: -633413982220338445}
   m_Layer: 0
-  m_Name: Toalha
+  m_Name: "Ma\xE7aricoSemGas(notdone)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,9 +55,9 @@ MonoBehaviour:
   MainCamera: {fileID: 0}
   canvas: {fileID: 0}
   dialogueGraphTarget:
-  - {fileID: 11400000, guid: 9ca95a8cf4b147b49b7be26ff66dcaac, type: 2}
+  - {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
   dialogueGraphs:
-  - {fileID: 11400000, guid: 03b7714381b10b447a45f245f85f1b79, type: 2}
+  - {fileID: 11400000, guid: d39e20e4fcfe3254d8a695f358081322, type: 2}
   nodeParser: {fileID: 0}
 --- !u!58 &8952692957907384358
 CircleCollider2D:
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 22e94d2ec77b426448c5f32fa6c585a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 583969acf4f8cbd4cb994eaefe42e25b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

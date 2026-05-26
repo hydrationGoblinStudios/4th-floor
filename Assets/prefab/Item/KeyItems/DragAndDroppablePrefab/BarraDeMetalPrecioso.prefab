@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3387756151629906763}
   - component: {fileID: -633413982220338445}
   m_Layer: 0
-  m_Name: Toalha
+  m_Name: BarraDeMetalPrecioso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,9 +55,9 @@ MonoBehaviour:
   MainCamera: {fileID: 0}
   canvas: {fileID: 0}
   dialogueGraphTarget:
-  - {fileID: 11400000, guid: 9ca95a8cf4b147b49b7be26ff66dcaac, type: 2}
+  - {fileID: 11400000, guid: 1623d914d45682246a1ba7f401be711c, type: 2}
   dialogueGraphs:
-  - {fileID: 11400000, guid: 03b7714381b10b447a45f245f85f1b79, type: 2}
+  - {fileID: 11400000, guid: 8394901ca999ac64db697c165d08b070, type: 2}
   nodeParser: {fileID: 0}
 --- !u!58 &8952692957907384358
 CircleCollider2D:
