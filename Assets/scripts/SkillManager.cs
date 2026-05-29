@@ -490,6 +490,33 @@ public class SkillManager : MonoBehaviour
                         enemyTeam[2].speed += (int)(enemyTeam[2].speed * 0.15);
                     }
                 }
+
+                return 0;
+            case "Magia Maligna":
+                if (user.position == 2)
+                {
+                    user.speed += (int)(team[0].speed * 0.15);
+                    team[0].speed -= (int)(team[0].speed * 0.15);
+                    user.mag += (int)(team[0].mag * 0.15);
+                    team[0].mag -= (int)(team[0].mag * 0.15);
+                }
+                if (user.position == 3)
+                {
+                    user.speed += (int)(team[0].speed * 0.15);
+                    team[0].speed -= (int)(team[0].speed * 0.15);
+                    user.mag += (int)(team[0].mag * 0.15);
+                    team[0].mag -= (int)(team[0].mag * 0.15);
+                }
+                return 0;
+            case "Sacrifício Arriscado":
+                user.hp = (int)(user.hp * 0.65);
+                user.mag = (int)(user.mag * 1.25);
+                return 0;
+            case "Potencializar Receptáculo":
+                if(user.Weapon.weapontype == Item.Weapontype.Receptacle)
+                {
+                    user.magicpen += 25;
+                }
                 return 0;
             case "Conhecimento da Alma":
                 user.soulgain += 5;
