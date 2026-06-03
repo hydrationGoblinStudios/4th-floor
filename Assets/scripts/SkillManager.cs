@@ -406,6 +406,10 @@ public class SkillManager : MonoBehaviour
                 moedamagicaactive = true;
 
                 return 0;
+            case "Alma Humana":
+                user.power = (int)(user.power * 1.1);
+
+                return 0;
 
             case "Tomo Apoteótico":
                 StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
@@ -490,6 +494,10 @@ public class SkillManager : MonoBehaviour
                         enemyTeam[2].speed += (int)(enemyTeam[2].speed * 0.15);
                     }
                 }
+
+                return 0;
+            case "Alma Humana":
+                user.soulgain += (int)((15 + user.soulgain)/4);
 
                 return 0;
             case "Magia Maligna":
