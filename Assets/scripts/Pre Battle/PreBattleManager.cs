@@ -299,8 +299,8 @@ public class PreBattleManager : MonoBehaviour
 
         //enemy leveler
         foreach(GameObject ubGO in SelectedEnemyList)
-        {              
-            if(ubGO.GetComponent<UnitBehavior>().currentLevel < levelList[gameManager.day] && gameManager.day % 4 != 0)
+        {             
+            if(ubGO.GetComponent<UnitBehavior>().currentLevel < levelList[gameManager.day]&& ubGO.GetComponent<UnitBehavior>().hp > 0 && gameManager.day % 4 != 0)
             {
                 EnemyLevelUp(ubGO.GetComponent<UnitBehavior>(), levelList[gameManager.day] - ubGO.GetComponent<UnitBehavior>().currentLevel);
             }
@@ -597,10 +597,16 @@ public class PreBattleManager : MonoBehaviour
                 EnemySelect(SelectedEnemy1.GetComponent<UnitBehavior>());
                 break;
             case 2:
-                EnemySelect(SelectedEnemy2.GetComponent<UnitBehavior>());
+                if (SelectedPlayer2.GetComponent<UnitBehavior>().hp > 0)
+                {
+                    EnemySelect(SelectedEnemy2.GetComponent<UnitBehavior>());
+                }
                 break;
             default:
-                EnemySelect(SelectedEnemy3.GetComponent<UnitBehavior>());
+                if (SelectedPlayer3.GetComponent<UnitBehavior>().hp > 0)
+                {
+                    EnemySelect(SelectedEnemy3.GetComponent<UnitBehavior>());
+                }
                 break;
         }
         
@@ -619,21 +625,27 @@ public class PreBattleManager : MonoBehaviour
     }
     public void Select2()
     {
+        if(SelectedPlayer2.GetComponent<UnitBehavior>().hp > 0)
+        {
         Select(SelectedPlayer2.GetComponent<UnitBehavior>());
         selectedUnitSlot = 2;
         
         selectedHighlight.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
         selectedHighlight.transform.localScale = Vector3.one;
         selectedHighlight.transform.localPosition = Vector3.zero;
+        }
     }
     public void Select3()
     {
-        Select(SelectedPlayer3.GetComponent<UnitBehavior>());
-        selectedUnitSlot = 3;
-        
-        selectedHighlight.transform.SetParent(playerAnimations[selectedUnitSlot-1].transform);
-        selectedHighlight.transform.localScale = Vector3.one;
-        selectedHighlight.transform.localPosition = Vector3.zero;
+        if (SelectedPlayer3.GetComponent<UnitBehavior>().hp > 0)
+        {
+            Select(SelectedPlayer3.GetComponent<UnitBehavior>());
+            selectedUnitSlot = 3;
+
+            selectedHighlight.transform.SetParent(playerAnimations[selectedUnitSlot - 1].transform);
+            selectedHighlight.transform.localScale = Vector3.one;
+            selectedHighlight.transform.localPosition = Vector3.zero;
+        }
     }
     public void InventoryToggleButton()
     {
@@ -1042,11 +1054,16 @@ public class PreBattleManager : MonoBehaviour
     } 
     public void EnemyPrepSkill()
     {
-        while (evilEnergy > 0)
+        int numberOfEnemies = 3;
+        if (SelectedPlayer2.GetComponent<UnitBehavior>().hp > 0)
+        { numberOfEnemies--; }
+        if (SelectedPlayer3.GetComponent<UnitBehavior>().hp > 0)
+        { numberOfEnemies--; }
+            while (evilEnergy > 0)
         {
             int r = Random.Range(0, 3);
-            int unitR = Random.Range(0, 3);
-            selectedUnit = SelectedEnemyList[unitR].GetComponent<UnitBehavior>();
+            int unitR = Random.Range(0, numberOfEnemies);
+            selectedUnit = SelectedEnemyList[unitR].GetComponent<UnitBehavior>();   
             switch (r)
             {
                 case 0:
@@ -1084,11 +1101,17 @@ public class PreBattleManager : MonoBehaviour
    public void ShaderSelect()
     {
         playerAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
-        playerAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
-        playerAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
         enemyAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+        if(SelectedPlayer2.GetComponent<UnitBehavior>().hp > 0)
+        { 
+        playerAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
         enemyAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
-        enemyAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+        }
+        if (SelectedPlayer3.GetComponent<UnitBehavior>().hp > 0)
+        {
+            enemyAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+            playerAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+        }
     }
     public void UnitSelect(int i,GameObject SelectedPlayer = null)
     {
@@ -1286,6 +1309,7 @@ public class PreBattleManager : MonoBehaviour
     }
     public void EnemyLevelUp(UnitBehavior ub, int levels)
     {
+
         ub.InitClass();
         string levelChange = ($"\n{ub.UnitName} class: {ub.GetType().ToString()}\noriginal stats({ub.currentLevel}):maxhp:{ub.maxhp} str:{ub.str} mag:{ub.mag} dex:{ub.dex} def:{ub.def} mdef:{ub.mdef} speed:{ub.speed} luck:{ub.luck}");
         for( int c=0; c <levels; c++)

@@ -94,7 +94,20 @@ public class SkillManager : MonoBehaviour
                 return 0;
             case "Poder Divino":
                 return user.luck / 2;
+            case "Poena":
+                if (Random.Range(0, 101) <= user.dex){
+                    if(user.Weapon.damageType == 0)
+                    {
+                    user.hp += user.Weapon.power + user.str;
+                    }
+                    else
+                    {
+                    user.hp += user.Weapon.power + user.mag;
+                    }
 
+                    return (user.power - target.defenses[user.Weapon.damageType]) / 4;
+                }
+                return 0;
             case "Bateria da Alma":
                 if(user.position == 2)
                 {
