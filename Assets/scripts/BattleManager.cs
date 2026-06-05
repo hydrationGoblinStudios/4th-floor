@@ -1132,13 +1132,13 @@ public class BattleManager : MonoBehaviour
         {
             expSliderP3.value = RealCharacter3.currentExp;
         }
-        int exp1 = (int)(50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
+        int exp1 = (int)((50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[0].expmarkplier);
         if (exp1 <= 0) { exp1 = 1; }
-        int exp2 = (int)(50 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player2Behavior.expmarkplier);
+        int exp2 = (int)((50 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[1].expmarkplier);
         if (exp2 <= 0) { exp2 = 1; }
-        int exp3 = (int)(50 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player3Behavior.expmarkplier);
+        int exp3 = (int)((50 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[2].expmarkplier);
         if (exp3 <= 0) { exp3 = 1; }
-        int exp4 = (int)(50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
+        int exp4 = (int)((50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[0].expmarkplier);
         if (exp4 <= 0) { exp1 = 1; }
         yield return new WaitForSeconds(1);
         if (gameManager.team.Count > 3)
