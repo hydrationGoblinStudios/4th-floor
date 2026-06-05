@@ -38,6 +38,7 @@ public class Item : ScriptableObject
     public string description;
     public int hit;
     public int crit;
+    public int maxHp;
     public int power;
     public int str;
     public int mag;

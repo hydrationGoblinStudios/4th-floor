@@ -160,13 +160,50 @@ public class InventoryManager : MonoBehaviour
     {if(item.type == Item.Type.weapon)
         {
             if (selectedUnit.UsableWeaponTypes.Contains(item.weapontype)){
+                if (selectedUnit.Weapon != null)
+                {
+                    selectedUnit.maxhp -= selectedUnit.Weapon.maxHp;
+                    selectedUnit.str -= selectedUnit.Weapon.str;
+                    selectedUnit.mag -= selectedUnit.Weapon.mag;
+                    selectedUnit.dex -= selectedUnit.Weapon.dex;
+                    selectedUnit.def -= selectedUnit.Weapon.def;
+                    selectedUnit.mdef -= selectedUnit.Weapon.Mdef;
+                    selectedUnit.luck -= selectedUnit.Weapon.luck;
+                    selectedUnit.speed -= selectedUnit.Weapon.speed;
+                }
                 selectedUnit.Weapon = item;
+                selectedUnit.maxhp += item.maxHp;
+                selectedUnit.str += item.str;
+                selectedUnit.mag += item.mag;
+                selectedUnit.dex += item.dex;
+                selectedUnit.def += item.def;
+                selectedUnit.mdef += item.Mdef;
+                selectedUnit.luck += item.luck;
+                selectedUnit.speed += item.speed;
                 UpdateEquips(item);
             }
         }
         else
         {
+            if (selectedUnit.Accesory != null) { 
+            selectedUnit.maxhp -= selectedUnit.Accesory.maxHp;
+            selectedUnit.str -= selectedUnit.Accesory.str;
+            selectedUnit.mag -= selectedUnit.Accesory.mag;
+            selectedUnit.dex -= selectedUnit.Accesory.dex;
+            selectedUnit.def -= selectedUnit.Accesory.def;
+            selectedUnit.mdef -= selectedUnit.Accesory.Mdef;
+            selectedUnit.luck -= selectedUnit.Accesory.luck;
+            selectedUnit.speed -= selectedUnit.Accesory.speed;
+            }
             selectedUnit.Accesory = item;
+            selectedUnit.maxhp += item.maxHp;
+            selectedUnit.str += item.str;
+            selectedUnit.mag += item.mag;
+            selectedUnit.dex += item.dex;
+            selectedUnit.def += item.def;
+            selectedUnit.mdef += item.Mdef;
+            selectedUnit.luck += item.luck;
+            selectedUnit.speed += item.speed;
             UpdateAccesory(item);
         }
         UpdateUITop();
