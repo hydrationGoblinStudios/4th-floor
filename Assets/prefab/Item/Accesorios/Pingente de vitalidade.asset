@@ -22,6 +22,7 @@ MonoBehaviour:
   description: Um pingente que aumenta a Vida. Ganha +20 de Vida.
   hit: 0
   crit: 0
+  maxHp: 20
   power: 0
   str: 0
   mag: 0
