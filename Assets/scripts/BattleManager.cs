@@ -1121,7 +1121,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-        gameManager.money += 500;
+        gameManager.money += 1000;
         }
         expSliderP1.value = RealCharacter1.currentExp;
         if (gameManager.team.Count > 1)
