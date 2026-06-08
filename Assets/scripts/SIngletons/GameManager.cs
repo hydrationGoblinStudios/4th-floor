@@ -81,7 +81,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
 
         foreach (FileInfo fi in fileinf)
         {
-            Debug.Log(fi.Name);
             keyItemList.Add(AssetDatabase.LoadAssetAtPath<Item>($"Assets/prefab/Item/KeyItems/{fi.Name}"));
         }
         foreach (DirectoryInfo subDireInf in subDirInfo)
@@ -317,7 +316,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         newUnit.name = CurrentUnitBehavior.UnitName;
         SelectedUBClassChange = newUnit;
         //todo
-       ClassChange(newUnit.GetComponent<UnitBehavior>().classId, GetbyID(CurrentUnitData.Weapon, equipList));
+       ClassChange(newUnit.GetComponent<UnitBehavior>().classId, GetbyID(CurrentUnitData.Weapon, equipList),true);
         
         team.Add(newUnit);
     }
@@ -426,34 +425,20 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             }
         }
     }
-    public void ClassChange(int ClassId, Item item = null)
+    public void ClassChange(int ClassId, Item item = null, bool IsLoad = false)
     {
         
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
-        try
-        {
-        OriginalUB.maxhp -= OriginalUB.classStats[0];
-        OriginalUB.str -= OriginalUB.classStats[1];
-        OriginalUB.mag -= OriginalUB.classStats[2];
-        OriginalUB.dex -= OriginalUB.classStats[3];
-        OriginalUB.speed -= OriginalUB.classStats[4];
-        OriginalUB.def -= OriginalUB.classStats[5];
-        OriginalUB.mdef -= OriginalUB.classStats[6];
-        OriginalUB.luck -= OriginalUB.classStats[7];
-        }
-        catch
-        {
-            Debug.Log("class modifiers null");
-        }
+
         if (item != null)
         {
         OriginalUB.Weapon = item;
-        }
-        CopyUnitBehavior(OriginalUB, Unit, ClassId);
+        }        
+        CopyUnitBehavior(OriginalUB, Unit, ClassId,true);
         Destroy(OriginalUB);
         }
-    UnitBehavior CopyUnitBehavior(UnitBehavior original, GameObject destination, int ClassId)
+    UnitBehavior CopyUnitBehavior(UnitBehavior original, GameObject destination, int ClassId, bool IsLoad = false)
     {
         Debug.Log(ClassId);
         original.classId = ClassId;
@@ -510,7 +495,10 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         Destroy(original);
         copy.GetComponent<UnitBehavior>().classId = ClassId;
 
-        StartCoroutine(ClassBases(copy));
+        if (!IsLoad)
+        {
+            StartCoroutine(ClassBases(copy));
+        }
         /* if(copy.GetComponent<UnitBehavior>().Weapon == null)
          {
              copy.GetComponent<UnitBehavior>().Weapon = Inventory[0] ;
