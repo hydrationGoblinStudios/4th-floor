@@ -534,7 +534,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         if (storyBattle == true)
         {
             NodeParser dm = FindObjectOfType<NodeParser>(true);
-            dm.StartDialogue(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault());
+            dm.StartDialogue(graphs.Where(obj => obj.name == "Batalha Mandatoria +").SingleOrDefault());
         }
         else
         {
@@ -572,7 +572,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 }
                 if (storyBattle)
                 {
-                    ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault(), "cama", m_scene.name);
+                    ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria +").SingleOrDefault(), "cama", m_scene.name);
                 }
                 if (day == 1 && wakeUpTalk)
                 {

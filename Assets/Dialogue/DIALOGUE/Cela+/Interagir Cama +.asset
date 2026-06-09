@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -72, y: 72}
+  position: {x: -88, y: -8}
   ports:
     keys:
     - entry
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: Item Check
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -296, y: 56}
+  position: {x: -376, y: 56}
   ports:
     keys:
     - entry
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -520, y: 72}
+  position: {x: -648, y: 56}
   ports:
     keys:
     - exit
@@ -188,10 +188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -4537076493409453454}
-  - {fileID: -2298857375517735500}
   - {fileID: -8070118891699943887}
   - {fileID: -4564167642085924302}
   - {fileID: 3621621366684866145}
+  - {fileID: -2298857375517735500}
   current: {fileID: 0}
 --- !u!114 &3621621366684866145
 MonoBehaviour:
