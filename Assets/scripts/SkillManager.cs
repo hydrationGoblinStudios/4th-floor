@@ -123,7 +123,7 @@ public class SkillManager : MonoBehaviour
                 if (Random.Range(0, 101) <= user.dex)
                 {
                     StartCoroutine(IconPopup(user.Icon, "Ataque Rápido"));
-                    StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                    user.battleManager.ExtraAttack(user, target);
                 }
 
 
@@ -323,7 +323,7 @@ public class SkillManager : MonoBehaviour
 
             case "Empunhadeira Dupla":
 
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, DamageMultiplier: (int) 0.25));
+                user.battleManager.ExtraAttack(user, target, DamageMultiplier: (int) 0.25);
 
                 return 0;
 
@@ -342,7 +342,7 @@ public class SkillManager : MonoBehaviour
                     {
                         foreach (UnitBehavior ub in user.battleManager.enemyTeam)
                         {
-                            StartCoroutine(user.battleManager.ExtraAttack(user, ub, DamageMultiplier: (int)1));
+                            user.battleManager.ExtraAttack(user, ub, DamageMultiplier: (int)1);
                         }
                     i++;
                     }
@@ -1408,10 +1408,10 @@ public class SkillManager : MonoBehaviour
             case "Poder Oculto":
 
                 StartCoroutine(IconPopup(user.Icon, "Poder Oculto"));
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.75,lifeSteal: 0.5f));
+                user.battleManager.ExtraAttack(user, target, (float)0.75,lifeSteal: 0.5f);
                 yield return new WaitForSeconds(1.05f);
                 user.lifesteal -= (int) 0.25;
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.75));
+                user.battleManager.ExtraAttack(user, target, (float)0.75);
                 yield return new WaitForSeconds(1.05f);
 
                 target.soul -= 30;
@@ -1426,7 +1426,7 @@ public class SkillManager : MonoBehaviour
                 if (user.hp == user.maxhp)
                 {
                     user.power += (int)(user.maxhp * 0.15);
-                    StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                    user.battleManager.ExtraAttack(user, target);
                     yield return new WaitForSeconds(1);
                     user.power -= (int)(user.maxhp * 0.15);
 
@@ -1457,7 +1457,7 @@ public class SkillManager : MonoBehaviour
                 user.hit -= 25;
                 Debug.Log(user.power + "poder");
                 Debug.Log(user.hit + "hit");
-                StartCoroutine(user.battleManager.ExtraAttack(user, target,2));
+                user.battleManager.ExtraAttack(user, target,2);
                 user.hit += 25;
                 Debug.Log(user.power + "poder");
                 Debug.Log(user.hit + "hit");
@@ -1470,18 +1470,18 @@ public class SkillManager : MonoBehaviour
 
                 StartCoroutine(IconPopup(user.Icon, "Rajada de Flechas"));
 
-                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0], (float)0.6));
-                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1], (float)0.6));
-                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2], (float)0.6));
+                user.battleManager.ExtraAttack(user, enemyTeam[0], (float)0.6);
+                user.battleManager.ExtraAttack(user, enemyTeam[1], (float)0.6);
+                user.battleManager.ExtraAttack(user, enemyTeam[2], (float)0.6);
                 break;
 
             case "Golpe Triplo":
 
                 StartCoroutine(IconPopup(user.Icon, "Golpe Triplo"));
 
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                user.battleManager.ExtraAttack(user, target, (float)0.5);
+                user.battleManager.ExtraAttack(user, target, (float)0.5);
+                user.battleManager.ExtraAttack(user, target, (float)0.5);
 
                 break;
 
