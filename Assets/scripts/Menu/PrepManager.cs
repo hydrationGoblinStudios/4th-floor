@@ -21,6 +21,10 @@ public class PrepManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         InventoryManager IM = FindObjectOfType<InventoryManager>(true);
         IM.Activated = !IM.Activated;
+        Manager.currentState = GameManager.UIState.Available;
+        GameObject mapObject = GameObject.FindGameObjectWithTag("map background");
+            mapObject.GetComponent<MapToggle>().activated = false;
+
         }
     }
     public void MapToggle(GameObject mapObject)
