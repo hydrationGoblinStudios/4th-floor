@@ -151,6 +151,11 @@ public class InventoryManager : MonoBehaviour
             {               
                     go.SetActive(!go.activeInHierarchy);                
             }
+            if(Manager == null)
+            {
+            GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
+            Manager = GameManagerOBJ.GetComponent<GameManager>();
+            }
             Manager.currentState = GameManager.UIState.Available;
         }
     }

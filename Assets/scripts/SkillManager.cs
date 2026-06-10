@@ -214,6 +214,12 @@ public class SkillManager : MonoBehaviour
             case "Espada Maldita":
                 target.maxhp -= 10;
                 return 0;
+            case "Poder Desconhecido":
+                if (Random.Range(0, 101) >= user.dex/2)
+                {
+                    StartCoroutine(IconPopup(user.Icon, "Poder Desconhecido"));
+                }
+                return 0;
 
             case "Lança da Justiça":
                 if (target.position == 1 && lancadajustica1 == false)
@@ -420,7 +426,7 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
             case "Alma Humana":
-                user.power = (int)(user.power * 1.1);
+                StartCoroutine(AlmaHumana(user));
 
                 return 0;
 
@@ -1232,6 +1238,24 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds(60);
 
         user.crit += 50;
+    }
+    IEnumerator AlmaHumana(UnitBehavior user)
+    {
+        int almaHumanaBuff = 0;
+         if (user.Weapon.damageType == 1)
+        {
+            almaHumanaBuff = (int)((user.mag + user.Weapon.power) / 10);
+        }
+        else
+        {
+             almaHumanaBuff = (int)((user.mag + user.Weapon.power) / 10);
+        }
+        user.Weapon.power += almaHumanaBuff;
+
+        yield return new WaitForSeconds(10);
+
+        user.Weapon.power -= almaHumanaBuff;
+
     }
     IEnumerator RitmoCriticoBuff(UnitBehavior user) 
     {
