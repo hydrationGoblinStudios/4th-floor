@@ -60,8 +60,10 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed3;
     private int poçãodeforçastacks;
     private int RitmoCritico;
+    private int MotivadoBonus = 25;
 
     public int currentDamageBonus;
+    public int SkillProcBonus;
 
 
     //Skills que ativam no Dano
@@ -69,6 +71,17 @@ public class SkillManager : MonoBehaviour
     {
         switch (skillName)
         {
+            case "Motivado":
+                foreach (UnitBehavior ub in team)
+                {
+                    if(ub.hp <= 0)
+                    {
+                        SkillProcBonus -= MotivadoBonus;
+                        MotivadoBonus = 0;
+                    }
+                }
+                return 0;
+
             case "homer":
                 Debug.Log(user.UnitName);
                 StartCoroutine(IconPopup(user.Icon, "homer"));
@@ -446,6 +459,9 @@ public class SkillManager : MonoBehaviour
 
         switch (skillName)
         {
+            case "Motivado":
+                SkillProcBonus += MotivadoBonus;
+                return 0;
             case "Encantamento":
 
                 StartCoroutine(IconPopup(user.Icon, "Encantamento"));
