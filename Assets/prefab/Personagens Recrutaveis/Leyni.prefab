@@ -76,11 +76,11 @@ MonoBehaviour:
   str: 11
   mag: 8
   dex: 12
-  def: 5
-  mdef: 6
+  def: 3
+  mdef: 5
   defenses: 
-  luck: 10
-  speed: 15
+  luck: 11
+  speed: 12
   skills:
   - Dano Ascendente
   - Foco
@@ -107,7 +107,9 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 4100000028000000230000004100000050000000230000002300000037000000
+  growths: 3c000000280000002300000041000000460000001e0000002300000037000000
+  classStats: 0000000000000000000000000000000000000000000000000000000000000000
+  ClassGrowths: 0000000000000000000000000500000005000000000000000000000000000000
   classSkill: 
   personalSkill: 
   baseSkill: 
@@ -182,3 +184,4 @@ MonoBehaviour:
   target2: 
   targetStat: 0
   targetStat2: 0
+  sureShot: 0
