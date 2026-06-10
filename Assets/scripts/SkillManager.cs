@@ -60,10 +60,8 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed3;
     private int poçãodeforçastacks;
     private int RitmoCritico;
-    private int MotivadoBonus = 25;
 
     public int currentDamageBonus;
-    public int SkillProcBonus;
 
 
     //Skills que ativam no Dano
@@ -71,17 +69,6 @@ public class SkillManager : MonoBehaviour
     {
         switch (skillName)
         {
-            case "Motivado":
-                foreach (UnitBehavior ub in team)
-                {
-                    if(ub.hp <= 0)
-                    {
-                        SkillProcBonus -= MotivadoBonus;
-                        MotivadoBonus = 0;
-                    }
-                }
-                return 0;
-
             case "homer":
                 Debug.Log(user.UnitName);
                 StartCoroutine(IconPopup(user.Icon, "homer"));
@@ -136,7 +123,7 @@ public class SkillManager : MonoBehaviour
                 if (Random.Range(0, 101) <= user.dex)
                 {
                     StartCoroutine(IconPopup(user.Icon, "Ataque Rápido"));
-                    user.battleManager.ExtraAttack(user, target);
+                    StartCoroutine(user.battleManager.ExtraAttack(user, target));
                 }
 
 
@@ -226,14 +213,6 @@ public class SkillManager : MonoBehaviour
 
             case "Espada Maldita":
                 target.maxhp -= 10;
-                return 0;
-            case "Poder Desconhecido":
-                if (Random.Range(0, 101) >= user.dex/2)
-                {
-                    StartCoroutine(IconPopup(user.Icon, "Poder Desconhecido"));
-                    user.lifesteal += 50;
-
-                }
                 return 0;
 
             case "Lança da Justiça":
@@ -343,9 +322,7 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Empunhadeira Dupla":
-
-                user.battleManager.ExtraAttack(user, target, DamageMultiplier: (int) 0.25);
-
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, DamageMultiplier: (int) 0.25));
                 return 0;
 
             case "Critico Rampante":
@@ -363,7 +340,7 @@ public class SkillManager : MonoBehaviour
                     {
                         foreach (UnitBehavior ub in user.battleManager.enemyTeam)
                         {
-                            user.battleManager.ExtraAttack(user, ub, DamageMultiplier: (int)1);
+                            StartCoroutine(user.battleManager.ExtraAttack(user, ub, DamageMultiplier: (int)1));
                         }
                     i++;
                     }
@@ -441,7 +418,7 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
             case "Alma Humana":
-                StartCoroutine(AlmaHumana(user));
+                user.power = (int)(user.power * 1.1);
 
                 return 0;
 
@@ -461,9 +438,6 @@ public class SkillManager : MonoBehaviour
 
         switch (skillName)
         {
-            case "Motivado":
-                SkillProcBonus += MotivadoBonus;
-                return 0;
             case "Encantamento":
 
                 StartCoroutine(IconPopup(user.Icon, "Encantamento"));
@@ -1257,33 +1231,6 @@ public class SkillManager : MonoBehaviour
 
         user.crit += 50;
     }
-    IEnumerator PoderDesconhecidoP2(UnitBehavior user, UnitBehavior target)
-    {
-        yield return new WaitForEndOfFrame();
-        while (user.battleManager.state == BattleManager.BattleState.PlayerTurn)
-        {
-
-        }
-        user.battleManager.ExtraAttack(user, target);
-    }
-    IEnumerator AlmaHumana(UnitBehavior user)
-    {
-        int almaHumanaBuff = 0;
-         if (user.Weapon.damageType == 1)
-        {
-            almaHumanaBuff = (int)((user.mag + user.Weapon.power) / 10);
-        }
-        else
-        {
-             almaHumanaBuff = (int)((user.mag + user.Weapon.power) / 10);
-        }
-        user.Weapon.power += almaHumanaBuff;
-
-        yield return new WaitForSeconds(10);
-
-        user.Weapon.power -= almaHumanaBuff;
-
-    }
     IEnumerator RitmoCriticoBuff(UnitBehavior user) 
     {
         user.crit += 30;
@@ -1459,10 +1406,10 @@ public class SkillManager : MonoBehaviour
             case "Poder Oculto":
 
                 StartCoroutine(IconPopup(user.Icon, "Poder Oculto"));
-                user.battleManager.ExtraAttack(user, target, (float)0.75,lifeSteal: 0.5f);
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.75,lifeSteal: 0.5f));
                 yield return new WaitForSeconds(1.05f);
                 user.lifesteal -= (int) 0.25;
-                user.battleManager.ExtraAttack(user, target, (float)0.75);
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.75));
                 yield return new WaitForSeconds(1.05f);
 
                 target.soul -= 30;
@@ -1477,7 +1424,7 @@ public class SkillManager : MonoBehaviour
                 if (user.hp == user.maxhp)
                 {
                     user.power += (int)(user.maxhp * 0.15);
-                    user.battleManager.ExtraAttack(user, target);
+                    StartCoroutine(user.battleManager.ExtraAttack(user, target));
                     yield return new WaitForSeconds(1);
                     user.power -= (int)(user.maxhp * 0.15);
 
@@ -1508,7 +1455,7 @@ public class SkillManager : MonoBehaviour
                 user.hit -= 25;
                 Debug.Log(user.power + "poder");
                 Debug.Log(user.hit + "hit");
-                user.battleManager.ExtraAttack(user, target,2);
+                StartCoroutine(user.battleManager.ExtraAttack(user, target,2));
                 user.hit += 25;
                 Debug.Log(user.power + "poder");
                 Debug.Log(user.hit + "hit");
@@ -1520,27 +1467,25 @@ public class SkillManager : MonoBehaviour
             case "Rajada de Flechas":
 
                 StartCoroutine(IconPopup(user.Icon, "Rajada de Flechas"));
-
-                user.battleManager.ExtraAttack(user, enemyTeam[0], (float)0.6);
-                user.battleManager.ExtraAttack(user, enemyTeam[1], (float)0.6);
-                user.battleManager.ExtraAttack(user, enemyTeam[2], (float)0.6);
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0], (float)0.6));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1], (float)0.6));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2], (float)0.6));
                 break;
 
             case "Golpe Triplo":
 
                 StartCoroutine(IconPopup(user.Icon, "Golpe Triplo"));
-
-                user.battleManager.ExtraAttack(user, target, (float)0.5);
-                user.battleManager.ExtraAttack(user, target, (float)0.5);
-                user.battleManager.ExtraAttack(user, target, (float)0.5);
-
+                StartCoroutine(
+                                user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
                 break;
 
-            case "Fortalecimento":
+            case "Fortificar":
 
                 StartCoroutine(IconPopup(user.Icon, "Fortalecimento"));
 
-                user.def += (int)(user.def * 0.15);
+                user.def += (int)(def * 0.15);
 
                 break;
 
