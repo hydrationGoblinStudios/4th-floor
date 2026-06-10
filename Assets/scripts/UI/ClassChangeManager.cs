@@ -159,7 +159,6 @@ public class ClassChangeManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("classLearn");
             inventoryManager.ToggleClassChange();
             classLearn = false;
         }

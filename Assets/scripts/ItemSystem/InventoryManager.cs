@@ -151,9 +151,7 @@ public class InventoryManager : MonoBehaviour
             {               
                     go.SetActive(!go.activeInHierarchy);                
             }
-            
-            ClassChangeObject.GetComponent<ClassChangeManager>().classLearn = false;
-            Activated = true;
+            Manager.currentState = GameManager.UIState.Available;
         }
     }
     public void Equip(Item item)

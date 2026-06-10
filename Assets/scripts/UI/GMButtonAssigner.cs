@@ -45,15 +45,8 @@ public class GMButtonAssigner : MonoBehaviour
         {
 
             activated = !activated;
-            if (activated)
-            {
-                Manager.currentState = GameManager.UIState.Ocuppied;
-            }
-            else
-            {
-                Manager.currentState = GameManager.UIState.Available;
-            }
-            InventoryManager IM = FindObjectOfType<InventoryManager>(true);
+            Manager.currentState = GameManager.UIState.Ocuppied;
+
             GameObject ab = GameObject.FindGameObjectWithTag("Activity Board");
             ab.transform.GetChild(0).gameObject.SetActive(true);
             ab.GetComponentInChildren<ActivityBoardUserInterface>().Mugshot();
