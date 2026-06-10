@@ -231,6 +231,8 @@ public class SkillManager : MonoBehaviour
                 if (Random.Range(0, 101) >= user.dex/2)
                 {
                     StartCoroutine(IconPopup(user.Icon, "Poder Desconhecido"));
+                    user.lifesteal += 50;
+
                 }
                 return 0;
 
@@ -1254,6 +1256,15 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds(60);
 
         user.crit += 50;
+    }
+    IEnumerator PoderDesconhecidoP2(UnitBehavior user, UnitBehavior target)
+    {
+        yield return new WaitForEndOfFrame();
+        while (user.battleManager.state == BattleManager.BattleState.PlayerTurn)
+        {
+
+        }
+        user.battleManager.ExtraAttack(user, target);
     }
     IEnumerator AlmaHumana(UnitBehavior user)
     {
