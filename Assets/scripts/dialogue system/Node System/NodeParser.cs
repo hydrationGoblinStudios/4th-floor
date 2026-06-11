@@ -275,6 +275,7 @@ public class NodeParser : MonoBehaviour
 
     public void StartDialogue(DialogueGraph NewGraph)
     {
+        Debug.Log("start dialogue:"+NewGraph.name);
         if (!banText)
         {
             StartCoroutine(DelayOptions());

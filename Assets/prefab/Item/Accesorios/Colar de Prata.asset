@@ -23,6 +23,7 @@ MonoBehaviour:
     de usar um Ataque B\xE1sico, cura 15% da vida perdida."
   hit: 0
   crit: 0
+  maxHp: 10
   power: 0
   str: 1
   mag: 1

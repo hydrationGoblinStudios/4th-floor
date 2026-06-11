@@ -10,6 +10,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine.TextCore.Text;
 public class BattleManager : MonoBehaviour
 {
+    public static BattleManager Instance;
     public AudioSource[] hitAudio;
     public Animator[] animators;
     public Material[] matRaces;
@@ -27,7 +28,6 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]
     public int eAccSpeed;
     [Header("Game objects")]
-    public GameManager gameManager;
     public GameObject playerUnit;
     public GameObject playerUnit2;
     public GameObject playerUnit3;
@@ -128,6 +128,39 @@ public class BattleManager : MonoBehaviour
 
     public bool waiting = false;
     private bool targetingRerun;
+
+    // Dados para executar um ataque. Facilita pra guardar essa informacao e poder usa-la no trigger de animacao
+    private struct AttackData{
+        public AttackData(UnitBehavior attacker, UnitBehavior target, int damageDone, bool isCrit, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
+        {
+            this.attacker = attacker;
+            this.target = target;
+            this.damageDone = damageDone;
+            this.isCrit = isCrit;
+            this.attackerTeam = attackerTeam;
+            this.targetTeam = targetTeam;
+            this.lifeSteal = 0;
+        }
+        public AttackData(UnitBehavior attacker, UnitBehavior target, int damageDone, bool isCrit, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam, float lifeSteal)
+        {
+            this.attacker = attacker;
+            this.target = target;
+            this.damageDone = damageDone;
+            this.isCrit = isCrit;
+            this.attackerTeam = attackerTeam;
+            this.targetTeam = targetTeam;
+            this.lifeSteal = lifeSteal;
+        }
+        public UnitBehavior attacker;
+        public UnitBehavior target;
+        public int damageDone;
+        public bool isCrit;
+        public List<UnitBehavior> attackerTeam;
+        public List<UnitBehavior> targetTeam;
+        public float lifeSteal;
+    }
+    private AttackData nextAttack;
+
     public void Awake()
     {
         PlayerBars.Clear();
@@ -141,22 +174,22 @@ public class BattleManager : MonoBehaviour
     }
     void Start()
     {
-        GameObject GMobject = GameObject.FindGameObjectWithTag("game manager");
-        gameManager = GMobject.GetComponent<GameManager>();
-        playerUnit = gameManager.teamPostPreBattle[0];
-        playerUnit2 = gameManager.teamPostPreBattle[1];
-        playerUnit3 = gameManager.teamPostPreBattle[2];
+        Instance = this;
+
+        playerUnit = GameManager.instance.teamPostPreBattle[0];
+        playerUnit2 = GameManager.instance.teamPostPreBattle[1];
+        playerUnit3 = GameManager.instance.teamPostPreBattle[2];
         playerTeam.Add(playerUnit.GetComponent<UnitBehavior>());
         playerTeam.Add(playerUnit2.GetComponent<UnitBehavior>());
         playerTeam.Add(playerUnit3.GetComponent<UnitBehavior>());
-        enemyUnit = gameManager.enemyTeamPostPreBattle[0];
-        enemyUnit2 = gameManager.enemyTeamPostPreBattle[1];
-        enemyUnit3 = gameManager.enemyTeamPostPreBattle[2];
+        enemyUnit = GameManager.instance.enemyTeamPostPreBattle[0];
+        enemyUnit2 = GameManager.instance.enemyTeamPostPreBattle[1];
+        enemyUnit3 = GameManager.instance.enemyTeamPostPreBattle[2];
         enemyTeam.Add(enemyUnit.GetComponent<UnitBehavior>());
         enemyTeam.Add(enemyUnit2.GetComponent<UnitBehavior>());
         enemyTeam.Add(enemyUnit3.GetComponent<UnitBehavior>());
         state = BattleState.BattleStart;
-        gameManager.songManager.ChecksScene();
+        GameManager.instance.songManager.ChecksScene();
         StartCoroutine(SetupBattle());
         ////PLACEHOLDER TODO
         if (playerTeam[1].UnitName == "")
@@ -238,6 +271,10 @@ public class BattleManager : MonoBehaviour
             Debug.Log(cl3.unitName);
         }
     }
+    private void Oestroy()
+    {
+        if(this == Instance) Instance = null;
+    }
     private void Update()
     {
         if (state == BattleState.Wait && waiting == false)
@@ -287,6 +324,11 @@ public class BattleManager : MonoBehaviour
         enemyTeam[0].animator = animators[3];
         enemyTeam[1].animator = animators[4];
         enemyTeam[2].animator = animators[5];
+
+        foreach(Animator animator in animators)
+        {
+            animator.AddComponent<AttackAnimationCallBack>();
+        }
 
         Random.InitState(enemyTeam[0].UnitName.GetHashCode());
         animators[3].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
@@ -419,11 +461,11 @@ public class BattleManager : MonoBehaviour
         unitStats[10].text = ((playerTeam[0].speed * 2) - playerTeam[0].luck - playerTeam[0].avoid).ToString();
         unitStats[11].text = (playerTeam[0].Weapon.crit + playerTeam[0].dex).ToString();
         playerTeam[0].hp = playerTeam[0].maxhp;
-        if(gameManager.team.Count > 1)
+        if(GameManager.instance.team.Count > 1)
         { 
         playerTeam[1].hp = playerTeam[1].maxhp;
         }
-        if (gameManager.team.Count > 2)
+        if (GameManager.instance.team.Count > 2)
         {
             playerTeam[2].hp = playerTeam[2].maxhp;
         }
@@ -456,7 +498,7 @@ public class BattleManager : MonoBehaviour
         }
 
     }
-    //manuzeia as barras de hp, alma e turno
+    // manuzeia as barras de hp, alma e turno
     public void HudUpdate()
     {
         int c = 0;
@@ -920,14 +962,14 @@ public class BattleManager : MonoBehaviour
         if (attacker.soul <= attacker.maxsoul && Random.Range(0, 101) <= Phit || attacker.sureShot)
         {
             attacker.sureShot = false;
-            StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
+            AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam);
         }
         else if (attacker.soul >= attacker.maxsoul && attacker.equippedSoulIsAttack)
         {
             if (Random.Range(0, 101) <= Phit|| attacker.sureShot)
             {
                 attacker.sureShot = false;
-                StartCoroutine(AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam));
+                AttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam);
             }
         }
         else if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
@@ -974,12 +1016,12 @@ public class BattleManager : MonoBehaviour
         }
         else if (playerTeam[0].hp <= 0 && playerTeam[1].hp <= 0 && playerTeam[2].hp <= 0)
         {
-            gameManager.storyBattle = false;
+            GameManager.instance.storyBattle = false;
             Destroy(GameObject.Find("Hover Object"));
-            Destroy(GameObject.Find("GameManager"));
+            Destroy(GameObject.Find("GameManager.instance"));
             Destroy(GameObject.Find("Main Canvas"));
             Destroy(GameObject.Find("[Debug Updater]"));
-            gameManager.SceneLoader("MainMenu");
+            GameManager.instance.SceneLoader("MainMenu");
         }
         else
         {
@@ -1031,7 +1073,7 @@ public class BattleManager : MonoBehaviour
         }
         if (Random.Range(0, 101) <= Phit)
         {
-            StartCoroutine(ExtraAttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam, DamageMultiplier, lifeSteal));
+            ExtraAttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam, DamageMultiplier, lifeSteal);
         }
         else
         {
@@ -1058,8 +1100,8 @@ public class BattleManager : MonoBehaviour
         Debug.Log($"name:{cl2.unitName}, damage done:{cl2.damage}, damage taken:{cl2.damageTaken}");
         Debug.Log($"name:{cl3.unitName}, damage done:{cl3.damage}, damage taken:{cl3.damageTaken}");
 
-        UnitBehavior RealCharacter1 = gameManager.team[0].GetComponent<UnitBehavior>();
-        UnitBehavior DisplayCharacter1 = gameManager.teamPostPreBattle[0].GetComponent<UnitBehavior>();
+        UnitBehavior RealCharacter1 = GameManager.instance.team[0].GetComponent<UnitBehavior>();
+        UnitBehavior DisplayCharacter1 = GameManager.instance.teamPostPreBattle[0].GetComponent<UnitBehavior>();
         UnitBehavior RealCharacter2 = null;
         UnitBehavior RealCharacter3 = null;
         UnitBehavior RealCharacter4 = null;
@@ -1069,7 +1111,7 @@ public class BattleManager : MonoBehaviour
         UnitBehavior DisplayCharacter2Real = null;
         UnitBehavior DisplayCharacter3Real = null;
         
-        foreach (GameObject go in gameManager.team)
+        foreach (GameObject go in GameManager.instance.team)
             {
                 if (DisplayCharacter1.UnitName == go.GetComponent<UnitBehavior>().UnitName)
                 {
@@ -1078,12 +1120,12 @@ public class BattleManager : MonoBehaviour
             }
        
 
-        if (gameManager.team.Count > 1)
+        if (GameManager.instance.team.Count > 1)
         {
-            RealCharacter2 = gameManager.team[1].GetComponent<UnitBehavior>();
-            DisplayCharacter2 = gameManager.teamPostPreBattle[1].GetComponent<UnitBehavior>();
+            RealCharacter2 = GameManager.instance.team[1].GetComponent<UnitBehavior>();
+            DisplayCharacter2 = GameManager.instance.teamPostPreBattle[1].GetComponent<UnitBehavior>();
             Debug.Log(RealCharacter2.name + RealCharacter2.currentExp);
-            foreach (GameObject go in gameManager.team)
+            foreach (GameObject go in GameManager.instance.team)
             {
                 if (DisplayCharacter2.UnitName == go.GetComponent<UnitBehavior>().UnitName)
                 {
@@ -1093,12 +1135,12 @@ public class BattleManager : MonoBehaviour
             StatsBreakdown(DisplayCharacter2.position, DisplayCharacter2Real);
         }
         
-        if (gameManager.team.Count > 2)
+        if (GameManager.instance.team.Count > 2)
         {
-            RealCharacter3 = gameManager.team[2].GetComponent<UnitBehavior>();
-            DisplayCharacter3 = gameManager.teamPostPreBattle[2].GetComponent<UnitBehavior>();
+            RealCharacter3 = GameManager.instance.team[2].GetComponent<UnitBehavior>();
+            DisplayCharacter3 = GameManager.instance.teamPostPreBattle[2].GetComponent<UnitBehavior>();
             Debug.Log(RealCharacter3.name + RealCharacter3.currentExp);
-            foreach (GameObject go in gameManager.team)
+            foreach (GameObject go in GameManager.instance.team)
             {
                 if (DisplayCharacter3.UnitName == go.GetComponent<UnitBehavior>().UnitName)
                 {
@@ -1108,40 +1150,40 @@ public class BattleManager : MonoBehaviour
             StatsBreakdown(DisplayCharacter3.position, DisplayCharacter3Real);
         }
         
-        if (gameManager.team.Count > 3)
+        if (GameManager.instance.team.Count > 3)
         {
-            RealCharacter4 = gameManager.team[3].GetComponent<UnitBehavior>();
+            RealCharacter4 = GameManager.instance.team[3].GetComponent<UnitBehavior>();
             Debug.Log(RealCharacter4.name + RealCharacter4.currentExp);
         }
         StatsBreakdown(DisplayCharacter1.position, DisplayCharacter1Real);
         state = BattleState.PlayerWon;
-        if(gameManager.day % 4 ==  0)
+        if(GameManager.instance.day % 4 ==  0)
         {
-            gameManager.money += 2000;
+            GameManager.instance.money += 2000;
         }
         else
         {
-        gameManager.money += 500;
+        GameManager.instance.money += 1000;
         }
         expSliderP1.value = RealCharacter1.currentExp;
-        if (gameManager.team.Count > 1)
+        if (GameManager.instance.team.Count > 1)
         {
             expSliderP2.value = RealCharacter2.currentExp;
         }
-        if (gameManager.team.Count > 2)
+        if (GameManager.instance.team.Count > 2)
         {
             expSliderP3.value = RealCharacter3.currentExp;
         }
-        int exp1 = (int)(50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
+        int exp1 = (int)((50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[0].expmarkplier);
         if (exp1 <= 0) { exp1 = 1; }
-        int exp2 = (int)(50 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player2Behavior.expmarkplier);
+        int exp2 = (int)((50 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[1].expmarkplier);
         if (exp2 <= 0) { exp2 = 1; }
-        int exp3 = (int)(50 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * player3Behavior.expmarkplier);
+        int exp3 = (int)((50 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[2].expmarkplier);
         if (exp3 <= 0) { exp3 = 1; }
-        int exp4 = (int)(50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3)) * playerBehavior.expmarkplier);
+        int exp4 = (int)((50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[0].expmarkplier);
         if (exp4 <= 0) { exp1 = 1; }
         yield return new WaitForSeconds(1);
-        if (gameManager.team.Count > 3)
+        if (GameManager.instance.team.Count > 3)
         {
         RealCharacter4.currentExp += exp4;
             if (RealCharacter4.currentExp >= 100)
@@ -1160,7 +1202,7 @@ public class BattleManager : MonoBehaviour
                 StatsBreakdown(DisplayCharacter3.position, DisplayCharacter3Real);
             }
         }
-        if (gameManager.team.Count > 2)
+        if (GameManager.instance.team.Count > 2)
         {
             expSliderP3.value = RealCharacter3.currentExp;
         }
@@ -1173,7 +1215,7 @@ public class BattleManager : MonoBehaviour
                 StatsBreakdown(DisplayCharacter2.position, DisplayCharacter2Real);
             }
         }
-        if (gameManager.team.Count > 1)
+        if (GameManager.instance.team.Count > 1)
         {
             expSliderP2.value = RealCharacter2.currentExp;
         }
@@ -1184,10 +1226,10 @@ public class BattleManager : MonoBehaviour
             StatsBreakdown(DisplayCharacter1.position, DisplayCharacter1Real);
         }
         yield return new WaitForSeconds(4);
-        gameManager.BossBattleID = 0;
-        gameManager.storyBattle = false;
-        gameManager.teamPostPreBattle.Clear();
-        gameManager.enemyTeamPostPreBattle.Clear();
+        GameManager.instance.BossBattleID = 0;
+        GameManager.instance.storyBattle = false;
+        GameManager.instance.teamPostPreBattle.Clear();
+        GameManager.instance.enemyTeamPostPreBattle.Clear();
         hoverObject.SetActive(false);
 
 
@@ -1246,7 +1288,7 @@ public class BattleManager : MonoBehaviour
     }
     public void PrepScreen()
     {
-        gameManager.PrepScreen();
+        GameManager.instance.PrepScreen();
     }
     //randomiza growths
     IEnumerator LevelUp(UnitBehavior character)
@@ -1362,7 +1404,7 @@ public class BattleManager : MonoBehaviour
         Pcrit = (int)(Attacker.dex / 2) + Attacker.crit + Attacker.Weapon.crit - Target.Weapon.critAvoid;
     }
 
-    public IEnumerator AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
+    public void AttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam)
     {
         //Pskill = 0;
         attacker.SkillManager.currentDamageBonus = 0;
@@ -1376,7 +1418,6 @@ public class BattleManager : MonoBehaviour
         {
             attacker.soul -= attacker.maxsoul;
             attacker.SkillManager.currentDamageBonus += attacker.SkillManager.SoulProc(attacker.equipedSoul, attacker, Target, attackerTeam, targetTeam);
-            yield return new WaitForSeconds(1);
         }
         if (attacker.soul >= attacker.maxsoul && !attacker.equippedSoulIsAttack)
         {
@@ -1399,7 +1440,6 @@ public class BattleManager : MonoBehaviour
             + "\nPskill dps de healthChange" + PskillPostHealthlChange
             + "\nPskill dps de target soul proc" + PskillPostTargetPostHealthChange);
         HudUpdate();
-        yield return new WaitForSeconds(1);
         if (Random.Range(0, 101) <= Pcrit)
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
@@ -1412,21 +1452,11 @@ public class BattleManager : MonoBehaviour
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen)/100) ;
             CheckDamage(attacker, Target, damageDone);
 
-            Target.hp -= damageDone;
-
-            // TODO: Mudar a autoridade do timing desses efeitos para a animacao.
-            ParticleHit(Target);
-            hitAudio[1].Play();
-            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
+            if(nextAttack.attacker != null) AnimationTrigger(); // Proca o ataque anterior se por algum motivo (Unity moment) a anim pular o trigger
+            nextAttack = new AttackData(attacker,Target,damageDone,true,attackerTeam,targetTeam);   // Agenda o próximo ataque
 
             HudUpdate();
 
-            if (attacker.lifesteal >= 0.01 || attacker.Weapon.lifesteal >= 0.01)
-            {
-                attacker.hp += (int)(damageDone * (attacker.lifesteal + attacker.Weapon.lifesteal));
-                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * attacker.lifesteal), true)); // TODO: timing animacao
-            }
-            Target.soul += damageDone / 5;
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + ((attackerDamage + attacker.SkillManager.currentDamageBonus) * 2) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
@@ -1454,19 +1484,10 @@ public class BattleManager : MonoBehaviour
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
 
             CheckDamage(attacker, Target, damageDone);
-            Target.hp -= damageDone;
 
-            // TODO: Mudar a autoridade do timing desses efeitos para a animacao.
-            ParticleHit(Target);
-            hitAudio[0].Play();
-            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
-
-            if (attacker.lifesteal >= 0.01)
-            {
-                attacker.hp += (int)((damageDone) * attacker.lifesteal);
-                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * attacker.lifesteal), true)); // TODO: timing animacao
-            }
-            Target.soul += ((damageDone) / 5) * Target.damageSoulGain;
+            if(nextAttack.attacker != null) AnimationTrigger();     // Proca o ataque anterior se por algum motivo (Unity moment) a anim pular o trigger
+            nextAttack = new AttackData(attacker,Target,damageDone,false,attackerTeam,targetTeam);  // Agenda o próximo ataque
+            
             Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + (damageDone) + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
@@ -1475,21 +1496,9 @@ public class BattleManager : MonoBehaviour
                     + attacker.UnitName + " SkillCritRate = " + attacker.crit + "\n"
 
                 );
-            int c = 0;
-            foreach (Slider sl in enemyHpSlider)
-            {
-                sl.value = enemyTeam[c].hp;
-                c++;
-            }
-            c = 0;
-            foreach (Slider sl in playerHpSlider)
-            {
-                sl.value = playerTeam[c].hp;
-                c++;
-            }
         }        
     }
-    public IEnumerator ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam, float DamageMultiplier = 1, float lifeSteal =0)
+    public void ExtraAttackHit(UnitBehavior attacker, UnitBehavior Target, int attackerDamage, List<UnitBehavior> attackerTeam, List<UnitBehavior> targetTeam, float DamageMultiplier = 1, float lifeSteal =0)
     {
         AttackSetup(attacker, Target);
         attacker.SkillManager.currentDamageBonus = 0;
@@ -1504,18 +1513,16 @@ public class BattleManager : MonoBehaviour
             attacker.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(Target.Accesory.skill, Target, attacker, targetTeam, attackerTeam);
         }
         HudUpdate();
-        yield return new WaitForSeconds(1);
         if (Random.Range(0, 101) <= Pcrit)
         {
             int damageDone = (int)(attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
+            damageDone = (int)(damageDone*DamageMultiplier);
 
-            Target.hp -= (int)(damageDone * DamageMultiplier);
             CheckDamage(attacker, Target, damageDone);
 
-            ParticleHit(Target);
-            hitAudio[1].Play();
-            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
+            if(nextAttack.attacker != null) AnimationTrigger();     // Proca o ataque anterior se por algum motivo (Unity moment) a anim pular o trigger
+            nextAttack = new AttackData(attacker,Target,damageDone,true,attackerTeam,targetTeam,lifeSteal);   // Agenda o próximo ataque
 
             Debug.Log(attacker.UnitName + " Critou " + Target.UnitName + " " + damageDone + " de dano\n"
         + attacker.UnitName + " base power: " + attacker.power + "\n"
@@ -1526,52 +1533,23 @@ public class BattleManager : MonoBehaviour
 
                             + "acerto critico, dano dobrado" + " Foi um ataque extra"
     );
-            Debug.Log(lifeSteal);
-            if (attacker.lifesteal >= 0.01 | lifeSteal >= 0.01 || attacker.Weapon.lifesteal >= 0.01)
-            {
-                attacker.hp += (int)((damageDone) * attacker.lifesteal);
-                attacker.hp += (int)((damageDone) * lifeSteal);
-                Debug.Log("life stolen");
-                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * attacker.lifesteal), true));
-            }
-            Target.soul += (damageDone * 2) / 5;
-            yield return new WaitForSeconds(1);
-            int c = 0;
-            foreach (Slider sl in enemyHpSlider)
-            {
-                sl.value = enemyTeam[c].hp;
-                c++;
-            }
-            c = 0;
-            foreach (Slider sl in playerHpSlider)
-            {
-                sl.value = playerTeam[c].hp;
-                c++;
-            }
+            
         }
         else
         {
             int damageDone = (int)(attackerDamage + attacker.SkillManager.currentDamageBonus);
-            ParticleHit(Target);
-            hitAudio[0].Play();
+            
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
-
-            Target.hp -= damageDone;
             CheckDamage(attacker, Target, damageDone);
-            StartCoroutine(FadeOutText(Target.damageTMP, damageDone));
 
-            if (attacker.lifesteal >= 0.01 || attacker.Weapon.lifesteal >= 0.01)
-            {
-                attacker.hp += (int)((damageDone) * (attacker.lifesteal + attacker.Weapon.lifesteal));
-                Debug.Log("life stolen");
-                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * attacker.lifesteal), true));
-            }
-            if (lifeSteal >= 0.01)
-            {
-                attacker.hp += (int)((damageDone) * lifeSteal);
-                Debug.Log("life stolen");
-                StartCoroutine(FadeOutText(attacker.damageTMP, (int)(damageDone * lifeSteal), true));
-            }
+            if(nextAttack.attacker != null){
+                Debug.Log("triggering late attack");
+                AnimationTrigger();
+                };     // Proca o ataque anterior se por algum motivo (Unity moment) a anim pular o trigger
+            
+            Debug.Log("Scheduling Attack Data");
+            nextAttack = new AttackData(attacker,Target,damageDone,false,attackerTeam,targetTeam,lifeSteal);  // Agenda o próximo ataque
+            
             Debug.Log(attacker.UnitName + " atacou " + Target.UnitName + " " + damageDone + " de dano\n"
                     + attacker.UnitName + " base power: " + attacker.power + "\n"
                     + attacker.UnitName + " added by skills: " + attacker.SkillManager.currentDamageBonus + "\n"
@@ -1581,19 +1559,6 @@ public class BattleManager : MonoBehaviour
 
                     + "\n Foi um ataque extra"
                 );
-            Target.soul += damageDone / 5;
-            int c = 0;
-            foreach (Slider sl in enemyHpSlider)
-            {
-                sl.value = enemyTeam[c].hp;
-                c++;
-            }
-            c = 0;
-            foreach (Slider sl in playerHpSlider)
-            {
-                sl.value = playerTeam[c].hp;
-                c++;
-            }
         }
     }
 
@@ -1795,7 +1760,7 @@ public class BattleManager : MonoBehaviour
                 expSliderP1.value = displayedUB.currentExp;
                 break;
             case 2:
-                if (gameManager.team.Count >= 2)
+                if (GameManager.instance.team.Count >= 2)
                 {
                     LUPObjects[1].SetActive(true);
 
@@ -1814,7 +1779,7 @@ public class BattleManager : MonoBehaviour
                 }
                 break;
             case 3:
-                if (gameManager.team.Count >= 3)
+                if (GameManager.instance.team.Count >= 3)
                 {
                     LUPObjects[2].SetActive(true);
 
@@ -1879,12 +1844,49 @@ public class BattleManager : MonoBehaviour
         return 1;
     } 
 
-    private void ParticleHit(UnitBehavior targetUB)
+    public void AnimationTrigger()
     {
-        /*
-        Debug.Log(targetUB.gameObject.name);
-        HitEffect effect = Instantiate(hitEffectPrefab);
-        effect.transform.position = targetUB.animator.transform.position;
-        */
+        if(nextAttack.attacker == null) return;
+        Debug.Log("Executing Attack: "
+        +"\n attacker = " + nextAttack.attacker
+        +"\n target = " + nextAttack.target
+        +"\n damage done = " +nextAttack.damageDone
+        +"\n is crit = " +nextAttack.isCrit
+        +"\n lifesteal = " + nextAttack.lifeSteal
+        );
+
+        nextAttack.target.hp -= nextAttack.damageDone;
+
+        //Debug.Log(nextAttack.target.gameObject.name);
+        //HitEffect effect = Instantiate(hitEffectPrefab);
+        //effect.transform.position = nextAttack.target.animator.transform.position;
+        
+        hitAudio[nextAttack.isCrit?0:1].Play();
+        StartCoroutine(FadeOutText(nextAttack.target.damageTMP, nextAttack.damageDone));
+        
+        nextAttack.target.soul += nextAttack.damageDone / 5;
+        if (nextAttack.attacker.lifesteal >= 0.01 | nextAttack.lifeSteal >= 0.01 | nextAttack.attacker.Weapon.lifesteal >= 0.01)
+        {
+            int totalLS = (int)((nextAttack.damageDone) * nextAttack.attacker.lifesteal) 
+                    + (int)((nextAttack.damageDone) * nextAttack.lifeSteal)
+                    + (int)((nextAttack.damageDone) * nextAttack.attacker.Weapon.lifesteal);
+            nextAttack.attacker.hp += totalLS;
+            Debug.Log("life stolen");
+            StartCoroutine(FadeOutText(nextAttack.attacker.damageTMP, totalLS, true));
+        }
+        int c = 0;
+        foreach (Slider sl in enemyHpSlider)
+        {
+            sl.value = enemyTeam[c].hp;
+            c++;
+        }
+        c = 0;
+        foreach (Slider sl in playerHpSlider)
+        {
+            sl.value = playerTeam[c].hp;
+            c++;
+        }
+        
+        nextAttack.attacker = null;
     }       
 }

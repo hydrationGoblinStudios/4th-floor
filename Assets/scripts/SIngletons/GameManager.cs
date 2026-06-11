@@ -81,7 +81,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
 
         foreach (FileInfo fi in fileinf)
         {
-            Debug.Log(fi.Name);
             keyItemList.Add(AssetDatabase.LoadAssetAtPath<Item>($"Assets/prefab/Item/KeyItems/{fi.Name}"));
         }
         foreach (DirectoryInfo subDireInf in subDirInfo)
@@ -317,7 +316,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         newUnit.name = CurrentUnitBehavior.UnitName;
         SelectedUBClassChange = newUnit;
         //todo
-       ClassChange(newUnit.GetComponent<UnitBehavior>().classId, GetbyID(CurrentUnitData.Weapon, equipList));
+       ClassChange(newUnit.GetComponent<UnitBehavior>().classId, GetbyID(CurrentUnitData.Weapon, equipList),true);
         
         team.Add(newUnit);
     }
@@ -426,34 +425,20 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             }
         }
     }
-    public void ClassChange(int ClassId, Item item = null)
+    public void ClassChange(int ClassId, Item item = null, bool IsLoad = false)
     {
         
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
-        try
-        {
-        OriginalUB.maxhp -= OriginalUB.classStats[0];
-        OriginalUB.str -= OriginalUB.classStats[1];
-        OriginalUB.mag -= OriginalUB.classStats[2];
-        OriginalUB.dex -= OriginalUB.classStats[3];
-        OriginalUB.speed -= OriginalUB.classStats[4];
-        OriginalUB.def -= OriginalUB.classStats[5];
-        OriginalUB.mdef -= OriginalUB.classStats[6];
-        OriginalUB.luck -= OriginalUB.classStats[7];
-        }
-        catch
-        {
-            Debug.Log("class modifiers null");
-        }
+
         if (item != null)
         {
         OriginalUB.Weapon = item;
-        }
-        CopyUnitBehavior(OriginalUB, Unit, ClassId);
+        }        
+        CopyUnitBehavior(OriginalUB, Unit, ClassId,true);
         Destroy(OriginalUB);
         }
-    UnitBehavior CopyUnitBehavior(UnitBehavior original, GameObject destination, int ClassId)
+    UnitBehavior CopyUnitBehavior(UnitBehavior original, GameObject destination, int ClassId, bool IsLoad = false)
     {
         Debug.Log(ClassId);
         original.classId = ClassId;
@@ -510,7 +495,10 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         Destroy(original);
         copy.GetComponent<UnitBehavior>().classId = ClassId;
 
-        StartCoroutine(ClassBases(copy));
+        if (!IsLoad)
+        {
+            StartCoroutine(ClassBases(copy));
+        }
         /* if(copy.GetComponent<UnitBehavior>().Weapon == null)
          {
              copy.GetComponent<UnitBehavior>().Weapon = Inventory[0] ;
@@ -546,7 +534,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         if (storyBattle == true)
         {
             NodeParser dm = FindObjectOfType<NodeParser>(true);
-            dm.StartDialogue(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault());
+            dm.StartDialogue(graphs.Where(obj => obj.name == "Batalha Mandatoria +").SingleOrDefault());
         }
         else
         {
@@ -584,7 +572,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 }
                 if (storyBattle)
                 {
-                    ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria").SingleOrDefault(), "cama", m_scene.name);
+                    ChangeGraph(graphs.Where(obj => obj.name == "Batalha Mandatoria +").SingleOrDefault(), "cama", m_scene.name);
                 }
                 if (day == 1 && wakeUpTalk)
                 {
@@ -763,28 +751,18 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 break;
             default: unit.maxsoul = 100; break;
         }
-        switch (soulName)
+        unit.equippedSoulIsAttack = soulName switch
         {
-            case ("Golpe Poderoso"):
-                unit.equippedSoulIsAttack = false;
-                break;
-            case ("Revigoramento"):
-                unit.equippedSoulIsAttack = false;
-                break;
-            case ("Fortalecimento"):
-                unit.equippedSoulIsAttack = false;
-                break;
-            case ("Restauração Espiritual"):
-                unit.equippedSoulIsAttack = false;
-                break;
-            case ("Benção dos Ventos"):
-                unit.equippedSoulIsAttack = false;
-                break;
-            default:
-                unit.equippedSoulIsAttack = true;
-                break;
-
-        }
+            ("Poder Oculto") => false,
+            ("Golpe Poderoso") => false,
+            ("Revigoramento") => false,
+            ("Fortificar") => false,
+            ("Restauração Espiritual") => false,
+            ("Benção dos Ventos") => false,
+            ("Golpe Triplo") => false,
+            ("Rajada de Flechas") => false,
+            _ => true,
+        };
     }
     IEnumerator WaitToLoad(float seconds = 0, string graphName = "")
     {

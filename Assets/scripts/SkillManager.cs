@@ -322,9 +322,7 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Empunhadeira Dupla":
-
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, DamageMultiplier: (int) 0.25));
-
                 return 0;
 
             case "Critico Rampante":
@@ -1469,7 +1467,6 @@ public class SkillManager : MonoBehaviour
             case "Rajada de Flechas":
 
                 StartCoroutine(IconPopup(user.Icon, "Rajada de Flechas"));
-
                 StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0], (float)0.6));
                 StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1], (float)0.6));
                 StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2], (float)0.6));
@@ -1478,18 +1475,17 @@ public class SkillManager : MonoBehaviour
             case "Golpe Triplo":
 
                 StartCoroutine(IconPopup(user.Icon, "Golpe Triplo"));
-
+                StartCoroutine(
+                                user.battleManager.ExtraAttack(user, target, (float)0.5));
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
-
                 break;
 
-            case "Fortalecimento":
+            case "Fortificar":
 
                 StartCoroutine(IconPopup(user.Icon, "Fortalecimento"));
 
-                user.def += (int)(user.def * 0.15);
+                user.def += (int)(def * 0.15);
 
                 break;
 

@@ -20,8 +20,9 @@ MonoBehaviour:
   weight: 2
   ItemName: Machado grandioso
   description: Um machado pesado que diminui a Velocidade do Usuario em 25%.
-  hit: 70
+  hit: 55
   crit: 10
+  maxHp: 0
   power: 22
   str: 0
   mag: 0
@@ -31,5 +32,8 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 5500
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
   skill: Machado de Guerra
