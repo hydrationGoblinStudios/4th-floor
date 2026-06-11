@@ -23,7 +23,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public bool testMode;
     public bool storyBattle;
     public int BossBattleID = 0;
-    public bool TimeIsDay;
     public bool wakeUpTalk;
     public List<GameObject> mapButtons;
     public List<string> unlockedMaps;
@@ -544,7 +543,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
            StartCoroutine(cui.UIUpdate());
             wakeUpTalk = true;
             storyBattle = true;
-            TimeIsDay = true;
             GameEventHandler();
         }
     }

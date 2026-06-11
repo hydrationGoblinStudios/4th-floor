@@ -3114,7 +3114,15 @@ MonoBehaviour:
   blackStock:
   - {fileID: 11400000, guid: 437635412307ed443b25e453bb6dbc65, type: 2}
   - {fileID: 11400000, guid: 5d6fb926fb9766345a59d5f1b28eb227, type: 2}
+  - {fileID: 11400000, guid: 63b9a1c0a0cdc164287adb18bffdc235, type: 2}
+  - {fileID: 11400000, guid: a60ce6788ebab4c4da039758d681dedd, type: 2}
+  - {fileID: 11400000, guid: 986f4e4e4d049e14eb0d6ede55b6ef7c, type: 2}
+  - {fileID: 11400000, guid: 04a946bc2f0cd64408e838bfa5398c9a, type: 2}
+  - {fileID: 11400000, guid: bc6be13c34d2b164a97717d582849ba6, type: 2}
+  - {fileID: 11400000, guid: 2e13142d4135741489a4869bcb54697b, type: 2}
+  - {fileID: 11400000, guid: 64f8c38fc8f8f304e96df40ebd4834ce, type: 2}
   - {fileID: 11400000, guid: 4be8ce8bd72e46144a8e89cbb9043179, type: 2}
+  - {fileID: 11400000, guid: 95d1aa47aed42d1449dec7308f152ca0, type: 2}
   sprites:
   - {fileID: 21300000, guid: 56ffc22c81a88954c98d079b3a47a513, type: 3}
   - {fileID: 21300000, guid: 18563a489e96c72478b762829b12bb3a, type: 3}
