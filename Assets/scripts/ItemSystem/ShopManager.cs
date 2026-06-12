@@ -37,7 +37,7 @@ public class ShopManager : MonoBehaviour
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
         Item[] stockInUse = blackStock; 
-        if (Manager.TimeIsDay)
+        if (Manager.storyBattle)
         {
             stockInUse = stock;
         }
@@ -91,7 +91,7 @@ public class ShopManager : MonoBehaviour
     }
     public void Buy(Item item)
     {
-        if (Manager.TimeIsDay)
+        if (Manager.storyBattle)
         {
 
         if(Manager.money >= item.price)

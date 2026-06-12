@@ -927,7 +927,7 @@ public class SkillManager : MonoBehaviour
                 user.damageSoulGain += (float)0.2;
                 return 0;
 
-            case "Reforçar Armadura":
+            case "Reforcar Armadura":
                 StartCoroutine(ReforçarArmadura(user));
                 return 0;
 
@@ -978,7 +978,7 @@ public class SkillManager : MonoBehaviour
 
                 StartCoroutine(IconPopup(user.Icon, "Tiro Certeiro"));
                 Debug.Log("Tiro Certeirado");
-                //sure shot
+                user.sureShot = true;
 
                 return user.power / 2;
 
@@ -988,6 +988,19 @@ public class SkillManager : MonoBehaviour
                 StartCoroutine(IconPopup(user.Icon, "Trovoada"));
                 return (int)(target.maxhp * 0.25) - power;
 
+            case "Ataque Venenoso":
+
+                StartCoroutine(IconPopup(user.Icon, "Placeholder, não tem veneno"));
+                return 20;
+            case "Corta Garganta":
+
+                StartCoroutine(IconPopup(user.Icon, "Placeholder, não tem silencio"));
+                return 20;
+
+            case "Castigo Divino":
+                user.maxhp += (int)((user.maxhp * user.luck / 2)/100) ;
+                StartCoroutine(IconPopup(user.Icon, "Castigo Divino"));
+                return user.power /2;
             case "Disparo de Gelo":
 
                 StartCoroutine(IconPopup(user.Icon, "Disparo de Gelo"));
@@ -998,24 +1011,79 @@ public class SkillManager : MonoBehaviour
             case "Golpe Atordoante":
 
                 StartCoroutine(IconPopup(user.Icon, "Golpe Atordoante"));
+                // todo stun
+                target.soul -= 30;
+
+                return user.power + user.power/10;
+
+            case "Atacar com Tudo":
+
+                StartCoroutine(IconPopup(user.Icon, "Atacar com Tudo"));
 
                 target.soul -= 30;
 
                 return user.power / 2;
-
             case "Ataque Inspirador":
 
                 StartCoroutine(IconPopup(user.Icon, "Disparo de Gelo"));
                 StartCoroutine(AtaqueInspirador(team));
 
                 return user.power / 4;
+            case "Vingança":
+
+                StartCoroutine(IconPopup(user.Icon, "Vingança"));
+                return (int)((user.maxhp - user.hp)/3);
 
 
+            case "Lamina d’Alma":
+
+                StartCoroutine(IconPopup(user.Icon, "Lamina d’Alma"));
+                target.soul -= 25;
+                user.soul += 25;
+
+                return user.power / 2;
             case "Genki Dama":
 
                 StartCoroutine(IconPopup(user.Icon, "Goku"));
-                return (team[0].power + team[1].power + team[2].power) * 2;
+                return (team[0].mag + team[1].mag + team[2].mag) * 2;
+            case "Chamado da Alma":
+                StartCoroutine(IconPopup(user.Icon, "Chamado da Alma"));
 
+                int r = Random.Range(0, 7);
+                switch (r)
+                {
+                    case 0: user.str += 3; break;
+                    case 1: user.mag += 3; break;
+                    case 2: user.def += 3; break;
+                    case 3: user.mdef += 3; break;
+                    case 4: user.speed += 3; break;
+                    case 5: user.dex += 3; break;
+                    case 6: user.luck += 3; break;
+                    default: break;
+
+                }
+                return 0;
+            case "Roubo":
+                StartCoroutine(IconPopup(user.Icon, "Roubo"));
+
+                target.str -= 4; user.str += 4;
+                target.def -= 4; user.def += 4;
+                target.mdef -= 4; user.mdef += 4;
+                target.dex -= 4; user.dex += 4;
+                target.speed -= 4; user.speed += 4;
+                target.luck -= 4; user.luck += 4;
+                target.mag -= 4; user.mag += 4;
+                return 0;
+            case "Flecha Flamejante":
+                StartCoroutine(IconPopup(user.Icon, "Flecha Flamejante"));
+                return user.power/2 + user.def/2;
+            case "Perfurar":
+                StartCoroutine(IconPopup(user.Icon, "Perfurar"));
+                StartCoroutine(PerfurarDebuff(target));
+                return user.power / 2;
+            case "Ataque Rapido":
+                StartCoroutine(IconPopup(user.Icon, "Flecha Flamejante"));
+                return user.power / 4;
             default: return 0;
         }
     }
@@ -1077,6 +1145,12 @@ public class SkillManager : MonoBehaviour
                 }
 
                 return 0;
+            case "Ripostar":
+
+                //todo jogar esse codigo inteiro fora e começar do 0 q não ta funcionando nem um pouco
+
+                StartCoroutine(user.battleManager.ExtraAttack(user,target));
+                return 0;
 
 
             case "Presença Inabalável":
@@ -1114,6 +1188,7 @@ public class SkillManager : MonoBehaviour
                 user.speed = speed + ((user.maxhp - user.hp) / 10);
 
                 return 0;
+
 
             case "Vendaval":
 
@@ -1254,6 +1329,58 @@ public class SkillManager : MonoBehaviour
         user.avoid -= 10;
         user.speed -= (int)(speed / 6.66);
     }
+    IEnumerator EscudoMagicobuff(UnitBehavior user, List<UnitBehavior> team)
+    {
+        team[0].mdef += 15;
+        team[1].mdef += 15;
+        team[2].mdef += 15;
+        yield return new WaitForSeconds(20);
+        team[0].mdef -= 15;
+        team[1].mdef -= 15;
+        team[2].mdef -= 15;
+    }
+    IEnumerator ErupçãoDeFogoDebuff(UnitBehavior user,UnitBehavior target, int damage, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
+    {
+        int timer = 10;
+        while(timer >= 0)
+        {
+            target.hp -= damage;
+            foreach (string skill in target.skills)
+            {
+                PostHealthChange(skill, user, target, enemyTeam, team);
+            }
+            yield return new WaitForSeconds(1);
+            timer--;
+        }
+       
+
+    }
+    IEnumerator ChuvaRegenerativaBuff(UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
+    {
+        int timer = 5;
+        while (timer >= 0)
+        {
+            team[0].hp += user.mag / 4;
+            team[1].hp += user.mag / 4;
+            team[2].hp += user.mag / 4;
+            foreach (string skill in team[0].skills)
+            {
+                PostHealthChange(skill, user, target, team, enemyTeam);
+            }
+            foreach (string skill in team[1].skills)
+            {
+                PostHealthChange(skill, user, target, team, enemyTeam);
+            }
+            foreach (string skill in team[2].skills)
+            {
+                PostHealthChange(skill, user, target, team, enemyTeam);
+            }
+            yield return new WaitForSeconds(1);
+            timer--;
+        }
+
+
+    }
     IEnumerator EncantamentoMalevolente(UnitBehavior user)
     {
         user.speed -= (int)(speed / 10);
@@ -1271,6 +1398,12 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds(15);
         user.hit -= 20;
         user.avoid -= 20;
+    }
+    IEnumerator Ripostar(UnitBehavior user)
+    {
+        user.skills.Add("Ripostar");
+        yield return new WaitForSeconds(15);
+        user.skills.Remove("Ripostar");
     }
 
     IEnumerator ComeçoAfortunado(UnitBehavior user)
@@ -1376,7 +1509,14 @@ public class SkillManager : MonoBehaviour
         user.speed += 7;
         yield return new WaitForSeconds(10);
         user.speed -= 7;
-
+    }
+    IEnumerator EscudoDeGelo(UnitBehavior user)
+    {
+        user.def += 15;
+        user.mdef += 15;
+        yield return new WaitForSeconds(10);
+        user.def -= 15;
+        user.mdef -= 15;
     }
     IEnumerator MiraPerfeita(UnitBehavior user, int boost)
     {
@@ -1384,6 +1524,20 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds(10);
         user.hit -= 7;
 
+    }
+    IEnumerator PerfurarDebuff(UnitBehavior target)
+    {
+        target.def -= target.SkillManager.def /5;
+        yield return new WaitForSeconds(10);
+        target.def += target.SkillManager.def / 5;
+    }
+    IEnumerator JogarLancaDebuff(UnitBehavior target)
+    {
+        target.def -= target.SkillManager.def / 4;
+        target.mdef -= target.SkillManager.mdef / 4;
+        yield return new WaitForSeconds(15);
+        target.def += target.SkillManager.def / 4;
+        target.mdef += target.SkillManager.mdef / 4;
     }
 
     IEnumerator Debilitarvelocidade(UnitBehavior target)
@@ -1462,7 +1616,68 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-                //Mesma coisa do Golpe Poderoso
+            case "Levantar Escudo":
+                //placeholder
+                StartCoroutine(IconPopup(user.Icon, "Levantar Escudo"));
+                user.def += 5; user.mdef += 3;
+                break;
+            case "Escudo Magico":
+                StartCoroutine(EscudoMagicobuff(user, team));
+                break;
+            case "Escudo de Gelo":
+                if (team[0].hp > 0)
+                {
+                    StartCoroutine(EscudoDeGelo(team[0]));
+                }
+                else if (team[1].hp > 0)
+                {
+                    StartCoroutine(EscudoDeGelo(team[1]));
+                }
+                else
+                {
+                    StartCoroutine(EscudoDeGelo(team[2]));
+                }
+                break;
+            case "Erupção de Fogo":
+                if(user.Weapon.damageType == 1)
+                {
+                int damage = user.mag + user.Weapon.power - target.mdef;
+                StartCoroutine(ErupçãoDeFogoDebuff(user,target, damage, team,enemyTeam));
+                }
+                break;
+            case "Raio Paralisante":
+                //todo stun
+                if (user.Weapon.damageType == 1)
+                {
+                    target.hp -= (int)((target.maxhp * 7)/20);
+                }
+                break;
+            case "Raio Lunar":
+                //placeholder
+                StartCoroutine(IconPopup(user.Icon, "Raio LUnar placeholder"));
+                if (user.Weapon.damageType == 1)
+                {
+                    target.hp -= (int)((target.maxhp * 7) / 20);
+                }
+                break;
+            case "Chuva Regenerativa":
+                StartCoroutine(IconPopup(user.Icon, "Chuva Regenerativa"));
+                StartCoroutine(ChuvaRegenerativaBuff(user,target,team,enemyTeam));
+                break;
+            case "Remover Maldição":
+                //placeholder
+                StartCoroutine(IconPopup(user.Icon, "Remover Maldição Placeholder"));
+                user.luck += 4;
+                user.mag += 4;
+                user.str += 4;
+                break;
+            case "A Melhor Defesa...":
+                StartCoroutine(IconPopup(user.Icon, "A Melhor Defesa..."));
+                user.str += user.def / 4;
+                user.speed += user.def / 4;
+                user.def -= user.def / 4;
+                break;
+            //Mesma coisa do Golpe Poderoso
 
             case "Rajada de Flechas":
 
@@ -1475,10 +1690,52 @@ public class SkillManager : MonoBehaviour
             case "Golpe Triplo":
 
                 StartCoroutine(IconPopup(user.Icon, "Golpe Triplo"));
-                StartCoroutine(
-                                user.battleManager.ExtraAttack(user, target, (float)0.5));
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                break;
+            case "Corte Curativo":
+
+                StartCoroutine(IconPopup(user.Icon, "Corte Curativo"));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)1.25, lifeSteal: (float)0.25));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)1.25, lifeSteal: (float)0.25));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)1.25, lifeSteal: (float)0.25));
+                break;
+            case "Golpe Destruidor":
+
+                StartCoroutine(IconPopup(user.Icon, "Golpe Triplo"));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)1));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)1));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)1.25));
+                break;
+            case "Ataque Magno":
+
+                StartCoroutine(IconPopup(user.Icon, "Ataque Magno"));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.5));
+                break;
+            case "Jogar lança":
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[0], (float)1.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[1], (float)1.5));
+                StartCoroutine(user.battleManager.ExtraAttack(user, enemyTeam[2], (float)1.5));
+                StartCoroutine(IconPopup(user.Icon, "Jogar Lança"));
+                StartCoroutine(JogarLancaDebuff(enemyTeam[0]));
+                StartCoroutine(JogarLancaDebuff(enemyTeam[1]));
+                StartCoroutine(JogarLancaDebuff(enemyTeam[2]));
+                break;
+            case "Furia Descontrolada":
+                string tempTargetFuria = user.target;
+                user.target = "random";
+                StartCoroutine(IconPopup(user.Icon, "Furia Descontrolada"));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                StartCoroutine(user.battleManager.ExtraAttack(user, target));
+                user.target =  tempTargetFuria;
                 break;
 
             case "Fortificar":

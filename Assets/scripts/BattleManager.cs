@@ -671,6 +671,7 @@ public class BattleManager : MonoBehaviour
                 case "primeira posi��o": x = FirstTargeting(ub, unitList); break;
                 case "segunda posi��o": x = SecondTargeting(ub, unitList); break;
                 case "terceira posi��o": x = TerceiroTargeting(ub, unitList); break;
+            case "random": x = RandomTargeting(ub, unitList); break;
             default:break;
             }
         if (x != 9999)
@@ -791,6 +792,11 @@ public class BattleManager : MonoBehaviour
         {
             return 9999;
         }
+    }
+    public int RandomTargeting(UnitBehavior ub, List<UnitBehavior> unitList)
+    {
+        int random =Random.Range(0, 3);
+        return random;
     }
     public int LowestStatTargeting(UnitBehavior ub, List<UnitBehavior> unitList, int stat)
     {
