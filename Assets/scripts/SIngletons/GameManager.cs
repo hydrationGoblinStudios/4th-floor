@@ -451,42 +451,49 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             case (106): original.UsableWeaponTypes = new() { Item.Weapontype.Bow }; break;
             case (107): original.UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
             case (201): original.UsableWeaponTypes = new() { Item.Weapontype.Sword, Item.Weapontype.Receptacle }; break;
-            case (202): original.UsableWeaponTypes = new() { Item.Weapontype.Sword}; Debug.Log("cub 202"); break;
-
+            case (202): original.UsableWeaponTypes = new() { Item.Weapontype.Sword}; break;
+            case (203): original.UsableWeaponTypes = new() { Item.Weapontype.Sword,Item.Weapontype.Bow }; break;
+            case (204): original.UsableWeaponTypes = new() { Item.Weapontype.Bow }; break;
+            case (205): original.UsableWeaponTypes = new() { Item.Weapontype.Axe, Item.Weapontype.Bow }; break;
+            case (206): original.UsableWeaponTypes = new() { Item.Weapontype.Axe}; break;
+            case (207): original.UsableWeaponTypes = new() { Item.Weapontype.Lance, Item.Weapontype.Axe }; break;
+            case (208): original.UsableWeaponTypes = new() { Item.Weapontype.Lance}; break;
+            case (209): original.UsableWeaponTypes = new() { Item.Weapontype.Lance, Item.Weapontype.Receptacle}; break;
+            case (210): original.UsableWeaponTypes = new() { Item.Weapontype.Receptacle }; break;
+            case (211): original.UsableWeaponTypes = new() { Item.Weapontype.Receptacle ,Item.Weapontype.Tome}; break;
+            case (212): original.UsableWeaponTypes = new() { Item.Weapontype.Tome}; break;
+            case (213): original.UsableWeaponTypes = new() { Item.Weapontype.Sword}; break;
+            default: original.UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
         }
         System.Type type = original.GetType();
-        Component copy;
-        switch (ClassId)
+        Component copy = ClassId switch
         {
-            case (101): copy = destination.AddComponent<Espadachim>(); break;
-            case (102): copy = destination.AddComponent<Guerreiro>(); break;
-            case (103): copy = destination.AddComponent<Soldado>(); break;
-            case (104): copy = destination.AddComponent<Feitiçeiro>(); break;
-            case (105): copy = destination.AddComponent<Místico>(); break;
-            case (106): copy = destination.AddComponent<Arqueiro>(); break;
-            case (107): copy = destination.AddComponent<Prisioneiro>(); break;
-            case (201): copy = destination.AddComponent<CavaleiroEncantado>(); break;
-            case (202): copy = destination.AddComponent<Duelista>(); break;
-            case (203): copy = destination.AddComponent<Ladino>(); break;
-            case (204): copy = destination.AddComponent<Atirador>(); break;
-            case (205): copy = destination.AddComponent<Patrulheiro>(); break;
-            case (206): copy = destination.AddComponent<Barbaro>(); break;
-            case (207): copy = destination.AddComponent<Armadurado>(); break;
-            case (208): copy = destination.AddComponent<Lanceiro>(); break;
-            case (209): copy = destination.AddComponent<Paladino>(); break;
-            case (210): copy = destination.AddComponent<Mago>(); break;
-            case (211): copy = destination.AddComponent<Curandeiro>(); break;
-            case (212): copy = destination.AddComponent<Ocultista>(); break;
-            case (213): copy = destination.AddComponent<Gladiador>(); break;
-
-            default:
-                 copy = destination.AddComponent(type);
-                break;
-        }
+            (101) => destination.AddComponent<Espadachim>(),
+            (102) => destination.AddComponent<Guerreiro>(),
+            (103) => destination.AddComponent<Soldado>(),
+            (104) => destination.AddComponent<Feitiçeiro>(),
+            (105) => destination.AddComponent<Místico>(),
+            (106) => destination.AddComponent<Arqueiro>(),
+            (107) => destination.AddComponent<Prisioneiro>(),
+            (201) => destination.AddComponent<CavaleiroEncantado>(),
+            (202) => destination.AddComponent<Duelista>(),
+            (203) => destination.AddComponent<Ladino>(),
+            (204) => destination.AddComponent<Atirador>(),
+            (205) => destination.AddComponent<Patrulheiro>(),
+            (206) => destination.AddComponent<Barbaro>(),
+            (207) => destination.AddComponent<Armadurado>(),
+            (208) => destination.AddComponent<Lanceiro>(),
+            (209) => destination.AddComponent<Paladino>(),
+            (210) => destination.AddComponent<Mago>(),
+            (211) => destination.AddComponent<Curandeiro>(),
+            (212) => destination.AddComponent<Ocultista>(),
+            (213) => destination.AddComponent<Gladiador>(),
+            _ => destination.AddComponent(type),
+        };
         System.Reflection.FieldInfo[] fields = type.GetFields();
         foreach (System.Reflection.FieldInfo field in fields)
         {
-            if(field.Name != "classStats" && field.Name != "ClassGrowths")
+            if (field.Name != "classStats" && field.Name != "ClassGrowths" && field.Name != "classSkill" && field.Name != "baseSkill" && field.Name != "skill1" && field.Name != "skill2" && field.Name != "skill3" && field.Name != "baseSoul" && field.Name != "soul1" && field.Name != "soul2" && field.Name != "soul3")
             {
             field.SetValue(copy, field.GetValue(original));
             }
