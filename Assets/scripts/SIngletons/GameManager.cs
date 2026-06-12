@@ -595,9 +595,9 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     unlockedMaps.Add("Patio");
                     wakeUpTalk = false;
                 }
-                if(day== 4 && storyBattle)
+                if(day % 4 == 0 && storyBattle)
                 {
-                    BossBattleID = 101;
+                    BossBattleID = 100 + (day/4);
                 }
                 if (day == 6 && wakeUpTalk)
                 {
@@ -607,7 +607,20 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     unlockedMaps.Add("Laboratorio");
                     wakeUpTalk = false;
                 }
-                if(day < 2)
+                if (day == 21)
+                {
+                    unlockedMaps.Add("Enfermaria");
+                    unlockedMaps.Add("Banheiro");
+                }
+                if (day == 28)
+                {
+                    unlockedMaps.Add("Forja");
+                }
+                if (day == 35)
+                {
+                    unlockedMaps.Add("Cozinha");
+                }
+                if (day < 2)
                 {
                     Debug.Log(go.name);
 

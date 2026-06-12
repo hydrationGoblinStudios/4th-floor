@@ -13789,6 +13789,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   bossBattles:
   - {fileID: 5223300842646005236, guid: e1635b06edc140441b540a718d4b1ba2, type: 3}
+  - {fileID: 5223300842646005236, guid: a23c301deddc932418f37cb875a1d5fd, type: 3}
+  - {fileID: 5223300842646005236, guid: c2c6e04c22ae851489d9f5f0bdf0251e, type: 3}
+  - {fileID: 5223300842646005236, guid: 11aecbbe528ef1c4f96a2531256861a7, type: 3}
+  - {fileID: 5223300842646005236, guid: d28e49000c40413459a191ec22214717, type: 3}
   enemyList:
   - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
   - {fileID: 4445489306633608637, guid: 5e8bdec88c2e2e44cbc2a136f7287b35, type: 3}
