@@ -338,6 +338,8 @@ public class BattleManager : MonoBehaviour
 
         Random.InitState(enemyTeam[2].UnitName.GetHashCode());
         animators[5].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+        Random.InitState((int)System.DateTime.Now.Ticks);
+
 
         enemyTeam[0].position = 1;
         enemyTeam[1].position = 2;
