@@ -140,94 +140,34 @@ public class PreBattleManager : MonoBehaviour
                 case 104: SpawnTeam(bossBattles.Where(obj => obj.name == "Day16").SingleOrDefault()); break;
                 case 105: SpawnTeam(bossBattles.Where(obj => obj.name == "Day20").SingleOrDefault()); break;
 
-                default:
-                    SelectedEnemy1 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[3].transform);
-                    SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
-
-                    SelectedEnemy2 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[4].transform);
-                    SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
-
-                    SelectedEnemy3 = Instantiate(enemyList[Random.Range(0, enemyList.Length)], BattleStations[5].transform);
-                    SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
-
-                    break;
+                default: SpawnTeam(bossBattles.Where(obj => obj.name == "Day4").SingleOrDefault()); break;
             }
         }
         else
         {
-            bool choice = true;
-            int week = (gameManager.day / 4) + 1;
-            while (choice == true)
+            int p1First = 0;
+            int p1End = 0;
+            int p2First = 0;
+            int p2End = 0;
+            int p3First = 0;
+            int p3End = 0;
+            if (gameManager.day > 8)
             {
-                GameObject slot1 = enemyListRandomP1[Random.Range(0, enemyListRandomP1.Length)];
-                if (slot1.name.Contains("A1") && choice)
-                {
-                    switch (week)
-                    {
-                        case 1: if (slot1.name.Contains("S1")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
-                        case 2: if (slot1.name.Contains("S2")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
-                        case 3: if (slot1.name.Contains("S3")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
-                        case 4: if (slot1.name.Contains("S4")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
-                        case 5: if (slot1.name.Contains("S5")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
-                        default: if (slot1.name.Contains("S5")) { SelectedEnemy1 = Instantiate(slot1, BattleStations[3].transform); choice = false; } break;
-                    } if (SelectedEnemy1 != null)
-                    {
-                        SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
-                    }
-                }
+                p1First = 3; p1End = 6; p2First = 6; p2End = 12; p3First = 3; p3End = 6;
             }
-            choice = true;
-            while (choice == true)
+            else
             {
-                GameObject slot1 = enemyListRandomP2[Random.Range(0, enemyListRandomP2.Length)];
-                if (gameManager.team.Count < 2)
-                { SelectedEnemy2 = Instantiate(EmptyUnitPrefab, BattleStations[4].transform); choice = false; }
-                else {
-                    if (slot1.name.Contains("A1") && choice)
-                    {
-                        switch (week)
-                        {
-                            case 1: if (slot1.name.Contains("S1")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                            case 2: if (slot1.name.Contains("S2")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                            case 3: if (slot1.name.Contains("S3")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                            case 4: if (slot1.name.Contains("S4")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                            case 5: if (slot1.name.Contains("S5")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                            default: if (slot1.name.Contains("S5")) { SelectedEnemy2 = Instantiate(slot1, BattleStations[4].transform); choice = false; } break;
-                        } if (SelectedEnemy2 != null)
-                        {
-                            SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
-                        }
-                    }
-                }
+                p1First = 0; p1End = 3; p2First = 0; p2End = 4; p3First = 0; p3End = 3;
             }
 
-            choice = true;
+            SelectedEnemy1 = Instantiate(enemyListRandomP1[Random.Range(p1First, p1End)], BattleStations[3].transform);
+            SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
 
-            while (choice == true)
-            {
-                GameObject slot1 = enemyListRandomP3[Random.Range(0, enemyListRandomP3.Length)];
-                if (gameManager.team.Count < 3)
-                { SelectedEnemy3 = Instantiate(EmptyUnitPrefab, BattleStations[5].transform); choice = false; }
-                else
-                {
-                    if (slot1.name.Contains("A1") && choice)
-                    {
-                        switch (week)
-                        {
-                            case 1: if (slot1.name.Contains("S1")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                            case 2: if (slot1.name.Contains("S2")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                            case 3: if (slot1.name.Contains("S3")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                            case 4: if (slot1.name.Contains("S4")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                            case 5: if (slot1.name.Contains("S5")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                            default: if (slot1.name.Contains("S5")) { SelectedEnemy3 = Instantiate(slot1, BattleStations[5].transform); choice = false; } break;
-                        }
-                        if (SelectedEnemy3 != null)
-                        {
-                            SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
-                        }
-                    }
-                }
-            }
+            SelectedEnemy2 = Instantiate(enemyListRandomP2[Random.Range(p2First, p2End)], BattleStations[4].transform);
+            SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
+
+            SelectedEnemy3 = Instantiate(enemyListRandomP3[Random.Range(p3First, p3End)], BattleStations[5].transform);
+            SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
             try
             {
             enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
