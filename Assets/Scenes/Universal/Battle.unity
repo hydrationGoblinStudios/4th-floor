@@ -36976,7 +36976,7 @@ MonoBehaviour:
   endure: {fileID: 0}
   skillsInUse: []
   EAskillsInUse: []
-  battleSpeed: 4
+  battleSpeed: 10
   Phit: 0
   Pcrit: 0
   enemyList:
