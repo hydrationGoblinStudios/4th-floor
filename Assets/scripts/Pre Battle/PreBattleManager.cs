@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
-using UnityEngine.UI;
-using TMPro;
-using UnityEditor;
-using Unity.VisualScripting;
-using UnityEngine.TextCore.Text;
 using System.IO;
+using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class PreBattleManager : MonoBehaviour
 {
@@ -162,12 +163,22 @@ public class PreBattleManager : MonoBehaviour
 
             SelectedEnemy1 = Instantiate(enemyListRandomP1[Random.Range(p1First, p1End)], BattleStations[3].transform);
             SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
+            EnemyEquip(SelectedEnemy1.GetComponent<UnitBehavior>());
 
+            if (gameManager.team.Count < 2)
+            { SelectedEnemy2 = Instantiate(EmptyUnitPrefab, BattleStations[4].transform); }
+            else { 
             SelectedEnemy2 = Instantiate(enemyListRandomP2[Random.Range(p2First, p2End)], BattleStations[4].transform);
             SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
-
-            SelectedEnemy3 = Instantiate(enemyListRandomP3[Random.Range(p3First, p3End)], BattleStations[5].transform);
-            SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
+                EnemyEquip(SelectedEnemy2.GetComponent<UnitBehavior>());
+            }
+            if (gameManager.team.Count < 3)
+            { SelectedEnemy3 = Instantiate(EmptyUnitPrefab, BattleStations[5].transform); }
+            else { 
+                SelectedEnemy3 = Instantiate(enemyListRandomP3[Random.Range(p3First, p3End)], BattleStations[5].transform);
+                SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
+                EnemyEquip(SelectedEnemy3.GetComponent<UnitBehavior>());
+            }
             try
             {
             enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
@@ -533,7 +544,28 @@ public class PreBattleManager : MonoBehaviour
             enemyMugshot.sprite = null;
         }
     }
-
+    public void EnemyEquip(UnitBehavior eub)
+    {
+        eub.maxhp += eub.Weapon.maxHp;
+        eub.str += eub.Weapon.str;
+        eub.mag += eub.Weapon.mag;
+        eub.dex += eub.Weapon.dex;
+        eub.def += eub.Weapon.def;
+        eub.mdef += eub.Weapon.Mdef;
+        eub.luck += eub.Weapon.luck;
+        eub.speed += eub.Weapon.speed;
+        if (SelectedEnemy1.GetComponent<UnitBehavior>().Accesory != null)
+        {
+            eub.maxhp += eub.Accesory.maxHp;
+            eub.str += eub.Accesory.str;
+            eub.mag += eub.Accesory.mag;
+            eub.dex += eub.Accesory.dex;
+            eub.def += eub.Accesory.def;
+            eub.mdef += eub.Accesory.Mdef;
+            eub.luck += eub.Accesory.luck;
+            eub.speed += eub.Accesory.speed;
+        }
+    }
     public void EnemySelectButton(int slot)
     {
         switch (slot)
