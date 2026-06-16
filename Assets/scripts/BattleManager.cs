@@ -1872,7 +1872,7 @@ public class BattleManager : MonoBehaviour
         hitAudio[nextAttack.isCrit?0:1].Play();
         StartCoroutine(FadeOutText(nextAttack.target.damageTMP, nextAttack.damageDone));
         
-        nextAttack.target.soul += nextAttack.damageDone / 5;
+        nextAttack.target.soul += (int)((nextAttack.damageDone / 5) * nextAttack.target.damageSoulGain);
         if (nextAttack.attacker.lifesteal >= 0.01 | nextAttack.lifeSteal >= 0.01 | nextAttack.attacker.Weapon.lifesteal >= 0.01)
         {
             int totalLS = (int)((nextAttack.damageDone) * nextAttack.attacker.lifesteal) 

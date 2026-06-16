@@ -36979,7 +36979,6 @@ MonoBehaviour:
   battleSpeed: 4
   Phit: 0
   Pcrit: 0
-  sureShot: 0
   enemyList:
   - {fileID: 4445489306633608637, guid: 2184a4f2c538e214a84f1f82c332c545, type: 3}
   - {fileID: 4445489306633608637, guid: 04377b80085b791499ee4a5d0212e45b, type: 3}
@@ -36987,7 +36986,6 @@ MonoBehaviour:
   - {fileID: 4445489306633608637, guid: efaa79524367fcf46bdf5cec92c88e49, type: 3}
   pAccSpeed: 0
   eAccSpeed: 0
-  gameManager: {fileID: 0}
   playerUnit: {fileID: 0}
   playerUnit2: {fileID: 0}
   playerUnit3: {fileID: 0}
