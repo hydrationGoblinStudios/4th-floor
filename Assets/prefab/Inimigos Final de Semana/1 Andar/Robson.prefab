@@ -66,8 +66,8 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 120
-  hp: 120
+  maxhp: 100
+  hp: 100
   power: 0
   str: 12
   mag: 8
