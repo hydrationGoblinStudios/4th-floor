@@ -6,8 +6,6 @@ using TMPro;
 using System.Linq;
 using UnityEditor;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine.TextCore.Text;
 public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance;
@@ -329,15 +327,17 @@ public class BattleManager : MonoBehaviour
         {
             animator.AddComponent<AttackAnimationCallBack>();
         }
+        animators[0].GetComponent<SpriteRenderer>().material = GameManager.instance.PreBattleMaterial[0];
 
-        Random.InitState(enemyTeam[0].UnitName.GetHashCode());
-        animators[3].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+        animators[1].GetComponent<SpriteRenderer>().material = GameManager.instance.PreBattleMaterial[1];
 
-        Random.InitState(enemyTeam[1].UnitName.GetHashCode());
-        animators[4].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+        animators[2].GetComponent<SpriteRenderer>().material = GameManager.instance.PreBattleMaterial[2];
 
-        Random.InitState(enemyTeam[2].UnitName.GetHashCode());
-        animators[5].GetComponent<SpriteRenderer>().material = matRaces[Random.Range(0, 3)];
+        animators[3].GetComponent<SpriteRenderer>().material = GameManager.instance.PreBattleMaterial[3];
+
+        animators[4].GetComponent<SpriteRenderer>().material = GameManager.instance.PreBattleMaterial[4];
+
+        animators[5].GetComponent<SpriteRenderer>().material = GameManager.instance.PreBattleMaterial[5];
         Random.InitState((int)System.DateTime.Now.Ticks);
 
 

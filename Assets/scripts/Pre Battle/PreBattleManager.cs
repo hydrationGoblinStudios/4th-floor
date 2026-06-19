@@ -8,8 +8,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
-
 public class PreBattleManager : MonoBehaviour
 {
     //animations
@@ -117,8 +115,49 @@ public class PreBattleManager : MonoBehaviour
             SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
         }
 
-        playerAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+
+        string weaponType = "";
+        if (SelectedPlayer1.GetComponent<UnitBehavior>().UsableWeaponTypes.Count != 1)
+        {
+            switch (SelectedPlayer1.GetComponent<UnitBehavior>().Weapon.weapontype)
+            {
+                case Item.Weapontype.Sword: weaponType = "sword";break;
+                case Item.Weapontype.Axe: weaponType = "Axe"; break;
+                case Item.Weapontype.Lance: weaponType = "Lance"; break;
+                case Item.Weapontype.Bow: weaponType = "Bow"; break;
+                case Item.Weapontype.Tome: weaponType = "Tome"; break;
+                case Item.Weapontype.Receptacle: weaponType = "Receptacle"; break;
+                default:break;
+            }
+        }
+        playerAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString() + weaponType).SingleOrDefault();
+        if (SelectedPlayer2.GetComponent<UnitBehavior>().UsableWeaponTypes.Count != 1)
+        {
+            switch (SelectedPlayer1.GetComponent<UnitBehavior>().Weapon.weapontype)
+            {
+                case Item.Weapontype.Sword: weaponType = "sword"; break;
+                case Item.Weapontype.Axe: weaponType = "Axe"; break;
+                case Item.Weapontype.Lance: weaponType = "Lance"; break;
+                case Item.Weapontype.Bow: weaponType = "Bow"; break;
+                case Item.Weapontype.Tome: weaponType = "Tome"; break;
+                case Item.Weapontype.Receptacle: weaponType = "Receptacle"; break;
+                default: break;
+            }
+        }
         playerAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+        if (SelectedPlayer3.GetComponent<UnitBehavior>().UsableWeaponTypes.Count != 1)
+        {
+            switch (SelectedPlayer1.GetComponent<UnitBehavior>().Weapon.weapontype)
+            {
+                case Item.Weapontype.Sword: weaponType = "sword"; break;
+                case Item.Weapontype.Axe: weaponType = "Axe"; break;
+                case Item.Weapontype.Lance: weaponType = "Lance"; break;
+                case Item.Weapontype.Bow: weaponType = "Bow"; break;
+                case Item.Weapontype.Tome: weaponType = "Tome"; break;
+                case Item.Weapontype.Receptacle: weaponType = "Receptacle"; break;
+                default: break;
+            }
+        }
         playerAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
 
         if (gameManager.testMode)
@@ -1129,17 +1168,41 @@ public class PreBattleManager : MonoBehaviour
     }
    public void ShaderSelect()
     {
-        playerAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
-        enemyAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
-        if(SelectedPlayer2.GetComponent<UnitBehavior>().hp > 0)
+            playerAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+            enemyAnimations[0].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+            playerAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matRaces.Where(obj => obj.name == ReturnRace(SelectedPlayer1.GetComponent<UnitBehavior>())).SingleOrDefault());
+        if (SelectedPlayer2.GetComponent<UnitBehavior>().hp > 0)
         { 
-        playerAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
-        enemyAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+            playerAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+            enemyAnimations[1].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+            playerAnimations[1].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matRaces.Where(obj => obj.name == ReturnRace(SelectedPlayer2.GetComponent<UnitBehavior>())).SingleOrDefault());
         }
         if (SelectedPlayer3.GetComponent<UnitBehavior>().hp > 0)
         {
             enemyAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
             playerAnimations[2].GetComponent<SpriteRenderer>().material = Instantiate(OriginalMatClass.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault());
+            playerAnimations[2].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matRaces.Where(obj => obj.name == ReturnRace(SelectedPlayer3.GetComponent<UnitBehavior>())).SingleOrDefault());
+        }
+    }
+
+    public string ReturnRace(UnitBehavior ub)
+    {
+        if (ub.UnitName == "Ramion")
+        {
+            return "Ramion";
+        }
+        if (ub.UnitName == "Adrian")
+        {
+            return "103";
+        }
+        if (ub.UnitName == "Hiro")
+        {
+            return "102";
+        }
+
+        else
+                {
+            return "101";
         }
     }
     public void UnitSelect(int i,GameObject SelectedPlayer = null)
@@ -1262,6 +1325,13 @@ public class PreBattleManager : MonoBehaviour
             newobj.GetComponent<UnitBehavior>().enemy = true;
             gameManager.enemyTeamPostPreBattle.Add(newobj);
         }
+       gameManager.PreBattleMaterial.Clear();
+       gameManager.PreBattleMaterial.Add(playerAnimations[0].GetComponent<SpriteRenderer>().material);
+       gameManager.PreBattleMaterial.Add(playerAnimations[1].GetComponent<SpriteRenderer>().material);
+       gameManager.PreBattleMaterial.Add(playerAnimations[2].GetComponent<SpriteRenderer>().material);
+       gameManager.PreBattleMaterial.Add(enemyAnimations[0].GetComponent<SpriteRenderer>().material);
+       gameManager.PreBattleMaterial.Add(enemyAnimations[1].GetComponent<SpriteRenderer>().material);
+       gameManager.PreBattleMaterial.Add(enemyAnimations[2].GetComponent<SpriteRenderer>().material);
     }
     T CopyComponent<T>(T original, GameObject destination) where T : Component
     {

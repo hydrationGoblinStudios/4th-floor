@@ -7,6 +7,7 @@ Shader "Custom/ClothesSwap"
         _TargetColorCLOTHES2("CLOTHES2 Target", Color) = (1,1,1,1)
         _TargetColorCLOTHES3("CLOTHES3 Target", Color) = (1,1,1,1)
         _TargetColorCLOTHES4("CLOTHES4 Target", Color) = (1,1,1,1)
+        _TargetColorCLOTHES5("CLOTHES5 Target", Color) = (1,1,1,1)
     }
        SubShader
     {
@@ -40,10 +41,12 @@ Shader "Custom/ClothesSwap"
             float4 _OriginalColorCLOTHES2;
             float4 _OriginalColorCLOTHES3;
             float4 _OriginalColorCLOTHES4;
+            float4 _OriginalColorCLOTHES5;
             float4 _TargetColorCLOTHES1;
             float4 _TargetColorCLOTHES2;
             float4 _TargetColorCLOTHES3;
             float4 _TargetColorCLOTHES4;
+            float4 _TargetColorCLOTHES5;
             float _Tolerance;
  
             v2f vert(appdata v)
@@ -76,6 +79,10 @@ Shader "Custom/ClothesSwap"
                 if (length(col - _OriginalColorCLOTHES4) < _Tolerance)
                 {
                     return half4(_TargetColorCLOTHES4.rgb, col.a);
+                }
+                if (length(col - _OriginalColorCLOTHES5) < _Tolerance)
+                {
+                    return half4(_TargetColorCLOTHES5.rgb, col.a);
                 }
                 return col;
             }

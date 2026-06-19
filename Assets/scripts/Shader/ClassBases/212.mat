@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 104
+  m_Name: 212
   m_Shader: {fileID: 4800000, guid: 3946f7ec230e8fa4086e59f5cec02722, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -49,15 +49,11 @@ Material:
     - _OriginalColor: {r: 0.43529415, g: 0.36078432, b: 0.6313726, a: 1}
     - _OriginalColorCLOTHES1: {r: 0.21568629, g: 0.23137257, b: 0.69803923, a: 1}
     - _OriginalColorCLOTHES2: {r: 0.13333334, g: 0.16862746, b: 0.5568628, a: 1}
-    - _OriginalColorCLOTHES3: {r: 0.054901965, g: 0.058823533, b: 0.24313727, a: 1}
-    - _OriginalColorCLOTHES4: {r: 1, g: 1, b: 1, a: 1}
+    - _OriginalColorCLOTHES3: {r: 0.29803923, g: 0.0627451, b: 0.41960788, a: 1}
+    - _OriginalColorCLOTHES4: {r: 0.1254902, g: 0, b: 0.20392159, a: 1}
     - _OriginalColorHAIR1: {r: 0.97647065, g: 0.72156864, b: 0.2392157, a: 1}
     - _OriginalColorHAIR2: {r: 0.9686275, g: 0.62352943, b: 0.06666667, a: 1}
     - _OriginalColorHAIR3: {r: 0.9686275, g: 0.62352943, b: 0.06666667, a: 1}
-    - _OriginalColorMETALIC1: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorMETALIC2: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorMETALIC3: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColorMETALIC4: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColorSKIN1: {r: 0.7960785, g: 0.86666673, b: 0.9490197, a: 1}
     - _OriginalColorSKIN2: {r: 0.7176471, g: 0.8078432, b: 0.8980393, a: 1}
     - _OriginalColorSKIN3: {r: 0.6431373, g: 0.7411765, b: 0.8470589, a: 1}
@@ -74,10 +70,6 @@ Material:
     - _TargetColorHAIR1: {r: 0.9686275, g: 0.62352943, b: 0.06666667, a: 1}
     - _TargetColorHAIR2: {r: 0.97647065, g: 0.72156864, b: 0.2392157, a: 1}
     - _TargetColorHAIR3: {r: 0.9686275, g: 0.62352943, b: 0.06666667, a: 1}
-    - _TargetColorMETALIC1: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorMETALIC2: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorMETALIC3: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColorMETALIC4: {r: 1, g: 1, b: 1, a: 1}
     - _TargetColorSKIN1: {r: 0.62352943, g: 0.854902, b: 1, a: 1}
     - _TargetColorSKIN2: {r: 0.48627454, g: 0.7686275, b: 1, a: 1}
     - _TargetColorSKIN3: {r: 0.37647063, g: 0.6666667, b: 1, a: 1}
