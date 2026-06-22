@@ -202,21 +202,18 @@ public class PreBattleManager : MonoBehaviour
 
             SelectedEnemy1 = Instantiate(enemyListRandomP1[Random.Range(p1First, p1End)], BattleStations[3].transform);
             SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
-            EnemyEquip(SelectedEnemy1.GetComponent<UnitBehavior>());
 
             if (gameManager.team.Count < 2)
             { SelectedEnemy2 = Instantiate(EmptyUnitPrefab, BattleStations[4].transform); }
             else { 
             SelectedEnemy2 = Instantiate(enemyListRandomP2[Random.Range(p2First, p2End)], BattleStations[4].transform);
             SelectedEnemy2.name = SelectedEnemy2.GetComponent<UnitBehavior>().UnitName + "Temp";
-                EnemyEquip(SelectedEnemy2.GetComponent<UnitBehavior>());
             }
             if (gameManager.team.Count < 3)
             { SelectedEnemy3 = Instantiate(EmptyUnitPrefab, BattleStations[5].transform); }
             else { 
                 SelectedEnemy3 = Instantiate(enemyListRandomP3[Random.Range(p3First, p3End)], BattleStations[5].transform);
                 SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
-                EnemyEquip(SelectedEnemy3.GetComponent<UnitBehavior>());
             }
             try
             {
@@ -229,7 +226,15 @@ public class PreBattleManager : MonoBehaviour
                 Debug.Log("classID não encontrado");
             }
         }
-
+        EnemyEquip(SelectedEnemy1.GetComponent<UnitBehavior>());
+        if (gameManager.team.Count < 2)
+        {
+            EnemyEquip(SelectedEnemy2.GetComponent<UnitBehavior>());
+        }
+        if (gameManager.team.Count < 3)
+        {
+            EnemyEquip(SelectedEnemy3.GetComponent<UnitBehavior>());
+        }
 
         ShaderSelect();
 
