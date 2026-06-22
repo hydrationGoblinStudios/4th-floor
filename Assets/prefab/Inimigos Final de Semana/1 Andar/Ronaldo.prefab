@@ -66,14 +66,14 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 120
-  hp: 120
+  maxhp: 110
+  hp: 110
   power: 0
-  str: 11
+  str: 12
   mag: 8
   dex: 11
-  def: 11
-  mdef: 8
+  def: 10
+  mdef: 5
   defenses: 
   luck: 9
   speed: 6
