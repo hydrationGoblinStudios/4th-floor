@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<GameObject> team;
     public List<GameObject> teamPostPreBattle = new();
     public List<GameObject> enemyTeamPostPreBattle = new();
+    public List<Material> PreBattleMaterial = new();
     public UnitBehavior selectedPlayerBehavior;
     public UnitBehavior selectedEnemyBehavior;
     public List<Item> Inventory;

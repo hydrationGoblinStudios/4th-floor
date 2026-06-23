@@ -5,8 +5,6 @@ using System.Linq;
 using TMPro;
 using static UnityEngine.GraphicsBuffer;
 using static BattleManager;
-using UnityEditor.Experimental.GraphView;
-
 public class SkillManager : MonoBehaviour
 {
     public Sprite[] Icones;

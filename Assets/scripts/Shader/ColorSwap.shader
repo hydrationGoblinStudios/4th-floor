@@ -11,6 +11,11 @@ Shader "Custom/ExactColorSwap"
         _OriginalColorCLOTHES2("CLOTHES2 Original", Color) = (1,1,1,1)
         _OriginalColorCLOTHES3("CLOTHES3 Original", Color) = (1,1,1,1)
         _OriginalColorCLOTHES4("CLOTHES4 Original", Color) = (1,1,1,1)
+        _OriginalColorCLOTHES5("CLOTHES5 Original", Color) = (1,1,1,1)
+        _OriginalColorMETALIC1("METALLIC1 Original", Color) = (1,1,1,1)
+        _OriginalColorMETALIC2("METALLIC2 Original", Color) = (1,1,1,1)
+        _OriginalColorMETALIC3("METALLIC3 Original", Color) = (1,1,1,1)
+        _OriginalColorMETALIC4("METALLIC4 Original", Color) = (1,1,1,1)
         _OriginalColorWPN1("wpn1 Original", Color) = (1,1,1,1)
         _OriginalColorWPN2("wpn2 Original", Color) = (1,1,1,1)
         _OriginalColorWPN3("wpn3 Original", Color) = (1,1,1,1)
@@ -25,6 +30,11 @@ Shader "Custom/ExactColorSwap"
         _TargetColorCLOTHES2("CLOTHES2 Target", Color) = (1,1,1,1)
         _TargetColorCLOTHES3("CLOTHES3 Target", Color) = (1,1,1,1)
         _TargetColorCLOTHES4("CLOTHES4 Target", Color) = (1,1,1,1)
+        _TargetColorCLOTHES5("CLOTHES5 Target", Color) = (1,1,1,1)
+        _TargetColorMETALIC1("METALIC1 Target", Color) = (1,1,1,1)
+        _TargetColorMETALIC2("METALIC2 Target", Color) = (1,1,1,1)
+        _TargetColorMETALIC3("METALIC3 Target", Color) = (1,1,1,1)
+        _TargetColorMETALIC4("METALIC4 Target", Color) = (1,1,1,1)
         _TargetColorWPN1("wpn1 Target", Color) = (1,1,1,1)
         _TargetColorWPN2("wpn2 Target", Color) = (1,1,1,1)
         _TargetColorWPN3("wpn3 Target", Color) = (1,1,1,1)
@@ -70,6 +80,11 @@ Shader "Custom/ExactColorSwap"
             float4 _OriginalColorCLOTHES2;
             float4 _OriginalColorCLOTHES3;
             float4 _OriginalColorCLOTHES4;
+            float4 _OriginalColorCLOTHES5;
+             float4 _OriginalColorMETALIC1;
+            float4 _OriginalColorMETALIC2;
+            float4 _OriginalColorMETALIC3;
+            float4 _OriginalColorMETALIC4;
             float4 _OriginalColorWPN1;
             float4 _OriginalColorWPN2;
             float4 _OriginalColorWPN3;
@@ -80,10 +95,15 @@ Shader "Custom/ExactColorSwap"
             float4 _TargetColorSKIN2;
             float4 _TargetColorSKIN3;
             float4 _TargetColorSKIN4;
+            float4 _TargetColorMETALIC1;
+            float4 _TargetColorMETALIC2;
+            float4 _TargetColorMETALIC3;
+            float4 _TargetColorMETALIC4;
             float4 _TargetColorCLOTHES1;
             float4 _TargetColorCLOTHES2;
             float4 _TargetColorCLOTHES3;
             float4 _TargetColorCLOTHES4;
+            float4 _TargetColorCLOTHES5;
             float4 _TargetColorWPN1;
             float4 _TargetColorWPN2;
             float4 _TargetColorWPN3;
@@ -140,6 +160,26 @@ Shader "Custom/ExactColorSwap"
                 if (length(col - _OriginalColorCLOTHES4) < _Tolerance)
                 {
                     return half4(_TargetColorCLOTHES4.rgb, col.a);
+                }
+                if (length(col - _OriginalColorCLOTHES5) < _Tolerance)
+                {
+                    return half4(_TargetColorCLOTHES5.rgb, col.a);
+                }
+
+                  if (length(col - _OriginalColorMETALIC1) < _Tolerance)
+                {
+                    return half4(_TargetColorMETALIC1.rgb, col.a);
+                }
+                if (length(col - _OriginalColorMETALIC2) < _Tolerance)
+                {
+                    return half4(_TargetColorMETALIC2.rgb, col.a);
+                }if (length(col - _OriginalColorMETALIC3) < _Tolerance)
+                {
+                    return half4(_TargetColorMETALIC3.rgb, col.a);
+                }
+                if (length(col - _OriginalColorMETALIC4) < _Tolerance)
+                {
+                    return half4(_TargetColorMETALIC4.rgb, col.a);
                 }
  
 
