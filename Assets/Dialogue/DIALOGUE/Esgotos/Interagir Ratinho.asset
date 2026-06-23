@@ -42,12 +42,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
-  m_Name: "Interagir c\xF3digo pequenininho"
+  m_Name: Interagir Ratinho
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 1761358115784956343}
   - {fileID: -6202461685861323823}
   - {fileID: 135722843074130173}
+  - {fileID: 4572460720371625393}
   current: {fileID: 0}
 --- !u!114 &135722843074130173
 MonoBehaviour:
@@ -74,7 +75,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 1761358115784956343}
+        node: {fileID: 4572460720371625393}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -95,7 +96,7 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Ramion
-  dialogue: "Parece ter alguns s\xEDmbolos aqui, mas s\xE3o muito pequenos para ver"
+  dialogue: "Esse rato est\xE1 muito magro, n\xE3o deve ter muita comida por aqui."
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &1761358115784956343
 MonoBehaviour:
@@ -110,7 +111,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -328, y: -104}
+  position: {x: -504, y: -104}
   ports:
     keys:
     - exit
@@ -121,10 +122,58 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 135722843074130173}
+        node: {fileID: 4572460720371625393}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
+--- !u!114 &4572460720371625393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b48a039a983de44bbfb18e9b86f267, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -280, y: -168}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4572460720371625393}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 1761358115784956343}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 4572460720371625393}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 135722843074130173}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speaker: Ratinho
+  dialogue: Squeak Squeak
+  sprite: {fileID: 0}

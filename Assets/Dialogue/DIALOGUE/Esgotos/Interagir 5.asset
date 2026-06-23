@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c99b69113044d24685430723ee8f4e0, type: 3}
-  m_Name: "Interagir c\xF3digo pequenininho"
+  m_Name: Interagir 5
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 1761358115784956343}
@@ -95,7 +95,9 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speaker: Ramion
-  dialogue: "Parece ter alguns s\xEDmbolos aqui, mas s\xE3o muito pequenos para ver"
+  dialogue: "Esse livro \xE9 muito esquisito, tem um cadeado, e a capa parece ter
+    um espa\xE7o vazio, parece que eu preciso de algum tipo de pe\xE7a pra encaixar
+    aqui antes de abri-lo."
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &1761358115784956343
 MonoBehaviour:
