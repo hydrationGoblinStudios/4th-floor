@@ -69,7 +69,7 @@ MonoBehaviour:
   maxhp: 100
   hp: 100
   power: 0
-  str: 12
+  str: 13
   mag: 8
   dex: 15
   def: 7
