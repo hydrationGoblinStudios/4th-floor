@@ -56,7 +56,7 @@ public class DataPersistenceManager : MonoBehaviour
         // loadar save
         if (this.gameData == null)
         {
-            Debug.Log("Save File n„o encontrada, iniciando new game");
+            Debug.Log("Save File n√£o encontrada, iniciando new game");
             NewGame();
         }
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)

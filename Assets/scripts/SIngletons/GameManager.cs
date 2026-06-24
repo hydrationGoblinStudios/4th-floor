@@ -75,13 +75,13 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         {
             return;
         }
-        DirectoryInfo dirInfo = new DirectoryInfo("Assets/prefab/Item/KeyItems");
+        DirectoryInfo dirInfo = new DirectoryInfo("Assets/Resources/KeyItems");
         DirectoryInfo[] subDirInfo = dirInfo.GetDirectories();
         FileInfo[] fileinf = dirInfo.GetFiles("*.asset");
 
         foreach (FileInfo fi in fileinf)
         {
-            keyItemList.Add(AssetDatabase.LoadAssetAtPath<Item>($"Assets/prefab/Item/KeyItems/{fi.Name}"));
+            keyItemList.Add(Resources.Load<Item>($"KeyItems/{fi.Name.Replace(".asset","")}"));
         }
         foreach (DirectoryInfo subDireInf in subDirInfo)
         {
@@ -89,7 +89,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
 
             foreach (FileInfo fi in fileinf)
             {            
-               storyFlagList.Add(AssetDatabase.LoadAssetAtPath<Item>($"Assets/prefab/Item/KeyItems/{fi.Directory.Name}/{fi.Name}"));
+               storyFlagList.Add(Resources.Load<Item>($"KeyItems/{fi.Directory.Name}/{fi.Name.Replace(".asset","")}"));
             }
         }
 

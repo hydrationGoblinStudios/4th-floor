@@ -76,7 +76,7 @@ public class PreBattleManager : MonoBehaviour
     public List<int> levelList = new() {1,1,2,2,3,3,3,4,4,5,5,6,6,7,7,7,8,8,9,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,28,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,91,92,93,94,95,96,97,98,99,100,100,100,100,100,100,100,100,100,100 };
     void Start()
     {
-        DirectoryInfo dirInfo = new DirectoryInfo("Assets/sprites/Animations");
+        DirectoryInfo dirInfo = new DirectoryInfo("Assets/Resources/Animations");
         DirectoryInfo[] subDirInfo = dirInfo.GetDirectories();
 
         foreach(DirectoryInfo subDireInf in subDirInfo)
@@ -85,7 +85,8 @@ public class PreBattleManager : MonoBehaviour
 
             foreach (FileInfo fi in fileinf)
             {
-                Animations.Add(AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>($"Assets/sprites/Animations/{fi.Directory.Name}/{fi.Name}"));
+                Debug.Log(fi.Name);
+                Animations.Add(Resources.Load<RuntimeAnimatorController>($"Animations/{fi.Directory.Name}/{fi.Name.Replace(".controller","")}"));
             }
         }
 
