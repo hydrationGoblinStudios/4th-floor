@@ -370,6 +370,24 @@ public class BattleManager : MonoBehaviour
         {
             ub.battleManager = this;
         }
+        playerTeam[0].hp = playerTeam[0].maxhp;
+        if (GameManager.instance.team.Count > 1)
+        {
+            playerTeam[1].hp = playerTeam[1].maxhp;
+        }
+        if (GameManager.instance.team.Count > 2)
+        {
+            playerTeam[2].hp = playerTeam[2].maxhp;
+        }
+        enemyTeam[0].hp = enemyTeam[0].maxhp;
+        if (GameManager.instance.team.Count > 1)
+        {
+            enemyTeam[1].hp = enemyTeam[1].maxhp;
+        }
+        if (GameManager.instance.team.Count > 2)
+        {
+            enemyTeam[2].hp = enemyTeam[2].maxhp;
+        }
         yield return new WaitForSeconds(0.5f);
         SetHud();
         SetHp();
@@ -462,15 +480,6 @@ public class BattleManager : MonoBehaviour
         unitStats[9].text = (playerTeam[0].Weapon.hit + (playerTeam[0].dex * 3) + playerTeam[0].luck + playerTeam[0].hit).ToString();
         unitStats[10].text = ((playerTeam[0].speed * 2) - playerTeam[0].luck - playerTeam[0].avoid).ToString();
         unitStats[11].text = (playerTeam[0].Weapon.crit + playerTeam[0].dex).ToString();
-        playerTeam[0].hp = playerTeam[0].maxhp;
-        if(GameManager.instance.team.Count > 1)
-        { 
-        playerTeam[1].hp = playerTeam[1].maxhp;
-        }
-        if (GameManager.instance.team.Count > 2)
-        {
-            playerTeam[2].hp = playerTeam[2].maxhp;
-        }
         state = BattleState.Wait;
     }
     void SetHud()
