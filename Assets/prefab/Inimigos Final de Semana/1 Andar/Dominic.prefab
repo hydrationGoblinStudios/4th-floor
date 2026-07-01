@@ -41,12 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b274b298cfb734ca080f0ea856ed1f, type: 3}
+  m_Script: {fileID: 11500000, guid: e35794e0978d54141a630aa19f6d54b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classId: 101
-  Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
-  Accesory: {fileID: 11400000, guid: 37655520312092e4aa9b6b18aa41d8c4, type: 2}
+  classId: 201
+  Weapon: {fileID: 11400000, guid: 046a82c701327134682831272ae61cda, type: 2}
+  UsableWeaponTypes: 
+  Accesory: {fileID: 11400000, guid: 95cbc655fa0ae2541a462a2b3c4efc0d, type: 2}
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
@@ -65,29 +66,30 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 160
-  hp: 160
+  maxhp: 190
+  hp: 190
   power: 0
-  str: 14
-  mag: 12
-  dex: 20
-  def: 11
-  mdef: 9
+  str: 15
+  mag: 11
+  dex: 19
+  def: 13
+  mdef: 14
   defenses: 
-  luck: 16
-  speed: 23
+  luck: 15
+  speed: 20
   skills:
   - Dano Ascendente
   - "Ataque R\xE1pido"
   - "Maestria da Posi\xE7\xE3o 1"
   - "Come\xE7o Afortunado"
   skillInventory: []
-  equipedSoul: Golpe Triplo
+  equipedSoul: Ripostar
   equippedSoulIsAttack: 1
   soulInventory: []
   soul: 0
   maxsoul: 0
   soulgain: 0
+  damageSoulGain: 1
   damagereduction: 0
   lifesteal: 0
   armorpen: 0
@@ -100,6 +102,8 @@ MonoBehaviour:
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
   growths: 3200000032000000320000003200000032000000320000003200000032000000
+  classStats: 0000000000000000000000000000000000000000000000000000000000000000
+  ClassGrowths: 0000000000000000000000000500000005000000000000000000000000000000
   classSkill: 
   personalSkill: 
   baseSkill: 
@@ -112,11 +116,14 @@ MonoBehaviour:
   soul3: 
   description: "classe n\xE3o valida"
   Icon: {fileID: 0}
+  damageTMP: {fileID: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
   SkillManager: {fileID: 0}
   unitData:
     classId: 0
-    Weapon: {fileID: 0}
-    Accesory: {fileID: 0}
+    Weapon: 0
+    Accesory: 0
+    UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
     expmarkplier: 1
@@ -124,6 +131,8 @@ MonoBehaviour:
     currentExp: 0
     ClassID: 
     ClassLevel: 
+    ClassLearningSerializable:
+      thisSeriazableDictionaryItem: []
     hit: 0
     avoid: 0
     crit: 0
@@ -151,6 +160,8 @@ MonoBehaviour:
     armorpen: 0
     magicpen: 0
     cooking: 0
+    activity: 
+    fortalecerStat: 0
     growths: 
     classSkill: 
     personalSkill: 
@@ -163,3 +174,8 @@ MonoBehaviour:
     soul2: 
     soul3: 
     description: 
+  target: 
+  target2: 
+  targetStat: 0
+  targetStat2: 0
+  sureShot: 0
