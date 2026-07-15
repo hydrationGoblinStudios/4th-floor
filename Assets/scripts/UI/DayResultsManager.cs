@@ -141,9 +141,9 @@ public class DayResultsManager : MonoBehaviour
                     }
                     else
                     {
+                        Texts[c].text = "Comecou a aprender classe";
                         currentUnit.ClassLearning.Add(currentUnit.currentLearnigClassID, 1);
                     }
-                    Texts[c].text = "Comecou a aprender classe";
                     if (currentUnit.ClassLearning[currentUnit.currentLearnigClassID] >= 5)
                     {
                         currentUnit.ClassID.Append(currentUnit.currentLearnigClassID);

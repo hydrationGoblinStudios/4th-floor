@@ -74,17 +74,6 @@ public class ClassChangeManager : MonoBehaviour
             Manager.selectedUB4Activity = Manager.team[0].GetComponent<UnitBehavior>();
         }
         classLearn = true;
-        if (inventoryManager.SceneInteractable == null)
-        {
-            inventoryManager.SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
-        }
-        foreach (GameObject go in new List<GameObject> { inventoryManager.SceneInteractable})
-        {
-            if (go != null)
-            {
-                go.SetActive(!go.activeInHierarchy);
-            }
-        }
         inventoryManager.ClassChangeObject.SetActive(true);
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
@@ -109,6 +98,7 @@ public class ClassChangeManager : MonoBehaviour
                 learnedClassLevel = value.ToString();
             }
 
+            entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.activity = "Aprender");
             switch (classID[c])
             {
                 case 101: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 101); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5"; break;

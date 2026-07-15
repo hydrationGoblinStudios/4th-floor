@@ -83,7 +83,7 @@ public class LockCode : MonoBehaviour
             }
             else
             {
-                sm.LoadSceneNDialogue("Preparation1A", graph);
+                sm.LoadScene("Preparation1A");
             }
         }
     }

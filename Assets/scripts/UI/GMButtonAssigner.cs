@@ -9,7 +9,6 @@ public class GMButtonAssigner : MonoBehaviour
 {
     public GameManager gameManager;
     public Button button;
-    public bool activated;
     public void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
@@ -43,8 +42,6 @@ public class GMButtonAssigner : MonoBehaviour
         GameManager Manager = GameManagerOBJ.GetComponent<GameManager>();
         if (Manager.currentState == GameManager.UIState.Available)
         {
-
-            activated = !activated;
             Manager.currentState = GameManager.UIState.Ocuppied;
 
             GameObject ab = GameObject.FindGameObjectWithTag("Activity Board");

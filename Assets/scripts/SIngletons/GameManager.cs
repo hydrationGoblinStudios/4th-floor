@@ -165,6 +165,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     }
     public void SaveUnitasData(UnitBehavior CurrentUnitBehavior)
     {
+        CurrentUnitBehavior.ToSerializable(CurrentUnitBehavior.ClassLearning);
         CurrentUnitData.classId = CurrentUnitBehavior.classId;
         //equip
         if (CurrentUnitBehavior.Weapon != null)
@@ -593,6 +594,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                     Debug.Log("DIA 2");
                     NodeParser dm = FindObjectOfType<NodeParser>(true);
                     dm.StartDialogue(graphs.Where(obj => obj.name == "Adrian Começo Dia 2").SingleOrDefault());
+                    go.transform.Find("Quadro de tarefas").gameObject.SetActive(true);
+                    GameObject.Find("quadro de tarefas sprite").GetComponent<SpriteRenderer>().enabled = true;
                     unlockedMaps.Add("Patio");
                     wakeUpTalk = false;
                 }

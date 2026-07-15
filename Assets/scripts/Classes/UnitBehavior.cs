@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
+using System.Runtime.Serialization;
 
 public class UnitBehavior : MonoBehaviour
 {
@@ -25,7 +27,7 @@ public class UnitBehavior : MonoBehaviour
     public List<int> ClassID;
     public int[] ClassLevel;
     public Dictionary<int, int> ClassLearning = new();
-    public SeriazableDictionary ClassLearningSerializable;
+    public SeriazableDictionary<int,int> ClassLearningSerializable;
     public int hit;
     public int avoid;
     public int crit;
@@ -132,10 +134,19 @@ public class UnitBehavior : MonoBehaviour
         return 0;
     }
     [Serializable]
-    public class SeriazableDictionary
+    public class SeriazableDictionary<KeyType,ValueType> : Dictionary<KeyType,ValueType>, ISerializationCallbackReceiver
     {
         [SerializeField]
         SeriazableDictionaryItem[] thisSeriazableDictionaryItem;
+
+        public void OnAfterDeserialize()
+        {
+        }
+
+        public void OnBeforeSerialize()
+        {
+        }
+
         [SerializeField]
         public Dictionary<int,int> ToDictionary()
         {
@@ -155,6 +166,16 @@ public class UnitBehavior : MonoBehaviour
         public int key;
         [SerializeField]
         public int value;
+    }
+    public void ToSerializable(Dictionary<int, int> ClassLearning)
+    {
+        ClassLearningSerializable.Clear();
+        foreach (var item in ClassLearning)
+        {
+            Debug.Log(item.Key);
+            Debug.Log(item.Value);
+            ClassLearningSerializable.Add(item.Key, item.Value);
+        }
     }
     public virtual void InitClass()
     {

@@ -141,14 +141,7 @@ public class InventoryManager : MonoBehaviour
         else
         {
             ClassChangeObject.SetActive(false);
-            if (SceneInteractable == null)
-            {
-                SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
-            }
-            foreach (GameObject go in new List<GameObject> {SceneInteractable })
-            {               
-                    go.SetActive(!go.activeInHierarchy);                
-            }
+            
             if(Manager == null)
             {
             GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
@@ -298,6 +291,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void Select(UnitBehavior unitBehavior)
     {
+        unitBehavior.ToSerializable(unitBehavior.ClassLearning);
         selectedUnit = unitBehavior;
         statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString();
         statTexts[3].text = selectedUnit.dex.ToString(); statTexts[4].text = selectedUnit.speed.ToString();

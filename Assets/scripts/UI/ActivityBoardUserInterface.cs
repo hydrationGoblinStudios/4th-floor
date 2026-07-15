@@ -12,8 +12,13 @@ public class ActivityBoardUserInterface : MonoBehaviour
     public List<TextMeshProUGUI> activityTexts;
     public List<SpriteRenderer> mugshots;
     public GameObject highlight;
+    public GameObject SceneInteractable;
     public void Awake()
     {
+        if (SceneInteractable == null)
+        {
+            SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
+        }
         gameManager = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
         inventoryManager = FindObjectOfType<InventoryManager>(true);
     }
@@ -37,6 +42,11 @@ public class ActivityBoardUserInterface : MonoBehaviour
     }
     public void Close()
     {
+        if (SceneInteractable == null)
+        {
+            SceneInteractable = GameObject.FindGameObjectWithTag("Scene Interactables");
+        }
+        SceneInteractable.SetActive(true);
         gameObject.SetActive(false);
         GameObject GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         GameManager Manager = GameManagerOBJ.GetComponent<GameManager>();

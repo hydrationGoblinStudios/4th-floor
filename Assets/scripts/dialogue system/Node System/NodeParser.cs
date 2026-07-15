@@ -275,8 +275,10 @@ public class NodeParser : MonoBehaviour
 
     public void StartDialogue(DialogueGraph NewGraph)
     {
+        GameManager gm = FindObjectOfType<GameManager>(true);
         Debug.Log("start dialogue:"+NewGraph.name);
-        if (!banText)
+
+        if (!banText && gm.GetComponent<GameManager>().currentState == GameManager.UIState.Available)
         {
             StartCoroutine(DelayOptions());
                 /* InventoryManager IM = FindObjectOfType<InventoryManager>(true);

@@ -22,7 +22,7 @@ public struct UnitData
     public List<int> ClassID;
     public int[] ClassLevel;
     public Dictionary<int, int> ClassLearning;
-    public SeriazableDictionary ClassLearningSerializable;
+    public SeriazableDictionary<int,int> ClassLearningSerializable;
     public int hit;
     public int avoid;
     public int crit;

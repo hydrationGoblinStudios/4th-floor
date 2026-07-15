@@ -1725,6 +1725,7 @@ MonoBehaviour:
   - {fileID: 3770660292261408267}
   - {fileID: 5549399116652014525}
   highlight: {fileID: 5746439874005369319}
+  SceneInteractable: {fileID: 0}
 --- !u!1 &398519643614444177
 GameObject:
   m_ObjectHideFlags: 0
@@ -6374,7 +6375,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   button: {fileID: 0}
-  activated: 0
 --- !u!1 &1294598262126232478
 GameObject:
   m_ObjectHideFlags: 0
@@ -7707,7 +7707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Quarto Dos Guardas
+  OriginalSceneName: Banheiro
   nightOnly: 0
 --- !u!114 &1983696977751488024
 MonoBehaviour:
@@ -7944,7 +7944,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   button: {fileID: 0}
-  activated: 0
 --- !u!1 &1703104260950457586
 GameObject:
   m_ObjectHideFlags: 0
@@ -10736,7 +10735,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   button: {fileID: 0}
-  activated: 0
 --- !u!1 &2265391664327433582
 GameObject:
   m_ObjectHideFlags: 0
@@ -13208,7 +13206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Quarto Dos Guardas
+  OriginalSceneName: Biblioteca
   nightOnly: 0
 --- !u!114 &6027206970723942588
 MonoBehaviour:
@@ -19524,7 +19522,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   button: {fileID: 0}
-  activated: 0
 --- !u!1 &4403427793694717453
 GameObject:
   m_ObjectHideFlags: 0
@@ -22378,7 +22375,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   button: {fileID: 0}
-  activated: 0
 --- !u!1 &5184046591161172783
 GameObject:
   m_ObjectHideFlags: 0
@@ -22537,7 +22533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Quarto Dos Guardas
+  OriginalSceneName: Forja
   nightOnly: 0
 --- !u!114 &7041571041418854279
 MonoBehaviour:
@@ -31767,7 +31763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Quarto Dos Guardas
+  OriginalSceneName: Enfermaria
   nightOnly: 0
 --- !u!114 &4570841683689112762
 MonoBehaviour:
@@ -31941,7 +31937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289de223145a5d4cba2263d9bc4a01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginalSceneName: Quarto Dos Guardas
+  OriginalSceneName: Cozinha
   nightOnly: 0
 --- !u!114 &5363052962865762146
 MonoBehaviour:
@@ -33253,7 +33249,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   button: {fileID: 0}
-  activated: 0
 --- !u!1 &7594782692173170521
 GameObject:
   m_ObjectHideFlags: 0
@@ -36195,18 +36190,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5702256514293945858}
-        m_TargetAssemblyTypeName: GMButtonAssigner, Assembly-CSharp
-        m_MethodName: ChangeActivity
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Aprender
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 4284632452184499978}
         m_TargetAssemblyTypeName: ClassChangeManager, Assembly-CSharp
         m_MethodName: ChooseClassToLearn
