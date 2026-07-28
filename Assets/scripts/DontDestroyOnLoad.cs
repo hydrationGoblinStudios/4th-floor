@@ -13,7 +13,9 @@ public class DontDestroyOnLoad : Singleton<DontDestroyOnLoad>
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (canvas != null) { 
         canvas.worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
     }
 
 
