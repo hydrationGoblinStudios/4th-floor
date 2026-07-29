@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using static Item;
 public class PreBattleManager : MonoBehaviour
 {
     //animations
@@ -79,14 +80,29 @@ public class PreBattleManager : MonoBehaviour
         DirectoryInfo dirInfo = new DirectoryInfo("Assets/Resources/Animations");
         DirectoryInfo[] subDirInfo = dirInfo.GetDirectories();
 
-        foreach(DirectoryInfo subDireInf in subDirInfo)
+        foreach (DirectoryInfo subDireInf in subDirInfo)
         {
             FileInfo[] fileinf = subDireInf.GetFiles("*.controller");
-
+            string tempFi = "";
             foreach (FileInfo fi in fileinf)
             {
                 Debug.Log(fi.Name);
-                Animations.Add(Resources.Load<RuntimeAnimatorController>($"Animations/{fi.Directory.Name}/{fi.Name.Replace(".controller","")}"));
+                Animations.Add(Resources.Load<RuntimeAnimatorController>($"Animations/{fi.Directory.Name}/{fi.Name.Replace(".controller", "")}"));
+                DirectoryInfo weapondirInfo = new DirectoryInfo($"Assets/Resources/Animations/{fi.Directory.Name}");
+                tempFi = fi.Directory.Name;
+            }
+            DirectoryInfo[] weaponSubDirInfo = subDireInf.GetDirectories();
+            foreach (DirectoryInfo wfdi in weaponSubDirInfo)
+            {
+                FileInfo[] weaponfileinf = wfdi.GetFiles("*.controller");
+                foreach (FileInfo wfi in weaponfileinf)
+                {
+                    Debug.Log(wfi.Name);
+                    Debug.Log(wfi.Directory.Parent.Name);
+                    Debug.Log(wfi.Directory.Name);
+                    Animations.Add(Resources.Load<RuntimeAnimatorController>($"Animations/{wfi.Directory.Parent.Name}/{wfi.Directory.Name}/{wfi.Name.Replace(".controller", "")}"));
+                    Debug.Log($"Animations/{tempFi}/{wfi.Directory.Name}/{wfi.Name.Replace(".controller", "")}");
+                }
             }
         }
 
@@ -115,51 +131,12 @@ public class PreBattleManager : MonoBehaviour
             SelectedPlayer3 = Instantiate(EmptyUnitPrefab, BattleStations[2].transform);
             SelectedPlayer3.name = SelectedPlayer3.GetComponent<UnitBehavior>().UnitName + "Temp";
         }
-
-
-        string weaponType = "";
-        if (SelectedPlayer1.GetComponent<UnitBehavior>().UsableWeaponTypes.Count != 1)
-        {
-            switch (SelectedPlayer1.GetComponent<UnitBehavior>().Weapon.weapontype)
-            {
-                case Item.Weapontype.Sword: weaponType = "sword";break;
-                case Item.Weapontype.Axe: weaponType = "Axe"; break;
-                case Item.Weapontype.Lance: weaponType = "Lance"; break;
-                case Item.Weapontype.Bow: weaponType = "Bow"; break;
-                case Item.Weapontype.Tome: weaponType = "Tome"; break;
-                case Item.Weapontype.Receptacle: weaponType = "Receptacle"; break;
-                default:break;
-            }
-        }
-        playerAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString() + weaponType).SingleOrDefault();
-        if (SelectedPlayer2.GetComponent<UnitBehavior>().UsableWeaponTypes.Count != 1)
-        {
-            switch (SelectedPlayer1.GetComponent<UnitBehavior>().Weapon.weapontype)
-            {
-                case Item.Weapontype.Sword: weaponType = "sword"; break;
-                case Item.Weapontype.Axe: weaponType = "Axe"; break;
-                case Item.Weapontype.Lance: weaponType = "Lance"; break;
-                case Item.Weapontype.Bow: weaponType = "Bow"; break;
-                case Item.Weapontype.Tome: weaponType = "Tome"; break;
-                case Item.Weapontype.Receptacle: weaponType = "Receptacle"; break;
-                default: break;
-            }
-        }
-        playerAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
-        if (SelectedPlayer3.GetComponent<UnitBehavior>().UsableWeaponTypes.Count != 1)
-        {
-            switch (SelectedPlayer1.GetComponent<UnitBehavior>().Weapon.weapontype)
-            {
-                case Item.Weapontype.Sword: weaponType = "sword"; break;
-                case Item.Weapontype.Axe: weaponType = "Axe"; break;
-                case Item.Weapontype.Lance: weaponType = "Lance"; break;
-                case Item.Weapontype.Bow: weaponType = "Bow"; break;
-                case Item.Weapontype.Tome: weaponType = "Tome"; break;
-                case Item.Weapontype.Receptacle: weaponType = "Receptacle"; break;
-                default: break;
-            }
-        }
-        playerAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+        Debug.Log(SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedPlayer1.GetComponent<UnitBehavior>()));
+        Debug.Log(SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedPlayer2.GetComponent<UnitBehavior>()));
+        Debug.Log(SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedPlayer3.GetComponent<UnitBehavior>()));
+        playerAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString() +WeaponSelect(SelectedPlayer1.GetComponent<UnitBehavior>())).SingleOrDefault();
+        playerAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString() +WeaponSelect(SelectedPlayer2.GetComponent<UnitBehavior>())).SingleOrDefault();
+        playerAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString() +WeaponSelect(SelectedPlayer3.GetComponent<UnitBehavior>())).SingleOrDefault();
 
         if (gameManager.testMode)
         {
@@ -1171,6 +1148,24 @@ public class PreBattleManager : MonoBehaviour
         {
             energy++;
         }
+    }
+    public string WeaponSelect(UnitBehavior ub)
+    {
+        string weaponType = "";
+        if (ub.GetComponent<UnitBehavior>().UsableWeaponTypes.Count > 1)
+        {
+            switch (ub.GetComponent<UnitBehavior>().Weapon.weapontype)
+            {
+                case Item.Weapontype.Sword: weaponType = "Sword"; break;
+                case Item.Weapontype.Axe: weaponType = "Axe"; break;
+                case Item.Weapontype.Lance: weaponType = "Lance"; break;
+                case Item.Weapontype.Bow: weaponType = "Bow"; break;
+                case Item.Weapontype.Tome: weaponType = "Tome"; break;
+                case Item.Weapontype.Receptacle: weaponType = "Receptacle"; break;
+                default: break;
+            }
+        }
+        return weaponType;
     }
    public void ShaderSelect()
     {

@@ -129,7 +129,7 @@ MonoBehaviour:
     classId: 0
     Weapon: 0
     Accesory: 0
-    UsableWeaponTypes: 
+    UsableWeaponTypes: 02000000
     UnitName: 
     currentLevel: 0
     expmarkplier: 1

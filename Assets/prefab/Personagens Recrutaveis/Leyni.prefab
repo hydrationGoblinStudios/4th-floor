@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classId: 106
   Weapon: {fileID: 11400000, guid: 973c69435c4261d42903e66bef62a563, type: 2}
-  UsableWeaponTypes: 
+  UsableWeaponTypes: 03000000
   Accesory: {fileID: 0}
   battleManager: {fileID: 0}
   enemy: 0

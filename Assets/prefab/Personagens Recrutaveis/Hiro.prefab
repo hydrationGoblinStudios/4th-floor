@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classId: 104
   Weapon: {fileID: 11400000, guid: 4786e2f717a2087408fb237d93d698c3, type: 2}
-  UsableWeaponTypes: 
+  UsableWeaponTypes: 04000000
   Accesory: {fileID: 0}
   battleManager: {fileID: 0}
   enemy: 0
@@ -110,6 +110,8 @@ MonoBehaviour:
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
   growths: 320000001e000000410000002d00000037000000230000003200000032000000
+  classStats: 0000000000000000000000000000000000000000000000000000000000000000
+  ClassGrowths: 0000000000000000000000000000000005000000000000000000000005000000
   classSkill: 
   personalSkill: 
   baseSkill: 
@@ -184,3 +186,4 @@ MonoBehaviour:
   target2: 
   targetStat: 0
   targetStat2: 0
+  sureShot: 0
