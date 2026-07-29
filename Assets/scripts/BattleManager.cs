@@ -1034,7 +1034,6 @@ public class BattleManager : MonoBehaviour
         else if (playerTeam[0].hp <= 0 && playerTeam[1].hp <= 0 && playerTeam[2].hp <= 0)
         {
             GameManager.instance.storyBattle = false;
-            Destroy(GameObject.Find("GameManager"));
             Destroy(GameObject.Find("Hover Object"));
             Destroy(GameObject.Find("GameManager.instance"));
             Destroy(GameObject.Find("Main Canvas"));
