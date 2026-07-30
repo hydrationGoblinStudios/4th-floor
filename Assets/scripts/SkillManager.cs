@@ -36,6 +36,8 @@ public class SkillManager : MonoBehaviour
     private bool lancadajustica3 = false;
     private bool frigidiboost = false;
     private bool poçãodevidause = false;
+    private bool poçãodevidamaioruse = false;
+    private bool elixirevigoranteuse = false;
     private bool poçãodevelocidadeuse = false;
     private bool poçãodeforçause = false;
     private bool moedamagicaactive = false;
@@ -721,27 +723,35 @@ public class SkillManager : MonoBehaviour
                 user.maxhp += user.maxhp / 2;
                 return 0;
 
-            case "Poção de Foco":
+            case "Elixir Espiritual":
 
                 StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                 user.soul += (int)(user.maxsoul * 0.15);
+                ConsumeItem("Elixir Espiritual", user);
+                return 0;
+            case "Elixir Espiritual Maior":
 
+                StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
+                user.soul += (int)(user.maxsoul * 0.25);
+                ConsumeItem("Elixir Espiritual Maior", user);
                 return 0;
 
-            case "Poção de Força":
+            case "Elixir Fortificante":
 
                 StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                 user.power += 5;
                 poçãodeforçastacks = 2;
                 poçãodeforçause = true;
+                ConsumeItem("Elixir Fortificante", user);
 
                 return 0;
 
-            case "Poção de Velocidade":
+            case "Elixir da Rapidez":
 
                 StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
                 StartCoroutine(PoçãodeVelocidade(user));
                 poçãodevelocidadeuse = true;
+                ConsumeItem("Elixir Rapidez", user);
 
                 return 0;
 
@@ -1227,7 +1237,21 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
 
-            case "Poção de Vida":
+            case "Elixir Revigorante":
+                if (user.hp <= user.maxhp * 0.15 && elixirevigoranteuse == false)
+                {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
+                    AddHealToLog(user, (int)(user.maxhp * 0.2));
+
+                    user.hp += (int)(user.maxhp * 0.2);
+                    user.soul += (int)(user.maxsoul * 0.15);
+
+                    elixirevigoranteuse = true;
+                    ConsumeItem("Elixir Revigorante", user);
+                }
+
+                return 0;
+            case "Elixir de Cura":
                 if (user.hp <= user.maxhp * 0.3 && poçãodevidause == false)
                 {
                     StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
@@ -1236,7 +1260,20 @@ public class SkillManager : MonoBehaviour
                     user.hp += (int)(user.maxhp * 0.2);
 
                     poçãodevidause = true;
+                    ConsumeItem("Elixir de Cura", user);
+                }
 
+                return 0;   
+            case "Elixir de Cura Maior":
+                if (user.hp <= user.maxhp * 0.3 && poçãodevidamaioruse == false)
+                {
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
+                    AddHealToLog(user, (int)(user.maxhp * 0.35));
+
+                    user.hp += (int)(user.maxhp * 0.35);
+
+                    poçãodevidamaioruse = true;
+                    ConsumeItem("Elixir de Cura Maior", user);
                 }
 
                 return 0;
@@ -1781,8 +1818,11 @@ public class SkillManager : MonoBehaviour
         }
         yield return new WaitForSeconds(0);
     }
-
-
+    public void ConsumeItem(string item, UnitBehavior ub)
+    {
+        GameManager gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
+        gm.Inventory.Remove(gm.Inventory.First(n => n.ItemName == item));
+    }
     public void AddHealToLog(UnitBehavior ub, int value)
     {
         switch (ub.position)
@@ -1790,7 +1830,6 @@ public class SkillManager : MonoBehaviour
             case 1: ub.battleManager.cl1.damageHeal += value; break;
             case 2: ub.battleManager.cl2.damageHeal += value; break;
             default: ub.battleManager.cl3.damageHeal += value; break;
-
         }
     }
     public IEnumerator IconPopup(GameObject IconGOOG, string SkillName)
