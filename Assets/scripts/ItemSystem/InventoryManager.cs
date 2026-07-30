@@ -62,6 +62,7 @@ public class InventoryManager : MonoBehaviour
     {
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
+        Manager.im = this;
         if (Manager.currentState == GameManager.UIState.Available || Activated)
         {
             Activated = !Activated;
@@ -153,6 +154,7 @@ public class InventoryManager : MonoBehaviour
     public void Equip(Item item)
     {if(item.type == Item.Type.weapon)
         {
+            Debug.Log("equip weapon");
             if (selectedUnit.UsableWeaponTypes.Contains(item.weapontype)){
                 if (selectedUnit.Weapon != null)
                 {
@@ -165,7 +167,6 @@ public class InventoryManager : MonoBehaviour
                     selectedUnit.luck -= selectedUnit.Weapon.luck;
                     selectedUnit.speed -= selectedUnit.Weapon.speed;
                 }
-                selectedUnit.Weapon = item;
                 selectedUnit.maxhp += item.maxHp;
                 selectedUnit.str += item.str;
                 selectedUnit.mag += item.mag;
@@ -174,8 +175,10 @@ public class InventoryManager : MonoBehaviour
                 selectedUnit.mdef += item.Mdef;
                 selectedUnit.luck += item.luck;
                 selectedUnit.speed += item.speed;
-                UpdateEquips(item);
+                selectedUnit.Weapon = item;
+
             }
+            UpdateEquips(item);
         }
         else
         {

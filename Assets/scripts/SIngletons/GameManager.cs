@@ -41,6 +41,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<Item> Inventory;
     public List<Item> KeyItems;
     public List<Item> StoryFlags;
+    public InventoryManager im;
    // [HideInInspector]
     public int plantaDia = 40;
     [Header("ItemParseLists")]
@@ -431,17 +432,37 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
-
-        if (item != null)
-        {
-        OriginalUB.Weapon = item;
-        }        
-        CopyUnitBehavior(OriginalUB, Unit, ClassId,true);
+        UnitBehavior NewUB = new();
+        NewUB = CopyUnitBehavior(OriginalUB, Unit, ClassId,true);
         Destroy(OriginalUB);
+
+        if (!IsLoad) 
+        {
+            im.selectedUnit = NewUB;
+            if (NewUB.Weapon != null)
+            {
+                NewUB.maxhp -= NewUB.Weapon.maxHp;
+                NewUB.str -= NewUB.Weapon.str;
+                NewUB.mag -= NewUB.Weapon.mag;
+                NewUB.dex -= NewUB.Weapon.dex;
+                NewUB.def -= NewUB.Weapon.def;
+                NewUB.mdef -= NewUB.Weapon.Mdef;
+                NewUB.luck -= NewUB.Weapon.luck;
+                NewUB.speed -= NewUB.Weapon.speed;
+            }
+            NewUB.maxhp += item.maxHp;
+            NewUB.str += item.str;
+            NewUB.mag += item.mag;
+            NewUB.dex += item.dex;
+            NewUB.def += item.def;
+            NewUB.mdef += item.Mdef;
+            NewUB.luck += item.luck;
+            NewUB.speed += item.speed;
+            NewUB.Weapon = item;
         }
+    }
     UnitBehavior CopyUnitBehavior(UnitBehavior original, GameObject destination, int ClassId, bool IsLoad = false)
     {
-        Debug.Log(ClassId);
         original.classId = ClassId;
         switch (ClassId)
         {

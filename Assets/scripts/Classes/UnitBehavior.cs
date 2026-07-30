@@ -172,8 +172,6 @@ public class UnitBehavior : MonoBehaviour
         ClassLearningSerializable.Clear();
         foreach (var item in ClassLearning)
         {
-            Debug.Log(item.Key);
-            Debug.Log(item.Value);
             ClassLearningSerializable.Add(item.Key, item.Value);
         }
     }
