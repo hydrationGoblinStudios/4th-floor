@@ -1,35 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
-    public RuntimeAnimatorController[] Animations;
+    public List<RuntimeAnimatorController> Animations;
     public Animator[] animators;
     public BattleManager battleManager;
 
     public bool wait = true;
     void Start()
     {
-        SetClass(animators[0], battleManager.playerTeam[0]);
-        SetClass(animators[1], battleManager.playerTeam[1]);
-        SetClass(animators[2], battleManager.playerTeam[2]);
-        SetClass(animators[3], battleManager.enemyTeam[0]);
-        SetClass(animators[4], battleManager.enemyTeam[1]);
-        SetClass(animators[5], battleManager.enemyTeam[2]);
+       SetClass();
     }
-    public void SetClass(Animator animator, UnitBehavior ub)
+    public void SetClass()
     {
-        animator.runtimeAnimatorController = ub.classId switch
+        DirectoryInfo dirInfo = new DirectoryInfo("Assets/Resources/Animations");
+        DirectoryInfo[] subDirInfo = dirInfo.GetDirectories();
+
+        foreach (DirectoryInfo subDireInf in subDirInfo)
         {
-            101 => Animations[0],
-            102 => Animations[1],
-            103 => Animations[2],
-            104 => Animations[3],
-            105 => Animations[4],
-            106 => Animations[5],
-            107 => Animations[6],
-            _ => null,
-        };
+            FileInfo[] fileinf = subDireInf.GetFiles("*.controller");
+            string tempFi = "";
+            foreach (FileInfo fi in fileinf)
+            {
+                Debug.Log(fi.Name);
+                Animations.Add(Resources.Load<RuntimeAnimatorController>($"Animations/{fi.Directory.Name}/{fi.Name.Replace(".controller", "")}"));
+                DirectoryInfo weapondirInfo = new DirectoryInfo($"Assets/Resources/Animations/{fi.Directory.Name}");
+                tempFi = fi.Directory.Name;
+            }
+            DirectoryInfo[] weaponSubDirInfo = subDireInf.GetDirectories();
+            foreach (DirectoryInfo wfdi in weaponSubDirInfo)
+            {
+                FileInfo[] weaponfileinf = wfdi.GetFiles("*.controller");
+                foreach (FileInfo wfi in weaponfileinf)
+                {
+                    Debug.Log(wfi.Name);
+                    Debug.Log(wfi.Directory.Parent.Name);
+                    Debug.Log(wfi.Directory.Name);
+                    Animations.Add(Resources.Load<RuntimeAnimatorController>($"Animations/{wfi.Directory.Parent.Name}/{wfi.Directory.Name}/{wfi.Name.Replace(".controller", "")}"));
+                    Debug.Log($"Animations/{tempFi}/{wfi.Directory.Name}/{wfi.Name.Replace(".controller", "")}");
+                }
+            }
+        }
+        battleManager.playerTeam[0].animator.runtimeAnimatorController = Animations.Where(obj => obj.name == battleManager.playerTeam[0].GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(battleManager.playerTeam[0].GetComponent<UnitBehavior>())).SingleOrDefault();
+        battleManager.playerTeam[1].animator.runtimeAnimatorController = Animations.Where(obj => obj.name == battleManager.playerTeam[1].GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(battleManager.playerTeam[1].GetComponent<UnitBehavior>())).SingleOrDefault();
+        battleManager.playerTeam[2].animator.runtimeAnimatorController = Animations.Where(obj => obj.name == battleManager.playerTeam[2].GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(battleManager.playerTeam[2].GetComponent<UnitBehavior>())).SingleOrDefault();
+        battleManager.enemyTeam[0].animator.runtimeAnimatorController = Animations.Where(obj => obj.name == battleManager.enemyTeam[0].GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(battleManager.enemyTeam[0].GetComponent<UnitBehavior>())).SingleOrDefault();
+        battleManager.enemyTeam[1].animator.runtimeAnimatorController = Animations.Where(obj => obj.name == battleManager.enemyTeam[1].GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(battleManager.enemyTeam[1].GetComponent<UnitBehavior>())).SingleOrDefault();
+        battleManager.enemyTeam[2].animator.runtimeAnimatorController = Animations.Where(obj => obj.name == battleManager.enemyTeam[2].GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(battleManager.enemyTeam[2].GetComponent<UnitBehavior>())).SingleOrDefault();
+    }
+    public string WeaponSelect(UnitBehavior ub)
+    {
+        string weaponType = "";
+        if (ub.GetComponent<UnitBehavior>().UsableWeaponTypes.Count > 1)
+        {
+            switch (ub.GetComponent<UnitBehavior>().Weapon.weapontype)
+            {
+                case Item.Weapontype.Sword: weaponType = "Sword"; break;
+                case Item.Weapontype.Axe: weaponType = "Axe"; break;
+                case Item.Weapontype.Lance: weaponType = "Lance"; break;
+                case Item.Weapontype.Bow: weaponType = "Bow"; break;
+                case Item.Weapontype.Tome: weaponType = "Tome"; break;
+                case Item.Weapontype.Receptacle: weaponType = "Receptacle"; break;
+                default: break;
+            }
+        }
+        return weaponType;
     }
 }
