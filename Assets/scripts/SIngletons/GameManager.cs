@@ -340,6 +340,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         GameObject newobj = Instantiate(recruit, this.transform);
         team.Add(newobj);
         newobj.name = newobj.GetComponent<UnitBehavior>().UnitName + "Prep";
+        newobj.GetComponent<UnitBehavior>().InitClass();
     }
     public void SelectUnit(GameObject unit)
     {

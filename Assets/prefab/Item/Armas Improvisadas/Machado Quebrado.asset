@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: "Re\xE7eptaculo Improvisado"
+  m_Name: Machado Quebrado
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 0
   sprite: {fileID: 0}
   type: 0
-  weapontype: 5
+  weapontype: 1
   weight: 0
-  ItemName: 
+  ItemName: Machado Quebrado
   description: 
   hit: 60
   crit: 0
+  maxHp: 0
   power: 1
   str: 0
   mag: 0
@@ -31,5 +32,8 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 0
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
   skill: 

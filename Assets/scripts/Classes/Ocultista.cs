@@ -14,7 +14,7 @@ public class Ocultista : UnitBehavior
     public void Awake()
     {
         baseSkill = "Foco";
-        skill1 = "Precis„o Mortal";
+        skill1 = "Precis√£o Mortal";
         baseSoul = "Tiro Certeiro";
         soul1 = "Rajada de Flechas";
         UsableWeaponTypes = new() { Item.Weapontype.Bow };
@@ -24,7 +24,7 @@ public class Ocultista : UnitBehavior
     public override void InitClass()
     {
         baseSkill = "Foco";
-        skill1 = "Precis„o Mortal";
+        skill1 = "Precis√£o Mortal";
         baseSoul = "Tiro Certeiro";
         soul1 = "Rajada de Flechas";
         UsableWeaponTypes = new() { Item.Weapontype.Bow };
