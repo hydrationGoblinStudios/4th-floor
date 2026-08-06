@@ -256,7 +256,7 @@ public class PreBattleManager : MonoBehaviour
                 b.onClick.RemoveAllListeners();
                 switch (c)
                 {
-                    case 0: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot,Instantiate(gameManager.team[0])); }); break;
+                    case 0: b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, Instantiate(gameManager.team[0])); }); break;
                     case 1: if (gameManager.team.Count >= 2) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, Instantiate(gameManager.team[1])); }); } break;
                     case 2: if (gameManager.team.Count >= 3) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, Instantiate(gameManager.team[2])); }); } break;
                     default: if (gameManager.team.Count >= 4) { b.onClick.AddListener(delegate { UnitSelect(selectedUnitSlot, Instantiate(gameManager.team[3])); }); } break;
@@ -273,6 +273,7 @@ public class PreBattleManager : MonoBehaviour
                 }
                 c++;
             }
+            b.onClick.AddListener(delegate { Select(SelectedPlayerList[selectedUnitSlot -1].GetComponent<UnitBehavior>()); });
         }
 
         //enemy leveler
@@ -1152,7 +1153,6 @@ public class PreBattleManager : MonoBehaviour
     public string WeaponSelect(UnitBehavior ub)
     {
         string weaponType = "";
-        Debug.Log(ub.UnitName + "weapon types:" + ub.GetComponent<UnitBehavior>().UsableWeaponTypes.Count);
         if (ub.GetComponent<UnitBehavior>().UsableWeaponTypes.Count > 1)
         {
             switch (ub.GetComponent<UnitBehavior>().Weapon.weapontype)
