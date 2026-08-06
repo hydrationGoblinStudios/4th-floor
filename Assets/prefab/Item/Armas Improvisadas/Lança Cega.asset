@@ -18,10 +18,11 @@ MonoBehaviour:
   type: 0
   weapontype: 2
   weight: 0
-  ItemName: 
+  ItemName: "Lan\xE7a Cega"
   description: 
   hit: 60
   crit: 0
+  maxHp: 0
   power: 1
   str: 0
   mag: 0
@@ -31,5 +32,8 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 0
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
   skill: 

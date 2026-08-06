@@ -433,8 +433,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
-        UnitBehavior NewUB = new();
-        NewUB = CopyUnitBehavior(OriginalUB, Unit, ClassId,true);
+        UnitBehavior NewUB = CopyUnitBehavior(OriginalUB, Unit, ClassId, true);
         Destroy(OriginalUB);
 
         if (!IsLoad) 
@@ -524,6 +523,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         }
         Destroy(original);
         copy.GetComponent<UnitBehavior>().classId = ClassId;
+        copy.GetComponent<UnitBehavior>().ClassID.Clear();
+        copy.GetComponent<UnitBehavior>().ClassID.Add(ClassId);
 
         if (!IsLoad)
         {

@@ -1152,6 +1152,7 @@ public class PreBattleManager : MonoBehaviour
     public string WeaponSelect(UnitBehavior ub)
     {
         string weaponType = "";
+        Debug.Log(ub.UnitName + "weapon types:" + ub.GetComponent<UnitBehavior>().UsableWeaponTypes.Count);
         if (ub.GetComponent<UnitBehavior>().UsableWeaponTypes.Count > 1)
         {
             switch (ub.GetComponent<UnitBehavior>().Weapon.weapontype)
