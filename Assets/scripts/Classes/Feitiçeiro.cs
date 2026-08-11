@@ -12,20 +12,20 @@ public class Feitiçeiro : UnitBehavior
     }
     public void Awake()
     {
-        baseSkill = "Presença Inabalável";
-        skill1 = "Pancada";
-        baseSoul = "Golpe Atordoante";
-        soul1 = "Fortificar";
+        baseSkill = "Concentração de feiticeiro";
+        skill1 = "Magia Destrutiva";
+        baseSoul = "Sabedoria Arcana";
+        soul1 = "Trovoada";
         UsableWeaponTypes = new() { Item.Weapontype.Tome };
         ClassGrowths = new() { 0, 0, 0, 0, 5, 0, 0, 5 };
         classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
     }
     public override void InitClass()
     {
-        baseSkill = "Presença Inabalável";
-        skill1 = "Pancada";
-        baseSoul = "Golpe Atordoante";
-        soul1 = "Fortificar";
+        baseSkill = "Concentração de feiticeiro";
+        skill1 = "Magia Destrutiva";
+        baseSoul = "Sabedoria Arcana";
+        soul1 = "Trovoada";
         UsableWeaponTypes = new() { Item.Weapontype.Tome };
         ClassGrowths = new() { 0, 0, 0, 0, 5, 0, 0, 5 };
         classStats = new() { 0, 0, 0, 0, 0, 0, 0, 0 };
