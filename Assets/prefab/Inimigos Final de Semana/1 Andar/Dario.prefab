@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classId: 105
-  Weapon: {fileID: 11400000, guid: 5d6fb926fb9766345a59d5f1b28eb227, type: 2}
+  Weapon: {fileID: 11400000, guid: 9de3f058e5845ed43bb6f96ef2c26556, type: 2}
+  UsableWeaponTypes: 
   Accesory: {fileID: 11400000, guid: ba40df9422d9fbd4eb6f624608bc95c0, type: 2}
   battleManager: {fileID: 0}
   enemy: 0
@@ -69,7 +70,7 @@ MonoBehaviour:
   hp: 110
   power: 0
   str: 7
-  mag: 15
+  mag: 23
   dex: 12
   def: 9
   mdef: 15
@@ -80,6 +81,7 @@ MonoBehaviour:
   - Encantamento
   - "Maldi\xE7\xE3o"
   - Foco de Feiticeiro
+  - Magia Destrutiva
   skillInventory: []
   equipedSoul: "Ben\xE7\xE3o dos Ventos"
   equippedSoulIsAttack: 0
@@ -87,6 +89,7 @@ MonoBehaviour:
   soul: 0
   maxsoul: 0
   soulgain: 0
+  damageSoulGain: 1
   damagereduction: 0
   lifesteal: 0
   armorpen: 0
@@ -99,6 +102,8 @@ MonoBehaviour:
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
   growths: 3200000032000000320000003200000032000000320000003200000032000000
+  classStats: 0000000000000000000000000000000000000000000000000000000000000000
+  ClassGrowths: 0000000000000000050000000000000000000000000000000500000000000000
   classSkill: 
   personalSkill: 
   baseSkill: 
@@ -111,11 +116,14 @@ MonoBehaviour:
   soul3: 
   description: "classe n\xE3o valida"
   Icon: {fileID: 0}
+  damageTMP: {fileID: 0}
+  startingPosition: {x: 0, y: 0, z: 0}
   SkillManager: {fileID: 0}
   unitData:
     classId: 0
-    Weapon: {fileID: 0}
-    Accesory: {fileID: 0}
+    Weapon: 0
+    Accesory: 0
+    UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
     expmarkplier: 1
@@ -123,6 +131,8 @@ MonoBehaviour:
     currentExp: 0
     ClassID: 
     ClassLevel: 
+    ClassLearningSerializable:
+      thisSeriazableDictionaryItem: []
     hit: 0
     avoid: 0
     crit: 0
@@ -150,6 +160,8 @@ MonoBehaviour:
     armorpen: 0
     magicpen: 0
     cooking: 0
+    activity: 
+    fortalecerStat: 0
     growths: 
     classSkill: 
     personalSkill: 
@@ -162,3 +174,8 @@ MonoBehaviour:
     soul2: 
     soul3: 
     description: 
+  target: 
+  target2: 
+  targetStat: 0
+  targetStat2: 0
+  sureShot: 0
