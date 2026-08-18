@@ -188,7 +188,7 @@ public class PreBattleManager : MonoBehaviour
             }
             else if (gameManager.day > 30)
             {
-                p1First = 9; p1End = 22; p2First = 18; p2End = 42; p3First = 9; p3End = 22;
+                p1First = 9; p1End = 21; p2First = 18; p2End = 41; p3First = 9; p3End = 21;
             }
             SelectedEnemy1 = Instantiate(enemyListRandomP1[Random.Range(p1First, p1End)], BattleStations[3].transform);
             SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
