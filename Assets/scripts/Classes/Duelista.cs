@@ -13,7 +13,7 @@ public Duelista()
     public void Awake()
     {
         baseSkill = "Foco";
-        skill1 = "Precisão Mortal";
+        skill1 = "Precisï¿½o Mortal";
         baseSoul = "Tiro Certeiro";
         soul1 = "Rajada de Flechas";
         UsableWeaponTypes = new() { Item.Weapontype.Sword };
@@ -23,7 +23,7 @@ public Duelista()
     public override void InitClass()
     {
         baseSkill = "Foco";
-        skill1 = "Precisão Mortal";
+        skill1 = "Precisï¿½o Mortal";
         baseSoul = "Tiro Certeiro";
         soul1 = "Rajada de Flechas";
         UsableWeaponTypes = new() { Item.Weapontype.Sword };

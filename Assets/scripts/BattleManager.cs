@@ -15,6 +15,10 @@ public class BattleManager : MonoBehaviour
     public UnitBehavior endure;
     public List<string> skillsInUse;
     public List<string> EAskillsInUse;
+    public List<UnitBehavior> ExtraAttackAttackers;
+    public List<UnitBehavior> ExtraAttackTargets;
+    public List<float> ExtraAttackMult;
+    public List<float> ExtraAttackLifeSteal;
     public int battleSpeed = 20;
     //Player1
     public int Phit;
@@ -563,27 +567,45 @@ public class BattleManager : MonoBehaviour
             sl.value = enemyTeam[c].hp;
         }
     }
+
+
+    public void QueueExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1, float lifeSteal = 0)
+    {
+        Debug.Log("EA queued");
+        ExtraAttackAttackers.Add(attacker);
+        ExtraAttackTargets.Add(Target);
+        ExtraAttackMult.Add(DamageMultiplier);
+        ExtraAttackLifeSteal.Add(lifeSteal);
+    }
     IEnumerator Wait()
     {
         waiting = true;
+        if (ExtraAttackAttackers.Count > 0) {
+            Debug.Log("extra attack queue");
+            StartCoroutine(ExtraAttack(ExtraAttackAttackers[0], ExtraAttackTargets[0], ExtraAttackMult[0], ExtraAttackLifeSteal[0]));
+            ExtraAttackAttackers.RemoveAt(0);
+            ExtraAttackLifeSteal.RemoveAt(0);
+            ExtraAttackMult.RemoveAt(0);
+            ExtraAttackTargets.RemoveAt(0);
+        }
         if (playerTeam[0].hp > 0 && state == BattleState.Wait) { PlayerBar += Time.fixedUnscaledDeltaTime * (playerTeam[0].speed * CheckWeight(playerTeam[0])) * battleSpeed; PlayerBars[0] = PlayerBar;
         }
-        else if (playerTeam[0].UnitName != "") { playerTeam[0].animator.SetTrigger("UnitDie"); }
+        else if (playerTeam[0].UnitName != "" && playerTeam[0].hp <0) { playerTeam[0].animator.SetTrigger("UnitDie"); }
         if (playerTeam[1].hp > 0 && state == BattleState.Wait) { PlayerBar2 += Time.fixedUnscaledDeltaTime * (playerTeam[1].speed * CheckWeight(playerTeam[0])) * battleSpeed; PlayerBars[1] = PlayerBar2;
         }
-        else if (playerTeam[1].UnitName != "") { playerTeam[1].animator.SetTrigger("UnitDie"); }
+        else if (playerTeam[1].UnitName != "" && playerTeam[1].hp < 0) { playerTeam[1].animator.SetTrigger("UnitDie"); }
         if (playerTeam[2].hp > 0 && state == BattleState.Wait) { PlayerBar3 += Time.fixedUnscaledDeltaTime * (playerTeam[2].speed * CheckWeight(playerTeam[0])) * battleSpeed; PlayerBars[2] = PlayerBar3;
         }
-        else if (playerTeam[2].UnitName != "") { playerTeam[2].animator.SetTrigger("UnitDie"); }
+        else if (playerTeam[2].UnitName != "" && playerTeam[2].hp < 0) { playerTeam[2].animator.SetTrigger("UnitDie"); }
         if (enemyTeam[0].hp > 0 && state == BattleState.Wait) { EnemyBar += Time.fixedUnscaledDeltaTime * (enemyTeam[0].speed * CheckWeight(enemyTeam[0])) * battleSpeed; EnemyBars[0] = EnemyBar;
         }
-        else if (enemyTeam[0].UnitName != "") { enemyTeam[0].animator.SetTrigger("UnitDie"); }
+        else if (enemyTeam[0].UnitName != "" && enemyTeam[0].hp < 0) { enemyTeam[0].animator.SetTrigger("UnitDie"); }
         if (enemyTeam[1].hp > 0 && state == BattleState.Wait) { EnemyBar2 += Time.fixedUnscaledDeltaTime * (enemyTeam[1].speed * CheckWeight(enemyTeam[1])) * battleSpeed; EnemyBars[1] = EnemyBar2;
         }
-        else if (enemyTeam[1].UnitName != "") { enemyTeam[1].animator.SetTrigger("UnitDie"); }
+        else if (enemyTeam[1].UnitName != "" && enemyTeam[1].hp < 0) { enemyTeam[1].animator.SetTrigger("UnitDie"); }
         if (enemyTeam[2].hp > 0 && state == BattleState.Wait) { EnemyBar3 += Time.fixedUnscaledDeltaTime * (enemyTeam[2].speed * CheckWeight(enemyTeam[2])) * battleSpeed; EnemyBars[2] = EnemyBar3;
         }
-        else if (enemyTeam[2].UnitName != "") { enemyTeam[2].animator.SetTrigger("UnitDie"); }
+        else if (enemyTeam[2].UnitName != "" && enemyTeam[2].hp < 0) { enemyTeam[2].animator.SetTrigger("UnitDie"); }
         int c = 0;
         foreach (Slider sl in PlayerActionBar)
         {
@@ -1049,6 +1071,12 @@ public class BattleManager : MonoBehaviour
     }
     public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1, float lifeSteal = 0)
     {
+        if (attacker.Weapon.weapontype != Item.Weapontype.Bow && attacker.Weapon.weapontype != Item.Weapontype.Receptacle && attacker.Weapon.weapontype != Item.Weapontype.Tome)
+        {
+            Debug.Log(attacker.name + " dashed to " + Target.name);
+            StartCoroutine(DashToTarget(attacker, Target.animator.transform.position));
+        }
+        attacker.animator.SetTrigger("UnitAdvance");
         List<UnitBehavior> attackerTeam;
         List<UnitBehavior> targetTeam;
         if (attacker.enemy)
@@ -1056,6 +1084,10 @@ public class BattleManager : MonoBehaviour
             state = BattleState.EnemyTurn;
         }
         else { state = BattleState.PlayerTurn; }
+
+        
+
+
         attacker.power = attacker.str + attacker.Weapon.power;
         //Pskill = 0;
         attacker.SkillManager.currentDamageBonus = 0;
@@ -1095,8 +1127,11 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            Target.animator.SetTrigger("UnitDodge");
             Debug.Log("extra attack errou :(");
         }
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(DashToTarget(attacker, attacker.startingPosition, 0.05f));
         if (Target.hp <= 0)
         {
             Target.animator.SetTrigger("UnitDie");
@@ -1558,6 +1593,7 @@ public class BattleManager : MonoBehaviour
             int damageDone = (int)(attackerDamage + attacker.SkillManager.currentDamageBonus);
             
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
+            damageDone = (int)(damageDone * DamageMultiplier);
             CheckDamage(attacker, Target, damageDone);
 
             if(nextAttack.attacker != null){

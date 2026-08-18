@@ -157,6 +157,11 @@ public class PreBattleManager : MonoBehaviour
                 case 103: SpawnTeam(bossBattles.Where(obj => obj.name == "Day12").SingleOrDefault()); break;
                 case 104: SpawnTeam(bossBattles.Where(obj => obj.name == "Day16").SingleOrDefault()); break;
                 case 105: SpawnTeam(bossBattles.Where(obj => obj.name == "Day20").SingleOrDefault()); break;
+                case 201: SpawnTeam(bossBattles.Where(obj => obj.name == "Day24").SingleOrDefault()); break;
+                case 202: SpawnTeam(bossBattles.Where(obj => obj.name == "Day28").SingleOrDefault()); break;
+                case 203: SpawnTeam(bossBattles.Where(obj => obj.name == "Day32").SingleOrDefault()); break;
+                case 204: SpawnTeam(bossBattles.Where(obj => obj.name == "Day36").SingleOrDefault()); break;
+                case 205: SpawnTeam(bossBattles.Where(obj => obj.name == "Day40").SingleOrDefault()); break;
 
                 default: SpawnTeam(bossBattles.Where(obj => obj.name == "Day4").SingleOrDefault()); break;
             }
@@ -169,15 +174,22 @@ public class PreBattleManager : MonoBehaviour
             int p2End = 0;
             int p3First = 0;
             int p3End = 0;
-            if (gameManager.day > 8)
-            {
-                p1First = 3; p1End = 6; p2First = 6; p2End = 12; p3First = 3; p3End = 6;
-            }
-            else
+            if (gameManager.day < 8)
             {
                 p1First = 0; p1End = 3; p2First = 0; p2End = 4; p3First = 0; p3End = 3;
             }
-
+            else if (gameManager.day < 20)
+            {
+                p1First = 3; p1End = 6; p2First = 6; p2End = 12; p3First = 3; p3End = 6;
+            }
+            else if (gameManager.day < 30) 
+            {
+                p1First = 6; p1End = 9; p2First = 12; p2End = 18; p3First = 6; p3End = 9;
+            }
+            else if (gameManager.day > 30)
+            {
+                p1First = 9; p1End = 22; p2First = 18; p2End = 42; p3First = 9; p3End = 22;
+            }
             SelectedEnemy1 = Instantiate(enemyListRandomP1[Random.Range(p1First, p1End)], BattleStations[3].transform);
             SelectedEnemy1.name = SelectedEnemy1.GetComponent<UnitBehavior>().UnitName + "Temp";
 

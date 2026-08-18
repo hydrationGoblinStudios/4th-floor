@@ -322,6 +322,7 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Empunhadeira Dupla":
+                Debug.Log("empunhadeira");
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, DamageMultiplier: (int) 0.25));
                 return 0;
 
@@ -1596,10 +1597,7 @@ public class SkillManager : MonoBehaviour
 
                 StartCoroutine(IconPopup(user.Icon, "Poder Oculto"));
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.75,lifeSteal: 0.5f));
-                yield return new WaitForSeconds(1.05f);
-                user.lifesteal -= (int) 0.25;
-                StartCoroutine(user.battleManager.ExtraAttack(user, target, (float)0.75));
-                yield return new WaitForSeconds(1.05f);
+                user.battleManager.QueueExtraAttack(user, target, (float)0.75);
 
                 target.soul -= 30;
 
