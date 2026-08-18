@@ -157,11 +157,11 @@ public class PreBattleManager : MonoBehaviour
                 case 103: SpawnTeam(bossBattles.Where(obj => obj.name == "Day12").SingleOrDefault()); break;
                 case 104: SpawnTeam(bossBattles.Where(obj => obj.name == "Day16").SingleOrDefault()); break;
                 case 105: SpawnTeam(bossBattles.Where(obj => obj.name == "Day20").SingleOrDefault()); break;
-                case 201: SpawnTeam(bossBattles.Where(obj => obj.name == "Day24").SingleOrDefault()); break;
-                case 202: SpawnTeam(bossBattles.Where(obj => obj.name == "Day28").SingleOrDefault()); break;
-                case 203: SpawnTeam(bossBattles.Where(obj => obj.name == "Day32").SingleOrDefault()); break;
-                case 204: SpawnTeam(bossBattles.Where(obj => obj.name == "Day36").SingleOrDefault()); break;
-                case 205: SpawnTeam(bossBattles.Where(obj => obj.name == "Day40").SingleOrDefault()); break;
+                case 106: SpawnTeam(bossBattles.Where(obj => obj.name == "Day24").SingleOrDefault()); break;
+                case 107: SpawnTeam(bossBattles.Where(obj => obj.name == "Day28").SingleOrDefault()); break;
+                case 108: SpawnTeam(bossBattles.Where(obj => obj.name == "Day32").SingleOrDefault()); break;
+                case 109: SpawnTeam(bossBattles.Where(obj => obj.name == "Day36").SingleOrDefault()); break;
+                case 110: SpawnTeam(bossBattles.Where(obj => obj.name == "Day40").SingleOrDefault()); break;
 
                 default: SpawnTeam(bossBattles.Where(obj => obj.name == "Day4").SingleOrDefault()); break;
             }
@@ -207,9 +207,9 @@ public class PreBattleManager : MonoBehaviour
             }
             try
             {
-            enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
-            enemyAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
-            enemyAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+                enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy1.GetComponent<UnitBehavior>())).SingleOrDefault();
+                enemyAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy2.GetComponent<UnitBehavior>())).SingleOrDefault();
+                enemyAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy3.GetComponent<UnitBehavior>())).SingleOrDefault();
             }
             catch
             {
