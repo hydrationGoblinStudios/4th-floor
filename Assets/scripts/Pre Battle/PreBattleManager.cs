@@ -210,6 +210,9 @@ public class PreBattleManager : MonoBehaviour
                 enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy1.GetComponent<UnitBehavior>())).SingleOrDefault();
                 enemyAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy2.GetComponent<UnitBehavior>())).SingleOrDefault();
                 enemyAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy3.GetComponent<UnitBehavior>())).SingleOrDefault();
+                Debug.Log(SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy1.GetComponent<UnitBehavior>()));
+                Debug.Log(SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy2.GetComponent<UnitBehavior>()));
+                Debug.Log(SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy3.GetComponent<UnitBehavior>()));
             }
             catch
             {

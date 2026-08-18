@@ -13,21 +13,16 @@ public class Lanceiro : UnitBehavior
 
     public void Awake()
     {
-        baseSkill = "Foco";
-        skill1 = "Precis„o Mortal";
-        baseSoul = "Tiro Certeiro";
-        soul1 = "Rajada de Flechas";
-        UsableWeaponTypes = new() { Item.Weapontype.Sword,Item.Weapontype.Bow };
-        ClassGrowths = new List<int> { 0, 0, 0, 10, 10, 0, 0, 10 };
-        classStats = new List<int> { 0, 0, 0, 2, 3, 0, 0, 0 };
+        InitClass();
     }
     public override void InitClass()
     {
-        baseSkill = "Foco";
-        skill1 = "Precis„o Mortal";
-        baseSoul = "Tiro Certeiro";
-        soul1 = "Rajada de Flechas";
-        UsableWeaponTypes = new() { Item.Weapontype.Sword, Item.Weapontype.Bow };
+        classSkill = "Penetrar Defesas";
+        baseSkill = "Lan√ßa Perfurante";
+        skill1 = "Ritmo Cr√≠tico";
+        baseSoul = "Perfurar";
+        soul1 = "Jogar Lan√ßa";
+        UsableWeaponTypes = new() { Item.Weapontype.Lance};
         ClassGrowths = new List<int> { 0, 0, 0, 10, 10, 0, 0, 10 };
         classStats = new List<int> { 0, 0, 0, 2, 3, 0, 0, 0 };
     }
