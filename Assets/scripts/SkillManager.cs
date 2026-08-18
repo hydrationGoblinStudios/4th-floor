@@ -1819,7 +1819,10 @@ public class SkillManager : MonoBehaviour
     public void ConsumeItem(string item, UnitBehavior ub)
     {
         GameManager gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
+        if (!ub.enemy)
+        {
         gm.Inventory.Remove(gm.Inventory.First(n => n.ItemName == item));
+        }
     }
     public void AddHealToLog(UnitBehavior ub, int value)
     {
