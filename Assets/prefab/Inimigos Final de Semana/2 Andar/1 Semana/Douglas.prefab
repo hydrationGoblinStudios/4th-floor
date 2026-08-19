@@ -54,7 +54,7 @@ MonoBehaviour:
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: Ronaldo
+  UnitName: Douglas
   currentLevel: 15
   expmarkplier: 1
   currentRank: 0
@@ -178,3 +178,4 @@ MonoBehaviour:
   target2: 
   targetStat: 0
   targetStat2: 0
+  sureShot: 0

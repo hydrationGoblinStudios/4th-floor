@@ -13,7 +13,7 @@ public CavaleiroEncantado()
     public void Awake()
     {
         baseSkill = "Foco";
-        skill1 = "Precis„o Mortal";
+        skill1 = "Precis√£o Mortal";
         baseSoul = "Tiro Certeiro";
         soul1 = "Rajada de Flechas";
         UsableWeaponTypes = new() { Item.Weapontype.Sword,Item.Weapontype.Receptacle };
@@ -23,7 +23,7 @@ public CavaleiroEncantado()
     public override void InitClass()
     {
         baseSkill = "Foco";
-        skill1 = "Precis„o Mortal";
+        skill1 = "Precis√£o Mortal";
         baseSoul = "Tiro Certeiro";
         soul1 = "Rajada de Flechas";
         UsableWeaponTypes = new() { Item.Weapontype.Sword, Item.Weapontype.Receptacle };

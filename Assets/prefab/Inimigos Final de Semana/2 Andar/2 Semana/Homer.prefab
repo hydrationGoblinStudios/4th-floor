@@ -66,11 +66,11 @@ MonoBehaviour:
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 150
-  hp: 150
+  maxhp: 160
+  hp: 160
   power: 0
-  str: 15
-  mag: 15
+  str: 16
+  mag: 16
   dex: 17
   def: 12
   mdef: 12
@@ -178,3 +178,4 @@ MonoBehaviour:
   target2: 
   targetStat: 0
   targetStat2: 0
+  sureShot: 0
