@@ -60,6 +60,7 @@ public class PreBattleManager : MonoBehaviour
     public GameObject SelectedEnemy2;
     public GameObject SelectedEnemy3;
     public List<GameObject> SelectedEnemyList;
+    public List<Button> PlayerBuffButtons;
     public List<Button> UnitSelectButton;
     public GameObject StatIcons;
     public int selectedUnitSlot;
@@ -396,7 +397,7 @@ public class PreBattleManager : MonoBehaviour
                 return;
             case 103:
                 PrepSkills[0].onClick.RemoveAllListeners();
-                PrepSkills[0].onClick.AddListener(delegate { ReforcarArmadura(selectedUnit); });
+                PrepSkills[0].onClick.AddListener(delegate { ReforcarArmaduraButton(); });
                 PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar armadura";
                 PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Reforçar armadura";
                 if (usedPrepSkills.Contains("ReforçarArmadura " + selectedUnit.UnitName))
@@ -936,6 +937,24 @@ public class PreBattleManager : MonoBehaviour
             }
         }
     }
+    public void ReforcarArmaduraButton()
+    {
+
+        PlayerBuffButtons[0].onClick.AddListener(() => ReforcarArmadura(SelectedPlayerList[0].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[1].onClick.AddListener(() => ReforcarArmadura(SelectedPlayerList[1].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[2].onClick.AddListener(() => ReforcarArmadura(SelectedPlayerList[2].GetComponent<UnitBehavior>()));
+        foreach(Button b in PlayerBuffButtons)
+        {
+            b.onClick.AddListener(() => RemoveBuffAfterSelect());
+        }
+
+    }
+    public void RemoveBuffAfterSelect()
+    {
+        foreach (Button button in PlayerBuffButtons)
+        { button.onClick.RemoveAllListeners();
+        } 
+    }
     public void ReforcarCritico(UnitBehavior selectedUnit)
     {
         {
@@ -1372,6 +1391,9 @@ public class PreBattleManager : MonoBehaviour
         enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
         enemyAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
         enemyAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
+        SelectedEnemy1.GetComponent<UnitBehavior>().InitClass();
+        SelectedEnemy2.GetComponent<UnitBehavior>().InitClass();
+        SelectedEnemy3.GetComponent<UnitBehavior>().InitClass();
     }
     public void DisplayItemList(List<Item> ItemList)
     {
