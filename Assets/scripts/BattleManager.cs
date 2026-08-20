@@ -19,6 +19,7 @@ public class BattleManager : MonoBehaviour
     public List<UnitBehavior> ExtraAttackTargets;
     public List<float> ExtraAttackMult;
     public List<float> ExtraAttackLifeSteal;
+    public List<string> ExtraAttackSkill;
     public int battleSpeed = 20;
     //Player1
     public int Phit;
@@ -569,24 +570,26 @@ public class BattleManager : MonoBehaviour
     }
 
 
-    public void QueueExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1, float lifeSteal = 0)
+    public void QueueExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1, float lifeSteal = 0, string skill = "")
     {
         Debug.Log("EA queued");
         ExtraAttackAttackers.Add(attacker);
         ExtraAttackTargets.Add(Target);
         ExtraAttackMult.Add(DamageMultiplier);
         ExtraAttackLifeSteal.Add(lifeSteal);
+        ExtraAttackSkill.Add(skill);
     }
     IEnumerator Wait()
     {
         waiting = true;
         if (ExtraAttackAttackers.Count > 0) {
             Debug.Log("extra attack queue");
-            StartCoroutine(ExtraAttack(ExtraAttackAttackers[0], ExtraAttackTargets[0], ExtraAttackMult[0], ExtraAttackLifeSteal[0]));
+            StartCoroutine(ExtraAttack(ExtraAttackAttackers[0], ExtraAttackTargets[0], ExtraAttackMult[0], ExtraAttackLifeSteal[0], ExtraAttackSkill[0]));
             ExtraAttackAttackers.RemoveAt(0);
             ExtraAttackLifeSteal.RemoveAt(0);
             ExtraAttackMult.RemoveAt(0);
             ExtraAttackTargets.RemoveAt(0);
+            ExtraAttackSkill.RemoveAt(0);
         }
         if (playerTeam[0].hp > 0 && state == BattleState.Wait) { PlayerBar += Time.fixedUnscaledDeltaTime * (playerTeam[0].speed * CheckWeight(playerTeam[0])) * battleSpeed; PlayerBars[0] = PlayerBar;
         }
@@ -1069,7 +1072,7 @@ public class BattleManager : MonoBehaviour
             waiting = false;
         }
     }
-    public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1, float lifeSteal = 0)
+    public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1, float lifeSteal = 0, string skill = null)
     {
         if (attacker.Weapon.weapontype != Item.Weapontype.Bow && attacker.Weapon.weapontype != Item.Weapontype.Receptacle && attacker.Weapon.weapontype != Item.Weapontype.Tome)
         {
@@ -1095,6 +1098,10 @@ public class BattleManager : MonoBehaviour
         if (attackerDamage <= 0) { attackerDamage = 1; }
         EAskillsInUse.Clear();
         EAskillsInUse.AddRange(attacker.skills);
+        if (skill != null) 
+        {
+            EAskillsInUse.AddRange(skill);
+        }
         if (attacker.enemy)
         {
             attackerTeam = enemyTeam;
@@ -1121,6 +1128,10 @@ public class BattleManager : MonoBehaviour
         {
             EAskillsInUse.Add(attacker.Accesory.skill);
         }
+        if(skill == "Golpe Poderoso")
+        {
+            Phit -= 25;
+        }
         if (Random.Range(0, 101) <= Phit)
         {
             ExtraAttackHit(attacker, Target, attackerDamage, attackerTeam, targetTeam, DamageMultiplier, lifeSteal);
@@ -1129,6 +1140,7 @@ public class BattleManager : MonoBehaviour
         {
             Target.animator.SetTrigger("UnitDodge");
             Debug.Log("extra attack errou :(");
+            EAskillsInUse.Clear();
         }
         yield return new WaitForSeconds(1f);
         StartCoroutine(DashToTarget(attacker, attacker.startingPosition, 0.05f));
@@ -1614,6 +1626,7 @@ public class BattleManager : MonoBehaviour
                     + "\n Foi um ataque extra"
                 );
         }
+        EAskillsInUse.Clear();
     }
 
     public void CheckDamage(UnitBehavior attacker, UnitBehavior target, int damageDone = 0)
