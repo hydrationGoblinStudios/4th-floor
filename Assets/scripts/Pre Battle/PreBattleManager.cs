@@ -410,7 +410,7 @@ public class PreBattleManager : MonoBehaviour
                 }
                 PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta Defesa Física de um aliado em 20% pelos primeiros 20 segundos da batalha.";
                 PrepSkills[1].onClick.RemoveAllListeners();
-                PrepSkills[1].onClick.AddListener(delegate { ReforcarCritico(selectedUnit); });
+                PrepSkills[1].onClick.AddListener(delegate { ReforcarCriticoButton(); });
                 PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar critico";
                 PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Reforçar critico";
                 PrepSkills[1].GetComponent<InventoryHoverable>().description = "Aumenta o Critico de um aliado em 10.";
@@ -426,7 +426,7 @@ public class PreBattleManager : MonoBehaviour
                 return;
             case 104:
                 PrepSkills[0].onClick.RemoveAllListeners();
-                PrepSkills[0].onClick.AddListener(delegate { ReforcarMagia(selectedUnit); });
+                PrepSkills[0].onClick.AddListener(delegate { ReforcarMagiaButton(); });
                 PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Refor�ar magia";
                 PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Refor�ar magia";
                 if (usedPrepSkills.Contains("ReforcarMagia " + selectedUnit.UnitName))
@@ -937,6 +937,44 @@ public class PreBattleManager : MonoBehaviour
             }
         }
     }
+    public void ReforcarDano(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0 && !usedPrepSkills.Contains("ReforcarDano " + selectedUnit.UnitName))
+            {
+                selectedUnit.skills.Add("Reforcar Dano");
+                energy--;
+                energyText.text = energy.ToString();
+                usedPrepSkills.Add("ReforcarDano " + selectedUnit.UnitName);
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("GolpeSujoPrepareVFX"));
+                VFX.transform.SetParent(playerAnimations[selectedUnitSlot - 1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
+                Select(selectedUnit);
+            }
+        }
+    }
+    public void HyperboleDeAtributos(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 0 && !usedPrepSkills.Contains("HyperboleDeAtributos " + selectedUnit.UnitName))
+            {
+                selectedUnit.skills.Add("Hyperbole De Atributos");
+                energy--;
+                energyText.text = energy.ToString();
+                usedPrepSkills.Add("HyperboleDeAtributos " + selectedUnit.UnitName);
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("GolpeSujoPrepareVFX"));
+                VFX.transform.SetParent(playerAnimations[selectedUnitSlot - 1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
+                Select(selectedUnit);
+            }
+        }
+    }
     public void ReforcarArmaduraButton()
     {
 
@@ -948,6 +986,52 @@ public class PreBattleManager : MonoBehaviour
             b.onClick.AddListener(() => RemoveBuffAfterSelect());
         }
 
+    }
+    public void ReforcarCriticoButton()
+    {
+
+        PlayerBuffButtons[0].onClick.AddListener(() => ReforcarCritico(SelectedPlayerList[0].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[1].onClick.AddListener(() => ReforcarCritico(SelectedPlayerList[1].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[2].onClick.AddListener(() => ReforcarCritico(SelectedPlayerList[2].GetComponent<UnitBehavior>()));
+        foreach (Button b in PlayerBuffButtons)
+        {
+            b.onClick.AddListener(() => RemoveBuffAfterSelect());
+        }
+
+    }
+    public void ReforcarDanoButton()
+    {
+
+        PlayerBuffButtons[0].onClick.AddListener(() => ReforcarDano(SelectedPlayerList[0].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[1].onClick.AddListener(() => ReforcarDano(SelectedPlayerList[1].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[2].onClick.AddListener(() => ReforcarDano(SelectedPlayerList[2].GetComponent<UnitBehavior>()));
+        foreach (Button b in PlayerBuffButtons)
+        {
+            b.onClick.AddListener(() => RemoveBuffAfterSelect());
+        }
+    }
+    public void ReforcarMagiaButton()
+    {
+
+        PlayerBuffButtons[0].onClick.AddListener(() => ReforcarMagia(SelectedPlayerList[0].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[1].onClick.AddListener(() => ReforcarMagia(SelectedPlayerList[1].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[2].onClick.AddListener(() => ReforcarMagia(SelectedPlayerList[2].GetComponent<UnitBehavior>()));
+        foreach (Button b in PlayerBuffButtons)
+        {
+            b.onClick.AddListener(() => RemoveBuffAfterSelect());
+        }
+
+    }
+    public void HyperboleDeAtributosButton()
+    {
+
+        PlayerBuffButtons[0].onClick.AddListener(() => HyperboleDeAtributos(SelectedPlayerList[0].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[1].onClick.AddListener(() => HyperboleDeAtributos(SelectedPlayerList[1].GetComponent<UnitBehavior>()));
+        PlayerBuffButtons[2].onClick.AddListener(() => HyperboleDeAtributos(SelectedPlayerList[2].GetComponent<UnitBehavior>()));
+        foreach (Button b in PlayerBuffButtons)
+        {
+            b.onClick.AddListener(() => RemoveBuffAfterSelect());
+        }
     }
     public void RemoveBuffAfterSelect()
     {

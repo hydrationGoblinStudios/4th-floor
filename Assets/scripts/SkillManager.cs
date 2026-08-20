@@ -939,7 +939,22 @@ public class SkillManager : MonoBehaviour
             case "Reforcar Armadura":
                 StartCoroutine(ReforçarArmadura(user));
                 return 0;
-
+            case "Reforcar Dano":
+                if (user.Weapon.damageType == 0)
+                {
+                    user.Weapon.power += (user.Weapon.power + user.str) / 5;
+                }
+                else
+                {
+                    user.Weapon.power += (user.Weapon.power + user.mag) / 5;
+                }
+                return 0;
+            case "Hyperbole De Atributos":
+                List<int> AllStats = new() {user.str, user.mag, user.dex, (int)user.speed, user.def, user.mdef, user.luck };
+                AllStats.Sort();
+                AllStats[0] = (int)(AllStats[0] * 0.75);
+                AllStats[0] = (int)(AllStats[6] * 1.25);
+                return 0;
             case "Carregar Alma":
                 user.soul += user.maxsoul / 2;
                 return 0;
