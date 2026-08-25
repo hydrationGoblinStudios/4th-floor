@@ -58,6 +58,114 @@ public class ClassChangeManager : MonoBehaviour
 
             }
         }
+        foreach(int cl in inventoryManager.selectedUnit.ClassLevel)
+        {
+            Debug.Log(inventoryManager.selectedUnit.KnownClasses[inventoryManager.selectedUnit.ClassLevel.IndexOf(cl)]);
+           if(cl >= 10)
+            {
+                if (!inventoryManager.selectedUnit.promotedClasses.Contains(cl))
+                {
+                    if (inventoryManager.selectedUnit.KnownClasses[inventoryManager.selectedUnit.ClassLevel.IndexOf(cl)] == inventoryManager.selectedUnit.classId)
+                    {
+                        switch (inventoryManager.selectedUnit.classId)
+                        {
+                            case 101:
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(201))
+                                {
+                                ClassChangeManagerSprites[7].color = Color.green; ClassChangeManagerButtons[7].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[7].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(201, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(202))
+                                {
+                                    ClassChangeManagerSprites[8].color = Color.green; ClassChangeManagerButtons[8].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[8].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(202, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(203))
+                                {
+                                    ClassChangeManagerSprites[9].color = Color.green; ClassChangeManagerButtons[9].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[9].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(203, ImprovisedWeapon[0]));
+                                }
+                                break;
+                            case 102:
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(203))
+                                {
+                                    ClassChangeManagerSprites[9].color = Color.green; ClassChangeManagerButtons[9].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[9].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(203, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(204))
+                                {
+                                    ClassChangeManagerSprites[10].color = Color.green; ClassChangeManagerButtons[10].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[10].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(204, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(205))
+                                {
+                                    ClassChangeManagerSprites[11].color = Color.green; ClassChangeManagerButtons[11].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[11].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(205, ImprovisedWeapon[0]));
+                                }
+                                break;
+                            case 103:
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(205))
+                                {
+                                    ClassChangeManagerSprites[11].color = Color.green; ClassChangeManagerButtons[11].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[11].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(205, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(206))
+                                {
+                                    ClassChangeManagerSprites[12].color = Color.green; ClassChangeManagerButtons[12].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[12].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(206, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(207))
+                                {
+                                    ClassChangeManagerSprites[13].color = Color.green; ClassChangeManagerButtons[13].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[13].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(207, ImprovisedWeapon[0]));
+                                }
+                                break;
+                            case 104:
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(207))
+                                {
+                                    ClassChangeManagerSprites[13].color = Color.green; ClassChangeManagerButtons[13].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[13].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(207, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(208))
+                                {
+                                    ClassChangeManagerSprites[14].color = Color.green; ClassChangeManagerButtons[14].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[14].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(208, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(209))
+                                {
+                                    ClassChangeManagerSprites[15].color = Color.green; ClassChangeManagerButtons[15].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[15].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(209, ImprovisedWeapon[0]));
+                                }
+                                break;
+                            case 105:
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(209))
+                                {
+                                    ClassChangeManagerSprites[15].color = Color.green; ClassChangeManagerButtons[15].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[15].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(209, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(210))
+                                {
+                                    ClassChangeManagerSprites[16].color = Color.green; ClassChangeManagerButtons[16].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[16].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(210, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(211))
+                                {
+                                    ClassChangeManagerSprites[17].color = Color.green; ClassChangeManagerButtons[17].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[17].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(211, ImprovisedWeapon[0]));
+                                }
+                                break;
+                            case 106:
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(211))
+                                {
+                                    ClassChangeManagerSprites[17].color = Color.green; ClassChangeManagerButtons[17].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[17].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(211, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(212))
+                                {
+                                    ClassChangeManagerSprites[18].color = Color.green; ClassChangeManagerButtons[18].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[18].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(212, ImprovisedWeapon[0]));
+                                }
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(213))
+                                {
+                                    ClassChangeManagerSprites[19].color = Color.green; ClassChangeManagerButtons[19].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[19].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(213, ImprovisedWeapon[0]));
+                                }
+                                break;
+                       
+                            case 107:
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(214))
+                                {
+                                    ClassChangeManagerSprites[19].color = Color.green; ClassChangeManagerButtons[7].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[7].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(214, ImprovisedWeapon[0]));
+                                }
+                                         break;
+                         
+                        }
+                    }
+                }
+            }
+        }
         foreach(GameObject go in ClassChangeManagerButtons)
         {
             go.GetComponent<Button>().onClick.AddListener(inventoryManager.ToggleClassChange);
@@ -86,7 +194,6 @@ public class ClassChangeManager : MonoBehaviour
         {
             go.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
         }
-        AllowPromotion(Manager.selectedUB4Activity);
         List<int> classID = new() { 101, 106, 102, 103, 104, 105, 107, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213 };
         int c = 0;
         foreach (GameObject entry in ClassChangeManagerButtons)
@@ -123,26 +230,6 @@ public class ClassChangeManager : MonoBehaviour
                 case 213: entry.GetComponent<Button>().onClick.AddListener(() => Manager.selectedUB4Activity.currentLearnigClassID = 213); entry.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = $"{learnedClassLevel}/5";  break;
             }
             c++;
-        }
-    }
-
-    public void AllowPromotion(UnitBehavior ub)
-    {
-        List<int> classID = new() { 101, 106, 102, 103, 104, 105, 107, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213 };
-        foreach (int classid in ub.ClassLearning.Keys)
-        {
-            switch (classid)
-            {
-                case 101 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(201)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(202)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(203)].SetActive(true); } break;
-                case 106 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(203)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(204)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(205)].SetActive(true); ; }break;
-                case 102 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(205)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(206)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(207)].SetActive(true); } break;
-                case 103 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(207)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(208)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(209)].SetActive(true); } break;
-                case 104 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(209)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(210)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(211)].SetActive(true); } break;
-                case 105 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(211)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(212)].SetActive(true); ClassChangeManagerButtons[classID.IndexOf(201)].SetActive(true); } break;
-                case 107 :if (ub.ClassLearning.GetValueOrDefault(classid) >= 5) { ClassChangeManagerButtons[classID.IndexOf(213)].SetActive(true); } break;
-                default:break;
-            }
-            
         }
     }
     void Update()

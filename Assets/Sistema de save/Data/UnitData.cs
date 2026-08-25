@@ -20,9 +20,11 @@ public struct UnitData
     public int currentRank;
     public int currentExp;
     public List<int> ClassID;
-    public int[] ClassLevel;
-    public Dictionary<int, int> ClassLearning;
-    public SeriazableDictionary<int,int> ClassLearningSerializable;
+    public List<int> ClassLevel;
+    public List<int> KnownClasses;
+    public List<int> promotedClasses;
+    public Dictionary<int, int> ClassLearning ;
+    public SeriazableDictionary<int, int> ClassLearningSerializable;
     public int hit;
     public int avoid;
     public int crit;

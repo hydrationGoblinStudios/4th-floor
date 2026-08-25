@@ -21,11 +21,14 @@ public class UnitBehavior : MonoBehaviour
     [Header("Parameters")]
     public string UnitName;
     public int currentLevel;
+    public int internalLevel;
     public float expmarkplier = 1;
     public int currentRank;
     public int currentExp;
     public List<int> ClassID;
-    public int[] ClassLevel;
+    public List<int> ClassLevel;
+    public List<int> KnownClasses;
+    public List<int> promotedClasses;
     public Dictionary<int, int> ClassLearning = new();
     public SeriazableDictionary<int,int> ClassLearningSerializable;
     public int hit;

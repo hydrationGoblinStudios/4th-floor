@@ -148,6 +148,8 @@ public class DayResultsManager : MonoBehaviour
                     {
                         currentUnit.ClassID.Append(currentUnit.currentLearnigClassID);
                         currentUnit.ClassID.Add(currentUnit.currentLearnigClassID);
+                        currentUnit.ClassLevel.Add(currentUnit.currentLearnigClassID);
+                        currentUnit.KnownClasses.Add(currentUnit.currentLearnigClassID);
                         Texts[c].text = "Aprendeu classe";
                         currentUnit.activity = "Treinar";
                     }

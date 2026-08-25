@@ -461,6 +461,15 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             NewUB.Weapon = item;
         }
     }
+    public void Promotion(int ClassId, Item item = null)
+    {
+        GameObject Unit = SelectedUBClassChange;
+        UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
+        OriginalUB.KnownClasses.Add(ClassId);
+        OriginalUB.promotedClasses.Add(OriginalUB.classId);
+        OriginalUB.ClassLevel.Add(1);
+        ClassChange(ClassId, item);
+    }
     UnitBehavior CopyUnitBehavior(UnitBehavior original, GameObject destination, int ClassId, bool IsLoad = false)
     {
         original.classId = ClassId;

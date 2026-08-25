@@ -1239,18 +1239,19 @@ public class BattleManager : MonoBehaviour
         {
             expSliderP3.value = RealCharacter3.currentExp;
         }
-        int exp1 = (int)((50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[0].expmarkplier);
+        int exp1 = (int)((50 - 5 * (playerBehavior.internalLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[0].expmarkplier);
         if (exp1 <= 0) { exp1 = 1; }
-        int exp2 = (int)((50 - 5 * (player2Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[1].expmarkplier);
+        int exp2 = (int)((50 - 5 * (player2Behavior.internalLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[1].expmarkplier);
         if (exp2 <= 0) { exp2 = 1; }
-        int exp3 = (int)((50 - 5 * (player3Behavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[2].expmarkplier);
+        int exp3 = (int)((50 - 5 * (player3Behavior.internalLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[2].expmarkplier);
         if (exp3 <= 0) { exp3 = 1; }
-        int exp4 = (int)((50 - 5 * (playerBehavior.currentLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[0].expmarkplier);
-        if (exp4 <= 0) { exp1 = 1; }
         yield return new WaitForSeconds(1);
         if (GameManager.instance.team.Count > 3)
         {
-        RealCharacter4.currentExp += exp4;
+            int exp4 = (int)((50 - 5 * (RealCharacter4.internalLevel - ((enemyBehavior.currentLevel + enemy2Behavior.currentLevel + enemy3Behavior.currentLevel) / 3))) * playerTeam[0].expmarkplier);
+            if (exp4 <= 0) { exp1 = 1; }
+            RealCharacter4.currentExp += exp4;
+
             if (RealCharacter4.currentExp >= 100)
             {
                 StartCoroutine(LevelUp(RealCharacter4));
@@ -1359,6 +1360,11 @@ public class BattleManager : MonoBehaviour
     IEnumerator LevelUp(UnitBehavior character)
     {
         character.currentLevel += 1;
+        character.internalLevel += 1;
+        if (character.ClassLevel.Contains(character.classId))
+        {
+        character.ClassLevel[character.ClassLevel.IndexOf(character.classId)] += 1;
+        }
         character.currentExp -= 100;
         //aprender Skills
         switch (character.currentLevel, character.currentRank)

@@ -52,6 +52,7 @@ public class InventoryManager : MonoBehaviour
     public List<GameObject> DragAndDroppables;
 
     public GameObject ClassChangeObject;
+    public GameObject PromotionObject;
 
     public List<Sprite> statIcons;
     List<string> targets = new() { "LeastHp" , "HighestStat", "LowestStat", "ClassID", "Weapon", "mais próximo", "mais longe","primeira posição", "segunda posição", "terceira posição" };
@@ -151,6 +152,7 @@ public class InventoryManager : MonoBehaviour
             Manager.currentState = GameManager.UIState.Available;
         }
     }
+
     public void Equip(Item item)
     {if(item.type == Item.Type.weapon)
         {

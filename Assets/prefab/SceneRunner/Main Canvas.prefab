@@ -34648,6 +34648,7 @@ MonoBehaviour:
   - {fileID: 7631611099256901391, guid: b328ddf684570e24c90811f8f36b00a7, type: 3}
   - {fileID: 7631611099256901391, guid: 4b318c854c4b06546a5c23fa1a8f3f0a, type: 3}
   ClassChangeObject: {fileID: 8626097234946098502}
+  PromotionObject: {fileID: 0}
   statIcons:
   - {fileID: 21300000, guid: 0d5115494167e13469c1fd31e5ed317e, type: 3}
   - {fileID: 21300000, guid: e4cea9d1c7dc60343a74eabc9370e81d, type: 3}
