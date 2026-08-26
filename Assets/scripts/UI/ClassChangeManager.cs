@@ -63,7 +63,7 @@ public class ClassChangeManager : MonoBehaviour
         {
            if(cl >= 10)
             {
-                if (!inventoryManager.selectedUnit.promotedClasses.Contains(cl))
+                if (!inventoryManager.selectedUnit.promotedClasses.Contains(inventoryManager.selectedUnit.KnownClasses[c]))
                 {
                     if (inventoryManager.selectedUnit.KnownClasses[c] == inventoryManager.selectedUnit.classId)
                     {

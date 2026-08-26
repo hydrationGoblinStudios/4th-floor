@@ -189,6 +189,9 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         //parameters
         CurrentUnitData.UnitName = CurrentUnitBehavior.UnitName;
         CurrentUnitData.currentLevel = CurrentUnitBehavior.currentLevel;
+        CurrentUnitData.internalLevel = CurrentUnitBehavior.internalLevel;
+        CurrentUnitData.KnownClasses = CurrentUnitBehavior.KnownClasses;
+        CurrentUnitData.ClassLevel = CurrentUnitBehavior.ClassLevel;
         CurrentUnitData.expmarkplier = CurrentUnitBehavior.expmarkplier;
         CurrentUnitData.currentRank = CurrentUnitBehavior.currentRank;
         CurrentUnitData.currentExp = CurrentUnitBehavior.currentExp;

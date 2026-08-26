@@ -16,6 +16,7 @@ public struct UnitData
     [Header("Parameters")]
     public string UnitName;
     public int currentLevel;
+    public int internalLevel;
     public float expmarkplier;
     public int currentRank;
     public int currentExp;
