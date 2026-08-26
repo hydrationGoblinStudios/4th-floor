@@ -192,6 +192,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         CurrentUnitData.internalLevel = CurrentUnitBehavior.internalLevel;
         CurrentUnitData.KnownClasses = CurrentUnitBehavior.KnownClasses;
         CurrentUnitData.ClassLevel = CurrentUnitBehavior.ClassLevel;
+        CurrentUnitData.promotedClasses = CurrentUnitBehavior.promotedClasses;
         CurrentUnitData.expmarkplier = CurrentUnitBehavior.expmarkplier;
         CurrentUnitData.currentRank = CurrentUnitBehavior.currentRank;
         CurrentUnitData.currentExp = CurrentUnitBehavior.currentExp;
@@ -265,6 +266,10 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         //parameters
         CurrentUnitBehavior.UnitName = CurrentUnitData.UnitName;
         CurrentUnitBehavior.currentLevel = CurrentUnitData.currentLevel;
+        CurrentUnitBehavior.internalLevel = CurrentUnitData.internalLevel;
+        CurrentUnitBehavior.KnownClasses = CurrentUnitData.KnownClasses;
+        CurrentUnitBehavior.promotedClasses = CurrentUnitData.promotedClasses;
+        CurrentUnitBehavior.ClassLevel = CurrentUnitData.ClassLevel;
         CurrentUnitBehavior.expmarkplier = CurrentUnitData.expmarkplier;
         CurrentUnitBehavior.currentRank = CurrentUnitData.currentRank;
         CurrentUnitBehavior.currentExp = CurrentUnitData.currentExp;

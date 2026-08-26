@@ -1192,7 +1192,6 @@ MonoBehaviour:
   testMode: 0
   storyBattle: 0
   BossBattleID: 0
-  TimeIsDay: 1
   wakeUpTalk: 0
   mapButtons:
   - {fileID: 0}
@@ -1220,6 +1219,7 @@ MonoBehaviour:
   - {fileID: 4445489306633608637, guid: 235712d0f18690f4aaa9e191f40d2463, type: 3}
   teamPostPreBattle: []
   enemyTeamPostPreBattle: []
+  PreBattleMaterial: []
   selectedPlayerBehavior: {fileID: 0}
   selectedEnemyBehavior: {fileID: 0}
   Inventory:
@@ -1229,6 +1229,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39b6aeffe0c2957438535ef734080044, type: 2}
   - {fileID: 11400000, guid: 10276d0493d256944ab01966a031c9a4, type: 2}
   StoryFlags: []
+  im: {fileID: 0}
   plantaDia: 40
   SwordList: []
   LanceList: []
@@ -1305,6 +1306,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 070de6d083a676647ab0cc48ae00b911, type: 2}
   - {fileID: 11400000, guid: 8683b276618c08140aabd7f84c24903f, type: 2}
   - {fileID: 11400000, guid: fb981b19adb4c594f8111f8e8498d853, type: 2}
+  - {fileID: 11400000, guid: 6cbee3122e39a614cb3a412586913271, type: 2}
+  - {fileID: 11400000, guid: 1635049560726fa408c6664f79687e74, type: 2}
+  - {fileID: 11400000, guid: 2952d058afa336f46afa7a54e422e143, type: 2}
+  - {fileID: 11400000, guid: 55c5a6411c4fe864f82253c9dde92941, type: 2}
+  - {fileID: 11400000, guid: ed3f8418219b70d419878bb612d6e401, type: 2}
+  - {fileID: 11400000, guid: 77c963823ee317849a976ed275ad2322, type: 2}
   keyItemList: []
   storyFlagList: []
   currentState: 0
@@ -1416,11 +1423,14 @@ MonoBehaviour:
       UsableWeaponTypes: 
       UnitName: 
       currentLevel: 0
+      internalLevel: 0
       expmarkplier: 0
       currentRank: 0
       currentExp: 0
       ClassID: 
       ClassLevel: 
+      KnownClasses: 
+      promotedClasses: 
       ClassLearningSerializable:
         thisSeriazableDictionaryItem: []
       hit: 0
