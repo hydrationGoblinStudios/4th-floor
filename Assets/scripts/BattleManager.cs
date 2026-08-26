@@ -1361,11 +1361,15 @@ public class BattleManager : MonoBehaviour
     {
         character.currentLevel += 1;
         character.internalLevel += 1;
-        if (character.ClassLevel.Contains(character.classId))
+        if (character.KnownClasses.Contains(character.classId))
         {
-        character.ClassLevel[character.ClassLevel.IndexOf(character.classId)] += 1;
+        character.ClassLevel[character.KnownClasses.IndexOf(character.classId)] += 1;
         }
         character.currentExp -= 100;
+        if (character.currentExp > 100)
+        {
+            StartCoroutine(LevelUp(character));
+        } 
         //aprender Skills
         switch (character.currentLevel, character.currentRank)
         {

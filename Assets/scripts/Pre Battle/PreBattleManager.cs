@@ -87,7 +87,6 @@ public class PreBattleManager : MonoBehaviour
             string tempFi = "";
             foreach (FileInfo fi in fileinf)
             {
-                Debug.Log(fi.Name);
                 Animations.Add(Resources.Load<RuntimeAnimatorController>($"Animations/{fi.Directory.Name}/{fi.Name.Replace(".controller", "")}"));
                 DirectoryInfo weapondirInfo = new DirectoryInfo($"Assets/Resources/Animations/{fi.Directory.Name}");
                 tempFi = fi.Directory.Name;
@@ -97,12 +96,8 @@ public class PreBattleManager : MonoBehaviour
             {
                 FileInfo[] weaponfileinf = wfdi.GetFiles("*.controller");
                 foreach (FileInfo wfi in weaponfileinf)
-                {
-                    Debug.Log(wfi.Name);
-                    Debug.Log(wfi.Directory.Parent.Name);
-                    Debug.Log(wfi.Directory.Name);
+                {           
                     Animations.Add(Resources.Load<RuntimeAnimatorController>($"Animations/{wfi.Directory.Parent.Name}/{wfi.Directory.Name}/{wfi.Name.Replace(".controller", "")}"));
-                    Debug.Log($"Animations/{tempFi}/{wfi.Directory.Name}/{wfi.Name.Replace(".controller", "")}");
                 }
             }
         }

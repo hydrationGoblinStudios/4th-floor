@@ -156,7 +156,6 @@ public class InventoryManager : MonoBehaviour
     public void Equip(Item item)
     {if(item.type == Item.Type.weapon)
         {
-            Debug.Log("equip weapon");
             if (selectedUnit.UsableWeaponTypes.Contains(item.weapontype)){
                 if (selectedUnit.Weapon != null)
                 {
