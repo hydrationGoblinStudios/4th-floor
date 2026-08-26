@@ -56,11 +56,14 @@ MonoBehaviour:
   currentLearnigClassID: 0
   UnitName: Leyni
   currentLevel: 1
+  internalLevel: 0
   expmarkplier: 1
   currentRank: 1
   currentExp: 0
   ClassID: 6a000000
-  ClassLevel: 
+  ClassLevel: 0100000001000000
+  KnownClasses: 650000006a000000
+  promotedClasses: 
   ClassLearningSerializable:
     thisSeriazableDictionaryItem:
     - key: 106
@@ -137,6 +140,8 @@ MonoBehaviour:
     currentExp: 0
     ClassID: 
     ClassLevel: 
+    KnownClasses: 
+    promotedClasses: 
     ClassLearningSerializable:
       thisSeriazableDictionaryItem: []
     hit: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445489306633608639}
   - component: {fileID: 8974044381209042840}
   m_Layer: 0
-  m_Name: Adrian
+  m_Name: Ramion Debug 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,11 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445489306633608637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6de528c2771f64591434fba436f0ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 4363c5592e9a3ec45afb0668f6e5d098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classId: 103
-  Weapon: {fileID: 11400000, guid: 4b8bfbb8f6f8b3f4c816cfa15fed312b, type: 2}
+  classId: 107
+  Weapon: {fileID: 11400000, guid: 2aa44d591e955bc4ea514450ee619666, type: 2}
   UsableWeaponTypes: 
   Accesory: {fileID: 0}
   battleManager: {fileID: 0}
@@ -54,49 +54,92 @@ MonoBehaviour:
   activity: 
   fortalecerStat: 0
   currentLearnigClassID: 0
-  UnitName: Adrian
+  UnitName: Ramion
   currentLevel: 1
   internalLevel: 0
   expmarkplier: 1
-  currentRank: 1
+  currentRank: 0
   currentExp: 0
-  ClassID: 67000000
-  ClassLevel: 0100000001000000
-  KnownClasses: 6700000066000000
+  ClassID: 
+  ClassLevel: 01000000010000000100000001000000010000000100000001000000
+  KnownClasses: 65000000660000006700000068000000690000006a0000006b000000
   promotedClasses: 
   ClassLearningSerializable:
     thisSeriazableDictionaryItem:
-    - key: 103
+    - key: 101
       value: 5
     - key: 102
+      value: 5
+    - key: 103
+      value: 5
+    - key: 104
+      value: 5
+    - key: 105
+      value: 5
+    - key: 106
+      value: 5
+    - key: 107
+      value: 5
+    - key: 204
+      value: 5
+    - key: 205
+      value: 5
+    - key: 206
+      value: 5
+    - key: 207
+      value: 5
+    - key: 208
+      value: 5
+    - key: 209
+      value: 5
+    - key: 210
+      value: 5
+    - key: 211
+      value: 5
+    - key: 212
+      value: 5
+    - key: 213
       value: 5
   hit: 0
   avoid: 0
   crit: 0
-  maxhp: 100
-  hp: 100
+  maxhp: 110
+  hp: 110
   power: 0
-  str: 12
-  mag: 7
-  dex: 8
+  str: 10
+  mag: 9
+  dex: 9
   def: 8
-  mdef: 4
+  mdef: 8
   defenses: 
-  luck: 8
-  speed: 8
-  skills:
-  - "Presen\xE7a Inabal\xE1vel"
-  - "Lutador Vers\xE1til"
+  luck: 12
+  speed: 11
+  skills: []
   skillInventory:
-  - "Presen\xE7a Inabal\xE1vel"
+  - Dano Ascendente
+  - "Ataque R\xE1pido"
+  - Foco
+  - "Precis\xE3o Mortal"
   - "Lutador Vers\xE1til"
-  equipedSoul: Golpe Atordoante
+  - "Dur\xE3o"
+  - "Presen\xE7a Inabal\xE1vel"
+  - Pancada
+  - "Concentra\xE7\xE3o de Feiticeiro"
+  - Magia Destrutiva
+  - Sabedoria Arcana
+  - Encantamento
+  - "Maldi\xE7\xE3o"
+  - "Persist\xEAncia"
+  - "T\xE9cnica Improvisada"
+  - "Maestria da Posi\xE7\xE3o 1"
+  - "Maestria da Posi\xE7\xE3o 2"
+  - "Maestria da Posi\xE7\xE3o 3"
+  - "Come\xE7o Afortunado"
+  equipedSoul: Poder Oculto
   equippedSoulIsAttack: 1
-  soulInventory:
-  - Golpe Poderoso
-  - Golpe Atordoante
+  soulInventory: []
   soul: 0
-  maxsoul: 100
+  maxsoul: 0
   soulgain: 0
   damageSoulGain: 1
   damagereduction: 0
@@ -110,9 +153,9 @@ MonoBehaviour:
   Eendure: 0
   battleText: {fileID: 0}
   battleTextObj: {fileID: 0}
-  growths: 550000003c00000019000000320000002800000028000000230000001e000000
+  growths: 4b0000003200000032000000320000003200000032000000320000003c000000
   classStats: 0000000000000000000000000000000000000000000000000000000000000000
-  ClassGrowths: 0000000000000000000000000500000000000000050000000000000000000000
+  ClassGrowths: 0500000000000000000000000000000005000000000000000000000005000000
   classSkill: 
   personalSkill: 
   baseSkill: 
@@ -132,7 +175,7 @@ MonoBehaviour:
     classId: 0
     Weapon: 0
     Accesory: 0
-    UsableWeaponTypes: 02000000
+    UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
     expmarkplier: 1

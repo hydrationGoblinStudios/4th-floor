@@ -56,11 +56,14 @@ MonoBehaviour:
   currentLearnigClassID: 0
   UnitName: Hiro
   currentLevel: 4
+  internalLevel: 0
   expmarkplier: 1
   currentRank: 1
   currentExp: 0
   ClassID: 68000000
-  ClassLevel: 
+  ClassLevel: 0300000003000000
+  KnownClasses: 6800000069000000
+  promotedClasses: 
   ClassLearningSerializable:
     thisSeriazableDictionaryItem:
     - key: 104
@@ -139,6 +142,8 @@ MonoBehaviour:
     currentExp: 0
     ClassID: 
     ClassLevel: 
+    KnownClasses: 
+    promotedClasses: 
     ClassLearningSerializable:
       thisSeriazableDictionaryItem: []
     hit: 0
