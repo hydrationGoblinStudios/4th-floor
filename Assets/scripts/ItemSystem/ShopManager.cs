@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using Unity.VisualScripting;
 
 
 public class ShopManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class ShopManager : MonoBehaviour
     public GameObject buttonPrefab;
     public NodeParser nodeParser; 
     public Item[] stock;
+    public Item[] stockFloor2;
     public Item[] blackStock;
     public Sprite[] sprites;
     public DialogueGraph graph;
@@ -40,6 +42,10 @@ public class ShopManager : MonoBehaviour
         if (Manager.storyBattle)
         {
             stockInUse = stock;
+            if (Manager.day > 20)
+            {
+                stockInUse.AddRange(stockFloor2);
+            }
         }
         foreach (Item item in stockInUse)
         {

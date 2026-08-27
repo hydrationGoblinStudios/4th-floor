@@ -148,16 +148,16 @@ public class ClassChangeManager : MonoBehaviour
                                 {
                                     ClassChangeManagerSprites[18].color = Color.green; ClassChangeManagerButtons[18].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[18].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(212, ImprovisedWeapon[0]));
                                 }
-                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(213))
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(201))
                                 {
-                                    ClassChangeManagerSprites[19].color = Color.green; ClassChangeManagerButtons[19].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[19].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(213, ImprovisedWeapon[0]));
+                                    ClassChangeManagerSprites[7].color = Color.green; ClassChangeManagerButtons[7].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[7].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(201, ImprovisedWeapon[0]));
                                 }
                                 break;
                        
                             case 107:
-                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(214))
+                                if (!inventoryManager.selectedUnit.KnownClasses.Contains(213))
                                 {
-                                    ClassChangeManagerSprites[19].color = Color.green; ClassChangeManagerButtons[7].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[7].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(214, ImprovisedWeapon[0]));
+                                    ClassChangeManagerSprites[19].color = Color.green; ClassChangeManagerButtons[19].GetComponentInChildren<Button>().onClick.RemoveAllListeners(); ClassChangeManagerButtons[19].GetComponentInChildren<Button>().onClick.AddListener(() => Manager.Promotion(213, ImprovisedWeapon[0]));
                                 }
                                          break;
                          
