@@ -1100,7 +1100,7 @@ public class BattleManager : MonoBehaviour
         EAskillsInUse.AddRange(attacker.skills);
         if (skill != null) 
         {
-            EAskillsInUse.AddRange(skill);
+            EAskillsInUse.Add(skill);
         }
         if (attacker.enemy)
         {

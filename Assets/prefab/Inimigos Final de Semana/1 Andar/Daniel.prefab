@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classId: 102
-  Weapon: {fileID: 11400000, guid: 95d1aa47aed42d1449dec7308f152ca0, type: 2}
+  Weapon: {fileID: 11400000, guid: 275569ecdfaa1a44ba53181375a2c755, type: 2}
   UsableWeaponTypes: 
-  Accesory: {fileID: 11400000, guid: 275569ecdfaa1a44ba53181375a2c755, type: 2}
+  Accesory: {fileID: 11400000, guid: 95d1aa47aed42d1449dec7308f152ca0, type: 2}
   battleManager: {fileID: 0}
   enemy: 0
   battleManagerOBJ: {fileID: 0}
@@ -56,11 +56,14 @@ MonoBehaviour:
   currentLearnigClassID: 0
   UnitName: Daniel
   currentLevel: 10
+  internalLevel: 0
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
   ClassID: 
   ClassLevel: 
+  KnownClasses: 
+  promotedClasses: 
   ClassLearningSerializable:
     thisSeriazableDictionaryItem: []
   hit: 0
@@ -126,11 +129,14 @@ MonoBehaviour:
     UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
+    internalLevel: 0
     expmarkplier: 1
     currentRank: 0
     currentExp: 0
     ClassID: 
     ClassLevel: 
+    KnownClasses: 
+    promotedClasses: 
     ClassLearningSerializable:
       thisSeriazableDictionaryItem: []
     hit: 0
