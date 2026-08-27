@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Machado Quebrado
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 1003
   sprite: {fileID: 0}
   type: 0
   weapontype: 1
-  weight: 0
+  weight: 2
   ItemName: Machado Quebrado
   description: 
   hit: 60

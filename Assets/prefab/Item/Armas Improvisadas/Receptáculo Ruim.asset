@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: "Recept\xE1culo Ruim"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 1004
   sprite: {fileID: 0}
   type: 0
   weapontype: 5
-  weight: 0
+  weight: 2
   ItemName: "Recept\xE1culo Ruim"
   description: 
   hit: 60

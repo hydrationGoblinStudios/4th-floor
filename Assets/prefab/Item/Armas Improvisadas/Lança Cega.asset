@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: "Lan\xE7a Cega"
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 1002
   sprite: {fileID: 0}
   type: 0
   weapontype: 2
-  weight: 0
+  weight: 2
   ItemName: "Lan\xE7a Cega"
   description: 
   hit: 60

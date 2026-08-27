@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Arco Desgastado
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 1006
   sprite: {fileID: 0}
   type: 0
   weapontype: 3
-  weight: 0
+  weight: 2
   ItemName: Arco Desgastado
   description: 
   hit: 60

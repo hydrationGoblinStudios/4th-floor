@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Espada Enferrujada
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
-  id: 0
+  id: 1001
   sprite: {fileID: 0}
   type: 0
   weapontype: 0
-  weight: 0
+  weight: 2
   ItemName: Espada Enferrujada
   description: 
   hit: 60

@@ -1306,12 +1306,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 070de6d083a676647ab0cc48ae00b911, type: 2}
   - {fileID: 11400000, guid: 8683b276618c08140aabd7f84c24903f, type: 2}
   - {fileID: 11400000, guid: fb981b19adb4c594f8111f8e8498d853, type: 2}
-  - {fileID: 11400000, guid: 6cbee3122e39a614cb3a412586913271, type: 2}
-  - {fileID: 11400000, guid: 1635049560726fa408c6664f79687e74, type: 2}
-  - {fileID: 11400000, guid: 2952d058afa336f46afa7a54e422e143, type: 2}
-  - {fileID: 11400000, guid: 55c5a6411c4fe864f82253c9dde92941, type: 2}
-  - {fileID: 11400000, guid: ed3f8418219b70d419878bb612d6e401, type: 2}
-  - {fileID: 11400000, guid: 77c963823ee317849a976ed275ad2322, type: 2}
   keyItemList: []
   storyFlagList: []
   currentState: 0
