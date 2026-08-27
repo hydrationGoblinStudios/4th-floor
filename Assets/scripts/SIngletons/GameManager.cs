@@ -441,7 +441,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         
         GameObject Unit = SelectedUBClassChange;
         UnitBehavior OriginalUB = Unit.GetComponent<UnitBehavior>();
-        UnitBehavior NewUB = CopyUnitBehavior(OriginalUB, Unit, ClassId, true);
+        UnitBehavior NewUB = CopyUnitBehavior(OriginalUB, Unit, ClassId, IsLoad);
         Destroy(OriginalUB);
 
         if (!IsLoad) 
@@ -481,7 +481,19 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     UnitBehavior CopyUnitBehavior(UnitBehavior original, GameObject destination, int ClassId, bool IsLoad = false)
     {
         original.classId = ClassId;
-        switch (ClassId)
+
+        if (!IsLoad)
+        {
+            original.GetComponent<UnitBehavior>().maxhp -= original.GetComponent<UnitBehavior>().classStats[0];
+            original.GetComponent<UnitBehavior>().str -= original.GetComponent<UnitBehavior>().classStats[1];
+            original.GetComponent<UnitBehavior>().mag -= original.GetComponent<UnitBehavior>().classStats[2];
+            original.GetComponent<UnitBehavior>().dex -= original.GetComponent<UnitBehavior>().classStats[3];
+            original.GetComponent<UnitBehavior>().speed -= original.GetComponent<UnitBehavior>().classStats[4];
+            original.GetComponent<UnitBehavior>().def -= original.GetComponent<UnitBehavior>().classStats[5];
+            original.GetComponent<UnitBehavior>().mdef -= original.GetComponent<UnitBehavior>().classStats[6];
+            original.GetComponent<UnitBehavior>().luck -= original.GetComponent<UnitBehavior>().classStats[7];
+        }
+            switch (ClassId)
         {
             case (101): original.UsableWeaponTypes = new() { Item.Weapontype.Sword }; break;
             case (102): original.UsableWeaponTypes = new() { Item.Weapontype.Axe }; break;
@@ -538,7 +550,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             field.SetValue(copy, field.GetValue(original));
             }
         }
-        Destroy(original);
+        
         copy.GetComponent<UnitBehavior>().classId = ClassId;
         copy.GetComponent<UnitBehavior>().ClassID.Clear();
         copy.GetComponent<UnitBehavior>().ClassID.Add(ClassId);
@@ -547,6 +559,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         {
             StartCoroutine(ClassBases(copy));
         }
+        Destroy(original);
         /* if(copy.GetComponent<UnitBehavior>().Weapon == null)
          {
              copy.GetComponent<UnitBehavior>().Weapon = Inventory[0] ;
@@ -558,6 +571,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public IEnumerator ClassBases(Component copy)
 
     {
+        yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         UnitBehavior CopyUB = copy.GetComponent<UnitBehavior>();
         Debug.Log(CopyUB.classStats[0]);
