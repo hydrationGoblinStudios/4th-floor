@@ -56,13 +56,13 @@ MonoBehaviour:
   currentLearnigClassID: 0
   UnitName: Ramion
   currentLevel: 1
-  internalLevel: 0
+  internalLevel: 1
   expmarkplier: 1
   currentRank: 0
   currentExp: 0
   ClassID: 
-  ClassLevel: 
-  KnownClasses: 
+  ClassLevel: 0a0000000a0000000a0000000a0000000a0000000a0000000a000000
+  KnownClasses: 65000000660000006700000068000000690000006a0000006b000000
   promotedClasses: 
   ClassLearningSerializable:
     thisSeriazableDictionaryItem:
@@ -178,6 +178,7 @@ MonoBehaviour:
     UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
+    internalLevel: 0
     expmarkplier: 1
     currentRank: 0
     currentExp: 0

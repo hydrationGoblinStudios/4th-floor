@@ -944,7 +944,13 @@ public class BattleManager : MonoBehaviour
         if (attacker.hp > attacker.maxhp) { attacker.hp = attacker.maxhp; }
         if (Target.hp > Target.maxhp) { Target.hp = Target.maxhp; }
         attacker.animator.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
-        if (attacker.Weapon.weapontype != Item.Weapontype.Bow && attacker.Weapon.weapontype != Item.Weapontype.Receptacle && attacker.Weapon.weapontype != Item.Weapontype.Tome)
+
+        bool lanceChuck = false;
+        if (attacker.classId == 207 && attacker.Weapon.weapontype == Item.Weapontype.Lance)
+        {
+            lanceChuck = true;
+        }
+        if (attacker.Weapon.weapontype != Item.Weapontype.Bow && attacker.Weapon.weapontype != Item.Weapontype.Receptacle && attacker.Weapon.weapontype != Item.Weapontype.Tome && !lanceChuck)
         {
             Debug.Log(attacker.name + " dashed to " + Target.name);
             StartCoroutine(DashToTarget(attacker, Target.animator.transform.position));
@@ -1074,7 +1080,12 @@ public class BattleManager : MonoBehaviour
     }
     public virtual IEnumerator ExtraAttack(UnitBehavior attacker, UnitBehavior Target, float DamageMultiplier = 1, float lifeSteal = 0, string skill = null)
     {
-        if (attacker.Weapon.weapontype != Item.Weapontype.Bow && attacker.Weapon.weapontype != Item.Weapontype.Receptacle && attacker.Weapon.weapontype != Item.Weapontype.Tome)
+        bool lanceChuck = false;
+        if(attacker.classId == 207 && attacker.Weapon.weapontype == Item.Weapontype.Lance)
+        {
+            lanceChuck = true;
+        }
+        if (attacker.Weapon.weapontype != Item.Weapontype.Bow && attacker.Weapon.weapontype != Item.Weapontype.Receptacle && attacker.Weapon.weapontype != Item.Weapontype.Tome && !lanceChuck)
         {
             Debug.Log(attacker.name + " dashed to " + Target.name);
             StartCoroutine(DashToTarget(attacker, Target.animator.transform.position));
