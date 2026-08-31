@@ -1359,7 +1359,7 @@ public class BattleManager : MonoBehaviour
     //randomiza growths
     IEnumerator LevelUp(UnitBehavior character)
     {
-        character.currentLevel += 1;
+        character.currentLevel =  character.ClassLevel[character.KnownClasses.IndexOf(character.classId)] + 1;
         character.internalLevel += 1;
         if (character.KnownClasses.Contains(character.classId))
         {

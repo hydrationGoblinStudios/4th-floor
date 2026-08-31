@@ -42,6 +42,7 @@ public class InventoryManager : MonoBehaviour
     public Sprite[] playableMugShots;
     public TextMeshProUGUI UITopName;
     public TextMeshProUGUI LvlText;
+    public TextMeshProUGUI InternalLvlText;
     public Slider expbar;
     public Image ClassIconObj;
     public List<Sprite> ClassIcons;
@@ -460,6 +461,7 @@ public class InventoryManager : MonoBehaviour
         }
         UITopName.text = selectedUnit.UnitName;
         expbar.value = selectedUnit.currentExp;
+        InternalLvlText.text = "Lvl:" + selectedUnit.internalLevel;
         LvlText.text = "Lvl:" + selectedUnit.currentLevel;
         if (selectedUnit.Weapon != null)
         {

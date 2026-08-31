@@ -1,14 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
-using System;
-using System.IO;
 using UnityEditor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 public class GameManager : Singleton<GameManager>, IDataPersistence
 {
 
@@ -468,6 +469,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
             NewUB.speed += item.speed;
             NewUB.Weapon = item;
         }
+        NewUB.currentLevel = NewUB.ClassLevel[NewUB.KnownClasses.IndexOf(NewUB.classId)];
     }
     public void Promotion(int ClassId, Item item = null)
     {

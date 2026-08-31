@@ -55,8 +55,8 @@ MonoBehaviour:
   fortalecerStat: 0
   currentLearnigClassID: 0
   UnitName: Hiro
-  currentLevel: 4
-  internalLevel: 0
+  currentLevel: 3
+  internalLevel: 4
   expmarkplier: 1
   currentRank: 1
   currentExp: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
     UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
+    internalLevel: 0
     expmarkplier: 1
     currentRank: 0
     currentExp: 0

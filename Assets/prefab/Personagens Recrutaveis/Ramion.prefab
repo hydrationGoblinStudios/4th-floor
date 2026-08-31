@@ -56,7 +56,7 @@ MonoBehaviour:
   currentLearnigClassID: 0
   UnitName: Ramion
   currentLevel: 1
-  internalLevel: 0
+  internalLevel: 1
   expmarkplier: 1
   currentRank: 1
   currentExp: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
     UsableWeaponTypes: 
     UnitName: 
     currentLevel: 0
+    internalLevel: 0
     expmarkplier: 1
     currentRank: 0
     currentExp: 0
