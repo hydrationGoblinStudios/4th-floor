@@ -45,24 +45,8 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    pptrCurveMapping:
-    - {fileID: 21300000, guid: b7ddd7516a805c3439f2b56e3a9e4f10, type: 3}
-    - {fileID: 21300000, guid: d6c4ecd12c6454e4b9d17a2059c84772, type: 3}
-    - {fileID: 21300000, guid: fd4c77da95fcc2c40b356f02f18e334f, type: 3}
-    - {fileID: 21300000, guid: e9d19d839fe44944295cf30f4139fd09, type: 3}
-    - {fileID: 21300000, guid: 7c3a8986df80abc43b450767a9caeb48, type: 3}
-    - {fileID: 21300000, guid: bb790df66059adc449ceaedc24520cf7, type: 3}
-    - {fileID: 21300000, guid: 24597f25e2d190849ba57a7478adc9cb, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -73,7 +57,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
