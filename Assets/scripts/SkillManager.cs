@@ -208,7 +208,13 @@ public class SkillManager : MonoBehaviour
                     user.battleManager.HudUpdate();
                 }
                 return 0;
-
+            case "Encantar Armas":
+                StartCoroutine(IconPopup(user.Icon, "Encantar Armas"));
+                if(user.Weapon.damageType == 0)
+                {
+                    return mag / 4;
+                }
+                return 0;
             case "Espada Maldita":
                 target.maxhp -= 10;
                 return 0;
@@ -509,6 +515,19 @@ public class SkillManager : MonoBehaviour
             case "Alma Humana":
                 user.soulgain += (int)((15 + user.soulgain)/4);
 
+                return 0;
+            case "Afiar Sensos":
+                user.avoid += 15;
+
+                return 0;
+            case "Suborno":
+                user.str -= 3;
+                user.mag -= 3;
+                user.def -= 3;
+                user.mdef -= 3;
+                user.dex -= 3;
+                user.luck -= 3;
+                user.speed -= 3;
                 return 0;
             case "Magia Maligna":
                 if (user.position == 2)
