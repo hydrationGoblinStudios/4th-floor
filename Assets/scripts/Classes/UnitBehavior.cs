@@ -100,6 +100,7 @@ public class UnitBehavior : MonoBehaviour
     public int targetStat2;
 
     public bool sureShot;
+    public bool sureCrit;
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
         if(Weapon != null)

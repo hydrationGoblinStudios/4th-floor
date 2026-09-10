@@ -1526,10 +1526,10 @@ public class BattleManager : MonoBehaviour
             + "\nPskill dps de healthChange" + PskillPostHealthlChange
             + "\nPskill dps de target soul proc" + PskillPostTargetPostHealthChange);
         HudUpdate();
-        if (Random.Range(0, 101) <= Pcrit)
+        if (Random.Range(0, 101) <= Pcrit|| attacker.sureCrit)
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
-
+            attacker.sureCrit = false;
             if (attackerDamage + attacker.SkillManager.currentDamageBonus <= 0)
             {
                 damageDone = 2;

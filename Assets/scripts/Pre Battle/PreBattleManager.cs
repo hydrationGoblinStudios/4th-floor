@@ -387,7 +387,7 @@ public class PreBattleManager : MonoBehaviour
                 {
                     PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
                 }
-                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Golpeia o inimigo na posi��o da Frente no inicio da batalha.";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Golpeia o inimigo na posição da Frente no inicio da batalha.";
                 PrepSkills[2].onClick.RemoveAllListeners();
                 return;
             case 103:
@@ -643,16 +643,406 @@ public class PreBattleManager : MonoBehaviour
                     PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
                 }
                 return;
-            case 204:return;
-            case 205:return;
-            case 206:return;
-            case 207:return;
-            case 208:return;
-            case 209:return;
-            case 210:return;
-            case 211:return;
-            case 212:return;
-            case 213: return;
+            case 204:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { MirarNaCabeca(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Mirar na cabeça";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Mirar na cabeça";
+                if (usedPrepSkills.Contains("MirarNaCabeça " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Diminui o Próprio Acerto em 20 para Aumentar o Critico em 15.";
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { ApontarAberturas(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Apontar abertura";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Apontar abertura";
+                if (usedPrepSkills.Contains("ApontarAberturas " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Aumenta o Acerto da Equipe inteira em 10.";
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { ComecoCritico(selectedUnit); });
+                PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().text = "Apontar abertura";
+                PrepSkills[2].GetComponent<InventoryHoverable>().hoverName = "Apontar abertura";
+                if (usedPrepSkills.Contains("ApontarAberturas " + selectedUnit.UnitName))
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Aumenta o Acerto da Equipe inteira em 10.";
+                return;
+            case 205:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { MirarNaCabeca(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Mirar na cabeça";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Mirar na cabeça";
+                if (usedPrepSkills.Contains("MirarNaCabeça " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Diminui o Próprio Acerto em 20 para Aumentar o Critico em 15.";
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { GolpeSujo(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Golpe Sujo";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Golpe Sujo";
+                if (usedPrepSkills.Contains("Golpe Sujo " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Golpeia o inimigo na posição da Frente no inicio da batalha.";
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { DiscutirEstratégias(selectedUnit); });
+                PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().text = "Discutir Estratégias";
+                PrepSkills[2].GetComponent<InventoryHoverable>().hoverName = "Discutir Estratégias";
+                if (usedPrepSkills.Contains("Discutir Estratégias " + selectedUnit.UnitName))
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Aumenta o Acerto, Critico e Evasão da equipe em 15";
+                return;
+            case 206:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { ForcaDeVontadeAumentada(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Força de vontade Aumentada";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Força de vontade Aumentada";
+                if (usedPrepSkills.Contains("ForcaDeVontadeAumentada " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta o Próprio Ganho de alma por receber dano em 20% pelo resto do combate.";
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { GolpeSujo(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Golpe sujo";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Golpe sujo";
+                if (usedPrepSkills.Contains("GolpeSujo " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Golpeia o inimigo na posição da Frente no inicio da batalha.";
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { GolpeSujo(selectedUnit); });
+                PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().text = "Golpe sujo";
+                PrepSkills[2].GetComponent<InventoryHoverable>().hoverName = "Golpe sujo";
+                if (usedPrepSkills.Contains("GolpeSujo " + selectedUnit.UnitName))
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Golpeia o inimigo na posi��o da Frente no inicio da batalha.";
+                return;
+            case 207:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { ReforcarArmaduraButton(); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar armadura";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Reforçar armadura";
+                if (usedPrepSkills.Contains("ReforçarArmadura " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta Defesa Física de um aliado em 20% pelos primeiros 20 segundos da batalha."; PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { GolpeSujo(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Golpe sujo";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Golpe sujo";
+                if (usedPrepSkills.Contains("GolpeSujo " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Golpeia o inimigo na posição da Frente no inicio da batalha.";
+                //PROTEÇÃO
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { GolpeSujo(selectedUnit); });
+                PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().text = "Golpe sujo";
+                PrepSkills[2].GetComponent<InventoryHoverable>().hoverName = "Golpe sujo";
+                if (usedPrepSkills.Contains("GolpeSujo " + selectedUnit.UnitName))
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Golpeia o inimigo na posição da Frente no inicio da batalha."; return;
+            case 208:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { ReforcarArmaduraButton(); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar armadura";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Reforçar armadura";
+                if (usedPrepSkills.Contains("ReforçarArmadura " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta Defesa Física de um aliado em 20% pelos primeiros 20 segundos da batalha.";
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { ReforcarCriticoButton(); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar critico";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Reforçar critico";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Aumenta o Critico de um aliado em 10.";
+                if (usedPrepSkills.Contains("ReforcarCritico " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { ReforcarPenetracao(); });
+                PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar penetração";
+                PrepSkills[2].GetComponent<InventoryHoverable>().hoverName = "Reforçar penetração";
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Da 10% de Penetração de Defesa Fisica e Penetração de Defesa Magica para um Aliado.";
+                if (usedPrepSkills.Contains("ReforcarPenetracao " + selectedUnit.UnitName))
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                return;
+            case 209:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { ReforcarArmaduraButton(); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar armadura";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Reforçar armadura";
+                if (usedPrepSkills.Contains("ReforçarArmadura " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta Defesa Física de um aliado em 20% pelos primeiros 20 segundos da batalha."; 
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { CarregarAlma(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Carregar alma";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Carregar alma";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Come�a a Batalha com 50 de Alma Extra.";
+                if (usedPrepSkills.Contains("CarregarAlma " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { BencaoDivina(); });
+                PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().text = "Bencao Divina";
+                PrepSkills[2].GetComponent<InventoryHoverable>().hoverName = "BencaoDivina";
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Aumenta o Acerto, Evasão, Critico e Sorte de um aliado em 15. ";
+                if (usedPrepSkills.Contains("BencaoDivina " + selectedUnit.UnitName))
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                return;
+            case 210:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { ReforcarMagiaButton(); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Refor�ar magia";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Refor�ar magia";
+                if (usedPrepSkills.Contains("ReforcarMagia " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta a Magia de um Aliado em 15%.";
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { CarregarAlma(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Carregar alma";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Carregar alma";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Come�a a Batalha com 50 de Alma Extra.";
+                if (usedPrepSkills.Contains("CarregarAlma " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { SobrecarregarAlma(); });
+                PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().text = "Sobrecarregar Alma";
+                PrepSkills[2].GetComponent<InventoryHoverable>().hoverName = "Sobrecarregar Alma";
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "A primeira alma usada na batalha tem Acerto Garantido e mais 30 de Critico, mas depois disso o Usuário perde 10 de Acerto e Critico pelo resto do combate.";
+                if (usedPrepSkills.Contains("SobrecarregarAlma " + selectedUnit.UnitName))
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                return;
+            case 211:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { EncantamentoBenevolente(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Encantamento benevolente";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Encantamento benevolente";
+                if (usedPrepSkills.Contains("EncantamentoBenevolente " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta a Velocidade, Acerto e Evasão da equipe inteira em 15% pelos primeiros 10 Segundos do Combate.";
+
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { ReforcarMagiaButton(); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar magia";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Reforçar magia";
+                if (usedPrepSkills.Contains("ReforcarMagia " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Aumenta a Magia de um Aliado em 15%.";
+
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { ReforcarDano(selectedUnit); });
+                PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().text = "Reforçar dano";
+                PrepSkills[2].GetComponent<InventoryHoverable>().hoverName = "Reforçar dano";
+                if (usedPrepSkills.Contains("ReforcarDano " + selectedUnit.UnitName))
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Aumenta o Dano de um Aliado em 20%.";
+                return;
+            case 212:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { EncantamentoBenevolente(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Encantamento benevolente";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Encantamento benevolente";
+                if (usedPrepSkills.Contains("EncantamentoBenevolente " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta a Velocidade, Acerto e Evasão da equipe inteira em 15% pelos primeiros 10 Segundos do Combate.";
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { EncantamentoMalevolente(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Encantamento malevolente";
+                if (usedPrepSkills.Contains("EncantamentoMalevolente " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Encantamento malevolente";
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Diminui a Velocidade, Acerto e Evasão da equipe inimiga inteira em 10% pelos primeiros 20 Segundos do Combate.";
+
+                PrepSkills[2].onClick.RemoveAllListeners();
+                PrepSkills[2].onClick.AddListener(delegate { HyperboleDeAtributos(selectedUnit); });
+                PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().text = "Hyperbole De Atributos";
+                if (usedPrepSkills.Contains("HyperboleDeAtributos " + selectedUnit.UnitName))
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[2].GetComponent<InventoryHoverable>().hoverName = "Hyperbole De Atributos";
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Aumenta em 25% o Maior atributo (Menos hp) básico de um aliado, mas Diminui em 25% o menor atributo básico dele."; return;
+            case 213:
+                PrepSkills[0].onClick.RemoveAllListeners();
+                PrepSkills[0].onClick.AddListener(delegate { Camaradagem(selectedUnit); });
+                PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().text = "Camaradagem";
+                PrepSkills[0].GetComponent<InventoryHoverable>().hoverName = "Camaradagem";
+                if (usedPrepSkills.Contains("Camaradagem " + selectedUnit.UnitName))
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[0].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[0].GetComponent<InventoryHoverable>().description = "Aumenta a Sorte, Destreza e Velocidade de todos os Aliados em 3";
+                PrepSkills[1].onClick.RemoveAllListeners();
+                PrepSkills[1].onClick.AddListener(delegate { AprenderComOInimigo(selectedUnit); });
+                PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().text = "Aprender com o inimigo";
+                PrepSkills[1].GetComponent<InventoryHoverable>().hoverName = "Aprender com o inimigo";
+                if (usedPrepSkills.Contains("AprenderComOInimigo " + selectedUnit.UnitName))
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)0.4, g = (float)0.4, b = (float)0.4, a = 1 };
+                }
+                else
+                {
+                    PrepSkills[1].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
+                }
+                PrepSkills[1].GetComponent<InventoryHoverable>().description = "Diminui a pr�pria Velocidade e Dano em 50%, mas Recebe mais 30% de experi�ncia a mais nessa luta."; return;
             default:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { AfiarArma(selectedUnit); });
@@ -1330,6 +1720,91 @@ public class PreBattleManager : MonoBehaviour
 
                 Select(selectedUnit);
             }
+        }
+    }
+    //atirador
+    public void ComecoCritico(UnitBehavior selectedUnit)
+    {
+        if (energy > 1 && !usedPrepSkills.Contains("Encantar Armas " + selectedUnit.UnitName))
+        {
+            selectedUnit.sureShot = true;
+            selectedUnit.sureCrit = true;
+            energy--;
+            energy--;
+            usedPrepSkills.Add("Encantar Armas " + selectedUnit.UnitName);
+
+        }
+    }
+    //patrulheiro
+    public void DiscutirEstratégias(UnitBehavior selectedUnit)
+    {
+        {
+            if (energy > 3 && !usedPrepSkills.Contains("Discutir Estratégias " + selectedUnit.UnitName))
+            {
+                SelectedPlayer1.GetComponent<UnitBehavior>().hit += 15;
+                SelectedPlayer1.GetComponent<UnitBehavior>().crit += 15;
+                SelectedPlayer1.GetComponent<UnitBehavior>().avoid += 15;
+
+                SelectedPlayer2.GetComponent<UnitBehavior>().hit += 15;
+                SelectedPlayer2.GetComponent<UnitBehavior>().crit += 15;
+                SelectedPlayer2.GetComponent<UnitBehavior>().avoid += 15;
+
+                SelectedPlayer3.GetComponent<UnitBehavior>().hit += 15;
+                SelectedPlayer3.GetComponent<UnitBehavior>().crit += 15;
+                SelectedPlayer3.GetComponent<UnitBehavior>().avoid += 15;
+                energy--; 
+                energy--;
+                energy--;
+                energy--;
+                usedPrepSkills.Add("Camaradagem " + selectedUnit.UnitName);
+                energyText.text = energy.ToString();
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("CamaradagemBuffVFX"));
+                VFX.transform.SetParent(playerAnimations[1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
+                Select(selectedUnit);
+            }
+        }
+    }
+    //lanceiro
+    public void ReforcarPenetracao()
+    {
+        if (energy > 1 && !usedPrepSkills.Contains("Reforçar Penetração " + selectedUnit.UnitName))
+        {
+            selectedUnit.magicpen += 10;
+            selectedUnit.armorpen += 10;
+            energy--;
+            energy--;
+            usedPrepSkills.Add("Reforçar Penetração " + selectedUnit.UnitName);
+        }
+    }
+
+    //paladino
+    public void BencaoDivina()
+    {
+        if (energy > 3 && !usedPrepSkills.Contains("Reforçar Penetração " + selectedUnit.UnitName))
+        {
+            selectedUnit.GetComponent<UnitBehavior>().hit += 15;
+            selectedUnit.GetComponent<UnitBehavior>().crit += 15;
+            selectedUnit.GetComponent<UnitBehavior>().avoid += 15;
+            selectedUnit.GetComponent<UnitBehavior>().luck += 15;
+            energy--;
+            energy--;
+            energy--;
+            energy--;
+            usedPrepSkills.Add("Reforçar Penetração " + selectedUnit.UnitName);
+        }
+    }
+    //mago
+    public void SobrecarregarAlma()
+    {
+        if (energy > 2 && !usedPrepSkills.Contains("SobrecarregarAlma " + selectedUnit.UnitName))
+        {
+
+            selectedUnit.skills.Add("SobrecarregarAlma");
+            energy--;
         }
     }
     public void AprenderComOInimigo(UnitBehavior selectedUnit)

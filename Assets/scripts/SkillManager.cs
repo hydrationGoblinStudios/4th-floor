@@ -60,6 +60,7 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed3;
     private int poçãodeforçastacks;
     private int RitmoCritico;
+    private bool AlmaSobrecarregada = false;
 
     public int currentDamageBonus;
 
@@ -285,6 +286,19 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Sobrecarregar Alma":
+
+                if (user.soul >= user.maxsoul && !AlmaSobrecarregada)
+                {
+                    user.sureCrit = true;
+                    user.sureShot = true;
+                    AlmaSobrecarregada = true;
+                    StartCoroutine(IconPopup(user.Icon, "Icone_Mistico"));
+                    user.hit -= 10;
+                    user.crit -= 10;
+                }
+
+                return 0;
 
             case "Poção de Foco":
                 if (poçãodeforçastacks >= 1)
@@ -529,6 +543,7 @@ public class SkillManager : MonoBehaviour
                 user.luck -= 3;
                 user.speed -= 3;
                 return 0;
+
             case "Magia Maligna":
                 if (user.position == 2)
                 {
