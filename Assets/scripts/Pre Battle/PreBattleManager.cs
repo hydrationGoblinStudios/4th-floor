@@ -1298,7 +1298,8 @@ public class PreBattleManager : MonoBehaviour
     }
     public void ExportTeamToBattle()
     {
-        EnemyPrepSkill();
+
+         //EnemyPrepSkill();
         foreach (GameObject GO in gameManager.teamPostPreBattle)
         {
             Destroy(GO);
