@@ -664,7 +664,17 @@ public class SkillManager : MonoBehaviour
                 {
                     user.lifesteal += (float)0.15;
                 }
-
+                return 0;
+            case "MotivaçãoForcada":
+                StartCoroutine(IconPopup(user.Icon, "Icone_Guerreiro"));
+                if (user.Weapon.damageType == 0)
+                {
+                    user.Weapon.power += (user.Weapon.power + user.str) / 5;
+                }
+                else
+                {
+                    user.Weapon.power += (user.Weapon.power + user.mag) / 5;
+                }
                 return 0;
             case "Foco":
                 {

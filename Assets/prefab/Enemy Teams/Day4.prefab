@@ -87,12 +87,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8974044381209042840, guid: 5fe682b11323b5f4f87c0105072d739c, type: 3}
+      propertyPath: soul1
+      value: Golpe Focado
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 5fe682b11323b5f4f87c0105072d739c, type: 3}
+      propertyPath: skill1
+      value: "Ataque R\xE1pido"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 5fe682b11323b5f4f87c0105072d739c, type: 3}
       propertyPath: maxsoul
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8974044381209042840, guid: 5fe682b11323b5f4f87c0105072d739c, type: 3}
+      propertyPath: baseSoul
+      value: Golpe Triplo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 5fe682b11323b5f4f87c0105072d739c, type: 3}
+      propertyPath: baseSkill
+      value: Dano Ascendente
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 5fe682b11323b5f4f87c0105072d739c, type: 3}
       propertyPath: equippedSoulIsAttack
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 5fe682b11323b5f4f87c0105072d739c, type: 3}
+      propertyPath: UsableWeaponTypes.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -157,8 +177,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8974044381209042840, guid: 4c69dc04ffd3c3949b28823f9db74d88, type: 3}
+      propertyPath: soul1
+      value: Rajada de Flechas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 4c69dc04ffd3c3949b28823f9db74d88, type: 3}
+      propertyPath: skill1
+      value: "Precis\xE3o Mortal"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 4c69dc04ffd3c3949b28823f9db74d88, type: 3}
       propertyPath: maxsoul
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 4c69dc04ffd3c3949b28823f9db74d88, type: 3}
+      propertyPath: baseSoul
+      value: Tiro Certeiro
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 4c69dc04ffd3c3949b28823f9db74d88, type: 3}
+      propertyPath: baseSkill
+      value: Foco
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 4c69dc04ffd3c3949b28823f9db74d88, type: 3}
+      propertyPath: UsableWeaponTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 4c69dc04ffd3c3949b28823f9db74d88, type: 3}
+      propertyPath: UsableWeaponTypes.Array.data[0]
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -228,15 +272,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8974044381209042840, guid: abf9bc2751175364cb08e9a913449e50, type: 3}
       propertyPath: maxhp
-      value: 160
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: abf9bc2751175364cb08e9a913449e50, type: 3}
+      propertyPath: soul1
+      value: Revigoramento
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: abf9bc2751175364cb08e9a913449e50, type: 3}
+      propertyPath: skill1
+      value: "Dur\xE3o"
       objectReference: {fileID: 0}
     - target: {fileID: 8974044381209042840, guid: abf9bc2751175364cb08e9a913449e50, type: 3}
       propertyPath: maxsoul
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8974044381209042840, guid: abf9bc2751175364cb08e9a913449e50, type: 3}
+      propertyPath: baseSoul
+      value: Golpe Poderoso
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: abf9bc2751175364cb08e9a913449e50, type: 3}
+      propertyPath: baseSkill
+      value: "Lutador Vers\xE1til"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: abf9bc2751175364cb08e9a913449e50, type: 3}
       propertyPath: equippedSoulIsAttack
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: abf9bc2751175364cb08e9a913449e50, type: 3}
+      propertyPath: UsableWeaponTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: abf9bc2751175364cb08e9a913449e50, type: 3}
+      propertyPath: UsableWeaponTypes.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1536,6 +1536,11 @@ public class BattleManager : MonoBehaviour
             }
 
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen)/100) ;
+            if (Target.protecao)
+            {
+                Target.protecao = false;
+                damageDone = 0;
+            }
             CheckDamage(attacker, Target, damageDone);
 
             if(nextAttack.attacker != null) AnimationTrigger(); // Proca o ataque anterior se por algum motivo (Unity moment) a anim pular o trigger
@@ -1568,7 +1573,11 @@ public class BattleManager : MonoBehaviour
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus);
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
-
+            if (Target.protecao)
+            {
+                Target.protecao = false;
+                damageDone = 0;
+            }
             CheckDamage(attacker, Target, damageDone);
 
             if(nextAttack.attacker != null) AnimationTrigger();     // Proca o ataque anterior se por algum motivo (Unity moment) a anim pular o trigger
@@ -1604,7 +1613,11 @@ public class BattleManager : MonoBehaviour
             int damageDone = (int)(attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
             damageDone = (int)(damageDone*DamageMultiplier);
-
+            if (Target.protecao)
+            {
+                Target.protecao = false;
+                damageDone = 0;
+            }
             CheckDamage(attacker, Target, damageDone);
 
             if(nextAttack.attacker != null) AnimationTrigger();     // Proca o ataque anterior se por algum motivo (Unity moment) a anim pular o trigger
@@ -1627,6 +1640,11 @@ public class BattleManager : MonoBehaviour
             
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
             damageDone = (int)(damageDone * DamageMultiplier);
+            if (Target.protecao)
+            {
+                Target.protecao = false;
+                damageDone = 0;
+            }
             CheckDamage(attacker, Target, damageDone);
 
             if(nextAttack.attacker != null){
