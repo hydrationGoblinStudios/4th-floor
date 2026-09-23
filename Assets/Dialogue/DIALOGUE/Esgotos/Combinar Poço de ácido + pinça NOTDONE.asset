@@ -127,7 +127,7 @@ MonoBehaviour:
   exit: 0
   speaker: Ramion
   dialogue: "\xC9 uma lan\xE7a, e parece que esse tempo todo no \xE1cido n\xE3o fez
-    mal nenhum pra ela, deve ser muito forte."
+    mal nenhum pra ela, deve ser imbu\xEDda com alguma magia forte."
   sprite: {fileID: 21300000, guid: 04180ce4ac1c8c14e8a6d315051716ce, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
