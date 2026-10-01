@@ -1624,6 +1624,27 @@ public class PreBattleManager : MonoBehaviour
             }
         }
     }
+    public void EnemyEncantamentoBenevolente()
+    {
+        {
+            if (energy > 0 && !usedPrepSkills.Contains("EncantamentoBenevolente " + selectedUnit.UnitName))
+            {
+                SelectedEnemy1.GetComponent<UnitBehavior>().skills.Add("Encantamento Benevolente");
+                SelectedEnemy2.GetComponent<UnitBehavior>().skills.Add("Encantamento Benevolente");
+                SelectedEnemy3.GetComponent<UnitBehavior>().skills.Add("Encantamento Benevolente");
+                energy--;
+                usedPrepSkills.Add("EncantamentoBenevolente " + selectedUnit.UnitName);
+                energyText.text = energy.ToString();
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("EncBenevolentePrepareVFX"));
+                VFX.transform.SetParent(playerAnimations[1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
+                Select(selectedUnit);
+            }
+        }
+    }
     public void EncantamentoMalevolente( )
     {
         {
@@ -1632,6 +1653,27 @@ public class PreBattleManager : MonoBehaviour
                 SelectedEnemy1.GetComponent<UnitBehavior>().skills.Add("Encantamento Malevolente");
                 SelectedEnemy2.GetComponent<UnitBehavior>().skills.Add("Encantamento Malevolente");
                 SelectedEnemy3.GetComponent<UnitBehavior>().skills.Add("Encantamento Malevolente");
+                energy--;
+                usedPrepSkills.Add("EncantamentoMalevolente " + selectedUnit.UnitName);
+                energyText.text = energy.ToString();
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("EncMalevolentePrepareVFX"));
+                VFX.transform.SetParent(enemyAnimations[1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
+                Select(selectedUnit);
+            }
+        }
+    }
+    public void EnemyEncantamentoMalevolente()
+    {
+        {
+            if (energy > 0 && !usedPrepSkills.Contains("EncantamentoMalevolente " + selectedUnit.UnitName))
+            {
+                SelectedPlayer1.GetComponent<UnitBehavior>().skills.Add("Encantamento Malevolente");
+                SelectedPlayer2.GetComponent<UnitBehavior>().skills.Add("Encantamento Malevolente");
+                SelectedPlayer3.GetComponent<UnitBehavior>().skills.Add("Encantamento Malevolente");
                 energy--;
                 usedPrepSkills.Add("EncantamentoMalevolente " + selectedUnit.UnitName);
                 energyText.text = energy.ToString();
@@ -1684,6 +1726,31 @@ public class PreBattleManager : MonoBehaviour
                 SelectedPlayer1.GetComponent<UnitBehavior>().skills.Add("Encantar Armas");
                 SelectedPlayer2.GetComponent<UnitBehavior>().skills.Add("Encantar Armas");
                 SelectedPlayer3.GetComponent<UnitBehavior>().skills.Add("Encantar Armas");
+                energy--;
+                energy--;
+                energy--;
+                energy--;
+                usedPrepSkills.Add("Encantar Armas " + selectedUnit.UnitName);
+                energyText.text = energy.ToString();
+
+                GameObject VFX = Instantiate(Resources.Load<GameObject>("CamaradagemBuffVFX"));
+                VFX.transform.SetParent(playerAnimations[1].transform);
+                VFX.transform.localPosition = Vector3.zero;
+                VFX.transform.localScale = Vector3.one;
+
+                Select(selectedUnit);
+            }
+        }
+    }
+
+         public void EnemyEncantarArmas()
+    {
+        {
+            if (energy > 3 && !usedPrepSkills.Contains("Encantar Armas " + selectedUnit.UnitName))
+            {
+                SelectedEnemy1.GetComponent<UnitBehavior>().skills.Add("Encantar Armas");
+                SelectedEnemy2.GetComponent<UnitBehavior>().skills.Add("Encantar Armas");
+                SelectedEnemy3.GetComponent<UnitBehavior>().skills.Add("Encantar Armas");
                 energy--;
                 energy--;
                 energy--;
@@ -1894,6 +1961,7 @@ public class PreBattleManager : MonoBehaviour
     } 
     public void EnemyPrepSkill()
     {
+
         int numberOfEnemies = 3;
         if (SelectedPlayer2.GetComponent<UnitBehavior>().hp < 0)
         { numberOfEnemies--; }
@@ -1904,23 +1972,29 @@ public class PreBattleManager : MonoBehaviour
             int r = Random.Range(0, 3);
             int unitR = Random.Range(0, numberOfEnemies);
             selectedUnit = SelectedEnemyList[unitR].GetComponent<UnitBehavior>();   
-            switch (r)
+
+            switch (selectedUnit.classId)
             {
-                case 0:
-                    Debug.Log(selectedUnit.name);
-                    AfiarArma();
-                    break;
-                case 1:
-                    Debug.Log(selectedUnit.name);
-                    AfiarEscudo();
-                    break;
-                case 2:
-                    Debug.Log(selectedUnit.name);
-                    AfiarEsperto();
-                    break;
-                default:
-                    break;
-            }
+                case 101: AfiarArma();break;
+                case 106: MirarNaCabeca();break;
+                case 102: ForcaDeVontadeAumentada();break;
+                case 103: ReforcarArmadura(selectedUnit);break;
+                case 104: ReforcarMagia(selectedUnit);break;
+                case 105: EnemyEncantamentoBenevolente();break;
+                case 201: EnemyEncantarArmas();break;
+                case 202: AfiarArma();break;
+                case 203: MirarNaCabeca();break;
+                case 204: MirarNaCabeca();break;
+                case 205: ForcaDeVontadeAumentada();break;
+                case 206: GolpeSujo();break;
+                case 207: BencaoDivina();break;
+                case 208: ReforcarArmadura(selectedUnit);break;
+                case 209: BencaoDivina();break;
+                case 210: SobrecarregarAlma();break;
+                case 211: EnemyEncantamentoBenevolente();break;
+                case 212: EnemyEncantamentoMalevolente();break;
+                default:break;
+            }          
             evilEnergy--;
         }
     }
