@@ -406,6 +406,13 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Lâmina da Víbora":
+                target.SkillManager.poisonStacks += 1;
+                if (!target.skills.Contains("Envenenado"))
+                {
+                target.skills.Add("Envenenado");
+                }
+                return 0;
 
             default: return 0;
 
@@ -414,6 +421,16 @@ public class SkillManager : MonoBehaviour
         }
 
     }
+
+    //skills que procam dps de um crit
+    public int CritProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
+    {
+        switch (skillName)
+        {
+            default: return 0;
+        }
+    }
+
     //pos alma
     public int PostSoulProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
