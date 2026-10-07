@@ -64,6 +64,9 @@ public class SkillManager : MonoBehaviour
 
     public int currentDamageBonus;
 
+    public bool isPoisoned;
+    public int poisonStacks;
+
 
     //Skills que ativam no Dano
     public int SkillProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
@@ -1333,9 +1336,12 @@ public class SkillManager : MonoBehaviour
                     poçãodevidamaioruse = true;
                     ConsumeItem("Elixir de Cura Maior", user);
                 }
-
                 return 0;
-            default: return 0;
+
+            case "Envenenado":
+                if (isPoisoned) { StartCoroutine(Poison(skillName, user, target, team, enemyTeam)); }
+                    return 0;
+                    default: return 0;
         } 
     }
 
@@ -1507,7 +1513,12 @@ public class SkillManager : MonoBehaviour
         user.hit -= 12;
         user.avoid -= 12;
     }
-
+    IEnumerator Poison(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam) 
+    {
+        yield return new WaitForSeconds(1);
+        user.hp -= poisonStacks;
+        PostHealthChange(skillName,user,target,team,enemyTeam);
+    }
     IEnumerator DisparodeGelo(UnitBehavior user, UnitBehavior target)
     {
         DisparodeGelohit = target.hit / 10 + user.mag / 10;
