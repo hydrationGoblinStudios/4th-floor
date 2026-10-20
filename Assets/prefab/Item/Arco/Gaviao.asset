@@ -23,6 +23,7 @@ MonoBehaviour:
     o Dano equivalente ao Atributo de Destreza + 1. (No M\xE1ximo 23 de Poder)."
   hit: 100
   crit: 5
+  maxHp: 0
   power: 0
   str: 0
   mag: 0
@@ -32,5 +33,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 3
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
+  ranged: 1
   skill: Parfrit

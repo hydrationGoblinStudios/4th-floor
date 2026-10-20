@@ -24,6 +24,7 @@ MonoBehaviour:
     atr\xE1s. "
   hit: 85
   crit: 0
+  maxHp: 0
   power: 10
   str: 0
   mag: 0
@@ -37,4 +38,5 @@ MonoBehaviour:
   critAvoid: 0
   lifesteal: 0
   damageType: 0
+  ranged: 1
   skill: "Machado Arremess\xE1vel"

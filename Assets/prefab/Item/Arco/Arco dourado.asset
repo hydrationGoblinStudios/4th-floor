@@ -24,6 +24,7 @@ MonoBehaviour:
     o Critico em +7."
   hit: 77
   crit: 1
+  maxHp: 0
   power: 7
   str: 0
   mag: 0
@@ -33,5 +34,9 @@ MonoBehaviour:
   luck: 7
   speed: 0
   price: 5000
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
+  ranged: 1
   skill: Arco da Sorte

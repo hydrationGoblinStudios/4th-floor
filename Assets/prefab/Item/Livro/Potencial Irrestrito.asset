@@ -23,6 +23,7 @@ MonoBehaviour:
     adversas, extremamente poderoso, para aqueles que tem garra suficiente para empunh\xE1-lo."
   hit: 100
   crit: 15
+  maxHp: 0
   power: 6
   str: 0
   mag: 0
@@ -36,4 +37,5 @@ MonoBehaviour:
   critAvoid: 0
   lifesteal: 0
   damageType: 1
+  ranged: 1
   skill: Potencial Irrestrito

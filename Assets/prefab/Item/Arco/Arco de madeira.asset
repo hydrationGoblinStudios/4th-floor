@@ -22,6 +22,7 @@ MonoBehaviour:
   description: Um arco simples.
   hit: 100
   crit: 5
+  maxHp: 0
   power: 4
   str: 0
   mag: 0
@@ -31,5 +32,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 1000
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
+  ranged: 1
   skill: 

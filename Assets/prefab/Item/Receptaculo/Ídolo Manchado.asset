@@ -24,6 +24,7 @@ MonoBehaviour:
     15 da alma atual dele."
   hit: 70
   crit: 5
+  maxHp: 0
   power: 11
   str: 0
   mag: 0
@@ -33,5 +34,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 3
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 1
+  ranged: 1
   skill: "\xCDdolo Manchado"

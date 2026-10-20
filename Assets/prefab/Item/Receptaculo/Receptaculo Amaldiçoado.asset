@@ -23,6 +23,7 @@ MonoBehaviour:
     b\xE1sico, o alvo perde 10% da Velocidade e do Dano por 10 segundos."
   hit: 80
   crit: 0
+  maxHp: 0
   power: 11
   str: 0
   mag: 0
@@ -32,5 +33,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 5000
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 1
+  ranged: 1
   skill: "Receptaculo Amaldi\xE7oado"

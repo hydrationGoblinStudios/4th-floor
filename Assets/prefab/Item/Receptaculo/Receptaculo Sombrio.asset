@@ -22,6 +22,7 @@ MonoBehaviour:
   description: "Um receptaculo com poder alto mas com pouco precis\xE3o."
   hit: 45
   crit: 10
+  maxHp: 0
   power: 20
   str: 0
   mag: 0
@@ -31,5 +32,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 3500
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 1
+  ranged: 1
   skill: 

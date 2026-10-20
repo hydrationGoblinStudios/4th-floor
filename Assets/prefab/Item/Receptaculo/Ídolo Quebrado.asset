@@ -23,6 +23,7 @@ MonoBehaviour:
     Vida, mas Impede o Ganho de Alma por ataque b\xE1sico."
   hit: 75
   crit: 5
+  maxHp: 0
   power: 13
   str: 0
   mag: 0
@@ -32,5 +33,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 3000
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 1
+  ranged: 1
   skill: "\xCDdolo Quebrado"

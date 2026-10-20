@@ -52,6 +52,7 @@ public class Item : ScriptableObject
     public int critAvoid;
     public int lifesteal;
     public int damageType = 0;
+    public bool ranged;
     public string skill ="";
 
     public virtual int ItemProc(int damage)

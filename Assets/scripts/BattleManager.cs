@@ -1535,7 +1535,15 @@ public class BattleManager : MonoBehaviour
                 damageDone = 2;
             }
 
-            damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen)/100) ;
+            damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen)/100);
+            if(attacker.position == 2 && !attacker.Weapon.ranged)
+            {
+                damageDone -= (int)(damageDone / 8.5);
+            }
+            if (attacker.position == 3 && !attacker.Weapon.ranged)
+            {
+                damageDone -= (int)(damageDone / 7);
+            }
             if (Target.protecao)
             {
                 Target.protecao = false;

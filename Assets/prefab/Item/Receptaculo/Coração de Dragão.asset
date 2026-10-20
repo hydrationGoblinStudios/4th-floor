@@ -23,6 +23,7 @@ MonoBehaviour:
     agora \xE9 uma arma, que ainda conserva sua ess\xEAncia."
   hit: 70
   crit: 10
+  maxHp: 0
   power: 17
   str: 0
   mag: 0
@@ -36,4 +37,5 @@ MonoBehaviour:
   critAvoid: 0
   lifesteal: 0
   damageType: 1
+  ranged: 1
   skill: "Cora\xE7\xE3o de Drag\xE3o"

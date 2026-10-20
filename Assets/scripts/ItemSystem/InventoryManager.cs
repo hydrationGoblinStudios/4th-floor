@@ -922,6 +922,22 @@ public class InventoryManager : MonoBehaviour
             _ => skillName,
         };
     }
+
+    public void ShowGrowths()
+    {
+        statTexts[0].text = selectedUnit.growths[0].ToString(); statTexts[1].text = selectedUnit.growths[1].ToString(); statTexts[2].text = selectedUnit.growths[3].ToString();
+        statTexts[3].text = selectedUnit.growths[3].ToString(); statTexts[4].text = selectedUnit.growths[4].ToString();
+        statTexts[5].text = selectedUnit.growths[5].ToString(); statTexts[6].text = selectedUnit.growths[6].ToString(); statTexts[7].text = selectedUnit.growths[7].ToString();
+
+        statTexts[0].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[0] - selectedUnit.ClassGrowths[0]} + {selectedUnit.ClassGrowths[0]}";
+        statTexts[1].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[1] - selectedUnit.ClassGrowths[1]} + {selectedUnit.ClassGrowths[1]}";
+        statTexts[2].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[2] - selectedUnit.ClassGrowths[2]} + {selectedUnit.ClassGrowths[2]}";
+        statTexts[3].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[3] - selectedUnit.ClassGrowths[3]} + {selectedUnit.ClassGrowths[3]}";
+        statTexts[4].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[4] - selectedUnit.ClassGrowths[4]} + {selectedUnit.ClassGrowths[4]}";
+        statTexts[5].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[5] - selectedUnit.ClassGrowths[5]} + {selectedUnit.ClassGrowths[5]}";
+        statTexts[6].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[6] - selectedUnit.ClassGrowths[6]} + {selectedUnit.ClassGrowths[6]}";
+        statTexts[7].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[7] - selectedUnit.ClassGrowths[7]} + {selectedUnit.ClassGrowths[7]}";
+    }
     public void SoulPrice(string soulName)
     {
         Manager.SoulPrice(soulName, selectedUnit);
@@ -938,5 +954,6 @@ public class InventoryManager : MonoBehaviour
             skillNames[0].GetComponentInParent<InventoryHoverable>().HoverObject.GetComponent<DontDestroyHoverObject>().HoverOn = false;
             Toggle();
         }
+        if (Input.GetKeyDown(KeyCode.Comma)) { ShowGrowths();   }
     }
 }

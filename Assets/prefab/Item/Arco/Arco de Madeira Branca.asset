@@ -23,6 +23,7 @@ MonoBehaviour:
     s\xF3 cresce nas terras frias do norte. "
   hit: 90
   crit: 5
+  maxHp: 0
   power: 11
   str: 0
   mag: 0
@@ -36,4 +37,5 @@ MonoBehaviour:
   critAvoid: 0
   lifesteal: 0
   damageType: 0
+  ranged: 1
   skill: 

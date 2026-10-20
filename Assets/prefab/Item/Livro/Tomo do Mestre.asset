@@ -23,6 +23,7 @@ MonoBehaviour:
     poderosos. '
   hit: 100
   crit: 0
+  maxHp: 0
   power: 13
   str: 0
   mag: 0
@@ -36,4 +37,5 @@ MonoBehaviour:
   critAvoid: 0
   lifesteal: 0
   damageType: 1
+  ranged: 1
   skill: 

@@ -23,6 +23,7 @@ MonoBehaviour:
     Aumenta o Dano em 2 pelo resto do combate ap\xF3s utilizar sua alma."
   hit: 100
   crit: 0
+  maxHp: 0
   power: 6
   str: 0
   mag: 0
@@ -32,5 +33,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 0
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 1
+  ranged: 1
   skill: "Tomo Apote\xF3tico "

@@ -24,6 +24,7 @@ MonoBehaviour:
     suficiente."
   hit: 66
   crit: 15
+  maxHp: 0
   power: 24
   str: 0
   mag: 0
@@ -37,4 +38,5 @@ MonoBehaviour:
   critAvoid: 0
   lifesteal: 0
   damageType: 1
+  ranged: 1
   skill: 

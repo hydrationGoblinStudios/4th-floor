@@ -406,14 +406,87 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+            case "Ídolo da Natureza":
+
+                if (team[0].hp >= 1 && team[0].hp < team[1].hp && team[0].hp < team[2].hp)
+                {
+                    team[0].hp += team[0].hp/10;
+
+                        foreach (string skill in team[0].skills)
+                        {
+                            PostHealthChange(skill, team[0], target, team, enemyTeam);
+                        }                  
+                }
+                else if (team[1].hp >= 1 && team[1].hp < team[0].hp && team[1].hp < team[2].hp)
+                {
+                    team[1].hp += team[1].hp / 10;
+
+                    foreach (string skill in team[1].skills)
+                    {
+                        PostHealthChange(skill, team[1], target, team, enemyTeam);
+                    }
+                }
+                else if (team[2].hp >= 1 && team[2].hp < team[1].hp && team[2].hp < team[0].hp)
+                {
+                    team[2].hp += team[2].hp / 10;
+
+                    foreach (string skill in team[2].skills)
+                    {
+                        PostHealthChange(skill, team[2], target, team, enemyTeam);
+                    }
+                }
+                else
+                {
+                    return 9999;
+                }
+
+                return 0;
+            case "Diário do Calígrafo":
+
+                int halfOfSoulName = user.equipedSoul.Length/2;
+
+                return halfOfSoulName;
+            //todo venenos diferentes
             case "Lâmina da Víbora":
                 target.SkillManager.poisonStacks += 1;
                 if (!target.skills.Contains("Envenenado"))
                 {
                 target.skills.Add("Envenenado");
+                    target.SkillManager.poisonStacks += 1;
                 }
                 return 0;
 
+            case "Lança da Víbora":
+                target.SkillManager.poisonStacks += 1;
+                if (!target.skills.Contains("Envenenado"))
+                {
+                    target.skills.Add("Envenenado");
+                    target.SkillManager.poisonStacks += 1;
+
+                }
+                return 0;
+            case "Alabarda da Víbora":
+                target.SkillManager.poisonStacks += 1;
+                if (!target.skills.Contains("Envenenado"))
+                {
+                    target.skills.Add("Envenenado");
+                    target.SkillManager.poisonStacks += 1;
+                }
+                return 0;
+            case "Arco da Víbora":
+                target.SkillManager.poisonStacks += 1;
+                if (!target.skills.Contains("Envenenado"))
+                {
+                    target.skills.Add("Envenenado");
+                    target.SkillManager.poisonStacks += 3;
+                }
+                return 0;
+            case "Espada Arcana":
+                if(user.mag > target.mag)
+                {
+                    return 5;
+                }
+                return 0;
             default: return 0;
 
 
@@ -427,6 +500,17 @@ public class SkillManager : MonoBehaviour
     {
         switch (skillName)
         {
+            case "Corta-Olhos":
+                int bonus = 0;
+                if (user.Weapon.damageType == 0)
+                {
+                    user.Weapon.power += (user.Weapon.power + user.str) /2;
+                }
+                else
+                {
+                    user.Weapon.power += (user.Weapon.power + user.mag) / 2;
+                }
+                return bonus;
             default: return 0;
         }
     }
@@ -968,7 +1052,21 @@ public class SkillManager : MonoBehaviour
                 
 
                 return 0;
+            case "Livro de bolso":
 
+                user.avoid += 15;
+
+                return 0;
+            case "Coração de Dragão":
+
+                user.lifesteal += (float)0.25;
+
+                return 0;
+            case "Capítulo Perdido":
+
+                speed += user.speed/3;
+
+                return 0;
             case "Finalizador":
 
                 StartCoroutine(Finalizador(user));
