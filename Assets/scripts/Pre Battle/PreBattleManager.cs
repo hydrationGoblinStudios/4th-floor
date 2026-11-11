@@ -2167,10 +2167,9 @@ public class PreBattleManager : MonoBehaviour
         }
 
         else { Debug.Log("null SP"); }
-        playerAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
-        playerAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
-        playerAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString()).SingleOrDefault();
-
+        playerAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer1.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedPlayer1.GetComponent<UnitBehavior>())).SingleOrDefault();
+        playerAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer2.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedPlayer2.GetComponent<UnitBehavior>())).SingleOrDefault();
+        playerAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedPlayer3.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedPlayer3.GetComponent<UnitBehavior>())).SingleOrDefault();
         ShaderSelect();
     }
     public void InstantiateToGM(List<GameObject> List, List<GameObject> EnemyList)
