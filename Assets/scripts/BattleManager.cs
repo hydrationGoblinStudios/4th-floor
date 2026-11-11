@@ -682,15 +682,23 @@ public class BattleManager : MonoBehaviour
         int x = 9999;
 
 
-        if (unitList[0].skills.Contains("Escudo Protetor"))
+        if (unitList[0].skills.Contains("Escudo Protetor") || unitList[0].skills.Contains("Proteção Perfeita"))
         {
+            if (unitList[0].skills.Contains("Proteção Perfeita"))
+            {
+                unitList[0].damagereduction += unitList[0].def;
+            }
             if (Random.Range(0, 201) <= unitList[0].def)
             {
                 return 0;
             }    
         }
-        if (unitList[1].skills.Contains("Escudo Protetor"))
+        if (unitList[1].skills.Contains("Escudo Protetor") || unitList[1].skills.Contains("Proteção Perfeita"))
         {
+            if (unitList[1].skills.Contains("Proteção Perfeita"))
+            {
+                unitList[1].damagereduction += unitList[0].def;
+            }
             if (Random.Range(0, 201) <= unitList[1].def)
             {
                 return 1;
@@ -730,15 +738,23 @@ public class BattleManager : MonoBehaviour
     public int PickTargeting2(UnitBehavior ub, List<UnitBehavior> unitList)
     {
 
-        if (unitList[0].skills.Contains("Escudo Protetor"))
+        if (unitList[0].skills.Contains("Escudo Protetor") || unitList[0].skills.Contains("Proteção Perfeita"))
         {
+            if (unitList[0].skills.Contains("Proteção Perfeita"))
+            {
+                unitList[0].damagereduction += unitList[0].def;
+            }
             if (Random.Range(0, 201) <= unitList[0].def)
             {
                 return 0;
             }
         }
-        if (unitList[1].skills.Contains("Escudo Protetor"))
+        if (unitList[1].skills.Contains("Escudo Protetor") || unitList[1].skills.Contains("Proteção Perfeita"))
         {
+            if (unitList[1].skills.Contains("Proteção Perfeita"))
+            {
+                unitList[1].damagereduction += unitList[0].def;
+            }
             if (Random.Range(0, 201) <= unitList[1].def)
             {
                 return 1;

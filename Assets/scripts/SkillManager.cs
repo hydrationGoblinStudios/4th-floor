@@ -288,7 +288,13 @@ public class SkillManager : MonoBehaviour
                 }
 
                 return 0;
-
+            case "Ignorar Armadura":
+                if(user.hp >= user.maxhp * 0.9)
+                {
+                user.armorpen += 15;
+                user.magicpen += 15;
+                }
+                return 0;
             case "Sobrecarregar Alma":
 
                 if (user.soul >= user.maxsoul && !AlmaSobrecarregada)
@@ -739,6 +745,10 @@ public class SkillManager : MonoBehaviour
             case "Penetrar Defesas":
                 user.armorpen += 25;
                 user.magicpen += 25;
+                return 0;
+            case "Ignorar Armadura":
+                user.armorpen += 35;
+                user.magicpen += 35;
                 return 0;
             case "Concentração de Feiticeiro":
 

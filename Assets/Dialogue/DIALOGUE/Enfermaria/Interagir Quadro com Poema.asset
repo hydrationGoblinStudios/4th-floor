@@ -187,7 +187,10 @@ MonoBehaviour:
       _node: {fileID: 135722843074130173}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: 9035187313240905633}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -301,7 +304,10 @@ MonoBehaviour:
       _node: {fileID: 9035187313240905633}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: exit
+        node: {fileID: 135722843074130173}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
