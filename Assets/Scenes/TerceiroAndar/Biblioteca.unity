@@ -1783,11 +1783,14 @@ MonoBehaviour:
       UsableWeaponTypes: 
       UnitName: 
       currentLevel: 0
+      internalLevel: 0
       expmarkplier: 0
       currentRank: 0
       currentExp: 0
       ClassID: 
       ClassLevel: 
+      KnownClasses: 
+      promotedClasses: 
       ClassLearningSerializable:
         thisSeriazableDictionaryItem: []
       hit: 0

@@ -346,7 +346,13 @@ public class SkillManager : MonoBehaviour
                 Debug.Log("empunhadeira");
                 StartCoroutine(user.battleManager.ExtraAttack(user, target, DamageMultiplier: (int) 0.25));
                 return 0;
-
+            case "Empunhadeira Dupla Masterizada":
+                Debug.Log("empunhadeira");
+                StartCoroutine(user.battleManager.ExtraAttack(user, target, DamageMultiplier: (int)0.5));
+                return 0;
+            case "A Arte da Preparação":
+                user.avoid += 4;
+                return 0;
             case "Critico Rampante":
 
                 user.crit += 2;
@@ -487,6 +493,8 @@ public class SkillManager : MonoBehaviour
                     return 5;
                 }
                 return 0;
+            case "Armas Arcânas":
+                return 5;
             default: return 0;
 
 
@@ -721,7 +729,11 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
+
             case "Armas Magicas":
+                user.Weapon.damageType = 2;
+                return 0;
+            case "Armas Arcânas":
                 user.Weapon.damageType = 2;
                 return 0;
             case "Penetrar Defesas":
@@ -1052,6 +1064,12 @@ public class SkillManager : MonoBehaviour
                 
 
                 return 0;
+            case "Mestre de Batalha":
+
+                StartCoroutine(MestredeBatalha(user));
+
+
+                return 0;
             case "Livro de bolso":
 
                 user.avoid += 15;
@@ -1113,7 +1131,7 @@ public class SkillManager : MonoBehaviour
                 List<int> AllStats = new() {user.str, user.mag, user.dex, (int)user.speed, user.def, user.mdef, user.luck };
                 AllStats.Sort();
                 AllStats[0] = (int)(AllStats[0] * 0.75);
-                AllStats[0] = (int)(AllStats[6] * 1.25);
+                AllStats[6] = (int)(AllStats[6] * 1.25);
                 return 0;
             case "Carregar Alma":
                 user.soul += user.maxsoul / 2;
@@ -1130,7 +1148,10 @@ public class SkillManager : MonoBehaviour
             case "Sede de Sangue":
                 user.lifesteal =+ (int) 0.25;
                 return 0;
-
+            case "Lunatico":
+                user.Pendure = true;
+                user.lifesteal =+(int)0.4;
+                return 0;
             case "Ataque Descuidado":
                 user.str += user.str / 5;
                 user.crit += 10;
@@ -1462,17 +1483,61 @@ public class SkillManager : MonoBehaviour
 
     IEnumerator EstudodeBatalha(UnitBehavior user)
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         user.speed += (int)(speed / 5);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         user.speed += (int)(speed / 5);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         user.speed += (int)(speed / 5);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         user.speed += (int)(speed / 5);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         user.speed += (int)(speed / 5);
         
+    }
+    IEnumerator MestredeBatalha(UnitBehavior user)
+    {
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+        yield return new WaitForSeconds(10);
+        user.speed += (int)(speed / 10);
+
     }
 
     IEnumerator AuraDeRegeneraçãoTimer(UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)

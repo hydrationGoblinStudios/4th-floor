@@ -202,19 +202,20 @@ public class PreBattleManager : MonoBehaviour
                 SelectedEnemy3 = Instantiate(enemyListRandomP3[Random.Range(p3First, p3End)], BattleStations[5].transform);
                 SelectedEnemy3.name = SelectedEnemy3.GetComponent<UnitBehavior>().UnitName + "Temp";
             }
-            try
-            {
-                enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy1.GetComponent<UnitBehavior>())).SingleOrDefault();
-                enemyAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy2.GetComponent<UnitBehavior>())).SingleOrDefault();
-                enemyAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy3.GetComponent<UnitBehavior>())).SingleOrDefault();
-                Debug.Log(SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy1.GetComponent<UnitBehavior>()));
-                Debug.Log(SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy2.GetComponent<UnitBehavior>()));
-                Debug.Log(SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy3.GetComponent<UnitBehavior>()));
-            }
-            catch
-            {
-                Debug.Log("classID não encontrado");
-            }
+        }
+        Debug.Log("try");
+        try
+        {
+            enemyAnimations[0].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy1.GetComponent<UnitBehavior>())).SingleOrDefault();
+            enemyAnimations[1].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy2.GetComponent<UnitBehavior>())).SingleOrDefault();
+            enemyAnimations[2].runtimeAnimatorController = Animations.Where(obj => obj.name == SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy3.GetComponent<UnitBehavior>())).SingleOrDefault();
+            Debug.Log(SelectedEnemy1.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy1.GetComponent<UnitBehavior>()));
+            Debug.Log(SelectedEnemy2.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy2.GetComponent<UnitBehavior>()));
+            Debug.Log(SelectedEnemy3.GetComponent<UnitBehavior>().classId.ToString() + WeaponSelect(SelectedEnemy3.GetComponent<UnitBehavior>()));
+        }
+        catch
+        {
+            Debug.Log("classID não encontrado");
         }
         EnemyEquip(SelectedEnemy1.GetComponent<UnitBehavior>());
         if (gameManager.team.Count < 2)
@@ -231,7 +232,6 @@ public class PreBattleManager : MonoBehaviour
         //race randomizer
         //Random.InitState(SelectedEnemy1.GetComponent<UnitBehavior>().UnitName.GetHashCode());
 
-        Debug.Log(matClothes.Length);
         enemyAnimations[0].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length)]);
 
         enemyAnimations[1].GetComponent<SpriteRenderer>().material.CopyMatchingPropertiesFromMaterial(matClothes[Random.Range(0, matClothes.Length)]);

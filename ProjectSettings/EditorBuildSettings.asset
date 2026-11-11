@@ -30,11 +30,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Abertura.unity
     guid: f6e1d308dc8563f47b93526b464e785b
   - enabled: 1
-    path: Assets/Scenes/Abertura 2.unity
-    guid: fd3f0a1029adc144399da4e5d6430345
-  - enabled: 1
     path: Assets/Scenes/Universal/Game Over.unity
     guid: 106063badc8d20e44a7803df121c69f4
+  - enabled: 1
+    path: Assets/Scenes/Abertura 2.unity
+    guid: fd3f0a1029adc144399da4e5d6430345
   - enabled: 1
     path: Assets/Scenes/Debug.unity
     guid: 506c3db76cf1a6949928ca220050e1ed
@@ -80,4 +80,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SegundoAndar/Forja.unity
     guid: 32f5c5cdba0b93b4296b5513d683f53a
+  - enabled: 1
+    path: Assets/Scenes/TerceiroAndar/AltarDeReza.unity
+    guid: 83c30f4068a2252478e298ecd7a947cc
+  - enabled: 1
+    path: Assets/Scenes/TerceiroAndar/Esgoto.unity
+    guid: 41d717ea13a22b74284f34cc088a49b3
   m_configObjects: {}
