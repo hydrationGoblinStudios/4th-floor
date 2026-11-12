@@ -1809,6 +1809,7 @@ public class PreBattleManager : MonoBehaviour
             energy--;
             energy--;
             usedPrepSkills.Add("Encantar Armas " + selectedUnit.UnitName);
+            Select(selectedUnit);
 
         }
     }
@@ -1872,6 +1873,8 @@ public class PreBattleManager : MonoBehaviour
             energy--;
             energy--;
             usedPrepSkills.Add("Reforçar Penetração " + selectedUnit.UnitName);
+            Select(selectedUnit);
+
         }
     }
     //mago
@@ -1883,6 +1886,8 @@ public class PreBattleManager : MonoBehaviour
             selectedUnit.skills.Add("SobrecarregarAlma");
             energy--;
             energy--;
+            Select(selectedUnit);
+
         }
     }
     //protetor
@@ -1921,6 +1926,9 @@ public class PreBattleManager : MonoBehaviour
                 b.onClick.AddListener(() => RemoveBuffAfterSelect());
             }
             energy--;
+            energy--;
+            Select(selectedUnit);
+
         }
     }
     public void AprenderComOInimigo()
