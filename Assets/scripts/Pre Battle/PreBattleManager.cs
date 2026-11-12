@@ -303,6 +303,7 @@ public class PreBattleManager : MonoBehaviour
     }
     public void Select(UnitBehavior unitBehavior)
     {
+        energyText.text = energy.ToString();
         selectedUnit = unitBehavior;
         statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString(); statTexts[3].text = selectedUnit.dex.ToString(); statTexts[4].text = selectedUnit.speed.ToString();
         statTexts[5].text = selectedUnit.def.ToString(); statTexts[6].text = selectedUnit.mdef.ToString(); statTexts[7].text = selectedUnit.luck.ToString();
@@ -814,7 +815,7 @@ public class PreBattleManager : MonoBehaviour
                 {
                     PrepSkills[2].GetComponentInChildren<TextMeshProUGUI>().color = new() { r = (float)1, g = (float)1, b = (float)1, a = 1 };
                 }
-                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Golpeia o inimigo na posição da Frente no inicio da batalha."; return;
+                PrepSkills[2].GetComponent<InventoryHoverable>().description = "Todos os Aliados Bloqueiam o primeiro dano recebido."; return;
             case 208:
                 PrepSkills[0].onClick.RemoveAllListeners();
                 PrepSkills[0].onClick.AddListener(delegate { ReforcarArmaduraButton(); });
@@ -1891,8 +1892,15 @@ public class PreBattleManager : MonoBehaviour
         {
             selectedUnit.protecao = true;
             selectedUnit.skills.Add("Proteção");
+            usedPrepSkills.Add("Proteção " + selectedUnit.UnitName);
             energy--;
             energy--;
+            GameObject VFX = Instantiate(Resources.Load<GameObject>("DefesaPrepareVFX"));
+            VFX.transform.SetParent(playerAnimations[selectedUnitSlot - 1].transform);
+            VFX.transform.localPosition = Vector3.zero;
+            VFX.transform.localScale = Vector3.one;
+            Select(selectedUnit);
+
         }
     }
 
