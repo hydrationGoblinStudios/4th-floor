@@ -330,6 +330,14 @@ public class PreBattleManager : MonoBehaviour
             playerWeaponStatText[4].text = "";
             equipsRenderers[1].sprite = null;
         }
+        if (selectedUnit.classId > 107)
+        {
+            PrepSkills[2].transform.gameObject.SetActive(true);
+        }
+        else
+        {
+            PrepSkills[2].transform.gameObject.SetActive(false);
+        }
         switch (selectedUnit.classId)
         {
             //

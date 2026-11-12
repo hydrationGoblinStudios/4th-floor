@@ -44,7 +44,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4445489306633608637, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
       propertyPath: m_Name
-      value: Homer
+      value: HomerTemp
       objectReference: {fileID: 0}
     - target: {fileID: 4445489306633608639, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -85,6 +85,78 @@ PrefabInstance:
     - target: {fileID: 4445489306633608639, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: soul1
+      value: Rajada de Flechas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: skill1
+      value: "Precis\xE3o Mortal"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: maxsoul
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: baseSoul
+      value: Tiro Certeiro
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: baseSkill
+      value: Foco
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: classStats.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: classStats.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: classStats.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: classStats.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: classStats.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: ClassGrowths.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: ClassGrowths.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: ClassGrowths.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: ClassGrowths.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: ClassGrowths.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: ClassGrowths.Array.data[7]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: UsableWeaponTypes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 8b127361f7617b3448e3d7358507185d, type: 3}
+      propertyPath: UsableWeaponTypes.Array.data[1]
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -106,7 +178,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4445489306633608637, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
       propertyPath: m_Name
-      value: Dunga
+      value: DungaTemp
       objectReference: {fileID: 0}
     - target: {fileID: 4445489306633608639, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
       propertyPath: m_LocalPosition.x
@@ -147,6 +219,66 @@ PrefabInstance:
     - target: {fileID: 4445489306633608639, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: soul1
+      value: Rajada de Flechas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: skill1
+      value: "Precis\uFFFDo Mortal"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: maxsoul
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: baseSoul
+      value: Tiro Certeiro
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: baseSkill
+      value: Foco
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: classStats.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: classStats.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: classStats.Array.data[4]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: ClassGrowths.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: ClassGrowths.Array.data[4]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: ClassGrowths.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: ClassGrowths.Array.data[7]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: UsableWeaponTypes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: UsableWeaponTypes.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: 27642d9596aeaec488c64fc924c30339, type: 3}
+      propertyPath: UsableWeaponTypes.Array.data[1]
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -168,7 +300,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4445489306633608637, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
       propertyPath: m_Name
-      value: Bintan
+      value: BintanTemp
       objectReference: {fileID: 0}
     - target: {fileID: 4445489306633608639, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,6 +341,94 @@ PrefabInstance:
     - target: {fileID: 4445489306633608639, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: soul1
+      value: Fortificar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: skill1
+      value: Pancada
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: maxsoul
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: baseSoul
+      value: Golpe Atordoante
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: baseSkill
+      value: "Presen\uFFFDa Inabal\uFFFDvel"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: equippedSoulIsAttack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: classStats.Array.data[0]
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: classStats.Array.data[1]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: classStats.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: classStats.Array.data[4]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: classStats.Array.data[6]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: ClassGrowths.Array.data[0]
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: ClassGrowths.Array.data[1]
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: ClassGrowths.Array.data[2]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: ClassGrowths.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: ClassGrowths.Array.data[4]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: ClassGrowths.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: ClassGrowths.Array.data[6]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: ClassGrowths.Array.data[7]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: UsableWeaponTypes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: UsableWeaponTypes.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974044381209042840, guid: f0dc416962ee472468ecd975c263ab2b, type: 3}
+      propertyPath: UsableWeaponTypes.Array.data[1]
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
