@@ -1379,11 +1379,14 @@ MonoBehaviour:
       UsableWeaponTypes: 
       UnitName: 
       currentLevel: 0
+      internalLevel: 0
       expmarkplier: 0
       currentRank: 0
       currentExp: 0
       ClassID: 
       ClassLevel: 
+      KnownClasses: 
+      promotedClasses: 
       ClassLearningSerializable:
         thisSeriazableDictionaryItem: []
       hit: 0
@@ -1849,13 +1852,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vazio: {fileID: 11400000, guid: f95c70a3cd0c15b43bae7cefd26dbeae, type: 2}
   items:
-  - {fileID: 11400000, guid: 9548e499a74f5874893eb33e114eadc5, type: 2}
+  - {fileID: 11400000, guid: 6bf329381c65bd14cb931f8daf5672ed, type: 2}
   - {fileID: 11400000, guid: f1c0f849e3d058a4ab804de45e6df085, type: 2}
   interactables:
-  - {fileID: 903977878}
+  - {fileID: 197786978}
   - {fileID: 24939913}
   sprites:
-  - {fileID: 547982423}
+  - {fileID: 1979681300}
   - {fileID: 1318941793}
   manager: {fileID: 0}
 --- !u!4 &1728932349
@@ -1883,6 +1886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979681299}
   - component: {fileID: 1979681300}
+  - component: {fileID: 1979681301}
   m_Layer: 0
   m_Name: Esparadrapo Sprite
   m_TagString: Untagged
@@ -1957,6 +1961,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1979681301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979681298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0ade48d71090540b2101b868491bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1979681300}
+  sprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 8cd9981d80349e749a3bfe5a8f4dbf1d, type: 3}
 --- !u!1 &2012352423
 GameObject:
   m_ObjectHideFlags: 0

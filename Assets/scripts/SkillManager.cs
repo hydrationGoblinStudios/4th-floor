@@ -558,7 +558,18 @@ public class SkillManager : MonoBehaviour
                 user.power = (int)(user.power * 1.1);
 
                 return 0;
-
+            case "Alma Humana+":
+                user.power = (int)(user.power * 1.1);
+                foreach (UnitBehavior ub in team)
+                {
+                    ub.speed += 10;
+                    ub.luck += 10;
+                    ub.dex += 10;
+                }
+                return 0;
+            case "Mestre da Alma":
+                StartCoroutine(MestreDaAlmaBuff(user));
+                return 0;
             case "Tomo Apoteótico":
                 StartCoroutine(IconPopup(user.Icon, "Icone_Feiticeiro"));
                 user.power += 2;
@@ -678,6 +689,22 @@ public class SkillManager : MonoBehaviour
                     team[0].mag -= (int)(team[0].mag * 0.15);
                 }
                 return 0;
+            case "Perverso":
+                if (user.position == 2)
+                {
+                    user.speed += (int)(team[0].speed * 0.15);
+                    team[0].speed -= (int)(team[0].speed * 0.15);
+                    user.mag += (int)(team[0].mag * 0.15);
+                    team[0].mag -= (int)(team[0].mag * 0.15);
+                }
+                if (user.position == 3)
+                {
+                    user.speed += (int)(team[0].speed * 0.15);
+                    team[0].speed -= (int)(team[0].speed * 0.15);
+                    user.mag += (int)(team[0].mag * 0.15);
+                    team[0].mag -= (int)(team[0].mag * 0.15);
+                }
+                return 0;
             case "Sacrifício Arriscado":
                 user.hp = (int)(user.hp * 0.65);
                 user.mag = (int)(user.mag * 1.25);
@@ -690,6 +717,9 @@ public class SkillManager : MonoBehaviour
                 return 0;
             case "Conhecimento da Alma":
                 user.soulgain += 5;
+                return 0;
+            case "Mestre da Alma":
+                user.soulgain += 10;
                 return 0;
             case "Leitura Rápida":
                  if (user.Weapon.weapontype == Item.Weapontype.Tome)
@@ -707,7 +737,12 @@ public class SkillManager : MonoBehaviour
                     espadaCurtaBoost = true;
                 }
                 return 0;
-
+            case "Cura":
+                StartCoroutine(CuraTimer(user, target, team, enemyTeam));
+                return 0;
+            case "Salvação":
+                StartCoroutine(SalvacaoTimer(user, target, team, enemyTeam));
+                return 0;
             case "Arco da Sorte":
 
                 if (!arcodasorteboost & Random.Range(0, 101) <= user.luck)
@@ -722,6 +757,14 @@ public class SkillManager : MonoBehaviour
 
             case "Aura De Regeneração":
                 StartCoroutine(AuraDeRegeneraçãoTimer(user,target,team,enemyTeam));
+                return 0;
+            case "Aura Poderosa":
+                foreach (UnitBehavior ub in team)
+                {
+                    ub.str += ub.str / 10;
+                    ub.mag += ub.mag / 10;
+                }
+                StartCoroutine(AuraPoderosaTimer(user, target, team, enemyTeam));
                 return 0;
             case "Machado Cortado":
 
@@ -1503,7 +1546,15 @@ public class SkillManager : MonoBehaviour
         user.speed += (int)(speed / 5);
         yield return new WaitForSeconds(20);
         user.speed += (int)(speed / 5);
-        
+
+    }
+    IEnumerator MestreDaAlmaBuff(UnitBehavior user)
+    {
+        StartCoroutine(IconPopup(user.Icon, "Aura de Regeneração"));
+        user.speed += (int)(speed * 0.15);
+        yield return new WaitForSeconds(10);
+        user.speed -= (int)(speed * 0.15);
+
     }
     IEnumerator MestredeBatalha(UnitBehavior user)
     {
@@ -1566,7 +1617,22 @@ public class SkillManager : MonoBehaviour
             }
         }
     }
-
+    IEnumerator AuraPoderosaTimer(UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(10);
+            StartCoroutine(IconPopup(user.Icon, "Aura de Regeneração"));
+            foreach (UnitBehavior ub in team)
+            {
+                ub.hp += (int)user.luck / 2;
+                foreach (string skill in ub.skills)
+                {
+                    PostHealthChange(skill, ub, target, team, enemyTeam);
+                }
+            }
+        }
+    }
     IEnumerator CuraTimer(UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
     {
         while (true)
@@ -1586,6 +1652,29 @@ public class SkillManager : MonoBehaviour
             foreach (string skill in lowestHpUb.skills)
             {
             PostHealthChange(skill, lowestHpUb, target, team, enemyTeam);
+            }
+        }
+    }
+    IEnumerator SalvacaoTimer(UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
+    {
+        while (true)
+        {
+            UnitBehavior lowestHpUb = user;
+            yield return new WaitForSeconds(9);
+            StartCoroutine(IconPopup(user.Icon, "Cura"));
+            foreach (UnitBehavior ub in team)
+            {
+                if (ub.hp < lowestHpUb.hp)
+                {
+                    lowestHpUb = ub;
+                }
+
+            }
+            lowestHpUb.hp += (int)user.mag / 2;
+            lowestHpUb.speed += 4;
+            foreach (string skill in lowestHpUb.skills)
+            {
+                PostHealthChange(skill, lowestHpUb, target, team, enemyTeam);
             }
         }
     }
