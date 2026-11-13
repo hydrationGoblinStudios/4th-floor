@@ -1022,7 +1022,9 @@ public class BattleManager : MonoBehaviour
         {
             skillsInUse.Add(attacker.Accesory.skill);
         }
+        if(attacker.SkillManager.Silenced <= 0) { 
         attacker.soul += 15 + attacker.soulgain;
+        }
         if (attacker.soul <= attacker.maxsoul && Random.Range(0, 101) <= Phit || attacker.sureShot)
         {
             attacker.sureShot = false;
@@ -1993,8 +1995,10 @@ public class BattleManager : MonoBehaviour
         
         hitAudio[nextAttack.isCrit?0:1].Play();
         StartCoroutine(FadeOutText(nextAttack.target.damageTMP, nextAttack.damageDone));
-        
+        if (nextAttack.target.SkillManager.Silenced <= 0)
+        {
         nextAttack.target.soul += (int)((nextAttack.damageDone / 5) * nextAttack.target.damageSoulGain);
+        }
         if (nextAttack.attacker.lifesteal >= 0.01 | nextAttack.lifeSteal >= 0.01 | nextAttack.attacker.Weapon.lifesteal >= 0.01)
         {
             int totalLS = (int)((nextAttack.damageDone) * nextAttack.attacker.lifesteal) 

@@ -66,7 +66,7 @@ public class SkillManager : MonoBehaviour
 
     public bool isPoisoned;
     public int poisonStacks;
-
+    public float Silenced;
 
     //Skills que ativam no Dano
     public int SkillProc(string skillName, UnitBehavior user, UnitBehavior target, List<UnitBehavior> team, List<UnitBehavior> enemyTeam)
@@ -2223,6 +2223,13 @@ public class SkillManager : MonoBehaviour
         if(ub.Weapon.damageType == 1)
         {
             power = ub.Weapon.power + ub.mag;
+        }
+    }
+    public void FixedUpdate()
+    {
+        if(Silenced > 0)
+        {
+             Silenced -= Time.deltaTime;
         }
     }
 }
