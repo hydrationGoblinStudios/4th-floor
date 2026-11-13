@@ -60,6 +60,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject TargetStatButton;
     public GameObject TargetStatPanel;
     public List<TextMeshProUGUI> targetTexts;
+    private bool showingGrowths = false;
     public void Toggle()
     {
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
@@ -296,6 +297,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void Select(UnitBehavior unitBehavior)
     {
+        showingGrowths = false;
         unitBehavior.ToSerializable(unitBehavior.ClassLearning);
         selectedUnit = unitBehavior;
         statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString();
@@ -925,7 +927,17 @@ public class InventoryManager : MonoBehaviour
 
     public void ShowGrowths()
     {
-        statTexts[0].text = selectedUnit.growths[0].ToString(); statTexts[1].text = selectedUnit.growths[1].ToString(); statTexts[2].text = selectedUnit.growths[3].ToString();
+        if (showingGrowths)
+        {
+            showingGrowths = !showingGrowths;
+            statTexts[0].text = selectedUnit.maxhp.ToString(); statTexts[1].text = selectedUnit.str.ToString(); statTexts[2].text = selectedUnit.mag.ToString();
+            statTexts[3].text = selectedUnit.dex.ToString(); statTexts[4].text = selectedUnit.speed.ToString();
+            statTexts[5].text = selectedUnit.def.ToString(); statTexts[6].text = selectedUnit.mdef.ToString(); statTexts[7].text = selectedUnit.luck.ToString();
+        }
+        else
+        {
+            showingGrowths = !showingGrowths;
+            statTexts[0].text = selectedUnit.growths[0].ToString(); statTexts[1].text = selectedUnit.growths[1].ToString(); statTexts[2].text = selectedUnit.growths[3].ToString();
         statTexts[3].text = selectedUnit.growths[3].ToString(); statTexts[4].text = selectedUnit.growths[4].ToString();
         statTexts[5].text = selectedUnit.growths[5].ToString(); statTexts[6].text = selectedUnit.growths[6].ToString(); statTexts[7].text = selectedUnit.growths[7].ToString();
 
@@ -937,6 +949,12 @@ public class InventoryManager : MonoBehaviour
         statTexts[5].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[5] - selectedUnit.ClassGrowths[5]} + {selectedUnit.ClassGrowths[5]}";
         statTexts[6].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[6] - selectedUnit.ClassGrowths[6]} + {selectedUnit.ClassGrowths[6]}";
         statTexts[7].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[7] - selectedUnit.ClassGrowths[7]} + {selectedUnit.ClassGrowths[7]}";
+
+        }
+
+
+
+
     }
     public void SoulPrice(string soulName)
     {
