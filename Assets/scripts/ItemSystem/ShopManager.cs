@@ -17,9 +17,9 @@ public class ShopManager : MonoBehaviour
     public GameObject panel;
     public GameObject buttonPrefab;
     public NodeParser nodeParser; 
-    public Item[] stock;
+    public List<Item> stock;
     public Item[] stockFloor2;
-    public Item[] blackStock;
+    public List<Item> blackStock;
     public Sprite[] sprites;
     public DialogueGraph graph;
     public TextMeshProUGUI money;
@@ -38,7 +38,7 @@ public class ShopManager : MonoBehaviour
         nodeParser = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<NodeParser>();
         GameManagerOBJ = GameObject.FindGameObjectWithTag("game manager");
         Manager = GameManagerOBJ.GetComponent<GameManager>();
-        Item[] stockInUse = blackStock; 
+        List<Item> stockInUse = blackStock; 
         if (Manager.storyBattle)
         {
             stockInUse = stock;

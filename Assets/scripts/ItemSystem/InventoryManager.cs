@@ -937,9 +937,9 @@ public class InventoryManager : MonoBehaviour
         else
         {
             showingGrowths = !showingGrowths;
-            statTexts[0].text = selectedUnit.growths[0].ToString(); statTexts[1].text = selectedUnit.growths[1].ToString(); statTexts[2].text = selectedUnit.growths[3].ToString();
-        statTexts[3].text = selectedUnit.growths[3].ToString(); statTexts[4].text = selectedUnit.growths[4].ToString();
-        statTexts[5].text = selectedUnit.growths[5].ToString(); statTexts[6].text = selectedUnit.growths[6].ToString(); statTexts[7].text = selectedUnit.growths[7].ToString();
+            statTexts[0].text = selectedUnit.growths[0].ToString()+"%"; statTexts[1].text = selectedUnit.growths[1].ToString()+"%"; statTexts[2].text = selectedUnit.growths[3].ToString() + "%";
+        statTexts[3].text = selectedUnit.growths[3].ToString() + "%"; statTexts[4].text = selectedUnit.growths[4].ToString() + "%";
+        statTexts[5].text = selectedUnit.growths[5].ToString() + "%"; statTexts[6].text = selectedUnit.growths[6].ToString() + "%"; statTexts[7].text = selectedUnit.growths[7].ToString() + "%";
 
         statTexts[0].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[0] - selectedUnit.ClassGrowths[0]} + {selectedUnit.ClassGrowths[0]}";
         statTexts[1].GetComponentInParent<InventoryHoverable>().description = $"{selectedUnit.growths[1] - selectedUnit.ClassGrowths[1]} + {selectedUnit.ClassGrowths[1]}";

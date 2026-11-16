@@ -406,7 +406,6 @@ public class SkillManager : MonoBehaviour
 
                     return 0;
                 }
-
             case "Despedaçar Armadura":
                 target.def -= 2;
 
@@ -662,6 +661,12 @@ public class SkillManager : MonoBehaviour
             case "Afiar Sensos":
                 user.avoid += 15;
 
+                return 0;
+            case "Arma de Renome":
+                foreach(UnitBehavior ub in enemyTeam)
+                {
+                    ub.skills.Add("alvo arma de renome");
+                }
                 return 0;
             case "Suborno":
                 user.str -= 3;
@@ -1189,7 +1194,37 @@ public class SkillManager : MonoBehaviour
             case "Carregar Alma":
                 user.soul += user.maxsoul / 2;
                 return 0;
+            case "Magia Versátil":
+                if (user.position == 1)
+                {
+                    user.lifesteal +=  (float)0.2;
+                }
+                if (user.position == 2)
+                {
+                    user.speed += speed/5;
+                }
+                if (user.position == 3)
+                {
+                    user.str += str / 5;
+                    user.mag += mag / 5;
+                }
+                return 0;
 
+            case "Expertise em Espadas":
+                if(user.Weapon.weight == Item.WeaponWeight.Light)
+                {
+                    power += 6;
+                }
+                if (user.Weapon.weight == Item.WeaponWeight.Medium)
+                {
+                    user.lifesteal += (float)0.2;
+                }
+                if (user.Weapon.weight == Item.WeaponWeight.Heavy)
+                {
+                    user.crit += 20;
+                    user.hit += 20;
+                }
+                return 0;
             case "Encantamento Benevolente":
                 StartCoroutine(EncantamentoBenevolente(user));
                 return 0;
@@ -1199,11 +1234,11 @@ public class SkillManager : MonoBehaviour
                 return 0;
 
             case "Sede de Sangue":
-                user.lifesteal =+ (int) 0.25;
+                user.lifesteal =+ (float) 0.25;
                 return 0;
             case "Lunatico":
                 user.Pendure = true;
-                user.lifesteal =+(int)0.4;
+                user.lifesteal =+(float)0.4;
                 return 0;
             case "Ataque Descuidado":
                 user.str += user.str / 5;
@@ -1430,7 +1465,18 @@ public class SkillManager : MonoBehaviour
                 }
 
                 return 0;
-
+            case "alvo arma de renome":
+                if (user.hp <= 0)
+                {
+                    foreach(UnitBehavior ub in enemyTeam)
+                    {
+                        if (ub.skills.Contains("Arma de Renome"))
+                        {
+                            ub.crit += 25;
+                        }
+                    }
+                }
+                return 0;
             case "Concentração de Feiticeiro":
 
                 if (user.hp < user.maxhp)
