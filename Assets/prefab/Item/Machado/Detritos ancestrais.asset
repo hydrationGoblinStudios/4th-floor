@@ -18,12 +18,13 @@ MonoBehaviour:
   type: 0
   weapontype: 1
   weight: 2
-  ItemName: Detritos ancestrais
+  ItemName: Detritos Ancestrais
   description: "Essa machado foi usado por guerreiros que se diziam Imortais. Ganha
     +3 de Redu\xE7\xE3o de dano e Recebe +25 de Redu\xE7\xE3o de Dano pelos primeiros
     12 Segundos do Combate."
   hit: 65
   crit: 5
+  maxHp: 0
   power: 19
   str: 0
   mag: 0
@@ -33,5 +34,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 3
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
+  ranged: 0
   skill: "Indestrut\xEDvel"

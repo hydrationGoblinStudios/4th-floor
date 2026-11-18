@@ -20,7 +20,8 @@ MonoBehaviour:
   weight: 1
   ItemName: "Cora\xE7\xE3o de Drag\xE3o"
   description: "Aquilo que era o n\xFAcleo da vitalidade de uma fera lend\xE1ria,
-    agora \xE9 uma arma, que ainda conserva sua ess\xEAncia."
+    agora \xE9 uma arma, que ainda conserva sua ess\xEAncia. Ganha 25% de Roubo de
+    Vida."
   hit: 70
   crit: 10
   maxHp: 0

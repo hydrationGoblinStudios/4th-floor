@@ -20,7 +20,8 @@ MonoBehaviour:
   weight: 0
   ItemName: "\xCDdolo da Natureza"
   description: "Um presente da pr\xF3pria natureza, nascimento do ciclo de renascimento
-    dos seres e plantas."
+    dos seres e plantas. Quando acertar um ataque b\xE1sico, cura o aliado com menos
+    vida em 10% da vida m\xE1xima dele."
   hit: 90
   crit: 0
   maxHp: 0

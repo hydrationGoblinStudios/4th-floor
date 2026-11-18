@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
-  m_Name: LIvro de Bolso
+  m_Name: Livro de Bolso
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   id: 404
@@ -20,7 +20,7 @@ MonoBehaviour:
   weight: 0
   ItemName: LIvro de Bolso
   description: "Um livro pequeno, perfeito para carregar por a\xED. Os conjuradores
-    que o utilizam o elogiam pela praticidade e mobilidade."
+    que o utilizam o elogiam pela praticidade e mobilidade. Ganha mais 15 de evas\xE3o."
   hit: 115
   crit: 10
   maxHp: 0

@@ -18,10 +18,11 @@ MonoBehaviour:
   type: 0
   weapontype: 1
   weight: 2
-  ItemName: Machado de ferro
+  ItemName: Machado de Ferro
   description: Um machado Simples.
   hit: 75
   crit: 0
+  maxHp: 0
   power: 10
   str: 0
   mag: 0
@@ -31,5 +32,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 1000
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
+  ranged: 0
   skill: 

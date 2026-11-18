@@ -18,11 +18,12 @@ MonoBehaviour:
   type: 0
   weapontype: 2
   weight: 1
-  ItemName: Lanca de MItral
+  ItemName: "Lan\xE7a de MItral"
   description: "Feita de um metal raro e precioso, essa lan\xE7a \xE9 \xF3tima para
     qualquer estilo de luta, sendo mais leve, resistente e poderosa."
   hit: 80
   crit: 0
+  maxHp: 0
   power: 18
   str: 0
   mag: 0
@@ -36,4 +37,5 @@ MonoBehaviour:
   critAvoid: 0
   lifesteal: 0
   damageType: 0
+  ranged: 0
   skill: 

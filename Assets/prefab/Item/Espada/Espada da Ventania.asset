@@ -19,22 +19,24 @@ MonoBehaviour:
   weapontype: 0
   weight: 0
   ItemName: Espada da Ventania
-  description: "Uma espada misteriosa achada no ba\xFA do quarto do Ramion, aumenta
-    a Destreza e a Sorte em +1."
+  description: "Dizem que esta espada foi forjada pelo pr\xF3prio vento, e seus golpes
+    ecoam como as mon\xE7\xF5es de ver\xE3o. O ataque b\xE1sico \xE9 ativado 2 vezes
+    sempre que a barra de velocidade enche."
   hit: 70
   crit: 5
   maxHp: 0
   power: 7
   str: 0
   mag: 0
-  dex: 1
+  dex: 0
   def: 0
   Mdef: 0
-  luck: 1
+  luck: 0
   speed: 0
   price: 0
   avoid: 0
   critAvoid: 0
   lifesteal: 0
   damageType: 0
-  skill: Empunhadura Dupla
+  ranged: 0
+  skill: Espada da Ventania

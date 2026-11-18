@@ -20,7 +20,8 @@ MonoBehaviour:
   weight: 1
   ItemName: "Diario do Cal\xEDgrafo"
   description: "Um di\xE1rio encantado pela vontade de um escritor que viveu h\xE1
-    muito tempo. Sua alma ainda se deleita com a escrita."
+    muito tempo. Sua alma ainda se deleita com a escrita. Ganha mais 0.5 de Dano
+    para cada Letra no nome da Alma."
   hit: 100
   crit: 0
   maxHp: 0

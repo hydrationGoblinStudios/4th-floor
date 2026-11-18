@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48fc40e0488ab64d8c5068a46a77341, type: 3}
+  m_Name: "Lanca de V\xEDbora"
+  m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  id: 303
+  sprite: {fileID: 0}
+  type: 0
+  weapontype: 2
+  weight: 1
+  ItemName: "Lan\xE7a da Vibora"
+  description: "Uma lan\xE7a que possui um pequeno orif\xEDcio em sua ponta para
+    armazenar veneno. Dizem que seu design foi inspirado nas presas de v\xEDboras.
+    Aplica 1 de Veneno quando acerta um ataque b\xE1sico ou uma Alma. Aplica 2 Veneno
+    na Equipe inimiga inteira quando usa uma Alma."
+  hit: 80
+  crit: 0
+  maxHp: 0
+  power: 12
+  str: 0
+  mag: 0
+  dex: 0
+  def: 0
+  Mdef: 0
+  luck: 0
+  speed: 0
+  price: 5000
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
+  damageType: 0
+  ranged: 0
+  skill: "Lan\xE7a da Vibora"

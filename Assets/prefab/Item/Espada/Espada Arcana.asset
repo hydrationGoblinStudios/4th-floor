@@ -20,9 +20,12 @@ MonoBehaviour:
   weight: 1
   ItemName: Espada Arcana
   description: "Uma espada que permite o usu\xE1rio canalizar sua magia para tornar
-    sua l\xE2mina mais poderosa."
+    sua l\xE2mina mais poderosa. Arma magica (Calcula seu dano com Magia em vez de
+    For\xE7a e causa Dano magico). Ganha + 5 de Dano se o Alvo tiver menos Magia
+    que o usu\xE1rio."
   hit: 85
   crit: -5
+  maxHp: 0
   power: 11
   str: 0
   mag: 0
@@ -36,4 +39,5 @@ MonoBehaviour:
   critAvoid: 0
   lifesteal: 0
   damageType: 1
+  ranged: 0
   skill: Espada Arcana

@@ -18,10 +18,11 @@ MonoBehaviour:
   type: 0
   weapontype: 0
   weight: 0
-  ItemName: "Espada de a\xE7o"
+  ItemName: "Espada de A\xE7o"
   description: "Uma espada com uma l\xE2mina de a\xE7o."
   hit: 75
   crit: 0
+  maxHp: 0
   power: 10
   str: 0
   mag: 0
@@ -31,5 +32,9 @@ MonoBehaviour:
   luck: 0
   speed: 0
   price: 3000
+  avoid: 0
+  critAvoid: 0
+  lifesteal: 0
   damageType: 0
+  ranged: 0
   skill: 
