@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
 using TMPro;
-using static UnityEngine.GraphicsBuffer;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 using static BattleManager;
+using static UnityEngine.GraphicsBuffer;
 public class SkillManager : MonoBehaviour
 {
     public Sprite[] Icones;
@@ -60,7 +61,9 @@ public class SkillManager : MonoBehaviour
     private int Ataqueinspiradorspeed3;
     private int poçãodeforçastacks;
     private int RitmoCritico;
+    private bool MomentoCriticoProc;
     private bool AlmaSobrecarregada = false;
+    private bool ArcoDeEliteProc;
 
     public int currentDamageBonus;
 
@@ -171,8 +174,13 @@ public class SkillManager : MonoBehaviour
                     StartCoroutine(RitmoCriticoBuff(user));
                 }
                 return 0;
-
-
+            case "Machado Inquieto":
+                if(user.Weapon.weapontype == Item.Weapontype.Axe)
+                user.speed += 4;
+                return 0;
+            case "Ataque Defensivo":
+                StartCoroutine(AtaqueDefensivoBuff(user));
+                return 0;
             case "Precisão Mortal":
 
                 int x = (int)(user.Weapon.hit + (user.dex * 3) + user.luck + user.hit - (target.speed * 2) - target.luck - target.avoid);
@@ -221,6 +229,17 @@ public class SkillManager : MonoBehaviour
                 return 0;
             case "Espada Maldita":
                 target.maxhp -= 10;
+                return 0;
+            case "Olhos de Águia":
+                user.sureShot = true;
+                user.NextStrikeCrit += (int)(user.Weapon.hit + (user.dex * 3) + user.luck + user.hit);
+                return 0;
+            case "Pacificador":
+                if(Random.Range(0, 101) >= (user.dex/4) + 5)
+                {
+                    target.hp = 1;
+                    return target.maxhp;
+                }
                 return 0;
 
             case "Lança da Justiça":
@@ -321,8 +340,12 @@ public class SkillManager : MonoBehaviour
                 }
 
                 return 0;
-
-
+            case "RitmoDaCacada2":
+                target.soul -= 10;
+                return 0;
+            case "RitmoDaCacada3":
+                user.soul += 10;
+                return 0;
             case "Moeda Magica":
                 if (moedamagicaactive == true)
                 {
@@ -574,7 +597,9 @@ public class SkillManager : MonoBehaviour
                 user.power += 2;
 
                 return 0;
-
+            case "Ataque Defensivo":
+                StartCoroutine(AtaqueDefensivoBuff2(user));
+                return 0;
 
             default: return 0;
         }
@@ -677,7 +702,16 @@ public class SkillManager : MonoBehaviour
                 user.luck -= 3;
                 user.speed -= 3;
                 return 0;
-
+            case "Ritmo da Caçada":
+                StartCoroutine(RitmoDaCacadaBuff(user));
+                return 0;
+            case "Luta Justa":
+                user.avoid -= 100;
+                user.damagereduction += 12;
+                return 0;
+            case "Abater os Porcos":
+                StartCoroutine(AbaterosPorcosBuff(user));
+                return 0;
             case "Magia Maligna":
                 if (user.position == 2)
                 {
@@ -783,7 +817,15 @@ public class SkillManager : MonoBehaviour
 
                 return 0;
 
-
+            case "Arco da Elite":
+                if(user.Weapon.weapontype == Item.Weapontype.Bow)
+                {
+                user.armorpen += 30;
+                user.def += (int) (def *0.3);
+                    user.hit += 10;
+                    user.crit += 10;
+                }
+                return 0;
             case "Armas Magicas":
                 user.Weapon.damageType = 2;
                 return 0;
@@ -1148,8 +1190,12 @@ public class SkillManager : MonoBehaviour
                 StartCoroutine(Finalizador(user));
 
                 return 0;
-
-
+            case "Momento Critico":
+                if(!MomentoCriticoProc && user.hp <= user.maxhp / 2)
+                {
+                    StartCoroutine(MomentoCriticoBuff(user));
+                }
+                return 0;
 
             //Skills de preparo
             case "Golpe sujo":
@@ -1532,7 +1578,16 @@ public class SkillManager : MonoBehaviour
                 }
                 return 0;
 
-
+            case "Arco da Elite":
+                if (user.Weapon.weapontype == Item.Weapontype.Bow && !ArcoDeEliteProc)
+                {
+                    ArcoDeEliteProc = true;
+                    user.armorpen -= 30;
+                    user.def -= (int)(def * 0.3);
+                    user.hit -= 10;
+                    user.crit -= 10;
+                }
+                return 0;
             case "Elixir Revigorante":
                 if (user.hp <= user.maxhp * 0.15 && elixirevigoranteuse == false)
                 {
@@ -1829,7 +1884,18 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForSeconds(15);
         user.skills.Remove("Ripostar");
     }
-
+    IEnumerator AtaqueDefensivoBuff(UnitBehavior user)
+    {
+        user.def += (int)(def * 0.2);
+        yield return new WaitForSeconds(10);
+        user.def -= (int)(def * 0.2);
+    }
+    IEnumerator AtaqueDefensivoBuff2(UnitBehavior user)
+    {
+        user.def += (int) (def * 0.4);
+        yield return new WaitForSeconds(10);
+        user.def -= (int)(def * 0.4);
+    }
     IEnumerator ComeçoAfortunado(UnitBehavior user)
     {
         user.hit += 12;
@@ -1959,6 +2025,36 @@ public class SkillManager : MonoBehaviour
         target.def -= target.SkillManager.def /5;
         yield return new WaitForSeconds(10);
         target.def += target.SkillManager.def / 5;
+    }
+    IEnumerator MomentoCriticoBuff(UnitBehavior user)
+    {
+        user.avoid += 45;
+        yield return new WaitForSeconds(20);
+        user.avoid -= 45;
+    }
+    IEnumerator RitmoDaCacadaBuff(UnitBehavior user)
+    {
+        yield return new WaitForSeconds(15);
+        user.lifesteal += (float)0.15;
+        yield return new WaitForSeconds(15);
+        user.skills.Add("RitmoDaCacada2");
+        yield return new WaitForSeconds(15);
+        user.str += str/10;
+        user.def += def / 10;
+        user.mag += mag/10;
+        user.dex += dex / 10;
+        user.luck += luck / 10;
+        user.speed += speed / 10;
+        user.mdef += mdef / 10;
+        yield return new WaitForSeconds(15);
+        user.skills.Add("RitmoDaCacada3");
+    }
+    IEnumerator AbaterosPorcosBuff(UnitBehavior user)
+    {
+        yield return new WaitForSeconds(50);
+        user.str += str * 2;
+        user.mag += mag * 2;
+        user.speed += speed * 2;
     }
     IEnumerator JogarLancaDebuff(UnitBehavior target)
     {

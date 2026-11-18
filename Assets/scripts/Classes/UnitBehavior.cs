@@ -102,6 +102,8 @@ public class UnitBehavior : MonoBehaviour
     public bool sureShot;
     public bool sureCrit;
     public bool protecao;
+    public int NextStrikeCrit;
+
     void Start()
     {   //lembrar de manter o objeto de player acima do objeto do inimigo
         if(Weapon != null)

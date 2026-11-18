@@ -62,7 +62,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public List<Item> equipList;
     public List<Item> keyItemList;
     public List<Item> storyFlagList;
-
     public enum UIState {Available, Ocuppied}
     public UIState currentState = UIState.Available;
 

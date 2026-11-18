@@ -1544,7 +1544,7 @@ public class BattleManager : MonoBehaviour
             + "\nPskill dps de healthChange" + PskillPostHealthlChange
             + "\nPskill dps de target soul proc" + PskillPostTargetPostHealthChange);
         HudUpdate();
-        if (Random.Range(0, 101) <= Pcrit|| attacker.sureCrit)
+        if (Random.Range(0, 101) <= Pcrit + attacker.NextStrikeCrit || attacker.sureCrit)
         {
             int damageDone = (attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
             attacker.sureCrit = false;
@@ -1634,7 +1634,7 @@ public class BattleManager : MonoBehaviour
             attacker.SkillManager.currentDamageBonus += +Target.SkillManager.PostHealthChange(Target.Accesory.skill, Target, attacker, targetTeam, attackerTeam);
         }
         HudUpdate();
-        if (Random.Range(0, 101) <= Pcrit)
+        if (Random.Range(0, 101)  <= Pcrit + attacker.NextStrikeCrit)
         {
             int damageDone = (int)(attackerDamage + attacker.SkillManager.currentDamageBonus) * 2;
             damageDone += (int)((Target.defenses[attacker.Weapon.damageType] * attacker.armorpen) / 100);
